@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 30px;
+}
+
+.classtrescuarto {
+  font-size: 1.6em;
+  color: blue;
+}
+.classtrescuarto div p {
+  font-size: 1.6em;
+}
+
+.classtrescinco {
+  color: green;
+  font-size: 1.6rem;
+}

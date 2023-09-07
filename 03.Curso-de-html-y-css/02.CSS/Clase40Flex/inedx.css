@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  border: dotted 0.3rem gray;
+}
+
+.box {
+  height: 20rem;
+  width: 20rem;
+  flex-basis: 20rem;
+  flex-grow: 1;
+}
+
+.box:hover {
+  flex-basis: 5rem;
+}
+.box1 {
+  background-color: rgb(255, 0, 0);
+}
+.box2 {
+  background-color: rgb(119, 0, 255);
+}
+
+.box3 {
+  background-color: rgb(204, 0, 255);
+}
+
+.box4 {
+  background-color: rgb(68, 255, 0);
+}
+
+.box5 {
+  background-color: rgb(0, 221, 255);
+}
+
+.box6 {
+  background-color: rgb(0, 21, 255);
+}

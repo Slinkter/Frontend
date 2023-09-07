@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.title {
+  font-family: "Courier New", Courier, monospace;
+  color: purple;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+.ulnav {
+  margin-top: 30px;
+  /*   list-style-type: none; */
+}
+
+.ulnav li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.ulnav a {
+  background-color: #13a4a4;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.ulnav .blog {
+  background-color: purple;
+}

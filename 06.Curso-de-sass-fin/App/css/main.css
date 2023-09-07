@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffefe7;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  color: #7c6a0a;
+  padding: 15px;
+}
+nav p {
+  font-size: 1.4rem;
+  padding-left: 30px;
+}
+nav .icons {
+  display: flex;
+  gap: 15px;
+}
+nav .icons button {
+  background: none;
+  border-style: none;
+}
+
+article {
+  width: auto;
+  color: #7c6a0a;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 70px;
+  /*   
+  display: flex;
+  justify-content: space-between; 
+  */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+article h1 {
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+}
+article p {
+  font-size: 1.4rem;
+}
+article button {
+  background: none;
+  border-style: none;
+}
+article button {
+  background-color: #fa9500;
+  width: 12vw;
+  padding: 20px;
+  border-radius: 35px;
+  font-size: 1rem;
+}
+article button:hover {
+  transform: scale(1.1);
+}
+article .impact-section {
+  /*    
+   display: flex;
+   flex-direction: column;
+   */
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  gap: 25px;
+  width: 50%;
+}
+article .img-section {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article .img-section img {
+  width: 25vw;
+  border-radius: 19px;
+}
+
+section {
+  width: auto;
+  height: auto;
+  padding: 60px;
+}
+section h2 {
+  color: #7c6a0a;
+  font-size: 2rem;
+}
+section .healthcare, section .furniture {
+  padding-bottom: 60px;
+}
+section .healthcare h2, section .furniture h2 {
+  font-weight: 300;
+  padding: 0 0 60px 0;
+}
+section .healthcare .card-section, section .furniture .card-section {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 200px;
+       column-gap: 200px;
+  row-gap: 80px;
+}
+section .healthcare .product-card, section .furniture .product-card {
+  width: 14vw;
+  height: 45vh;
+  background-color: #ffdac6;
+  color: #7c6a0a;
+  padding: 20px;
+  border-radius: 8px;
+}
+section .healthcare .product-card .icon, section .furniture .product-card .icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px;
+}
+section .healthcare .product-card .icon svg, section .furniture .product-card .icon svg {
+  width: 28px;
+  height: 28px;
+}
+section .healthcare .product-card .product-img, section .furniture .product-card .product-img {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section .healthcare .product-card .product-img img, section .furniture .product-card .product-img img {
+  width: 12vw;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
+}
+section .furniture .product-card {
+  background-color: #babd8d;
+  color: #ffefe7;
+}
+
+.about-us {
+  padding-bottom: 60px;
+}
+.about-us h2 {
+  font-weight: bold;
+  padding-bottom: 60px;
+}
+.about-us .mission-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.about-us .mission-section .earth, .about-us .mission-section .innovation {
+  width: 30vw;
+  color: #fa9500;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+}
+.about-us .mission-section .earth img, .about-us .mission-section .innovation img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.about-us .mission-section .earth p, .about-us .mission-section .innovation p {
+  text-align: center;
+  font-size: 1.4rem;
+}
+.gallery {
+  padding-bottom: 60px;
+}
+.gallery h2 {
+  font-weight: bold;
+  padding-bottom: 60px;
+}
+.gallery .gallery-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.gallery .gallery-image img {
+  width: 30vh;
+  height: 45vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 5px 35%;
+     object-position: 5px 35%;
+  border-radius: 16px;
+}
+.gallery .gallery-image img:hover {
+  transform: scale(1.1);
+}
+
+.location {
+  color: #fa9500;
+}
+.location h2 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 3rem;
+}
+.location .map {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.location h2 {
+  font-size: 2.2rem;
+}
+.location p {
+  font-size: 1.4rem;
+}
+
+footer {
+  background-color: #fa9500;
+  width: 100%;
+  height: 250px;
+  padding: 40px;
+  color: white;
+}
+footer .social-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 40px;
+}/*# sourceMappingURL=main.css.map */

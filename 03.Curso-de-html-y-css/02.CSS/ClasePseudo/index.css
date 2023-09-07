@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0px; /* espacio externo */
+  padding: 0px; /* espacio interno */
+}
+
+.main-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #13a4a4;
+}
+.main-nav__item {
+  display: inline-block;
+}
+
+.main-nav__item a {
+  color: white;
+  padding: 5px;
+  border-radius: 2px;
+  text-decoration: none;
+  background-color: red;
+}
+.main-nav__item a:hover {
+  color: blue;
+}
+.main-nav__item a:active {
+  color: green;
+}
+.main-nav__item a::before {
+  content: " to : ";
+}
+.main-nav__item a::after {
+  content: " . ";
+}

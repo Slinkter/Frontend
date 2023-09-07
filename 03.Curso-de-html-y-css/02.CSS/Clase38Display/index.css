@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.block-element {
+  background-color: green;
+  margin: 10px;
+  padding: 20px;
+}
+
+.nav {
+  background-color: peachpuff;
+  text-align: center;
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px;
+  padding: 20px;
+}

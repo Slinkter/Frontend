@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+main {
+  background-color: green;
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  margin: 0 auto;
+  /*   width: 80%; */
+  min-width: 100px; /* base */
+  max-width: 800px; /* crecimeinto maximo */
+  background-color: red;
+}

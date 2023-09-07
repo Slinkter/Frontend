@@ -1,0 +1,15 @@
+.container {
+  border: 1px solid red;
+  display: grid;
+  place-content: center;
+  grid-template-columns: minmax(40px, 100px) minmax(40px, 200px) minmax(
+      40px,
+      300px
+    );
+  grid-template-rows: repeat(3, auto);
+}
+
+.item {
+  border: 5px solid #00bcd4;
+  font-size: 2rem;
+}

@@ -1,0 +1,23 @@
+@media (min-width: 800px) {
+  .container {
+    background-color: blue;
+    width: 800px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .c1 {
+    width: 10%;
+  }
+  .c2 {
+    width: 10%;
+  }
+
+  .c3 {
+    width: 13%;
+  }
+
+  .c4 {
+    width: 10%;
+  }
+}

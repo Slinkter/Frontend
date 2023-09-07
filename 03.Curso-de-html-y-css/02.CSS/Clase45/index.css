@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /*   font-size: 62.5%; */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.c1,
+.c2,
+.c3,
+.c4,
+.c5,
+.c6 {
+  width: 150px;
+  height: 150px;
+}
+
+.c1 {
+  background-color: rgb(255, 0, 0);
+}
+.c2 {
+  background-color: rgb(255, 242, 0);
+}
+
+.c3 {
+  background-color: rgb(30, 255, 0);
+}
+
+.c4 {
+  background-color: rgb(0, 242, 255);
+}
+
+.c5 {
+  background-color: rgb(106, 0, 255);
+}
+
+.c6 {
+  background-color: rgb(255, 0, 128);
+}

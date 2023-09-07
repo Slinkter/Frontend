@@ -1,0 +1,41 @@
+:root {
+  --primary-color: #003476;
+  --second-color: #b4d2f7;
+  --header-size: 4rem;
+  --font-text: 1.8rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header {
+  background-color: var(--primary-color);
+  width: 100vw; /*  ancho del windows */
+  /*   width: 100%; ancho del container */
+  height: 15vh;
+  font-size: var(--header-size);
+}
+main {
+  width: 100vw;
+  height: 70vh;
+  background-color: whitesmoke;
+}
+h1 {
+  font-size: var(--header-size);
+  color: var(--primary-color);
+}
+p {
+  font-size: var(--font-text);
+}
+footer {
+  width: 100vw;
+  height: 15vh;
+  background-color: var(--second-color);
+}
