@@ -1,0 +1,13 @@
+.LoadingTodo-container {
+  position: relative;
+}
+
+.LoadingTodo-completeIcon {
+  border: 1px solid rgb(0, 187, 255);
+}
+.LoadingTodo-text {
+  border: 1px solid rgb(0, 255, 89);
+}
+.LoadingTodo-deleteIcon {
+  border: 1px solid rgb(34, 32, 32);
+}
