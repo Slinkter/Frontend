@@ -68,3 +68,33 @@ const newProducts = products.map((product) => {
   };
 });
 console.log(newProducts);
+/* filter  */
+const newArray = [];
+const words = ["spray", "limit", "elite", "exuberant"];
+words.forEach((element) => {
+  if (element.length >= 6) {
+    newArray.push(element);
+  }
+});
+console.log(newArray);
+
+const newWords = words.filter((item) => item.length >= 6);
+console.log(newWords);
+
+console.log(orders);
+const queryOrders01 = orders.filter(
+  (item) => !item.delivered && item.total < 150
+);
+console.log(queryOrders01);
+
+const f_search = (queryword) => {
+  return orders.filter((item) => {
+    return item.customerName.includes(queryword);
+  });
+};
+
+console.log(f_search("Zulema"));
+/*  */
+const totals = [1, 2, 3, 4];
+const newTotals = totals.reduce((acc, item) => acc + item, 0);
+console.log(newTotals);
