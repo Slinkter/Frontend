@@ -1,20 +1,65 @@
-const numNew = [1, 1, -2, -3];
-const lettersNew = ["z", "x", "y"];
-lettersNew.forEach((item) => console.log(item));
-/*  */
-const array01 = lettersNew.map((item) => item.toLocaleUpperCase());
-console.log(array01);
-console.log(array01.join());
-console.log(array01.join("."));
-console.log(array01.join("-"));
+const myProducts = [];
+const products = [];
+products.push({ title: "Burger", price: 121, id: "🍔" });
+products.push({ title: "Hot cakes", price: 121, id: "🥞" });
+products.push({ title: "Pizza", price: 121, id: "🍕" });
 
-const f_multielement = (array) => {
-  return array.map((item) => item * 2);
+console.log("-".repeat(20));
+const index = products.findIndex((item) => item.id === "🍕");
+console.log(index);
+
+if (index !== -1) {
+  console.log(index);
+  const addProduc = products[index];
+  myProducts.push(addProduc);
+  products.splice(index, 1);
+  /*  */
+  console.log(addProduc);
+  console.log(myProducts);
+  console.log(products);
+} else {
+  console.log("no existe el id");
+}
+const productsV2 = [];
+a = { title: "Pizza", price: 40, id: "🍕" };
+b = { title: "Burger", price: 20, id: "🍔" };
+c = { title: "Hot cakes", price: 5, id: "🥞" };
+
+productsV2.push(a);
+productsV2.push(b);
+productsV2.push(c);
+console.log(productsV2);
+
+const productMod = {
+  id: "🥞",
+  changes: {
+    price: 80,
+    title: "KFC",
+  },
 };
-
-const rpta = f_multielement(numNew);
-console.log(rpta);
-/*  */
+/* Buscar ID  */
+const productIndex = productsV2.findIndex((item) => item.id === productMod.id);
+console.log(productIndex);
+/* modificar el con spread operator */
+productsV2[productIndex] = {
+  ...productsV2[productIndex],
+  ...productMod.changes,
+};
+console.log(productsV2);
+const numbers = [1, 30, 4, 21, 100000];
+console.log(numbers.sort());
+console.log(numbers.sort((a, b) => a - b));
+const words = [
+  "réservé",
+  "premier",
+  "communiqué",
+  "café",
+  "adieu",
+  "eclair",
+  "banana",
+];
+console.log(words.sort());
+console.log(words.reverse());
 const orders = [
   {
     customerName: "Nicolas",
@@ -23,78 +68,19 @@ const orders = [
   },
   {
     customerName: "Zulema",
-    total: 120,
+    total: 12,
     delivered: false,
   },
   {
     customerName: "Santiago",
-    total: 180,
+    total: 1840,
     delivered: true,
   },
   {
     customerName: "Valentina",
-    total: 240,
+    total: 24,
     delivered: true,
   },
 ];
-const newOrdersTotal = orders.map((elemento) => elemento.total);
-const newOrdersIGV = orders.map((elemento) =>
-  Math.round(elemento.total * 1.18)
-);
-const newOrdersAdd = orders.map((element) => {
-  return { ...element, clave: "valor" };
-});
-console.log(orders);
-console.log(newOrdersTotal);
-console.log(newOrdersIGV);
-console.log(newOrdersAdd);
-const products = [
-  {
-    name: "Product 1",
-    price: 1000,
-    stock: 10,
-  },
-  {
-    name: "Product 2",
-    price: 2000,
-    stock: 20,
-  },
-];
-const newProducts = products.map((product) => {
-  return {
-    ...product,
-    taxes: Math.trunc(product.price * 0.18),
-    taxes2: product.price * 0.18,
-  };
-});
-console.log(newProducts);
-/* filter  */
-const newArray = [];
-const words = ["spray", "limit", "elite", "exuberant"];
-words.forEach((element) => {
-  if (element.length >= 6) {
-    newArray.push(element);
-  }
-});
-console.log(newArray);
 
-const newWords = words.filter((item) => item.length >= 6);
-console.log(newWords);
-
-console.log(orders);
-const queryOrders01 = orders.filter(
-  (item) => !item.delivered && item.total < 150
-);
-console.log(queryOrders01);
-
-const f_search = (queryword) => {
-  return orders.filter((item) => {
-    return item.customerName.includes(queryword);
-  });
-};
-
-console.log(f_search("Zulema"));
-/*  */
-const totals = [1, 2, 3, 4];
-const newTotals = totals.reduce((acc, item) => acc + item, 0);
-console.log(newTotals);
+console.log(orders.sort((a, b) => b.total - a.total));
