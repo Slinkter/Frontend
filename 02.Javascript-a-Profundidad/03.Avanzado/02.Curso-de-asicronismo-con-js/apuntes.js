@@ -81,6 +81,7 @@ http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb2
 
 
 */
+
 /* Clase 05.
 configuraion vscode code run
 */
@@ -88,7 +89,19 @@ configuraion vscode code run
 /* 
 callback
 
+settime out es un callback 
+
+la llamada de una funcion dentro de una funcion 
 
 
+
+
+
+*/
+
+/* Clase 07 */
+
+/* 
+uso de una api fake de platzi
 
 */
