@@ -104,4 +104,21 @@ la llamada de una funcion dentro de una funcion
 /* 
 uso de una api fake de platzi
 
+[https://fakeapi.platzi.com/]
+
+nos ayudar a pedir las peticions html , xml json .
+
+uso de xmlhttprequest
+
+
+*/
+
+/* CLASE 08 */
+/* 
+FETCH DATA
+
+añillar multiplex llamados en un callback
+uso de 
+
+
 */
