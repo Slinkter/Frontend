@@ -96,3 +96,9 @@ para este curso se usara :
 
     -Application-based authentication
     -User-based authentication
+
+<!-- Clase 07 -->
+
+## Maquetacion del proyecto
+
+uso de subir fotos de una api
