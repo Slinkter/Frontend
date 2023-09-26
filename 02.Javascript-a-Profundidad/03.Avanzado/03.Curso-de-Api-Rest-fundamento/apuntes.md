@@ -102,3 +102,20 @@ para este curso se usara :
 ## Maquetacion del proyecto
 
 uso de subir fotos de una api
+
+<!-- Clase 07 -->
+
+## ¿Qué son los Métodos HTTP?
+
+los metodos https el frontedn le envio un spoiler al backend de la solicutra (GET,POST,PUT,PATCH,DELETE)
+
+- GET : es para consumir infomormacion o leer
+- POST : nos sirver para crear cosas en el backend
+- PUT : edita la informacio por completo
+- PATCH: edita la informacion parcialmente
+- DELETE : borrar informacion
+<!-- Clase 08 -->
+
+<!-- Clase 09 -->
+
+implementacion de favorito en gatos
