@@ -122,3 +122,32 @@ uso de
 
 
 */
+
+/* Clase 09 */
+/* 
+que son las promesas???
+
+es algo puede pasar o no, es usado para computacion asincronas
+
+
+*/
+
+/* Clase 10 */
+/* 
+Fetch 
+
+se instala un paquete fetch
+
+*/
+
+/* Clase 11 */
+/* 
+uso de fetch y then
+
+*/
+
+/* Clase 12  */
+
+/* 
+Guarda los datos con fetch post
+*/
