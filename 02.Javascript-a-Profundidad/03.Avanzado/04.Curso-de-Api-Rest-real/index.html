@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Movie</title>
+    <link rel="stylesheet" href="./style/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header" class="header-container">
+      <span class="header-arrow inactive">&lr</span>
+      <h1 class="header-title">Team Movies</h1>
+      <h1 class="header-title header-title--categoryView inactive">Accion</h1>
+
+      <form id="searchForm" class="header-searchForm">
+        <input type="text" placeholder="vengadores" />
+        <button>lupa icon</button>
+      </form>
+    </header>
+    <section id="trendingPreview" class="trendingPreview-container">
+      <div class="trendingPreview-header">
+        <h2 class="trendingPreview-title">Tendencias</h2>
+        <button class="trendingPreview-btn">ver mas</button>
+      </div>
+      <article class="trendingPreview-movieList">
+        <div class="movie-container">
+          <img src="" class="movie-img" alt="nombre de la pelicula" />
+        </div>
+        <div class="movie-container">
+          <img src="" class="movie-img" alt="nombre de la pelicula" />
+        </div>
+        <div class="movie-container">
+          <img src="" class="movie-img" alt="nombre de la pelicula" />
+        </div>
+      </article>
+    </section>
+
+    <section id="categoriesPreview" class="categoriesPreview">
+      <h2 class="categoriesPreview-title">Categorias</h2>
+      <article class="categoriesPreview-list">
+        <div class="category-container">
+          <h3 id="id28" class="category-tittle">Romance</h3>
+        </div>
+        <div class="category-container">
+          <h3 id="id16" class="category-tittle">Drama</h3>
+        </div>
+      </article>
+      <div class="category-container">
+        <h3 id="id16" class="category-tittle">Accion</h3>
+      </div>
+    </section>
+
+    <section id="genericList" class="genericList-container inactive">
+      <div class="movie-container">
+        <img src="" class="movie-img" alt="" />
+      </div>
+      <div class="movie-container">
+        <img src="" class="movie-img" alt="" />
+      </div>
+    </section>
+    <section id="movieDetail" class="movieDetail-container inactive">
+      <h1 class="movieDetail-title">Deadpool</h1>
+      <span class="movieDetail-score">7.6</span>
+      <p class="movieDetail-description">
+        Wisecracking mercenary deadpool battles the evil and powerful
+      </p>
+      <article class="categories-list">
+        <div class="category-container">
+          <h3 id="id28" class="category-tittle">Romance</h3>
+        </div>
+        <div class="category-container">
+          <h3 id="id16" class="category-tittle">Drama</h3>
+        </div>
+        <div class="category-container">
+          <h3 id="id14" class="category-tittle">Accion</h3>
+        </div>
+      </article>
+      <article class="relateMovies-container">
+        <h2 class="relateMovies-title">Peliculas similares</h2>
+        <div class="relateMoviews-scrollContainer">
+          <div class="movieDetail-container">
+            <img src="" class="movie-img" alt="" />
+          </div>
+          <div class="movieDetail-container">
+            <img src="" class="movie-img" alt="" />
+          </div>
+        </div>
+      </article>
+    </section>
+    <footer>Hecon con mano</footer>
+
+    <script src="./src/secrets.js"></script>
+    <script src="./src/main.js"></script>
+  </body>
+</html>
