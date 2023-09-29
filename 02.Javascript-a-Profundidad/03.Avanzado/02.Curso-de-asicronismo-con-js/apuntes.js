@@ -142,7 +142,7 @@ se instala un paquete fetch
 
 /* Clase 11 */
 /* 
-uso de fetch y then
+uso de fetch y post
 
 */
 
@@ -151,3 +151,5 @@ uso de fetch y then
 /* 
 Guarda los datos con fetch post
 */
+
+/* Clase 15/26 : Funciones asíncronas */
