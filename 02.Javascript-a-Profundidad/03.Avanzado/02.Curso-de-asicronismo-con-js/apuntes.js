@@ -152,4 +152,48 @@ uso de fetch y post
 Guarda los datos con fetch post
 */
 
-/* Clase 15/26 : Funciones asíncronas */
+/* Clase 15/26 : Funciones asíncronas 
+
+es un flujo asycn await
+
+
+
+*/
+
+/* 
+Clase 16/26 : Try and catch
+
+uso de fake api de platzi
+
+Nos permite crear un bloque a intentar (try), 
+y otro por si falla o se produce una excepción (catch).
+
+*/
+
+/* 
+Clase 17/26 : Try and catch
+
+ejercios de platzi 
+
+
+*/
+
+/* 
+Clase 18/26 : ¿Cómo enfrentar los errores?
+
+Plantear el codigo en papel y luego en codigo
+
+
+*/
+/* 
+Clase 19/26 :Generators
+es un opcion de sync
+
+es una funcion que puede llamar o para solicitudes 
+itera varios elementos que se integran al flujo 
+
+
+
+
+
+*/
