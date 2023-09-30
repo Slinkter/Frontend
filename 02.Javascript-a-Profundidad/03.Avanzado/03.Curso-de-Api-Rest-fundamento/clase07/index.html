@@ -4,42 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script defer src="index.js"></script>
   </head>
   <body>
     <section id="randomMichis">
       <h2>Gatitos aleatorios</h2>
-      <span id="randomMichiError">000</span>
+      <span id="randomMichiError"></span>
       <br />
+      <!-- CAT 01 -->
       <article>
         <img id="img1" width="150" alt="" />
         <button id="btn1" onclick="saveFavoriteMicis()">
           Guarda michi en favoritos
         </button>
       </article>
+      <!-- CAT 02 -->
       <article>
         <img id="img2" width="150" alt="" />
         <button id="btn2" onclick="saveFavoriteMicis()">
           Guarda michi en favoritos
         </button>
       </article>
+      <!-- CAT 03 -->
       <article>
-        <img id="img3" width="150" alt="" />
+        <img id="img3" src="" width="150" alt="" />
         <button id="btn3" onclick="saveFavoriteMicis()">
           Guarda michi en favoritos
         </button>
       </article>
 
-      <button onclick="reaload()">Recargar</button>
+      <button onclick="loadRandomMichis()">Recargar</button>
     </section>
 
     <section id="favoritesMichis">
       <h2>Gatitos Favoritos</h2>
-      <article>
-        <img id="img1" width="150" alt="" />
-        <button>sacar el michi de favoritos</button>
-      </article>
-    </section>
 
-    <script src="index.js"></script>
+      <div class="" id="content"></div>
+    </section>
   </body>
 </html>
