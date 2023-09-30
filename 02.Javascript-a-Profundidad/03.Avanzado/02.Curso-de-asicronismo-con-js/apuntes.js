@@ -197,3 +197,35 @@ itera varios elementos que se integran al flujo
 
 
 */
+/* 
+Clase 21/26 : Consumiendo API
+
+uso de rapiapi
+https://rapidapi.com/ytdlfree/api/youtube-v31
+
+*/
+
+/* Clase 22/26 */
+
+/* 
+uso de gh-pages
+
+npm install gh-pages --save-dev
+
+se modifica en packeage.json
+script{
+    deploy : "gh-pages -d src"
+}
+
+en terminal :
+
+npm run deploy  --> ejecutar el script
+se habilida actions github 
+
+
+*/
+
+/* Clase 23/26  : Ejercicios */
+/* Clase 24/26  : Comentarios */
+/* Clase 25/26 : recomendaciones*/
+/* Clase 26/26 : retos y certificacion*/

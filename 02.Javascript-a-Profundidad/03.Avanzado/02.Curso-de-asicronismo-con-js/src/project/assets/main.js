@@ -1,8 +1,5 @@
-const content = null || document.getElementById("content");
-
 const API =
   "https://youtube-v31.p.rapidapi.com/search?channelId=UC3zEMJtd0xl2UCOIsKLh_lg&part=snippet%2Cid&order=date&maxResults=5";
-
 const options = {
   method: "GET",
   headers: {
@@ -11,13 +8,17 @@ const options = {
   },
 };
 
+const content = null || document.getElementById("content");
+
 async function fetchData(urlApi) {
   const response = await fetch(urlApi, options);
   const result = await response.json();
+  console.log(result);
   return result;
 }
-
+/* se invoca asi misma  */
 (async () => {
+  console.log("ingreso");
   try {
     const videosAPI = await fetchData(API);
     let view = `
@@ -27,7 +28,7 @@ async function fetchData(urlApi) {
       <div class="group relative">
         <div
           class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-          <img src="${video.snippet.thumbnail.high.url}" alt="${video.snippet.description}" class="w-full">
+          <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
         </div>
         <div class="mt-4 flex justify-between">
           <h3 class="text-sm text-gray-700">
@@ -42,6 +43,7 @@ async function fetchData(urlApi) {
       .join("")}
 
     `;
+    content.innerHTML = view;
   } catch (error) {
     console.log(error);
   }
