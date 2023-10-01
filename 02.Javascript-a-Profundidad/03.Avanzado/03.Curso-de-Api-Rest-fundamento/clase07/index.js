@@ -20,6 +20,15 @@ async function loadRandomMichis() {
       const img1 = document.getElementById("img1");
       const img2 = document.getElementById("img2");
       const img3 = document.getElementById("img3");
+      /*  */
+      const btn1 = document.getElementById("btn1");
+      const btn2 = document.getElementById("btn2");
+      const btn3 = document.getElementById("btn3");
+
+      btn1.onclick = () => saveFavoriteMichi(data[0].id);
+      btn2.onclick = () => saveFavoriteMichi(data[1].id);
+      btn3.onclick = () => saveFavoriteMichi(data[2].id);
+
       /* SET IMG */
       img1.src = data[0].url;
       img2.src = data[1].url;
@@ -34,7 +43,6 @@ async function loadRandomMichis() {
 
 async function uploadFavorite() {
   try {
-    console.log("uploadFavorite :", "\n");
     const API_URL_FAVORITE = `https://api.thecatapi.com/v1/favourites?limit=3&api_key=${API_KEY}`;
     /*  */
     const res = await fetch(API_URL_FAVORITE);
@@ -49,7 +57,6 @@ async function uploadFavorite() {
 }
 
 async function loadFavouriteMicis() {
-  console.log("load FAvorite");
   const API_URL_FAVORITE = `https://api.thecatapi.com/v1/favourites?api_key=${API_KEY}`;
   const res = await fetch(API_URL_FAVORITE);
   const data = await res.json();
@@ -61,44 +68,86 @@ async function loadFavouriteMicis() {
   } else {
     const view = data
       .map(
-        (item) => `    
-      <article>
-        <img id="" src="${item.image.url}"   width="150" alt="" />
-        <button onclick="">sacar el michi de favoritos</button>
-      </article>
-    `
+        (item) => `
+          <article>
+            <img src="${item.image.url}" width="150" alt="" />
+            <button
+              id="${item.id}"
+              name="${item.id}"
+           >
+              sacar el michi de favoritos
+            </button>
+          </article>`
       )
       .join("");
 
     content.innerHTML = view;
+    const deleteButtons = document.querySelectorAll("button");
+    for (const button of deleteButtons) {
+      button.addEventListener("click", function () {
+        console.log(button);
+        console.log(button.id);
+        console.log(button.dataset.id);
+
+        const favoriteId = button.id;
+        deleteFavoriteMichi(favoriteId);
+      });
+    }
   }
 }
 
-/* 
-
- ${video.snippet.title}
-
-*/
-
-async function saveFavoriteMicis() {
-  console.log("saveFavoriteMicis");
+async function saveFavoriteMichi(id) {
+  console.log("saveFavoriteMichi");
   const API_URL_FAVORITE = `https://api.thecatapi.com/v1/favourites?api_key=${API_KEY}`;
 
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ image_id: "d68" }),
+    body: JSON.stringify({ image_id: id }),
   };
 
   const rest = await fetch(API_URL_FAVORITE, options);
   if (rest.status !== 200) {
     console.log("error al consultar la API" + rest.status);
+  } else {
+    const data = await rest.json();
+    console.log(data);
+    console.log(" Michi agregado");
+    console.log(rest);
   }
-  const data = await rest.json();
 
   console.log("Favorite Michi");
   console.log(rest);
 }
+
+async function deleteFavoriteMichi(favouriteId) {
+  try {
+    // Comprobar que el ID del favorito sea un número
+    /* if (!Number.isInteger(favouriteId)) {
+      throw new Error("El ID del favorito debe ser un número");
+    } */
+
+    const API_URL_DELETE = `https://api.thecatapi.com/v1/favourites/${favouriteId}?api_key=${API_KEY}`;
+    const requestOptions = {
+      method: "DELETE",
+    };
+
+    const response = await fetch(API_URL_DELETE, requestOptions);
+
+    if (response.status === 200) {
+      console.log("Favorito eliminado");
+    } else {
+      console.log("Error al eliminar el favorito");
+      const data = await response.json();
+      console.log(data.message);
+    }
+  } catch (error) {
+    console.log("error :", error);
+  }
+}
+
 loadFavouriteMicis();
 uploadFavorite();
 loadRandomMichis();
+
+/* Clase Delete */
