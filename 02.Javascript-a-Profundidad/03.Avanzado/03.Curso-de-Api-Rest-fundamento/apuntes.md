@@ -119,3 +119,21 @@ los metodos https el frontedn le envio un spoiler al backend de la solicutra (GE
 <!-- Clase 09 -->
 
 implementacion de favorito en gatos
+
+<!-- Clase  -->
+
+¿Que son los Headers HTTP?
+
+<!-- Clase  -->
+
+Header de autorizacion
+
+<!-- Clase  -->
+
+Headers de Content-type
+existe varios forma de enviar datos en los header
+a los backend desde fronted
+
+<!-- Clase -->
+
+FormData
