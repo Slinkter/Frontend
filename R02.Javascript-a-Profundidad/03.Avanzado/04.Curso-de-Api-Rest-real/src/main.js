@@ -46,7 +46,7 @@ async function getTrendingMoviesPreview() {
 
 async function getCategoriesPreview() {
   /*  */
-  const url = `https://api.themoviedb.org/3/genre/movie/list?language=en`;
+  const url = `https://api.themoviedb.org/3/genre/movie/list`;
   const options = {
     method: "GET",
     headers: {
