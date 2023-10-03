@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Pseudo-clase */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a:link {
+        color: hotpink;
+      }
+      a:visited {
+        color: red;
+      }
+
+      a:hover {
+        color: blue;
+        background-color: blueviolet;
+      }
+      p:not(.marivillas) {
+        color: lightsalmon;
+      }
+      .container div:nth-child(1) {
+        color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <a href="/">Alicia</a>
+      <p>en el</p>
+      <p class="marivillas">pais</p>
+      <div class="container">
+        <div>Alicia</div>
+        <div>Alicia</div>
+        <div>Alicia</div>
+      </div>
+    </section>
+  </body>
+</html>
