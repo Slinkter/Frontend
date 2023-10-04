@@ -61,11 +61,12 @@ async function getCategoriesPreview() {
     const data = await res.json();
     const categories = data.genres;
     /*  */
+    categoriesPreviewList.innerHTML =""
 
     categories.forEach((category) => {
-      const categoriesPreviewList = document.querySelector(
+     /*  const categoriesPreviewList = document.querySelector(
         "#categoriesPreview .categoriesPreview-list"
-      );
+      ); */
       const categoryContainer = document.createElement("div");
       categoryContainer.classList.add("category-container");
       /*  */
@@ -73,9 +74,12 @@ async function getCategoriesPreview() {
       categoryTitle.classList.add("category-title");
       categoryTitle.setAttribute("id", "id" + category.id);
       const categoryTitleText = document.createTextNode(category.name);
+
       categoryTitle.appendChild(categoryTitleText);
       categoryContainer.appendChild(categoryTitle);
       categoriesPreviewList.appendChild(categoryContainer);
+
+
     });
 
     console.log(data);
