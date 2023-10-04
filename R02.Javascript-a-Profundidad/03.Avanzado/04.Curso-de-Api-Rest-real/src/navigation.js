@@ -10,14 +10,16 @@ arrowBtn.addEventListener("click", () => {
   location.hash = "#home";
 });
 
-window.addEventListener("DOMContentLoaded", navigator, false);
+//Cuando la página se carga, se llama a la función navigator.
+// Esta función se encarga de gestionar el contenido dependiendo de la location.hash.
 
+window.addEventListener("DOMContentLoaded", navigator, false);
+//Cuando cambia el fragmento de la URL (después del #), se llama a la función navigator.
 window.addEventListener("hashchange", navigator, false);
 
 function navigator() {
-  console.log({ location });
   if (location.hash.startsWith("#trends")) {
-    tendsPage();
+    trendsPage();
   } else if (location.hash.startsWith("#search=")) {
     seachPage();
   } else if (location.hash.startsWith("#movie=")) {
@@ -27,7 +29,6 @@ function navigator() {
   } else {
     homePage();
   }
-
   location.hash;
 }
 
@@ -49,7 +50,6 @@ function homePage() {
 
 function categoriesPage() {
   console.log("CATEGORIES !!!");
-
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
@@ -97,7 +97,7 @@ function seachPage() {
   movieDetailSection.classList.add("inactive");
 }
 
-function tendsPage() {
+function trendsPage() {
   console.log("TRENDS !!!");
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
