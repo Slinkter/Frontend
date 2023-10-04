@@ -42,12 +42,9 @@ function homePage() {
   searchForm.classList.remove("inactive");
 
   trendingPreviewSection.classList.remove("inactive");
-  categoriesPreviewSection.classList.add("inactive");
+  categoriesPreviewSection.classList.remove("inactive");
   genericSection.classList.add("inactive");
   movieDetailSection.classList.add("inactive");
-
-  getTrendingMoviesPreview();
-  getCategoriesPreview();
 }
 
 function categoriesPage() {
