@@ -1,3 +1,6 @@
+/* clase 11/17 : Filtrando películas por categoría
+ */
+
 async function getTrendingMoviesPreview() {
   /*  */
   const url = `https://api.themoviedb.org/3/trending/movie/day`;
