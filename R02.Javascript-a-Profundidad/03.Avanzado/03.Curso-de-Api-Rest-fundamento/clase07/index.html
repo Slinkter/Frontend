@@ -4,33 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <section id="randomMichis">
-      <h2>Gatitos aleatorios</h2>
+    <h2>Gatitos aleatorios</h2>
+    <section id="randomMichis" class="container">
       <span id="randomMichiError"></span>
       <br />
       <!-- CAT 01 -->
       <article>
-        <img id="img1" width="150" alt="" />
+        <img id="img1" />
         <button id="btn1">Guarda michi en favoritos</button>
       </article>
       <!-- CAT 02 -->
       <article>
-        <img id="img2" width="150" alt="" />
+        <img id="img2" />
         <button id="btn2">Guarda michi en favoritos</button>
       </article>
       <!-- CAT 03 -->
       <article>
-        <img id="img3" src="" width="150" alt="" />
+        <img id="img3" src="" />
         <button id="btn3">Guarda michi en favoritos</button>
       </article>
       <!-- Button -->
-      <button onclick="loadRandomMichis()">Recargar</button>
     </section>
+    <button onclick="loadRandomMichis()">Recargar</button>
     <!--  -->
-    <section id="uploadMichi">
+    <section id="uploadMichi" class="container-2">
       <h2>Subir foto de gato</h2>
       <form id="uploadingForm" action="">
         <input id="file" type="file" name="file" />
@@ -40,9 +40,10 @@
       </form>
     </section>
     <!--  -->
-    <section id="favoritesMichis">
+    <section id="favoritesMichis" class="container-3">
       <h2>Gatitos Favoritos</h2>
       <div class="" id="content"></div>
     </section>
+    <script defer src="index.js"></script>
   </body>
 </html>
