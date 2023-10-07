@@ -99,10 +99,8 @@ function movieDetailsPage() {
   movieDetailSection.classList.remove("inactive");
 
   //index.html?#search=movie123
-  const [_, query] = location.hash.split("=");
-  getMoviesBySearch(query);
-
-  getMovieByMovie(id);
+  const [_, movieId] = location.hash.split("=");
+  getMovieByMovie(movieId);
 }
 
 function seachPage() {
