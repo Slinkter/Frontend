@@ -1,5 +1,5 @@
 searchFormBtn.addEventListener("click", () => {
-  location.hash = "#search=456";
+  location.hash = "#search=";
 });
 
 trendingBtn.addEventListener("click", () => {
@@ -12,7 +12,6 @@ arrowBtn.addEventListener("click", () => {
 
 //Cuando la página se carga, se llama a la función navigator.
 // Esta función se encarga de gestionar el contenido dependiendo de la location.hash.
-
 window.addEventListener("DOMContentLoaded", navigator, false);
 //Cuando cambia el fragmento de la URL (después del #), se llama a la función navigator.
 window.addEventListener("hashchange", navigator, false);
@@ -63,9 +62,19 @@ function categoriesPage() {
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
   /*  */
-  const [_, categoryData] = location.hash.split("="); // =>["#category","id-name"]
+  // www.pageweb.com/index.html#category=12-Adventure
+  const [_, categoryData] = location.hash.split("="); // =>["#category","id-category"]
   const [categoryId, categoryName] = categoryData.split("-");
   headerCategoryTitle.innerHTML = categoryName;
+
+  // check value
+  const d0 = location.hash;
+  const d1 = location.hash.split("=");
+  const d2 = categoryData.split("-");
+  console.log(d0); //#category=12-Adventure
+  console.log(d1); //['#category', '12-Adventure']
+  console.log(d2); //['12', 'Adventure']
+  // ---> main.js
   getMoviesByCategory(categoryId);
 }
 

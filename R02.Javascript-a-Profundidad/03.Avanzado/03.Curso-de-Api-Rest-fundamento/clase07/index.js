@@ -9,6 +9,15 @@ const API_URL_UPLOAD = `https://api.thecatapi.com/v1/images/upload`;
 const spanError = document.getElementById("randomMichiError");
 const content = null || document.getElementById("content");
 
+/* axios */
+
+const api = axios.create({
+  baseURL: "https://api.thecatapi.com/v1/",
+  timeout: 1000,
+  headers: { "X-Custom-Header": "foobar" },
+});
+api.defaults.headers.common["x-api-key"] = API_KEY;
+
 async function loadRandomMichis() {
   console.log("loadRandomMichis()");
   try {
@@ -89,6 +98,20 @@ async function loadFavouriteCat() {
 /* Button */
 async function saveFavoriteMichi(id) {
   try {
+    const objAxios = { image_id: id };
+    const resAxios = await api.post("/favourites", objAxios);
+    const { data, status } = resAxios;
+    console.log(resAxios);
+    console.log(data);
+    console.log(status);
+  } catch (error) {
+    console.log("error", error);
+  } finally {
+    console.log("saveFavoriteMichi(id)");
+  }
+
+  /*  
+  try {
     // pasar de Obj a String
     const idSaveCat = JSON.stringify({ image_id: id });
     //
@@ -114,7 +137,8 @@ async function saveFavoriteMichi(id) {
   } finally {
     loadRandomMichis();
     console.log("finally");
-  }
+  } 
+  */
 }
 
 async function deleteFavoriteMichi(favouriteId) {

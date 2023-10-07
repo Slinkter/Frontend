@@ -14,38 +14,35 @@
     <title>Movies</title>
   </head>
   <body>
+    <!-- START HEADER -->
     <header id="header" class="header-container">
       <span class="header-arrow inactive">&lt;</span>
-      <h1 class="header-title">PlatziMovies</h1>
+      <h1 class="header-title">Movies</h1>
       <h1 class="header-title header-title--categoryView inactive">Acción</h1>
 
       <form id="searchForm" class="header-searchForm">
-        <input type="text" placeholder="Vengadores" />
+        <input type="text" placeholder="" />
         <button id="searchBtn">🔍</button>
       </form>
     </header>
-
+    <!-- END HEADER -->
     <section id="trendingPreview" class="trendingPreview-container">
       <div class="trendingPreview-header">
         <h2 class="trendingPreview-title">Tendencias</h2>
         <button class="trendingPreview-btn">Ver más</button>
       </div>
-
-      <article class="trendingPreview-movieList">
-        <!-- star : API - DATA - MOVIE -->
-        <!-- end  : API - DATA - MOVIE -->
-      </article>
+      <!-- star : API - DATA - MOVIE -->
+      <article class="trendingPreview-movieList"></article>
+      <!-- end  : API - DATA - MOVIE -->
     </section>
-
+    <!--  -->
     <section id="categoriesPreview" class="categoriesPreview-container">
       <h2 class="categoriesPreview-title">Categorías</h2>
-
-      <article class="categoriesPreview-list">
-        <!-- star : API - DATA - MOVIE -->
-        <!-- end  : API - DATA - MOVIE -->
-      </article>
+      <!-- star : API - DATA - MOVIE -->
+      <article class="categoriesPreview-list"></article>
+      <!-- end  : API - DATA - MOVIE -->
     </section>
-
+    <!--  -->
     <section id="genericList" class="genericList-container inactive">
       <div class="movie-container">
         <img
@@ -71,7 +68,7 @@
         />
       </div>
     </section>
-
+    <!--  -->
     <section id="movieDetail" class="movieDetail-container inactive">
       <h1 class="movieDetail-title">Deadpool</h1>
       <span class="movieDetail-score">7.6</span>
@@ -124,7 +121,7 @@
         </div>
       </article>
     </section>
-
+    <!--  -->
     <footer>Hecho en Lima</footer>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./src/node.js"></script>
