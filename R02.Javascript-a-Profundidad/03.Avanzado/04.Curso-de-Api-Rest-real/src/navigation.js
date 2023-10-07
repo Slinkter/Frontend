@@ -87,7 +87,6 @@ function movieDetailsPage() {
   console.log("MOVIE !!!");
 
   headerSection.classList.add("header-container--long");
-  /*  headerSection.style.background = ""; */
   arrowBtn.classList.remove("inactive");
   arrowBtn.classList.add("header-arrow--white");
   headerTitle.classList.add("inactive");
@@ -98,6 +97,12 @@ function movieDetailsPage() {
   categoriesPreviewSection.classList.add("inactive");
   genericSection.classList.add("inactive");
   movieDetailSection.classList.remove("inactive");
+
+  //index.html?#search=movie123
+  const [_, query] = location.hash.split("=");
+  getMoviesBySearch(query);
+
+  getMovieByMovie(id);
 }
 
 function seachPage() {
@@ -115,8 +120,8 @@ function seachPage() {
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
   //index.html?#search=movie123
-  const [_, query] = location.hash.split("=");
-  getMoviesBySearch(query);
+  const [_, movieId] = location.hash.split("=");
+  getMovieBySearch(movieId);
 }
 
 function trendsPage() {

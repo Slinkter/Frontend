@@ -22,6 +22,10 @@ async function getTrendingMoviesPreview() {
       const movieImg = document.createElement("img");
       /* Add style */
       movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.hash = "#movie=" + movie.id;
+      });
+      console.log(movieContainer);
       movieImg.classList.add("movie-img");
       /* Add url img */
       const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
@@ -112,6 +116,9 @@ async function getMoviesByCategory(id) {
       const movieImg = document.createElement("img");
       //
       movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.bash = "#movie=" + movie.id;
+      });
       movieImg.classList.add("movie-img");
       //
       const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
@@ -158,6 +165,9 @@ async function getMoviesBySearch(query) {
       const movieImg = document.createElement("img");
       //
       movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.bash = "#movie=" + movie.id;
+      });
       movieImg.classList.add("movie-img");
       //
       const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
@@ -204,7 +214,12 @@ async function getTrendingMovies() {
       const movieImg = document.createElement("img");
       /* Add style */
       movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.bash = "#movie=" + movie.id;
+      });
+
       movieImg.classList.add("movie-img");
+
       /* Add url img */
       const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
       const title = movie.title;
@@ -218,6 +233,52 @@ async function getTrendingMovies() {
     console.error("error", error);
   } finally {
     console.log("finally : getTrendingMoviesPreview()");
+  }
+}
+
+async function getMovieBySearch(movieId) {
+  try {
+    // params
+    const url = `https://api.themoviedb.org/3/search/movie?query=${query}`;
+    const authAPI =
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: authAPI,
+      },
+    };
+    // call api
+    const res = await fetch(url, options);
+    const data = await res.json();
+    const movies = data.results;
+
+    genericSection.innerHTML = "";
+    movies.forEach((movie) => {
+      const movieContainer = document.createElement("div");
+      const movieImg = document.createElement("img");
+      //
+      movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.bash = "#movie=" + movie.id;
+      });
+      movieImg.classList.add("movie-img");
+      //
+      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
+      const title = movie.title;
+      movieImg.setAttribute("src", url);
+      movieImg.setAttribute("alt", title);
+      movieContainer.appendChild(movieImg);
+      genericSection.appendChild(movieContainer);
+    });
+    console.log("res: ", res);
+    console.log("data: ", data);
+    console.log("results: ", movies);
+  } catch (error) {
+    console.error("error : ", error);
+  } finally {
+    console.log("finally : getMoviesBySearch(query)");
   }
 }
 
