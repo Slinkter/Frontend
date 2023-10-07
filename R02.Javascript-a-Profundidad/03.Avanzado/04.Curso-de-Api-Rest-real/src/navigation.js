@@ -49,6 +49,7 @@ function homePage() {
 
 function categoriesPage() {
   console.log("CATEGORIES !!!");
+  //
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
@@ -74,7 +75,7 @@ function categoriesPage() {
   console.log(d0); //#category=12-Adventure
   console.log(d1); //['#category', '12-Adventure']
   console.log(d2); //['12', 'Adventure']
-  // ---> main.js
+  // ---> main.js  send id category -- load array
   getMoviesByCategory(categoryId);
 }
 

@@ -73,9 +73,10 @@ async function getCategoriesPreview() {
       categoryTitle.appendChild(categoryTitleText);
       categoryContainer.appendChild(categoryTitle);
       categoriesPreviewList.appendChild(categoryContainer);
-      /* cuando hace click */
+      /* cuando hace click se actualiza el URL*/
       categoryTitle.addEventListener("click", () => {
         location.hash = "#category=" + category.id + "-" + category.name;
+        console.log(location.hash);
       });
     });
   } catch (error) {
