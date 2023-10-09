@@ -198,3 +198,34 @@ El archivo package-lock.json describe todo el árbol de dependencias de cada paq
 Cuando alguien hace fork de un repositorio no tiene el directorio node_modules por el archivo .gitignore. Mediante el comando npm install, instalarán las dependencias indicadas en el package.json con la versión indicada. También, se instalarán las sub-dependencias indicadas en package-lock.json con la versión indicada.
 
 Esto es importante para tener instaladas siempre la versión adecuada del paquete a utilizar en el proyecto.
+
+## Clase 12/15 :Crear un paquete
+
+publicar un paquente en www.npm.com
+
+- Verificar nombre de paquete si esta disponible
+- creacion de un repositirio en GITHUB.
+- descargar el proyecto
+- npm init -y // inicio de proyecto
+- crear la carperta "SRC" y archivo "index.js"
+- se crear la carpeta bin y contiene el archivo globa.js
+- ejecuta la funcion que esta en el archivo index.js
+- falta agregar al package.json
+
+## Clase 13/15 :Publicar un paquete
+
+- npm link // no me salio
+- pwd ///Users/ljcr/Desktop/Frontend/R03.Librerias-y-dependencias/01.Basico/01.Curso-de-NPM
+- npm install g /Users/ljcr/Desktop/Frontend/R03.Librerias-y-dependencias/01.Basico/01.Curso-de-NPM
+- ejecutar la funcion en terminar xk ya esta instalado en node : random-str-msg
+- crear y logear en la pagina npm
+- npm adduser // se inicia session en terminal
+- npm publish //
+- en la pagina npm documentar el paquete publicado
+
+## Clase 14/15 :Versionado de paquetes y paquetes privados
+
+- documentar la instalacion del paquete
+- npm version 1.1.0 // actualizar el paquete
+- npm publish // publicar la nueva version
+-
