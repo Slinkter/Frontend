@@ -37,3 +37,17 @@ loading screens debe ser facil de entender y mostrar informacion de espera .
 es una estrategias de buenas practicas.
 
 ## Clase 05/20 :pantalla de carga
+
+## Clase 06/20 :Intersection Observer
+
+es nativo de JS , nos ayuda a implementar lazy loading
+
+// options : root document windows
+let observer = new IntersectionObserver(callback, options);
+const callback = (entries) => {
+entries.forEach(element=>{
+element.src
+})
+};
+
+## Clase 07/20 : Lazy loading
