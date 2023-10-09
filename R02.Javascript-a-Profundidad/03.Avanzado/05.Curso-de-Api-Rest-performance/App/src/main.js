@@ -25,13 +25,20 @@ function createMovies(movies, container, lazyLoad = false) {
     movieImg.setAttribute("alt", movie.title);
     // lazy loader
     movieImg.setAttribute(
-      lazyLoader ? "data-img" : "src",
+      lazyLoad ? "data-img" : "src",
       "https://image.tmdb.org/t/p/w300" + movie.poster_path
     );
 
     if (lazyLoad) {
       lazyLoader.observe(movieImg);
     }
+    // img not fount not load
+    movieImg.addEventListener("error", () => {
+      movieImg.setAttribute(
+        "src",
+        `https://via.placeholder.com/300x450/5c218a/ffffff?text=${movie.title}`
+      );
+    });
 
     movieContainer.appendChild(movieImg);
     container.appendChild(movieContainer);
@@ -84,7 +91,7 @@ async function getMoviesByCategory(id) {
   });
   const movies = data.results;
 
-  createMovies(movies, genericSection);
+  createMovies(movies, genericSection, true);
 }
 
 async function getMoviesBySearch(query) {

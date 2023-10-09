@@ -51,3 +51,5 @@ element.src
 };
 
 ## Clase 07/20 : Lazy loading
+
+## Clase 08/20 : Imágenes por defecto
