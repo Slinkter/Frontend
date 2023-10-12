@@ -53,3 +53,13 @@ element.src
 ## Clase 07/20 : Lazy loading
 
 ## Clase 08/20 : Imágenes por defecto
+
+## Clase 09/20 : Scroll infinito vs. paginación
+
+### Paginacion :
+
+el contenido est orgnizado por paginas (pagina de ventas de productos / e-commers) , la cantidad de producto es fija en cada pagina . para resultados especifoco. la pagina no adicitiva
+
+### Scrrol infinito ,
+
+todo los productos carga en una "sola pagina",la navegacion es adicitiva . carga de mas contenido (instagrama) . no se recomienda usar footer.
