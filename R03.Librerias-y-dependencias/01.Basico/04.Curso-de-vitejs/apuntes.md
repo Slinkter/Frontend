@@ -38,9 +38,9 @@
 ## Clase 03/19 : Características de Vite
 
 - Optimizacion de codigo : Vite optimiza muchos de los procesos por los que tiene que pasar el código, para de tal modo enfocarse en un mejor rendimiento y experiencia de desarrollo.
-- Pre-bundling
-- Dependency resolving
-- Hot module replacement (HMR)
+- Pre-bundling : Es la etapa donde se estandarizan los módulos, pues adapta módulos en CommonJS o UMD al formato estándar de ECMAScript.
+- Dependency resolving : optimiza el proceso en que se obtienen librerías y módulos estandarizados. Funciona de la siguiente manera:
+- Hot module replacement (HMR) :
 - Importación de archivos
 - Integración simple con TypeScript
 - Optimizacion para produccion
