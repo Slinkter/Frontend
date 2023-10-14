@@ -63,3 +63,18 @@ el contenido est orgnizado por paginas (pagina de ventas de productos / e-commer
 ### Scrrol infinito ,
 
 todo los productos carga en una "sola pagina",la navegacion es adicitiva . carga de mas contenido (instagrama) . no se recomienda usar footer.
+
+## Clase 14/20 : Local Storage vs. API real
+
+### local Storage
+
+es mucho mas rapido de que una API
+el navegador debe soportear LocalStorage.
+es un almacenamiento local en el navegador
+No tiene authentication
+No recuperar sesesion
+No token , no apikey ,no datos privados (malas practicas) . se recomienda session-storage o una API.
+
+### Api Real
+
+permite recuperar la sesion y datos privados
