@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: grid;
+  /* grid-template-columns: repeat(5, 20px);
+  grid-template-rows: repeat(5, 20px); */
+  grid-template: repeat(5, 50px) / repeat(5, 50px);
+  gap: 5px;
+  border: 1px solid red;
+  justify-content: center;
+}
+
+/* Clase 20 */
+
+.contanier {
+  display: grid;
+  grid-template: repeat(2, 100px) / repeat(2, 100px);
+  grid-auto-flow: column; /* Agrega automaticamente columnas */
+  grid-auto-flow: row; /* Agrega automaticamente Filas */
+  grid-auto-columns: 100px; /* Define el tamaño de columnasx que se agregaran automaticamente*/
+  grid-auto-rows: 100px; /* Define el tamaño de las filas que se agregaran automaticamente */
+}

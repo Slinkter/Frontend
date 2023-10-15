@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 60px;
+  height: 60px;
+  background-color: aquamarine;
+}
+.item:nth-child(1) {
+  background-color: rgb(128, 0, 126);
+  /* 
+  justify-self: stretch;
+  justify-self: start;
+  justify-self: center;
+  justify-self: end;
+   */
+  align-self: center;
+  justify-self: stretch;
+  /* place-self: center stretch; */
+}
+
+.item:not(:nth-child(1)) {
+  background-color: teal;
+}
