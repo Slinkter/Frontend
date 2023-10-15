@@ -1,7 +1,7 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
   scroll-behavior: smooth;
 }
 
@@ -13,23 +13,23 @@
   font-family: monospace;
 }
 
-.ulnav {
+.container {
   margin-top: 30px;
   /*   list-style-type: none; */
 }
 
-.ulnav li {
+.container li {
   display: inline-block;
-  margin: 5px;
+  margin: 15px;
 }
 
-.ulnav a {
+.container a {
   background-color: #13a4a4;
   color: white;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
-.ulnav .blog {
+.container .blog {
   background-color: purple;
 }

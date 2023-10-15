@@ -6,7 +6,7 @@
 }
 
 body {
-  margin: 40px;
+  margin: 10px;
 }
 .clasetrescero h2 + p {
   color: red;
