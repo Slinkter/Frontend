@@ -1,6 +1,6 @@
 * {
-  box-sizing: border-box;
   margin: 0px; /* espacio externo */
+  box-sizing: border-box;
   padding: 0px; /* espacio interno */
 }
 
@@ -10,6 +10,7 @@
   flex-direction: row;
   justify-content: space-around;
   background-color: #13a4a4;
+  height: 20px;
 }
 .main-nav__item {
   display: inline-block;

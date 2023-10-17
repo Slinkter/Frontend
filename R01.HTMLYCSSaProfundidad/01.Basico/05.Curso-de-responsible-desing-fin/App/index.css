@@ -11,9 +11,10 @@
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
+  box-sizing: border-box;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 html {
