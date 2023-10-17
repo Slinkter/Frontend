@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -16,8 +17,7 @@ main {
 
 section {
   margin: 0 auto;
-  /*   width: 80%; */
-  min-width: 100px; /* base */
-  max-width: 800px; /* crecimeinto maximo */
+  min-width: 200px; /* base */
+  max-width: 600px; /* crecimeinto maximo */
   background-color: red;
 }

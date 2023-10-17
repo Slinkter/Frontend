@@ -1,12 +1,14 @@
 * {
   padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
 .block-element {
   background-color: green;
   margin: 10px;
+  border: 1px solid black;
   padding: 20px;
 }
 

@@ -1,7 +1,8 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -14,21 +15,20 @@ body {
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  border: dotted 0.3rem gray;
+  border: dotted 1rem gray;
 }
 
 .box {
   height: 20rem;
   width: 20rem;
-  flex-basis: 20rem;
+  /*  */
   flex-grow: 1;
+  flex-basis: 20rem;
 }
 
 .box:hover {
-  flex-basis: 5rem;
+  background-color: rgb(7, 7, 7);
+  flex-basis: 20rem;
 }
 .box1 {
   background-color: rgb(255, 0, 0);
