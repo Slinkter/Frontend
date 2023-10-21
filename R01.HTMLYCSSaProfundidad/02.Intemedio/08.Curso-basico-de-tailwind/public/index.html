@@ -4,15 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/css/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Montserrat&family=Red+Hat+Display:wght@400;500&family=Roboto:wght@400;700&display=swap"
+    />
     <title>TravelPage</title>
   </head>
   <body>
-    <p>hello tailwind</p>
-    <div class="w-96 h-96 bg-gray-400 p-10 m-20 flex flex-col space-y-4">
-      <div class="w-16 h-16 bg-red-300"></div>
-      <div class="w-16 h-16 bg-red-300"></div>
-      <div class="w-16 h-16 bg-red-300"></div>
-      <div class="w-16 h-16 bg-red-300"></div>
-    </div>
+    <nav></nav>
+    <div id="tab_bar"></div>
+    <section class="w-full h-screen">
+      <div id="home">
+        <div class="w-full h-full">
+          <div
+            class="flex flex-col justify-between items-center h-screen bg-cover bg-center bg-no-repeat bg-sanFrancisco"
+          >
+            <input
+              class="outline-none p-3 mt-6 rounded-full shadow-sm transition duration-300 focus-within:shadow-sm focus:ring-2 focus:w-11/12"
+              placeholder="San Francisco"
+              type="search"
+            />
+            <button
+              class="w-48 mb-6 rounded-full text-lg text-principal shadow-sm font-semibold p-4 bg-white transition-all duration-500 ease-in-out hover:bg-principal hover:text-white transform hover:-translate-y-1 hover:scale-110 text-primary"
+            >
+              Explore
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-6" id="recomendados">
+        <p class="text-3xl font-semibold text-primary">Recomendados</p>
+        <div
+          class="w-auto h-72 items-center mt-6 overflow-x-auto overscroll-x-contain flex space-x-4"
+        >
+          <div class="Card">
+            <div class="w-full h-3/5 bg-norway bg-cover rounded-t-lg"></div>
+            <div class="w-full h-2/5 bg-white rounded-b-lg">
+              <p class="text-tertiary font-bold text-xl px-4 py-2">Norway</p>
+              <p class="text-tertiary text-md px-4">paisajes Increibles</p>
+            </div>
+          </div>
+          <div class="Card">
+            <div class="w-full h-3/5 bg-new_york bg-cover rounded-t-lg"></div>
+            <div class="w-full h-2/5 bg-white rounded-b-lg">
+              <p class="text-tertiary font-bold text-xl px-4 py-2">New York</p>
+              <p class="text-tertiary text-md px-4">paisajes Increibles</p>
+            </div>
+          </div>
+          <div class="Card">
+            <div class="w-full h-3/5 bg-seattle bg-cover rounded-t-lg"></div>
+            <div class="w-full h-2/5 bg-white rounded-b-lg">
+              <p class="text-tertiary font-bold text-xl px-4 py-2">Seattle</p>
+              <p class="text-tertiary text-md px-4">paisajes Increibles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="rentas_destacadas"></div>
+    </section>
+    <footer></footer>
   </body>
 </html>

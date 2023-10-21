@@ -56,6 +56,8 @@ https://tailwindcss.com/docs/installation
   plugins: [],
   }
 
+  npm run dev
+
 ## Clase 6/29 :Directivas de Tailwind
 
 “Las directivas son reglas personalizadas específicas de Tailwind que puedes utilizar en tu CSS y que ofrecen funcionalidades especiales para proyectos de Tailwind CSS.”
@@ -78,3 +80,19 @@ breakpoing : cambia la pantalla de layout - 320px : movil - 768px : table - 1280
 modelo de layout que funciona con respecto al eje x y eje y
 
 grid : modelo de layout que funciona como una cuadriculla de filas y columnas , para usar en area o secciones
+
+## Clase 11/29 :Flex box y Grid
+
+// instalacion
+
+npm install -D @tailwindcss/forms
+npm install -D @tailwindcss/typography
+npm install -D @tailwindcss/aspect-ratio
+
+// uso -> tailwind.config.js:
+
+plugins: [
+require('@tailwindcss/aspect-ratio'),
+require("@tailwindcss/forms"),
+require("@tailwindcss/typography"),
+],
