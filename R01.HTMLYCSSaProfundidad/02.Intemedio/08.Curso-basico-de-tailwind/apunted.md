@@ -96,3 +96,5 @@ require('@tailwindcss/aspect-ratio'),
 require("@tailwindcss/forms"),
 require("@tailwindcss/typography"),
 ],
+
+## Clase 20/29 :

@@ -12,7 +12,7 @@
     />
     <title>TravelPage</title>
   </head>
-  <body>
+  <body class="font-Montserrat">
     <nav></nav>
     <div id="tab_bar"></div>
     <section class="w-full h-screen">
@@ -22,12 +22,12 @@
             class="flex flex-col justify-between items-center h-screen bg-cover bg-center bg-no-repeat bg-sanFrancisco"
           >
             <input
-              class="outline-none p-3 mt-6 rounded-full shadow-sm transition duration-300 focus-within:shadow-sm focus:ring-2 focus:w-11/12"
+              class="outline-none p-3 mt-6 rounded-full shadow-sm transition-all duration-500 focus-within:shadow-sm focus:right-3 focus:w-11/12"
               placeholder="San Francisco"
               type="search"
             />
             <button
-              class="w-48 mb-6 rounded-full text-lg text-principal shadow-sm font-semibold p-4 bg-white transition-all duration-500 ease-in-out hover:bg-principal hover:text-white transform hover:-translate-y-1 hover:scale-110 text-primary"
+              class="w-48 mb-6 rounded-full text-lg text-principal shadow-sm font-semibold p-4 bg-white hover:bg-principal hover:text-white text-primary transition-all duration-500 ease-in-out hover:bg-primary hover:color:text-primary transform hover:-translate-y-1 hover:scale-110"
             >
               Explore
             </button>
@@ -37,7 +37,7 @@
       <div class="p-6" id="recomendados">
         <p class="text-3xl font-semibold text-primary">Recomendados</p>
         <div
-          class="w-auto h-72 items-center mt-6 overflow-x-auto overscroll-x-contain flex space-x-4"
+          class="w-auto h-72 items-center mt-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden"
         >
           <div class="Card">
             <div class="w-full h-3/5 bg-norway bg-cover rounded-t-lg"></div>
@@ -62,7 +62,82 @@
           </div>
         </div>
       </div>
-      <div id="rentas_destacadas"></div>
+      <div class="px-6 h-full w-full" id="rentas_destacadas">
+        <p class="text-3xl text-primary font-semibold pb-6 mt-2">
+          Rentas Destacada
+        </p>
+        <div
+          class="w-full h-full flex flex-col space-y-6 items-center justify-center"
+        >
+          <div class="w-full h-96 bg-chicago bg-cover rounded-xl">
+            <p class="CardTitle">Chicago</p>
+            <p class="text-md pl-8 text-white mr-24">
+              habiacion ,baño y cocina
+            </p>
+          </div>
+          <div class="w-full h-96 bg-chicago bg-cover rounded-xl">
+            <p class="CardTitle">Chicago</p>
+            <p class="text-md pl-8 text-white mr-24">
+              habiacion ,baño y cocina
+            </p>
+          </div>
+          <div class="w-full h-96 bg-chicago bg-cover rounded-xl">
+            <p class="CardTitle">Chicago</p>
+            <p class="text-md pl-8 text-white mr-24">
+              habiacion ,baño y cocina
+            </p>
+          </div>
+          <div class="w-full h-96 bg-chicago bg-cover rounded-xl">
+            <p class="CardTitle">Chicago</p>
+            <p class="text-md pl-8 text-white mr-24">
+              habiacion ,baño y cocina
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-6 w-full h-full" id="faqs">
+        <div class="w-full h-full flex flex-col space-y-4">
+          <p class="text-3xl text-primary font-semibold mt-6">FAQs</p>
+          <div>
+            <p class="text-xl font-semibold text-primary">
+              Política de Cancelación
+            </p>
+            <p class="font-medium pt-2">
+              Para estancias menores a una semana es importante avisar con 3
+              días de anticipación, de caso contario será sancionado.
+            </p>
+          </div>
+          <div>
+            <p class="text-xl font-semibold text-primary">Métodos de pago</p>
+            <p class="font-medium pt-2">
+              Aceptamos distintos métodos de pago: VISA, MasterCard, American
+              Express, Paypal y Binance.
+            </p>
+          </div>
+          <div>
+            <p class="text-xl font-semibold text-primary">Mascotas</p>
+            <p class="font-medium pt-2">
+              El tema de las mascotas dependerá directamente del anfitrión.
+            </p>
+          </div>
+          <div>
+            <p class="text-xl font-semibold text-primary">
+              Información de Seguridad
+            </p>
+            <p class="font-medium pt-2">
+              Todas nuestras estancias cuentan con seguro en caso de accidentes.
+            </p>
+          </div>
+          <div>
+            <p class="text-xl font-semibold text-primary">Estancias Largas</p>
+            <p class="font-medium pt-2">
+              Contamos con estancias de hasta 3 meses, en este caso es requerido
+              un anticipo con un monto del 50% del valor de la renta.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
     <footer></footer>
   </body>
