@@ -2,6 +2,14 @@ https://github.com/aleroses/Platzi/blob/master/DW/1-basico/23.tailwind-2-y-3-bas
 
 ## Clase 1 /29
 
+### Repositorio de profe
+
+https://github.com/platzi/PlatziTravel
+
+### Repositorio de otro
+
+https://github.com/luisAriza/travel-page
+
 Desarrolo frameword CSS
 100 % responsive movil
 
