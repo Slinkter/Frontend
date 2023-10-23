@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        background-color: gray;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+      }
+      .phone {
+        position: relative;
+        border: 8px solid black;
+        border-radius: 40px;
+        height: 600px;
+        width: 300px;
+        background-color: #ccefff;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.31),
+          0 15px 12px rgba(0, 0, 0, 0.22);
+      }
+      .layer-1 {
+        position: absolute;
+        z-index: 1;
+        height: 450px;
+        width: 80px;
+        background-color: white;
+        bottom: 0;
+        right: 60px;
+      }
+      .layer-2 {
+        position: absolute;
+        z-index: 2;
+        height: 450px;
+        width: 80px;
+        background-color: white;
+        bottom: 0;
+        left: 60px;
+      }
+      .layer-3 {
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 220px;
+        height: 400px;
+        background-color: wheat;
+        bottom: 0;
+      }
+      .layer-4 {
+        position: absolute;
+        z-index: 4;
+      }
+      .layer-5 {
+        position: absolute;
+        z-index: 5;
+      }
+      .layer-6 {
+        position: absolute;
+        z-index: 6;
+      }
+      .layer-7 {
+        position: absolute;
+        z-index: 7;
+      }
+      .layer-8 {
+        position: absolute;
+        z-index: 8;
+      }
+      .layer-9 {
+        position: absolute;
+        z-index: 9;
+      }
+      .layer-10 {
+        position: absolute;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="phone">
+      <div class="layer-1"></div>
+      <div class="layer-2"></div>
+      <div class="layer-3"></div>
+      <div class="layer-4"></div>
+      <div class="layer-5"></div>
+      <div class="layer-6"></div>
+      <div class="layer-7"></div>
+      <div class="layer-8"></div>
+      <div class="layer-9">9</div>
+      <div class="layer-10">10</div>
+    </div>
+  </body>
+</html>

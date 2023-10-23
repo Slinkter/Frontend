@@ -2,6 +2,14 @@ https://github.com/aleroses/Platzi/blob/master/DW/1-basico/23.tailwind-2-y-3-bas
 
 ## Clase 1 /29
 
+### Repositorio de profe
+
+https://github.com/platzi/PlatziTravel
+
+### Repositorio de otro
+
+https://github.com/luisAriza/travel-page
+
 Desarrolo frameword CSS
 100 % responsive movil
 
@@ -56,6 +64,8 @@ https://tailwindcss.com/docs/installation
   plugins: [],
   }
 
+  npm run dev
+
 ## Clase 6/29 :Directivas de Tailwind
 
 “Las directivas son reglas personalizadas específicas de Tailwind que puedes utilizar en tu CSS y que ofrecen funcionalidades especiales para proyectos de Tailwind CSS.”
@@ -78,3 +88,21 @@ breakpoing : cambia la pantalla de layout - 320px : movil - 768px : table - 1280
 modelo de layout que funciona con respecto al eje x y eje y
 
 grid : modelo de layout que funciona como una cuadriculla de filas y columnas , para usar en area o secciones
+
+## Clase 11/29 :Flex box y Grid
+
+// instalacion
+
+npm install -D @tailwindcss/forms
+npm install -D @tailwindcss/typography
+npm install -D @tailwindcss/aspect-ratio
+
+// uso -> tailwind.config.js:
+
+plugins: [
+require('@tailwindcss/aspect-ratio'),
+require("@tailwindcss/forms"),
+require("@tailwindcss/typography"),
+],
+
+## Clase 20/29 :
