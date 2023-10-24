@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  purge: ["./public/**/*.html"],
+  darkMode: "class",
   content: ["./public/index.html", "./src/**/*.{html,js}"],
   theme: {
     fontFamily: {
@@ -58,3 +60,6 @@ module.exports = {
     require("@tailwindcss/typography"),
   ],
 };
+
+// clase 27/29
+//npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/tailwind.css --minify
