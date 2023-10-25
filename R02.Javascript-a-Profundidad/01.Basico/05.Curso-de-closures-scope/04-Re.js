@@ -1,5 +1,5 @@
-var firstName; // valor : undefined
-firstName = "liam";
+var firstName; // firstName : undefined
+firstName = "liam"; // firstName : "liam"
 console.log(firstName);
 
 var lastName = "cave"; //declaracion y asginacion

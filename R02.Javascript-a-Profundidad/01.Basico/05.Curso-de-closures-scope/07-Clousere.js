@@ -8,4 +8,3 @@ function greeting() {
 
 const g = greeting();
 console.log(g);
-console.log(g());
