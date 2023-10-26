@@ -2,12 +2,11 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-   <img src="./images/112-book-morph-linealtrans.gif" alt="Logo" width="80" height="80">
+<div align="">
 
-  <h3 align="center"><strong>Curso de ECMAScript: Historia y Versiones de JavaScript</strong></h3>
+  <h3 align=""><strong>Curso de ECMAScript: Historia y Versiones de JavaScript</strong></h3>
  
-  <p align="center">
+  <p align="">
     JavaScript es el lenguaje más utilizado para desarrollo de aplicaciones web, principalmente en el frontend. Cada año, ECMA International publica una nueva edición de ECMAScript, la especificación a la cual se ajusta JavaScript. Aprende las nuevas características que implementa ECMAScript desde la versión ES6 hasta la versión ES13
 
 </div>
