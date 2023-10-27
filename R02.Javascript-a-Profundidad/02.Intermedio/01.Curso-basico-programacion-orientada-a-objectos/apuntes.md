@@ -23,6 +23,32 @@ Afirmaciones :
 
 ## c3 : Bonus: fútbol y programación orientada a objetos
 
+- Clase :
+  - Atributos : propiedades del Objecto
+  - Metodos : Acciones del Objecto
+- Objecto :
+  - Es la base de la POO
+  - Los objectos son la instancias de las clases
+  - la clase son el molde(planilla) de los objetos
+- Herencias
+  - Crear nuevas clases a partir de otras clases (caracteristicas iguales)
+- Encapsulamiento : oculatar algo
+- Polimorfismo :muchas formas, mensaje personalizados a cada objeto .
+
 ## c4 : Qué es un objeto en JavaScript
 
-objecto literales != instancias
+Se llama objeto a:
+
+    - Los Objetos literales : son utilizados para almacenar y organizar datos en pares clave-valor.
+
+    -Los Prototipos, son objetos a partir de los cuales se crean otros objetos, son como una especie de plantilla o molde.
+
+    -Las Instancias, son objetos que han sido creados a partir de un prototipo.
+
+    -Los Arrays, son objetos especiales que almacenan datos de manera ordenada.
+
+    -El Prototipo Object(), es un prototipo por defecto que viene incluido en JS.
+
+## c5 : Objetos literales y prototipos en JavaScript
+
+codgio
