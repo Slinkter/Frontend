@@ -52,3 +52,16 @@ Se llama objeto a:
 ## c5 : Objetos literales y prototipos en JavaScript
 
 codgio
+
+## c9/20 : Qué es abstracción
+
+abstracion de algo que se repite (una clase)
+
+## c11/20 : Que es encapsulamiento
+
+    * limitar el acceso a nuestros atributos y propiedades en los prototipos y objectos.
+    * analogia : Banco-Personas.
+    * metodos y atributos privados
+    * no permite la alteracion de metodos y atributos (no sobreescribir)
+
+## c12/20 : Getters y setters en JavaScript
