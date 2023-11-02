@@ -25,5 +25,5 @@ console.log(obj4);
 const stringObj = JSON.stringify(obj1);
 const Objparsed = JSON.parse(stringObj);
 
-console.log(stringObj);
-console.log(Objparsed);
+console.log(stringObj); // omiten  funciones de Obj1
+console.log(Objparsed); //
