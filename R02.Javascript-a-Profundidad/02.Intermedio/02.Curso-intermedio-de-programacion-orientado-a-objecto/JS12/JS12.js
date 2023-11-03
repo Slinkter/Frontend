@@ -59,3 +59,27 @@ const juan = createStudent({
   age: 18,
   twitter: "juanX",
 });
+
+function createLearingPath({ name = requiredParam("name"), courses = [] }) {
+  const private = {
+    _name: name,
+    _courses: courses,
+  };
+  const public = {
+    get name() {
+      return private["_name"];
+    },
+    set name(newName) {
+      if (newName.length != 0) {
+        return private["_name"];
+      } else {
+        console.warn("tu nombre esta vacio");
+      }
+    },
+    get courses() {
+      return private["_courses"];
+    },
+  };
+
+  return public;
+}

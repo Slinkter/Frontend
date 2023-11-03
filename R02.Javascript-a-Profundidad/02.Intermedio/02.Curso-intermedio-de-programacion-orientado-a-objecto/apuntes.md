@@ -104,3 +104,17 @@ codigo
 ## Clase 06 /20 :Shallow copy en JavaScript
 
 codigo
+
+## Clase 15 /20 :Qué es duck typing
+
+- El duck typing es la forma de progamar donde identificamos a nuestros elementos dependiendo de los métodos y atributos que tengan por dentro.
+
+### Cómo funciona el duck typing
+
+- Se deben tener parámetros para saber diferenciar dos cosas, dos personas, dos elementos, etc. Si queremos determinar quién es quién, se debe mirar por sus atributos y métodos, aunque puede haber el caso en el que haya elementos parecidos que también se deben diferenciar (impostores), es cuando más detalle se debe poner en identificar qué los compone.
+
+- El nombre proviene de la frase:
+
+Si parece un pato y grazna como un pato, es un pato.
+
+En otras palabras, tiene que cumplir con ciertos métodos y atributos para considerarse alguna cosa.
