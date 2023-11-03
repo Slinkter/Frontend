@@ -1,549 +1,568 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap");
 
-  :root {
-    --blue: #016fb9;
-    --red: #cf1212;
-    --yellow: #ffd602;
-  }
-
-  body {
-    font-family: 'Lato', sans-serif;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .page {
-    height: 100%;
-    position: relative;
-    width: 100%;
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: 55% 45%;
-    grid-template-rows: 20% 50% 30%;
-    grid-template-areas: "nav     aside"
-                         "section aside"
-                         "footer  aside";
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-
-  /* NAVBAR */
-
-  .navbar {
-    /* background: pink; */
-    grid-area: nav;
-  }
-
-  .navbar__content {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    height: 100%;
-    padding: 0 0 0 80px;
-    width: 100%;
-
-    animation: 2s navbar 0.5s ease-in-out;
-  }
-
-  @keyframes navbar {
-    0% {
-      transform: translateY(-200px);
+    :root {
+      --blue: #016fb9;
+      --red: #cf1212;
+      --yellow: #ffd602;
     }
-    100% {
-      transform: translateY(0px);
+
+    body {
+      font-family: "Lato", sans-serif;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
     }
-  }
 
-  .navbar__content img {
-    width: 50px;
-  }
-
-  .navbar__content ul {
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-    padding: 0;
-    width: 450px;
-  }
-
-  .navbar__content ul li a {
-    color: var(--red);
-    font-weight: 300;
-    text-decoration: none;
-  }
-
-  /* MAIN CONTENT */
-
-  .main-content {
-    /* background: hotpink; */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    grid-area: section;
-    justify-content: center;
-    padding-left: 80px;
-
-    animation: 2s main-content 0.5s ease-in-out;
-  }
-
-  @keyframes main-content {
-    0% {
-      transform: translateX(-600px);
+    .page {
+      height: 100%;
+      position: relative;
+      width: 100%;
     }
-    100% {
-      transform: translateX(0px);
+
+    .container {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      grid-template-rows: 20% 50% 30%;
+      grid-template-areas:
+        "nav     aside"
+        "section aside"
+        "footer  aside";
+      height: 100%;
+      position: absolute;
+      width: 100%;
     }
-  }
 
-  .main-content p:first-child {
-    font-size: 36px;
-    font-weight: 300;
-    margin: 0 0 -14px 44px;
-  }
+    /* NAVBAR */
 
-  .main-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin: 0 0 28px 0;
-  }
+    .navbar {
+      /* background: pink; */
+      grid-area: nav;
+    }
 
-  .main-content p:last-child {
-    font-weight: 100;
-    margin: 0;
-    width: 60%;
-  }
+    .navbar__content {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      height: 100%;
+      padding: 0 0 0 80px;
+      width: 100%;
 
-  /* SIDE CONTENT */
+      animation: 2s navbar 0.5s ease-in-out;
+    }
 
-  .side-content {
-    align-items: center;
-    /* background: papayawhip; */
-    display: grid;
-    grid-area: aside;
-    grid-template-columns: repeat(6, 1fr);
-  }
+    @keyframes navbar {
+      0% {
+        transform: translateY(-200px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
 
-  .side-content p {
-    align-self: center;
-    font-size: 36px;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    height: 50px;
-    opacity: 0;
-    transform: rotate(-90deg);
-    z-index: 1;
+    .navbar__content img {
+      width: 50px;
+    }
 
-    animation-name: side-content-text;
-    animation-duration: 0.5s;
-    animation-delay: 2.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
+    .navbar__content ul {
+      display: flex;
+      justify-content: space-evenly;
+      list-style: none;
+      padding: 0;
+      width: 450px;
+    }
 
-  @keyframes side-content-text {
-    0% {
+    .navbar__content ul li a {
+      color: var(--red);
+      font-weight: 300;
+      text-decoration: none;
+    }
+
+    /* MAIN CONTENT */
+
+    .main-content {
+      /* background: hotpink; */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      grid-area: section;
+      justify-content: center;
+      padding-left: 80px;
+
+      animation: 2s main-content 0.5s ease-in-out;
+    }
+
+    @keyframes main-content {
+      0% {
+        transform: translateX(-600px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+    .main-content p:first-child {
+      font-size: 36px;
+      font-weight: 300;
+      margin: 0 0 -14px 44px;
+    }
+
+    .main-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 0 28px 0;
+    }
+
+    .main-content p:last-child {
+      font-weight: 100;
+      margin: 0;
+      width: 60%;
+    }
+
+    /* SIDE CONTENT */
+
+    .side-content {
+      align-items: center;
+      /* background: papayawhip; */
+      display: grid;
+      grid-area: aside;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .side-content p {
+      align-self: center;
+      font-size: 36px;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      height: 50px;
       opacity: 0;
+      transform: rotate(-90deg);
+      z-index: 1;
+
+      animation-name: side-content-text;
+      animation-duration: 0.5s;
+      animation-delay: 2.5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
-    100% {
-      opacity: 1;
+
+    @keyframes side-content-text {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
-  }
 
-  .side-content img {
-    box-sizing: border-box;
-    grid-column: 2 / 6;
-    grid-row: 1 / 2;
-    padding: 20px;
-    width: 100%;
-    z-index: 2;
+    .side-content img {
+      box-sizing: border-box;
+      grid-column: 2 / 6;
+      grid-row: 1 / 2;
+      padding: 20px;
+      width: 100%;
+      z-index: 2;
 
-    animation: 2s side-content-img 0.5s ease-in-out;
-  }
-
-  @keyframes side-content-img {
-    0% {
-      transform: translateX(600px);
+      animation: 2s side-content-img 0.5s ease-in-out;
     }
-    100% {
-      transform: translateX(0px);
+
+    @keyframes side-content-img {
+      0% {
+        transform: translateX(600px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
     }
-  }
 
-  .side-content div {
-    background: var(--yellow);
-    grid-column: 4 / 7;
-    grid-row: 1 / 2;
-    height: 100%;
-    z-index: 1;
-  }
+    .side-content div {
+      background: var(--yellow);
+      grid-column: 4 / 7;
+      grid-row: 1 / 2;
+      height: 100%;
+      z-index: 1;
+    }
 
-  /* FOOTER */
+    /* FOOTER */
 
-  .footer {
-    align-items: flex-end;
-    /* background: lightgoldenrodyellow; */
-    background: var(--yellow);
-    border-radius: 0 80px 0 0;
-    display: flex;
-    grid-area: footer;
-    justify-content: space-evenly;
-    transform: translateY(100%);
-
-    animation-name: footer;
-    animation-duration: 0.5s;
-    animation-delay: 2.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes footer {
-    0% {
+    .footer {
+      align-items: flex-end;
+      /* background: lightgoldenrodyellow; */
+      background: var(--yellow);
+      border-radius: 0 80px 0 0;
+      display: flex;
+      grid-area: footer;
+      justify-content: space-evenly;
       transform: translateY(100%);
+
+      animation-name: footer;
+      animation-duration: 0.5s;
+      animation-delay: 2.5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
-    100% {
-      transform: translateY(0px);
+
+    @keyframes footer {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0px);
+      }
     }
-  }
 
-  .footer div {
-    /* background: lightcoral; */
-    background: var(--blue);
-    border-radius: 20px 20px 0 0;
-    display: flex;
-    height: 50%;
-    justify-content: center;
-    position: relative;
-    width: 130px;
-  }
+    .footer div {
+      /* background: lightcoral; */
+      background: var(--blue);
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      height: 50%;
+      justify-content: center;
+      position: relative;
+      width: 130px;
+    }
 
-  .footer div:hover img {
-    cursor: pointer;
-    transform: translateY(-20px) scale(1.1);
-    transition: transform 0.3s ease-in-out;
-  }
+    .footer div:hover img {
+      cursor: pointer;
+      transform: translateY(-20px) scale(1.1);
+      transition: transform 0.3s ease-in-out;
+    }
 
-  .footer div:nth-child(1) {
-    transform: translateY(200px);
-
-    animation-name: footer-child;
-    animation-duration: 0.5s;
-    animation-delay: 3s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
-  .footer div:nth-child(2) {
-    transform: translateY(200px);
-
-    animation-name: footer-child;
-    animation-duration: 0.5s;
-    animation-delay: 3.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
-  .footer div:nth-child(3) {
-    transform: translateY(200px);
-
-    animation-name: footer-child;
-    animation-duration: 0.5s;
-    animation-delay: 4s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes footer-child {
-    0% {
+    .footer div:nth-child(1) {
       transform: translateY(200px);
+
+      animation-name: footer-child;
+      animation-duration: 0.5s;
+      animation-delay: 3s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
-    100% {
-      transform: translateY(0px);
+
+    .footer div:nth-child(2) {
+      transform: translateY(200px);
+
+      animation-name: footer-child;
+      animation-duration: 0.5s;
+      animation-delay: 3.5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
-  }
 
-  .footer div img {
-    bottom: 30px;
-    position: absolute;
-    width: 160px;
+    .footer div:nth-child(3) {
+      transform: translateY(200px);
 
-    transform: translateY(0px) scale(1);
-    transition: transform 0.5s ease-in-out;
-  }
-
-  /* LOADER */
-
-  .loader {
-    align-items: center;
-    /* background: pink; */
-    background: white;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    z-index: 3;
-
-    animation: loader 2s linear forwards;
-  }
-
-  @keyframes loader {
-    0% {
-      opacity: 1;
-      visibility: visible;
+      animation-name: footer-child;
+      animation-duration: 0.5s;
+      animation-delay: 4s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
-    95% {
-      opacity: 1;
-      visibility: visible;
+
+    @keyframes footer-child {
+      0% {
+        transform: translateY(200px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
     }
-    100% {
-      opacity: 0;
+
+    .footer div img {
+      bottom: 30px;
+      position: absolute;
+      width: 160px;
+
+      transform: translateY(0px) scale(1);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* LOADER */
+
+    .loader {
+      align-items: center;
+      /* background: pink; */
+      background: white;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      z-index: 3;
+
+      animation: loader 2s linear forwards;
+    }
+
+    @keyframes loader {
+      0% {
+        opacity: 1;
+        visibility: visible;
+      }
+      95% {
+        opacity: 1;
+        visibility: visible;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .loader div {
+      background-color: var(--yellow);
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      margin: 10px;
+
+      transform: scale(0);
+
+      animation: scaling 2s ease-in-out infinite;
+    }
+
+    @keyframes scaling {
+      0%,
+      100% {
+        transform: scale(0.2);
+      }
+      40% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1);
+      }
+    }
+
+    .loader div:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .loader div:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .loader div:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    /* MODAL */
+
+    .hidden {
+      display: none !important;
+    }
+
+    .visible {
+      display: grid !important;
+    }
+
+    .modal {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 4;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .modal-content {
+      align-items: center;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 50%;
+      position: relative;
+      width: 40%;
+    }
+
+    .modal-content__close {
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .modal-content__button {
+      background: var(--red);
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+      padding: 20px;
+      width: 240px;
+    }
+
+    /* CAROUSEL */
+
+    .modal-content__slider {
+      width: 300px;
+      height: 200px;
+      transform-style: preserve-3d;
+      margin-bottom: 60px;
+    }
+
+    .modal-content__slider input {
       visibility: hidden;
     }
-  }
 
-  .loader div {
-    background-color: var(--yellow);
-    border-radius: 50%;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    margin: 10px;
-
-    transform: scale(0);
-
-    animation: scaling 2s ease-in-out infinite;
-  }
-
-  @keyframes scaling {
-    0%, 100% {
-      transform: scale(0.2);
+    .cards {
+      position: relative;
+      width: 100%;
+      height: 100%;
     }
-    40% {
-      transform: scale(1);
+
+    .card {
+      background: var(--yellow);
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+
+      display: grid;
+      place-items: center;
     }
-    50% {
-      transform: scale(1);
+
+    .card img {
+      width: 100%;
     }
-  }
 
-  .loader div:nth-child(1){
-    animation-delay: 0.2s;
-  }
-  .loader div:nth-child(2){
-    animation-delay: 0.4s;
-  }
-  .loader div:nth-child(3){
-    animation-delay: 0.6s;
-  }
+    #radio-1:checked ~ .cards #card-1,
+    #radio-2:checked ~ .cards #card-2,
+    #radio-3:checked ~ .cards #card-3 {
+      transform: translatex(0) scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
 
-  /* MODAL */
+    #radio-1:checked ~ .cards #card-2,
+    #radio-2:checked ~ .cards #card-3,
+    #radio-3:checked ~ .cards #card-1 {
+      transform: translatex(40%) scale(0.8);
+      opacity: 0.5;
+      z-index: 0;
+    }
 
-  .hidden {
-    display: none !important;
-  }
+    #radio-1:checked ~ .cards #card-3,
+    #radio-2:checked ~ .cards #card-1,
+    #radio-3:checked ~ .cards #card-2 {
+      transform: translatex(-40%) scale(0.8);
+      opacity: 0.5;
+      z-index: 0;
+    }
+  </style>
+  <body>
+    <div class="page">
+      <section class="container">
+        <nav class="navbar">
+          <div class="navbar__content">
+            <img src="https://i.ibb.co/MMmDPXN/lego.png" alt="Logo" />
+            <ul>
+              <li><a href="/">EXCLUSIVOS</a></li>
+              <li><a href="/">NUEVOS</a></li>
+              <li><a href="/">GIFT CARDS</a></li>
+              <li><a href="/">FIND A STORE</a></li>
+            </ul>
+          </div>
+        </nav>
+        <section class="main-content">
+          <p>Diseña tu</p>
+          <h1>Súper Héroe!</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book
+          </p>
+        </section>
+        <aside class="side-content">
+          <p>Superman</p>
+          <img src="https://i.ibb.co/x16pz1x/super-man.png" alt="Mocha" />
+          <div></div>
+        </aside>
+        <footer class="footer">
+          <div id="button1">
+            <img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="Mocha" />
+          </div>
+          <div id="button2">
+            <img src="https://i.ibb.co/Xzsdvgg/robin.png" alt="Mocha" />
+          </div>
+          <div id="button3">
+            <img src="https://i.ibb.co/M18p91c/batman.webp" alt="Mocha" />
+          </div>
+        </footer>
+      </section>
 
-  .visible {
-    display: grid !important;
-  }
+      <section class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </section>
 
-  .modal {
-    background: rgba(0, 0, 0, 0.5);
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: 4;
+      <section class="modal hidden">
+        <div class="modal-content">
+          <img
+            class="modal-content__close"
+            src="https://img.icons8.com/windows/32/000000/macos-close.png"
+            alt="ícono de cerrar"
+          />
+          <div class="modal-content__slider">
+            <input type="radio" name="slider-1" id="radio-1" checked />
+            <input type="radio" name="slider-1" id="radio-2" />
+            <input type="radio" name="slider-1" id="radio-3" />
+            <div class="cards">
+              <label class="card" for="radio-1" id="card-1">
+                <img
+                  src="https://static.wikia.nocookie.net/lego-marvelsuperheroes/images/5/52/Spider-Man.png/revision/latest/top-crop/width/360/height/450?cb=20180724193709"
+                  alt
+                />
+              </label>
+              <label class="card" for="radio-2" id="card-2">
+                <img
+                  src="https://i.pinimg.com/originals/a6/57/24/a6572497d91badc608615e399fdc3444.png"
+                  alt
+                />
+              </label>
+              <label class="card" for="radio-3" id="card-3">
+                <img
+                  src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/46694fc5-76fc-4293-9b54-3038569ae18d/de1ddmr-fe1cfbf1-11bd-4a43-9fa6-29094ef976e6.png/v1/fill/w_501,h_545,strp/lego_spider_man__gr_verse__by_jeageruzumaki_de1ddmr-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD01NDUiLCJwYXRoIjoiXC9mXC80NjY5NGZjNS03NmZjLTQyOTMtOWI1NC0zMDM4NTY5YWUxOGRcL2RlMWRkbXItZmUxY2ZiZjEtMTFiZC00YTQzLTlmYTYtMjkwOTRlZjk3NmU2LnBuZyIsIndpZHRoIjoiPD01MDEifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.AcRterl9A5yjbM5zbttem4hy9PsbfFh9Mio9TVuM47Q"
+                  alt
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <button class="modal-content__button">Lo quiero!</button>
+      </section>
+    </div>
+  </body>
+  <script>
+    const modal = document.querySelector(".modal");
+    const closeIcon = document.querySelector(".modal-content__close");
 
-    display: grid;
-    place-items: center;
-  }
+    const button1 = document.querySelector("#button1");
+    const button2 = document.querySelector("#button2");
+    const button3 = document.querySelector("#button3");
 
-  .modal-content {
-    align-items: center;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 50%;
-    position: relative;
-    width: 40%;
-  }
+    button1.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+      modal.classList.add("visible");
+    });
 
-  .modal-content__close {
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  .modal-content__button {
-    background: var(--red);
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 20px;
-    width: 240px;
-  }
-
-  /* CAROUSEL */
-
-  .modal-content__slider {
-    width: 300px;
-    height: 200px;
-    transform-style: preserve-3d;
-    margin-bottom: 60px;
-  }
-
-  .modal-content__slider input {
-    visibility: hidden;
-  }
-
-  .cards {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .card {
-    background: var(--yellow);
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transition: transform .4s ease;
-    cursor: pointer;
-
-    display: grid;
-    place-items: center;
-  }
-
-  .card img {
-    width: 100%;
-  }
-
-  #radio-1:checked ~ .cards #card-1,
-  #radio-2:checked ~ .cards #card-2,
-  #radio-3:checked ~ .cards #card-3 {
-    transform: translatex(0) scale(1);
-    opacity: 1;
-    z-index: 1;
-  }
-
-  #radio-1:checked ~ .cards #card-2,
-  #radio-2:checked ~ .cards #card-3,
-  #radio-3:checked ~ .cards #card-1 {
-    transform: translatex(40%) scale(0.8);
-    opacity: 0.5;
-    z-index: 0;
-  }
-
-  #radio-1:checked ~ .cards #card-3,
-  #radio-2:checked ~ .cards #card-1,
-  #radio-3:checked ~ .cards #card-2 {
-    transform: translatex(-40%) scale(0.8);
-    opacity: 0.5;
-    z-index: 0;
-  }
-</style>
-<body>
-<div class="page">
-
-<section class="container">
-<nav class="navbar">
-<div class="navbar__content">
-<img src="https://i.ibb.co/MMmDPXN/lego.png" alt="Logo">
-<ul>
-<li><a href="/">EXCLUSIVOS</a></li>
-<li><a href="/">NUEVOS</a></li>
-<li><a href="/">GIFT CARDS</a></li>
-<li><a href="/">FIND A STORE</a></li>
-</ul>
-</div>
-</nav>
-<section class="main-content">
-<p>Diseña tu</p>
-<h1>Súper Héroe!</h1>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-</section>
-<aside class="side-content">
-<p>Superman</p>
-<img src="https://i.ibb.co/x16pz1x/super-man.png" alt="Mocha">
-<div></div>
-</aside>
-<footer class="footer">
-<div id="button1">
-<img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="Mocha">
-</div>
-<div id="button2">
-<img src="https://i.ibb.co/Xzsdvgg/robin.png" alt="Mocha">
-</div>
-<div id="button3">
-<img src="https://i.ibb.co/M18p91c/batman.webp" alt="Mocha">
-</div>
-</footer>
-</section>
-
-<section class="loader">
-<div></div>
-<div></div>
-<div></div>
-</section>
-
-<section class="modal hidden">
-<div class="modal-content">
-<img class="modal-content__close" src="https://img.icons8.com/windows/32/000000/macos-close.png" alt="ícono de cerrar" />
-<div class="modal-content__slider">
-<input type="radio" name="slider-1" id="radio-1" checked>
-<input type="radio" name="slider-1" id="radio-2">
-<input type="radio" name="slider-1" id="radio-3">
-<div class="cards">
-<label class="card" for="radio-1" id="card-1">
-<img src="https://static.wikia.nocookie.net/lego-marvelsuperheroes/images/5/52/Spider-Man.png/revision/latest/top-crop/width/360/height/450?cb=20180724193709" alt>
-</label>
-<label class="card" for="radio-2" id="card-2">
-<img src="https://i.pinimg.com/originals/a6/57/24/a6572497d91badc608615e399fdc3444.png" alt>
-</label>
-<label class="card" for="radio-3" id="card-3">
-<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/46694fc5-76fc-4293-9b54-3038569ae18d/de1ddmr-fe1cfbf1-11bd-4a43-9fa6-29094ef976e6.png/v1/fill/w_501,h_545,strp/lego_spider_man__gr_verse__by_jeageruzumaki_de1ddmr-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD01NDUiLCJwYXRoIjoiXC9mXC80NjY5NGZjNS03NmZjLTQyOTMtOWI1NC0zMDM4NTY5YWUxOGRcL2RlMWRkbXItZmUxY2ZiZjEtMTFiZC00YTQzLTlmYTYtMjkwOTRlZjk3NmU2LnBuZyIsIndpZHRoIjoiPD01MDEifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.AcRterl9A5yjbM5zbttem4hy9PsbfFh9Mio9TVuM47Q" alt>
-</label>
-</div>
-</div>
-<button class="modal-content__button">Lo quiero!</button>
-</section>
-</div>
-</body>
-<script>
-  const modal = document.querySelector('.modal')
-  const closeIcon = document.querySelector('.modal-content__close')
-
-  const button1 = document.querySelector('#button1')
-  const button2 = document.querySelector('#button2')
-  const button3 = document.querySelector('#button3')
-
-  button1.addEventListener('click', () => {
-    modal.classList.remove('hidden')
-    modal.classList.add('visible')
-  })
-
-  closeIcon.addEventListener('click', () => {
-    modal.classList.remove('visible')
-    modal.classList.add('hidden')
-  })
-</script>
+    closeIcon.addEventListener("click", () => {
+      modal.classList.remove("visible");
+      modal.classList.add("hidden");
+    });
+  </script>
 </html>
