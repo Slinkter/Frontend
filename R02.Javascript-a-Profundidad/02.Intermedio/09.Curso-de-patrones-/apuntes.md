@@ -129,3 +129,84 @@ proceso para llegar a resolver un problemas :
     3.Nuevos requerimientos
     4.Planear reutilizar y extender
     5.Repetir
+
+## Clase 09 :
+
+1977 - libro : lenguaje de patrones ciudad y naturales
+1994 - Libro inspirado para crear patrones de diseño
+
+los diseños de de patrones te enseña a pensar estrategias , modelar , expandir tu mente .
+
+los patrones de diseño son aplicado segun el contexto de problemas , los elementos identificados para crear la solucion.
+
+un patron no es un algoritmo
+un patron es resultado y funciones. no existe pasos a seguir. son consideraciones , clases .nos toca detectar las consideracion para implementar el patron de la mejor forma posible (crear un plan)
+un algorito es conjunto de pasos ordenados.
+
+## Clase 10 : Categorias
+
+Patrones Creaciones : proporcionan mecanismos de creación de objetos que incrementan la flexibilidad y la reutilización de código existente.
+
+- Builder
+- Factory Method
+- Singleton
+
+Patrones Estructurales : explican cómo ensamblar objetos y clases en estructuras más grandes a la vez que se mantiene la flexibilidad y eficiencia de la estructura.
+
+- Adapter
+- Decorator
+- Facade
+- Proxy
+
+Patrones de Comportamiento :se encargan de una comunicación efectiva y la asignación de responsabilidades entre objetos.
+
+- Command
+- Iterator
+- Observer
+- Strategy
+
+## Clase 11 :
+
+la POO usa muchos de patrones de diseño
+
+POO : Objectos y clases
+
+los objectos son abstraciones del mundo real , tangibles y no tangible
+pero tiene comportamiento y caracteristica.
+
+Pilares de la Poo :
+
+- Abstraccion :
+- Polimorfismo : puede modificar los comportamientos . (corre de naruto)
+- Encapsulacion : comportamiento unicas
+- Herencia : padre-hijo , hereda comportamientos
+
+## Clase 12 : Herencia y composicion
+
+1 : la subclase utiliza metodos de la superclase(estan unidades)
+2 : los metodos publico de la superclases son intefaz y los metodos privados solo funciona internamente y no esta espuestos a la subclase. la subclase puede extender el comportamiento de la superClase ,
+3 : Arbol de clases , se reutiliza codigo para crear clases intermedias .
+
+la Composicion : sobre herencia , se prioriza
+
+una clase depende de otra clase para ser creada . es como una llave foreana
+sql .
+
+La agregacion es muy similar a la composicion
+
+## Clase 13 : Relaciones entre Clase
+
+UML : unified model languaje
+escribir de manera grafica diagrama de clase o proceso
+
+-Relación de dependencia: Se da cuándo al realizar cambios en una clase se modifica otra
+
+Relación de asociación: Se da cuándo una clase tiene acceso permanente a otra clase
+
+Relación de implementación: Se da cuándo una clase define su comportamiento basado en cierto método
+
+Relación de herencia: Similar a la anterior, pero puede extender su comportamiento
+
+Relación de agregación: Se da cuándo una clase necesita de otras clases, pero no interfiere en su creación o eliminación. Simplemente las añade mientras sean útiles
+
+Relación de composición: Se da cuándo una clase necesita de otras clases, pero interfiere en su creación y eliminación. Así mismo si el elemento mayor desaparece, las demás clases dejan de ser útiles
