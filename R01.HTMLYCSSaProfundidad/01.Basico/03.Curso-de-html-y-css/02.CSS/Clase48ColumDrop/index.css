@@ -1,8 +1,8 @@
 /* [0-->599] */
 * {
+  margin: 0;
   box-sizing: border-box;
   padding: 0;
-  margin: 0;
 }
 
 html {
@@ -29,7 +29,7 @@ div {
 }
 
 .c1 {
-  background-color: red;
+  background-color: rgb(255, 0, 0);
 }
 .c2 {
   background-color: rgb(255, 242, 0);
@@ -44,7 +44,7 @@ div {
 }
 
 .c5 {
-  background-color: rgba(0, 110, 255, 0.913);
+  background-color: rgb(0, 110, 255);
 }
 /* [600 --> 799] */
 @media (min-width: 600px) {

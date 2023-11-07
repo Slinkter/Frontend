@@ -11,13 +11,13 @@ html {
 body {
   font-size: 1.6rem;
 }
-
+/* BLOQUE */
 .container {
   display: flex;
-  flex-wrap: wrap;
-  border: dotted 1rem gray;
+  flex-wrap: wrap; /* permitir Saltar */
+  border: dotted 5px gray;
 }
-
+/* ELMENTO */
 .box {
   height: 20rem;
   width: 20rem;

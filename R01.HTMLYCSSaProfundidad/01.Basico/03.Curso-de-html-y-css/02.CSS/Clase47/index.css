@@ -2,6 +2,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -17,14 +18,9 @@ html {
 .c2,
 .c3,
 .c4,
-.c5,
-.c6 {
-  width: 100%;
-  min-width: 250px;
+.c5 {
+  width: 150px;
   height: 150px;
-}
-.c4 {
-  height: auto;
 }
 
 .c1 {
@@ -40,13 +36,23 @@ html {
 
 .c4 {
   background-color: rgb(0, 242, 255);
+  height: auto;
 }
 
 .c5 {
   background-color: rgba(0, 110, 255, 0.913);
 }
 
+@media (min-width: 420px) {
+  body {
+    background-color: rgb(255, 179, 0);
+  }
+}
+
 @media (min-width: 600px) {
+  body {
+    background-color: gray;
+  }
   .c1 {
     width: 25%;
   }
@@ -59,6 +65,9 @@ html {
 }
 
 @media (min-width: 800px) {
+  body {
+    background-color: black;
+  }
   .container {
     width: 800px;
     margin-left: auto;
@@ -69,12 +78,21 @@ html {
     width: 50%;
     order: 1;
   }
+  .c2 {
+    width: 50%;
+    order: 2;
+  }
+  .c3 {
+    width: 50%;
+    order: 3;
+  }
 
   .c4 {
-    width: 100%;
+    width: 50%;
+    order: 4;
   }
   .c5 {
     width: 50%;
-    order: 2;
+    order: 5;
   }
 }

@@ -14,7 +14,7 @@ Ambitos = Scope
     * se recomeinda solo usar let y const 
     * excepcion : var trabaja de manera global rompiendo el ambito
 
-
+gggigitgit
 */
 /* -------Ambito Global------- */
 let greeting = "Hello World";

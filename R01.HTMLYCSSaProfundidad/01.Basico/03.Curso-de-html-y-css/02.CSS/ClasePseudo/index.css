@@ -9,8 +9,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   background-color: #13a4a4;
-  height: 20px;
+  height: 30px;
 }
 .main-nav__item {
   display: inline-block;
@@ -18,10 +19,11 @@
 
 .main-nav__item a {
   color: white;
+  margin: 1px;
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 8px;
   text-decoration: none;
-  background-color: red;
+  background: red;
 }
 .main-nav__item a:hover {
   color: blue;
@@ -30,8 +32,8 @@
   color: green;
 }
 .main-nav__item a::before {
-  content: " to : ";
+  content: " / : ";
 }
 .main-nav__item a::after {
-  content: " . ";
+  content: " > ";
 }
