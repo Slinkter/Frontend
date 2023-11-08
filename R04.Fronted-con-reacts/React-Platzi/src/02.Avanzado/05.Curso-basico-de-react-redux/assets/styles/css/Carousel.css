@@ -1,0 +1,25 @@
+.carousel {
+  overflow: scroll;
+  padding-left: 30px;
+  width: 100%;
+  position: relative;
+}
+
+.carousel__container {
+  display: flex;
+  justify-content: center;
+  transition: 450ms transform;
+  font-size: 0;
+  white-space: nowrap;
+  margin: 70px 0px;
+  padding-bottom: 10px;
+}
+
+.carousel__container:hover .carousel-item {
+  opacity: 0.3;
+}
+
+.carousel__container:hover .carousel-item:hover {
+  transform: scale(1.5);
+  opacity: 1;
+}/*# sourceMappingURL=Carousel.css.map */

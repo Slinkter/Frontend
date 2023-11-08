@@ -1,10 +1,10 @@
 $primary-color: #ffefe7;
-$secundary-color: #ffdac6;
+$secondary-color: #ffdac6;
 $tertiary-color: #babd8d;
 $primary-text-color: #7c6a0a;
+$quaternary-color: #fa9500;
 $font-stack: "IBM Plex Sans", sans-serif;
-$background: #fa9500;
-$paraghaph-size: 1.4rem;
+$paragraph-size: 1.5em;
 
 @mixin flexCenter($direction, $content, $align) {
   display: flex;
@@ -13,98 +13,71 @@ $paraghaph-size: 1.4rem;
   align-items: $align;
 }
 
-@mixin buttonStle {
+@mixin buttonStyle {
   button {
     background: none;
     border-style: none;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: $primary-color;
   font-family: $font-stack;
 }
 
 nav {
-  @include flexCenter(row, space-between, center);
   width: auto;
+  @include flexCenter(row, space-between, center);
   color: $primary-text-color;
   padding: 15px;
   p {
-    font-size: $paraghaph-size;
+    font-size: $paragraph-size;
     padding-left: 30px;
   }
   .icons {
     display: flex;
     gap: 15px;
-    @include buttonStle;
+    @include buttonStyle;
   }
 }
 
 article {
   width: auto;
   color: $primary-text-color;
+  @include flexCenter(row, space-between, center);
   padding-left: 45px;
   padding-right: 45px;
   padding-top: 70px;
-  /*   
-  display: flex;
-  justify-content: space-between; 
-  */
-  @include flexCenter(row, space-between, center);
-
+  .impact-section {
+    @include flexCenter(column, space-evenly, flex-start);
+    padding-top: 50px;
+    gap: 25px;
+  }
   h1 {
-    font-size: 3rem;
-    padding: 0;
-    margin: 0;
+    font-size: 3em;
+    padding: 0px;
+    margin: 0px;
   }
-
   p {
-    font-size: $paraghaph-size;
+    font-size: $paragraph-size;
   }
-
-  @include buttonStle;
+  @include buttonStyle;
   button {
-    background-color: $background;
     width: 12vw;
     padding: 20px;
+    background-color: $quaternary-color;
     border-radius: 35px;
-    font-size: 1rem;
+    color: white;
+    font-size: 1em;
     &:hover {
       transform: scale(1.1);
     }
   }
-
-  .impact-section {
-    /*    
-     display: flex;
-     flex-direction: column;
-     */
-
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    gap: 25px;
-    width: 50%;
-  }
-  .img-section {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 25vw;
-      border-radius: 19px;
-    }
+  img {
+    width: 25vw;
+    border-radius: 19px;
   }
 }
 
@@ -112,48 +85,47 @@ section {
   width: auto;
   height: auto;
   padding: 60px;
+
   h2 {
     color: $primary-text-color;
-    font-size: 2rem;
+    font-size: 2em;
   }
   .healthcare {
     padding-bottom: 60px;
     h2 {
       font-weight: 300;
-      padding: 0 0 60px 0;
+      padding-bottom: 60px;
     }
     .card-section {
+      border: 1px solid black;
       width: auto;
       height: auto;
-      @include flexCenter(row, center, center);
-      display: flex;
+      @include flexCenter(row, space-evenly, center);
       flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-
       column-gap: 200px;
       row-gap: 80px;
     }
     .product-card {
+      border: 1px solid green;
+
       width: 14vw;
       height: 45vh;
-      background-color: $secundary-color;
+      background-color: $secondary-color;
       color: $primary-text-color;
       padding: 20px;
-      border-radius: 8px;
 
+      border-radius: 8px;
       .icon {
         width: 100%;
         display: flex;
         justify-content: flex-end;
-        padding: 12px;
+        padding-bottom: 12px;
         svg {
           width: 28px;
           height: 28px;
         }
       }
-
-      .product-img {
+      .product-image {
         width: 100%;
         height: auto;
         display: flex;
@@ -172,54 +144,46 @@ section {
     @extend .healthcare;
     .product-card {
       background-color: $tertiary-color;
-      color: $primary-color;
+      color: white;
     }
   }
 }
 
 .about-us {
-  padding-bottom: 60px;
   h2 {
     font-weight: bold;
-    padding-bottom: 60px;
   }
   .mission-section {
+    border: 1px solid red;
     @include flexCenter(row, space-evenly, center);
     .earth {
+      $text-color: #e86424;
       width: 30vw;
-      color: $background;
-
       display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-
       gap: 40px;
-
+      color: $text-color;
       img {
         object-fit: contain;
       }
       p {
         text-align: center;
-        font-size: $paraghaph-size;
+        font-size: $paragraph-size;
       }
     }
-    .innovation {
-      @extend .earth;
-    }
+  }
+  .innovation {
+    @extend .earth;
   }
 }
-
 .gallery {
-  padding-bottom: 60px;
   h2 {
     font-weight: bold;
     padding-bottom: 60px;
   }
-  .gallery-image {
+  .gallery-images {
     @include flexCenter(row, space-between, center);
-
     img {
-      width: 30vh;
+      width: 28vw;
       height: 45vh;
       object-fit: cover;
       object-position: 5px 35%;
@@ -231,28 +195,25 @@ section {
   }
 }
 .location {
-  color: $background;
+  $text-color: #e86424;
+  color: $text-color;
   h2 {
-    padding-top: 60px;
     padding-bottom: 60px;
-    font-size: 3rem;
+    padding-top: 60px;
   }
   .map {
     @include flexCenter(row, center, center);
     padding-bottom: 50px;
   }
-  h2 {
-    font-size: 2.2rem;
-  }
+  h3,
   p {
-    font-size: $paraghaph-size;
+    font-size: $paragraph-size;
   }
 }
-
 footer {
-  background-color: $background;
+  background-color: $quaternary-color;
   width: 100%;
-  height: 250px;
+  height: auto;
   padding: 40px;
   color: white;
   .social-media {
