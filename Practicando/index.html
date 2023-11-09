@@ -4,39 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <style>
       .container {
-        display: grid;
-        grid-template-rows: repeat(3, auto-fit);
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      }
-      .container-2 {
-        display: grid;
-        grid-template-rows: repeat(3, auto);
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      }
+        height: 100 vh;
+        border: 2px solid red;
 
+        display: grid;
+        place-content: center;
+        grid-auto-rows: 150px;
+        grid-template-columns: 150px 150px 150px;
+        gap: 20px;
+      }
       .item {
-        margin: 1px;
-        border: 1px solid #00bcd4;
-        font-size: 2rem;
+        color: white;
+        border: 5px solid #00bcd4;
+        background-color: #48ac12;
+        font-size: 5rem;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="item item-1">Celda 1</div>
-      <div class="item item-2">Celda 2</div>
-      <div class="item item-3">Celda 3</div>
-      <div class="item item-4">Celda 4</div>
-    </div>
-    <br />
-    <div class="container-2">
-      <div class="item item-1">Celda 1</div>
-      <div class="item item-2">Celda 2</div>
-      <div class="item item-3">Celda 3</div>
-      <div class="item item-4">Celda 4</div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
     </div>
   </body>
 </html>
