@@ -8,7 +8,7 @@
 }
 body {
   font-family: "Roboto", sans-serif;
-  background-image: linear-gradient(
+  background: linear-gradient(
     to top,
     #9996cb,
     #ab99cc,

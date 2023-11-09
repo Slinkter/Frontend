@@ -1,16 +1,18 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
 }
 .container {
+  border: 1px solid red;
   display: grid;
-  /* grid-template-columns: repeat(5, 20px);
-  grid-template-rows: repeat(5, 20px); */
+  justify-content: center;
+  /* 
+  grid-template-rows: repeat(5, 20px);
+  grid-template-columns: repeat(5, 20px);
+  */
   grid-template: repeat(5, 50px) / repeat(5, 50px);
   gap: 5px;
-  border: 1px solid red;
-  justify-content: center;
 }
 
 /* Clase 20 */

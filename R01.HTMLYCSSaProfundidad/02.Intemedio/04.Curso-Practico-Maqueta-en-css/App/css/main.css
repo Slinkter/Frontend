@@ -10,20 +10,11 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-}
-
-.home-body {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-a {
-  text-decoration: none;
-  display: inline;
-  color: black;
 }
 
 header {
@@ -41,30 +32,34 @@ header .header-icons-container {
 header .header-icons-container .icons {
   width: 300px;
   height: auto;
+  justify-self: flex-end;
   /*  */
   display: flex;
   justify-content: space-between;
-  justify-items: flex-end;
-  justify-self: end;
-
   align-items: center;
   margin-right: 50px;
+}
+a {
+  text-decoration: none;
+  display: inline;
+  color: black;
 }
 
 .icons a span {
   color: rgb(253, 253, 253);
 }
+
 nav {
-  border: 1px solid red;
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
   height: 90px;
 }
 
 nav .nav-logo-container img {
-  width: 220px;
+  width: 250px;
 }
 
 nav .profile-link a {
@@ -72,15 +67,17 @@ nav .profile-link a {
   border-bottom: 1px solid black;
 }
 .home-main {
+  border: 10px solid red;
+
   height: 100%;
   display: grid;
-  align-items: center;
-  justify-items: center;
+  place-content: center;
   grid-template-columns: 1fr 4fr 1fr;
 
   background-image: url("../assets/img/Cover.png");
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
   background-size: cover;
 }
 

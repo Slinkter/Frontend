@@ -4,27 +4,21 @@
   box-sizing: "Roboto", sans-serfit;
 }
 
-body {
-  padding: 20px;
-}
-
 main {
   max-width: 1200px;
   margin: 0 auto;
-}
 
+  padding: 1px;
+}
+/* 1 */
 .hero {
   display: grid;
-  grid-template-columns: minmax(300px, 2fr) 3fr;
-  grid-auto-rows: 500px;
+  grid-template-columns: minmax(300px, 2fr) 4fr;
+  grid-template-rows: 500px;
+  /*   grid-auto-rows: 500px; */
   border-bottom: 1px solid #ddd;
 }
 
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 .info {
   align-self: center;
 }
@@ -37,30 +31,39 @@ main {
 .info-subtitle {
   color: #333;
   font-size: 1.5rem;
-  margin-bottom: 24px;
+  margin: 24px 0;
 }
+
 .info-button {
   border: none;
   border-radius: 20px;
-  color: #333;
   background-color: #fb8c00;
-  font-weight: bolder;
   padding: 12px 24px;
+  color: #333;
+  font-weight: bolder;
 }
 
+.hero-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover; /* tratra de llenar todo el container estira la img  */
+  object-fit: contain; /* trata de respectar su altura */
+}
+/* 2 */
 .dishes-tittle {
-  margin: 30px 50px;
+  text-align: center;
   color: #333;
   font-weight: bold;
   font-size: 2rem;
-  text-align: center;
+  margin: 30px 50px;
 }
 
 .dishes {
   display: grid;
-  justify-content: center;
+  place-content: center;
+  grid-template-rows: 1fr;
   grid-template-columns: repeat(auto-fit, minmax(75px, 200px));
-  grid-auto-rows: 1fr;
   gap: 20px;
 }
 .dishes-item {
@@ -71,7 +74,6 @@ main {
 
 .dishes-item__big {
   grid-area: 1/1/3/3;
-  border: 1px solid red;
 }
 
 .menu {
@@ -86,16 +88,18 @@ main {
 }
 
 .menu-grid {
+  border: 1px solid red;
   display: grid;
+  place-content: center;
+
   grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
-  justify-content: center;
-  gap: 50px;
+  gap: 20px;
 }
 .menu-grid-item {
   background-color: coral;
-  padding: 15px;
   width: 100%;
   height: 100%;
+
   object-fit: contain;
   border-top-left-radius: 40px;
 }
