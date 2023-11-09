@@ -6,20 +6,24 @@
     <title>Document</title>
     <style>
       .card {
+        position: relative;
+
         width: 200px;
         height: 200px;
+
         transform-style: preserve-3d;
-        position: relative;
       }
       .card:hover {
         transform: rotateY(180deg);
       }
 
       .face {
-        border-radius: 20px;
+        position: absolute;
+
         width: 100%;
         height: 100%;
-        position: absolute;
+        border-radius: 28px;
+
         backface-visibility: hidden;
       }
 
@@ -34,8 +38,8 @@
   </head>
   <body>
     <div class="card">
-      <div class="face front"></div>
-      <div class="face back"></div>
+      <div class="face front">ana</div>
+      <div class="face back">liam</div>
     </div>
   </body>
 </html>

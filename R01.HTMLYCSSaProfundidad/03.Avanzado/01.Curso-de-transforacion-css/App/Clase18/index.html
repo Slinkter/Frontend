@@ -6,21 +6,22 @@
     <title>Document</title>
     <style>
       button {
-        background-color: palegoldenrod;
+        background-color: rgb(173, 238, 170);
         width: 100px;
         height: 30px;
       }
+      /*  */
       .better {
         will-change: transform;
         transition: transform 500ms;
       }
-      .better:hover {
-        transform: translateY(5px);
-      }
-
       .worst {
         will-change: margin-top;
         transition: margin-top 500ms;
+      }
+      /*  */
+      .better:hover {
+        transform: translateY(5px);
       }
       .worst:hover {
         margin-top: 5px;

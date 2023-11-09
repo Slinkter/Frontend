@@ -1,7 +1,7 @@
-/* declarar variables */
+/* (crear) declarar  variables en memoria de computador  */
 var nombre;
 var edad;
-/* asignar valor a las variable */
+/* (dar) asignar valor a las variable */
 edad = 30;
 nombre = "oscar";
 /*  */

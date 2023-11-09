@@ -6,21 +6,25 @@
     <title>Document</title>
     <style>
       .container {
+        position: relative;
+
         width: 100px;
         height: 100px;
-        position: relative;
-        border: 5px solid hotpink;
-        perspective: 100px;
+
+        border: 5px solid red;
+        perspective: 90px;
       }
       .item {
         position: absolute;
+
         width: 100px;
         height: 100px;
-        background: papayawhip;
-        opacity: 0.5;
+        border: 3px solid blue;
+
+        background: green;
+        opacity: 0.8;
         transform-style: preserve-3d;
-        transform: rotateX(20deg);
-        border: 3px solid red;
+        transform: rotateX(45deg);
       }
     </style>
   </head>
