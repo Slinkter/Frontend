@@ -1,7 +1,7 @@
 //Declativa
 // -- tiene nombre la funcion
-// -- usa palabra reservada function para ser creada
-// -- le afecta el hoisting
+// -- usa palabra reservada "function" para ser creada
+// -- le afecta el hoisting es decir:
 // -- son evaluada antes de ser ejecutadas.
 function miFuncion(a, b) {
   return a + b;
