@@ -19,13 +19,13 @@ function esPar(lista) {
   // javascript valor = 0 es --> false
   // si valor = 0 , rpta false --> return true
   // si valor != 0 , rpta true --> return false
+  // !(6%2) ==> true
+  // !(5%2) ==> false
   if (valor) {
     return false;
   } else {
     return true;
   }
-  // !(6%2) ==> true
-  // !(5%2) ==> false
 }
 
 function esParAvanzado(list) {

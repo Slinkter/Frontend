@@ -9,9 +9,10 @@ function calcularDscto() {
   const price = Number(document.querySelector("#price").value); // id
   const discount = Number(document.querySelector("#discount").value); // id
   const rpta = document.querySelector("#rpta"); // id
-  /*  */
+
   if (!price || !discount) {
     const rptaForm = "el precio o el descuento es invalido";
+
     rpta.innerHTML = `error : ${rptaForm}`;
   } else {
     const rptaForm = (price * (100 - discount)) / 100;
@@ -19,9 +20,9 @@ function calcularDscto() {
   }
   if (discount > 15) {
     rpta.innerHTML = `descuento invalidado`;
-    document.querySelector("#price").value = "";
-    document.querySelector("#discount").value = "";
   }
+  document.querySelector("#price").value = "";
+  document.querySelector("#discount").value = "";
 }
 
 /* ----------------------------------------- */
@@ -33,19 +34,20 @@ idBtn.addEventListener("click", btnCalcularDscto);
 
 function btnCalcularDscto() {
   /* Cupones */
-  const cuponsList = [];
-  cuponsList.push({
-    name: "codigoABC",
-    discount: 10,
-  });
-  cuponsList.push({
-    name: "codigoQWE",
-    discount: 8,
-  });
-  cuponsList.push({
-    name: "codigoZXC",
-    discount: 5,
-  });
+  const cuponsList = [
+    {
+      name: "ABC",
+      discount: 10,
+    },
+    {
+      name: "QWE",
+      discount: 8,
+    },
+    {
+      name: "ZXC",
+      discount: 5,
+    },
+  ];
   /* datos externos */
   const price = Number(document.querySelector("#idPrice").value);
   const cupon = String(document.querySelector("#idCount").value);
@@ -55,7 +57,7 @@ function btnCalcularDscto() {
     idRpta.innerHTML = `formulario no valido`;
     return;
   }
-
+  /* Validacion */
   let discount;
   cuponsList.filter((item) => {
     if (item.name == cupon) {
