@@ -4,14 +4,12 @@ reglas de nomenclatura
 - nombre pronuncialbes y expresiva en ingles con una estrucutra camelcase
 
 */
-
 const yyymmdstr = moment().format("YYYY/MM/DD");
 const currentday = moment().format("YYYY/MM/DD");
 /* 
 
-- evistar nombre de las variables con informacion tecnica
-
-- Software vertical : esta orientado a negocios , evitar nombres a tecnologia
+- evitar nombre de las variables con informacion tecnica
+- Software Vertical : esta orientado a negocios , evitar nombres a tecnologia
 - Software Horizontal : esta orientado a , evitar la informacion tecnica.
 
 */

@@ -1,4 +1,7 @@
-/* reduce a un solo valor : promedio,maximo,minimo */
+/* 
+reduce a un solo valor : 
+promedio,maximo,minimo 
+*/
 
 /* 
 const totals = [1, 2, 3, 4];

@@ -4,18 +4,14 @@ Ambitos = Scope
 
 - Ambito Global
     * puede ser accesde desde cualquier lugar
-
 - Ambito Local/funcion
-    * se caracterica solo vivir dentro del ambito
-
-
+    * 
 - Ambito Bloque
     * funciona y trabaja dentro de llaves "{ }" 
     * se recomeinda solo usar let y const 
     * excepcion : var trabaja de manera global rompiendo el ambito
-
-gggigitgit
 */
+
 /* -------Ambito Global------- */
 let greeting = "Hello World";
 function getGreet() {

@@ -1,6 +1,10 @@
-const { te } = require("date-fns/locale");
+/* 
+¿Qué es array.every()?
 
-/* 1 */
+El método array.every() es un método iterativo que devuelve true si todos los elementos de un array satisfacen una condición determinada. Devuelve false si al menos uno de los elementos del array no satisface la condición.
+
+
+*/
 const numbers = [1, 30, 39, 29, 10, 13];
 let rta = true;
 //

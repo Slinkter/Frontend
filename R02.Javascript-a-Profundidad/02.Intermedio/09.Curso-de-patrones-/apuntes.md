@@ -12,7 +12,7 @@ los patrones de diseño tiene
 
 sin este concepto no habria diseño ,
 
-- Ingenieria es diseño las pruebas la construcion demaquina utilizando matemticas y ciencias .
+- Ingenieria es diseño las pruebas la construcion de maquina utilizando matemticas y ciencias .
 
 el producto es software para nosotros
 
@@ -20,7 +20,7 @@ el producto es software para nosotros
 
 - Historia
   - la Maquina Analitica
-  - 1966: se utiliza la palabra ing. de software
+  - 1966 : se utiliza la palabra ing. de software
   - 1968 : conferencia en la OTAN
   - NASA : Margaret Heafield H. desarrolló el Software del programa Apolo.
 
@@ -31,33 +31,35 @@ el producto es software para nosotros
   - Alta calidad
   - Costos bajos
   - Menor tiempo posible
-- Todo el proceso tiene Fases
+  - Todo el proceso tiene Fases
 
-  ### Fase 1 : Planeacion / requeriemiento :
+### Fase 1 : Planeacion / requeriemiento :
 
-  Ideal del cliente
-  Se da una forma para que se viable
+Ideal del cliente
+Se da una forma para que se viable
 
-  ### Fase 2 : Diseño ()
+### Fase 2 : Diseño ()
 
-  Implementacion de la solucion
-  Diseño de interacion del usuario
-  Tipos de tecnologia a usar
+Implementacion de la solucion
+Diseño de interacion del usuario
+Tipos de tecnologia a usar
 
-  ### Fase 3 : Implementacion/Ejecuacion /Desarrollo
+### Fase 3 : Implementacion/Ejecuacion /Desarrollo
 
-  la fase mas larga
-  programacion segun diseño ### Fase 4 : Pruebas.
+la fase mas larga
+programacion segun diseño
 
-  validar con los usuarios (equipo de diseño se encargar).
+### Fase 4 : Pruebas.
 
-  ### Fase 5 : Despliegue
+validar con los usuarios (equipo de diseño se encargar).
 
-  Deploy del proyecto (lanzar la aplicacion)
+### Fase 5 : Despliegue
 
-  ### Fase 6 : Mantenimiento
+Deploy del proyecto (lanzar la aplicacion)
 
-  Estar preparado por cualquier situacion si se cae la aplicacion
+### Fase 6 : Mantenimiento
+
+Estar preparado por cualquier situacion si se cae la aplicacion
 
 - Implementacion del ciclo de vida (2 perspectiva)
 
@@ -132,7 +134,7 @@ proceso para llegar a resolver un problemas :
 
 ## Clase 09 :
 
-1977 - libro : lenguaje de patrones ciudad y naturales
+1977 - Libro : lenguaje de patrones ciudad y naturales
 1994 - Libro inspirado para crear patrones de diseño
 
 los diseños de de patrones te enseña a pensar estrategias , modelar , expandir tu mente .
@@ -199,14 +201,14 @@ La agregacion es muy similar a la composicion
 UML : unified model languaje
 escribir de manera grafica diagrama de clase o proceso
 
--Relación de dependencia: Se da cuándo al realizar cambios en una clase se modifica otra
+- Relación de dependencia: Se da cuándo al realizar cambios en una clase se modifica otra
 
-Relación de asociación: Se da cuándo una clase tiene acceso permanente a otra clase
+- Relación de asociación: Se da cuándo una clase tiene acceso permanente a otra clase
 
-Relación de implementación: Se da cuándo una clase define su comportamiento basado en cierto método
+- Relación de implementación: Se da cuándo una clase define su comportamiento basado en cierto método
 
-Relación de herencia: Similar a la anterior, pero puede extender su comportamiento
+- Relación de herencia: Similar a la anterior, pero puede extender su comportamiento
 
-Relación de agregación: Se da cuándo una clase necesita de otras clases, pero no interfiere en su creación o eliminación. Simplemente las añade mientras sean útiles
+- Relación de agregación: Se da cuándo una clase necesita de otras clases, pero no interfiere en su creación o eliminación. Simplemente las añade mientras sean útiles
 
-Relación de composición: Se da cuándo una clase necesita de otras clases, pero interfiere en su creación y eliminación. Así mismo si el elemento mayor desaparece, las demás clases dejan de ser útiles
+- Relación de composición: Se da cuándo una clase necesita de otras clases, pero interfiere en su creación y eliminación. Así mismo si el elemento mayor desaparece, las demás clases dejan de ser útiles

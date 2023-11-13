@@ -1,18 +1,16 @@
 /* ========================================= */
-const items = [1, 3, 2, 3];
-const initObj = {};
+const items = [1, 3, 2, 3, 3, 3, 3];
+//
 const rta = items.reduce((obj, item) => {
-  /* (it 1): obj = initObj = {} */
+  // si no existe crear y asinar 1
+  // si existe sumar  +1
   if (!obj[item]) {
     obj[item] = 1;
-    console.log(obj);
   } else {
-    obj[item] = obj[item] + 1;
-    console.log(obj);
+    obj[item] += 1;
   }
-  console.log(obj);
   return obj;
-}, initObj);
+}, {});
 console.log(rta);
 /* ========================================= */
 const data = [
