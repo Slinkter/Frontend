@@ -60,6 +60,8 @@ const juan = createStudent({
   twitter: "juanX",
 });
 
+console.log(juan);
+
 function createLearingPath({ name = requiredParam("name"), courses = [] }) {
   const private = {
     _name: name,

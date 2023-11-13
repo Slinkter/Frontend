@@ -1,8 +1,6 @@
 const arraynumero = [12, 351, 123, 54, 657, 568, 76, 4354, 1231];
-let numero = 0;
 for (let index = 0; index < arraynumero.length; ++index) {
-  numero = arraynumero[index];
-  console.log("index : ", index, " numero : ", numero);
+  console.log("index : ", index, " numero : ", arraynumero[index]);
 }
 
 function recursiva(num) {
@@ -20,7 +18,7 @@ function recursivaArray(arrayRandom) {
     arrayRandom.shift();
     recursivaArray(arrayRandom);
   } else {
-    console.log(" end of array");
+    console.log("end of array");
   }
 }
 recursivaArray(arraynumero);
@@ -74,7 +72,7 @@ const obj1 = {
     this.a = "aaaaa x2";
   },
 };
-// 11/20
+
 const studentBase = {
   name: undefined,
   email: undefined,
@@ -89,15 +87,19 @@ const studentBase = {
 };
 
 const juan = deepCopy(studentBase);
-// editar la propiedad name de juan
+juan.name = "dasd";
+console.log(juan);
+
+// evitar la propiedad name de juan
 // evitar eliminar la propiedad name (delete)
-Object.defineProperty(juan, "name", {
+const p1 = Object.defineProperty(juan, "name", {
   value: "juanito",
   configurable: false,
 });
 
+console.log(p1);
 // evitar elimar global propiedad a juan
-Object.seal(juan);
+console.log(Object.seal(juan));
 juan.name = "juanito";
 Object.isSealed(juan); // proteger de eliminar propiedades
 Object.isFrozen(juan); // permite editar las propiedades

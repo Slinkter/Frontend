@@ -15,7 +15,7 @@ const orders = [
     delivered: true,
   },
   {
-    customerName: "Valentina",
+    customerName: "Vale",
     total: 240,
     delivered: true,
   },
