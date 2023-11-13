@@ -16,7 +16,7 @@ class Course {
   }
 
   set name(newName) {
-    if (newName === "Curso 115151514541") {
+    if (newName === "Curso 00") {
       console.log("no ahora ... no");
     } else {
       this._name = newName;
@@ -33,11 +33,13 @@ const course2 = new Course({ name: "CURSO 2 " });
 const course3 = new Course({ name: "CURSO 3 " });
 const course4 = new Course({ name: "CURSO 4 " });
 //
+console.log(course1);
 course1.name = "Curso -1";
-course1.changeName("Curso -1");
-//
-course1.name;
+console.log(course1);
+course1.changeName("Curso -2");
+console.log(course1);
 course1.name = "Curso Gratis";
+console.log(course1);
 
 //
 

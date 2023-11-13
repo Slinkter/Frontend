@@ -8,11 +8,15 @@ const juan = {
     this.approvedCourses.push(newCourse);
   },
 };
-
-// console.log(Object.keys(juan));
-// console.log(Object.getOwnPropertyNames(juan));
-// console.log(Object.entries(juan)); // crear un objecto , ya no es el mismo objecto con metodos
+/*  */
+console.log(Object.entries(juan));
+console.log(Object.keys(juan));
+console.log(Object.values(juan));
+/*  */
+console.log(Object.getOwnPropertyNames(juan));
 console.log(Object.getOwnPropertyDescriptors(juan));
+
+/*  */
 Object.defineProperty(juan, "pruebaNASA", {
   value: "OVNI",
   enumerable: true,

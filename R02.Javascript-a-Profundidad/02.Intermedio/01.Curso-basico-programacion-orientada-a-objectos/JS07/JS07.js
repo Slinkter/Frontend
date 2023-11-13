@@ -11,11 +11,11 @@ const juan = {
   approvedCourses: ["curso 1", "curso 2"],
   learningPath: [
     {
-      name: "escuela 1",
+      name: "ruta 1",
       Course: [],
     },
     {
-      name: "escuela 2",
+      name: "ruta 2",
       Course: [],
     },
   ],
@@ -26,20 +26,28 @@ class Student {
     name,
     email,
     username,
-    facebook = undefined,
+
     twitter = undefined,
     instagram = undefined,
+    facebook = undefined,
+
     approvedCourses = [],
     leanringPath = [],
   }) {
     this.name = name;
     this.email = email;
     this.username = username;
-    this.socialMedia = { facebook, twitter, instagram };
+    this.socialMedia = { twitter, instagram, facebook };
     this.approvedCourses = approvedCourses;
     this.leanringPath = leanringPath;
   }
 }
+
+const objjuan = new Student(juan);
+objjuan.socialMedia.twitter = juan.socialMedia.twitter;
+objjuan.socialMedia.instagram = juan.socialMedia.instagram;
+objjuan.socialMedia.facebook = juan.socialMedia.facebook;
+console.log(objjuan);
 
 class LearningPath {
   constructor() {}

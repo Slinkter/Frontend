@@ -2,13 +2,11 @@
 // las clases por dentro son prototipos
 // Js esta basado en prototipos
 class Studen2 {
-  // {elmentos100 ,elemento 30,elemmento 2} la ventaja es que puede ir desordenado
   constructor({ name, age, cursosAprobado = [] }) {
     this.name = name;
     this.age = age;
     this.cursosAprobado = cursosAprobado;
   }
-
   aprobadoCurso(nuevoCurso) {
     this.cursosAprobado.push(nuevoCurso);
   }

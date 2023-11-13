@@ -8,7 +8,16 @@
 // * Sobrecarga
 // * parametrico
 // * Inclusion (solo funcnona en JS)
-
+/*   */
+function videoPlay(id) {
+  const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
+  console.log("Se está reproduciendo desde la url " + urlSecreta);
+}
+function videoStop(id) {
+  const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
+  console.log("Pausamos la url " + urlSecreta);
+}
+/*  */
 class Comment {
   constructor({ content, studentName, studentRole = "estudiante" }) {
     this.content = content;
@@ -22,15 +31,6 @@ class Comment {
     console.log(this.like + " likes");
     console.log(this.content);
   }
-}
-
-function videoPlay(id) {
-  const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
-  console.log("Se está reproduciendo desde la url " + urlSecreta);
-}
-function videoStop(id) {
-  const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
-  console.log("Pausamos la url " + urlSecreta);
 }
 
 class PlatziClass {
@@ -126,6 +126,7 @@ class Student {
   }
 
   publicarComentario(commnet) {
+    // invoca una metodo
     const comment = new Comment({ content: commnet, studentName: this.name });
     comment.publicar();
   }
@@ -208,3 +209,7 @@ const admin = new TeacherStudent({
   email: "admin777@sky.com",
   instagram: "admin777",
 });
+
+console.log(juan);
+console.log(miguelito);
+console.log(admin);
