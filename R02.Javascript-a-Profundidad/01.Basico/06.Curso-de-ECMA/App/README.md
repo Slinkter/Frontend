@@ -257,7 +257,7 @@ console.log(mensaje) // "Mi nombre es Ferney y tengo 26 años."
 
 _Cómo utilizar las plantillas literales_
 
-Se emplea el carácter acento grave (`) y para incluir las variables se utiliza la sintaxis `${variable}`
+Se emplea el carácter acento grave () y para incluir las variables se utiliza la sintaxis `${variable}`
 
 ```js
 var nombre = "Ferney";
