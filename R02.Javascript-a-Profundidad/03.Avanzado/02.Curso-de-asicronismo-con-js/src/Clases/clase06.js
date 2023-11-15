@@ -7,7 +7,6 @@ function calc(num1, num2, callback) {
 
 console.log(calc(2, 9, sum));
 
-/*  set time out es un callback  */
 setTimeout(() => {
   console.log("hola JS");
 }, 2000);

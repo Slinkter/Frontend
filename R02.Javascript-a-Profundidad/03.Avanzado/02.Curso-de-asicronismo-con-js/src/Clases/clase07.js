@@ -1,5 +1,5 @@
-/* Challenge */
-/* este metodo era como antiguamente se hacia
+/* 
+este metodo era como antiguamente se hacia
 las peticions al servidor  
 
 */
