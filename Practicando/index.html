@@ -4,33 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .container {
-        height: 100 vh;
-        border: 2px solid red;
-
-        display: grid;
-        place-content: center;
-        grid-auto-rows: 150px;
-        grid-template-columns: 150px 150px 150px;
-        gap: 20px;
-      }
-      .item {
-        color: white;
-        border: 5px solid #00bcd4;
-        background-color: #48ac12;
-        font-size: 5rem;
-      }
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="item">1</div>
-      <div class="item">2</div>
-      <div class="item">3</div>
-      <div class="item">4</div>
-      <div class="item">5</div>
-      <div class="item">6</div>
-    </div>
+    <h2>Gatitos aleatorios</h2>
+    <section id="randomMichis" class="container">
+      <span id="randomMichiError"></span>
+      <br />
+      <!-- CAT 01 -->
+      <article>
+        <img id="img1" alt="img1" width="150" />
+        <button id="btn1">Guarda michi en favoritos</button>
+      </article>
+      <!-- CAT 02 -->
+      <article>
+        <img id="img2" alt="img2" width="150" />
+        <button id="btn2">Guarda michi en favoritos</button>
+      </article>
+      <!-- CAT 03 -->
+      <article>
+        <img id="img3" alt="img3" width="150" />
+        <button id="btn3">Guarda michi en favoritos</button>
+      </article>
+      <!-- Button -->
+    </section>
+    <button onclick="loadRandomMichis()">Recargar</button>
+    <!--  -->
+    <section id="uploadMichi" class="container-2">
+      <h2>Subir foto de gato</h2>
+      <form id="uploadingForm" action="">
+        <input id="file" type="file" name="file" />
+        <button id="" type="button" onclick="uploadMichiPhoto()">
+          Upload foto
+        </button>
+      </form>
+    </section>
+    <!--  -->
+    <section id="favoritesMichis" class="container-3">
+      <h2>Gatitos Favoritos</h2>
+      <div class="" id="content"></div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

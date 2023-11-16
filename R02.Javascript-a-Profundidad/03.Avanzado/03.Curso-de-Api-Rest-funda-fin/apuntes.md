@@ -4,22 +4,21 @@ Saber html y css , debido a que manipula el DOM
 Enteder funcion JS Engine
 Asincronismo con JS (promesas,async-wait,fetch)
 
-## que es una API REST ??
+## Que es una API REST ??
 
-API : Aplication program interface(interfaz) permite interatuar con frontend y backend
-REST : Representation state transfererprocol, comunicacion http con backend
+- API : Aplication Program Interface(interfaz) permite interatuar con frontend y backend.
+
+- REST : REpresentation State Transfererprocol, comunicacion http con backend , flujo de comunicacion de usuario frontend backend
 
 <!-- Clase02  -->
 
-flujo de comunicacion de usuario frontend backend
+### Server Side Rendering (SSR)
 
-### Server side rendering
+el usuario hace un solicitud al servidor y la respuesta es un HTML ,este proceso se llama _Server Side Rendering_.en este proceso se trae muchas paginas html desde el servidor lo cual lo hace lento.
 
-el usuario hace un solicitud al servidor y la respuesta es un HTML ,este proceso se llama _Server side rendering_.en este proceso se trae muchas paginas html desde el servidor lo cual lo hace lento.
+### Single Page Applications (SPA)
 
-### single page applications (SPA)
-
-otro flujo o proceso es _single page applications (SPA)_
+otro flujo o proceso es _Single Page Applications (SPA)_
 donde javascript se genera un html y manipula el DOM
 controla o escucha eventos para hace solictura a un API, este proceso solo carga sola una vez un html y la logica para generar o responder una solicitud del usuario esta en el archivo JS
 
@@ -42,7 +41,7 @@ una API puede tener diferentes rutas para solicitar distinto contenido
 
 ### QueryParameters
 
-son informacion extra para espificiar para solicitar el contenido
+son informacion extra para especificar para solicitar el contenido
 
 /categoria?seach="fun"
 
