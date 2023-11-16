@@ -1,8 +1,8 @@
 /* Promesa */
-
+/* 
 const promise = new Promise(function (resolve, reject) {
   resolve("hey!!!");
-});
+}); */
 const cows = 15;
 const countCows = new Promise((resolve, reject) => {
   if (cows > 10) {

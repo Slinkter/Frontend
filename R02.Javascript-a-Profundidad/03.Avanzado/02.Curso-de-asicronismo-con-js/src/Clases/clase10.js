@@ -5,6 +5,7 @@ const API = "https://api.escuelajs.co/api/v1";
 const fetchData = (urlAPI) => {
   return fetch(urlAPI);
 };
+
 fetchData(`${API}/products`)
   .then((res) => res.json())
   .then((products) => {
