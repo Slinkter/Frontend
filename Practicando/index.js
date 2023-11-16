@@ -16,7 +16,7 @@ const instance = axios.create({
   headers: { "X-Custom-Header": "foobar" },
 });
 instance.defaults.headers.common["x-api-key"] = API_KEY;
-/*  btnRecargar */
+/*  btnRecargar - get data from server */
 const loadRandomMichis = async () => {
   try {
     const res = await fetch(API_URL_RANDOM);
@@ -50,14 +50,100 @@ const loadRandomMichis = async () => {
 const saveFavoriteMichi = async (idCat) => {
   try {
     /*  */
-    const obj = { image_id: idCat };
-    const url_favorite = "/favourites";
-    /*  */
-    const res = await instance.post(url_favorite, obj);
-    const { data, status } = res;
-    console.log("res : ", res);
+    const id = JSON.stringify({ image_id: idCat });
+    const options = {
+      method: "POST",
+      headers: { "content-Type": "application/json" },
+      body: id,
+    };
+    const res = await fetch(API_URL_SAVE_FAVORITE, options);
+    const data = await res.json();
     console.log("data : ", data);
-    console.log("status : ", status);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log("finally");
+  }
+};
+/*  */
+const deleteFavoriteMichi = async (idCat) => {
+  const API_URL_DELETE = `${URL_BASE}favourites/${idCat}?api_key=${API_KEY}`;
+
+  try {
+    const options = {
+      method: "DELETE",
+    };
+    const res = await fetch(API_URL_DELETE, options);
+    const data = res.json();
+    console.log("data : \n ", data);
+    console.log("Cat eliminado");
+    loadRandomMichis();
+  } catch (error) {
+    console.log("error", error);
+    spanError.innerHTML = "hubo un error : " + res.status;
+    console.log("Error al eliminar el favorito", res.status);
+  }
+};
+/* btn upload cat img   */
+
+const uploadCatPhoto = async () => {
+  try {
+    const formimg = document.getElementById("uploadingForm");
+    const formData = new FormData(formimg);
+    const options = {
+      method: "POST",
+      headers: {},
+      body: formData,
+    };
+    /*  */
+    const res = await fetch(API_URL_UPLOAD, options);
+    const data = await res.json();
+    saveFavoriteMichi(data.id);
+    console.log("data : \n", data);
+    console.log(data.url);
   } catch (error) {}
 };
-const loadFavouriteCat = () => {};
+
+/* init page  */
+const loadFavouriteCat = async () => {
+  try {
+    /*  */
+    const res = await fetch(API_URL_LOAD_FAVORITE);
+    const data = await res.json();
+    /*  */
+    if (!data) {
+      content.innerHTML = "";
+      spanError.innerHTML = "no hay data" + res.status;
+    } else {
+      const viewHtml = data.map(
+        (cat) =>
+          `
+          <article>
+            <img src="${cat.image.url}" width="150" alt="" />
+            <button id="${cat.id}" name="${cat.id} " >
+              delete
+            </button>
+          </article>    
+        `
+      );
+      content.innerHTML = viewHtml.join("");
+      /*  */
+      const arrayDeleteButton = document.querySelectorAll("button");
+      for (const btn of arrayDeleteButton) {
+        btn.addEventListener("click", () => {
+          if (btn.id) {
+            deleteFavoriteMichi(btn.id);
+          }
+        });
+      }
+    }
+
+    /*  */
+  } catch (error) {
+    console.log("error", error);
+  } finally {
+    console.log("finally");
+  }
+};
+
+loadRandomMichis();
