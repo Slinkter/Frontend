@@ -1,6 +1,8 @@
+// 3 method event Listeners
+
+// When the user clicks , searchFormInput value is extracted and the location.hash is updated to #search= followed by the search term.
 searchFormBtn.addEventListener("click", () => {
   location.hash = "#search=" + searchFormInput.value;
-  console.log(location.hash);
 });
 
 trendingBtn.addEventListener("click", () => {
@@ -9,11 +11,10 @@ trendingBtn.addEventListener("click", () => {
 
 arrowBtn.addEventListener("click", () => {
   history.back();
-  // location.hash = "#home";
 });
 
-//Cuando la página se carga, se llama a la función navigator.
-// Esta función se encarga de gestionar el contenido dependiendo de la location.hash.
+// Cuando la página se carga, se llama a la función navigator.
+// Esta función se encarga de gestionar el contenido  de  location.hash.
 window.addEventListener("DOMContentLoaded", navigator, false);
 //Cuando cambia el fragmento de la URL (después del #), se llama a la función navigator.
 window.addEventListener("hashchange", navigator, false);
@@ -34,23 +35,63 @@ function navigator() {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 }
-
-function homePage() {
-  console.log("Home!!!");
+/*  */
+function trendsPage() {
+  console.log("TRENDS !!!");
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
-  arrowBtn.classList.add("inactive");
+  arrowBtn.classList.remove("inactive");
   arrowBtn.classList.remove("header-arrow--white");
-  headerTitle.classList.remove("inactive");
+  headerTitle.classList.add("inactive");
+  headerCategoryTitle.classList.remove("inactive");
+  searchForm.classList.add("inactive");
+
+  trendingPreviewSection.classList.add("inactive");
+  categoriesPreviewSection.classList.add("inactive");
+  genericSection.classList.remove("inactive");
+  movieDetailSection.classList.add("inactive");
+
+  headerCategoryTitle.innerHTML = "Tendencias";
+
+  getTrendingMovies();
+}
+function seachPage() {
+  console.log("SEARCH !!!");
+  headerSection.classList.remove("header-container--long");
+  headerSection.style.background = "";
+  arrowBtn.classList.remove("inactive");
+  arrowBtn.classList.remove("header-arrow--white");
+  headerTitle.classList.add("inactive");
   headerCategoryTitle.classList.add("inactive");
   searchForm.classList.remove("inactive");
 
-  trendingPreviewSection.classList.remove("inactive");
-  categoriesPreviewSection.classList.remove("inactive");
-  genericSection.classList.add("inactive");
+  trendingPreviewSection.classList.add("inactive");
+  categoriesPreviewSection.classList.add("inactive");
+  genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
+  //index.html?#search=movie123
+  const [_, movieId] = location.hash.split("=");
+  getMovieBySearch(movieId);
 }
+function movieDetailsPage() {
+  console.log("MOVIE !!!");
 
+  headerSection.classList.add("header-container--long");
+  arrowBtn.classList.remove("inactive");
+  arrowBtn.classList.add("header-arrow--white");
+  headerTitle.classList.add("inactive");
+  headerCategoryTitle.classList.add("inactive");
+  searchForm.classList.add("inactive");
+
+  trendingPreviewSection.classList.add("inactive");
+  categoriesPreviewSection.classList.add("inactive");
+  genericSection.classList.add("inactive");
+  movieDetailSection.classList.remove("inactive");
+
+  //index.html?#search=movie123
+  const [_, movieId] = location.hash.split("=");
+  getMovieByMovie(movieId);
+}
 function categoriesPage() {
   console.log("CATEGORIES !!!");
   //
@@ -82,64 +123,19 @@ function categoriesPage() {
   // ---> main.js  send id category -- load array
   getMoviesByCategory(categoryId);
 }
-
-function movieDetailsPage() {
-  console.log("MOVIE !!!");
-
-  headerSection.classList.add("header-container--long");
-  arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.add("header-arrow--white");
-  headerTitle.classList.add("inactive");
-  headerCategoryTitle.classList.add("inactive");
-  searchForm.classList.add("inactive");
-
-  trendingPreviewSection.classList.add("inactive");
-  categoriesPreviewSection.classList.add("inactive");
-  genericSection.classList.add("inactive");
-  movieDetailSection.classList.remove("inactive");
-
-  //index.html?#search=movie123
-  const [_, movieId] = location.hash.split("=");
-  getMovieByMovie(movieId);
-}
-
-function seachPage() {
-  console.log("SEARCH !!!");
+function homePage() {
+  console.log("HomePage");
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
-  arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.remove("header-arrow--white");
-  headerTitle.classList.add("inactive");
+  headerTitle.classList.remove("inactive");
   headerCategoryTitle.classList.add("inactive");
+  arrowBtn.classList.add("inactive");
+  arrowBtn.classList.remove("header-arrow--white");
   searchForm.classList.remove("inactive");
-
-  trendingPreviewSection.classList.add("inactive");
-  categoriesPreviewSection.classList.add("inactive");
-  genericSection.classList.remove("inactive");
+  trendingPreviewSection.classList.remove("inactive");
+  categoriesPreviewSection.classList.remove("inactive");
+  genericSection.classList.add("inactive");
   movieDetailSection.classList.add("inactive");
-  //index.html?#search=movie123
-  const [_, movieId] = location.hash.split("=");
-  getMovieBySearch(movieId);
 }
-
-function trendsPage() {
-  console.log("TRENDS !!!");
-  headerSection.classList.remove("header-container--long");
-  headerSection.style.background = "";
-  arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.remove("header-arrow--white");
-  headerTitle.classList.add("inactive");
-  headerCategoryTitle.classList.remove("inactive");
-  searchForm.classList.add("inactive");
-
-  trendingPreviewSection.classList.add("inactive");
-  categoriesPreviewSection.classList.add("inactive");
-  genericSection.classList.remove("inactive");
-  movieDetailSection.classList.add("inactive");
-
-  headerCategoryTitle.innerHTML = "Tendencias";
-
-  getTrendingMovies();
-}
-
+/*  */
 navigator();
