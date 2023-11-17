@@ -1,6 +1,7 @@
 let maxPage;
 let page = 1;
 let infiniteScroll;
+
 searchFormBtn.addEventListener("click", () => {
   location.hash = "#search=" + searchFormInput.value;
 });
@@ -84,6 +85,7 @@ function categoriesPage() {
 
   // ['#category', 'id-name']
   const [_, categoryData] = location.hash.split("=");
+  // [ id , name ]
   const [categoryId, categoryName] = categoryData.split("-");
 
   headerCategoryTitle.innerHTML = categoryName;
@@ -157,5 +159,5 @@ function trendsPage() {
   headerCategoryTitle.innerHTML = "Tendencias";
 
   getTrendingMovies();
-  infiniteScroll = getPaginatedTredingMovies;
+  infiniteScroll = getPaginatedTredingMovies();
 }
