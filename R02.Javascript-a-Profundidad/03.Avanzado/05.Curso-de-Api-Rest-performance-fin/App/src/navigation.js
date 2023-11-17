@@ -11,7 +11,6 @@ trendingBtn.addEventListener("click", () => {
 
 arrowBtn.addEventListener("click", () => {
   history.back();
-  // location.hash = '#home';
 });
 
 window.addEventListener("DOMContentLoaded", navigator, false);
@@ -19,8 +18,6 @@ window.addEventListener("hashchange", navigator, false);
 window.addEventListener("scroll", infiniteScroll, false);
 
 function navigator() {
-  console.log({ location });
-
   if (infiniteScroll) {
     window.removeEventListener("scroll", infiniteScroll, { passive: false });
     infiniteScroll = undefined;
