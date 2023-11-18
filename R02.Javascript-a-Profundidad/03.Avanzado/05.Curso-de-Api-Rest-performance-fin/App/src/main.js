@@ -217,16 +217,13 @@ async function getPaginatedTredingMovies() {
     };
     const { data } = await api("trending/movie/day", options);
     const movies = data.results;
-
     createMovies(movies, genericSection, { lazyLoad: true, clean: false });
   }
 }
 
 async function getMovieById(id) {
   const { data: movie } = await api("movie/" + id);
-
   const movieImgUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
-  console.log(movieImgUrl);
   headerSection.style.background = `
     linear-gradient(
       180deg,
@@ -241,14 +238,12 @@ async function getMovieById(id) {
   movieDetailScore.textContent = movie.vote_average;
 
   createCategories(movie.genres, movieDetailCategoriesList);
-
   getRelatedMoviesId(id);
 }
 
 async function getRelatedMoviesId(id) {
   const { data } = await api(`movie/${id}/recommendations`);
   const relatedMovies = data.results;
-
   createMovies(relatedMovies, relatedMoviesContainer);
 }
 
