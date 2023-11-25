@@ -10,6 +10,7 @@
   box-sizing: border-box;
   padding: 0;
 }
+
 body {
   height: 100vh;
 }
@@ -24,7 +25,7 @@ header {
   /* vw: ancho del windows */
   /* % : ancho del container */
   /*   width: 100vw; */
-  width: 100%;
+  width: 100%; /* el container es body */
   height: 15vh;
 }
 

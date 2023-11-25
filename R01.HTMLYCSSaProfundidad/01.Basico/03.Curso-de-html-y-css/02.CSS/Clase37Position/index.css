@@ -16,7 +16,6 @@ body {
 }
 
 .child {
-  background-color: orange;
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -40,4 +39,8 @@ body {
   top: 5px;
   left: 120px;
   z-index: 1;
+}
+#four {
+  background-color: blueviolet;
+  position: relative;
 }

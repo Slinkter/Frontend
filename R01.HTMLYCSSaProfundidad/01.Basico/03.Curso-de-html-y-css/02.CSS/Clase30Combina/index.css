@@ -21,14 +21,11 @@ body {
 }
 .clasetresdos div {
   border: 2px solid red;
-  margin: 20px;
 }
 .clasetresdos section {
   border: 2px solid rgb(8, 0, 255);
-  margin: 10px;
 }
 
 .clasetresdos article {
   border: 2px solid rgb(17, 16, 40);
-  margin: 5px;
 }

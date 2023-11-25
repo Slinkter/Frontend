@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="index.css" />
+
+    <style>
+      .container {
+        display: grid;
+        place-content: center;
+        grid-template-columns:
+          minmax(75px, 150px)
+          minmax(75px, 250px)
+          minmax(75px, 350px);
+      }
+      .item {
+        border: 2px solid green;
+        font-size: 2rem;
+      }
+    </style>
   </head>
   <body>
     <div class="container">

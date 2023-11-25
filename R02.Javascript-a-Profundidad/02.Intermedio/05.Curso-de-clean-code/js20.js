@@ -1,0 +1,10 @@
+/* 
+
+el codigo debe ser autodescriptivo
+y evitar los comentarios
+
+los comentarios seria para explicar 
+porque se uso la libreria  o no otra
+
+
+*/
