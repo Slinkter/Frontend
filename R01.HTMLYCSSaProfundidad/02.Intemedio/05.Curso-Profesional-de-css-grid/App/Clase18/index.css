@@ -7,15 +7,14 @@
   border: 1px solid red;
   display: grid;
   justify-content: center;
+  grid-template: repeat(5, 50px) / repeat(5, 50px);
+  gap: 5px;
+
   /* 
   grid-template-rows: repeat(5, 20px);
   grid-template-columns: repeat(5, 20px);
   */
-  grid-template: repeat(5, 50px) / repeat(5, 50px);
-  gap: 5px;
 }
-
-/* Clase 20 */
 
 .contanier {
   display: grid;
