@@ -15,24 +15,28 @@ tailwind 2 --> tailwind 3
 
 ## Clase 3/29
 
-tailwind es un framework de css
-represenato mediante clases
-no orientado a componente solo a utilidades
-Paleta de colores
+- tailwind es un framework de css.
+- represenato mediante clases.
+- No orientado a componente solo a utilidades
+- Paleta de colores
 
-compoentencias : - Bootstrap : poco personalizable - Bulma : modular , importa archiva necesarios - Material UI : Google , system design
+Competencias :
+
+- Bootstrap : poco personalizable
+- Bulma : modular , importa archiva necesarios
+- Material UI : Google , system design
 
 ## Clase 4/29 : Mobile First y Utility First
 
 Mobile first :
 
-    - Desarrolo para experencia de usuario -
+- Desarrollo para experencia de usuario
 
 Utility First:
 
-    - Css basado en utilidades
-    - estructura mas mas limpia - Desarrolo mas rapido y agil
-    - en la etiqueta de  elementos de html se agrega al class=" utility first "
+- Css basado en utilidades
+- estructura mas mas limpia - Desarrolo mas rapido y agil
+- en la etiqueta de elementos de html se agrega al class=" utility first "
 
 ## Clase 5/29 : Creación del proyecto e instalación de Tailwind
 

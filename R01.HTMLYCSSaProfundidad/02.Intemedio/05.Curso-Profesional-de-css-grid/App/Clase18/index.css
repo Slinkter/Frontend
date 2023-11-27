@@ -6,8 +6,9 @@
 .container {
   border: 1px solid red;
   display: grid;
-  justify-content: center;
   grid-template: repeat(5, 50px) / repeat(5, 50px);
+  justify-content: center;
+
   gap: 5px;
 
   /* 
