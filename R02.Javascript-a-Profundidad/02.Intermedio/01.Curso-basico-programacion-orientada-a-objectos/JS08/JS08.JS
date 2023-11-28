@@ -5,10 +5,17 @@ class Banda {
     this.integrantes = integrantes;
   }
   addIntegrante(integranteNuevo) {
-    if (this.integrantes.every((item) => item.instrumento !== "Bateria")) {
+    // condicion (no quiero agregar al bateria)
+    // array.every = tiene que que todos cumpla la condicion
+    console.log(this.integrantes);
+    if (
+      this.integrantes.every((persona) => persona.instrumento !== "Bateria")
+    ) {
       this.integrantes.push(integranteNuevo);
+      console.log(this.integrantes);
     } else {
       console.log("no se agrega");
+      console.log(this.integrantes);
     }
   }
 }

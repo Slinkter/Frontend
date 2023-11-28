@@ -3,8 +3,6 @@ const juan = {
   age: 18,
   approvedCourses: ["curso 1"],
   addCourse(newCourse) {
-    console.log("this : \n", this);
-    console.log("this.approvedCourses : \n", this.approvedCourses);
     this.approvedCourses.push(newCourse);
   },
 };

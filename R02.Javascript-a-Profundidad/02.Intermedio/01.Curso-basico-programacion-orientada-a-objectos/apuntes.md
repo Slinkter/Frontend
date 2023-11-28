@@ -65,3 +65,15 @@ abstracion de algo que se repite (una clase)
     * no permite la alteracion de metodos y atributos (no sobreescribir)
 
 ## c12/20 : Getters y setters en JavaScript
+
+// Poliformos
+
+// herencia 2.0 , es pilar de la POO
+// permite a la subclases cambiar o anula de los metodos
+// hereados o atributos padre
+// cambia el comportamiento .
+// Tipos de polimorfismo
+// _ Sobrecarga
+// _ parametrico
+// _ Inclusion (solo funcnona en JS)
+/_ \*/

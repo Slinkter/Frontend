@@ -8,7 +8,7 @@ const juan = {
     instagram: "ig_JuanCC",
     facebook: "fb_JuanCC",
   },
-  approvedCourses: ["curso 1", "curso 2"],
+  approvedCourses: ["curso 1", "curso 2", "curso 3"],
   learningPath: [
     {
       name: "ruta 1",
@@ -26,11 +26,9 @@ class Student {
     name,
     email,
     username,
-
     twitter = undefined,
     instagram = undefined,
     facebook = undefined,
-
     approvedCourses = [],
     leanringPath = [],
   }) {

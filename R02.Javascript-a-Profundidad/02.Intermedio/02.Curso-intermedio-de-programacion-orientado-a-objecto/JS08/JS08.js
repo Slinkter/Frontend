@@ -1,6 +1,6 @@
-const arraynumero = [12, 351, 123, 54, 657, 568, 76, 4354, 1231];
-for (let index = 0; index < arraynumero.length; ++index) {
-  console.log("index : ", index, " numero : ", arraynumero[index]);
+const numbers = [12, 351, 123, 54, 657, 568, 76, 4354, 1231];
+for (let i = 0; i < numbers.length; ++i) {
+  console.log("i : ", i, " numeros : ", numbers[i]);
 }
 
 function recursiva(num) {
@@ -64,16 +64,16 @@ function deepCopy(subject) {
 const obj1 = {
   a: "a",
   b: "b",
-  c: {
+  x: {
     d: "d",
     e: "e",
   },
   editA() {
-    this.a = "aaaaa x2";
+    this.a = "modificar a";
   },
 };
 
-const studentBase = {
+const student = {
   name: undefined,
   email: undefined,
   age: undefined,
@@ -86,8 +86,8 @@ const studentBase = {
   },
 };
 
-const juan = deepCopy(studentBase);
-juan.name = "dasd";
+const juan = deepCopy(student);
+juan.name = "juan";
 console.log(juan);
 
 // evitar la propiedad name de juan

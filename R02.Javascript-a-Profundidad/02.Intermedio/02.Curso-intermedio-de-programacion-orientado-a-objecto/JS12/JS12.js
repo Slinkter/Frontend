@@ -36,13 +36,6 @@ function createStudent({
         console.warn("tu nombre esta vacio");
       }
     },
-
-    // readName() {
-    //   return private["_name"];
-    // },
-    // changeName(newName) {
-    //   private["_name"] = newName;
-    // },
   };
 
   Object.defineProperty(public, "readName", {

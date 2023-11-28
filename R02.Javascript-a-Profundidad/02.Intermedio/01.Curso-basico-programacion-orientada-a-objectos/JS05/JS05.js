@@ -2,7 +2,7 @@
 const natalia = {
   name: "",
   age: 20,
-  cursosAprobado: ["curso de css ", "curso de js", "curso de mate"],
+  cursosAprobado: ["curso de css ", "curso de js", "curso de html"],
   aprobarCurso(curso) {
     this.cursosAprobado.push(curso);
   },
@@ -11,13 +11,16 @@ const natalia = {
   },
 };
 
-// Acciones , utiliza la herancia del objeto Array
+// Settear objecto literal
 natalia.name = "Nath";
 natalia.age += 1;
-natalia.cursosAprobado.push("Curso de responsive");
+natalia.cursosAprobado.push("Curso de python"); // a propiedad
+//
 console.log(natalia);
-natalia.aprobarCurso("Curso de Python");
+//
+natalia.aprobarCurso("Curso de Python"); // a metodo
 natalia.aumentarAge();
+//
 console.log(natalia);
 
 // crear prototipo
@@ -25,16 +28,13 @@ function StudentPrototipo(name, age, cursosAprobado) {
   this.name = name; // String
   this.age = age; // String
   this.cursosAprobado = cursosAprobado; // []
-  /* 
-  this.aprobarCurso = function (nameCurso) {
-    this.cursosAprobado.push(nameCurso);
-  }; 
-  */
 }
-// proto - funciona anonima
+// Crear metodo -  proto - funciona anonima
 StudentPrototipo.prototype.aprobarCurso = function (nameCurso) {
   this.cursosAprobado.push(nameCurso);
 };
 // crear una instancia
-const juliana = new StudentPrototipo("juliana", 25, ["Curso de Mathlab"]);
+const juliana = new StudentPrototipo("juliana", 25, []);
+juliana.aprobarCurso("Curso de Mathlab");
+juliana.aprobarCurso("Curso de Marketing");
 console.log(juliana);
