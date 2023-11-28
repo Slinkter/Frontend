@@ -1,5 +1,5 @@
 /* 
-JavaScript el ámbito de las variables tiene un comportamiento por defecto estático, 
+JS el ámbito de las variables tiene un comportamiento por defecto estático, 
 esto quiere decir que se determina en tiempo de compilación y no de ejecución,
  a ésto se le llama ámbito léxico.
 */

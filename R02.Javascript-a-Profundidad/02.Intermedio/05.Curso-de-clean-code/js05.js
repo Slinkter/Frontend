@@ -1,8 +1,6 @@
 /* 
 reglas de nomenclatura 
-
 - nombre pronuncialbes y expresiva en ingles con una estrucutra camelcase
-
 */
 const yyymmdstr = moment().format("YYYY/MM/DD");
 const currentday = moment().format("YYYY/MM/DD");

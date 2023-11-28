@@ -1,13 +1,14 @@
 /* 
 ¿Qué es array.every()?
 
-El método array.every() es un método iterativo que devuelve true si todos los elementos de un array satisfacen una condición determinada. Devuelve false si al menos uno de los elementos del array no satisface la condición.
-
-
+es un método que devuelve true si todos los elementos de un array satisfacen 
+una condición determinada. 
+Devuelve false si al menos uno de los elementos del array 
+no satisface la condición.
 */
 const numbers = [1, 30, 39, 29, 10, 13];
 let rta = true;
-//
+// demostracion
 for (let index = 0; index < numbers.length; index++) {
   const element = numbers[index];
   if (element >= 40) {
@@ -15,7 +16,7 @@ for (let index = 0; index < numbers.length; index++) {
   }
 }
 console.log("for : ", rta);
-/* 2 */
+// Aplicacion
 const rta2 = numbers.every((item) => item <= 40);
 console.log("rta2 : ", rta2);
 /* 3 */

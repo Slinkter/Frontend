@@ -1,10 +1,11 @@
-const myProducts = [];
 const products = [];
 products.push({ title: "Pizza", price: 121, id: "🍕" });
 products.push({ title: "Burger", price: 121, id: "🍔" });
 products.push({ title: "Hot cakes", price: 121, id: "🥞" });
-
 console.log("products", products);
+//
+const myProducts = [];
+
 console.log("myProducts", myProducts);
 console.log("-".repeat(20));
 // si existe , retorna index  sino -1
@@ -31,7 +32,7 @@ const update = {
   id: "🥞",
   changes: {
     price: 200,
-    description: "delicioso",
+    title: "delicioso",
   },
 };
 //

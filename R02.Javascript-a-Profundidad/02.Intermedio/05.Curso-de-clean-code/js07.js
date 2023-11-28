@@ -13,14 +13,14 @@ Ambitos = Scope
 */
 
 /* -------Ambito Global------- */
-let greeting = "Hello World";
+let greeting = "Ambito Global";
 function getGreet() {
   console.log(greeting);
 }
 getGreet();
 /* -------Ambito Local------- */
 function getSaludo() {
-  let saludos = "Hello World";
+  let saludos = "Ambito Local";
   console.log("saludos desde la  funcion : ", saludos);
 }
 getSaludo();
@@ -29,6 +29,7 @@ console.log(saludos); // error : ReferenceError
 {
   let getGreetingSaludos = "hello world";
   var lang = "English";
+  //
   console.log(getGreetingSaludos);
   console.log(lang);
 }
