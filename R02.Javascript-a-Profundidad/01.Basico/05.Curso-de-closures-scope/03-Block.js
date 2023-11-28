@@ -7,7 +7,7 @@ function fruit() {
   }
   console.log(fruit1);
   console.log(fruit2); //ReferenceError: fruit2 is not defined
-  console.log(fruit2); //ReferenceError: fruit3 is not defined
+  console.log(fruit3); //ReferenceError: fruit3 is not defined
 }
 
 fruit();

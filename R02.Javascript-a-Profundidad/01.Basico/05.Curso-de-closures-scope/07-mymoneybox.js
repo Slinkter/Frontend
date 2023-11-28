@@ -30,7 +30,6 @@ rpta2(25);
 /* 
 Explicacion 
 
-
 La razón por la que la función moneyBox no funciona es porque 
 la variable "saveCoins" NO mantiene su valor entre llamadas a la función. 
 Esto se debe a que saveCoins es una variable local, y las variables locales se crean y destruyen cada vez que se llama a la función.
