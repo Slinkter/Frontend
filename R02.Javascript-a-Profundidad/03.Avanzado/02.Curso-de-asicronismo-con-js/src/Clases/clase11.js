@@ -1,12 +1,12 @@
-import fetch from "node-fetch";
 const API = "https://api.escuelajs.co/api/v1";
+const urlProduct = `${API}/products`;
 /*  */
-const fetchData = (urlAPI) => {
+const getData = (urlAPI) => {
   return fetch(urlAPI);
 };
 /*  */
 
-fetchData(`${API}/products`)
+getData(urlProduct)
   .then((res1) => res1.json())
   .then((products) => fetchData(`${API}/products/${products[0].id}`))
   .then((res2) => res2.json())

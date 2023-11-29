@@ -6,7 +6,7 @@ Funciones: representan un accion ,
     Verbo + sustantivo/s (ya que son acciones).
     …de Acceso: get + sustantivo
     …de Modificación: set + sustantivo;
-    …de Predicado: is + sustantivo;
+    …de Predicado: is + sustantivo; 
 
 Clases: Sustantivos (no genéricos).
 */

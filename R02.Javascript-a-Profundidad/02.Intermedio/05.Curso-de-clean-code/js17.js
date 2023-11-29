@@ -1,5 +1,4 @@
 /* Herencia */
-
 //Antes dee ES6
 function Person(name) {
   this.name = name;
@@ -25,7 +24,6 @@ dev.greet();
 dev.writeCode();
 
 // Con Es6
-
 class Cat {
   constructor(cat) {
     this.name = cat;

@@ -1,9 +1,8 @@
-/* Clase 01 */
-// introduccion
-/* Clase 02  */
-/* 
+/* Clase 01 : introduccion */
+//
 
-QUE ES ASINCRONISMO ?
+/* 
+Clase 02 : QUE ES ASINCRONISMO ?
 
 Los lenguajes de programacion son sincronicos proque tienen que ejecutar
 tarea por tareas, en si JS es sincrono y utiliza un subproceso como hilo.
@@ -31,14 +30,13 @@ Js es asincrono
 las tareas puede ser resultadas mas tarde para que otras tareas se pueden resolver
 es decirl el resultado es diferido a otras tareas.
 
-Js es Concurencia
+Js es Concurrencia
 
 eventos basado en eventloop  
 
 Js es EventLoop
 
-que es un patro de diseño que esperar 
-y distribuye los eventos
+que es un patro de diseño que esperar y distribuye los eventos
 
 *** Forma de procesar o manejar Asicronia 
 
@@ -54,14 +52,13 @@ con estas formas js puede simular multi-hilo por estas herramientas
 
 Js es un lenguaje de programacion no bloqueante asicrono donde existe el bucle de un solo
 hilo para interfaces I/O 
-
-
 */
 
 /* 
-Clase 03
+###  
+Clase 03 : Event Loop
+### 
 
-*** Event Loop
 es un patron de diseño se distribuye eventos o mensaje de un programa
 es un bucle , funciona solo si el stack esta vacio para que el task queue pueda mover las tareas
 ya realizadas 

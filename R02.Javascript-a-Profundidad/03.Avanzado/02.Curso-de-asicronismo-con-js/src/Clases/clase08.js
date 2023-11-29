@@ -1,6 +1,6 @@
 const REQUEST = require("xmlhttprequest").XMLHttpRequest;
 const API = "https://api.escuelajs.co/api/v1";
-
+/* Plantilla */
 function fetchData(urlApi, callback) {
   let xhttp = new REQUEST();
   xhttp.open("GET", urlApi, true);
@@ -17,7 +17,7 @@ function fetchData(urlApi, callback) {
   };
   xhttp.send();
 }
-
+/* Ejecucion */
 fetchData(`${API}/products`, (error1, data1) => {
   if (error1) {
     return console.error(error1);
