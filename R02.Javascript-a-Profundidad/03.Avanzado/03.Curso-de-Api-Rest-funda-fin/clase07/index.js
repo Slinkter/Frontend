@@ -15,7 +15,7 @@ const content = null || document.getElementById("content");
 const options = {
   baseURL: "https://api.thecatapi.com/v1/",
   headers: { "X-Custom-Header": "foobar", "x-api-key": API_KEY },
-  timeout: 1000,
+  timeout: 10000,
 };
 const api = axios.create(options);
 /* ALL Functions */
@@ -43,8 +43,13 @@ async function saveFavoriteMichi(id) {
 async function loadRandomMichis() {
   console.log("loadRandomMichis()");
   try {
-    const res = await fetch(API_URL_RANDOM);
-    const data = await res.json();
+    const objAxios = null;
+    const urlAxios = "/images/search?limit=3";
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
+    /*  */
+    console.log(data);
+    console.log(status);
     /* SET IMG */
     const img1 = document.getElementById("img1");
     const img2 = document.getElementById("img2");
@@ -67,7 +72,7 @@ async function loadRandomMichis() {
   } catch (error) {
     console.log("error : ", error);
     spanError.innerHTML = "error al consultar la API";
-    spanError.innerHTML = "error al consultar la API" + res.status;
+    spanError.innerHTML = "error al consultar la API" + status;
   } finally {
     console.log("finally");
   }
@@ -75,38 +80,39 @@ async function loadRandomMichis() {
 
 async function loadFavouriteCat() {
   try {
-    const res = await fetch(API_URL_LOAD_FAVORITE);
-    if (res.status !== 200) {
-      content.innerHTML = "";
-      spanError.innerHTML = "hubo un error : " + res.status;
-    } else {
-      content.innerHTML = "";
-      const data = await res.json();
-      console.log("loadFavouriteMicis()");
-      console.log("data Favorite: \n", data);
-      const view = data
-        .map(
-          (item) => `
+    const objAxios = null;
+    const urlAxios = "/favourites";
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
+    console.log(resAxios);
+    console.log(data);
+    console.log(status);
+
+    content.innerHTML = "";
+    const view = data
+      .map(
+        (item) => `
           <article>
-            <img src="${item.image.url}" width="150" alt="" />
+            <img src="${item.image.url}" width="150" alt="${item.image.id}" />
             <button class="btnDelete" id="${item.id}" name="${item.id} " >
               delete
             </button>
           </article>`
-        )
-        .join("");
-      content.innerHTML = view;
-      /*  */
-      const deleteButtons = document.querySelectorAll(".btnDelete");
-      for (const button of deleteButtons) {
-        button.addEventListener("click", function () {
-          if (button.id) {
-            deleteFavoriteMichi(button.id);
-          }
-        });
-      }
+      )
+      .join("");
+    content.innerHTML = view;
+    /*  */
+    const deleteButtons = document.querySelectorAll(".btnDelete");
+    for (const button of deleteButtons) {
+      button.addEventListener("click", function () {
+        if (button.id) {
+          deleteFavoriteMichi(button.id);
+        }
+      });
     }
   } catch (error) {
+    content.innerHTML = "";
+    spanError.innerHTML = "hubo un error : " + res.status;
     console.log("error :", error);
   } finally {
     console.log("finally");
@@ -116,27 +122,18 @@ async function loadFavouriteCat() {
 async function deleteFavoriteMichi(favouriteId) {
   console.log("deleteFavoriteMichi(favouriteId) ");
   try {
-    //
-    const API_URL_DELETE = `https://api.thecatapi.com/v1/favourites/${favouriteId}?api_key=${API_KEY}`;
-    //
-    const options = {
-      method: "DELETE",
-    };
-    //
-    const res = await fetch(API_URL_DELETE, options);
-    //
-    if (res.status !== 200) {
-      spanError.innerHTML = "hubo un error : " + res.status;
-      console.log("Error al eliminar el favorito", res.status);
-    } else {
-      const data = await res.json();
-      console.log("data \n", data);
-      console.log("Michi eliminado");
-    }
-  } catch (error) {
-    console.log("error :", error);
-  } finally {
+    const objAxios = null;
+    const urlAxios = `/favourites/${favouriteId}`;
+    const resAxios = await api.delete(urlAxios);
+    const { data, status } = resAxios;
     loadRandomMichis();
+    console.log(data);
+    console.log(status);
+  } catch (error) {
+    spanError.innerHTML = "hubo un error : " + res.status;
+    console.error("Error al eliminar el favorito", res.status);
+  } finally {
+    console.log("end");
   }
 }
 // upload file-img.jpeg
@@ -156,18 +153,8 @@ async function uploadMichiPhoto() {
     };
     //
     const res = await fetch(API_URL_UPLOAD, options);
-    if (res.status !== 201) {
-      spanError.innerHTML = "hubo un error : " + res.status + res.statusText;
-      console.log("Error al subir foto", res.status, res.statusText);
-    } else {
-      console.log("res.status : ", res.status);
-      console.log("res.statusText : ", res.statusText);
-      const data = await res.json();
-      console.log("data : \n", data);
-      console.log({ data });
-      console.log(data.url);
-      saveFavoriteMichi(data.id);
-    }
+    const data = await res.json();
+    saveFavoriteMichi(data.id);
   } catch (error) {
     console.log("error", error);
   } finally {
