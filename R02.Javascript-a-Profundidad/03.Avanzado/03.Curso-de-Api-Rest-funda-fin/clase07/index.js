@@ -19,6 +19,27 @@ const options = {
 };
 const api = axios.create(options);
 /* ALL Functions */
+/* Button */
+async function saveFavoriteMichi(id) {
+  console.group("saveFavoriteMichi");
+  try {
+    const objAxios = { image_id: id };
+    const urlAxios = "/favourites";
+    const resAxios = await api.post(urlAxios, objAxios);
+    const { data, status } = resAxios;
+    loadRandomMichis();
+    /* Respuesta */
+    console.log("res : \n", resAxios);
+    console.log("data : \n", data);
+    console.log("status : \n", status);
+  } catch (error) {
+    console.log("error : ", error);
+  } finally {
+    console.log("end");
+  }
+  console.groupEnd("saveFavoriteMichi");
+}
+
 async function loadRandomMichis() {
   console.log("loadRandomMichis()");
   try {
@@ -89,22 +110,6 @@ async function loadFavouriteCat() {
     console.log("error :", error);
   } finally {
     console.log("finally");
-  }
-}
-/* Button */
-async function saveFavoriteMichi(id) {
-  try {
-    const objAxios = { image_id: id };
-    const resAxios = await api.post("/favourites", objAxios);
-    const { data, status } = resAxios;
-    console.log(resAxios);
-    console.log(data);
-    console.log(status);
-    loadRandomMichis();
-  } catch (error) {
-    console.log("error", error);
-  } finally {
-    console.log("saveFavoriteMichi(id)");
   }
 }
 
