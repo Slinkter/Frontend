@@ -1,95 +1,3 @@
-async function getTrendingMoviesPreview() {
-  try {
-    // params
-    const url = `https://api.themoviedb.org/3/trending/movie/day`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
-    const movies = data.results;
-    // Add HTML
-    movies.map((movie) => {
-      /* create elements*/
-      const movieContainer = document.createElement("div");
-      const movieImg = document.createElement("img");
-      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
-      const title = movie.title;
-      /* Add style */
-      movieContainer.classList.add("movie-container");
-
-      movieContainer.addEventListener("click", () => {
-        location.hash = "#movie=" + movie.id;
-      });
-      movieImg.classList.add("movie-img");
-      /* Add url img */
-      movieImg.setAttribute("src", url);
-      movieImg.setAttribute("alt", title);
-      /* Add html */
-      movieContainer.appendChild(movieImg);
-      trendingMoviesPreviewList.appendChild(movieContainer);
-    });
-  } catch (error) {
-    console.error("error", error);
-  } finally {
-    console.log("finally : getTrendingMoviesPreview()");
-  }
-}
-
-async function getCategoriesPreview() {
-  try {
-    //params
-    const url = `https://api.themoviedb.org/3/genre/movie/list`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
-    const categories = data.genres;
-    // Add html
-    categoriesPreviewList.innerHTML = "";
-    /* array from server */
-    categories.forEach((category) => {
-      /* Create Element */
-      const categoryId = category.id;
-      const categoryName = category.name;
-      /*  */
-      const categoryContainer = document.createElement("div");
-      const categoryTitle = document.createElement("h3");
-      const categoryTitleText = document.createTextNode(categoryName);
-      /* Add style */
-      categoryContainer.classList.add("category-container");
-      categoryTitle.classList.add("category-title");
-      categoryTitle.setAttribute("id", "id" + categoryId);
-      /* Add html  */
-      categoryTitle.appendChild(categoryTitleText);
-      categoryContainer.appendChild(categoryTitle);
-      categoriesPreviewList.appendChild(categoryContainer);
-      /* cuando hace click se actualiza el URL*/
-      categoryTitle.addEventListener("click", () => {
-        location.hash = "#category=" + categoryId + "-" + categoryName;
-      });
-    });
-  } catch (error) {
-    console.error("error : ", error);
-  } finally {
-    console.log("finally : async getCategoriesPreview()");
-  }
-}
 // <--- navitation.js (pageCategory)
 async function getMoviesByCategory(id) {
   console.group("getMoviesByCategory(id)");
@@ -353,6 +261,98 @@ async function getTrendingMovies() {
     console.error("error", error);
   } finally {
     console.log("finally : getTrendingMoviesPreview()");
+  }
+}
+
+async function getTrendingMoviesPreview() {
+  try {
+    // params
+    const url = `https://api.themoviedb.org/3/trending/movie/day`;
+    const authAPI =
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: authAPI,
+      },
+    };
+    // call api
+    const res = await fetch(url, options);
+    const data = await res.json();
+    const movies = data.results;
+    // Add HTML
+    movies.map((movie) => {
+      /* create elements*/
+      const movieContainer = document.createElement("div");
+      const movieImg = document.createElement("img");
+      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
+      const title = movie.title;
+      /* Add style */
+      movieContainer.classList.add("movie-container");
+
+      movieContainer.addEventListener("click", () => {
+        location.hash = "#movie=" + movie.id;
+      });
+      movieImg.classList.add("movie-img");
+      /* Add url img */
+      movieImg.setAttribute("src", url);
+      movieImg.setAttribute("alt", title);
+      /* Add html */
+      movieContainer.appendChild(movieImg);
+      trendingMoviesPreviewList.appendChild(movieContainer);
+    });
+  } catch (error) {
+    console.error("error", error);
+  } finally {
+    console.log("finally : getTrendingMoviesPreview()");
+  }
+}
+async function getCategoriesPreview() {
+  try {
+    //params
+    const url = `https://api.themoviedb.org/3/genre/movie/list`;
+    const authAPI =
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: authAPI,
+      },
+    };
+    // call api
+    const res = await fetch(url, options);
+    const data = await res.json();
+    const categories = data.genres;
+    // Add html
+    categoriesPreviewList.innerHTML = "";
+    /* array from server */
+    categories.forEach((category) => {
+      /* Create Element */
+      const categoryId = category.id;
+      const categoryName = category.name;
+      /*  */
+      const categoryContainer = document.createElement("div");
+      const categoryTitle = document.createElement("h3");
+      const categoryTitleText = document.createTextNode(categoryName);
+      /* Add style */
+      categoryContainer.classList.add("category-container");
+      categoryTitle.classList.add("category-title");
+      categoryTitle.setAttribute("id", "id" + categoryId);
+      /* Add html  */
+      categoryTitle.appendChild(categoryTitleText);
+      categoryContainer.appendChild(categoryTitle);
+      categoriesPreviewList.appendChild(categoryContainer);
+      /* cuando hace click se actualiza el URL*/
+      categoryTitle.addEventListener("click", () => {
+        location.hash = "#category=" + categoryId + "-" + categoryName;
+      });
+    });
+  } catch (error) {
+    console.error("error : ", error);
+  } finally {
+    console.log("finally : async getCategoriesPreview()");
   }
 }
 

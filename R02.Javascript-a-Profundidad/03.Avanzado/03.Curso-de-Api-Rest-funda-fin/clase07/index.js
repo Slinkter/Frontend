@@ -1,7 +1,6 @@
 /* CONSTATE  */
 const API_KEY =
   "live_BgeabuZRHRH2irUsFWjZREQBJ38KmhA2OdWWkOycJQLQ54j44JApcrWGIqXZn9Ym";
-
 /* html */
 const spanError = document.getElementById("randomMichiError");
 const content = null || document.getElementById("content");
@@ -132,22 +131,19 @@ async function deleteFavoriteMichi(favouriteId) {
 }
 // upload file-img.jpeg
 async function uploadMichiPhoto() {
-  console.log("uploadMichiPhoto");
   try {
-    // archivo desde ordenador
+    console.log("uploadMichiPhoto");
     const form = document.getElementById("uploadingForm");
     const formData = new FormData(form);
-    //
     const objAxios = formData;
     const urlAxios = `/images/upload`;
     const resAxios = await api.post(urlAxios, objAxios);
     const { data, status } = resAxios;
+    saveFavoriteMichi(data.id);
+    loadRandomMichis();
     console.log(resAxios);
     console.log(data);
     console.log(status);
-
-    saveFavoriteMichi(data.id);
-    loadRandomMichis();
   } catch (error) {
     console.log("error", error);
   } finally {
