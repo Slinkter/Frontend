@@ -1,5 +1,4 @@
 /* CONSTATE  */
-
 const API_KEY =
   "live_BgeabuZRHRH2irUsFWjZREQBJ38KmhA2OdWWkOycJQLQ54j44JApcrWGIqXZn9Ym";
 
