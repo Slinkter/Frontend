@@ -9,18 +9,28 @@
   <body>
     <!--  -->
     <h2>Gatitos aleatorios</h2>
+
     <section id="randomMichis" class="container">
       <span id="randomMichiError"></span>
-      <article>
-        <img id="img1" />
-        <button id="btn1">Guarda michi en favoritos</button>
-        <img id="img2" />
-        <button id="btn2">Guarda michi en favoritos</button>
-        <img id="img3" src="" />
-        <button id="btn3">Guarda michi en favoritos</button>
-      </article>
+      <div>
+        <article>
+          <img id="img1" />
+          <button id="btn1">Guarda michi en favoritos</button>
+          <img id="img2" />
+          <button id="btn2">Guarda michi en favoritos</button>
+          <img id="img3" src="" />
+          <button id="btn3">Guarda michi en favoritos</button>
+        </article>
+        <button onclick="loadRandomMichis()">Recargar</button>
+      </div>
+      <div></div>
     </section>
-    <button onclick="loadRandomMichis()">Recargar</button>
+
+    <section id="favoritesMichis" class="container-3">
+      <h2>Gatitos Favoritos</h2>
+      <div id="content"></div>
+    </section>
+
     <!--  -->
     <section id="uploadMichi" class="container-2">
       <h2>Subir foto de gato</h2>
@@ -32,10 +42,6 @@
       </form>
     </section>
     <!--  -->
-    <section id="favoritesMichis" class="container-3">
-      <h2>Gatitos Favoritos</h2>
-      <div class="" id="content"></div>
-    </section>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
   </body>
