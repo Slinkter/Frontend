@@ -1,13 +1,8 @@
 /* CONSTATE  */
-const BASE_URL = "https://api.thecatapi.com/v1";
+
 const API_KEY =
   "live_BgeabuZRHRH2irUsFWjZREQBJ38KmhA2OdWWkOycJQLQ54j44JApcrWGIqXZn9Ym";
-/*  URL PERSONALIZADOS */
-const API_URL_RANDOM = `${BASE_URL}/images/search?limit=3&api_key=${API_KEY}`;
-const API_URL_FAVORITE = `${BASE_URL}/favourites?limit=3&api_key=${API_KEY}`;
-const API_URL_LOAD_FAVORITE = `${BASE_URL}/favourites?api_key=${API_KEY}`;
-const API_URL_SAVE_FAVORITE = `${BASE_URL}/favourites?api_key=${API_KEY}`;
-const API_URL_UPLOAD = `${BASE_URL}/images/upload`;
+
 /* html */
 const spanError = document.getElementById("randomMichiError");
 const content = null || document.getElementById("content");
@@ -140,21 +135,20 @@ async function deleteFavoriteMichi(favouriteId) {
 async function uploadMichiPhoto() {
   console.log("uploadMichiPhoto");
   try {
-    // html file
+    // archivo desde ordenador
     const form = document.getElementById("uploadingForm");
     const formData = new FormData(form);
     //
-    const options = {
-      method: "POST",
-      headers: {
-        "x-api-key": API_KEY,
-      },
-      body: formData,
-    };
-    //
-    const res = await fetch(API_URL_UPLOAD, options);
-    const data = await res.json();
+    const objAxios = formData;
+    const urlAxios = `/images/upload`;
+    const resAxios = await api.post(urlAxios, objAxios);
+    const { data, status } = resAxios;
+    console.log(resAxios);
+    console.log(data);
+    console.log(status);
+
     saveFavoriteMichi(data.id);
+    loadRandomMichis();
   } catch (error) {
     console.log("error", error);
   } finally {
@@ -163,34 +157,3 @@ async function uploadMichiPhoto() {
 }
 
 loadRandomMichis();
-
-/* Save */
-/*  
-  try {
-    // pasar de Obj a String
-    const idSaveCat = JSON.stringify({ image_id: id });
-    //
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: idSaveCat,
-    };
-    //
-    const res = await fetch(API_URL_SAVE_FAVORITE, options);
-    //
-    if (res.status !== 200) {
-      spanError.innerHTML = "hubo un error : " + res.status;
-      console.log("error al consultar la API : ", res.status);
-    } else {
-      const data = await res.json();
-      console.log("res.state", res.status);
-      console.log("data :\n", data);
-      console.log("Michi agregado");
-    }
-  } catch (error) {
-    console.log("error", error);
-  } finally {
-    loadRandomMichis();
-    console.log("finally");
-  } 
-  */
