@@ -1,21 +1,98 @@
-// <--- navitation.js (pageCategory)
+/*  */
+const api = axios.create({
+  baseURL: "https://api.themoviedb.org/3/",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY",
+  },
+});
+
+async function getTrendingMoviesPreview() {
+  try {
+    const objAxios = null;
+    const urlAxios = `trending/movie/day`;
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
+    const movies = data.results;
+    console.log("resAxios : ", resAxios);
+    console.log("data : ", data);
+    console.log("status : ", status);
+    console.log("results : ", data.results);
+    // Add HTML
+    movies.map((movie) => {
+      /* create elements*/
+      const movieContainer = document.createElement("div");
+      const movieImg = document.createElement("img");
+      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
+      const title = movie.title;
+      /* Add style */
+      movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.hash = "#movie=" + movie.id;
+      });
+      movieImg.classList.add("movie-img");
+      /* Add url img */
+      movieImg.setAttribute("src", url);
+      movieImg.setAttribute("alt", title);
+      /* Add html */
+      movieContainer.appendChild(movieImg);
+      trendingMoviesPreviewList.appendChild(movieContainer);
+    });
+  } catch (error) {
+    console.error("error", error);
+  } finally {
+    console.log("finally : getTrendingMoviesPreview()");
+  }
+}
+async function getCategoriesPreview() {
+  try {
+    const objAxios = null;
+    const urlAxios = `genre/movie/list`;
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
+    const categories = data.genres;
+    // Add html
+    categoriesPreviewList.innerHTML = "";
+    categories.forEach((category) => {
+      /* get ID y Name */
+      const categoryId = category.id;
+      const categoryName = category.name;
+      /* Create Element */
+      const categoryContainer = document.createElement("div");
+      const categoryTitle = document.createElement("h3");
+      const categoryTitleText = document.createTextNode(categoryName);
+      /* Add style */
+      categoryContainer.classList.add("category-container");
+      categoryTitle.classList.add("category-title");
+      categoryTitle.setAttribute("id", "id" + categoryId);
+      /* Add html  */
+      categoryTitle.appendChild(categoryTitleText);
+      categoryContainer.appendChild(categoryTitle);
+      categoriesPreviewList.appendChild(categoryContainer);
+      /* cuando hace click se actualiza el URL*/
+      categoryTitle.addEventListener("click", () => {
+        location.hash = "#category=" + categoryId + "-" + categoryName;
+      });
+    });
+  } catch (error) {
+    console.error("error : ", error);
+  } finally {
+    console.log("finally : getCategoriesPreview()");
+  }
+}
+//
 async function getMoviesByCategory(id) {
   console.group("getMoviesByCategory(id)");
   try {
     // params
-    const url = `https://api.themoviedb.org/3/discover/movie?with_genres=${id}`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
+
+    /* axios */
+
+    const objAxios = null;
+    const urlAxios = `discover/movie?with_genres=${id}`;
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
     const movies = data.results;
     // html
     genericSection.innerHTML = "";
@@ -48,55 +125,6 @@ async function getMoviesByCategory(id) {
 
   console.groupEnd("");
 }
-async function getMoviesBySearch(query) {
-  console.group(" async function getMoviesBySearch(query)");
-  try {
-    // params
-    const url = `https://api.themoviedb.org/3/search/movie?query=${query}`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
-    const movies = data.results;
-    //
-    genericSection.innerHTML = "";
-    //
-    movies.forEach((movie) => {
-      const movieContainer = document.createElement("div");
-      const movieImg = document.createElement("img");
-      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
-      const title = movie.title;
-      //
-      movieImg.classList.add("movie-img");
-      movieImg.setAttribute("src", url);
-      movieImg.setAttribute("alt", title);
-      //
-      movieContainer.classList.add("movie-container");
-      movieContainer.addEventListener("click", () => {
-        location.bash = "#movie=" + movie.id;
-      });
-      //
-      movieContainer.appendChild(movieImg);
-      genericSection.appendChild(movieContainer);
-    });
-    console.log("res : ", res);
-    console.log("data : ", data);
-    console.log("movies : ", movies);
-  } catch (error) {
-    console.error("error : ", error);
-  } finally {
-    console.log("finally : getMoviesBySearch(query)");
-  }
-  console.groupEnd("");
-}
 
 async function getMovieBySearch(movieId) {
   // TODO :
@@ -117,9 +145,37 @@ async function getMovieBySearch(movieId) {
     const data = await res.json();
     const movies = data.results;
 
+    /* axios */
+
+    const objAxios = null
+    const urlAxios = ``
+    const 
+
     console.log("res: ", res);
     console.log("data: ", data);
     console.log("results: ", movies);
+
+    genericSection.innerHTML = "";
+    //
+    movies.map((movie) => {
+      //
+      const movieContainer = document.createElement("div");
+      const movieImg = document.createElement("img");
+      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
+      const title = movie.title;
+      //
+      movieImg.classList.add("movie-img");
+      movieImg.setAttribute("src", url);
+      movieImg.setAttribute("alt", title);
+      //
+      movieContainer.classList.add("movie-container");
+      movieContainer.addEventListener("click", () => {
+        location.bash = "#movie=" + movie.id;
+      });
+      //
+      movieContainer.appendChild(movieImg);
+      genericSection.appendChild(movieContainer);
+    });
   } catch (error) {
     console.error("error : ", error);
   } finally {
@@ -218,22 +274,14 @@ async function getRelatedMoviesId(id) {
     relatedMoviesContainer.appendChild(movieContainer);
   });
 }
+/* html - tendencias - buton - ver mas  */
 async function getTrendingMovies() {
   try {
-    // params
-    const url = `https://api.themoviedb.org/3/trending/movie/day`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
+    /* axios */
+    const objAxios = null;
+    const urlAxios = `trending/movie/day`;
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
     const movies = data.results;
     // Add HTML
     genericSection.innerHTML = "";
@@ -261,98 +309,6 @@ async function getTrendingMovies() {
     console.error("error", error);
   } finally {
     console.log("finally : getTrendingMoviesPreview()");
-  }
-}
-
-async function getTrendingMoviesPreview() {
-  try {
-    // params
-    const url = `https://api.themoviedb.org/3/trending/movie/day`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
-    const movies = data.results;
-    // Add HTML
-    movies.map((movie) => {
-      /* create elements*/
-      const movieContainer = document.createElement("div");
-      const movieImg = document.createElement("img");
-      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
-      const title = movie.title;
-      /* Add style */
-      movieContainer.classList.add("movie-container");
-
-      movieContainer.addEventListener("click", () => {
-        location.hash = "#movie=" + movie.id;
-      });
-      movieImg.classList.add("movie-img");
-      /* Add url img */
-      movieImg.setAttribute("src", url);
-      movieImg.setAttribute("alt", title);
-      /* Add html */
-      movieContainer.appendChild(movieImg);
-      trendingMoviesPreviewList.appendChild(movieContainer);
-    });
-  } catch (error) {
-    console.error("error", error);
-  } finally {
-    console.log("finally : getTrendingMoviesPreview()");
-  }
-}
-async function getCategoriesPreview() {
-  try {
-    //params
-    const url = `https://api.themoviedb.org/3/genre/movie/list`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
-    const categories = data.genres;
-    // Add html
-    categoriesPreviewList.innerHTML = "";
-    /* array from server */
-    categories.forEach((category) => {
-      /* Create Element */
-      const categoryId = category.id;
-      const categoryName = category.name;
-      /*  */
-      const categoryContainer = document.createElement("div");
-      const categoryTitle = document.createElement("h3");
-      const categoryTitleText = document.createTextNode(categoryName);
-      /* Add style */
-      categoryContainer.classList.add("category-container");
-      categoryTitle.classList.add("category-title");
-      categoryTitle.setAttribute("id", "id" + categoryId);
-      /* Add html  */
-      categoryTitle.appendChild(categoryTitleText);
-      categoryContainer.appendChild(categoryTitle);
-      categoriesPreviewList.appendChild(categoryContainer);
-      /* cuando hace click se actualiza el URL*/
-      categoryTitle.addEventListener("click", () => {
-        location.hash = "#category=" + categoryId + "-" + categoryName;
-      });
-    });
-  } catch (error) {
-    console.error("error : ", error);
-  } finally {
-    console.log("finally : async getCategoriesPreview()");
   }
 }
 
