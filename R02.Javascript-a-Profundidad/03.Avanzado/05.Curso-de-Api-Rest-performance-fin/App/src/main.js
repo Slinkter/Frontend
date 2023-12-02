@@ -4,6 +4,7 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json;charset=utf-8",
   },
+  timeout: 10000,
   params: {
     api_key: API_KEY,
   },
@@ -11,26 +12,25 @@ const api = axios.create({
 // Local storage
 
 function likedMovieList() {
-  const item = JSON.parse(localStorage.getItem("liked_movies"));
-  let movies;
+  const db_local = localStorage.getItem("liked_movies");
+  const item = JSON.parse(db_local);
+  movies = {};
   if (item) {
     movies = item;
   } else {
     movies = {};
   }
-
   return movies;
 }
 function liveMovie(movie) {
   const id = movie.id;
-  const likedMovies = likedMovieList();
-
-  if (likedMovies[id]) {
-    likedMovies[id] = undefined;
+  const list = likedMovieList();
+  if (!!list[id]) {
+    list[id] = undefined;
   } else {
-    likedMovies[id] = movie;
+    list[id] = movie;
   }
-  localStorage.setItem("liked_movies", JSON.stringify(likedMovies));
+  localStorage.setItem("liked_movies", JSON.stringify(list));
 }
 // Utils
 function createMovies(
@@ -38,6 +38,7 @@ function createMovies(
   container,
   { lazyLoad = false, clean = true } = {}
 ) {
+  /*  */
   if (clean) {
     container.innerHTML = "";
   }
@@ -51,13 +52,11 @@ function createMovies(
     movieImg.setAttribute("alt", movie.title);
     movieImg.setAttribute(
       lazyLoad ? "data-img" : "src",
-      "https://image.tmdb.org/t/p/w300" + movie.poster_path
+      `https://image.tmdb.org/t/p/w300${movie.poster_path}`
     );
-
     movieImg.addEventListener("click", () => {
-      location.hash = "#movie=" + movie.id;
+      location.hash = `#movie=${movie.id}`;
     });
-
     movieImg.addEventListener("error", () => {
       movieImg.setAttribute(
         "src",
@@ -68,7 +67,6 @@ function createMovies(
     movieBtn.classList.add("movie-btn");
     movieBtn.addEventListener("click", () => {
       movieBtn.classList.toggle("movie-btn--liked");
-      // add movie to local storage
       liveMovie(movie);
       getLikedMovies();
     });
