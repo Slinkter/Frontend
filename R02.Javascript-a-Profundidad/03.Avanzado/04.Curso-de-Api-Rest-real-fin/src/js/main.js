@@ -6,6 +6,7 @@ const api = axios.create({
     Authorization:
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY",
   },
+  timeout: 10000,
 });
 
 async function getTrendingMoviesPreview() {
@@ -128,32 +129,18 @@ async function getMoviesByCategory(id) {
 
 async function getMovieBySearch(movieId) {
   // TODO :
+  console.group("getMovieBySearch(movieId)");
   try {
-    // params
-    const url = `https://api.themoviedb.org/3/search/movie?query=${movieId}`;
-    const authAPI =
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: authAPI,
-      },
-    };
-    // call api
-    const res = await fetch(url, options);
-    const data = await res.json();
+    /* axios */
+    const objAxios = null;
+    const urlAxios = `search/movie?query=${movieId}`;
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
     const movies = data.results;
 
-    /* axios */
-
-    const objAxios = null
-    const urlAxios = ``
-    const 
-
-    console.log("res: ", res);
+    console.log("resAxios: ", resAxios);
     console.log("data: ", data);
-    console.log("results: ", movies);
+    console.log("status: ", status);
 
     genericSection.innerHTML = "";
     //
@@ -161,17 +148,22 @@ async function getMovieBySearch(movieId) {
       //
       const movieContainer = document.createElement("div");
       const movieImg = document.createElement("img");
+      //
+      const defaultIMG = "https://placehold.co/300x400.png";
       const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
+      const urlIMG = movie.poster_path == null ? defaultIMG : url;
       const title = movie.title;
       //
       movieImg.classList.add("movie-img");
-      movieImg.setAttribute("src", url);
+      movieImg.setAttribute("src", urlIMG);
       movieImg.setAttribute("alt", title);
       //
+
       movieContainer.classList.add("movie-container");
-      movieContainer.addEventListener("click", () => {
-        location.bash = "#movie=" + movie.id;
-      });
+      movieContainer.addEventListener(
+        "click",
+        () => (location.hash = "#movie=" + movie.id)
+      );
       //
       movieContainer.appendChild(movieImg);
       genericSection.appendChild(movieContainer);
@@ -181,6 +173,7 @@ async function getMovieBySearch(movieId) {
   } finally {
     console.log("finally : getMoviesBySearch(query)");
   }
+  console.groupEnd();
 }
 
 async function getMovieByMovie(id) {
