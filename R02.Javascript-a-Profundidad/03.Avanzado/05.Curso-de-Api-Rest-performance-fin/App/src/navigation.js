@@ -24,13 +24,18 @@ function navigator() {
     infiniteScroll = undefined;
   }
 
-  if (location.hash.startsWith("#trends")) {
+  const pathTrend = location.hash.startsWith("#trends");
+  const pathSearch = location.hash.startsWith("#search=");
+  const pathMovie = location.hash.startsWith("#movie=");
+  const pathCategory = location.hash.startsWith("#category=");
+
+  if (pathTrend) {
     trendsPage();
-  } else if (location.hash.startsWith("#search=")) {
+  } else if (pathSearch) {
     searchPage();
-  } else if (location.hash.startsWith("#movie=")) {
+  } else if (pathMovie) {
     movieDetailsPage();
-  } else if (location.hash.startsWith("#category=")) {
+  } else if (pathCategory) {
     categoriesPage();
   } else {
     homePage();
@@ -87,10 +92,8 @@ function categoriesPage() {
   const [_, categoryData] = location.hash.split("=");
   // [ id , name ]
   const [categoryId, categoryName] = categoryData.split("-");
-
-  headerCategoryTitle.innerHTML = categoryName;
-
   getMoviesByCategory(categoryId);
+  headerCategoryTitle.innerHTML = categoryName;
   infiniteScroll = getPaginatedMoviesByCategory(categoryId);
 }
 

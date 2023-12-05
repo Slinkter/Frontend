@@ -22,7 +22,7 @@ function likedMovieList() {
   }
   return movies;
 }
-function liveMovie(movie) {
+function stateLikeMovie(movie) {
   const id = movie.id;
   const list = likedMovieList();
   if (!!list[id]) {
@@ -46,7 +46,7 @@ function createMovies(
   movies.forEach((movie) => {
     const movieContainer = document.createElement("div");
     const movieImg = document.createElement("img");
-    const movieBtn = document.createElement("button");
+    const movieBtnLike = document.createElement("button");
 
     movieImg.classList.add("movie-img");
     movieImg.setAttribute("alt", movie.title);
@@ -64,21 +64,23 @@ function createMovies(
       );
     });
 
-    movieBtn.classList.add("movie-btn");
-    movieBtn.addEventListener("click", () => {
-      movieBtn.classList.toggle("movie-btn--liked");
-      liveMovie(movie);
+    movieBtnLike.classList.add("movie-btn");
+    movieBtnLike.addEventListener("click", () => {
+      movieBtnLike.classList.toggle("movie-btn--liked");
+      stateLikeMovie(movie);
       getLikedMovies();
     });
 
-    likedMovieList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
+    likedMovieList()[movie.id] &&
+      movieBtnLike.classList.add("movie-btn--liked");
 
     if (lazyLoad) {
       lazyLoader.observe(movieImg);
     }
+
     movieContainer.classList.add("movie-container");
     movieContainer.appendChild(movieImg);
-    movieContainer.appendChild(movieBtn);
+    movieContainer.appendChild(movieBtnLike);
     container.appendChild(movieContainer);
   });
 }
@@ -110,7 +112,6 @@ async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
   const movies = data.results;
   createMovies(movies, trendingMoviesPreviewList, true);
-  console.log(movies);
 }
 
 async function getCategegoriesPreview() {
@@ -119,15 +120,30 @@ async function getCategegoriesPreview() {
   createCategories(categories, categoriesPreviewList);
 }
 
+function getLikedMovies() {
+  const likedmovies = likedMovieList();
+  const moviesArray = Object.values(likedmovies);
+  console.log(likedmovies);
+  console.log(moviesArray);
+  createMovies(moviesArray, likedMoviesListArticle, {
+    lazyLoad: true,
+    clean: true,
+  });
+}
+/* path categories */
 async function getMoviesByCategory(id) {
+  /* params */
+  const path = "discover/movie";
   const options = {
     params: {
       with_genres: id,
     },
   };
-  const { data } = await api("discover/movie", options);
-  const movies = data.results;
+  /* Exec  */
+  const { data } = await api(path, options);
   maxPage = data.total_pages;
+  const movies = data.results;
+  /* render */
   createMovies(movies, genericSection, { lazyLoad: true });
 }
 
@@ -137,8 +153,10 @@ function getPaginatedMoviesByCategory(id) {
     const isScrollBottom = scrollTop + clientHeight >= scrollHeight - 15;
     const isNotLastPage = page < maxPage;
     /*  */
-    console.log(isScrollBottom);
-    console.log(isNotLastPage);
+    console.log("--------------------");
+    console.log("scrollTop", scrollTop); // Y cambiando
+    console.log("clientHeight", clientHeight); // Y consatne
+    console.log("scrollHeight", scrollHeight); // al terminar Y aumenta
     /*  */
     if (isScrollBottom && isNotLastPage) {
       page++;
@@ -220,16 +238,13 @@ async function getPaginatedTredingMovies() {
 }
 
 async function getMovieById(id) {
-  const { data: movie } = await api("movie/" + id);
+  const path = `movie/${id}`;
+  const { data: movie } = await api(path);
+  /*  */
+
   const movieImgUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
-  headerSection.style.background = `
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.35) 19.27%,
-      rgba(0, 0, 0, 0) 29.17%
-    ),
-    url(${movieImgUrl})
-  `;
+  const bg_img = "linear-gradient(180deg,rgba(0, 0, 0, 0.35),rgba(0, 0, 0, 0))";
+  headerSection.style.background = `${bg_img},url(${movieImgUrl})`;
 
   movieDetailTitle.textContent = movie.title;
   movieDetailDescription.textContent = movie.overview;
@@ -245,21 +260,32 @@ async function getRelatedMoviesId(id) {
   createMovies(relatedMovies, relatedMoviesContainer);
 }
 
-const lazyLoader = new IntersectionObserver((entries) => {
-  entries.forEach((element) => {
-    if (element.isIntersecting) {
-      const url = element.target.getAttribute("data-img");
-      element.target.setAttribute("src", url);
+const lazyLoader = new IntersectionObserver((io) => {
+  io.forEach((item) => {
+    if (item.isIntersecting) {
+      const url = item.target.getAttribute("data-img");
+      item.target.setAttribute("src", url);
     }
   });
 }, null);
 
-function getLikedMovies() {
-  const likedmovies = likedMovieList();
-  const moviesArray = Object.values(likedmovies);
+/* 
 
-  createMovies(moviesArray, likedMoviesListArticle, {
-    lazyLoad: true,
-    clean: true,
-  });
-}
+
+a)Atributo de datos
+--------------------
+Los atributos de datos son atributos personalizados que no tienen un significado predefinido. Se utilizan para almacenar información adicional sobre un elemento HTML. En este caso, el atributo data-img se utiliza para almacenar la URL de la imagen que se debe cargar de manera perezosa.
+
+b)Atributo de origen
+--------------------
+Los atributos de origen se utilizan para especificar la URL de un recurso, como una imagen, un script o un estilo. En este caso, el atributo src se utiliza para especificar la URL de la imagen que se debe cargar de manera inmediata.
+
+c)Cómo se entiende
+--------------------
+El navegador interpreta el atributo data-img como una cadena de texto. En este caso, la cadena de texto contiene la URL de la imagen que se debe cargar.
+
+Cuando el navegador carga el elemento HTML, no carga la imagen real. En su lugar, carga la imagen de relleno. Cuando el usuario hace scroll por la página y la imagen entra en el viewport, el navegador carga la imagen real.
+
+Esto optimiza el rendimiento de la página al evitar cargar todas las imágenes de inmediato.
+
+*/
