@@ -7,7 +7,6 @@ const App = () => {
       <div>
         <TodoLoading />
       </div>
-      App
     </React.Fragment>
   );
 };
