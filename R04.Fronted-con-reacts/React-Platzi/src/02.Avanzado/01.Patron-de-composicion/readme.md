@@ -95,7 +95,7 @@ _ props render (devuelve un component o elemento)
 
 Ya no es necesario renderizar en el {children} sino todo sube a la section de propiedad.Donde la propiedad render es la principal
 
-```
+```JSX
 <Component >
       {error & <Error/>}
       {loading & <Loading/>}
@@ -104,7 +104,7 @@ Ya no es necesario renderizar en el {children} sino todo sube a la section de pr
 
 ```
 
-```
+```JSX
 <Component
       error={error}
       loading={loading}
@@ -134,7 +134,7 @@ Ya no es necesario renderizar en el {children} sino todo sube a la section de pr
 
 - Y con este HOC ahora podemos reutilizar este código, y ya no tenemos que crear un estado local para cada componente, sino que le delegamos esta tarea a otro componente.
 
-```
+```JSX
 // --> Definición del HOC
 function HOC(var1) {
   return function FuncReturn(var2) {
@@ -156,12 +156,12 @@ console.log(sumTotal); // Output: 3
 
 - Render props
 
-      Las render props son muy útiles cuando deseamos realizar validaciones o renderizados condicionales, ya que podemos definir que es lo que vamos a mostrar en un componente desde sus props.
+Las render props son muy útiles cuando deseamos realizar validaciones o renderizados condicionales, ya que podemos definir que es lo que vamos a mostrar en un componente desde sus props.
 
 - HOC.
 
-      Los high order components muestran todo su potencial cuando queremos reutilizar lógica, código e inyectar información a un componente por medio de sus props. Es cierto que estos aumentan la complejidad de nuestro código, pero si son utilizados correctamente llegan a ser una herramienta muy poderosa.
+Los high order components muestran todo su potencial cuando queremos reutilizar lógica, código e inyectar información a un componente por medio de sus props. Es cierto que estos aumentan la complejidad de nuestro código, pero si son utilizados correctamente llegan a ser una herramienta muy poderosa.
 
 - Custom Hooks
 
-      Los hooks de React son una herramienta que está disponible desde la versión 16.8.0, estos nos permiten encapsular lógica dentro de una función, la cual podemos utilizar tantas veces como queramos. Por ejemplo, podríamos crear un custom hook que nos permite hacer peticiones hacia cierto endpoint y que nos retorne el estado actual de la petición para saber que renderizar mientras llega la data.
+Los hooks de React son una herramienta que está disponible desde la versión 16.8.0, estos nos permiten encapsular lógica dentro de una función, la cual podemos utilizar tantas veces como queramos. Por ejemplo, podríamos crear un custom hook que nos permite hacer peticiones hacia cierto endpoint y que nos retorne el estado actual de la petición para saber que renderizar mientras llega la data.
