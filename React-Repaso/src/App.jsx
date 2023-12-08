@@ -1,5 +1,5 @@
 import React from "react";
-import TodoLoading from "./TodosLoading/TodoLoading";
+import TodoLoading from "./TodosLoading";
 
 const App = () => {
   return (
