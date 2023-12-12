@@ -155,7 +155,18 @@ Sé honesto
 
 ## Clase 13/22 : HTML, CSS y JavaScript a nivel práctico para entrevistas
 
-## Clase 14/22
+- al nivel practico
+  - entrevista en remoto
+  - Ubicate en un lugar cómodo
+  - Ten listo tu ambiente. Trata de usar herramientas con las que ya estés familiarizada
+  - Concéntrate y que comience el juego
+  - padre - hijo de etiques de buenas practicas de codigo limpio
+  - usar metodologia BEM
+  -
+
+## Clase 14/22 : Mejores prácticas para presentar entrevistas técnicas
+
+-blog
 
 ## Clase 15/22
 
