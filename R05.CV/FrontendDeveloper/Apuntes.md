@@ -25,26 +25,123 @@
 
 - Puede variar se el tipo o tamaño de empresa
 - Tipos
-  - Junior :
+  - ## Junior :
+
+## Clase 03/22 : Ideas para crear tu página web
+
+## Clase 04/22 : Ideas para crear tu página web
+
+- desarrolla la creatividad de crear un web
+- la pagina tiene q tener mi estilo en la web
+- Proyectos
+- ejemplos : pinteres ,
+
+## Clase 05/22 : Preguntas y respuestas sobre tu perfil profesional
+
+- Personas que ha cambiado de rol , solo especificar que al nivel de software no otros roles (contador)
+- La edad
+- En las tecnologias el nivel de conocimiento
+- la falta de experiencias de laboral , hacer proyectos personales .
+
+# Bloque 02
+
+## Clase 06/22 :Prepárate en HTML y CSS (nivel teórico y práctico)
+
+- nivel practico
+
+  - Cursos basicos : entender el como cuando y porque
+  - Crear componentes de diseño . replicar ejemplos de boostrap o tail
+  - Componentes de framework
+  - Imaginar escenarios
+  - Replicar paginas existentes
+
+- nivel teorico
+
+  - HTML
+    - Sintaxis
+    - Tipos de etiquetas
+    - HTML semantico :
+    - Performace
+    - DOM
+  - CSS
+    - Modelo de casa
+    - Tipo de diplay
+    - peudo-clase - elemento
+    - Media queries
+    - Arquitectura
+    - Versiones
+    - Especificidad
+
+## Clase 07/22 : JavaScript a nivel teórico y práctico
+
+- Nivel teorico
+  - JS
+    - Diciplina , paciencias , toma tiempo en aprender
+    - Arma un plan
+    - 33 Concepto generales de JS https://github.com/leonardomso/33-js-concepts
     -
+- Nivel practico
+  - poner en practicas los cursos
+  - mini-proyecto : consumir api y presentar
+  -
 
-## Clase 03/22
+## Clase 08/22 : Frameworks (libreria) de JS a nivel teórico y práctico
 
-## Clase 04/22
+- Tener conocimientos de JS solida
+- teorico :
+  - Curso detalloso
+  - fundamentos , componentes ,consumo de api , enrutamiento
+  -
 
-## Clase 05/22
+## Clase 09/22 : Resolución de problemas y live coding
 
-## Clase 06/22
+- mostrar que se esta analizando el problema
+- nos contrata para solucionar problemas
+- pensar en voz alta
+- maneja la frustacion
+- no ser apaticos cuando se esta codeando en live
+- tener habilidades blandas
+- imaginar el problemas y como llevar al codigo
+- Manipulacion del dom con JS . clonar hijo , modificar el estilo
+- Mostrar un JSON
+- localStorage
 
-## Clase 07/22
+## Clase 10/22 : 3 ejercicios para poner en práctica tus habilidades en HTML, CSS y JS
 
-## Clase 08/22
+## Clase 11/22 : Recomendaciones generales para una entrevista técnica
 
-## Clase 09/22
+Conseguir la entevista
 
-## Clase 10/22
+Prepárate y trabaja en las habilidades adecuadas para el rol que deseas desempeñar
 
-## Clase 11/22
+- Es un proceso. Tu día a día consta de:
+
+  - Codear
+  - Revisar el código
+  - Aprender nuevos trucos
+  - Las entrevistas están diseñadas para conocer tu potencial. Espera muchas preguntas en tu entrevista.
+
+- Conocimiento consta de 3 cosas
+
+  - Tu tiempo libre
+  - Tu pasión
+  - Tu experiencia
+  - Véndete a ti mismo
+
+- Algunas posibles preguntas:
+
+  - Háblame de ti
+  - Cuéntame de tu experiencia
+  - Muéstrate seguro
+
+No te dé miedo decir no sé
+Profundiza (no demasiado) en las respuestas
+Ten buena actitud
+Escucha sugerencias
+Sé puntual
+Prende cámara
+Haz preguntas sobre el empleo
+Sé honesto
 
 ## Clase 12/22
 
