@@ -137,15 +137,23 @@ Prepárate y trabaja en las habilidades adecuadas para el rol que deseas desempe
 No te dé miedo decir no sé
 Profundiza (no demasiado) en las respuestas
 Ten buena actitud
-Escucha sugerencias
-Sé puntual
+Escucha sugerencias del entrevistador
+Sé puntual ,
 Prende cámara
 Haz preguntas sobre el empleo
 Sé honesto
 
-## Clase 12/22
+## Clase 12/22 : Buenas prácticas de HTML, CSS y JavaScript para una entrevista
 
-## Clase 13/22
+- la entrevista puede ser teorico o practico
+- al nivel teorico
+  - el JS resalta mas que HTML y CSS
+  - el entrevistador ya tiene experencia
+  - mostrar seguridad durante la entrevista
+  - HTML : perfomaces ,accesible o semantico
+  -
+
+## Clase 13/22 : HTML, CSS y JavaScript a nivel práctico para entrevistas
 
 ## Clase 14/22
 
