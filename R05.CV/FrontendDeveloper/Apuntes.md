@@ -170,13 +170,38 @@ Sé honesto
 
 ## Clase 15/22
 
-## Clase 16/22
+- Prueba tecnica para la casa
+- 1 ) Dar solucion por nuestra parte el diseño
+  - Historia de usuario
+  - Requerimientos ()
+  - Plasma la idea en lapiz y papel . Crear un borrador de diseño segun historia de usuario
+  - Dibujar la interfaz para el entenimiento visual .
+  -
+  -
+- 2 ) Nos da el diseño a crear
 
-## Clase 17/22
+## Clase 16/22 : Elección del framework para realizar la prueba
+
+- Mi lenguaje es React .
+- Manejar los tiempos
+-
+
+## Clase 17/22 : Cómo ejecutar una prueba técnica
+
+- Primero haz que funcione y luego lo pones bonito
+- Si tiene diseño, cuida cada detalle. La extensión PerfectPixel te puede ayudar con eso
+- Entregarla en el tiempo acordado
+- Cumple con el 100% de los requerimientos
+- Trata de hacer el deploy. Puedes usar github pages para esto, también está Netlify, Heroku etc
+- Haz tu código 100% en inglés. Si necesitas agregar comentarios en tu codigo deberia estar en inglés
+- Usa las mejores practicas
+- Haz un buen README
 
 ## Clase 18/22
 
-## Clase 19/22
+## Clase 19/22 : Cómo estar al día en tecnología: comunidades, conferencias, blogs y más
+
+-
 
 ## Clase 20/22
 
