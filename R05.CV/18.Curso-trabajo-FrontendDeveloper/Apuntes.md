@@ -208,3 +208,6 @@ Sé honesto
 ## Clase 21/22
 
 ## Clase 22/22
+
+Repasar Clase 01
+Repasar Clase 17
