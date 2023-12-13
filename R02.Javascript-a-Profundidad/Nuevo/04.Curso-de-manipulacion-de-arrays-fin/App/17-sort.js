@@ -80,3 +80,7 @@ const orders = [
 ];
 orders.sort((a, b) => b.total - a.total);
 console.log(orders);
+
+const array = ["a", "bb", "ccc"];
+const rta = array.map((item) => item.length);
+console.log(rta);
