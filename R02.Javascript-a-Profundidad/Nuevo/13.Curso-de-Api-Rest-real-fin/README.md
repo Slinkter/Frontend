@@ -24,3 +24,13 @@ secret key
 Maquetación del proyecto: HTML y CSS
 
 https://platzi.com/new-home/clases/2986-api-practico/48449-maquetacion-del-proyecto-html-y-css/
+
+https://www.notion.so/Curso-Pr-ctico-de-Consumo-de-API-REST-con-JavaScript-e98bd628bc0e4af481f47e839bc82692
+
+Repasar :
+
+clase 19
+clase 02
+clase 04
+clase 09
+clase 14

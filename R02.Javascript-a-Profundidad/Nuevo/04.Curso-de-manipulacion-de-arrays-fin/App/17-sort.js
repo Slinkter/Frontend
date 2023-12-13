@@ -81,6 +81,6 @@ const orders = [
 orders.sort((a, b) => b.total - a.total);
 console.log(orders);
 
-const array = ["a", "bb", "ccc"];
-const rta = array.map((item) => item.length);
+const array = [["🐸", "🐱"], "🐹", ["🐯"]];
+const rta = array.flat();
 console.log(rta);
