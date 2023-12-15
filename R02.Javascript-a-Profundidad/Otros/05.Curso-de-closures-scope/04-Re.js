@@ -1,23 +1,25 @@
-var firstName; // firstName : undefined
-firstName = "liam"; // firstName : "liam"
+var firstName; //        ---->  firstName : undefined   (declarar)
+firstName = "liam"; //   ---->  firstName : "liam"      (asignar)
+
+var lastName = "cave"; // ----> declaracion y asignacion
+lastName = "ana"; //      ----> reasignacion
+
+var secondName = "david"; //----> declaracion y asignacion
+var secondName = "ana"; //  ----> reasignacion
+
+/*  */
 console.log(firstName);
-
-var lastName = "cave"; //declaracion y asginacion
-lastName = "ana"; // reasignacion
 console.log(lastName);
-
-var secondName = "david"; //declaracion y asginacion
-var secondName = "ana"; // reasignacion
 console.log(secondName);
-
-let fruit = "apple"; //declaracion y asginacion
-fruit = "kiwi"; // reasignacion
-//let fruit = "banana"; // no se puede declaracion con let
-console.log(fruit); // error Identifier 'fruit' has already been declared
-
-const animal = "dog"; //declaracion y asginacion
-animal = "cat"; // no se puede declaracion con const
-console.log(animal); // error : TypeError: Assignment to constant variable.
+/* === LET === */
+let fruit = "apple"; // ----> declaracion y asignacion
+fruit = "kiwi"; //      ----> reasignacion
+let fruit = "banana"; //----> No se puede re-declaracion ni reasignacion
+console.log(fruit); //  ----> Error Identifier 'fruit' has already been declared
+/* === CONST === */
+const animal = "dog"; //----> declaracion y asignacion
+animal = "cat"; //      ----> No se puede reasignacion
+console.log(animal); // ----> Error : TypeError: Assignment to constant variable.
 
 const vehicles = [];
 vehicles.push("a");
