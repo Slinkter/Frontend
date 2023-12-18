@@ -1,7 +1,3 @@
-## NOTA INTRODUCTORIA:
-
-La presente es una recopilación de aportes de varios de los compañeros del curso con fines de estudio y apoyo a las demás personas. La totalidad del contenido es colaborativo y no pretende tomar provecho de esfuerzos ajenos.
-
 ## ¿Qué es un proyecto?
 
 Un proyecto es un esfuerzo temporal con objetivos específicos.
@@ -18,8 +14,12 @@ La diferencia entre ambos tipos es que el primero (lucrativo) busca un beneficio
 
 ## El Gestor de Proyectos (Project Management).
 
-También conocido como director, coordinador, gerente de proyectos o Project Manager, es la persona encargada de dirigir, gestionar y controlar un proyecto desde su etapa inicial hasta su cierre.
-Los proyectos tienen dos escalas: pequeña escala (personal) y de mayor complejidad (como los que se ejecutan en el trabajo).
+• También conocido como director, coordinador, gerente de proyectos o Project Manager.
+• Es la persona encargada de dirigir, gestionar y controlar un proyecto desde su etapa inicial hasta su cierre.
+• Los proyectos tienen dos escalas:
+
+- pequeña escala (personal)
+- Mayor complejidad (como los que se ejecutan en el trabajo).
 
 ## Elementos de un Proyecto:
 
@@ -27,6 +27,7 @@ Los proyectos tienen dos escalas: pequeña escala (personal) y de mayor compleji
 • Beneficiarios: Los que se verán beneficiadas de mi proyecto. A donde me quiero dirigir, es social o proyecto personal donde me puedo beneficiar.
 • Producto/Servicio: Viene con el resultado de nuestra ejecución. No debemos confundirlo como resultado final.
 • Actividades: Todo proyecto se divide en tareas o etapas. Deben tener un orden lógico para que el proyecto evolucione correctamente. No todas las tareas son importantes, por lo cual hay que jerarquizarla.
+
 • Calendario: Fechas y plazos de desarrollo para cada tarea. El calendario puede ser flexible.
 • Recursos: Son materiales y humanos. En materiales, contamos con todo lo tangible para crear el producto/servicio y los humanos son todos los que contamos con su ayuda para poder crear el producto/servicio.
 • Presupuesto: Es la financiación del proyecto. Hay que ser especifico al establecer los gastos y costos por tarea y por actividad.
@@ -41,27 +42,33 @@ Los proyectos tienen dos escalas: pequeña escala (personal) y de mayor compleji
 ## Ciclos de un proyecto
 
 - Inicio del proyecto:
-  o Se desarrollan 2 documentos, que serán evaluados por un comité de toma de decisiones que lo aprueban
+  o Se desarrollan 2 documentos, que serán evaluados por "un comité" de toma de decisiones que lo aprueban
    Caso de negocio: se especifica la necesidad de realizar este proyecto
    Estudio de factibilidad: se determina que si con los recursos, el tiempo y el financiamiento es posible realizar el proyecto en tiempo y forma y de manera satisfactoria
 
 - Planificación:
-  o Aquí se crea un plan sólido que va a proveer respuestas que surgirán en la etapa de ejecución, aquí se platínica, se crea claridad y se traza un camino a seguir
+  o Aquí se crea "un plan sólido"
+  que va a proveer respuestas que surgirán en la etapa de ejecución, aquí se planifica, se crea claridad y se traza un camino a seguir
 
 - Ejecución:
   o Se pone en práctica la planificación se debe asignar los recursos y velar porque cada parte del proyecto este realizando lo que le toca en tiempo y forma
 - Supervisión y control:
-  o Es necesario que desde la planificación se cree un plan de supervisión de cada uno de los entregables o de los procesos que estés ejecutando, es importante anticipar cualquier riesgo o crisis que podamos afrontar y solucionarla en el momento
+  o Es necesario que desde la planificación se cree un "plan de supervisión" de cada uno de los entregables o de los procesos que estés ejecutando, es importante anticipar cualquier riesgo o crisis que podamos afrontar y solucionarla en el momento
 - Cierre:
   o comunicar el cierre, hacer retrospectiva y crear un documento donde plasmemos las lecciones aprendidas con el fin de mejorar.
 
 ## Integrantes de un Proyecto:
 
 • Patrocinador (Sponsor): “El patrocinador es un alto directivo o ejecutivo, normalmente en la parte superior del organigrama. Los patrocinadores corporativos incluyen el nivel de director y superior”
+
 • Comité de dirección: es un comité que proporciona orientación y dirección a un proyecto. El comité de dirección suele incluir al director del proyecto y a las principales partes interesadas, como los patrocinadores o los clientes. Otras funciones del equipo pueden ser las de expertos en la materia, representantes de departamentos o divisiones clave y otras personas con conocimientos o experiencia relevantes.
+
 • Director del proyecto: Al documentar todo, desde cómo tratar las solicitudes de cambio hasta determinar la progresión del rendimiento de los equipos, los gestores de proyectos se aseguran de que todo, desde los plazos hasta la asignación de recursos, se cuide adecuadamente.
+
 • Equipo de proyecto: Organización creada específicamente para cada nuevo proyecto, su objetivo es diseñar documentos de especificación y crear registros detallados sobre diferentes aspectos.
+
 • Las partes interesadas: en el proyecto son aquellas personas o grupos que tienen un interés personal en el resultado del proyecto. Pueden verse afectados por el proyecto positiva o negativamente, y pueden tener recursos (dinero, mano de obra, etc.) para contribuir al éxito o al fracaso del proyecto.
+
 • Los usuarios: son las personas que en última instancia se beneficiarán del resultado del proyecto. Pueden ser beneficiarios directos (por ejemplo, cuando se implanta un nuevo sistema), o indirectos (por ejemplo, cuando se implanta un nuevo producto).
 
 ## Alcance de un Proyecto:
@@ -113,11 +120,11 @@ quiere alcanzar.
 Es todo aquello que se necesita para ejecutar una tarea o un proyecto.
 Tipos de Recursos:
 
-Físicos: instalaciones, oficinas, terrenos, maquinaria, etc.
-Humanos: Personal con el que contamos para ejecutar el proyecto.
-Información confidencial: Metodologías, patentes registradas, etc.
-Relaciones y contactos: vínculos y contactos fuera del proyecto que nos pueden ayudar con la ejecución.
-Financieros: dinero que tenemos para ejecutar el proyecto.
+- Físicos: instalaciones, oficinas, terrenos, maquinaria, etc.
+- Humanos: Personal con el que contamos para ejecutar el proyecto.
+- Financieros: dinero que tenemos para ejecutar el proyecto.
+- Información confidencial: Metodologías, patentes registradas, etc.
+- Relaciones y contactos: vínculos y contactos fuera del proyecto que nos pueden ayudar con la ejecución.
 
 ## Gastos y costos
 
