@@ -14,9 +14,11 @@ Ambitos = Scope
 
 /* -------Ambito Global------- */
 let greeting = "Ambito Global";
+//
 function getGreet() {
   console.log(greeting);
 }
+//
 getGreet();
 /* -------Ambito Local------- */
 function getSaludo() {
