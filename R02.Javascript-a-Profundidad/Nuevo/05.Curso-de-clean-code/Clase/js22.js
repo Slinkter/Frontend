@@ -1,23 +1,17 @@
 /* Dont repeat yourseft */
 /* 
 DRY 
-
-
-
-
-
 */
 
-const juanAverage = (90 + 50 + 70) / 3;
-const alexAverage = (80 + 90 + 70 + 80) / 4;
-const candeAverage = (40 + 100) / 2;
-console.log(juanAverage, alexAverage, candeAverage);
+const juanAverage1 = (90 + 50 + 70) / 3;
+const sofiaAverage1 = (80 + 90 + 70 + 80) / 4;
+const anaAverage1 = (60 + 90 + 70 + 100 + 95) / 5;
 
-function getAverage(...grades) {
-  return grades.reduce((acc, current) => acc + current, 0) / grades.length;
+// Sin repetir código
+function average(grades) {
+  return grades.reduce((prev, current) => prev + current, 0) / grades.length;
 }
 
-const juanAverage2 = getAverage(90, 50, 70);
-const alexAverage2 = getAverage(80, 90, 70, 80);
-const candeAverage2 = getAverage(40, 100);
-console.log(juanAverage2, alexAverage2, candeAverage2);
+const juanAverage = average([90, 50, 70]);
+const sofiaAverage = average([80, 90, 70, 80]);
+const anaAverage = average([60, 90, 70, 100, 95]);

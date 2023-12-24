@@ -1,6 +1,6 @@
 /* Clases */
 
-//Antes dee ES6
+// con ES5 <
 function Person(name) {
   this.name = name;
 }

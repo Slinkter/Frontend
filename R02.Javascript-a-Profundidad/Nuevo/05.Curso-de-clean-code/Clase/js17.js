@@ -1,51 +1,55 @@
-/* Herencia */
-//Antes dee ES6
+//> Herencia prototipal
+// Clase padre
 function Person(name) {
   this.name = name;
 }
+
 Person.prototype.greet = function () {
-  return "hello I am " + this.name;
+  return "Hello I am " + this.name;
 };
 
+// Herencia ES5
 function Developer(name) {
   this.name = name;
 }
+
 Developer.prototype = Object.create(Person.prototype);
 Developer.prototype.writeCode = function (coffee) {
   if (coffee) {
-    console.log("I am working in a new Feature");
+    console.log("I am developing new feature");
   } else {
-    console.log("I need coffee , please!");
+    console.log("I need coffeeee");
   }
 };
 
 var dev = new Developer("Alex");
-dev.greet();
-dev.writeCode();
+dev.greet(); //> Hello I am Alex
+dev.writeCode(); //> I need coffeeee
 
-// Con Es6
-class Cat {
-  constructor(cat) {
-    this.name = cat;
+//> Herencia clases
+class Person {
+  constructor(person) {
+    this.name = name;
   }
+
   greet() {
-    return "hello I am " + this.name;
+    return `Hello I am ${this.name}`;
   }
 }
 
-class Michi extends Cat {
+// ES6
+class Developer extends Person {
   constructor(name) {
     super(name);
   }
+
   writeCode(coffee) {
-    coffee ? console.log("I am devel") : console.log("i need coffe,please");
+    coffee
+      ? console.log("I am developing new feature")
+      : console.log("I need coffeeee");
   }
 }
 
-const cat = new Cat("Candy");
-console.log(cat.name);
-console.log(cat.greet());
-
-const michiCat = new Michi();
-michiCat.greet();
-michiCat.writeCode();
+const dev = new Developer("Alex");
+dev.greet(); //> Hello I am Alex
+dev.writeCode(); //> I need coffeeee

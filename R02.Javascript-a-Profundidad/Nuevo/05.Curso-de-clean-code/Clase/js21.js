@@ -1,4 +1,4 @@
-/* REglas para trabajar en equipo */
+/* Reglas para trabajar en equipo */
 /* 
 
 seguir los mismos patrones  de problemas similares 

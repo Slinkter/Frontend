@@ -1,15 +1,18 @@
-/* 
-reglas de nomenclatura 
-- nombre pronuncialbes y expresiva en ingles con una estrucutra camelcase
-*/
-const yyymmdstr = moment().format("YYYY/MM/DD");
-const currentday = moment().format("YYYY/MM/DD");
-/* 
+/* reglas de nomenclatura */
+//
+//> Nombres pronunciables y expresivos
+// No recomendado
+const yyyymmdstr = moment().format("YYYY/MM/DD");
 
+// Recomendado
+const currentDate = moment().format("YYYY/MM/DD");
+
+//> Ausencia de información técnica en los nombres
+
+/* 
 - evitar nombre de las variables con informacion tecnica
 - Software Vertical : esta orientado a negocios , evitar nombres a tecnologia
 - Software Horizontal : esta orientado a , evitar la informacion tecnica.
-
 */
 
 let arrayNames = ["liam", "mariana", "karen"]; // no
@@ -27,7 +30,3 @@ getClientData(); // no
 getCustomerRecord(); // no
 
 getUser(); // si
-
-/* 
-se busca q el codigo se autoexplicativo
-*/

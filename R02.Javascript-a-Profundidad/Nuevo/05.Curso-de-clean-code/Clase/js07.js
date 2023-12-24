@@ -12,28 +12,40 @@ Ambitos = Scope
     * excepcion : var trabaja de manera global rompiendo el ambito
 */
 
-/* -------Ambito Global------- */
-let greeting = "Ambito Global";
+/* -------Ámbito global------- */
 //
-function getGreet() {
+let greeting = "Hello World";
+function greet() {
   console.log(greeting);
 }
+greet(); //----> Hello world
 //
-getGreet();
-/* -------Ambito Local------- */
-function getSaludo() {
-  let saludos = "Ambito Local";
-  console.log("saludos desde la  funcion : ", saludos);
+/* -------Ámbito local o de función------- */
+//>
+function greet() {
+  let greeting = "Hello World";
+  console.log(greeting);
 }
-getSaludo();
-console.log(saludos); // error : ReferenceError
-/* -------Ambito Bloque------- */
+greet(); //----> Hello world
+console.log(greeting); //> Variable no definida
+//
+/* -------Ámbito de bloque------- */
+//>
 {
-  let getGreetingSaludos = "hello world";
+  let greeting = "Hello World";
   var lang = "English";
-  //
-  console.log(getGreetingSaludos);
-  console.log(lang);
+  console.log(greeting);
 }
-// console.log(getGreetingSaludos);
-console.log(lang);
+console.log(lang); //> English
+console.log(greeting); //> Uncaught ReferenceError: greeting is not defined
+/* -------Ámbito estático o dinámico------- */
+//>
+const age = 28;
+function printAge() {
+  console.log(age);
+}
+function mainApp() {
+  const age = 26;
+  printAge();
+}
+mainApp(); //> 28

@@ -1,28 +1,27 @@
-/* unica tarea : Autenticar   */
-
 class UserAuth {
+  user = "";
+
   constructor(user) {
     this.user = user;
   }
 
   verifyCredentials() {
-    return false;
+    return true;
   }
 }
 
-class UserSetting extends UserAuth {
+class UserSettings extends UserAuth {
+  settings = "";
+
   constructor(user, settings) {
     super(user);
     this.settings = settings;
   }
-  changeSetting(settings) {
+
+  changeSettings(settings) {
     if (this.verifyCredentials()) {
-      console.log("Puede modificar su configuracion");
-    } else {
-      console.log("No tiene acceso");
+      console.log("Puede modificar su configuración");
     }
+    console.log("No tiene acceso");
   }
 }
-
-const newAccess = new UserSetting("Alex", "Dark Mode");
-newAccess.changeSetting();
