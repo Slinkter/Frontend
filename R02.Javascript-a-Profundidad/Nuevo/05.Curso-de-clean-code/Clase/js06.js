@@ -1,9 +1,8 @@
 /* 
 Arrays: Plural.
-Booleanos: Con prefijos “is”, “has” y “can”. (“es verdadero”, “tiene/contiene x”, “puede hacer x”).
-Números: añadir  prefijos “min”, “max” y “total”.
-Funciones: representan un accion ,
-    Verbo + sustantivo/s (ya que son acciones).
+Booleanos:  prefijos “is”, “has” y “can”. (“es verdadero”, “tiene/contiene x”, “puede hacer x”).
+Números:   prefijos “min”, “max” y “total”.
+Funciones: 
     …de Acceso.       : get + sustantivo
     …de Modificación  : set + sustantivo;
     …de Predicado.    : is + sustantivo; 
