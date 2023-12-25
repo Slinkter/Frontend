@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 800px;
+    margin: 100px auto;
+
+}
+
+td,th{
+    border: 1px solid black ;
+    padding: 5px;
+}
+
+tr:nth-child(even){
+    background-color: rgba(170, 185, 196, 0.686);
+}
+
+td:nth-child(n+3),
+th:nth-child(n+3) {
+    text-align: center;
+}
+tbody tr:hover{
+    background-color: rgba(206, 192, 32, 0.686) !important;
+}
+
+thead{
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+}

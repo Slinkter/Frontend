@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav .nav-right-section {
+  width: 250px;
+  display: flex;
+  height: auto;
+  list-style: none;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .nav-right-section a {
+  margin-right: 10px;
+  color: black;
+}
+
+nav .nav-right-section .menu-icon {
+  background-image: url("https://cdn.icon-icons.com/icons2/1369/PNG/512/-apps_90405.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  width: 25px;
+  height: 25px;
+}
+
+nav .nav-right-section img {
+  border-radius: 50px;
+}
+
+main {
+  margin-top: 150px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main .main-logo {
+}
+
+main .main-logo img {
+  width: 300px;
+}
+
+main .main-input {
+  width: 530px;
+  margin: 0 auto;
+  margin-bottom: 35px0;
+}
+
+main .main-input-container {
+  width: 525px;
+  border-radius: 100px;
+  border: solid 1px #dfe1e5;
+  justify-items: center;
+  align-items: center;
+}
+
+main .main-input-container input {
+  width: 400px;
+  height: 40px;
+  border: none;
+  outline: none;
+}
+
+main .main-input-container:hover {
+  box-shadow: 0 1px 6px 0 #20212447;
+}
+
+main .main-input .search-icon {
+  background-image: url("./iconlunpa.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  height: 18px;
+  width: 18px;
+}
+
+main .main-input .micro-icon {
+  background-image: url("https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/micro-512.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 18px;
+  width: 18px;
+}
+
+main .main-buttons div {
+  width: 530px;
+  margin: 0 auto;
+}
+
+main .main-buttons div {
+  display: inline;
+}
+
+main .main-buttons button {
+  height: 36px;
+  background-color: #f2f2f2;
+  border: none;
+  font-size: 14px;
+  color: #5f6368;
+  border-radius: 5px;
+  padding: 0 15px;
+  margin-right: 15px;
+  margin-top: 30px;
+}
+
+main .main-buttons button:hover {
+  border: 1px #c6c6c6 solid;
+  box-shadow: 0 1px 1px #ababb3;
+}

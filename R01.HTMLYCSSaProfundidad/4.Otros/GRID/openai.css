@@ -1,0 +1,35 @@
+/* Mobile-first styles */
+.photo-album {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.photo-container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 600px) {
+    .photo-album {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

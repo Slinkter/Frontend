@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent {
+  border: 2px blue solid;
+  padding: 20px;
+}
+
+.element {
+  background-color: gray;
+  border: 1px gray dotted;
+  padding: 20px;
+  color: #000;
+  position: relative;
+  margin-top: 10px;
+  animation: push 5s ease alternate infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes push {
+  0% {
+    left: 0;
+    top: 0;
+  }
+
+  50% {
+    left: -100px;
+    top: 100px;
+  }
+
+  100% {
+    left: 50px;
+    top: 50px;
+  }
+}

@@ -1,0 +1,83 @@
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 48px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.notificacion {
+  width: 48px;
+  margin: 100px auto;
+
+  animation: ring 1s 0.7s ease-in-out infinite;
+  transform-origin: 0 0;
+}
+
+.notificacion .count {
+  --size: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: red;
+  color: white;
+  border: solid 2px white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  max-width: var(--size);
+  max-height: var(--size);
+  position: relative;
+  top: 20px;
+  border-radius: 50%;
+  left: 20px;
+
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0);
+  }
+
+ 
+  30% {
+    transform: rotate(-30deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  90% {
+    transform: rotate(-30deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+
+
+
+
+}
