@@ -1,0 +1,9 @@
+.materias {
+  background-color: aqua;
+
+  font-size: 20px;
+}
+
+.materia {
+  display: flex;
+}

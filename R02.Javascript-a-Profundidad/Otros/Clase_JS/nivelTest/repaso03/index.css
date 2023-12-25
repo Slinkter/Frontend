@@ -1,0 +1,13 @@
+.materias{
+ 
+    display: block;
+    
+}
+
+.materia{
+    margin: 10px;
+    padding: 10px;
+    background-color: aqua;
+    color: black;
+    display: flex;
+}

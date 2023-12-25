@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var cuadrado = function(n){
+                //muestra el cuadrado de un número
+                alert("el cuadrado de " + n + " es " + n*n);
+            }; 
+            var cubo = function () {
+                var n = Number(prompt("Digite un numero"));
+                alert("el cubo de " + n + " es " + n*n*n);
+            };       
+            
+            var cuadradoReturn = function (n){
+                return n * n;
+            };
+        </script>
+    </head>
+    <body>
+        <script>                  
+            cuadrado(8);//llamar invocar funcion
+            cubo();
+            cuadradoReturn(9);
+            var f = cuadradoReturn(9);
+            console.log(f);
+            console.log(f+6)
+        </script>      
+    </body>
+</html>
