@@ -46,7 +46,7 @@ Esta plataforma unificada y escalable para BI cuenta con esta suite de negocio.
 ● Power Query: para el proceso de ETL.
 ● Power Pivot: para el modelamiento con el fin de responder las preguntas de negocio
 
-## Clase 03/26 : Aprende Power BI
+## Clase 03/26 : Arq. de BI
 
 Existen distintas arquitecturas/planes que incorporan los componentes de Power BI de distinta manera.
 
@@ -170,29 +170,35 @@ Puntos a considerar: ● El objetivo del Power Query ++es obtener datos de una v
 
 ## Clase 09/26 : Combinaciones
 
-## Clase 010/26 : MODELADO DE DATOS
+## Clase 10/26 : Modelado de datos
 
-## Clase 011/26 : Relaciones y filtros
+## Clase 11/26 : Relaciones y filtros
 
-## Clase 012/26 : Corrigiendo problemas de modelado
+## Clase 12/26 : Corrigiendo problemas de modelado
 
-## Clase 013/26 : Lenguaje DAX
+## Clase 13/26 : Lenguaje DAX
 
-## Clase 014/26 : Usar CALCULATE
+## Clase 14/26 : Usar CALCULATE
 
-## Clase 015/26 : Inteligencia de tiempo
+## Clase 15/26 : Inteligencia de tiempo
 
-## Clase 016/26 : Iteradores X
+## Clase 16/26 : Iteradores X
 
-## Clase 017/26 : Data Storytelling
+# Visualización de datos
 
-## Clase 018/26 : Crear Visualizaciones
+## Clase 17/26 : Data Storytelling
 
-## Clase 019/26 : Crear un informe con Power BI
+## Clase 18/26 : Crear Visualizaciones
+
+## Clase 19/26 : Crear un informe con Power BI
+
+# Analítica de datos
 
 ## Clase 20/26 : Analítica de datos con Power BI
 
 ## Clase 21/26 : Analítica de datos con Python / R
+
+# Entrega de datos
 
 ## Clase 22/26 : ¿Qué es Power BI Service?
 
