@@ -251,3 +251,146 @@ ASR automated speech recognition
 Los modelos multimodales integran todas las tareas en un solo modelo como midjourney o dall e.
 Audio → imagen. Imagen → Audio
 Cada vez se generan más modelos que se especializan en diversas tareas.
+
+### Clase 25/27
+
+Si estás contemplando el uso de tecnologías basadas en inteligencia artificial, es primordial tener en cuenta aspectos de seguridad de información. Ronald Escalona, el director de ingeniería en Plaxi, nos proporciona un amplio panorama en este ámbito, mostrándonos cómo podemos implementar estas herramientas de manera segura y eficiente.
+
+¿Cuáles son los errores frecuentes al utilizar la Inteligencia Artificial y cómo prevenirlos?
+Las tecnologías con base en inteligencia artificial, si bien son propensas a errores, estos pueden abrir puertas a ciberataques llevados a cabo por personas o entidades que buscan extraer información sensible.
+
+Estos ataques pueden comprometer no solamente la reputación de la empresa, sino incluso la integridad de la información de tus clientes. Es por ello que Escalona resalta la importancia de conocer las propiedades mínimas de la seguridad de la información: confidencialidad, integridad y disponibilidad.
+
+¿Qué recomendaciones se deben seguir para garantizar la seguridad de la información?
+Primero, es necesario validar con el fabricante del producto las garantías de privacidad de la información. Esto implica verificar si la plataforma cumple con los requisitos mínimos de protección de la información y de la data. También es importante entender si la herramienta almacenará la información con propósitos de mejorar el algoritmo de inteligencia artificial o con fines de marketing.
+
+¿Cómo saber si la herramienta que utilizamos cumple con los estándares de seguridad?
+Escalona utiliza el caso de OpenAI como ejemplo de un compromiso de seguridad y privacidad de la información. OpenAI, una de las herramientas de inteligencia artificial más populares hoy en día, exhibe cómo aplica la seguridad en su plataforma, sus compromisos públicos para mejorar y minimizar los riesgos, y cómo monitoriza las plataformas para detectar mal uso de las tecnologías.
+
+OpenAI también demuestra su compromiso con la privacidad a través del cumplimiento de dos regulaciones internacionales, lo cual ayuda a construir confianza con sus usuarios.
+
+¿Cómo proteger nuestra información personal al utilizar estas tecnologías?
+Es vital ser conscientes de la información que proporcionamos a estas herramientas. Aunque los términos y condiciones de servicio dejen claro si almacenarán o no tu información, debemos entender si cumplen o no las políticas de seguridad de la empresa. En casos de duda, OpenAI proporciona un formulario para solicitar la eliminación de tu información personal.
+
+¿Cuánta confianza puedo tener en los resultados generados por la Inteligencia Artificial?
+Finalmente, Escalona aconseja no confiar completamente en la precisión de la respuesta de la IA, ya que puede estar desactualizada o ser incompleta por falta de contexto. En lugar de eso, debemos usar los resultados como una guía para validarnos contra una fuente adicional.
+
+Siguiendo estas recomendaciones, podremos aprovechar al máximo y de manera segura las ventajas que las herramientas de inteligencia artificial ofrecen para optimizar nuestra productividad y eficiencia.
+
+### Clase 26/27
+
+En el marco de la era digital actual, se hace cada vez más notoria la relación intrínseca entre la ética y la inteligencia artificial. En este contexto, quiero darte la bienvenida y sumergirnos juntos en la comprensión de esta dinámica, que no solo es parte de debates académicos y tecnológicos, sino que permea cada aspecto de nuestra interacción diaria con los datos. A través de este contenido, buscaremos despertar esa reflexión crítica y ética necesaria para el manejo de información en nuestro entorno.
+
+¿Qué es la ética y su relación con la inteligencia artificial?
+Para empezar, es esencial comprender la base de nuestra discusión: la ética. Esta reflexión sobre la moral se empapa de nuestras creencias y juicios morales y analiza la conducta humana. En el contexto de la inteligencia artificial, la ética se convierte en un faro que guía el adecuado uso y manejo de los datos.
+
+¿Cómo definimos la moral en este contexto?
+Enlazado con la ética, la moral se compone de normas que regulan el comportamiento social humano, dictadas por el contexto cultural y legal. Estas normas son esenciales para poder convivir en una sociedad ordenada y justa.
+
+¿Qué importancia tiene la ética en el manejo de datos?
+La ética en el manejo de datos se centra en el uso responsable y correcto de la información que procesamos. Esto es crucial para todos los actores involucrados: usuarios, generadores de contenido y expertos en el tratamiento de datos.
+
+Principios claves de la ética en los datos
+Para profundizar, te presento cuatro preguntas esenciales que deben guiar nuestro análisis ético en la recolección y uso de datos:
+
+¿Quién está recolectando la información? El origen de los datos es crucial — ya sea una organización pública o privada — pues define responsabilidades y estándares.
+
+¿Por qué y para qué se recolectan los datos? Definir claramente el propósito del uso de la información y hacerlo de manera transparente es un pilar ético.
+
+¿Cómo se recolectan y almacenan los datos? La seguridad y la mejora continua de las prácticas de recolección son vitales para la protección de los usuarios.
+
+¿Cuál es el impacto de los análisis generados a partir de los datos? Reflexionar sobre el destino de la información y cómo favorece al bien común es indispensable.
+
+¿Por qué los datos son personas?
+Es importante tener presente que detrás de cada dato hay una persona, y con ello, la necesidad de cuidado y responsabilidad hacia la privacidad e identidad de cada individuo.
+
+Pilares de la Ethic & Datos
+Ahondaremos en los tres pilares fundamentales de la Ethic & Datos y las implicaciones prácticas para los profesionales:
+
+¿Cuál es el papel de la privacidad y la transparencia?
+Privacidad: Proteger la información personal de los usuarios es un deber primordial.
+Transparencia: Comunicar de forma clara y accesible qué datos se recopilan y para qué fines.
+¿Cómo influye el diseño responsable de algoritmos?
+Diseño Ético: Es esencial diseñar algoritmos que sean inclusivos y eviten sesgos discriminatorios.
+Validación Ética: La colaboración con expertos en ética para validar las prácticas tecnológicas es vital.
+¿Qué consideraciones se deben tener en las aplicaciones de los datos?
+Las aplicaciones tecnológicas deben seguir un código deontológico que garantice:
+
+El consentimiento informado del usuario.
+El uso ético de la tecnología.
+Y la protección de la privacidad e identidad del usuario.
+Te invito a que apliques estos conocimientos analizando cómo tu aplicación favorita aborda estas cuestiones éticas en sus términos y condiciones, particularmente en seguridad. Reflexiona sobre si cumple los estándares de privacidad, confianza y transparencia desde un punto de vista ético. Con estos elementos en mente, espero que en nuestra próxima interacción podamos explorar más a fondo los dilemas éticos que presentan estas tecnologías.
+
+### Clase 27/27
+
+Hemos llegado al final del curso. Sin duda, La inteligencia artificial puede ser una gran aliada a la hora de crear y mejorar la forma en que trabajas.
+
+¿Qué aprendiste?
+Aprendiste a usar IA para:
+
+Presentaciones
+Sintetizar información
+Transcribir reuniones
+Extraer información
+Conocer modelos de tomas de desiciones basadas en datos.
+Lo que te ayudará a mejorar tus prompts es tu conocimiento.
+
+Consejos finales para optimizar tu flujo de trabajo
+Utiliza herramientas de diseño asistido por IA: Existen aplicaciones y programas que incorporan IA para ayudarte a crear presentaciones visualmente atractivas.
+
+Sintetiza y organiza la información: La IA también puede ayudarte a sintetizar y organizar la información que quieres transmitir en tu presentación.
+
+Transcribe y analiza tus reuniones: Si llevas a cabo reuniones importantes, la transcripción y análisis automatizado de las mismas puede serte de gran ayuda.
+
+Aprovecha los modelos de toma de decisiones basados en datos: La IA puede ayudarte a tomar decisiones informadas al proporcionarte modelos de toma de decisiones basados en datos.
+
+Adquiere conocimiento y experiencia: Para aprovechar al máximo la IA en tus presentaciones, es crucial adquirir conocimiento y experiencia en el tema.
+
+Recuerda que la IA es una herramienta poderosa, pero es importante combinarla con tu conocimiento y habilidades para lograr los mejores resultados en tus presentaciones.
+
+QUE VIMOS EN EL CURSO:
+Idea general del Curso
+
+Exploración de la incorporación de la IA en el trabajo
+
+Potencial y diversidad de aplicaciones por descubrir
+
+Aplicaciones Prácticas de IA
+
+Uso de IA en presentaciones
+
+Síntesis efectiva de información
+
+Transcripciones precisas de reuniones
+
+Extracción de datos de grandes volúmenes de texto
+
+Modelos para Toma de Decisiones
+
+Enfoque en toma de decisiones basadas en datos
+
+Refuerzo del pensamiento estratégico
+
+Importancia de ‘Prompts’
+
+Papel crucial de las instrucciones o ‘prompts’
+
+Optimización de ‘prompts’ para resultados efectivos
+
+Conocimiento Contextual Fundamental
+
+Reconociendo el valor del conocimiento específico del campo
+
+Entendimiento profundo de los clientes y prioridades
+
+Aprendizaje y Crecimiento Continuo
+
+Importancia del aprendizaje continuo en IA
+
+Ampliación de horizontes con conocimientos en tecnología, marketing, ciencia de datos, diseño y habilidades blandas
+
+Crecimiento Personal e Intelectual
+
+IA como una herramienta de crecimiento intelectual
+
+Fusión de tecnología con habilidades humanas
