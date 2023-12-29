@@ -207,3 +207,15 @@ Limitaciones del modelo. Instrucciones sesgadas.Respuestas no precisas por canti
 Supuestos. Falta de variables.
 
 ###  Clase 09 : Zero-shot y one-shot prompting
+
+### Clase 10 : Chaing of thoght Prompting
+
+Chain-of-Thought:
+ㅤ
+El Chain-of-Thought es un método que permite mejorar las habilidades de razonamiento de los modelos de lenguaje. El concepto de esta técnica, se basa en permitirle a los modelos descomponer un problema de varios pasos en pasos intermedios y así resolver problemas que no se podrían resolver con métodos de prompts estándar.
+ㅤ
+🧮 Esta es la manera de mejorar la precisión en tareas de razonamiento aritmético, en las que los modelos de lenguaje suelen tener bastantes dificultades para resolver correctamente.
+ㅤ
+Este es un ejemplo de un prompt estándar que NO involucra el Chain-of-Thought:
+
+En este caso, el prompt estándar le pide al modelo una respuesta directa de un problema de razonamiento de varios pasos, conduciendo a una respuesta incorrecta. Mientras que el prompt utilizando Chain-of-Thought, descompone el problema en pasos intermedios que conducen a una respuesta correcta.
