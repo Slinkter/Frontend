@@ -1305,4 +1305,66 @@ No hay inspección ni adaptación en la sprint retrospective pues no asisten tod
 
 ## clase 16/17: Como certificarse
 
+descargar la guida de manera gratis
+no es regulada , no hay control de calidad
+
+Scrum Alliance : la certificacion vale 2 años
+Scrum.org : paga el examen de 80 preguntas (60 min)
+
 ## clase 17/17: Fin
+
+Scrum es un marco de referencia liviano que permite agilizar el trabajo en situaciones complejas.
+Tiene 3 pilares: Transparencia, Inspección y Adaptación
+
+Cuatro eventos: Spint Planning, Daily Scrum, Sprint Review y Sprint Retrospective
+
+### Estructura Sprint Planning
+
+Debe estar presente todo el equipo Scrum: Product Owner, Scrum Master y Developers.
+
+Tiempo máximo de duración de 8 horas para sprint de 1 mes, para sprint inferiores el tiempo será menor.
+
+### Estructura Daily Scrum
+
+Exclusiva para los developers.
+
+No es para seguimiento, es para poder encontrar mejores formas de trabajo, autoorganizandose
+
+Tiempo máximo es de 15 minutos, la misma hora y el mismo lugar, con el fin de reducir complejidad.
+
+### Estructura Sprint Review (Sugerida)
+
+Actividad de Check in
+Presentar el objetivo del sprint
+Presentación de los compromisos del sprint
+Demostración del increment
+Feedback del Increment
+Discusión sobre nuevas iniciativas
+Feedback y cierre
+Tiempo máximo de duración de 4 horas para sprint de 1 mes, para sprint inferiores el tiempo será menor.
+
+### Estructura Sprint Restrospective (Sugerida)
+
+Preparar el escenario
+Recolectar datos
+Indagar
+Decidir qué hacer
+Cerrar la retrospectiva
+Tiempo máximo de duración de 3 horas para sprint de 1 mes, para sprint inferiores el tiempo será menor.
+
+\*\*\* Aspectos Generales -MAC
+
+MODELO ADAPTATIVO DE CONTROL
+
+No es un camino lineal, debemos ir pivoteando.
+Funcionan para manejar la incertumbre
+Funcionan con 3 pilares: transparencia, inspección y adaptación.
+MODELO ADAPTATIVO DE CONTROL A TRAVÉS DEL PROCESO
+
+Transparencia: Sprint Backlog, Definition of done, Sprint Retrospective
+MODELO ADAPTATIVO DE CONTOL A TRAVÉS DEL PROGRESO
+
+Transparencia, Inspección y Adaptación: Daily Scrum
+MODELO ADAPTATIVO DE CONTOL A TRAVÉS DEL PRODUCTO
+
+Inspección: Increment, Product Backlog, Sprint Review, Sprint Planning
