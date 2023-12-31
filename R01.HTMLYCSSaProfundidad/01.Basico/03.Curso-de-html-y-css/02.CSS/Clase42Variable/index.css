@@ -22,11 +22,12 @@ html {
 header {
   background-color: var(--primary-color);
   font-size: var(--header-size);
-  /* vw: ancho del windows */
+  /* vw: viewport width*/
+  /* vh: viewport height*/
   /* % : ancho del container */
   /*   width: 100vw; */
   width: 100%; /* el container es body */
-  height: 15vh;
+  height: 15vh; /* Significa que la altura se establecerá al 15% del alto de la ventana gráfica del navegador */
 }
 
 main {

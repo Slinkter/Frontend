@@ -12,7 +12,13 @@ body {
 .parent {
   position: relative;
   margin: 20px;
-  border: 5px red dotted;
+  border: 1px red solid;
+}
+.parent::before {
+  content: "";
+}
+.parent::after {
+  content: "";
 }
 
 .child {
@@ -36,9 +42,9 @@ body {
 #three {
   background-color: blue;
   position: absolute;
+  z-index: -1;
   top: 5px;
   left: 120px;
-  z-index: 1;
 }
 #four {
   background-color: blueviolet;

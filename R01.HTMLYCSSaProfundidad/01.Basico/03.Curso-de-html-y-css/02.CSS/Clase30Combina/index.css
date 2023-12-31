@@ -1,3 +1,4 @@
+/* 1. Estilos Globales: */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +9,8 @@
 body {
   margin: 10px;
 }
+
+/* Selectores de Clase con Combinadores: */
 .clasetrescero h2 + p {
   color: red;
 }
@@ -17,15 +20,5 @@ body {
 }
 
 .clasetresdos div > p {
-  color: rgb(30, 180, 30);
-}
-.clasetresdos div {
-  border: 2px solid red;
-}
-.clasetresdos section {
-  border: 2px solid rgb(8, 0, 255);
-}
-
-.clasetresdos article {
-  border: 2px solid rgb(17, 16, 40);
+  color: green;
 }

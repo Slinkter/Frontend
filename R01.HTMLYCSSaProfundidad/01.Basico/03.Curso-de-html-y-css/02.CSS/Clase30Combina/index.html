@@ -12,9 +12,7 @@
     <main>
       <h1>Clase 30</h1>
       <pre>
-        .clasetrescero h2 + p {
-            color: red;
-        }
+ h2 + p (hijo directo)
       </pre>
       <div class="clasetrescero">
         <h2>h2</h2>
@@ -33,9 +31,7 @@
     <main>
       <h1>Clase 31</h1>
       <pre>
-.clasetresone h2 ~ p {
-  color: blue;
-}
+  h2 ~ p  (Aplica a todos los hijos p )
       </pre>
       <div class="clasetresone">
         <h1>h1</h1>
@@ -54,10 +50,7 @@
 
     <main class="clasetresdos">
       <pre>
-.clasetresdos div > p {
-  color: rgb(30, 180, 30);
-}
-
+div > p seleccionando directamente los elementos p que son hijos inmediatos de los elementos div.
       </pre>
       <h1>Clase 32</h1>
       <div>
@@ -68,9 +61,11 @@
             </article>
           </section>
         </article>
-        <article>
-          <p>soy un texto</p>
-        </article>
+        <div>
+          <article>
+            <p>soy un texto</p>
+          </article>
+        </div>
         <section>
           <div>
             <p>soy un texto</p>

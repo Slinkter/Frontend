@@ -5,6 +5,13 @@
   scroll-behavior: smooth;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .title {
   font-family: "Courier New", Courier, monospace;
   color: purple;
