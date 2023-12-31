@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -16,6 +17,8 @@ div {
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .c1,

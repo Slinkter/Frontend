@@ -5,13 +5,14 @@
 }
 
 .main-nav {
-  list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  /*  */
   background-color: #13a4a4;
   height: 30px;
+  list-style: none;
 }
 .main-nav__item {
   display: inline-block;
@@ -27,12 +28,13 @@
 }
 .main-nav__item a:hover {
   color: blue;
+  background-color: yellow;
 }
 .main-nav__item a:active {
-  color: green;
+  background-color: grey;
 }
 .main-nav__item a::before {
-  content: " / : ";
+  content: " <  ";
 }
 .main-nav__item a::after {
   content: " > ";
