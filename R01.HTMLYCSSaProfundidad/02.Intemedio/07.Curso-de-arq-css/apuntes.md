@@ -1,3 +1,7 @@
+https://emilysdominguez.notion.site/Arquitecturas-CSS-af3de095ef7c4ea4b6492b5f6568297b
+
+https://mateorol.notion.site/Arquitectura-4da59144051d4b879e8187e8e6e653af
+
 ## C-1 : ¿Qué son las arquitecturas CSS?
 
 Necesitamos hacer que el CSS sea:
