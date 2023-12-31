@@ -1,7 +1,9 @@
--   crear app
-    npx create-react-app appweb04
--   dependencia
-    npm install --save react-router-dom
+https://jguevaral.notion.site/Curso-de-React-js-Navegaci-n-con-React-Router-005ddbfb5d024e9e985f2f99df30a2b3
+
+- crear app
+  npx create-react-app appweb04
+- dependencia
+  npm install --save react-router-dom
 
 ## BrowserRouter vs. HashRouter vs Memory Router
 
@@ -21,16 +23,16 @@ Funciona por medio de un Array de rutas que nos indica en que ruta estamos y ren
 
 ## Link vs. NavLink
 
--   cuando se usa la etiqueta a manda una peticion al servidor para que se descarque el HTML
--   con <Link> nos ayuda
+- cuando se usa la etiqueta a manda una peticion al servidor para que se descarque el HTML
+- con <Link> nos ayuda
 
 ## useNavigate
 
--   historial de navegación
+- historial de navegación
 
 ## Outlet: nested routes
 
--   nested , es una palabra de cosas que estran dentro otras cosas , CSS
--   nested routes , rutas dentro de rutas
--   este componente nos permite renderizar mas de 2 rutas
+- nested , es una palabra de cosas que estran dentro otras cosas , CSS
+- nested routes , rutas dentro de rutas
+- este componente nos permite renderizar mas de 2 rutas
 -

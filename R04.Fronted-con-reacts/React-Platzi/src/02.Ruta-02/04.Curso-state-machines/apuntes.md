@@ -1,3 +1,5 @@
+https://pollen-zebra-c8b.notion.site/Curso-de-State-Machines-en-React-js-b64b5902afc44e0dbfb0be3d0a36d1c4
+
 ¿Qué son las máquinas de estado en React.js?
 Ideas/conceptos claves
 

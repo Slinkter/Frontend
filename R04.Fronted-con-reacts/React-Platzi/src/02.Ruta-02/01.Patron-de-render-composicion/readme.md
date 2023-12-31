@@ -1,3 +1,5 @@
+https://pollen-zebra-c8b.notion.site/Curso-de-React-js-Patrones-de-Render-y-Composici-n-605d51bd9e2d4d2ab45751444bbf154e
+
 # Introduccion Composición de componentes
 
 # 1.Principios de diseño en React
