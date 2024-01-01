@@ -85,6 +85,7 @@ section {
   width: auto;
   height: auto;
   padding: 60px;
+  background-color: green;
 
   h2 {
     color: $primary-text-color;
@@ -97,7 +98,7 @@ section {
       padding-bottom: 60px;
     }
     .card-section {
-      border: 1px solid black;
+      
       width: auto;
       height: auto;
       @include flexCenter(row, space-evenly, center);
