@@ -28,15 +28,12 @@ Competencias :
 
 ## Clase 4/29 : Mobile First y Utility First
 
-Mobile first :
-
-- Desarrollo para experencia de usuario
-
-Utility First:
-
-- Css basado en utilidades
-- estructura mas mas limpia - Desarrolo mas rapido y agil
-- en la etiqueta de elementos de html se agrega al class=" utility first "
+- Mobile first :
+  -- Desarrollo para experencia de usuario
+- Utility First:
+  -- Css basado en utilidades
+  -- estructura mas limpia - Desarrolo mas rapido y agil
+  -- en la etiqueta de elementos de html se agrega al class=" utility first "
 
 ## Clase 5/29 : Creación del proyecto e instalación de Tailwind
 
