@@ -7,14 +7,14 @@ import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
 
 const App = () => {
-    return (
-        <UserProvider>
-            <MovieProvider>
-                <Navbar />
-                <MovieList />
-            </MovieProvider>
-        </UserProvider>
-    );
+  return (
+    <UserProvider>
+      <MovieProvider>
+        <Navbar />
+        <MovieList />
+      </MovieProvider>
+    </UserProvider>
+  );
 };
 
 export default App;
