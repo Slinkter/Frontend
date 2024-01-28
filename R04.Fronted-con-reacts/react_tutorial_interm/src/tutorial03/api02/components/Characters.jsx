@@ -8,11 +8,11 @@ import React, {
 import Search from "./Search";
 import useCharacters from "../hooks/useCharaters";
 
-const initialState = {
+const URL_API = "https://rickandmortyapi.com/api/character/";
+
+const dbState = {
   favorites: [],
 };
-
-const API = "https://rickandmortyapi.com/api/character/";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -27,11 +27,10 @@ const reducer = (state, action) => {
 };
 
 const Characters = () => {
-  const [favorites, dispatch] = useReducer(reducer, initialState);
+  const [favorites, dispatch] = useReducer(reducer, dbState);
   const [search, setSearch] = useState("");
   const searchInput = useRef(null);
-
-  const characters = useCharacters(API);
+  const characters = useCharacters(URL_API);
 
   const handleClick = (favorite) => {
     dispatch({ type: "ADD_TO_FAVORITE", payload: favorite });

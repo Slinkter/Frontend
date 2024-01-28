@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 
 const Search = ({ search, searchInput, handleSearch }) => {
   return (
     <div className="Search">
-      <input type="text" value={search} ref={searchInput} onChange={handleSearch} />
+      <input
+        type="text"
+        value={search}
+        onChange={handleSearch}
+        ref={searchInput}
+      />
     </div>
   );
-}
+};
 
 export default Search;
