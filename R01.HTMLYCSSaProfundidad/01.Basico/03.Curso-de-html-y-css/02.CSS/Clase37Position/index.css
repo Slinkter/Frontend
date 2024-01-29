@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  border: 1px solid black;
-  height: 100vh;
+  border: 10px solid black;
+  height: 100dvh;
 }
 
 /* container */
@@ -30,23 +30,21 @@ body {
 
 #one {
   background-color: red;
-  position: relative;
 }
 
 #two {
   background-color: green;
-  position: relative;
+
   bottom: 5px;
 }
 
 #three {
   background-color: blue;
   position: absolute;
-  z-index: -1;
+  z-index: 2;
   top: 5px;
   left: 120px;
 }
 #four {
   background-color: blueviolet;
-  position: relative;
 }

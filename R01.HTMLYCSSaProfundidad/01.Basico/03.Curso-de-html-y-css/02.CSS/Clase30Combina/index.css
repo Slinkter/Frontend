@@ -11,8 +11,9 @@ body {
 }
 
 /* Selectores de Clase con Combinadores: */
-.clasetrescero h2 + p {
+.nextElement h2 + p {
   color: red;
+  font-size: 50px;
 }
 
 .clasetresone h2 ~ p {
