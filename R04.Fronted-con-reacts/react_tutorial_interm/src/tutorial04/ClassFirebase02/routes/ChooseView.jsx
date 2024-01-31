@@ -1,7 +1,7 @@
 import AuthProvider from "../components/authProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { existsUsername, updateUser } from "../firebase/firebase";
+import { firebase_existsUsername, updateUser } from "../firebase/firebase";
 
 import style from "./chooseView.module.css";
 
@@ -19,7 +19,7 @@ export default function ChooseView() {
     async function handleContinue() {
       if (username !== "") {
         console.log(username);
-        const exists = await existsUsername(username); // return booleano
+        const exists = await firebase_existsUsername(username); // return booleano
         console.log(exists);
         if (exists) {
           setState(5);
@@ -36,7 +36,7 @@ export default function ChooseView() {
     if (state === 3 || state === 5) {
       return (
         <div className={style.chooseUsernameContainer}>
-          <h1> Bienvenido  {currentUser.displayName} </h1>
+          <h1> Bienvenido {currentUser.displayName} </h1>
           <p> para terminar el proceso elige un nombre de usuario </p>
           {state === 5 ? (
             <p> el nombre de usuario ya existe , escoge otro</p>
@@ -52,7 +52,7 @@ export default function ChooseView() {
           </div>
 
           <div>
-            <button className="btn" onClick={handleContinue}>          
+            <button className="btn" onClick={handleContinue}>
               Continue
             </button>
           </div>

@@ -15,18 +15,19 @@ import style from "./loginView.modele.css";
     5: ya existe el username
     6: nuevo username,click para continuar
     7: userna no existe    
-  */
+
+*/
 
 export default function LoginView() {
-  const navigate = useNavigate();
+  //hook
   const [state, setCurrentState] = useState(0);
-
-  // Boton de provedor Google
+  const navigate = useNavigate();
+  // F_async : handleOnClick
   async function handleOnClick() {
     console.group("Google Provider");
     const googleProvider = new GoogleAuthProvider();
+    //
     await signInWithGoogle(googleProvider);
-
     async function signInWithGoogle(googleProvider) {
       try {
         const res = await signInWithPopup(auth, googleProvider);

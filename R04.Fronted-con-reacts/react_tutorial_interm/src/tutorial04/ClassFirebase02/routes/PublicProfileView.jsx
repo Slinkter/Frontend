@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PublickLink from "../components/publicLink";
 import {
-  existsUsername,
+  firebase_existsUsername,
   getProfilePhotoUrl,
   getUserPublicProfileInfo,
 } from "../firebase/firebase";
@@ -24,7 +24,7 @@ export default function PublicProfileView() {
       const username = params.username; //   path/:username
       console.log("username : ", username);
       try {
-        const userUid = await existsUsername(username); 
+        const userUid = await firebase_existsUsername(username);
         console.log("userUid : ", userUid);
         // validar
         if (userUid) {

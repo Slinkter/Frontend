@@ -32,19 +32,19 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+export const app_conexion = initializeApp(firebaseConfig);
+// initialize services
+export const auth = getAuth(app_conexion);
+export const db = getFirestore(app_conexion);
+export const storage = getStorage(app_conexion);
 // funciones
-export async function userExists(uid) {
-  // consultar un documento  si existe  en la base de datos-Collecion "users",uid:uso de liberia uuid
+export async function firebase_userExists(uid) {
   const docRef = doc(db, "users", uid);
   const res = await getDoc(docRef); //
-  return res.exists(); // si el documento existe o no
+  return res.exists();
 }
 
-export async function existsUsername(username) {
+export async function firebase_existsUsername(username) {
   try {
     const users = [];
     // se va a buscar a una collecion no un documento
@@ -60,15 +60,12 @@ export async function existsUsername(username) {
   }
 }
 
-export async function registerNewUser(user) {
-  // crear la plantilla de user , cuando se logea por primera vez
+export async function firebase_registerNewUser(user) {
+  // recibe la plantilla de nuevo usuario
   try {
-    // crear la collection users
-    const collectionRef = collection(db, "users");
-    // crear documento con uid
-    const docRef = doc(collectionRef, user.uid);
-    // insertar el nuevo usuario en la collection
-    await setDoc(docRef, user);
+    const collRef = collection(db, "users"); // crear la collection users
+    const docRef = doc(collRef, user.uid); // crear documento con uid
+    await setDoc(docRef, user); // insertar el nuevo usuario en la collection
   } catch (error) {
     console.log(error);
   }
@@ -85,10 +82,14 @@ export async function updateUser(user) {
   }
 }
 
-export async function getUserInfo(uid) {
-  const docRef = doc(db, "users", uid); // queremos un documento, por medio del uid
-  const docSnap = await getDoc(docRef);
-  return docSnap.data();
+export async function firebase_getUserInfo(uid) {
+  try {
+    const docRef = doc(db, "users", uid); // queremos un documento, por medio del uid
+    const docSnap = await getDoc(docRef);
+    return docSnap.data();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function insertNewLink(link) {
@@ -163,7 +164,7 @@ export async function getProfilePhotoUrl(profilePicture) {
 }
 
 export async function getUserPublicProfileInfo(uid) {
-  const profileInfo = await getUserInfo(uid);
+  const profileInfo = await firebase_getUserInfo(uid);
   const linksInfo = await getLinks(uid);
 
   return { profileInfo: profileInfo, linksInfo: linksInfo };
