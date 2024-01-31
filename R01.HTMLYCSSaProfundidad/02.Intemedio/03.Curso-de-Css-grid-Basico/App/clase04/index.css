@@ -19,12 +19,13 @@
 }
 .item {
   display: flex;
-  place-content: center;
+
+  justify-content: center;
   align-items: center;
 
-  color: white;
-  border: 1px solid #000;
+  color: black;
+  border: 1px solid #fff;
   background-color: #48ac12;
-  box-shadow: -1px -1px 10px black;
+  box-shadow: 0 0 10px black;
   font-size: 3rem;
 }

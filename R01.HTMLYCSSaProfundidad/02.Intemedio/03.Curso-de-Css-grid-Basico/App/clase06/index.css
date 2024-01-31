@@ -1,12 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .container {
   border: 1px solid red;
+  height: 100dvh;
+
+  /*  */
   display: grid;
   place-content: center;
   grid-template-rows: repeat(3, auto);
+
   grid-template-columns:
     minmax(40px, 100px)
-    minmax(40px, 200px)
-    minmax(40px, 300px);
+    minmax(40px, 100px)
+    minmax(40px, 100px);
 }
 
 .item {

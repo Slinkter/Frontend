@@ -8,11 +8,13 @@
 .contenedor {
   background-color: azure;
   border: 1px solid green;
+  height: 100dvh;
   /*  */
   display: grid;
   place-content: center;
   grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 75px);
+  grid-template-rows: repeat(3, 150px);
+  /*  */
   grid-template-areas:
     "header header header"
     "side main main"
@@ -24,6 +26,7 @@
   display: grid;
   place-content: center;
 }
+
 .item-1 {
   grid-area: header;
   border: 5px solid #f8bbd0;
