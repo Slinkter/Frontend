@@ -1,70 +1,72 @@
-//  Search text input array
 import React, { useEffect, useState } from "react";
-import "./Class13.css";
 
-const initValues = {
-  users: [],
-  inputText: "",
-  searchItems: [],
-};
-const url = "https://jsonplaceholder.typicode.com/users";
+const api_url = "https://jsonplaceholder.typicode.com/users";
 
-const Class13 = () => {
-  // Hooks
-  const [users, setUsers] = useState(initValues.users);
-  const [inputText, setInputText] = useState(initValues.inputText);
-  const [searchedItems, setSearchedItems] = useState(initValues.searchItems);
-  //
-  const getData = async () => {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
-    setUsers(data);
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [originalUsers, setOriginalUsers] = useState([]);
+  const [textInput, setTextInput] = useState("");
+
+  const getUsers = async () => {
+    try {
+      const res = await fetch(api_url);
+      const data = await res.json();
+      setOriginalUsers(data);
+      setUsers(data);
+    } catch (error) {
+      console.error("Error fetching data from API:", error);
+    }
   };
-  // --> []
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const handleSearch = () => {
+    const filteredUsers = originalUsers.filter((user) =>
+      Object.values(user).join().toLowerCase().includes(textInput.toLowerCase())
+    );
+    setUsers(filteredUsers);
+  };
 
   /* 
-
-  Object.values(users[0])
+    Object.values(users[0])
   ----> ['Juan', 30, 'Lima']
   Object.values(users[0]).join()
   ----> 'Juan,30,Lima'
   Object.values(users[0]).join().includes("Lima")
   ----> true
-
+  
   */
 
-  const userFilter = () =>
-    users.filter((user) =>
-      Object.values(user).join().toLowerCase().includes(inputText.toLowerCase())
-    );
-
   useEffect(() => {
-    getData();
-  }, []);
+    handleSearch();
+  }, [textInput, originalUsers]);
 
-  useEffect(() => {
-    if (inputText) {
-      setTimeout(() => {
-        const usersFilter = userFilter();
-        setSearchedItems(usersFilter);
-      }, 500);
-    } else {
-      setSearchedItems(users);
+  const renderUsers = () => {
+    if (originalUsers.length === 0) {
+      return <h1>Loading....</h1>;
     }
-  }, [inputText]);
+    return (
+      <ul>
+        {users.map((user) => (
+          <ComponentRenderUser usuario={user} key={user.id} />
+        ))}
+      </ul>
+    );
+  };
 
   return (
-    <div>
-      <input
-        type="text"
-        className="search"
-        onChange={(e) => setInputText(e.target.value)}
-      />
-      <div className="grid-main">
-        {inputText.length > 0
-          ? searchedItems.map((user) => <ComponentRenderUser usuario={user} />)
-          : users.map((user) => <ComponentRenderUser usuario={user} />)}
+    <div className="container">
+      <div className="m-5">
+        <label htmlFor="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          onChange={(e) => setTextInput(e.target.value)}
+        />
+        <br />
+        {renderUsers()}
       </div>
     </div>
   );
@@ -72,11 +74,11 @@ const Class13 = () => {
 
 const ComponentRenderUser = ({ usuario }) => {
   return (
-    <div key={usuario.id} className="grid-child">
+    <li>
       <h3>{usuario.name}</h3>
       <p>{usuario.email}</p>
-    </div>
+    </li>
   );
 };
 
-export default Class13;
+export default App;
