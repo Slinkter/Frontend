@@ -56,21 +56,22 @@ export default function LoginView() {
   if (state === 5) {
   }
 
+  function handleUserNoRegistered(user) {
+    navigate("/choose-username");
+  }
+
   function handleUserLoggedIng(user) {
     navigate("/dashboard");
   }
   function handleUserNotLoggedIn() {
     setCurrentState(4);
   }
-  function handleUserNoRegistered(user) {
-    navigate("/choose-username");
-  }
 
   return (
     <AuthProvider
+      onUserNotRegistered={handleUserNoRegistered}
       onUserLoggedIn={handleUserLoggedIng}
       onUserNotLoggedIn={handleUserNotLoggedIn}
-      onUserNotRegistered={handleUserNoRegistered}
     >
       <div className="loginView"> Loading ... </div>
     </AuthProvider>

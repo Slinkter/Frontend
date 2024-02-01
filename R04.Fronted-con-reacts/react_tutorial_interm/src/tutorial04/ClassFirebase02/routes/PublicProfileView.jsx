@@ -17,32 +17,31 @@ export default function PublicProfileView() {
   const [profile, setProfile] = useState(null);
   const [url, setUrl] = useState("");
   const [state, setState] = useState(0);
+  //
+  async function getProfile() {
+    const username = params.username; //   path/:username
+    console.log("username : ", username);
+    try {
+      const userUid = await firebase_existsUsername(username);
+      // validar
+      if (!userUid) {
+        setState(7);
+      } else {
+        const userInfo = await getUserPublicProfileInfo(userUid);
+        const url = await getProfilePhotoUrl(
+          userInfo.profileInfo.profilePicture
+        );
+        setProfile(userInfo);
+        setUrl(url);
+      }
+      console.log("userUid : ", userUid);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     getProfile();
-    async function getProfile() {
-      const username = params.username; //   path/:username
-      console.log("username : ", username);
-      try {
-        const userUid = await firebase_existsUsername(username);
-        console.log("userUid : ", userUid);
-        // validar
-        if (userUid) {
-          const userInfo = await getUserPublicProfileInfo(userUid);
-
-          setProfile(userInfo);
-          // obtener img del usuario
-          const url = await getProfilePhotoUrl(
-            userInfo.profileInfo.profilePicture
-          );
-          setUrl(url);
-        } else {
-          setState(7);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
   }, [params]);
 
   if (state === 7) {
@@ -56,12 +55,10 @@ export default function PublicProfileView() {
   return (
     <div className={style.profileContainer}>
       <div className={style.profilePicture}>
-        <img src={url} alt="" />
+        <img src={url} alt="image" />
       </div>
-
       <h2> {profile?.profileInfo.username} </h2>
       <h3> {profile?.profileInfo.displayName} </h3>
-
       <div className={styleLinks.publicLinksContainer}>
         {profile?.linksInfo.map((link) => (
           <PublickLink key={link.id} url={link.url} title={link.title} />

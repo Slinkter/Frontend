@@ -71,8 +71,7 @@ export async function firebase_registerNewUser(user) {
   }
 }
 
-export async function updateUser(user) {
-  console.log(user);
+export async function firebase_updateUser(user) {
   try {
     const collectionRef = collection(db, "users");
     const docRef = doc(collectionRef, user.uid);
@@ -112,6 +111,7 @@ export async function getLinks(uid) {
     querySnapsnot.forEach((doc) => {
       const link = { ...doc.data() };
       link.docId = doc.id;
+      //
       links.push(link);
     });
     return links;
@@ -151,7 +151,6 @@ export async function setUserProfilePhoto(uid, file) {
 }
 
 /* obtener url de la imagen */
-
 export async function getProfilePhotoUrl(profilePicture) {
   try {
     const imageRef = ref(storage, profilePicture);
@@ -166,7 +165,6 @@ export async function getProfilePhotoUrl(profilePicture) {
 export async function getUserPublicProfileInfo(uid) {
   const profileInfo = await firebase_getUserInfo(uid);
   const linksInfo = await getLinks(uid);
-
   return { profileInfo: profileInfo, linksInfo: linksInfo };
 }
 

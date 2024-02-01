@@ -6,20 +6,18 @@ import DashboardWrapper from "../components/dashboardWrapper";
 import {
   getProfilePhotoUrl,
   setUserProfilePhoto,
-  updateUser,
+  firebase_updateUser,
 } from "../firebase/firebase";
 
 import style from "./editProfileview.module.css";
 
 export default function EditProfileView() {
-  const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
   const [state, setState] = useState(0);
   const [profileUrl, setProfileUrl] = useState();
 
   const fileRef = useRef(null);
-
-
+  const navigate = useNavigate();
 
   function handleOpenFilePicker() {
     if (fileRef.current) {
@@ -28,7 +26,7 @@ export default function EditProfileView() {
   }
 
   function handleChangeFile(e) {
-    const files = e.target.files; // error 1 
+    const files = e.target.files; //
     const fileReader = new FileReader();
 
     if (fileReader && files && files.length > 0) {
@@ -42,7 +40,7 @@ export default function EditProfileView() {
           const tmpUser = { ...currentUser };
           tmpUser.profilePicture = res.metadata.fullPath;
           console.log(tmpUser);
-          await updateUser(tmpUser);
+          await firebase_updateUser(tmpUser);
           setCurrentUser({ ...tmpUser });
           const url = await getProfilePhotoUrl(currentUser.profilePicture);
           setProfileUrl(url);
@@ -52,16 +50,12 @@ export default function EditProfileView() {
     }
   }
 
-
-
   async function handleUserLoggedIng(user) {
     setCurrentUser(user);
     setState(2);
-    // update img 
+    // update img
     const url = await getProfilePhotoUrl(user.profilePicture);
-    setProfileUrl(url)
-
-   
+    setProfileUrl(url);
   }
   function handleUserNoRegistered(user) {
     navigate("/login");
@@ -70,8 +64,6 @@ export default function EditProfileView() {
     navigate("/login");
   }
 
-
-
   if (state !== 2) {
     return (
       <AuthProvider
@@ -79,7 +71,7 @@ export default function EditProfileView() {
         onUserNotRegistered={handleUserNoRegistered}
         onUserNotLoggedIn={handleUserNotLoggedIn}
       >
-      Loading ...
+        Loading ...
       </AuthProvider>
     );
   } else {
@@ -92,7 +84,7 @@ export default function EditProfileView() {
               <img src={profileUrl} alt="" width={100} />
             </div>
             <div>
-              <button className="btn" onClick={handleOpenFilePicker}>     
+              <button className="btn" onClick={handleOpenFilePicker}>
                 Choose new profile picture
               </button>
               <input

@@ -1,33 +1,40 @@
 import AuthProvider from "../components/authProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { firebase_existsUsername, updateUser } from "../firebase/firebase";
+import {
+  firebase_existsUsername,
+  firebase_updateUser,
+} from "../firebase/firebase";
 
 import style from "./chooseView.module.css";
 
 export default function ChooseView() {
-  const navigate = useNavigate();
+  // hooks
   const [state, setState] = useState(0);
   const [currentUser, setCurrentUser] = useState({});
   const [username, setUsername] = useState("");
-
+  //
+  const navigate = useNavigate();
+  // change view
   if (state === 3) {
     function handleInputUsername(e) {
       setUsername(e.target.value);
     }
 
-    async function handleContinue() {
+    async function handleBtnContinue() {
       if (username !== "") {
-        console.log(username);
         const exists = await firebase_existsUsername(username); // return booleano
+        //
+        console.log(username);
         console.log(exists);
+        //
         if (exists) {
           setState(5);
         } else {
           const tmp = { ...currentUser };
           tmp.username = username;
           tmp.processCompleted = true;
-          await updateUser(tmp);
+          await firebase_updateUser(tmp);
           setState(6);
         }
       }
@@ -38,21 +45,17 @@ export default function ChooseView() {
         <div className={style.chooseUsernameContainer}>
           <h1> Bienvenido {currentUser.displayName} </h1>
           <p> para terminar el proceso elige un nombre de usuario </p>
-          {state === 5 ? (
-            <p> el nombre de usuario ya existe , escoge otro</p>
-          ) : (
-            ""
-          )}
+          {state === 5 ? <p> nombre invalido </p> : ""}
           <div>
             <input
-              className="input"
               type="text"
+              className="input"
               onChange={handleInputUsername}
             />
           </div>
 
           <div>
-            <button className="btn" onClick={handleContinue}>
+            <button className="btn" onClick={handleBtnContinue}>
               Continue
             </button>
           </div>
@@ -70,6 +73,7 @@ export default function ChooseView() {
     );
   }
 
+  //
   function handleUserLoggedIng(user) {
     navigate("/dashboard");
   }

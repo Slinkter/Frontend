@@ -5,7 +5,6 @@ import { logout } from "../firebase/firebase";
 
 export default function SignOutView() {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null);
 
   async function handleUserLoggedIng(user) {
     await logout();
@@ -17,7 +16,6 @@ export default function SignOutView() {
   function handleUserNotLoggedIn() {
     navigate("/login");
   }
-
 
   return (
     <AuthProvider

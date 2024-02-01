@@ -1,12 +1,9 @@
-import AuthProvider from "../components/authProvider";
-import { useNavigate } from "react-router-dom";
-import Link from "../components/link";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AuthProvider from "../components/authProvider";
+import Link from "../components/link";
 import DashboardWrapper from "../components/dashboardWrapper";
 import { v4 as uuidv4 } from "uuid";
-
-
-import { collection, getDocs, query, where } from "firebase/firestore";
 import {
   deleteLink,
   getLinks,
@@ -54,11 +51,22 @@ export default function DashboardView() {
 
   function handleOnSubmit(e) {
     e.preventDefault();
-
     addLink();
   }
 
-  function addLink() {
+  function handleOnChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    if (name === "title") {
+      setTittle(value);
+    }
+    if (name === "url") {
+      setUrl(value);
+    }
+  }
+
+  async function addLink() {
     if (title !== "" && url !== "") {
       const newLink = {
         id: uuidv4(),
@@ -66,22 +74,11 @@ export default function DashboardView() {
         url: url,
         uid: curentUser.uid,
       };
-      const res = insertNewLink(newLink);
+      const res = await insertNewLink(newLink);
       newLink.docId = res.id;
       setTittle("");
       setUrl("");
       setLinks([...links, newLink]);
-    }
-  }
-
-  function handleOnChange(e) {
-    const value = e.target.value;
-    if (e.target.name === "title") {
-      setTittle(value);
-    }
-
-    if (e.target.name === "url") {
-      setUrl(value);
     }
   }
 
@@ -100,43 +97,40 @@ export default function DashboardView() {
 
   return (
     <DashboardWrapper>
-      <div>
-        <h1> Dashboard</h1>
-        <form className={style.entryContainer} action="" onSubmit={handleOnSubmit}>
-          <label htmlFor="title"> title</label>
-          <input
-            className=""
-            type="text"
-            name="title"
-            onChange={handleOnChange}
-          />
+      <h1> Dashboard</h1>
+      <form className={style.entryContainer} onSubmit={handleOnSubmit}>
+        <label htmlFor="title"> title</label>
+        <input
+          className="input"
+          type="text"
+          name="title"
+          onChange={handleOnChange}
+        />
 
-          <label htmlFor="url"> URL</label>
-          <input
-            className="input"
-            type="text"
-            name="url"
-            onChange={handleOnChange}
-          />
+        <label htmlFor="url"> URL</label>
+        <input
+          className="input"
+          type="text"
+          name="url"
+          onChange={handleOnChange}
+        />
 
-          <input className="btn" type="submit" value="create new Link" />
+        <input className="btn" type="submit" value="create new Link" />
+      </form>
 
-        </form>
-
-        <div className={styleLinks.linksContainer}>
-          {links.map((link) => {
-            return (
-              <Link
-                key={link.docId}
-                docId={link.docId}
-                url={link.url}
-                title={link.title}
-                onDelete={handleDeteleLink}
-                onUpdate={handleUpdateLink}
-              />
-            );
-          })}
-        </div>
+      <div className={styleLinks.linksContainer}>
+        {links.map((link) => {
+          return (
+            <Link
+              key={link.docId}
+              docId={link.docId}
+              url={link.url}
+              title={link.title}
+              onDelete={handleDeteleLink}
+              onUpdate={handleUpdateLink}
+            />
+          );
+        })}
       </div>
     </DashboardWrapper>
   );
