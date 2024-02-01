@@ -51,7 +51,7 @@ const AppRealTime = () => {
             .catch((err) => {
                 console.log("error", err);
             });
-        */
+    */
     //collectionRef
     //
     onSnapshot(ageQuery, (data) => {
