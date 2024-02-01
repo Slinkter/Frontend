@@ -1,43 +1,44 @@
 import React from "react";
 
 function useLocalStorage(dbName, initialValue) {
-    const [loading, setLoading] = React.useState(true);
-    const [error, setError] = React.useState(false);
-    const [item, setItem] = React.useState(initialValue);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+  const [item, setItem] = React.useState(initialValue);
 
-    React.useEffect(() => {
-        setTimeout(() => {
-            try {
-                let parsedItem;
-                const db_ls = localStorage.getItem(dbName);
-                if (!db_ls) {
-                    const value = JSON.stringify(initialValue); // string <-- []
-                    localStorage.setItem(dbName, value);
-                    //
-                    parsedItem = initialValue; // parseItem <-- []
-                } else {
-                    parsedItem = JSON.parse(db_ls); // transformacion a objeto
-                }
-                setItem(parsedItem);
-                setLoading(false);
-                setError(false);
-            } catch (error) {
-                setError(error);
-            }
-        }, 1000);
-    }, [dbName, initialValue]);
+  const getDataLocalStorage = () => {
+    try {
+      const db_ls = localStorage.getItem(dbName);
+      if (!db_ls) {
+        const stringList = JSON.stringify(initialValue);
+        localStorage.setItem(dbName, stringList);
+        setItem(initialValue);
+      } else {
+        setItem(JSON.parse(db_ls));
+      }
+      setLoading(false);
+      setError(false);
+    } catch (error) {
+      setError(error);
+    }
+  };
 
-    const saveItem = (array) => {
-        try {
-            const value = JSON.stringify(array);
-            localStorage.setItem(dbName, value);
-            setItem(array);
-        } catch (error) {
-            setError(error);
-        }
-    };
+  React.useEffect(() => {
+    setTimeout(() => {
+      getDataLocalStorage();
+    }, 1000);
+  }, [dbName, initialValue]);
 
-    return { loading, error, item, saveItem };
+  const saveItem = (array) => {
+    try {
+      const stringList = JSON.stringify(array);
+      localStorage.setItem(dbName, stringList);
+      setItem(array);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  return { loading, error, item, saveItem };
 }
 
 export { useLocalStorage };
