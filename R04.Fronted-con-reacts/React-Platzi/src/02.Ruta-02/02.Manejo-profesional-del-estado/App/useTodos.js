@@ -1,4 +1,5 @@
 import React from "react";
+// Custom hooks
 import { useLocalStorage } from "./useLocalStorage";
 
 function useTodos() {

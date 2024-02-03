@@ -1,0 +1,1 @@
+https://bg99astro.notion.site/bg99astro/96b34391949840388c431fd0fd3f02ce?v=36c7227e67784fc5848bc19835eeef8b
