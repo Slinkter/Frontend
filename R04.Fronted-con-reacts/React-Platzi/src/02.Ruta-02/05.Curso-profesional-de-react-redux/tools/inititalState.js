@@ -1,5 +1,2 @@
-const initialState = {
-  pokemons: [],
-};
-
+const initialState = { pokemons: [] };
 export { initialState };
