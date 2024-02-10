@@ -10,6 +10,7 @@ import { componsedEnhacers as componse } from "./tools/componsedEnhacers";
 import App from "./App";
 //
 const store = createStore(reducer, state, componse);
+console.log(store);
 //
 const ProviderStore = (
   <Provider store={store}>
