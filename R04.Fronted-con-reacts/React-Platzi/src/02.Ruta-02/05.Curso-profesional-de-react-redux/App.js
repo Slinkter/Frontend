@@ -32,7 +32,7 @@ const App = () => {
   }, []);
   //
 
-  console.group("Render component");
+  console.group("Render comacponent");
   console.log("pokemons", pokemons);
   console.groupEnd();
   return (
