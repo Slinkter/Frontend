@@ -7,10 +7,11 @@ export const ContextGlobal = ({ children }) => {
 
   // product Detail . open/clse
   const [isOpenDetail, setIsOpenDetail] = useState(false);
+  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
+  //
   const openProductDetail = () => setIsOpenDetail(true);
   const closeProductDetail = () => setIsOpenDetail(false);
   // checkout side menu . open/close
-  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
   const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
   const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
   // Shopping Cart - Order
@@ -19,12 +20,11 @@ export const ContextGlobal = ({ children }) => {
   // state
   const [productToShow, setProductToShow] = useState({});
   const [cartProducts, setCartProducts] = useState([]);
-  // get products
   const [items, setItems] = useState(null);
   const [filterItems, setFilterItems] = useState(null);
-  // get products by title
+
   const [searchByTitle, setSearchByTitle] = useState(null);
-  // get products by title
+
   const [searchByCategory, setSearchByCategory] = useState(null);
 
   useEffect(() => {

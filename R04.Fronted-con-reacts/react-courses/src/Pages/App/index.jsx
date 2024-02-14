@@ -1,15 +1,20 @@
 import React from "react";
 import { useRoutes, BrowserRouter } from "react-router-dom";
+// ALL funciones
+import { ContextGlobal } from "../../Context";
+//Comun
+import Navbar from "../../Components/Navbar";
+// Container
+import Layout from "../../Components/Layout";
+// Pages
 import Home from "../Home";
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import SignIn from "../SignIn";
-//
-import Navbar from "../../Components/Navbar";
-import Layout from "../../Components/Layout";
-import { ContextGlobal } from "../../Context";
+
+// Page-Side
 import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
 
 const AppRoutes = () => {

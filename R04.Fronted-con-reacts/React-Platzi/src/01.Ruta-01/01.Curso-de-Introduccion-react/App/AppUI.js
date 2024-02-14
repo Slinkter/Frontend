@@ -1,12 +1,15 @@
 import React from "react";
-import { TodoCounter } from "../components/TodoCounter";
+// useContext
 import { TodoContext } from "../components/TodoContext";
+// Components
+import { TodoCounter } from "../components/TodoCounter";
 import { TodoSearch } from "../components/TodoSearch";
 import { TodoList } from "../components/TodoList";
 import { TodoItem } from "../components/TodoItem";
+import { TodoForm } from "../components/TodoForm";
+// Tools
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../components/Modal";
-import { TodoForm } from "../components/TodoForm";
 
 function AppUI() {
   // -->
@@ -20,32 +23,42 @@ function AppUI() {
     setOpenModal,
   } = React.useContext(TodoContext);
 
+  const renderError = error && <p> Hubo un error</p>;
+  const renderLoading = loading && <p> Estamos cargando</p>;
+  const renderFirstTime = !loading && !listTodos.lenght && (
+    <p>Crear tu primer TODO</p>
+  );
+
+  const renderList = listTodos.map((item) => (
+    <TodoItem
+      key={item.text}
+      text={item.text}
+      completed={item.completed}
+      onUpdateItem={() => onUpdateItem(item.text)}
+      onDeleteItem={() => onDeleteItem(item.text)}
+    />
+  ));
+
+  const renderMolda = !!openModel && (
+    <Modal>
+      <TodoForm />
+    </Modal>
+  );
+
   return (
-    <React.Fragment>
+    <>
       <TodoCounter />
       <TodoSearch />
       <TodoList>
-        {error && <p> Hubo un error</p>}
-        {loading && <p> Estamos cargando</p>}
-        {!loading && !listTodos.lenght && <p>Crear tu primer TODO</p>}
-        {listTodos.map((item) => (
-          <TodoItem
-            key={item.text}
-            text={item.text}
-            completed={item.completed}
-            onUpdateItem={() => onUpdateItem(item.text)}
-            onDeleteItem={() => onDeleteItem(item.text)}
-          />
-        ))}
+        {renderError}
+        {renderLoading}
+        {renderFirstTime}
+        {renderList}
       </TodoList>
-      {!!openModel && (
-        <Modal>
-          <TodoForm />
-        </Modal>
-      )}
 
+      {renderMoldarenderMolda}
       <CreateTodoButton setOpenModal={setOpenModal} />
-    </React.Fragment>
+    </>
   );
 }
 
