@@ -56,8 +56,8 @@ function AppUI() {
         {renderList}
       </TodoList>
 
-      {renderMoldarenderMolda}
       <CreateTodoButton setOpenModal={setOpenModal} />
+      {renderMolda}
     </>
   );
 }
