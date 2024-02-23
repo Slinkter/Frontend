@@ -1,6 +1,6 @@
 /*
-Hoising
-el hoising es un ayuda para detectar  error de codigo o taipo
+Hoising :
+Es un ayuda para detectar  error de codigo o taipo
 es cuando las varialbes y funciones se declaran antes de ser procesadas 
 es decir cuando se corre el archivo js hace un scaneo y se inicializa con undeling sino tiene valor.
 

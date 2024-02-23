@@ -1,15 +1,16 @@
 /*
 Definicion SCOPE:
-    -Global
-    -Functions
-    -Block
-    -Code
+  - Global
+  - Functions
+  - Block
+  - Code
 */
 
-// Scope global
+// --> Scope global
 var nombre = "luis";
+
 function fun() {
-  // Scope local
+  // --> Scope local
   var apellido = "cave";
   var rpta = nombre + " " + apellido;
   console.log(rpta);
