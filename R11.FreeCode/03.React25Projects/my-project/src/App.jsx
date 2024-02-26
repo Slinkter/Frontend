@@ -15,6 +15,9 @@ import GithubProfileFinder from "./components/github-profile-finder";
 import SearchAutoComplete from "./components/search-autocomplete";
 import TicTacToe from "./components/tic-tac-toe";
 import UseFetchHookTest from "./components/use-fetch/test";
+import UseWindowsResizeTest from "./components/use-window-resize/test";
+import ScrollToTopAndBottm from "./components/scroll-to-top-bot";
+import ScrollToSection from "./components/scroll-to-section";
 
 const App = () => {
   return (
@@ -37,8 +40,11 @@ const App = () => {
       {/* <GithubProfileFinder /> */}
       {/*       <SearchAutoComplete /> */}
       {/* <TicTacToe /> */}
-
-      <UseFetchHookTest />
+      {/* 
+      <UseFetchHookTest /> */}
+      {/* <UseWindowsResizeTest /> */}
+      {/*     <ScrollToTopAndBottm /> */}
+      <ScrollToSection />
     </div>
   );
 };
