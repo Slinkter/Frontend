@@ -7,26 +7,45 @@ const RandomColor = () => {
   function randomColorUtility(length) {
     return Math.floor(Math.random() * length);
   }
+  function handleCreateRandomHEXColor() {
+    const hexArray = [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+    ];
 
-  const handleCreateRandomHEXColor = () => {
-    const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
-    console.log("hex :", hex);
     let hexColor = "#";
+    let longHex = 6;
+    let longHexArray = hexArray.length;
 
-    for (let i = 0; i < 6; i++) {
-      let hexaccc = hex[randomColorUtility(hex.length)];
-      hexColor += hexaccc;
-      console.log("hexaccc ", hexaccc);
+    for (let i = 0; i < longHex; i++) {
+      let stringHex = hexArray[randomColorUtility(longHexArray)];
+      hexColor += stringHex;
+      console.log("stringHex ", stringHex);
     }
-
+    console.log("hexColor ", hexColor);
     setColor(hexColor);
-  };
-  const handleCreateRandomRGBColor = () => {
+  }
+  function handleCreateRandomRGBColor() {
     const r = randomColorUtility(256);
     const g = randomColorUtility(256);
     const b = randomColorUtility(256);
-    setColor(`rgb(${r},${g},${b})`);
-  };
+    const rgb = `rgb(${r},${g},${b})`;
+    setColor(rgb);
+  }
 
   useEffect(() => {
     if (typeOfColor === "rgb") {
@@ -36,43 +55,46 @@ const RandomColor = () => {
     }
   }, [typeOfColor]);
 
+  const styleDivContainer = {
+    height: "100vh",
+    width: "100vw",
+    padding: "0",
+    margin: "0",
+    backgroundColor: color,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+  const styleDivTextColor = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#fff",
+    fontSize: "30px",
+    gap: "10px",
+  };
+  const styleDivButton = { textAlign: "center" };
+
   return (
-    <div
-      style={{
-        padding: "0",
-        backgroundColor: color,
-        height: "100vh",
-        width: "100vw",
-      }}
-    >
-      <button onClick={() => setTypeOfColor("hex")}>Create HEX color</button>
-
-      <button onClick={() => setTypeOfColor("rgb")}>Create RGB color</button>
-
-      <button
-        onClick={
-          typeOfColor === "hex"
-            ? handleCreateRandomHEXColor
-            : handleCreateRandomRGBColor
-        }
-      >
-        Generate Random color
-      </button>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "#fff",
-          fontSize: "60px",
-          marginTop: "50px",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
-        <h3>{typeOfColor === "rgb" ? "RBG COLOR" : "HEX color"}</h3>
-        <h1>{color}</h1>
+    <div style={styleDivContainer}>
+      <div style={styleDivTextColor}>
+        <h2>{typeOfColor === "rgb" ? "RGB COLOR" : "HEX COLOR"}</h2>
+        <h3>{color}</h3>
+      </div>
+      <div style={styleDivButton}>
+        <button onClick={() => setTypeOfColor("hex")}>Create HEX color</button>
+        <button onClick={() => setTypeOfColor("rgb")}>Create RGB color</button>
+        <button
+          onClick={
+            typeOfColor === "hex"
+              ? handleCreateRandomHEXColor
+              : handleCreateRandomRGBColor
+          }
+        >
+          Generate Random Color
+        </button>
       </div>
     </div>
   );
