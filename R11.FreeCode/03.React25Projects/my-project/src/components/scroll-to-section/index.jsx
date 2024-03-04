@@ -1,49 +1,8 @@
 import React, { useRef } from "react";
+import data from "./db";
 
 const ScrollToSection = () => {
   const ref = useRef(null);
-  const data = [
-    {
-      label: "Fisrt Card",
-      style: {
-        width: "100%",
-        height: "600px",
-        background: "red",
-      },
-    },
-    {
-      label: "Second Card",
-      style: {
-        width: "100%",
-        height: "600px",
-        background: "blue",
-      },
-    },
-    {
-      label: "third Card",
-      style: {
-        width: "100%",
-        height: "600px",
-        background: "green",
-      },
-    },
-    {
-      label: "Fourth Card",
-      style: {
-        width: "100%",
-        height: "600px",
-        background: "gray",
-      },
-    },
-    {
-      label: "Fifth Card",
-      style: {
-        width: "100%",
-        height: "600px",
-        background: "orange",
-      },
-    },
-  ];
 
   function handleScrollToSection() {
     let position = ref.current.getBoundingClientRect().top;
@@ -51,16 +10,25 @@ const ScrollToSection = () => {
       top: position,
       behavior: "smooth",
     });
+    console.log(ref);
+    console.log(position);
   }
+
   return (
     <div>
       <h1>Scroll to a particular section</h1>
       <button onClick={handleScrollToSection}> click to scrooll</button>
-      {data.map((item, index) => (
-        <div ref={index === 0 ? ref : null} style={item.style} key={item.label}>
-          <h3>{item.label}</h3>
-        </div>
-      ))}
+      {data &&
+        data.map((item, index) => (
+          <div
+            style={item.style}
+            key={item.label}
+            ref={index === 4 ? ref : null}
+          >
+            {console.log(index, ref)}
+            <h3>{item.label}</h3>
+          </div>
+        ))}
     </div>
   );
 };
