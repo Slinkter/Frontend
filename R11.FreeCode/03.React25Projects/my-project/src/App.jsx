@@ -22,13 +22,13 @@ import ScrollToSection from "./components/scroll-to-section";
 const App = () => {
   return (
     <div>
-      {/* <RandomColor /> */}
-      {/* <StarRating noOfStarts={10} /> */}
-      {/* <ImageSlider
+      {/*  <RandomColor /> */}
+      {/*  <StarRating noOfStarts={10} /> */}
+      <ImageSlider
         url={"https://picsum.photos/v2/list"}
         page={"1"}
         limit={"10"}
-      /> */}
+      />
       {/* <LoadMoreData /> */}
       {/* <TreeView menus={menus} /> */}
       {/* <QrGenerator /> */}
@@ -42,7 +42,7 @@ const App = () => {
       {/* <UseFetchHookTest /> */}
       {/* <UseWindowsResizeTest /> */}
       {/* <ScrollToTopAndBottm /> */}
-      <ScrollToSection />
+      {/* <ScrollToSection /> */}
     </div>
   );
 };

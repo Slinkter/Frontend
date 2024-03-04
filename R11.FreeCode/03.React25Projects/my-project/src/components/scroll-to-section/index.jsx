@@ -6,6 +6,7 @@ const ScrollToSection = () => {
 
   function handleScrollToSection() {
     let position = ref.current.getBoundingClientRect().top;
+    //
     window.scrollTo({
       top: position,
       behavior: "smooth",
@@ -19,6 +20,7 @@ const ScrollToSection = () => {
       <h1>Scroll to a particular section</h1>
       <button onClick={handleScrollToSection}> click to scrooll</button>
       {data &&
+        data.length &&
         data.map((item, index) => (
           <div
             style={item.style}
