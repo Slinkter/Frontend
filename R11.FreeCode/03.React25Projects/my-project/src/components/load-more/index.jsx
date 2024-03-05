@@ -1,30 +1,26 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-
 import "./style.css";
 
 const LoadMoreData = () => {
-  const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [count, setCount] = useState(0);
-  const [disableButton, setDisableButton] = useState(false);
+  const [products, setProducts] = useState([]); // array
+  const [disableButton, setDisableButton] = useState(false); // boolean
+  const [loading, setLoading] = useState(false); // boolean
+  const [count, setCount] = useState(0); // number
 
   async function fetchProducts() {
     try {
-      const url_api = `https://dummyjson.com/products?limit=20&skip=${
-        count === 0 ? 0 : count * 20
-      }`;
+      const countSkip = count === 0 ? 0 : count * 20;
+      const url_api = `https://dummyjson.com/products?limit=20&skip=${countSkip}`;
       const res = await fetch(url_api);
       const data = await res.json();
       if (data && data.products && data.products.length) {
         setProducts((prevData) => [...prevData, ...data.products]);
         setLoading(false);
       }
-
-      console.log(data);
     } catch (error) {
-      console.log(error);
       setLoading(false);
+      console.log(error);
     }
   }
 
@@ -41,7 +37,7 @@ const LoadMoreData = () => {
   if (loading) {
     return <div>Loading data !!! please wait</div>;
   }
-
+  console.log(products);
   return (
     <div className="container-load-more">
       <div className="product-container">

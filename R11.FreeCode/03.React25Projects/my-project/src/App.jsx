@@ -21,18 +21,18 @@ import ScrollToSection from "./components/scroll-to-section";
 
 const App = () => {
   return (
-    <div>
+    <>
       {/*  <RandomColor /> */}
       {/*  <StarRating noOfStarts={10} /> */}
-      <ImageSlider
+      {/*   <ImageSlider
         url={"https://picsum.photos/v2/list"}
         page={"1"}
-        limit={"10"}
-      />
-      {/* <LoadMoreData /> */}
-      {/* <TreeView menus={menus} /> */}
+        limit={"20"}
+      /> */}
+      {/*  <LoadMoreData /> */}
+      {/*  <TreeView menus={menus} /> */}
       {/* <QrGenerator /> */}
-      {/* <LigthDarkMode /> */}
+      <LigthDarkMode />
       {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
       {/* <TabTest /> */}
       {/* <ModalTest /> */}
@@ -43,7 +43,7 @@ const App = () => {
       {/* <UseWindowsResizeTest /> */}
       {/* <ScrollToTopAndBottm /> */}
       {/* <ScrollToSection /> */}
-    </div>
+    </>
   );
 };
 

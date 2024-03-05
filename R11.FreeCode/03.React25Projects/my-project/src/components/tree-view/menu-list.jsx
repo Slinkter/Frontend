@@ -5,7 +5,7 @@ const MenuList = ({ list = [] }) => {
   return (
     <ul className="menu-list-container">
       {list && list.length
-        ? list.map((item) => <MenuItem item={item} />)
+        ? list.map((item) => <MenuItem key={item} item={item} />)
         : null}
     </ul>
   );

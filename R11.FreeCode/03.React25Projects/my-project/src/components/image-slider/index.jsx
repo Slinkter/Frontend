@@ -6,14 +6,14 @@ import "./index.css";
 
 const ImageSlider = ({ url, page, limit }) => {
   const [images, setImages] = useState([]); // [{},{},{}]
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const [loading, setLoading] = useState(false);
-  const [errorMsh, setErrorMsh] = useState("");
+  const [currentSlide, setCurrentSlide] = useState(0); // number
+  const [loading, setLoading] = useState(false); // boolean
+  const [errorMsh, setErrorMsh] = useState(""); // string
 
   async function fetchImages() {
+    setLoading(true);
+
     try {
-      setLoading(true);
       const url_api = `${url}?page=${page}}&limit=${limit}`;
       const res = await fetch(url_api);
       const data = await res.json();
@@ -22,6 +22,7 @@ const ImageSlider = ({ url, page, limit }) => {
         setImages(data);
         setLoading(false);
       }
+      console.log(data);
     } catch (e) {
       setErrorMsh(e.message);
       setLoading(false);
@@ -29,12 +30,13 @@ const ImageSlider = ({ url, page, limit }) => {
   }
 
   function handlePreviews() {
-    // si currentSlide es igual a 0 , [].length -1 , ir al ultimo , sino -1
-    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
+    const lastElemnt = images.length - 1; // si currentSlide es igual a 0 ---> ir al ultimo( [array].length -1) ,--> sino -1
+    setCurrentSlide(currentSlide === 0 ? lastElemnt : currentSlide - 1);
   }
 
   function handleNext() {
-    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
+    const lastElemnt = images.length - 1;
+    setCurrentSlide(currentSlide === lastElemnt ? 0 : currentSlide + 1);
   }
 
   useEffect(() => {
@@ -59,7 +61,7 @@ const ImageSlider = ({ url, page, limit }) => {
         className="arrow arrow-left"
         onClick={handlePreviews}
       />
-      {/* ----------------------- */}
+      {/* -------------IMGs---------- */}
       {images && images.length
         ? images.map((img, index) => (
             <img
@@ -74,17 +76,17 @@ const ImageSlider = ({ url, page, limit }) => {
         : null}
 
       {/* ----------------------- */}
-      <span className="circle-indicators">
+      <span className="circle-indicators-container">
         {images && images.length
           ? images.map((_, index) => (
               <button
                 key={index}
+                onClick={() => setCurrentSlide(index)}
                 className={
                   currentSlide === index
                     ? "current-indicator"
                     : "current-indicator inactive-indicator"
                 }
-                onClick={() => setCurrentSlide(index)}
               ></button>
             ))
           : null}
