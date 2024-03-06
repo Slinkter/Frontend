@@ -2,9 +2,8 @@ import React from "react";
 import useFetch from ".";
 
 const UseFetchHookTest = () => {
-  const { data, error, pending } = useFetch(
-    "https://dummyjson.com/products?limit=100"
-  );
+  const url_api = "https://dummyjson.com/products?limit=100";
+  const { data, error, pending } = useFetch(url_api);
   console.log(data, error, pending);
   return (
     <div>

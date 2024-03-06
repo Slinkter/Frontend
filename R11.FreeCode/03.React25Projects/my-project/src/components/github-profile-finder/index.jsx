@@ -3,7 +3,7 @@ import User from "./user";
 import "./styles.css";
 
 const GithubProfileFinder = () => {
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("slinkter");
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -25,8 +25,6 @@ const GithubProfileFinder = () => {
 
   useEffect(() => {
     fetchGithubUserData();
-
-    return () => {};
   }, []);
 
   if (loading) {

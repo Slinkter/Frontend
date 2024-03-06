@@ -10,7 +10,7 @@ const User = ({ user }) => {
     login,
     created_at,
   } = user;
-  const createdDate = new Date(created_at);
+  const createdDateAt = new Date(created_at);
   return (
     <div className="user">
       <div>
@@ -19,11 +19,11 @@ const User = ({ user }) => {
       <div className="name-container">
         <a href={`https://github.com/${login}`}> {name || login}</a>
         <p>
-          User joined on{" "}
-          {` ${createdDate.getDate()} ${createdDate.toLocaleDateString(
-            "en-us",
-            { month: "short" }
-          )} ${createdDate.getFullYear()}   `}
+          User joined on
+          {` ${createdDateAt.getDate()} 
+             ${createdDateAt.toLocaleDateString("en-us", { month: "short" })} 
+             ${createdDateAt.getFullYear()}
+          `}
         </p>
       </div>
       <div className="profile-info">

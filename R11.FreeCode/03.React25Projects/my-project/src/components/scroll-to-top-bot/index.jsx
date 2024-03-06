@@ -2,20 +2,17 @@ import React, { useRef } from "react";
 import useFetch from "../use-fetch";
 
 const ScrollToTopAndBottm = () => {
-  const { data, error, pending } = useFetch(
-    "https://dummyjson.com/products?limit=100"
-  );
-
+  const url_api = "https://dummyjson.com/products?limit=100";
+  const { data, error, pending } = useFetch(url_api);
   const bottomRef = useRef(null);
 
   console.log({ data, error, pending });
 
-  function handleScropToTop() {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }
-
-  function handleScropToBottom() {
+  function handleGoToBottom() {
     bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+  function handleGoToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
   if (pending) {
@@ -26,19 +23,19 @@ const ScrollToTopAndBottm = () => {
   }
 
   return (
-    <div>
+    <>
       <h1>Scroll to top and bottom feature</h1>
-      <h3>this is top section </h3>
-      <button onClick={handleScropToBottom}>Scrooll to bottom</button>
+      <h3> top section </h3>
+      <button onClick={handleGoToBottom}>Scrooll to bottom</button>
       <ul style={{ listStyle: "none" }}>
         {data && data.products && data.products.length
           ? data.products.map((item) => <li key={item.id}>{item.title}</li>)
           : null}
       </ul>
-      <button onClick={handleScropToTop}>Scrooll to Top</button>
+      <button onClick={handleGoToTop}>Scrooll to Top</button>
       <div ref={bottomRef}></div>
-      <h3>this is the bottom of the page</h3>
-    </div>
+      <h3> bottom of the page</h3>
+    </>
   );
 };
 

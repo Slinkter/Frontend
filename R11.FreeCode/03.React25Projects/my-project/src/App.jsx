@@ -32,17 +32,17 @@ const App = () => {
       {/*  <LoadMoreData /> */}
       {/*  <TreeView menus={menus} /> */}
       {/* <QrGenerator /> */}
-      <LigthDarkMode />
-      {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-      {/* <TabTest /> */}
+      {/*   <LigthDarkMode /> */}
+      {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
+      {/*  <TabTest /> */}
       {/* <ModalTest /> */}
-      {/* <GithubProfileFinder /> */}
-      {/* <SearchAutoComplete /> */}
+      {/*  <GithubProfileFinder /> */}
+      {/*   <SearchAutoComplete /> */}
       {/* <TicTacToe /> */}
       {/* <UseFetchHookTest /> */}
       {/* <UseWindowsResizeTest /> */}
-      {/* <ScrollToTopAndBottm /> */}
-      {/* <ScrollToSection /> */}
+      {/*  <ScrollToTopAndBottm /> */}
+      <ScrollToSection />
     </>
   );
 };

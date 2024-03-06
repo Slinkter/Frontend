@@ -4,8 +4,6 @@
   max-width: 1000px;
   padding: 20px;
   border-radius: 8px;
-
-  background-color: red;
 }
 .input-wrapper {
   display: flex;
@@ -32,6 +30,10 @@
   padding: 15px;
   border-radius: 10px;
   border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .avatar {
   height: 150px;

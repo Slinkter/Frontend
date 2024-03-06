@@ -19,7 +19,9 @@ const Modal = ({ id, header, body, footer, onClose }) => {
             </div>
           )}
         </div>
-        <div className="footer">{footer ? footer : <h2>Footer</h2>}</div>
+        <div className="footer">
+          {footer ? footer : <h2>Footer alterno 2</h2>}
+        </div>
       </div>
     </div>
   );

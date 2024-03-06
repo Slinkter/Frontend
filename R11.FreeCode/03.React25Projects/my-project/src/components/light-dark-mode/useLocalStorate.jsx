@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-// theme  , dark
+// [theme  , dark]
 function useLocalStorage(key, defaultValue) {
   const initValue = {
     value: () => {
+      let preParsed;
       let currentValue;
       try {
-        currentValue = JSON.parse(
-          localStorage.getItem(key) || String(defaultValue)
-        );
+        preParsed = localStorage.getItem(key) || String(defaultValue);
+        currentValue = JSON.parse(preParsed);
       } catch (error) {
-        console.log(error);
         currentValue = defaultValue;
+        console.log(error);
       }
       return currentValue;
     },
@@ -20,7 +20,6 @@ function useLocalStorage(key, defaultValue) {
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
-
     return () => {};
   }, [key, value]);
 

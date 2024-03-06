@@ -1,4 +1,3 @@
-import React from "react";
 import useLocalStorage from "./useLocalStorate";
 import "./style.css";
 
