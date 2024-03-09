@@ -2,11 +2,8 @@ import React from "react";
 
 const Page = () => {
   return (
-    <div className="">
-      <div class="flex flex-col min-h-screen space-y-4">
-        <div class="w-1/5  bg-red-700 min-h-min ">Sidebar</div>
-        <div class="w-4/5  bg-green-900  ">Main content</div>
-      </div>
+    <div className="h-screen text-white bg-slate-900">
+      <button className="ring-2 ring-blue-500/50"> Button c </button>
     </div>
   );
 };
