@@ -3,11 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
+@layer base {
   html {
     @apply bg-slate-500;
+    @apply text-white;
+    color: red;
     @apply text-white;
     font-family: "Quicksand", sans-serif;
   }
 }
- */

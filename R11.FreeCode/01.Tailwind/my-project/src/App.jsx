@@ -1,5 +1,6 @@
 import React from "react";
 import Page from "./page";
+import System from "./System";
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
         </p>
         <h1></h1>
       </div> */}
-      <Page />
+      {/*     <Page /> */}
+      <System></System>
     </>
   );
 };
