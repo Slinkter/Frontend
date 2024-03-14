@@ -2,13 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: 350px;
   width: 550px;
 
   position: relative;
-  padding: 0;
   margin: 0;
-  text-align: center;
+  padding: 0;
 }
 
 .arrow {

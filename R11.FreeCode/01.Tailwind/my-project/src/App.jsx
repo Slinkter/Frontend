@@ -5,6 +5,7 @@ import System from "./System";
 const App = () => {
   return (
     <>
+<<<<<<< HEAD
       {/*     <div className="whitespace-pre-line">
         <h1 className="text-3xl"> Tittle 1 </h1>
         <h2 className="text-2xl">tittle 2</h2>
@@ -24,6 +25,34 @@ const App = () => {
       </div> */}
       {/*     <Page /> */}
       <System></System>
+=======
+      <img
+        className="w-16 md:w-32 lg:w-48"
+        src="https://images.pexels.com/photos/7723354/pexels-photo-7723354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="img"
+      />
+      <h1 className="text-bluejs text-3xl bg-[#000] ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dicta
+        a inventore ducimus id veniam quo distinctio harum esse temporibus quod,
+        repudiandae corrupti ab iure. Fuga expedita dolorem perferendis quae!
+      </h1>
+      <h1 className="text-redjs text-2xl">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dicta
+        a inventore ducimus id veniam quo distinctio harum esse temporibus quod,
+        repudiandae corrupti ab iure. Fuga expedita dolorem perferendis quae!
+      </h1>
+      <h1 className="text-greenjs-200 text-xl">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dicta
+        a inventore ducimus id veniam quo distinctio harum esse temporibus quod,
+        repudiandae corrupti ab iure. Fuga expedita dolorem perferendis quae!
+      </h1>
+      <h1 className="text-[#6d28d9] ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dicta
+        a inventore ducimus id veniam quo distinctio harum esse temporibus quod,
+        repudiandae corrupti ab iure. Fuga expedita dolorem perferendis quae!
+      </h1>
+      <button className="btn"> Iam a button</button>
+>>>>>>> 2c59af19d8f74440e1dff4bbefa9ff7ceba5d570
     </>
   );
 };
