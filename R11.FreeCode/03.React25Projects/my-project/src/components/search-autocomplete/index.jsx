@@ -3,8 +3,8 @@ import Suggestions from "./suggesstion";
 
 const SearchAutoComplete = () => {
   const [loading, setloading] = useState(false);
-  const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
+  const [users, setUsers] = useState([]);
   const [searchParam, setSearchParam] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -13,6 +13,7 @@ const SearchAutoComplete = () => {
     try {
       setloading(true);
       const url = "https://dummyjson.com/users";
+      //
       const res = await fetch(url);
       const data = await res.json();
       // -->
@@ -22,6 +23,7 @@ const SearchAutoComplete = () => {
         setFilteredUsers(onlyNames);
         setloading(false);
         setError(null);
+        setShowDropDown(true);
       }
     } catch (error) {
       setloading(false);
@@ -42,7 +44,6 @@ const SearchAutoComplete = () => {
       setShowDropDown(true);
     } else {
       setFilteredUsers(users);
-      setShowDropDown(false);
     }
   }
 

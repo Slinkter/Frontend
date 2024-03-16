@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import data from "./db";
 
 const ScrollToSection = () => {
@@ -16,7 +16,15 @@ const ScrollToSection = () => {
   }
 
   return (
-    <div>
+    <div
+      className=""
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <h1>Scroll to a particular section</h1>
       <button onClick={handleScrollToSection}> click to scrooll</button>
       {data &&

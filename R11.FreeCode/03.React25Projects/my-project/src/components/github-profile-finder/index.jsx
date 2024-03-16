@@ -10,6 +10,7 @@ const GithubProfileFinder = () => {
   async function fetchGithubUserData() {
     setLoading(true);
     const url = `https://api.github.com/users/${userName}`;
+    //
     const res = await fetch(url);
     const data = await res.json();
     if (data) {

@@ -16,10 +16,10 @@ const Tabs = ({ tabsContent = [], onChange }) => {
           tabsContent.map((tabItem, index) => (
             <div
               key={index}
+              onClick={() => handleOnClick(index)}
               className={`tab-item ${
                 currentTabIndex === index ? "active" : ""
-              } `}
-              onClick={() => handleOnClick(index)}
+              }`}
             >
               <span className="label">{tabItem.label}</span>
             </div>

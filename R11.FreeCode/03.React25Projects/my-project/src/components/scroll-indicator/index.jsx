@@ -23,23 +23,22 @@ const ScrollIndicator = ({ url }) => {
     }
   }
 
+  function handleScrollPercentage() {
+    //
+    const a = document.documentElement.scrollTop; // element scrolled : valor varbile = 0 ----> 4249
+    const b = document.documentElement.clientHeight; // altura de la ventana  de navegador valor fijo = 909
+    const c = document.documentElement.scrollHeight; // altura total de html generado valor fijo = 5158
+    // 5158 - 909 = 4249
+    // inicio =  (0 / (5158-909)*100)
+    // fin = (4249/(5158-909)*100)
+    const percent = (a / (c - b)) * 100;
+    setScrollPercentage(percent);
+    console.log(a, b, c);
+  }
+
   useEffect(() => {
     fetchData(url);
   }, [url]);
-
-  function handleScrollPercentage() {
-    //
-
-    const a = document.documentElement.scrollTop; // element scrolled
-    const b = document.documentElement.clientHeight; // altura de la ventana  de navegador
-    const c = document.documentElement.scrollHeight; // altura total de html generado
-
-    //
-    const howMuchScrolled = a;
-    const height = c - b;
-    console.log(a, b, c);
-    setScrollPercentage((howMuchScrolled / height) * 100);
-  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollPercentage);

@@ -11,18 +11,23 @@ const User = ({ user }) => {
     created_at,
   } = user;
   const createdDateAt = new Date(created_at);
+  console.log(created_at);
+  console.log(createdDateAt);
+
   return (
     <div className="user">
       <div>
         <img src={avatar_url} alt="user" className="avatar" />
       </div>
+      <a href={`https://github.com/${login}`}> {name || login}</a>
       <div className="name-container">
-        <a href={`https://github.com/${login}`}> {name || login}</a>
+        <div></div>
         <p>
           User joined on
-          {` ${createdDateAt.getDate()} 
-             ${createdDateAt.toLocaleDateString("en-us", { month: "short" })} 
-             ${createdDateAt.getFullYear()}
+          {` 
+          ${createdDateAt.getDate()} 
+          ${createdDateAt.toLocaleDateString("en-us", { month: "short" })} 
+          ${createdDateAt.getFullYear()}
           `}
         </p>
       </div>

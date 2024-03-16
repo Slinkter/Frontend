@@ -30,22 +30,25 @@ const App = () => {
         limit={"2"}
       /> */}
 
-      <LoadMoreData />
-      {/*  <TreeView menus={menus} /> */}
-      {/* <QrGenerator /> */}
-      {/*   <LigthDarkMode /> */}
+      {/* <LoadMoreData /> */}
+      {/*     <QrGenerator /> */}
+      {/*  <LigthDarkMode /> */}
       {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-      {/*  <TabTest /> */}
-      {/* <ModalTest /> */}
-      {/*  <GithubProfileFinder /> */}
-      {/*   <SearchAutoComplete /> */}
-      {/* <TicTacToe /> */}
-      {/* <UseFetchHookTest /> */}
-      {/* <UseWindowsResizeTest /> */}
+
+      {/* {<TabTest />} */}
+      {/*  <ModalTest /> */}
+      {/*   <GithubProfileFinder /> */}
+      {/* <SearchAutoComplete /> */}
+
+      {/*   <UseFetchHookTest /> */}
+
       {/*  <ScrollToTopAndBottm /> */}
-      {/* <ScrollToSection /> */}
+      <ScrollToSection />
 
       {/*    <StarRating noOfStarts={10} /> */}
+      {/* <TreeView menus={menus} /> */}
+      {/*     <TicTacToe /> */}
+      {/*     <UseWindowsResizeTest /> */}
     </>
   );
 };

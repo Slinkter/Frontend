@@ -13,17 +13,27 @@ const ModalTest = () => {
   }
 
   return (
-    <div>
-      <button onClick={handleSwitchModalPopup}>Open Modal Popup</button>
-      {showModalPopup && (
-        <Modal
-          id={"custom-id"}
-          header={<h1> Customized Header hola</h1>}
-          footer={<h1> Footer </h1>}
-          onClose={onClose}
-          body={<div> Custom Body </div>}
-        />
-      )}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <div>
+        <button onClick={handleSwitchModalPopup}>Open Modal Popup</button>
+        {showModalPopup && (
+          <Modal
+            id={"custom-id"}
+            header={<h1> Customized Header hola</h1>}
+            footer={<h1> Footer </h1>}
+            onClose={onClose}
+            body={<div> Custom Body </div>}
+          />
+        )}
+      </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@ const useFetch = (url, options = {}) => {
     setPending(true);
     try {
       const res = await fetch(url, { ...options });
+      console.log("res ", res);
       if (!res.ok) throw new Error(res.statusText);
       const data = await res.json();
       setData(data);

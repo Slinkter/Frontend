@@ -4,12 +4,12 @@ import useFetch from "../use-fetch";
 const ScrollToTopAndBottm = () => {
   const url_api = "https://dummyjson.com/products?limit=100";
   const { data, error, pending } = useFetch(url_api);
-  const bottomRef = useRef(null);
+  const divBottomRef = useRef(null);
 
   console.log({ data, error, pending });
 
   function handleGoToBottom() {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    divBottomRef.current.scrollIntoView({ behavior: "smooth" });
   }
   function handleGoToTop() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -33,7 +33,7 @@ const ScrollToTopAndBottm = () => {
           : null}
       </ul>
       <button onClick={handleGoToTop}>Scrooll to Top</button>
-      <div ref={bottomRef}></div>
+      <div ref={divBottomRef}></div>
       <h3> bottom of the page</h3>
     </>
   );

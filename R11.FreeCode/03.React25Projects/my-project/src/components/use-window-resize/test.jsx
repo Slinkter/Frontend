@@ -1,8 +1,7 @@
-import React from "react";
-import userWindowResize from ".";
+import UserWindowResize from ".";
 
 const UseWindowsResizeTest = () => {
-  const windowSize = userWindowResize();
+  const windowSize = UserWindowResize();
   const { width, height } = windowSize;
 
   return (
