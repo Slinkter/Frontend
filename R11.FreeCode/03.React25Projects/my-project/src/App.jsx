@@ -22,8 +22,7 @@ import ScrollToSection from "./components/scroll-to-section";
 const App = () => {
   return (
     <>
-      {/*       <RandomColor /> */}
-
+      {/* <RandomColor /> */}
       {/*   <ImageSlider
         url={"https://picsum.photos/v2/list"}
         page={"1"}
@@ -31,24 +30,20 @@ const App = () => {
       /> */}
 
       {/* <LoadMoreData /> */}
-      {/*     <QrGenerator /> */}
-      {/*  <LigthDarkMode /> */}
-      {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-
+      {/* <QrGenerator /> */}
+      {/* <LigthDarkMode /> */}
+      {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
       {/* {<TabTest />} */}
-      {/*  <ModalTest /> */}
-      {/*   <GithubProfileFinder /> */}
+      {/* <ModalTest /> */}
+      {/* <GithubProfileFinder /> */}
       {/* <SearchAutoComplete /> */}
-
-      {/*   <UseFetchHookTest /> */}
-
-      {/*  <ScrollToTopAndBottm /> */}
-      <ScrollToSection />
-
-      {/*    <StarRating noOfStarts={10} /> */}
+      {/* <UseFetchHookTest /> */}
+      {/* <ScrollToTopAndBottm /> */}
+      {/* <ScrollToSection /> */}
+      {/* <StarRating noOfStarts={10} /> */}
       {/* <TreeView menus={menus} /> */}
-      {/*     <TicTacToe /> */}
-      {/*     <UseWindowsResizeTest /> */}
+      {/* <TicTacToe /> */}
+      {/* <UseWindowsResizeTest /> */}
     </>
   );
 };
