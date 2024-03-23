@@ -1,6 +1,7 @@
 // JS trabaja con clase  ,solo es una sintaxis especial
 // las clases por dentro son prototipos
 // Js esta basado en prototipos
+// Utilizando la sintaxis de clases (introducida en ECMAScript 2015)
 class Studen2 {
   constructor({ name, age, cursosAprobado = [] }) {
     this.name = name;

@@ -41,11 +41,12 @@ class Student {
   }
 }
 
-const objjuan = new Student(juan);
-objjuan.socialMedia.twitter = juan.socialMedia.twitter;
-objjuan.socialMedia.instagram = juan.socialMedia.instagram;
-objjuan.socialMedia.facebook = juan.socialMedia.facebook;
-console.log(objjuan);
+const objJuan = new Student(juan);
+
+objJuan.socialMedia.twitter = juan.socialMedia.twitter;
+objJuan.socialMedia.instagram = juan.socialMedia.instagram;
+objJuan.socialMedia.facebook = juan.socialMedia.facebook;
+console.log(objJuan);
 
 class LearningPath {
   constructor() {}

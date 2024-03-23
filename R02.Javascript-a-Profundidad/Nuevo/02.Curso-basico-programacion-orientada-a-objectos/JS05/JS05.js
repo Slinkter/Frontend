@@ -1,6 +1,6 @@
-// objeto literal , si tiene instancias del prototipo
+// objeto literal
 const natalia = {
-  name: "",
+  name: "natalia",
   age: 20,
   cursosAprobado: ["curso de css ", "curso de js", "curso de html"],
   aprobarCurso(curso) {
@@ -15,15 +15,12 @@ const natalia = {
 natalia.name = "Nath";
 natalia.age += 1;
 natalia.cursosAprobado.push("Curso de python"); // a propiedad
-//
-console.log(natalia);
-//
 natalia.aprobarCurso("Curso de Python"); // a metodo
 natalia.aumentarAge();
-//
 console.log(natalia);
+//
 
-// crear prototipo
+// crear prototipo con funciones constructoras
 function StudentPrototipo(name, age, cursosAprobado) {
   this.name = name; // String
   this.age = age; // String

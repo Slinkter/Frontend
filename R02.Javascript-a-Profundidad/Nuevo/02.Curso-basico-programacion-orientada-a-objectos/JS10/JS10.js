@@ -18,12 +18,12 @@ const course4 = new Course({ name: "CURSO 4 " });
 /*  */
 
 const escuelaWeb = new LearningPath({
-  name: "Escuela de desarrollo web",
+  name: "Escuela HTML",
   courses: [course1, course2, course3],
 });
 
 const escuelaVgs = new LearningPath({
-  name: "Escuela de video juegos",
+  name: "Escuela CSS",
   courses: [course3, course4],
 });
 

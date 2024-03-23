@@ -5,17 +5,17 @@ class Banda {
     this.integrantes = integrantes;
   }
   addIntegrante(integranteNuevo) {
-    // condicion (no quiero agregar al bateria)
+    // condicion
+    // --> (persona) => persona.instrumento !== "Bateria",
+    // Si todos los integrantes existentes de la banda no tocan la batería, entonces esta expresión devuelve true
     // array.every = tiene que que todos cumpla la condicion
-    console.log(this.integrantes);
+
     if (
       this.integrantes.every((persona) => persona.instrumento !== "Bateria")
     ) {
       this.integrantes.push(integranteNuevo);
-      console.log(this.integrantes);
     } else {
       console.log("no se agrega");
-      console.log(this.integrantes);
     }
   }
 }
@@ -35,13 +35,25 @@ const data = {
 };
 
 const banda = new Banda(data);
-const p1 = new Integrante({ nombre: "Erik", instrumento: "Guitarra" });
-const p2 = new Integrante({ nombre: "Paul", instrumento: "Bateria" });
-const p3 = new Integrante({ nombre: "Marcos", instrumento: "Bateria" });
-banda.addIntegrante(p1);
-banda.addIntegrante(p2);
-banda.addIntegrante(p3);
-banda.addIntegrante(p3);
-banda.addIntegrante(p3);
+const integrante_1 = new Integrante({
+  nombre: "Erik",
+  instrumento: "Guitarra",
+});
+const integrante_2 = new Integrante({
+  nombre: "Paul",
+  instrumento: "Bateria",
+});
+const integrante_3 = new Integrante({
+  nombre: "Marcos",
+  instrumento: "Bateria",
+});
+const integrante_4 = new Integrante({
+  nombre: "Lolo",
+  instrumento: "Bateria",
+});
+banda.addIntegrante(integrante_1);
+banda.addIntegrante(integrante_2);
+banda.addIntegrante(integrante_3);
+banda.addIntegrante(integrante_4);
 
 console.log(banda);

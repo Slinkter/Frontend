@@ -33,23 +33,20 @@ const course2 = new Course({ name: "CURSO 2 " });
 const course3 = new Course({ name: "CURSO 3 " });
 const course4 = new Course({ name: "CURSO 4 " });
 //
-console.log(course1);
+
 course1.name = "Curso -1";
-console.log(course1);
 course1.changeName("Curso -2");
-console.log(course1);
 course1.name = "Curso Gratis";
-console.log(course1);
 
 //
 
 const escuelaWeb = new LearningPath({
-  name: "Escuela de desarrollo web",
+  name: "Escuela  web",
   courses: [course1, course2, course3],
 });
 
 const escuelaVgs = new LearningPath({
-  name: "Escuela de video juegos",
+  name: "Escuela juegos",
   courses: [course3, course4],
 });
 
