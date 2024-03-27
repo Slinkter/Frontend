@@ -10,26 +10,35 @@ body {
 
 .cards {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 50px;
-
+  margin: 0 auto;
+  position: relative;
 }
 
 .cards .card {
   background: rgb(0, 144, 255);
   color: white;
-  width: 300px;
+  width: 250px;
   height: 350px;
-  border-radius: 15px;
+  border-radius: 25px;
   padding: 30px;
-  position: relative;
-  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  transition: all 0.4s ease;
-
+  position: relative;
+  transition: all 0.4s ease-in-out;
   box-shadow: -3px 0 10px rgba(0, 0, 0, 0.3), -4px 0 10px rgba(0, 0, 0, 0.2),
     -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cards .card:hover {
+  background-color: gray;
+  margin-right: 0px;
+  transform: rotate(10deg) translateY(-15px);
 }
 
 .cards .card a {
@@ -44,12 +53,6 @@ body {
 
 .cards .card .header {
   flex: 1;
-}
-
-.cards .card:hover {
-  background-color: gray;
-  margin-right: 40px;
-  transform: rotate(10deg) translateY(-15px);
 }
 
 .cards .card .header .date {
