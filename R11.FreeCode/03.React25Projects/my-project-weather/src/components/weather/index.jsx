@@ -24,6 +24,14 @@ const Weather = () => {
     }
   }
 
+  useEffect(() => {
+    fetchWeatherData("Lima");
+  }, []);
+
+  function handleSearch() {
+    fetchWeatherData(search);
+  }
+
   function getCurrentDate() {
     return new Date().toLocaleDateString("en-us", {
       weekday: "long",
@@ -31,15 +39,6 @@ const Weather = () => {
       day: "numeric",
       year: "numeric",
     });
-  }
-
-  useEffect(() => {
-    fetchWeatherData("Lima");
-    return () => {};
-  }, []);
-
-  function handleSearch() {
-    fetchWeatherData(search);
   }
 
   return (
