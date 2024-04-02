@@ -1,26 +1,19 @@
 class UserAuth {
+  user = "";
+
   constructor(user) {
     this.user = user;
   }
-  checkCredencials() {
-    return false;
+
+  verifyCredentials() {
+    return true;
   }
 }
 
-class UserPlantArena extends UserAuth {
-  constructor(user, setting) {
+class UserGlass extends UserAuth {
+  setting = " ";
+  constructor() {
     super(user);
-    this.setting = setting;
-  }
-  CheckSetting(setting) {
-    if (this.checkCredencials()) {
-      console.log("si puede modificar");
-    } else {
-      console.log("no puede modificar ");
-    }
+    this.setting = this.setting;
   }
 }
-
-const newAccess = new UserPlantArena("Alex", "Dark Mode");
-console.log(newAccess.CheckSetting());
-console.log(newAccess);
