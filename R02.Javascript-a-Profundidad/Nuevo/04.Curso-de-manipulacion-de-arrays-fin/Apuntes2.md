@@ -1,20 +1,12 @@
 # Curso de Manipulación de Arrays en JavaScript
 
-> **Nicolas Molina** [Google Developer Expert en Google](https://platzi.com/profesores/nicobytes/)
+> **Nicolas Molina** [Google Developer Expert en Google](https://platzi.com/)
 
 ## Introducción
 
 ### Tu AS bajo la manga
 
 #### 1. Requisitos iniciales
-
-Como requisito inicial, deberás tener dos carpetas: `client` y `server` que servirán para ejercicios en el navegador y en el servidor, respectivamente. También necesitarás instalar una dependencia llamada `http-server`. Asimismo puedes clonar el [repositorio de GitHub](https://github.com/platzi/curso-manipulacion-de-arrays/tree/main) del curso.
-
-![Estructura inicial del proyecto del curso](https://i.postimg.cc/g2d5LSx3/01-archivos-iniciales.webp)
-
-Si no conoces cómo iniciar un proyector para instalar dependencias, te recomiendo que realices el curso de [Gestión de Dependencias y Paquetes con NPM](https://platzi.com/cursos/npm/).
-
-[Clonar repo](https://github.com/platzi/curso-manipulacion-de-arrays/tree/main)
 
 - git clone git@github.com:platzi/curso-manipulacion-de-arrays.git
 - cd curso-manipulacion-de-arrays
@@ -29,15 +21,7 @@ Si no conoces cómo iniciar un proyector para instalar dependencias, te recomien
 
 ### 2. ForEach
 
-- npx http-server client/
-
-![](https://i.postimg.cc/sD3c7wdr/2-run-server.png)
-
-Para ejecutar, debes hacer ctrl + clic
-
-Otra alternativa a esto puede ser Live server, una extensión de vsc que solo haciendo clic de derecho sobre el html podemos correrlo en el navegador.
-
-Explicación de ForEach [[taller-js-primer-videojuego#7. Refactor del mapa de juego]]
+Live server, una extensión de vsc que solo haciendo clic de derecho sobre el html podemos correrlo en el navegador.
 
 #### Código de la clase
 
