@@ -1,5 +1,7 @@
-const API =
-  "https://youtube-v31.p.rapidapi.com/search?channelId=UC3zEMJtd0xl2UCOIsKLh_lg&part=snippet%2Cid&order=date&maxResults=5";
+const CHANNELID = "UC3zEMJtd0xl2UCOIsKLh_lg";
+const API = `https://youtube-v31.p.rapidapi.com/search?channelId=${CHANNELID}&part=snippet%2Cid&order=date&maxResults=5`;
+const content = null || document.getElementById("content");
+
 const options = {
   method: "GET",
   headers: {
@@ -8,12 +10,9 @@ const options = {
   },
 };
 
-const content = null || document.getElementById("content");
-
-async function fetchData(urlApi) {
-  const response = await fetch(urlApi, options);
+async function fetchData(url) {
+  const response = await fetch(url, options);
   const result = await response.json();
-  console.log(result);
   return result;
 }
 /* se invoca asi misma  */
@@ -41,10 +40,11 @@ async function fetchData(urlApi) {
       )
       .slice(0, 4)
       .join("")}
-
     `;
     content.innerHTML = view;
   } catch (error) {
     console.log(error);
+  } finally {
+    console.log("finally");
   }
 })();

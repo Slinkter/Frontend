@@ -1,18 +1,18 @@
 const fnAsync = () => {
   return new Promise((resolve, reject) => {
     true
-      ? setTimeout(() => resolve("Async"), 2000)
+      ? setTimeout(() => resolve("Async 4"), 2000)
       : setTimeout(() => reject(new Error("error!")), 3000);
   });
 };
 
 const anotherFn = async () => {
-  console.log("hola");
+  console.log("  2");
   const something = await fnAsync();
   console.log(something);
-  console.log("hello");
+  console.log(" 5");
 };
 
-console.log("before");
+console.log("  1 ");
 anotherFn();
-console.log("After");
+console.log("  3");

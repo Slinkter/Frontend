@@ -9,14 +9,12 @@ async function fetchData(urlAPI) {
 //
 const anotherfunction = async (urlAPI) => {
   try {
-    const products = await fetchData(`${urlAPI}/products`);
-    const product = await fetchData(`${urlAPI}/products/${products[0].id}`);
-    const category = await fetchData(
-      `${urlAPI}/categories/${product.category.id}`
-    );
-    console.log(products);
-    console.log(product.title);
-    console.log(category.name);
+    const data = await fetchData(`${urlAPI}/products`);
+    const prod = await fetchData(`${urlAPI}/products/${data[0].id}`);
+    const cat = await fetchData(`${urlAPI}/categories/${product.category.id}`);
+    console.log(data);
+    console.log(prod.title);
+    console.log(cat.name);
   } catch (error) {
     console.log(error);
   }

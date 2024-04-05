@@ -26,40 +26,40 @@ el producto es software para nosotros
 
 ## Clase 04 :Ciclo de Vida del Desarrollo de Software (SDLC)
 
-- tiene un proceso que nos indica como construir un software.
-- la produccion de software con las siguiente caracteristicas
+- La produccion de un software con las siguiente caracteristicas
+
   - Alta calidad
   - Costos bajos
   - Menor tiempo posible
   - Todo el proceso tiene Fases
 
-### Fase 1 : Planeacion / requeriemiento :
+  ### Fase 1 : Planeación :
 
-Ideal del cliente
-Se da una forma para que se viable
+  - Ideal del cliente
+  - Se da una forma para que se viable
 
-### Fase 2 : Diseño ()
+  ### Fase 2 : Diseño
 
-Implementacion de la solucion
-Diseño de interacion del usuario
-Tipos de tecnologia a usar
+  - Implementacion de la solucion
+  - Diseño de interacion del usuario
+  - Tipos de tecnologia a usar
 
-### Fase 3 : Implementacion/Ejecuacion /Desarrollo
+  ### Fase 3 : Implementacion
 
-la fase mas larga
-programacion segun diseño
+  - la fase mas larga
+  - programacion segun diseño
 
-### Fase 4 : Pruebas.
+  ### Fase 4 : Pruebas.
 
-validar con los usuarios (equipo de diseño se encargar).
+  - validar con los usuarios (equipo de diseño se encargar).
 
-### Fase 5 : Despliegue
+  ### Fase 5 : Despliegue
 
-Deploy del proyecto (lanzar la aplicacion)
+  - Deploy del proyecto (lanzar la aplicacion)
 
-### Fase 6 : Mantenimiento
+  ### Fase 6 : Mantenimiento
 
-Estar preparado por cualquier situacion si se cae la aplicacion
+  - Estar preparado por cualquier situacion si se cae la aplicacion
 
 - Implementacion del ciclo de vida (2 perspectiva)
 
@@ -75,12 +75,12 @@ Estar preparado por cualquier situacion si se cae la aplicacion
 
 - Fase de diseño de software
 
-  existe muchos tipos de diseños
+- existe muchos tipos de diseños
 
-  para construir aplicacion existe 2 perpectiva .
+- para construir aplicacion existe 2 perpectiva .
 
-  *UI/UX : interfaz, donde colocar cierto elementos y colores
-  *Ingenieira :arq. , staff del equipo , metodologia.
+  - UI/UX : interfaz, donde colocar cierto elementos y colores
+  - Ingenieira :arq. , staff del equipo , metodologia.
 
 ### Ingenieria :
 
@@ -198,17 +198,20 @@ La agregacion es muy similar a la composicion
 
 ## Clase 13 : Relaciones entre Clase
 
-UML : unified model languaje
-escribir de manera grafica diagrama de clase o proceso
+UML : Unified Model Languaje.
 
-- Relación de dependencia: Se da cuándo al realizar cambios en una clase se modifica otra
+- Escribir de manera grafica diagrama de clase o proceso
 
-- Relación de asociación: Se da cuándo una clase tiene acceso permanente a otra clase
+### Relaciones
 
-- Relación de implementación: Se da cuándo una clase define su comportamiento basado en cierto método
+- dependencia: Se da cuándo al realizar cambios en una clase se modifica otra
 
-- Relación de herencia: Similar a la anterior, pero puede extender su comportamiento
+- asociación: Se da cuándo una clase tiene acceso permanente a otra clase
 
-- Relación de agregación: Se da cuándo una clase necesita de otras clases, pero no interfiere en su creación o eliminación. Simplemente las añade mientras sean útiles
+- implementación: Se da cuándo una clase define su comportamiento basado en cierto método
 
-- Relación de composición: Se da cuándo una clase necesita de otras clases, pero interfiere en su creación y eliminación. Así mismo si el elemento mayor desaparece, las demás clases dejan de ser útiles
+- herencia: Similar a la anterior, pero puede extender su comportamiento
+
+- agregación: Se da cuándo una clase necesita de otras clases, pero no interfiere en su creación o eliminación. Simplemente las añade mientras sean útiles
+
+- composición: Se da cuándo una clase necesita de otras clases, pero interfiere en su creación y eliminación. Así mismo si el elemento mayor desaparece, las demás clases dejan de ser útiles

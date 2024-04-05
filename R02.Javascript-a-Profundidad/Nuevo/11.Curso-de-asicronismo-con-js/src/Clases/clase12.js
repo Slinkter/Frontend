@@ -1,6 +1,15 @@
 /* Fetch POST */
-import fetch from "node-fetch";
-const API = "https://api.escuelajs.co/api/v1";
+
+const BASE_API = "https://api.escuelajs.co/api/v1";
+const API_PRODUCTS = `${BASE_API}/products`;
+
+const data = {
+  title: "GLASS BLUE",
+  price: 12.0,
+  description: "A GLAS COLOR BLUE",
+  categoryId: 1,
+  images: ["https://dasds.com/33/33/sd"],
+};
 
 function postData(urlApi, data) {
   const response = fetch(urlApi, {
@@ -14,15 +23,8 @@ function postData(urlApi, data) {
   });
   return response;
 }
-const data = {
-  title: "new product glass",
-  price: 1.22,
-  description: "A descript",
-  categoryId: 1,
-  images: ["https://dasds.com/33/33/sd"],
-};
 
-postData(`${API}/products`, data)
+postData(API_PRODUCTS, data)
   .then((res) => res.json())
   .then((data) => console.log(data))
   .catch((err) => console.log(err))
