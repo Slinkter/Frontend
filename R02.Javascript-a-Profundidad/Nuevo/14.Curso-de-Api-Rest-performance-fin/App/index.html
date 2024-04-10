@@ -5,19 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="./styles/app.css" />
-
     <title>Movies</title>
   </head>
   <body>
     <header id="header" class="header-container">
       <span class="header-arrow inactive">&lt;</span>
-      <h1 class="header-title">PlatziMovies</h1>
+      <h1 class="header-title">Movies</h1>
       <h1 class="header-title header-title--categoryView inactive">Acción</h1>
 
       <form id="searchForm" class="header-searchForm">
@@ -26,39 +21,35 @@
       </form>
     </header>
 
+    <hr />
     <section id="trendingPreview" class="trendingPreview-container">
+      <!-- 1 -->
       <div class="trendingPreview-header">
         <h2 class="trendingPreview-title">Tendencias</h2>
         <button class="trendingPreview-btn">Ver más</button>
       </div>
-
+      <!-- 2 -->
       <article class="trendingPreview-movieList">
         <div class="movie-container movie-container--loading"></div>
         <div class="movie-container movie-container--loading"></div>
-        <div class="movie-container movie-container--loading">
-          <!-- 
-            <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div> -->
-        </div>
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
       </article>
     </section>
-
+    <br />
+    <hr />
     <section id="categoriesPreview" class="categoriesPreview-container">
+      <!-- 1 -->
       <h2 class="categoriesPreview-title">Categorías</h2>
-
+      <!-- 2 -->
       <article class="categoriesPreview-list">
         <div class="category-container category-container--loading"></div>
         <div class="category-container category-container--loading"></div>
-        <div class="category-container category-container--loading">
-          <!-- 
-        <h3 id="id28" class="category-title">Romance</h3>
-      -->
-        </div>
+        <div class="category-container category-container--loading"></div>
+        <div class="category-container category-container--loading"></div>
+        <div class="category-container category-container--loading"></div>
+        <div class="category-container category-container--loading"></div>
       </article>
     </section>
 
@@ -81,13 +72,7 @@
     <section id="genericList" class="genericList-container inactive">
       <div class="movie-container movie-container--loading"></div>
       <div class="movie-container movie-container--loading"></div>
-      <div class="movie-container movie-container--loading">
-        <!-- <img 
-              data-img=="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-              class="movie-img"
-              alt="Nombre de la película"
-            /> -->
-      </div>
+      <div class="movie-container movie-container--loading"></div>
     </section>
 
     <section id="movieDetail" class="movieDetail-container inactive">
@@ -100,12 +85,8 @@
 
       <article class="categories-list">
         <div class="category-container category-container--loading"></div>
-
         <div class="category-container category-container--loading"></div>
-
-        <div class="category-container category-container--loading">
-          <!--  <h3 id="id14" class="category-title">Acción</h3> -->
-        </div>
+        <div class="category-container category-container--loading"></div>
       </article>
 
       <article class="relatedMovies-container">
@@ -114,13 +95,7 @@
         <div class="relatedMovies-scrollContainer">
           <div class="movie-container movie-container--loading"></div>
           <div class="movie-container movie-container--loading"></div>
-          <div class="movie-container movie-container--loading">
-            <!-- <img
-              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-              class="movie-img"
-              alt="Nombre de la película"
-            /> -->
-          </div>
+          <div class="movie-container movie-container--loading"></div>
         </div>
       </article>
     </section>

@@ -1,14 +1,18 @@
 /*  */
+
+const auth =
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
+
+// llave de acceso al servidor para consultar
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY",
+    Authorization: auth,
   },
   timeout: 10000,
 });
-
+// --> init page
 async function getTrendingMoviesPreview() {
   try {
     const objAxios = null;
@@ -16,10 +20,6 @@ async function getTrendingMoviesPreview() {
     const resAxios = await api.get(urlAxios);
     const { data, status } = resAxios;
     const movies = data.results;
-    console.log("resAxios : ", resAxios);
-    console.log("data : ", data);
-    console.log("status : ", status);
-    console.log("results : ", data.results);
     // Add HTML
     movies.map((movie) => {
       /* create elements*/
@@ -46,6 +46,7 @@ async function getTrendingMoviesPreview() {
     console.log("finally : getTrendingMoviesPreview()");
   }
 }
+// --> init page
 async function getCategoriesPreview() {
   try {
     const objAxios = null;
@@ -82,7 +83,10 @@ async function getCategoriesPreview() {
     console.log("finally : getCategoriesPreview()");
   }
 }
-//
+getTrendingMoviesPreview();
+getCategoriesPreview();
+
+// --> init usuario
 async function getMoviesByCategory(id) {
   console.group("getMoviesByCategory(id)");
   try {
@@ -182,8 +186,7 @@ async function getMovieByMovie(id) {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY",
+      Authorization: auth,
     },
   };
   // get data from api
@@ -235,16 +238,14 @@ async function getRelatedMoviesId(id) {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY",
+      Authorization: auth,
     },
   };
   //
   const res = await fetch(url, options);
   const data = await res.json();
+  //
   const relatedMovies = [...data.results];
-  console.log("getRelatedMoviesId data : ", data);
-  console.log(relatedMovies);
   //
   relatedMoviesContainer.innerHTML = "";
   //
@@ -267,7 +268,6 @@ async function getRelatedMoviesId(id) {
     relatedMoviesContainer.appendChild(movieContainer);
   });
 }
-/* html - tendencias - buton - ver mas  */
 async function getTrendingMovies() {
   try {
     /* axios */
@@ -283,12 +283,12 @@ async function getTrendingMovies() {
       //
       const movieContainer = document.createElement("div");
       const movieImg = document.createElement("img");
-      const url = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
-      const title = movie.title;
+      const src = "https://image.tmdb.org/t/p/w300/" + movie.poster_path;
+      const alt = movie.title;
       //
       movieImg.classList.add("movie-img");
-      movieImg.setAttribute("src", url);
-      movieImg.setAttribute("alt", title);
+      movieImg.setAttribute("src", src);
+      movieImg.setAttribute("alt", alt);
       //
       movieContainer.classList.add("movie-container");
       movieContainer.addEventListener("click", () => {
@@ -304,6 +304,3 @@ async function getTrendingMovies() {
     console.log("finally : getTrendingMoviesPreview()");
   }
 }
-
-getTrendingMoviesPreview();
-getCategoriesPreview();
