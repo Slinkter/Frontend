@@ -11,23 +11,24 @@ const ControlledInputs = () => {
     e.preventDefault();
     //
     if (firstName && email) {
+      // 
       const newPerson = {
         id: Date.now(),
-        firstName,
-        email,
+        firstName: firstName,
+        email: email,
       };
-      //
+      // 
       setPeople([...people, newPerson]);
       setFirstName("");
       setEmail("");
     } else {
-      alert("empy values");
-      console.log("empty values");
+      alert("empty values");
     }
   };
   // render component
   return (
     <>
+      {/* FORM  */}
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="firstName">Name : </label>
@@ -53,7 +54,7 @@ const ControlledInputs = () => {
           add person
         </button>
       </form>
-
+      {/* DATA  */}
       {people.map(({ id, firstName, email }) => (
         <div key={id} className="item">
           <h4>{firstName}</h4>
