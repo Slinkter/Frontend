@@ -112,21 +112,19 @@ footer {
 .liked-container {
   margin-bottom: 24px;
 }
-
+/* element div */
 .movie-container {
   cursor: pointer;
   position: relative;
 }
-
+/* element div  */
 .movie-container--loading {
+  /*  */
+  height: 225px;
+  width: 150px;
+  /*  */
   background: var(--purple-light-2);
   border-radius: 8px;
-  height: 225px;
-  min-height: 225px;
-  max-height: 225px;
-  width: 150px;
-  min-width: 150px;
-  max-width: 150px;
   margin-bottom: 15px;
   animation: loading-skaleton infinite 1.5s;
 }
@@ -252,15 +250,15 @@ footer {
   height: 32px;
   width: 72px;
 }
-
+/* element article */
 .trendingPreview-movieList,
 .liked-movieList {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  height: 241px;
-  padding-left: 24px;
-  padding-bottom: 16px;
+  height: 260px;
+  padding: 20px;
+  border: 1px solid red;
 }
 
 .trendingPreview-movieList .movie-container,

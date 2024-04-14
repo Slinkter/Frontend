@@ -33,44 +33,6 @@ async function saveFavoriteMichi(id) {
   console.groupEnd("saveFavoriteMichi");
 }
 
-async function loadRandomMichis() {
-  console.log("loadRandomMichis()");
-  try {
-    const objAxios = null;
-    const urlAxios = "/images/search?limit=3";
-    const resAxios = await api.get(urlAxios);
-    const { data, status } = resAxios;
-    /*  */
-    console.log(data);
-    console.log(status);
-    /* SET IMG */
-    const img1 = document.getElementById("img1");
-    const img2 = document.getElementById("img2");
-    const img3 = document.getElementById("img3");
-    img1.src = data[0].url;
-    img2.src = data[1].url;
-    img3.src = data[2].url;
-    /*  SET BUTTON */
-    const btn1 = document.getElementById("btn1");
-    const btn2 = document.getElementById("btn2");
-    const btn3 = document.getElementById("btn3");
-    btn1.onclick = () => saveFavoriteMichi(data[0].id);
-    btn2.onclick = () => saveFavoriteMichi(data[1].id);
-    btn3.onclick = () => saveFavoriteMichi(data[2].id);
-    btn1.textContent = "Save Favorite";
-    btn2.textContent = "Save Favorite";
-    btn3.textContent = "Save Favorite";
-    /*  */
-    loadFavouriteCat();
-  } catch (error) {
-    console.log("error : ", error);
-    spanError.innerHTML = "error al consultar la API";
-    spanError.innerHTML = "error al consultar la API" + status;
-  } finally {
-    console.log("finally");
-  }
-}
-
 async function loadFavouriteCat() {
   try {
     const objAxios = null;
@@ -148,6 +110,44 @@ async function uploadMichiPhoto() {
     console.log("error", error);
   } finally {
     console.log("Finally");
+  }
+}
+
+async function loadRandomMichis() {
+  console.log("loadRandomMichis()");
+  try {
+    const objAxios = null;
+    const urlAxios = "/images/search?limit=3";
+    const resAxios = await api.get(urlAxios);
+    const { data, status } = resAxios;
+    /*  */
+    console.log(data);
+    console.log(status);
+    /* SET IMG */
+    const img1 = document.getElementById("img1");
+    const img2 = document.getElementById("img2");
+    const img3 = document.getElementById("img3");
+    img1.src = data[0].url;
+    img2.src = data[1].url;
+    img3.src = data[2].url;
+    /*  SET BUTTON */
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+    const btn3 = document.getElementById("btn3");
+    btn1.onclick = () => saveFavoriteMichi(data[0].id);
+    btn2.onclick = () => saveFavoriteMichi(data[1].id);
+    btn3.onclick = () => saveFavoriteMichi(data[2].id);
+    btn1.textContent = "Save Favorite";
+    btn2.textContent = "Save Favorite";
+    btn3.textContent = "Save Favorite";
+    /*  */
+    loadFavouriteCat();
+  } catch (error) {
+    console.log("error : ", error);
+    spanError.innerHTML = "error al consultar la API";
+    spanError.innerHTML = "error al consultar la API" + status;
+  } finally {
+    console.log("finally");
   }
 }
 
