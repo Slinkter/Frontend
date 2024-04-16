@@ -13,10 +13,10 @@ const ContextAPI = () => {
     });
   };
   //
-  const values = { people, removePerson };
+  const propValue = { people, removePerson };
   // render
   return (
-    <PersonContext.Provider value={values}>
+    <PersonContext.Provider value={propValue}>
       <h3> CreateContext - Hook useContext</h3>
       <List />
     </PersonContext.Provider>

@@ -3,7 +3,7 @@ import { CLEAR_LIST, RESET_LIST, REMOVE_ITEM } from "./action";
 
 const reducer = (state, action) => {
   if (action.type === CLEAR_LIST) {
-    return { ...state, people: [] }; // operador de propagacion ...
+    return { ...state, people: [] };
   }
   if (action.type === RESET_LIST) {
     return { ...state, people: data };

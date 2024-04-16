@@ -15,16 +15,13 @@ const reducer = (state, action) => {
   switch (action.type) {
     //------------------------->
     case types.addItem: {
-      // hacer una copia de ...state.people y agregar payload
-      const newPeople = [...state.people, action.payload];
-      // hacer una copia de ...state y actualizar con newPeople
+      const newPeople = [...state.people, action.payload]; // action.payload =   array
       const updateState = {
         ...state,
         people: newPeople,
         isModalOpen: true,
         modalContent: "item added",
       };
-
       return updateState;
     }
     //------------------------->

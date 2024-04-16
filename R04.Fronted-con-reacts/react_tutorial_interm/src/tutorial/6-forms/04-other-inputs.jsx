@@ -23,7 +23,6 @@ const OtherInputs = () => {
         </div>
         <div>
           <label htmlFor="framework" className="form-label">
-            {" "}
             Framework
           </label>
           <select

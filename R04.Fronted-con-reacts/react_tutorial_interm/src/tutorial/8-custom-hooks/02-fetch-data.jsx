@@ -2,11 +2,12 @@ import React from "react";
 import useFetch from "./useFetch01";
 
 const url = "https://api.github.com/users/QuincyLarson";
+//
 const FetchData = () => {
   const { isLoading, isError, data: user } = useFetch(url);
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <h2> Loading...</h2>;
   }
 
   if (isError) {
@@ -19,7 +20,7 @@ const FetchData = () => {
     <>
       <img
         src={avatar_url}
-        alt=""
+        alt={name}
         style={{ width: "150px", borderRadius: "25px" }}
       />
       <h2>{name}</h2>

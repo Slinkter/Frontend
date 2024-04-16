@@ -4,8 +4,8 @@ import Modal from "./Modal";
 
 const Index = () => {
   // Hooks
-  const [name, setName] = useState("");
   const [state, dispatch] = useReducer(reducer, defaultState);
+  const [name, setName] = useState("");
   // buttons
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -7,20 +7,22 @@ const ControlledInputs = () => {
   //
   const [person, setPerson] = useState(initialPerson);
   const [people, setPeople] = useState(initialPeople);
-  //
+  // optional 1
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setPerson({ ...person, [name]: value });
   };
-  //
+  // optional 2
+  const handleChange2 = (e) => {
+    const { name, value } = e.target;
+    setPeople({ ...person, [name]: value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (person.firstName && person.email && person.age) {
-      const newPerson = {
-        id: new Date().getTime().toString(),
-        ...person,
-      };
+      const newPerson = { ...person, id: new Date().getTime().toString() };
       setPeople([...people, newPerson]);
       setPerson({ firstName: "", email: "", age: "" });
     } else {

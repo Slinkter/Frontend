@@ -7,9 +7,8 @@ const ControlledInputs = () => {
   const [people, setPeople] = useState([]);
   // Funcion
   const handleSubmit = (e) => {
-    //
     e.preventDefault();
-    //
+
     if (firstName && email) {
       const newPerson = {
         id: Date.now(),
