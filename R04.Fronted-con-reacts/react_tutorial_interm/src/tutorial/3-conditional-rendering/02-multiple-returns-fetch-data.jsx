@@ -45,6 +45,7 @@ const MultipleReturns = () => {
       </div>
     );
   }
+  //
   if (isError) {
     return (
       <div>
@@ -52,6 +53,7 @@ const MultipleReturns = () => {
       </div>
     );
   }
+
   const { avatar_url, name, company, bio } = user;
   return (
     <div>
@@ -68,24 +70,3 @@ const MultipleReturns = () => {
 };
 
 export default MultipleReturns;
-
-/*
-useEffect(() => {
-        fetch(url)
-            .then((resp) => {
-                if (resp.status >= 200 && resp.status <= 299) {
-                    return resp.json();
-                } else {
-                    setIsLoading(false);
-                    setIsError(true);
-                    throw new Error(resp.statusText);
-                }
-            })
-            .then((user) => {
-                const { login } = user;
-                setUser(login);
-                setIsLoading(false);
-            })
-            .catch((error) => console.log(error));
-    }, []); 
-*/

@@ -11,7 +11,6 @@ const UseStateArray = () => {
   //
   return (
     <>
-      {/* Show list */}
       {people.map(({ id, name }) => (
         <div key={id} className="item">
           <h4>{name}</h4>
@@ -19,7 +18,6 @@ const UseStateArray = () => {
         </div>
       ))}
 
-      {/* Button */}
       <button className="btn" onClick={() => setPeople([])}>
         clear items
       </button>

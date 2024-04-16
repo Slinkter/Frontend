@@ -30,6 +30,8 @@ const UseStateObject = () => {
   return (
     <>
       <h3>{person.name}</h3>
+      <h2>{person.age}</h2>
+
       <h3>{person.age}</h3>
       <h4>{person.message}</h4>
       <h4>{person.hobby}</h4>
