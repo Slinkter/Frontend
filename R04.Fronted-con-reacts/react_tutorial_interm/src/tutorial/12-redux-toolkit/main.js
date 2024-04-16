@@ -1,7 +1,7 @@
 import React from "react";
-import App from "./App";
-import { store } from "./store";
 import { Provider } from "react-redux";
+import { store } from "./store";
+import App from "./App";
 import "./index.css";
 
 const main = (
