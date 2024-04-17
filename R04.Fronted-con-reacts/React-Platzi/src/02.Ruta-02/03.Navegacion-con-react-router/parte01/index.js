@@ -41,6 +41,7 @@ const index = () => {
 };
 
 export default index;
+
 /*
 /#/
 /#/blog
