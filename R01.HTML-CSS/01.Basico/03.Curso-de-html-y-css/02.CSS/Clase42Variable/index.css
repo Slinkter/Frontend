@@ -1,0 +1,53 @@
+:root {
+  --primary-color: #003476;
+  --second-color: #b4d2f7;
+  --header-size: 4rem;
+  --font-text: 1.8rem;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header {
+  background-color: var(--primary-color);
+  font-size: var(--header-size);
+  /* vw: viewport width*/
+  /* vh: viewport height*/
+  /* % : ancho del container */
+  /*   width: 100vw; */
+  width: 100%; /* el container es body */
+  height: 15vh; /* Significa que la altura se establecerá al 15% del alto de la ventana gráfica del navegador */
+}
+
+main {
+  width: 100vw;
+  /*   height: 70vh; */
+  height: 70%;
+  background-color: whitesmoke;
+}
+
+footer {
+  width: 100vw;
+  /* height: 15vh; */
+  height: 15%;
+  background-color: var(--second-color);
+}
+
+h1 {
+  font-size: var(--header-size);
+  color: var(--primary-color);
+}
+p {
+  font-size: var(--font-text);
+}

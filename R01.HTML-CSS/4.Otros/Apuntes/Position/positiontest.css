@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.parent {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+.element {
+  border: 1px gray dotted;
+  padding: 20px;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes push {
+  0% {
+    left: 0;
+    top: 0;
+  }
+
+  50% {
+    left: -100px;
+    top: 100px;
+  }
+
+  100% {
+    left: 0;
+    top: 0;
+  }
+}

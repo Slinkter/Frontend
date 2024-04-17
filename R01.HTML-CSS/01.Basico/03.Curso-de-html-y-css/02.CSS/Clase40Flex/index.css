@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  /*  Esto es comúnmente usado para facilitar el cálculo de em y rem. */
+  font-size: 62.5%;
+}
+body {
+  /* Establece el tamaño de fuente del cuerpo de la página a 1.6 rem  */
+  font-size: 1.6rem;
+}
+/* BLOQUE */
+.container {
+  display: flex; /* Establece como un contenedor flexible. */
+  flex-wrap: wrap; /* Permite que los elemento se envuelvan en una nueva línea si no hay suficiente espacio */
+  flex-direction: row;
+}
+/* ELMENTO */
+.box {
+  height: 20rem;
+  width: 20rem;
+  flex-basis: 20rem; /* tamaño base de hijo */
+  flex-grow: 1; /* crece segun la tamaño del contenedor */
+}
+
+.box:hover {
+  background-color: rgb(7, 7, 7);
+}
+.box1 {
+  background-color: rgb(255, 0, 0);
+}
+.box2 {
+  background-color: rgb(119, 0, 255);
+}
+
+.box3 {
+  background-color: rgb(204, 0, 255);
+}
+
+.box4 {
+  background-color: rgb(68, 255, 0);
+}
+
+.box5 {
+  background-color: rgb(0, 221, 255);
+}
+
+.box6 {
+  background-color: rgb(0, 21, 255);
+}

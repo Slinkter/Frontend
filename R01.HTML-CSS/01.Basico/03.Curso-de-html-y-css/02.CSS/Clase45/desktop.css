@@ -1,0 +1,7 @@
+@media (min-width: 800px) {
+  .c4,
+  .c5 {
+    background-color: red;
+    border: 1px solid black;
+  }
+}

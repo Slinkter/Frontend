@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 10px;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 10px;
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  background: red;
+  flex-grow: 1;
+}
+
+.item1 {
+  background-color: aqua;
+  align-self: center;
+}
+
+.item2 {
+  background-color: bisque;
+}
+
+.item3 {
+  background-color: tomato;
+  align-self: center;
+}
+
+.parent {
+  border: 3px solid black;
+  display: flex;
+  height: 100vh; /* Or whatever */
+  background-color: bisque;
+}
+
+.child {
+  width: 100px; /* Or whatever */
+  height: 100px; /* Or whatever */
+  margin: auto; /* Magic! */
+  background-color: tomato;
+}

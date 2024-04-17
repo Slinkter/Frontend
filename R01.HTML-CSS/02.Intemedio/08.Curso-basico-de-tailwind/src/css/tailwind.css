@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Navtravel {
+  @apply hidden lg:flex w-full h-14 bg-white justify-between p-4 dark:bg-gray-800;
+}
+
+.nivel2 {
+  @apply w-full h-full flex flex-col items-center py-4 space-y-96 lg:space-y-0 lg:items-start lg:justify-start lg:pt-56 absolute;
+}
+
+.nivel3p {
+  @apply text-3xl font-semibold text-primary dark:text-white;
+}
+.container-recomendados {
+  @apply w-auto h-80 lg:h-80 flex items-center mt-6 overflow-x-auto overscroll-x-contain  space-x-4 lg:space-x-6 scrollbar;
+}
+
+.Card {
+  @apply w-48 h-64 flex-none shadow-md rounded-lg transform transition-all hover:-translate-y-4 hover:shadow-xl;
+}
+
+.CardTitle {
+  @apply text-3xl px-8 pt-8 pb-1 font-semibold text-white;
+}
+.Cardp {
+  @apply text-xl px-8 pt-1 pb-1  text-white;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    background: transparent;
+  }
+}
+.stylea {
+  @apply font-bold text-primary dark:text-white;
+}

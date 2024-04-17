@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .skew {
+        background-color: lightpink;
+        border-radius: 20%;
+        width: 400px;
+        height: 400px;
+        transform: skew(-10deg);
+      }
+      .skew:hover {
+        transform: skew(10deg);
+      }
+
+      .rotate {
+        background-color: lightgreen;
+        width: 350px;
+        height: 300px;
+        transform-origin: right top;
+      }
+
+      .rotate:hover {
+        transform: rotate(20deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="skew"></div>
+    <br />
+    <div class="rotate"></div>
+  </body>
+</html>

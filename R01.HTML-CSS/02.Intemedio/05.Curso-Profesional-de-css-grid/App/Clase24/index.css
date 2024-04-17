@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px 100px;
+  background-color: aquamarine;
+}
+.item:not(:nth-child(1)) {
+  background-color: teal;
+}
+.item:nth-child(1) {
+  background-color: rgb(128, 0, 126);
+  place-self: center stretch;
+
+  /*
+  justify-self: stretch;
+  justify-self: start;
+  justify-self: center;
+  justify-self: end;
+  align-self: center;
+  justify-self: stretch;
+  */
+}

@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.c1,
+.c2,
+.c3,
+.c4,
+.c5 {
+  width: 150px;
+  height: 150px;
+}
+
+.c1 {
+  background-color: red;
+}
+.c2 {
+  background-color: yellow;
+}
+
+.c3 {
+  background-color: green;
+}
+
+.c4 {
+  background-color: rgb(0, 242, 255);
+  height: auto;
+}
+
+.c5 {
+  background-color: rgba(0, 110, 255, 0.913);
+}
+
+@media (min-width: 420px) {
+  body {
+    background-color: white;
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    background-color: gray;
+  }
+  .c1 {
+    width: 25%;
+  }
+  .c4 {
+    width: 75%;
+  }
+  .c5 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    background-color: black;
+  }
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .c1 {
+    width: 50%;
+    order: 1;
+  }
+  .c2 {
+    width: 50%;
+    order: 2;
+  }
+  .c3 {
+    width: 50%;
+    order: 3;
+  }
+
+  .c4 {
+    width: 50%;
+    order: 4;
+  }
+  .c5 {
+    width: 50%;
+    order: 5;
+  }
+}

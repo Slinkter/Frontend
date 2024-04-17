@@ -1,0 +1,8 @@
+html {
+  color: red;
+}
+
+p {
+  color: inherit;
+  /*  color: black; */
+}

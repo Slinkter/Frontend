@@ -1,0 +1,101 @@
+.container {
+    background-color: rgb(225, 70, 172);
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.container {
+    /* uso de flexbox */
+
+    display: flex;
+
+    /* 
+    flex-direction: row;
+    flex-direction: row-reverse;
+    flex-direction: column;
+    flex-direction: column-reverse; 
+    */
+
+    /*  
+    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    */
+    /* Combinacion de flex-direccion y flex-wrap */
+    /*   flex-flow: row nowrap; */
+    flex-flow: row wrap;
+    /*     
+    justify-content: center;
+    align-items: center; 
+    */
+
+    /*   
+    
+     justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    justify-content: flex-start;
+    justify-content: flex-end; 
+    */
+
+    /*     
+    align-items: flex-start;
+    align-items: flex-ends;
+     align-items: center;
+    align-items: stretch; 
+    align-items: baseline; 
+    */
+    /* necesita el wrap activado  y varios filas de items */
+    align-content: flex-start;
+    align-content: flex-end;
+    align-content: center;
+    align-content: stretch;
+    align-content: space-between;
+    align-content: space-around;
+    /*  */
+}
+
+.container > div {
+    display: flex;
+    justify-content: center;
+
+    margin: 20px;
+
+    border: 1px solid mediumorchid;
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 10px;
+    width: 20%;
+    height: 100px;
+}
+
+.item-1 {
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px;
+    align-items: flex-end;
+    align-self: flex-end;
+}
+
+.item-2 {
+    order: 2;
+    flex-grow: 1;
+    flex-shrink: 2;
+    flex-basis: 200px;
+}
+
+.item-3 {
+    order: 3;
+    flex-grow: 1;
+    flex-shrink: 3;
+    flex-basis: 300px;
+}
+.item-4 {
+    order: 4;
+    flex-grow: 1;
+    flex-shrink: 4;
+    flex-basis: 400px;
+}

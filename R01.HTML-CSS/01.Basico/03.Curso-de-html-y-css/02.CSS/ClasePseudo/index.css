@@ -1,0 +1,41 @@
+* {
+  margin: 0px; /* espacio externo */
+  box-sizing: border-box;
+  padding: 0px; /* espacio interno */
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /*  */
+  background-color: #13a4a4;
+  height: 30px;
+  list-style: none;
+}
+.main-nav__item {
+  display: inline-block;
+}
+
+.main-nav__item a {
+  color: white;
+  margin: 1px;
+  padding: 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: red;
+}
+.main-nav__item a:hover {
+  color: blue;
+  background-color: yellow;
+}
+.main-nav__item a:active {
+  background-color: grey;
+}
+.main-nav__item a::before {
+  content: " <  ";
+}
+.main-nav__item a::after {
+  content: " > ";
+}
