@@ -29,7 +29,6 @@ const reducer = (state, action) => {
       return { ...state, deleted: true };
     case actionTypes.reset:
       return { ...state, value: "", confirmed: false, deleted: false };
-
     default:
       return {
         ...state,

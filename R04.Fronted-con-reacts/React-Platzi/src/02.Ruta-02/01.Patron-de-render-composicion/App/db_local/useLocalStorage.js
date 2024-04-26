@@ -5,7 +5,6 @@ function useLocalStorage(dbName, initialValue) {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
   const [item, setItem] = React.useState(initialValue);
-  // HOC - actulizador de estado , para ejecutar useEffect
   const [sincronizedItem, setSincronizedItem] = React.useState(true);
   //
   React.useEffect(() => {
