@@ -1,4 +1,4 @@
-// creacion
+//
 const anotherFuncion = () => {
   return new Promise((res, rej) => {
     if (true) {
@@ -8,10 +8,10 @@ const anotherFuncion = () => {
     }
   });
 };
-//ejecucion
+//
 anotherFuncion()
-  .then((rpta) => console.log(rpta)) //En caso que se ejecute resolve  //then
-  .catch((err) => console.log(err)); //En caso que se ejecute reject  //catch
+  .then((rpta) => console.log(rpta))
+  .catch((err) => console.log(err));
 
 const promesa = () => {
   return new Promise((resolve, reject) => {
