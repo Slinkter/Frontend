@@ -1,3 +1,3 @@
-const string = "Hello";
-console.log(string.padStart(10, "_"));
-console.log(string.padEnd(10, "_"));
+const word = "Hello";
+console.log(word.padStart(10, "_"));
+console.log(word.padEnd(10, "_"));
