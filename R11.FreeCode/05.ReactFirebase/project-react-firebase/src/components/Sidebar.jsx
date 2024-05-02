@@ -25,9 +25,6 @@ const Sidebar = () => {
   ];
 
   const { handleLogoutf, isLoggingOut, error } = useLogOut();
-  console.log("handleLogoutf : ", handleLogoutf);
-  console.log("isLoggingOut : ", isLoggingOut);
-  console.log("error : ", error);
 
   return (
     <Box
