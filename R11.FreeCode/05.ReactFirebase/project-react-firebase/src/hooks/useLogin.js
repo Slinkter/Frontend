@@ -2,7 +2,7 @@ import React from "react";
 import useShowToast from "./useShowToast";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../firebase/firebase";
-import useAuthStore from "../../store/authStore";
+import useAuthStore from "../store/authStore";
 import { doc, getDoc } from "firebase/firestore";
 
 const useLogin = () => {

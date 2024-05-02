@@ -3,7 +3,7 @@ import React from "react";
 
 import { Link as RouterLink } from "react-router-dom";
 import useLogOut from "../hooks/useLogOut";
-import useAuthStore from "../../store/authStore";
+import useAuthStore from "../store/authStore";
 
 const SuggestedHeader = () => {
   const { handleLogoutf, isLoggingOut } = useLogOut();

@@ -10,7 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import useShowToast from "./useShowToast";
-import useAuthStore from "../../store/authStore";
+import useAuthStore from "../store/authStore";
 
 const useSignUpWithEmailAndPassword = () => {
   const [createUserWithEmailAndPassword, loading, error] = useCreateUser(auth);
