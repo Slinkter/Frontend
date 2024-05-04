@@ -17,7 +17,7 @@ const Home = () => {
           maxW={"300px"}
           border={"1px solid red"}
         >
-          <SuggestedUsers />
+          {/*  <SuggestedUsers /> */}
         </Box>
       </Flex>
       Home
