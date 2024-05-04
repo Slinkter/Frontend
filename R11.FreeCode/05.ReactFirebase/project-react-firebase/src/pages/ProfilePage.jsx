@@ -32,8 +32,8 @@ const ProfilePage = () => {
         mx={"auto"}
         flexDirection={"column"}
       >
-        {!isLoading && userProfile && <ProfileHeader />}
         {isLoading && <ProfileHeaderSkeleton />}
+        {!isLoading && userProfile && <ProfileHeader />}
       </Flex>
 
       <Flex

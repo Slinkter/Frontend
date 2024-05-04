@@ -37,12 +37,12 @@ const GoogleAuth = ({ prefix }) => {
           fullName: newUser.user.displayName,
           bio: "",
           profilePicURL: "",
-          followrs: [],
+          followers: [],
           following: [],
-          posts: [],
+          post: [],
           createdAt: Date.now(),
         };
-        await setDoc(doc(firestore, "user", newUser.user.uid), userDoc);
+        await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
         localStorage.setItem("users-info", JSON.stringify(userDoc));
         loginUser(userDoc);
         console.log();

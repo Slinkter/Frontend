@@ -15,7 +15,7 @@ const useGetUserProfile = (username) => {
       setIsLoading(true);
       try {
         const q = query(
-          collection(firestore, "user"),
+          collection(firestore, "users"),
           where("username", "==", username)
         );
         console.log("q : ", q);
