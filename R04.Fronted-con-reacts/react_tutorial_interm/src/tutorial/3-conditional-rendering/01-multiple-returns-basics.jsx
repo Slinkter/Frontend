@@ -8,14 +8,12 @@ const MultipleReturnsBasics = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
-
-    return () => {};
   }, []);
-  // pre - render component
+  // pre - render
   if (isLoading) {
     return <h2> Loading ...</h2>;
   }
-  // Render component
+  // Render
   return (
     <>
       <h1>hola</h1>
