@@ -15,7 +15,7 @@ const SuggestedUser = ({ user, setUser }) => {
       ...user,
       follower: isFollowing
         ? user.followers.filter((follower) => follower.uid !== authUser.uid)
-        : [...user.followers, authuser.uid],
+        : [...user.followers, authuser],
     });
   };
 
