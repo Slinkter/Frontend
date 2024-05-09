@@ -9,6 +9,7 @@ import {
 import React from "react";
 import useGetUserProfileByUsername from "../../hooks/useGetUserProfileByUsername";
 import { Link } from "react-router-dom";
+import { timeAgo } from "../../utils/timeAgo";
 
 const Comment = ({ comment }) => {
   const { userProfile, isLoading } = useGetUserProfileByUsername(
@@ -38,7 +39,7 @@ const Comment = ({ comment }) => {
         </Flex>
       </Flex>
       <Text fontSize={12} color={"gray"}>
-        {userProfile.createdAt}
+        {timeAgo(comment.createdAt)}
       </Text>
     </Flex>
   );

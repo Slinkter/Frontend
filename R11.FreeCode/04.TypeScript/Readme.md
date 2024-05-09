@@ -10,3 +10,5 @@ tsc -v
 - extends: Se utiliza para heredar las propiedades y métodos de una clase a otra. En otras palabras, permite que una clase herede las características de otra clase.
 
 - implements: Se utiliza para implementar una interfaz en una clase. Esto significa que la clase debe seguir la estructura proporcionada por la interfaz.
+
+4:32:06

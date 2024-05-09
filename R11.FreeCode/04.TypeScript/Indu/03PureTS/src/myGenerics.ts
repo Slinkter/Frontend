@@ -23,3 +23,47 @@ interface Bootle {
   brand: string,
   type: number
 }
+
+
+function getSearchProducts<T>(produts: T[]): T {
+  // do some database operations
+
+  const myIndex = 3
+
+
+  return produts[myIndex]
+
+
+}
+
+
+const getMoreSearchProduct = <T>(products: T[]): T => {
+  // do some operationss
+  const index = 4
+  return products[index]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
