@@ -20,7 +20,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { MdDelete } from "react-icons/md";
-import PostFooter from "../PostFooter";
+
 import useUserProfileStore from "../../store/userProfileStore";
 import useAuthStore from "../../store/authStore";
 import useShowToast from "../../hooks/useShowToast";
@@ -32,6 +32,7 @@ import { deleteDoc } from "firebase/firestore/lite";
 import usePostStore from "../../store/postStore";
 import Comment from "../Comment/Comment";
 import Caption from "../Comment/Caption";
+import PostFooter from "../FeedPosts/PostFooter";
 
 const ProfilePost = ({ post }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -1,15 +1,15 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+
 import AuthPage from "./pages/AuthPage";
 import PageLayout from "./Layout/PageLayout";
 import ProfilePage from "./pages/ProfilePage";
-/* import useAuthStore from "../store/authStore"; */
-import { useAuthState } from "react-firebase-hooks/auth";
+import HomePage from "./pages/HomePage";
+//
 import { auth } from "./firebase/firebase";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+/* import useAuthStore from "../store/authStore"; */
 const App = () => {
   /*  const authUser = useAuthStore((state) => state.user); */
-
   const [authUser] = useAuthState(auth);
 
   return (
@@ -17,7 +17,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={authUser ? <Home /> : <Navigate to={"/auth"} />}
+          element={authUser ? <HomePage /> : <Navigate to={"/auth"} />}
         />
         <Route
           path="/auth"

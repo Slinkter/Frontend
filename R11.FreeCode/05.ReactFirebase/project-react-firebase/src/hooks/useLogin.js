@@ -1,15 +1,17 @@
-import React from "react";
 import useShowToast from "./useShowToast";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth, firestore } from "../firebase/firebase";
 import useAuthStore from "../store/authStore";
 import { doc, getDoc } from "firebase/firestore";
+import { auth, firestore } from "../firebase/firebase";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const useLogin = () => {
   const showToast = useShowToast();
+  // hook firebase
   const [signInWithEmailAndPassword, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  // hook custom
   const loginUser = useAuthStore((state) => state.login);
+  // function aux
   const login = async (inputs) => {
     if (!inputs.email || !inputs.password) {
       return showToast("Error", "please  fill all the fields", "error");
@@ -30,7 +32,7 @@ const useLogin = () => {
       showToast("Error", error.message, "error");
     }
   };
-
+  // export
   return { loading, error, login };
 };
 

@@ -4,7 +4,10 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.API_KEY,
+  /* apiKey: "AIzaSyDPFDxZbwVUpfEeExTmVWtEfnKvHLMlCYY", */
+
+  // eslint-disable-next-line no-undef
+  apiKey: import.meta.env.VITE_SECURE_API_KEY,
   authDomain: import.meta.env.AUTH_DOMAIN,
   projectId: import.meta.env.PROJECT_ID,
   storageBucket: import.meta.env.STORAGE_BUCKET,

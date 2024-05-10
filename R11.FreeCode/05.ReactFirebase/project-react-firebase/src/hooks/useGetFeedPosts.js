@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useAuthStore from "../store/authStore";
 import usePostStore from "../store/postStore";
 import useShowToast from "./useShowToast";
@@ -9,7 +9,7 @@ import { firestore } from "../firebase/firebase";
 const useGetFeedPosts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { posts, setPosts } = usePostStore();
-  const authUser = useAuthStore((state = state.user));
+  const authUser = useAuthStore((state) => state.user);
   const showToast = useShowToast();
   const { setUserProfile } = useUserProfileStore();
 

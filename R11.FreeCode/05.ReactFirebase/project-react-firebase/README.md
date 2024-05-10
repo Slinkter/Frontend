@@ -16,7 +16,7 @@ match /databases/{database}/documents {
 
   match /users/{userId} {
   allow read;
-  allow write: if request.auth != null && request.auth.uid == userId;
+  allow write: if request.auth != null ;
  }
 
 match /posts/{postId} {
