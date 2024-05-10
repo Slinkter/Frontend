@@ -6,6 +6,7 @@ import {
   InputGroup,
   InputRightElement,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import {
@@ -16,14 +17,16 @@ import {
 import usePostComment from "../../hooks/usePostComment";
 import useAuthStore from "../../store/authStore";
 import useLikePost from "../../hooks/useLikePost";
+import { timeAgo } from "../../utils/timeAgo";
+import CommentsModal from "../Modals/CommentsModal";
 
-const PostFooter = ({ post, username, isProfilePage }) => {
+const PostFooter = ({ post, username, isProfilePage, creatorProfile }) => {
   const [comment, setComment] = useState("");
   const authUser = useAuthStore((state) => state.user);
   const commentRef = useRef(null);
   const { isLiked, likes, handleLikePost } = useLikePost();
-
   const { isCommenting, handlePostComment } = usePostComment();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleSubmitComment = async () => {
     await handlePostComment(post.id, comment);
@@ -48,17 +51,34 @@ const PostFooter = ({ post, username, isProfilePage }) => {
         {likes} likes
       </Text>
 
+      {isProfilePage && (
+        <Text fontSize={"12"} color={"gray"}>
+          Posted {timeAgo(post.createdAt)}
+        </Text>
+      )}
+
       {!isProfilePage && (
         <>
           <Text fontWeight={700} fontSize={"sm"}>
-            {username}
+            {creatorProfile?.username}
             <Text as="span" fontWeight={400}>
-              Feeling good
+              {post.caption}
             </Text>
           </Text>
-          <Text fontSize={"sm"} color={"gray"}>
-            view all 1,000 comments
-          </Text>
+          {post.comments.length > 0 && (
+            <Text
+              fontSize={"sm"}
+              color={"gray"}
+              cursor={"pointer"}
+              onClick={onOpen}
+            >
+              view all {post.comments.length} comments
+            </Text>
+          )}
+
+          {isOpen ? (
+            <CommentsModal isOpen={isOpen} onClose={onClose} post={post} />
+          ) : null}
         </>
       )}
 
