@@ -1,29 +1,28 @@
-import React from "react";
-import Page from "./page";
-import System from "./System";
+import System from "./com/System";
+import Page from "./com/ImgPage";
+import Cube from "./com/Cube";
 
 const App = () => {
   return (
     <>
-      {/*     <div className="whitespace-pre-line">
-        <h1 className="text-3xl"> Tittle 1 </h1>
-        <h2 className="text-2xl">tittle 2</h2>
-        <h3 className="text-xl">title 3</h3>
-        <p className="uppercase lowercase text-base leading-normal underline decoration-red-500 decoration-wavy decoration-1 underline-offset-8">
-          A regular paragraph
-        </p>
-        <p className="text-sm">a description paragraph</p>
-        <p className="text-xs note">a little note</p>
-        <p className=" ">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, qui
-          unde quis numquam facere quas veritatis harum sunt suscipit
-          exercitationem in nam pariatur expedita, natus ipsa omnis nobis eum
-          architecto!
-        </p>
-        <h1></h1>
-      </div> */}
-      {/*     <Page /> */}
-      <System></System>
+      {/*     <Cube /> */}
+      {/*   <Page /> */}
+      {/*    <System />   */}
+
+      <div className="h-screen text-white bg-slate-950">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-4 justify-center items-center h-dvh p-4">
+            <div className="p-6 rounded-lg bg-sky-500">1 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">2 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">3 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">4 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">5 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">6 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">7 Colum</div>
+            <div className="p-6 rounded-lg bg-sky-500">8 Colum</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
