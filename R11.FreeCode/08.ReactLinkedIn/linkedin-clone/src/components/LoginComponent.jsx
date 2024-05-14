@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LoginAPI, RegisterAPI } from "../api/AuthAPI";
+import LinkedinLogo from "../assets/linkedinLogo.png";
 import "../Sass/LoginComponent.scss";
 
 // user:dasd@dasd.com
@@ -18,6 +19,8 @@ const LoginComponent = () => {
   };
   return (
     <div className="login-wrapper">
+      <img src={LinkedinLogo} alt="" className="linkedinLogo" />
+
       <h1>LoginComponent</h1>
 
       <div className="auth-inputss">
