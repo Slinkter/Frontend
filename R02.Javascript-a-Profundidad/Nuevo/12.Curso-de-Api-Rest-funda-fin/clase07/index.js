@@ -1,3 +1,8 @@
+// Axios
+// - es una libreria para realizar soliciturdes HTTP
+// - para navegador y Node
+// -
+
 /* CONSTATE  */
 const API_KEY =
   "live_BgeabuZRHRH2irUsFWjZREQBJ38KmhA2OdWWkOycJQLQ54j44JApcrWGIqXZn9Ym";
@@ -12,7 +17,7 @@ const options = {
 };
 const api = axios.create(options);
 /* ALL Functions */
-/* Button */
+
 async function saveFavoriteMichi(id) {
   console.group("saveFavoriteMichi");
   try {
@@ -31,47 +36,6 @@ async function saveFavoriteMichi(id) {
     console.log("end");
   }
   console.groupEnd("saveFavoriteMichi");
-}
-
-async function loadFavouriteCat() {
-  try {
-    const objAxios = null;
-    const urlAxios = "/favourites";
-    const resAxios = await api.get(urlAxios);
-    const { data, status } = resAxios;
-    console.log(resAxios);
-    console.log(data);
-    console.log(status);
-
-    content.innerHTML = "";
-    const view = data
-      .map(
-        (item) => `
-          <article>
-            <img src="${item.image.url}" width="150" alt="${item.image.id}" />
-            <button class="btnDelete" id="${item.id}" name="${item.id} " >
-              delete
-            </button>
-          </article>`
-      )
-      .join("");
-    content.innerHTML = view;
-    /*  */
-    const deleteButtons = document.querySelectorAll(".btnDelete");
-    for (const button of deleteButtons) {
-      button.addEventListener("click", function () {
-        if (button.id) {
-          deleteFavoriteMichi(button.id);
-        }
-      });
-    }
-  } catch (error) {
-    content.innerHTML = "";
-    spanError.innerHTML = "hubo un error : " + res.status;
-    console.log("error :", error);
-  } finally {
-    console.log("finally");
-  }
 }
 
 async function deleteFavoriteMichi(favouriteId) {
@@ -112,7 +76,47 @@ async function uploadMichiPhoto() {
     console.log("Finally");
   }
 }
+async function loadFavouriteCat() {
+  try {
+    const objAxios = null;
+    const urlAxios = "/favourites";
+    //
+    const resAxios = await api.get(urlAxios);
+    //
+    const { data } = resAxios;
+    console.log({ resAxios });
 
+    content.innerHTML = "";
+    const view = data
+      .map(
+        (item) => `
+          <article>
+            <img src="${item.image.url}" width="150" alt="${item.image.id}" />
+            <button class="btnDelete" id="${item.id}" name="${item.id} " >
+              delete
+            </button>
+          </article>`
+      )
+      .join("");
+    content.innerHTML = view;
+    /*  */
+    const deleteButtons = document.querySelectorAll(".btnDelete");
+    for (const button of deleteButtons) {
+      button.addEventListener("click", function () {
+        if (button.id) {
+          deleteFavoriteMichi(button.id);
+        }
+      });
+    }
+  } catch (error) {
+    content.innerHTML = "";
+    spanError.innerHTML = "hubo un error : " + resAxios.status;
+    console.log("error :", error);
+  } finally {
+    console.log("finally");
+  }
+}
+//
 async function loadRandomMichis() {
   console.log("loadRandomMichis()");
   try {
@@ -121,8 +125,8 @@ async function loadRandomMichis() {
     const resAxios = await api.get(urlAxios);
     const { data, status } = resAxios;
     /*  */
-    console.log(data);
-    console.log(status);
+    console.log({ resAxios });
+
     /* SET IMG */
     const img1 = document.getElementById("img1");
     const img2 = document.getElementById("img2");
@@ -134,13 +138,14 @@ async function loadRandomMichis() {
     const btn1 = document.getElementById("btn1");
     const btn2 = document.getElementById("btn2");
     const btn3 = document.getElementById("btn3");
+
     btn1.onclick = () => saveFavoriteMichi(data[0].id);
     btn2.onclick = () => saveFavoriteMichi(data[1].id);
     btn3.onclick = () => saveFavoriteMichi(data[2].id);
     btn1.textContent = "Save Favorite";
     btn2.textContent = "Save Favorite";
     btn3.textContent = "Save Favorite";
-    /*  */
+    /* call another function  */
     loadFavouriteCat();
   } catch (error) {
     console.log("error : ", error);

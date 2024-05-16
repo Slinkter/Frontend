@@ -1,17 +1,17 @@
 /* import fetch from "node-fetch"; */
 const API = "https://api.escuelajs.co/api/v1";
 //
-async function fetchData(urlAPI) {
-  const res = await fetch(urlAPI);
+async function fetchData(url) {
+  const res = await fetch(url);
   const data = await res.json();
   return data;
 }
 //
-const anotherfunction = async (urlAPI) => {
+const getAllData = async (urlAPI) => {
   try {
     const data = await fetchData(`${urlAPI}/products`);
     const prod = await fetchData(`${urlAPI}/products/${data[0].id}`);
-    const cat = await fetchData(`${urlAPI}/categories/${product.category.id}`);
+    const cat = await fetchData(`${urlAPI}/categories/${prod.category.id}`);
     console.log(data);
     console.log(prod.title);
     console.log(cat.name);
@@ -19,5 +19,6 @@ const anotherfunction = async (urlAPI) => {
     console.log(error);
   }
 };
-
-anotherfunction(API);
+console.log("inicio");
+getAllData(API);
+console.log("fin");

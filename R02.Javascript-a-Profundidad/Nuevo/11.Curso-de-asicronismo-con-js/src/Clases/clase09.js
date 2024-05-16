@@ -1,9 +1,9 @@
 /* Promesa */
-/* 
-const promise = new Promise(function (resolve, reject) {
-  resolve("hey!!!");
-}); */
-const cows = 15;
+// una promesa tiene 3 estados (pendiente,resulta y recahzada)
+// es una operacion asicronica
+// para manejar el resultado de un promesa se usa then y catch
+
+const cows = 5;
 const countCows = new Promise((resolve, reject) => {
   if (cows > 10) {
     resolve(`we have ${cows} cows on the farm`);
@@ -11,7 +11,7 @@ const countCows = new Promise((resolve, reject) => {
     reject("there is no cows on the farm enoght");
   }
 });
-
+//
 countCows
   .then((result) => {
     console.log(result);

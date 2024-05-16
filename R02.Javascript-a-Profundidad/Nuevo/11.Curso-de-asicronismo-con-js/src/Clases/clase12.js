@@ -12,7 +12,7 @@ const data = {
 };
 
 function postData(urlApi, data) {
-  const response = fetch(urlApi, {
+  const obj = {
     method: "POST",
     mode: "cars",
     credentials: "same-origin",
@@ -20,7 +20,10 @@ function postData(urlApi, data) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  });
+  };
+
+  // -->
+  const response = fetch(urlApi, obj);
   return response;
 }
 
