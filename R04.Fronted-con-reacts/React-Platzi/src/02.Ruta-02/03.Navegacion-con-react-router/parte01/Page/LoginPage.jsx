@@ -3,8 +3,8 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../provider/auth";
 
 const LoginPage = () => {
-  const auth = useAuth();
   const [username, setUsername] = React.useState("");
+  const auth = useAuth();
   //
   const login = (e) => {
     e.preventDefault();
@@ -22,8 +22,8 @@ const LoginPage = () => {
         <label> Escribe tu nombre de usuario</label>
         <br />
         <input
-          value={username}
           type="text"
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <br />

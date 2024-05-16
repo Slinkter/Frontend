@@ -1,18 +1,18 @@
 import { createContext, useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-//1. db
+
 const adminList = ["Liam", "Jhonny"];
-//2. hook
-const AuthContext = createContext();
-//3. componet
-function AuthProvider(props) {
-  const { children } = props; // menu y routes
-  const [user, setUser] = useState(null);
+const AuthContext = createContext(); // renderiza
+
+function AuthProvider({ children }) {
+  // funcion
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
-  //
+
   const login = ({ username }) => {
     const isAdmin = adminList.find((admin) => admin === username); // return true o undefined
-    setUser({ username, isAdmin });
+    const usuario = { username, isAdmin };
+    setUser(usuario);
     navigate("/profile");
   };
 
@@ -21,24 +21,19 @@ function AuthProvider(props) {
     navigate("/");
   };
 
-  const auth = { user, login, logout };
-
-  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
+  const values = { user, login, logout };
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 }
-//4.verifica que el usuario no sea null
-// no va a acceder a esta ruta si el usuario es null
-// se re-direcciona a login
-function AuthRoute(props) {
-  const { children } = props; // ProfilePage = {children}
-  const auth = useContext(AuthContext);
-  console.log(auth);
-  if (!auth.user) {
+
+function AuthRoute({ children }) {
+  const { user, login, logout } = useContext(AuthContext); // ProfilePage = {children}
+
+  if (!user) {
     return <Navigate to="/login" />;
   }
-
   return children;
 }
-//5.
+
 function useAuth() {
   const auth = useContext(AuthContext);
   return auth;

@@ -72,7 +72,6 @@ const UseReducer = ({ nameprops }) => {
           onError();
         }
       }, 2000);
-      //backend end
     }
 
     console.log("end");

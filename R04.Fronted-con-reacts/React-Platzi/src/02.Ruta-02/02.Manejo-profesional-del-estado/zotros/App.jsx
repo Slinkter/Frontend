@@ -16,7 +16,7 @@ const App = () => {
       }}
     >
       <ExampleUseState nameprops="Use State" />
-      {/*   <ExampleClassState nameprops="Class State" /> */}
+      <ExampleClassState nameprops="Class State" />
       <UseReducer />
     </div>
   );
