@@ -1,8 +1,8 @@
-import Home from "./home";
 import Notifications from "./Notifications";
 import CreatePost from "./CreatePost";
 import ProfileLink from "./ProfileLink";
 import Search from "./Search";
+import Home from "./Home";
 
 const SidebarItems = () => {
   return (

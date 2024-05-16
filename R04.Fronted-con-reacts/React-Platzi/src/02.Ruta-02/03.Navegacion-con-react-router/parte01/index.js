@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 // --> context
 import { AuthProvider, AuthRoute } from "./provider/auth";
+// AuthProvider, AuthRoute, useAuth;
 // ---> Page
 import Menu from "./Page/Menu";
 import BlogPage from "./Page/BlogPage";
@@ -19,11 +20,13 @@ const index = () => {
           <Menu />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/logout" element={<LogoutPage />} />
+
             <Route path="/blog" element={<BlogPage />}>
               <Route path=":slug" element={<BlogPost />} />
             </Route>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/logout" element={<LogoutPage />} />
+
             <Route
               path="/profile"
               element={
@@ -32,6 +35,7 @@ const index = () => {
                 </AuthRoute>
               }
             />
+
             <Route path="*" element={<p> Not Found </p>} />
           </Routes>
         </AuthProvider>

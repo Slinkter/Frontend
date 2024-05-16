@@ -37,7 +37,7 @@ function App() {
   } = stateUpdaters;
 
   return (
-    <React.Fragment>
+    <>
       <TodoHeader loading={loading}>
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -74,9 +74,8 @@ function App() {
       )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
-
       <ChangeAlert sincronize={sincronizeTodos} />
-    </React.Fragment>
+    </>
   );
 }
 

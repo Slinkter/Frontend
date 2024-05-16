@@ -13,11 +13,11 @@ import {
   Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
-import { SearchLogo } from "../../assets/constants";
+
 import useSearchUser from "../../hooks/useSearchUser";
 import { useRef } from "react";
-
 import SuggestedUser from "../SuggestedUsers/SuggestedUser";
+import { SearchLogo } from "../../assets/contains";
 
 const Search = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -1,38 +1,36 @@
-// data
+// apikey - auth
 const auth =
   "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
-// llave de acceso al servidor para consultar
-const api = axios.create({
+// llave - auth
+const options = {
   baseURL: "https://api.themoviedb.org/3/",
   headers: {
     accept: "application/json",
     Authorization: auth,
   },
   timeout: 10000,
-});
-
-// Llamado a la API  : tendencias
+};
+// --> conexion
+const api = axios.create(options);
+// call -->  tendencias
 
 async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
   const movies = data.results;
-  //---> (data,element,boolean)
-  createMovies(movies, trendingMoviesPreviewList, true);
+  createMovies(movies, trendingMoviesPreviewList, true); //---> (data,element,boolean)
 }
-// Llamado a la API  : categorias
+// call -->  categorias
 async function getCategegoriesPreview() {
   const { data } = await api("genre/movie/list");
   const categories = data.genres;
-  //--->
   createCategories(categories, categoriesPreviewList);
 }
-// Utils
+// Utils 1
 function createMovies(
   movies,
   container,
   { lazyLoad = false, clean = true } = {}
 ) {
-  /*  */
   if (clean) {
     container.innerHTML = "";
   }
@@ -44,17 +42,17 @@ function createMovies(
 
     const urlIMG = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
     const urlError = `https://via.placeholder.com/300x450/5c218a/ffffff?text=${movie.title}`;
+    const isLazyload = lazyLoad ? "data-img" : "src";
     /*  ------> movieImg */
     movieImg.classList.add("movie-img");
     movieImg.setAttribute("alt", movie.title);
-    movieImg.setAttribute(lazyLoad ? "data-img" : "src", urlIMG);
-    movieImg.addEventListener(
-      "click",
-      () => (location.hash = `#movie=${movie.id}`)
-    );
-    movieImg.addEventListener("error", () =>
-      movieImg.setAttribute("src", urlError)
-    );
+    movieImg.setAttribute(isLazyload, urlIMG);
+    movieImg.addEventListener("click", () => {
+      location.hash = `#movie=${movie.id}`;
+    });
+    movieImg.addEventListener("error", () => {
+      movieImg.setAttribute("src", urlError);
+    });
     /* ------> movieBtnLike */
     movieBtnLike.classList.add("movie-btn");
     movieBtnLike.addEventListener("click", () => {
@@ -77,10 +75,9 @@ function createMovies(
     container.appendChild(movieContainer);
   });
 }
-
+// Utils 2
 function createCategories(categories, container) {
   container.innerHTML = "";
-
   categories.forEach((category) => {
     const categoryContainer = document.createElement("div");
     const categoryTitle = document.createElement("h3");
@@ -92,29 +89,18 @@ function createCategories(categories, container) {
       location.hash = `#category=${category.id}-${category.name}`;
     });
     //
-    categoryContainer.classList.add("category-container");
-    //
     categoryTitle.appendChild(categoryTitleText);
+    categoryContainer.classList.add("category-container");
     categoryContainer.appendChild(categoryTitle);
     container.appendChild(categoryContainer);
   });
 }
 
-function likedMovieList() {
-  const db_local = localStorage.getItem("liked_movies");
-  const item = JSON.parse(db_local);
-  movies = {};
-  if (item) {
-    movies = item;
-  } else {
-    movies = {};
-  }
-  return movies;
-}
 function stateLikeMovie(movie) {
   const id = movie.id;
   const list = likedMovieList();
-  if (!!list[id]) {
+  //
+  if (list[id]) {
     list[id] = undefined;
   } else {
     list[id] = movie;
@@ -122,11 +108,16 @@ function stateLikeMovie(movie) {
   localStorage.setItem("liked_movies", JSON.stringify(list));
 }
 
+function likedMovieList() {
+  const db_local = localStorage.getItem("liked_movies");
+  const item = JSON.parse(db_local);
+  let movies = item ? item : {};
+  return movies;
+}
+
 function getLikedMovies() {
   const likedmovies = likedMovieList();
   const moviesArray = Object.values(likedmovies);
-  console.log(likedmovies);
-  console.log(moviesArray);
   createMovies(moviesArray, likedMoviesListArticle, {
     lazyLoad: true,
     clean: true,
@@ -143,10 +134,10 @@ async function getMoviesByCategory(id) {
   };
   /* Exec  */
   const { data } = await api(path, options);
-  maxPage = data.total_pages;
   const movies = data.results;
-  /* render */
   createMovies(movies, genericSection, { lazyLoad: true });
+  //-->
+  maxPage = data.total_pages;
 }
 
 function getPaginatedMoviesByCategory(id) {

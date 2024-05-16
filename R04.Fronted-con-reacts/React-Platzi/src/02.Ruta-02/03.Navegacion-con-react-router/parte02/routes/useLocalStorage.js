@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect, useReducer } from "react";
 
 function useLocalStorage(itemName, initialValue) {
-  const [state, dispatch] = React.useReducer(
-    reducer,
-    initialState({ initialValue })
-  );
+  const [state, dispatch] = useReducer(reducer, initialState({ initialValue }));
   const { sincronizedItem, error, loading, item } = state;
-
+  //
+  const actionTypes = {
+    error: "ERROR",
+    success: "SUCCESS",
+    save: "SAVE",
+    sincronize: "SINCRONIZE",
+  };
   // ACTION CREATORS
   const onError = (error) =>
     dispatch({
@@ -31,7 +34,7 @@ function useLocalStorage(itemName, initialValue) {
       type: actionTypes.sincronize,
     });
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
@@ -80,13 +83,6 @@ const initialState = ({ initialValue }) => ({
   loading: true,
   item: initialValue,
 });
-
-const actionTypes = {
-  error: "ERROR",
-  success: "SUCCESS",
-  save: "SAVE",
-  sincronize: "SINCRONIZE",
-};
 
 const reducerObject = (state, payload) => ({
   [actionTypes.error]: {
