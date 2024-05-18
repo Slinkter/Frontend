@@ -1,6 +1,6 @@
 /* 
 este metodo era como antiguamente 
-se hacia las peticions al servidor  
+se hacia las peticiones al servidor  
 */
 const REQUEST = require("xmlhttprequest");
 const API = "https://api.escuelajs.co/api/v1";

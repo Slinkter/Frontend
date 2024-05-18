@@ -20,26 +20,15 @@ function fetchData(urlApi, callback) {
   xhttp.send();
 }
 /* Ejecucion */
-
-//
 fetchData(API_PRODUCTS, (error1, data1) => {
-  if (error1) {
-    return console.error(error1);
-  }
+  if (error1) return console.error(error1);
+  const url_products = `${API_PRODUCTS}/${data1[0].id}`;
 
-  const urlN2 = `${BASE_API}/products/${data1[0].id}`;
-
-  fetchData(urlN2, (error2, data2) => {
-    if (error2) {
-      return console.error(error2);
-    }
-
-    const urlN3 = `${BASE_API}/categories/${data2.category.id}}`;
-
-    fetchData(urlN3, (error3, data3) => {
-      if (error3) {
-        return console.error(error3);
-      }
+  fetchData(url_products, (error2, data2) => {
+    if (error2) return console.error(error2);
+    const url_categorias = `${BASE_API}/categories/${data2.category.id}}`;
+    fetchData(url_categorias, (error3, data3) => {
+      if (error3) return console.error(error3);
       console.log(data1[0], data2.title, data3.name);
     });
   });

@@ -1,18 +1,19 @@
 /*  */
-
 const auth =
   "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWI3MTYzMjk1NzE0NmVlNGI3ZjNkZWFlMWRjMzM1NSIsInN1YiI6IjY1MTQzY2RmZWE4NGM3MDEwYzEwZTc1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1Mq4jS2yqZX6vbG28UgpsCJujgEYbb66Vrz07_2VwlY";
 
-// llave de acceso al servidor para consultar
-const api = axios.create({
+// conexion axios
+const options = {
   baseURL: "https://api.themoviedb.org/3/",
   headers: {
     accept: "application/json",
     Authorization: auth,
   },
   timeout: 10000,
-});
-// --> init page
+};
+// --> call axios
+const api = axios.create(options);
+// --> init page - section tendencias
 async function getTrendingMoviesPreview() {
   try {
     const objAxios = null;
@@ -46,7 +47,7 @@ async function getTrendingMoviesPreview() {
     console.log("finally : getTrendingMoviesPreview()");
   }
 }
-// --> init page
+// --> init page - section categorias
 async function getCategoriesPreview() {
   try {
     const objAxios = null;
@@ -83,10 +84,8 @@ async function getCategoriesPreview() {
     console.log("finally : getCategoriesPreview()");
   }
 }
-getTrendingMoviesPreview();
-getCategoriesPreview();
 
-// --> init usuario
+// --> init user events
 async function getMoviesByCategory(id) {
   console.group("getMoviesByCategory(id)");
   try {
@@ -130,7 +129,6 @@ async function getMoviesByCategory(id) {
 
   console.groupEnd("");
 }
-
 async function getMovieBySearch(movieId) {
   // TODO :
   console.group("getMovieBySearch(movieId)");
@@ -179,7 +177,6 @@ async function getMovieBySearch(movieId) {
   }
   console.groupEnd();
 }
-
 async function getMovieByMovie(id) {
   const url = `https://api.themoviedb.org/3/movie/${id}`;
   const options = {
@@ -231,7 +228,6 @@ async function getMovieByMovie(id) {
   // peliculas similares
   getRelatedMoviesId(id);
 }
-
 async function getRelatedMoviesId(id) {
   const url = `https://api.themoviedb.org/3/movie/${id}/recommendations`;
   const options = {
@@ -304,3 +300,6 @@ async function getTrendingMovies() {
     console.log("finally : getTrendingMoviesPreview()");
   }
 }
+
+getTrendingMoviesPreview();
+getCategoriesPreview();
