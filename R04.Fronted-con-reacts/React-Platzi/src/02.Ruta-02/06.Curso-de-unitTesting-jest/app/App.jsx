@@ -8,17 +8,17 @@ import NotFound from "./containers/NotFound";
 // http://localhost:3000/#/new
 // http://localhost:3000/#/profile
 const App = () => {
-    return (
-        <HashRouter>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/checkout" element={<Checkout />} />
-                    <Route path="/*" element={<NotFound />} />
-                </Routes>
-            </Layout>
-        </HashRouter>
-    );
+  return (
+    <HashRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </HashRouter>
+  );
 };
 
 export default App;
