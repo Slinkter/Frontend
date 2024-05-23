@@ -11,11 +11,11 @@ const getPokemonData = () => {
 };
 
 const getPokemonDetail = (pokemon) => {
-  const pokemoenDetail = axios
+  const data = axios
     .get(pokemon.url)
     .then((res) => res.data)
     .catch((err) => console.log(err));
-  return pokemoenDetail;
+  return data;
 };
 
 export { getPokemonData };

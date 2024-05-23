@@ -52,4 +52,30 @@ DB no relacionales : los datos son independientes , acceso rapidos sin relaciona
     - MYSQL Server , descargar la version community
     - WORdBench Client ,para interatura con MYSQL Server
 
-### 1:00:23
+- Herramientas de gestion para consulta sql
+
+phpmyadmin
+devart
+sqlpro studio
+tableplus
+
+- instalacion de Workbench SQL
+
+create database hello_mysql
+
+## 7.Inicilizacion de datos
+
+- creacion de un schema
+- creacion de una instancia
+- hello_mysql
+
+## 8. Consulta de datos (1:33:41)
+
+- comandoos en vscode
+
+### 8.1 Modificadores
+
+- distinct : no muestra consulta de dublicado en filas
+- where :
+
+2:03:23
