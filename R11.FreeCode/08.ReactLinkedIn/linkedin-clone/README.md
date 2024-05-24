@@ -23,4 +23,6 @@ import google fonts
 
 npm install --save react-toastify
 activar la opcion en firebase google-sign
-1:27:34
+1:50:03
+css ant design
+npm install antd --save
