@@ -37,3 +37,6 @@ react icons
 --> https://react-icons.github.io/react-icons/
 
 ## building the homepage 2:22:51
+
+config modal
+config firestore
