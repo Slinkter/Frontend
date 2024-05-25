@@ -1,12 +1,14 @@
 import React from "react";
-import { Flex, Spin } from "antd";
+import { Flex, Spin, Space } from "antd";
 
 const Loader = () => {
   return (
-    <Flex align="center" gap="middle">
-      <Spin size="large" />
-      <h1>Loading</h1>
-    </Flex>
+    <div className="loader">
+      <p>Loading ... please wait...</p>
+      <Space size="middle">
+        <Spin size="large" />
+      </Space>
+    </div>
   );
 };
 

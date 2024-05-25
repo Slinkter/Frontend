@@ -26,3 +26,14 @@ activar la opcion en firebase google-sign
 1:50:03
 css ant design
 npm install antd --save
+loader
+
+## creating the topbar 1:56:14
+
+2:05:23
+
+react icons
+--> npm install react-icons --save
+--> https://react-icons.github.io/react-icons/
+
+## building the homepage 2:22:51
