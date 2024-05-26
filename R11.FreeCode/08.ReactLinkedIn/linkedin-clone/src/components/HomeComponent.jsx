@@ -1,11 +1,10 @@
 import React from "react";
 import PostUpdate from "./common/PostUpdate/PostUpdate";
 
-const HomeComponent = () => {
+const HomeComponent = ({ currentUser }) => {
   return (
     <div className="home-component">
-      <PostUpdate />
-      <h1>HomeComponent</h1>
+      <PostUpdate currentUser={currentUser} />
     </div>
   );
 };

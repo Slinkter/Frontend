@@ -1,20 +1,49 @@
-import { addDoc, collection } from "firebase/firestore";
-import React from "react";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { firestore } from "../firebase/firebaseConfig";
+import { toast } from "react-toastify";
 
-let dbRef = collection(firestore, "posts");
+let postsRef = collection(firestore, "posts");
+let userRef = collection(firestore, "users");
 
-const postStatus = (status) => {
-  let object = {
-    status: status,
-  };
-  addDoc(dbRef, object)
-    .then((res) => {
-      console.log("Document has ben added successfully", res);
+let userEmail = "";
+
+export const postStatus = (object) => {
+  addDoc(postsRef, object)
+    .then(() => {
+      toast.success("Document has ben added successfully");
     })
     .catch((err) => {
-      console.log(err);
+      toast.error("error", err);
     });
 };
 
-export default postStatus;
+export const getStatus = (setAllStatuses) => {
+  onSnapshot(postsRef, (response) => {
+    setAllStatuses(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
+export const postUserData = (object) => {
+  addDoc(userRef, object)
+    .then(() => {})
+    .catch((err) => console.log(err));
+};
+
+export const getCurrentUser = (setCurrentState) => {
+  let currEmail = localStorage.getItem("userEmail");
+  onSnapshot(userRef, (response) => {
+    setCurrentState(
+      response.docs
+        .map((docs) => {
+          return { ...docs.data(), userID: docs.id };
+        })
+        .filter((item) => {
+          return item.email === currEmail;
+        })[0]
+    );
+  });
+};

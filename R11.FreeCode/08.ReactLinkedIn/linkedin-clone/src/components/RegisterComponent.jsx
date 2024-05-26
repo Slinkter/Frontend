@@ -5,6 +5,7 @@ import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { postUserData } from "../api/FirestoreAPI";
 
 const RegisterComponent = () => {
   const [credentails, setCredentails] = useState({});
@@ -14,8 +15,9 @@ const RegisterComponent = () => {
     try {
       let res = await RegisterAPI(credentails.email, credentails.password);
       toast.success("Account Created");
+      localStorage.setItem("userEmail", res.user.email);
+      postUserData({ name: credentails.name, email: credentails.email });
       navigate("/home");
-      console.log({ ...res });
     } catch (error) {
       toast.error("Cannot Create your Account", error);
       console.log(error.errors.message);
@@ -37,6 +39,14 @@ const RegisterComponent = () => {
         <h1 className="heading">Make the most of your professiona lifee </h1>
 
         <div className="auth-inputs">
+          <input
+            onChange={(e) =>
+              setCredentails({ ...credentails, name: e.target.value })
+            }
+            type="text"
+            className="common-input"
+            placeholder="Your Name"
+          />
           <input
             onChange={(e) =>
               setCredentails({ ...credentails, email: e.target.value })

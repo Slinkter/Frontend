@@ -40,3 +40,10 @@ react icons
 
 config modal
 config firestore
+
+## Getting posts from firestore 3:02:05
+
+instalaicon de moments.js
+--> npm install moment --save
+
+## Profile Page Prerequisites
