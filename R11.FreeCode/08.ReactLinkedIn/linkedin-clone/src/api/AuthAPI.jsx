@@ -1,4 +1,8 @@
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
@@ -30,6 +34,14 @@ export const GoogleSignInAPI = () => {
     let googleProvider = new GoogleAuthProvider();
     let res = signInWithPopup(auth, googleProvider);
     return res;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const onLogout = () => {
+  try {
+    signOut(auth);
   } catch (error) {
     return error;
   }

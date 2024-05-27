@@ -23,4 +23,32 @@ import google fonts
 
 npm install --save react-toastify
 activar la opcion en firebase google-sign
-1:27:34
+1:50:03
+css ant design
+npm install antd --save
+loader
+
+## creating the topbar 1:56:14
+
+2:05:23
+
+react icons
+--> npm install react-icons --save
+--> https://react-icons.github.io/react-icons/
+
+## building the homepage 2:22:51
+
+config modal
+config firestore
+
+## Getting posts from firestore 3:02:05
+
+instalaicon de moments.js
+--> npm install moment --save
+
+## Profile Page Prerequisites
+
+instalaicon de uuid .js
+--> npm install moment --save
+
+3:54:52
