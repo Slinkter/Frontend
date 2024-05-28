@@ -6,7 +6,8 @@ somestring = somestring.toUpperCase();
 someNumber = someNumber + 0;
 someBoolean = someNumber > 1 ? true : false;
 
-/* somestring =1
+/* 
+somestring =1
 someNumber = !"1"
 someBoolean ="!1"
  */

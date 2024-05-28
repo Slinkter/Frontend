@@ -1,4 +1,4 @@
-import { setupCounter } from "./counter.ts";
+
 import "./tutorial.ts";
 import "./style.css";
 
