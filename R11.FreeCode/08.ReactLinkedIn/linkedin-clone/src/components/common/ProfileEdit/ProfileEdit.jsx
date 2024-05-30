@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import "./ProfileEdit.scss";
 import { AiOutlineClose } from "react-icons/ai";
+import { editProfile } from "../../../api/FirestoreAPI";
 
-const ProfileEdit = ({ onEdit }) => {
+const ProfileEdit = ({ onEdit, currentUser }) => {
   const [editInputs, setEditInputs] = useState({});
 
-  const getInput = (event) => {};
+  const getInput = (event) => {
+    let { name, value } = event.target;
+    let input = { [name]: value };
+    setEditInputs({ ...editInputs, ...input });
+  };
 
+  const updateProfileData = async () => {
+    await editProfile(currentUser?.userID, editInputs);
+    await onEdit();
+  };
+
+  console.log(editInputs);
   return (
     <div className="profile-card">
       <div className="edit-btn">
@@ -97,7 +108,9 @@ const ProfileEdit = ({ onEdit }) => {
         />
       </div>
       <div className="save-container">
-        <button className="save-btn">Save</button>
+        <button className="save-btn" onClick={updateProfileData}>
+          Save
+        </button>
       </div>
     </div>
   );

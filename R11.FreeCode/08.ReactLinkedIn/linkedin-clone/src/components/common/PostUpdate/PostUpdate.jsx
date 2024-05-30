@@ -47,7 +47,7 @@ const PostUpdate = ({ currentUser }) => {
         />
       </div>
 
-      <div>
+      <>
         {allStatuses.map((post) => {
           return (
             <div key={post}>
@@ -55,7 +55,7 @@ const PostUpdate = ({ currentUser }) => {
             </div>
           );
         })}
-      </div>
+      </>
     </div>
   );
 };

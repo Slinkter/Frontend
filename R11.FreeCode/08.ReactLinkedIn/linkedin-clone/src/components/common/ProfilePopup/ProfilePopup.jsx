@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./ProfilePopup.scss";
 import { onLogout } from "../../../api/AuthAPI";
 
