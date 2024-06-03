@@ -50,7 +50,7 @@ const PostUpdate = ({ currentUser }) => {
       <>
         {allStatuses.map((post) => {
           return (
-            <div key={post}>
+            <div key={post.id}>
               <PostCard post={post} />
             </div>
           );

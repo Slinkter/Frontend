@@ -1,13 +1,12 @@
 import { useMemo, useState } from "react";
-import "./ProfileCard.scss";
-import {
-  getSingleStatus,
-  getSingleUser,
-  getStatus,
-} from "../../../api/FirestoreAPI";
-import PostCard from "../PostCard/PostCard";
 
+import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
+import PostCard from "../PostCard/PostCard";
 import { useLocation } from "react-router-dom";
+import { FaBeer } from "react-icons/fa";
+import { HiOutlinePencil } from "react-icons/hi";
+
+import "./ProfileCard.scss";
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   let location = useLocation();
@@ -27,18 +26,54 @@ const ProfileCard = ({ onEdit, currentUser }) => {
     <>
       <div className="profile-card">
         <div className="edit-btn">
-          <button onClick={onEdit}>Edit</button>
+          <HiOutlinePencil className="edit-icon" onClick={onEdit} />
         </div>
 
         <div className="profile-info">
-          <h3 className="username">{currentUser.name}</h3>
-          <p className="userEmail"> {currentUser.email} </p>
-          <p>{currentUser.location}</p>
+          <div>
+            <h3 className="userName">
+              {Object.values(currentProfile).length === 0
+                ? currentUser?.name
+                : currentProfile?.name}
+            </h3>
+            <p className="heading">
+              {" "}
+              {Object.values(currentProfile).length === 0
+                ? currentUser?.headline
+                : currentProfile?.headline}
+            </p>
+            <p>
+              {Object.values(currentProfile).length === 0
+                ? currentUser?.location + currentUser?.country
+                : currentProfile?.location}
+            </p>
+            <a
+              className="website"
+              target="_blank"
+              href={
+                Object.values(currentProfile).length === 0
+                  ? currentUser?.website
+                  : currentProfile?.website
+              }
+            >
+              {Object.values(currentProfile).length === 0
+                ? currentUser?.website
+                : currentProfile?.website}
+            </a>
+          </div>
         </div>
 
         <div className="right-info">
-          <p className="college">{currentUser.college}</p>
-          <p className="company">{currentUser.company}</p>
+          <p className="college">
+            {Object.values(currentProfile).length === 0
+              ? currentUser?.college
+              : currentProfile?.college}
+          </p>
+          <p className="company">
+            {Object.values(currentProfile).length === 0
+              ? currentUser?.college
+              : currentProfile?.college}
+          </p>
         </div>
       </div>
       <div className="post-status-main">
@@ -47,7 +82,11 @@ const ProfileCard = ({ onEdit, currentUser }) => {
             return item.userEmail === localStorage.getItem("userEmail");
           })
           .map((post) => {
-            return <div key={post.id}>{<PostCard post={post} />}</div>;
+            return (
+              <div key={post.id}>
+                <PostCard post={post} />
+              </div>
+            );
           })}
       </div>
     </>

@@ -65,6 +65,7 @@ export const getSingleUser = (setCurrentUser, email) => {
   onSnapshot(singleUserQuery, (response) => {
     setCurrentUser(
       response.docs.map((docs) => {
+        console.log("getSingleUser: docs: ", docs);
         return { ...docs.data(), id: docs.id };
       })
     );
@@ -79,12 +80,14 @@ export const postUserData = (object) => {
     });
 };
 
-export const getCurrentUser = (setCurrentState) => {
+export const getCurrentUser = (setCurrentUser) => {
   onSnapshot(userRef, (response) => {
-    setCurrentState(
+    setCurrentUser(
       response.docs
         .map((docs) => {
-          return { ...docs.data(), userID: docs.id };
+          const rpta = { ...docs.data(), id: docs.id };
+          console.log("9999", rpta);
+          return rpta;
         })
         .filter((item) => {
           return item.email === localStorage.getItem("userEmail");

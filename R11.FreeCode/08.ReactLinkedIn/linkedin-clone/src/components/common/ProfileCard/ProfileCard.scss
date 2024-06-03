@@ -1,15 +1,43 @@
 .profile-card {
   width: auto;
-  height: 50vh;
+  height: auto;
   background-color: whitesmoke;
   margin: 30px;
   border-radius: 5px;
   padding: 20px;
   position: relative;
 
+  .profile-info {
+    display: flex;
+    justify-content: space-between;
+
+    .right-info {
+      margin-top: 25px;
+      margin-right: 20px;
+      .college,
+      .company {
+        font-family: system-ui;
+        color: rgba(0, 0, 0, 0.9);
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 30px;
+      }
+    }
+  }
+
   .edit-btn {
     position: absolute;
     right: 20px;
+
+    .edit-icon {
+      cursor: pointer;
+      padding: 10px;
+    }
+    .edit-icon:hover {
+      background-color: gray;
+      padding: 10px;
+      border-radius: 50%;
+    }
 
     button {
       cursor: pointer;
@@ -20,9 +48,10 @@
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
     font-size: 24px;
+    margin-top: 20px;
   }
   .userEmail {
-    margin-top: -20px;
+    margin-top: -25px;
     font-family: system-ui;
     color: rgba(0, 0, 0, 0.9);
     font-size: 16px;

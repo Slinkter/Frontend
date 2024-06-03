@@ -13,11 +13,26 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
   };
 
   const updateProfileData = async () => {
-    await editProfile(currentUser?.userID, editInputs);
+    await editProfile(currentUser?.id, editInputs);
     await onEdit();
   };
 
-  console.log(editInputs);
+  console.log("ProfileEdit", currentUser);
+  /* 
+  {
+    "industry": "system",
+    "headline": "Cave",
+    "skills": "java",
+    "name": "Liam",
+    "country": "Peru",
+    "college": "ulima",
+    "city": "Lima",
+    "email": "liam@glass.com",
+    "website": "note.pe",
+    "company": "Ulima",
+    "aboutMe": "someone",
+    "id": "ddT8gefP7UrcUqkHA1C6"
+} */
   return (
     <div className="profile-card">
       <div className="edit-btn">
