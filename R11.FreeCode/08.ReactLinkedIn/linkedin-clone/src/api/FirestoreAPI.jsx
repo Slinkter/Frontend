@@ -86,7 +86,6 @@ export const getCurrentUser = (setCurrentUser) => {
       response.docs
         .map((docs) => {
           const rpta = { ...docs.data(), id: docs.id };
-          console.log("9999", rpta);
           return rpta;
         })
         .filter((item) => {

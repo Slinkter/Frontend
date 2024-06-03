@@ -10,7 +10,7 @@ const ProfileLayout = () => {
     getCurrentUser(setCurrentUser);
   }, []);
 
-  console.log("currentState : ", currentUser);
+  // console.log("currentState : ", currentUser);
 
   return (
     <div>

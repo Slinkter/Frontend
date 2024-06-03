@@ -56,3 +56,7 @@ instalaicon de uuid .js
 ## Build the profile page
 
 4:49:02
+
+## Implementing the like button
+
+5:48:39

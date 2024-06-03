@@ -1,17 +1,15 @@
 import { useMemo, useState } from "react";
-
 import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import PostCard from "../PostCard/PostCard";
 import { useLocation } from "react-router-dom";
-import { FaBeer } from "react-icons/fa";
 import { HiOutlinePencil } from "react-icons/hi";
-
+//
 import "./ProfileCard.scss";
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   let location = useLocation();
   const [allStatuses, setAllStatuses] = useState([]);
-  const [currentProfile, setCurrentProfile] = useState([]);
+  const [currentProfile, setCurrentProfile] = useState({});
 
   useMemo(() => {
     if (location?.state?.id) {
@@ -22,6 +20,8 @@ const ProfileCard = ({ onEdit, currentUser }) => {
     }
   }, []);
 
+  console.log("currentProfile", currentProfile);
+  console.log("currentUser", currentUser);
   return (
     <>
       <div className="profile-card">
@@ -42,22 +42,22 @@ const ProfileCard = ({ onEdit, currentUser }) => {
                 ? currentUser?.headline
                 : currentProfile?.headline}
             </p>
-            <p>
+            <p className="location">
               {Object.values(currentProfile).length === 0
-                ? currentUser?.location + currentUser?.country
-                : currentProfile?.location}
+                ? currentUser?.city + " " + currentUser?.country
+                : currentProfile?.city + " " + currentProfile?.location}
             </p>
             <a
               className="website"
               target="_blank"
               href={
                 Object.values(currentProfile).length === 0
-                  ? currentUser?.website
+                  ? `${currentUser?.website}`
                   : currentProfile?.website
               }
             >
               {Object.values(currentProfile).length === 0
-                ? currentUser?.website
+                ? `${currentUser?.website}`
                 : currentProfile?.website}
             </a>
           </div>
@@ -68,14 +68,27 @@ const ProfileCard = ({ onEdit, currentUser }) => {
             {Object.values(currentProfile).length === 0
               ? currentUser?.college
               : currentProfile?.college}
+            (college)
           </p>
           <p className="company">
             {Object.values(currentProfile).length === 0
-              ? currentUser?.college
-              : currentProfile?.college}
+              ? currentUser?.company
+              : currentProfile?.company}
           </p>
         </div>
+        <p className="about-me">
+          {Object.values(currentProfile).length === 0
+            ? `${currentUser?.abuteMe}`
+            : currentProfile?.abuteMe}
+        </p>
+        <p className="skill">
+          <span className="skill-label">Skills</span> :&nbsp;
+          {Object.values(currentProfile).length === 0
+            ? `${currentUser?.skills}`
+            : currentProfile?.skills}
+        </p>
       </div>
+
       <div className="post-status-main">
         {allStatuses
           .filter((item) => {
