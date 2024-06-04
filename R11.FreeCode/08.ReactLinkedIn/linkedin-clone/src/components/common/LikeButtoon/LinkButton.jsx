@@ -35,3 +35,6 @@ const LinkButton = ({ userId, postId }) => {
 };
 
 export default LinkButton;
+
+// 6:24:45
+// https://www.youtube.com/watch?v=HimR8Xtz17U&t=21474s
