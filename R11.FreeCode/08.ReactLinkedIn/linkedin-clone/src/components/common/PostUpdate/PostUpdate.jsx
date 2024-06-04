@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
-import "./PostUpdate.scss";
 import ModalContainer from "../Modal/Modal";
 import { getStatus, postStatus } from "../../../api/FirestoreAPI";
 import PostCard from "../PostCard/PostCard";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import { getUniqueId } from "../../../helpers/getUniqueId";
+import "./PostUpdate.scss";
 
 const PostUpdate = ({ currentUser }) => {
   let userEmail = localStorage.getItem("userEmail");

@@ -122,16 +122,16 @@ export const likePost = (userId, postId, liked) => {
 export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
   try {
     let likeQuery = query(likeRef, where("postId", "==", postId));
+
     onSnapshot(likeQuery, (response) => {
       let likes = response.docs.map((doc) => doc.data());
-      let likesCount = likes.some((like) => like.userId === userId);
-
+      let likesCount = likes?.length;
       const isLiked = likes.some((like) => like.userId === userId);
       setLikesCount(likesCount);
       setLiked(isLiked);
     });
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 };
 
