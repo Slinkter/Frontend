@@ -8,6 +8,7 @@ import {
 } from "../../../api/FirestoreAPI";
 import "./LinkButton.scss";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
+import { BsFillHandThumbsUpFill, BsHandThumbsUp } from "react-icons/bs";
 
 const LinkButton = ({ userId, postId, currentUser }) => {
   const [likesCount, setLikesCount] = useState(0);
@@ -44,9 +45,9 @@ const LinkButton = ({ userId, postId, currentUser }) => {
       <div className="like-comment">
         <div className="likes-comment-inner" onClick={handleLike}>
           {liked ? (
-            <AiFillHeart size={30} color="#0a66c2" />
+            <BsFillHandThumbsUpFill size={30} color="#0a66c2" />
           ) : (
-            <AiOutlineHeart size={30} />
+            <BsHandThumbsUp size={30} />
           )}
           <p className={liked ? "blue" : "black"}>Like</p>
         </div>
@@ -84,7 +85,7 @@ const LinkButton = ({ userId, postId, currentUser }) => {
       {comments.length > 0 ? (
         comments.map((comment) => {
           return (
-            <div className="all-comments" key={comment.timeStamp}>
+            <div className="all-comments" key={comment.id}>
               <p className="name">{comment.name}</p>
               <p className="comment">{comment.comment}</p>
               <p>*</p>
@@ -95,6 +96,10 @@ const LinkButton = ({ userId, postId, currentUser }) => {
       ) : (
         <></>
       )}
+
+      <>
+        <pre>{JSON.stringify(comments, null, 2)} </pre>
+      </>
     </div>
   );
 };

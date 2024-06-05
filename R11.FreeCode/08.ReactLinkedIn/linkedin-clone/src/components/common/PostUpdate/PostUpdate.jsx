@@ -19,6 +19,7 @@ const PostUpdate = ({ currentUser }) => {
       userEmail: currentUser.email,
       userName: currentUser.name,
       postID: getUniqueId(),
+      userID: currentUser.id,
     };
 
     await postStatus(object);
@@ -29,8 +30,6 @@ const PostUpdate = ({ currentUser }) => {
   useMemo(() => {
     getStatus(setAllStatuses);
   }, []);
-
-  console.log(userEmail);
 
   return (
     <div className="post-status-main">

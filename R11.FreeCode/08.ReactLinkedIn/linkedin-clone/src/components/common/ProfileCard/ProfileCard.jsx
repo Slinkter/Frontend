@@ -10,19 +10,28 @@ import { HiOutlinePencil } from "react-icons/hi";
 //
 import "./ProfileCard.scss";
 import { ImageUpload as uploadImageAPI } from "../../../api/ImageUpload";
+import FileUploadModal from "../FileUploadModal/FileUploadModal";
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   let location = useLocation();
   const [allStatuses, setAllStatuses] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
   const [currentImage, setCurrentImage] = useState({});
+  const [progress, setProgress] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
   };
 
   const uploadImage = () => {
-    uploadImageAPI(currentImage, currentUser?.id);
+    uploadImageAPI(
+      currentImage,
+      currentUser?.id,
+      setModalOpen,
+      setProgress,
+      setCurrentImage
+    );
   };
 
   useMemo(() => {
@@ -34,12 +43,18 @@ const ProfileCard = ({ onEdit, currentUser }) => {
     }
   }, []);
 
-  console.log("currentUser", currentUser);
+  console.log("currentImage profileCard : ", currentImage);
   return (
     <>
+      <FileUploadModal
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        getImage={getImage}
+        uploadImage={uploadImage}
+        currentImage={currentImage}
+        progress={progress}
+      />
       <div className="profile-card">
-        <input type="file" onChange={getImage} />
-        <button onClick={uploadImage}>upload</button>
         <div className="edit-btn">
           <HiOutlinePencil className="edit-icon" onClick={onEdit} />
         </div>
@@ -50,6 +65,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
               className="profile-image"
               src={currentUser?.imageLink}
               alt="imagelink"
+              onClick={() => setModalOpen(true)}
             />
             <h3 className="userName">
               {Object.values(currentProfile).length === 0

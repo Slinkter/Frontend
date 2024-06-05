@@ -72,3 +72,9 @@ instalaicon de uuid .js
 ## Designing the image upload modal
 
 7:47:12
+
+uso de progreess de la liberia ant
+
+## Adding Post Icons
+
+8:21:07
