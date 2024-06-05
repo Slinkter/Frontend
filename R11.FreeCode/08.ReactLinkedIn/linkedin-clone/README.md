@@ -60,3 +60,15 @@ instalaicon de uuid .js
 ## Implementing the like button
 
 5:48:39
+
+## Implementing the Comments System
+
+6:37:25
+
+## Image Upload in firebase
+
+7:20:14
+
+## Designing the image upload modal
+
+7:47:12

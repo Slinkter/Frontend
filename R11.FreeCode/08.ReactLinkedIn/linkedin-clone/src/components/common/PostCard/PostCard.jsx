@@ -27,7 +27,11 @@ const PostCard = ({ post, id }) => {
       </p>
       <p className="timestamp">{post?.timeStamp}</p>
       <p className="status">{post?.status}</p>
-      <LinkButton userId={currentUser?.id} postId={post.id} />
+      <LinkButton
+        userId={currentUser?.id}
+        postId={post.id}
+        currentUser={currentUser}
+      />
     </div>
   );
 };

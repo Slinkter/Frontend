@@ -1,15 +1,29 @@
-import { useMemo, useState } from "react";
-import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
+import { useEffect, useMemo, useState } from "react";
+import {
+  editProfile,
+  getSingleStatus,
+  getSingleUser,
+} from "../../../api/FirestoreAPI";
 import PostCard from "../PostCard/PostCard";
 import { useLocation } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";
 //
 import "./ProfileCard.scss";
+import { ImageUpload as uploadImageAPI } from "../../../api/ImageUpload";
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   let location = useLocation();
   const [allStatuses, setAllStatuses] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
+  const [currentImage, setCurrentImage] = useState({});
+
+  const getImage = (event) => {
+    setCurrentImage(event.target.files[0]);
+  };
+
+  const uploadImage = () => {
+    uploadImageAPI(currentImage, currentUser?.id);
+  };
 
   useMemo(() => {
     if (location?.state?.id) {
@@ -20,17 +34,23 @@ const ProfileCard = ({ onEdit, currentUser }) => {
     }
   }, []);
 
-  console.log("currentProfile", currentProfile);
   console.log("currentUser", currentUser);
   return (
     <>
       <div className="profile-card">
+        <input type="file" onChange={getImage} />
+        <button onClick={uploadImage}>upload</button>
         <div className="edit-btn">
           <HiOutlinePencil className="edit-icon" onClick={onEdit} />
         </div>
 
         <div className="profile-info">
           <div>
+            <img
+              className="profile-image"
+              src={currentUser?.imageLink}
+              alt="imagelink"
+            />
             <h3 className="userName">
               {Object.values(currentProfile).length === 0
                 ? currentUser?.name
