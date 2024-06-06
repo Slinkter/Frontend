@@ -13,7 +13,7 @@ const HomeLayout = () => {
   console.log("currentState : ", currentUser);
   return (
     <div>
-      <Topbar />
+      <Topbar currentUser={currentUser} />
       <Home currentUser={currentUser} />
     </div>
   );

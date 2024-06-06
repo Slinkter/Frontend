@@ -4,6 +4,7 @@ import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import HomeLayout from "../layouts/HomeLayout";
 import ProfileLayout from "../layouts/ProfileLayout";
+import ConnectionLayout from "../layouts/ConnectionLayout";
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
   {
     path: "/profile",
     element: <ProfileLayout />,
+  },
+  {
+    path: "/connections",
+    element: <ConnectionLayout />,
   },
 ];
 

@@ -78,3 +78,11 @@ uso de progreess de la liberia ant
 ## Adding Post Icons
 
 8:21:07
+
+## Home Page Profile Card
+
+8:39:39
+
+## Implementing linkedin connections
+
+9:17:39

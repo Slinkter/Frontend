@@ -16,7 +16,7 @@ const ProfilePopup = () => {
 
   return (
     <div className="popup-card">
-      <p>{currentUser.name}</p>
+      <p>{currentUser?.name}</p>
       <Button
         title={"View Profile"}
         onClick={() =>

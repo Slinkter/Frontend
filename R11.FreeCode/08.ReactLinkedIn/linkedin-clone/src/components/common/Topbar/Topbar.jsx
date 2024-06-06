@@ -69,7 +69,6 @@ const Topbar = ({ currentUser }) => {
       ) : (
         <></>
       )}
-
       <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
       <div className="react-icons">
         <AiOutlineSearch
@@ -85,13 +84,12 @@ const Topbar = ({ currentUser }) => {
         <AiOutlineUserSwitch
           size={30}
           className="react-icon"
-          onClick={() => goToRoute("/profile")}
+          onClick={() => goToRoute("/connections")}
         />
         <BsBriefcase size={30} className="react-icon" />
         <AiOutlineMessage size={30} className="react-icon" />
         <AiOutlineBell size={30} className="react-icon" />
       </div>
-
       <img
         className="user-logo"
         src={currentUser?.imageLink}

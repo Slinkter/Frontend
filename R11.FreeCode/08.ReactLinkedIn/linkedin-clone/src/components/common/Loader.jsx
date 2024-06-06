@@ -1,5 +1,6 @@
 import React from "react";
 import { Flex, Spin, Space } from "antd";
+import "./Loader.scss";
 
 const Loader = () => {
   return (

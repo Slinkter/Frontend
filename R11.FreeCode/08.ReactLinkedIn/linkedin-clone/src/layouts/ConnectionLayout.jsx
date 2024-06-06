@@ -1,23 +1,21 @@
 import React, { useMemo, useState } from "react";
+import Connections from "../Pages/Connections";
 import Topbar from "../components/common/Topbar/Topbar";
 import { getCurrentUser } from "../api/FirestoreAPI";
-import Profile from "../Pages/Profile";
 
-const ProfileLayout = () => {
+const ConnectionLayout = () => {
   const [currentUser, setCurrentUser] = useState({});
 
   useMemo(() => {
     getCurrentUser(setCurrentUser);
   }, []);
 
-  // console.log("currentState : ", currentUser);
-
   return (
     <div>
       <Topbar currentUser={currentUser} />
-      <Profile currentUser={currentUser} />
+      <Connections currentUser={currentUser} />
     </div>
   );
 };
 
-export default ProfileLayout;
+export default ConnectionLayout;

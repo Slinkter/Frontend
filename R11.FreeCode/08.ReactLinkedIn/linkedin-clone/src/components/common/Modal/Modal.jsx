@@ -6,9 +6,11 @@ import "./Modal.scss";
 const ModalContainer = ({
   modalOpen,
   setModalOpen,
-  status,
   setStatus,
   sendStatus,
+  status,
+  isEdit,
+  updateStatus,
 }) => {
   return (
     <>
@@ -16,16 +18,22 @@ const ModalContainer = ({
         title="Create a post "
         centered
         open={modalOpen}
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
+        onOk={() => {
+          setStatus("");
+          setModalOpen(false);
+        }}
+        onCancel={() => {
+          setStatus("");
+          setModalOpen(false);
+        }}
         footer={[
           <Button
-            onClick={sendStatus}
+            onClick={isEdit ? updateStatus : sendStatus}
             key="submit"
             type="primary"
             disabled={status.length > 0 ? false : true}
           >
-            Post
+            {isEdit ? "Update" : "Post"}
           </Button>,
         ]}
       >
