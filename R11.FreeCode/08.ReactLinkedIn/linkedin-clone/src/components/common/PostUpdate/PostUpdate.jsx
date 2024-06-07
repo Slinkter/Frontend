@@ -1,13 +1,18 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ModalContainer from "../Modal/Modal";
-import { getStatus, postStatus, updatePost } from "../../../api/FirestoreAPI";
+import {
+  getConnections,
+  getStatus,
+  postStatus,
+  updatePost,
+} from "../../../api/FirestoreAPI";
 import PostCard from "../PostCard/PostCard";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import { getUniqueId } from "../../../helpers/getUniqueId";
 import "./PostUpdate.scss";
 
 const PostUpdate = ({ currentUser }) => {
-  let userEmail = localStorage.getItem("userEmail");
+  /*   let userEmail = localStorage.getItem("userEmail"); */
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [allStatuses, setAllStatuses] = useState([]);

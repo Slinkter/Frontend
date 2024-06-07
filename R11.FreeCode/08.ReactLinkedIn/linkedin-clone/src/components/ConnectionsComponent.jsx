@@ -22,7 +22,11 @@ const ConnectionsComponent = ({ currentUser }) => {
           <></>
         ) : (
           <>
-            <ConnectedUsers user={user} getCurrentUser={getCurrentUser} />
+            <ConnectedUsers
+              user={user}
+              currentUser={currentUser}
+              getCurrentUser={getCurrentUser}
+            />
           </>
         );
       })}
