@@ -5,15 +5,15 @@ import ProfileLink from "./ProfileLink";
 import Search from "./Search";
 
 const SidebarItems = () => {
-	return (
-		<>
-			<Home />
-			<Search />
-			<Notifications />
-			<CreatePost />
-			<ProfileLink />
-		</>
-	);
+    return (
+        <>
+            <Home />
+            <Search />
+            <Notifications />
+            <CreatePost />
+            <ProfileLink />
+        </>
+    );
 };
 
 export default SidebarItems;
