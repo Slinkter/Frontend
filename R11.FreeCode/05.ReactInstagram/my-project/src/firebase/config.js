@@ -4,18 +4,21 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-const firebaseConfig = {
+const conexion = {
   apiKey: "AIzaSyDPFDxZbwVUpfEeExTmVWtEfnKvHLMlCYY",
   authDomain: "webarsi2022.firebaseapp.com",
   projectId: "webarsi2022",
   storageBucket: "webarsi2022.appspot.com",
   messagingSenderId: "764909029660",
-  appId: "1:764909029660:web:53ff61e465e322a2ae12d9",
-  measurementId: "G-8QG7N5143V",
+  appId: "1:764909029660:web:2fc001e2e3552166ae12d9",
+  measurementId: "G-KDN25S4MTL",
 };
 
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(conexion);
+// Set Services
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app);
+// export
 export { app, auth, firestore, storage };

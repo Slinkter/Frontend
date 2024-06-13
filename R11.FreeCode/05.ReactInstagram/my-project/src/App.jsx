@@ -1,45 +1,55 @@
+// src/App.jsx
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase/firebase";
-import PageLayout from "./layouts/PageLayout";
+import { Box, Button, useColorMode } from "@chakra-ui/react";
+import PageLayout from "./Layout/PageLayout";
 import { Route, Routes } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase/config";
+import HomePage from "./pages/HomePage";
+import { Navigate } from "react-router-dom";
 import AuthPage from "./pages/AuthPage";
+import useLogout from "./hooks/useLogout";
 import ProfilePage from "./pages/ProfilePage";
 
-const App = () => {
+function App() {
     const [authUser] = useAuthState(auth);
-    console.log("authUser : ", authUser);
 
     return (
-        <>
-            <PageLayout>
-                <Routes>
-                    <Route
-                        exac
-                        path="/"
-                        element={
-                            authUser ? (
-                                <p>ir a home</p>
-                            ) : (
-                                <p>debe ir a LoginPage</p>
-                            )
-                        }
-                    />
-                    <Route
-                        path="/auth"
-                        element={
-                            !authUser ? (
-                                <AuthPage />
-                            ) : (
-                                <p> debe ir a homePAge</p>
-                            )
-                        }
-                    />
-                    <Route path="/:username" element={<ProfilePage />} />
-                </Routes>
-            </PageLayout>
-        </>
+        <PageLayout>
+            <Routes>
+                <Route
+                    path="/"
+                    element={authUser ? <HomePage /> : <Navigate to="/auth" />}
+                />
+                <Route
+                    path="/auth"
+                    element={!authUser ? <AuthPage /> : <Navigate to="/" />}
+                />
+                <Route path="/:username" element={<ProfilePage />} />
+            </Routes>
+        </PageLayout>
     );
-};
+}
 
 export default App;
+
+/* 
+
+  const { colorMode, toggleColorMode } = useColorMode();
+    const { handleLogout, loading, error } = useLogout();
+   <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100vh"
+                bg={colorMode === "light" ? "white" : "gray.800"}
+            >
+                <Button onClick={toggleColorMode}>
+                    Toggle {colorMode === "light" ? "Dark" : "Light"}
+                </Button>
+                <Button onClick={handleLogout}>out</Button>
+            </Box>
+
+
+
+*/
