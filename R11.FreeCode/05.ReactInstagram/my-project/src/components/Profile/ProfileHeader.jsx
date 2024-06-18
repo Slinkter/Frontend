@@ -17,19 +17,20 @@ const ProfileHeader = () => {
   const { userProfile } = useUserProfileStore();
   const authUser = useAuthStore((state) => state.user);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { isUpdating, isFollowing, handleFollowUser } = useFollowUser(
+  const { isFollowing, isUpdating, handleFollowUser } = useFollowUser(
     userProfile?.uid
   );
   const visitingOwnProfileAndAuth =
-    authUser && authUser.username === userProfile?.username;
+    authUser && authUser.username === userProfile.username;
   const visitingAnotherProfileAndAuth =
-    authUser && authUser.username !== userProfile?.username;
+    authUser && authUser.username !== userProfile.username;
 
   /*
    */
 
   console.log("userProfile :", userProfile);
   console.log("authUser : ", authUser);
+
   return (
     <>
       <Flex
@@ -49,7 +50,7 @@ const ProfileHeader = () => {
         <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
           <Flex
             gap={4}
-            direction={{ base: "column" }}
+            direction={{ base: "column", sm: "row" }}
             justifyContent={{ base: "center", sm: "flex-start" }}
             alignItems={"center"}
             w={"full"}
@@ -89,20 +90,20 @@ const ProfileHeader = () => {
           <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>
             <Text fontSize={{ base: "xs", md: "sm" }}>
               <Text as={"span"} fontWeight={"bold"} mr={1}>
-                {userProfile?.posts.length}
+                {userProfile.posts?.length}
               </Text>
               Posts
             </Text>
             <Text fontSize={{ base: "xs", md: "sm" }}>
               <Text as={"span"} fontWeight={"bold"} mr={1}>
                 {" "}
-                {userProfile?.followers.length}{" "}
+                {userProfile?.followers?.length}{" "}
               </Text>{" "}
               Followers
             </Text>
             <Text fontSize={{ base: "xs", md: "sm" }}>
               <Text as={"span"} fontWeight={"bold"} mr={1}>
-                {userProfile?.following.length}
+                {userProfile?.following?.length}
               </Text>{" "}
               Following
             </Text>

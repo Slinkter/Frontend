@@ -12,9 +12,6 @@ const ProfilePage = () => {
   const { username } = useParams();
 
   const { isLoading, userProfile } = useGetUserProfileByUsername(username);
-  /*   console.log("username : ", username);
-  console.log("isLoading", isLoading);
-  console.log("userProfile", userProfile); */
   const userNotFound = !isLoading && !userProfile;
 
   if (userNotFound) return <UserNotFound />;

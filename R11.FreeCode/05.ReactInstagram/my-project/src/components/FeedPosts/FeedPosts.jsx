@@ -1,5 +1,3 @@
-import React from "react";
-import useGetFeedPosts from "../../hooks/useGetFeedPosts";
 import {
   Box,
   Container,
@@ -10,16 +8,19 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import FeedPost from "./FeedPost";
+import useGetFeedPosts from "../../hooks/useGetFeedPosts";
 
 const FeedPosts = () => {
   const { isLoading, posts } = useGetFeedPosts();
+
+  console.log("FeedPosts - posts:", posts);
 
   return (
     <>
       <Container maxW={"container.sm"} py={10} px={2}>
         {isLoading && <ContainerSkeleton />}
-        {!isLoading && posts.length === 0 && <ContainerZero />}
         {!isLoading && posts.length > 0 && <ContainerPosts posts={posts} />}
+        {!isLoading && posts.length === 0 && <ContainerZero />}
       </Container>
     </>
   );
@@ -52,12 +53,10 @@ const ContainerSkeleton = (isLoading) => {
 const ContainerZero = () => {
   return (
     <>
-      <Text fontSize={"lg"} color={"red.400"}>
+      <Text fontSize={"md"} color={"red.400"}>
         Dayymm . Looks like you dont have any friends
       </Text>
-      <Text fontSize={"lg"} color={"red.400"}>
-        Stop codding and go make some!
-      </Text>
+      <Text color={"red.400"}>Stop codding and go make some!</Text>
     </>
   );
 };

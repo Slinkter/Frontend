@@ -9,18 +9,18 @@ import SuggestedUser from "./SuggestedUser";
 
 const SuggestedUsers = () => {
   const { isLoading, suggestedUser } = useGetSuggestedUser();
-
-  console.log("suggestedUser", suggestedUser);
-
   if (isLoading) return null;
+
+  console.log(suggestedUser);
 
   return (
     <VStack py={8} px={6} gap={4}>
       <SuggestedHeader />
+
       {suggestedUser.length !== 0 && (
-        <Flex w={"full"} justifyContent={"space-between"} alignItems={"center"}>
+        <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"}>
           <Text fontSize={12} fontWeight={"bold"} color={"gray.500"}>
-            Suggested for you{" "}
+            Suggested for you
           </Text>
           <Text
             fontSize={12}
@@ -38,7 +38,7 @@ const SuggestedUsers = () => {
       <Box fontSize={12} color={"gray.500"} mt={5} alignSelf={"start"}>
         © 2024 Built By
         <Link
-          href="https://www.youtube.com/@"
+          href="https://www.youtube.com/"
           target="_blank"
           color="blue.500"
           fontSize={14}

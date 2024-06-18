@@ -8,7 +8,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   CommentLogo,
   NotificationsLogo,
@@ -18,13 +18,14 @@ import { timeAgo } from "../../utils/timeAgo";
 import usePostComment from "../../hooks/usePostComment";
 import useAuthStore from "../../store/authStore";
 import useLikePost from "../../hooks/useLikePost";
+import CommentsModal from "../Modals/CommentsModal";
 
 const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
   const { isCommenting, handlePostComment } = usePostComment();
   const [comment, setComment] = useState("");
   const authUser = useAuthStore((state) => state.user);
   const commentRef = useRef(null);
-  const { isLiked, likes, handleLikePost, isUpdating } = useLikePost(post);
+  const { handleLikePost, isLiked, likes } = useLikePost(post);
   const { isOpen, onOpen, onClose } = useDisclosure();
   /*  */
   const handleSubmitComment = async () => {
@@ -32,18 +33,10 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
     setComment("");
   };
   return (
-    <Box mb={10} marginTop={"auto"}>
+    <Box mb={10} marginTop={"auto"} border={"1px solid green"}>
       <Flex alignItems={"center"} gap={4} w={"full"} pt={0} mb={2} mt={4}>
         <Box onClick={handleLikePost} cursor={"pointer"} fontSize={18}>
-          {!isLiked ? (
-            <>
-              <NotificationsLogo />
-            </>
-          ) : (
-            <>
-              <UnlikeLogo />
-            </>
-          )}
+          {!isLiked ? <NotificationsLogo /> : <UnlikeLogo />}
         </Box>
         <Box
           cursor={"pointer"}
@@ -61,16 +54,16 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
           Posted {timeAgo(post.createdAt)}
         </Text>
       )}
-      {"isProfilePage"}
       {!isProfilePage && (
         <>
           <Text fontSize={"sm"} fontWeight={700}>
-            {creatorProfile?.username}
+            {creatorProfile?.username}{" "}
             <Text as={"span"} fontWeight={400}>
               {post.caption}
             </Text>
           </Text>
-          {post.comments.lenfth > 0 && (
+
+          {post.comments.length > 0 && (
             <Text
               fontSize={"sm"}
               color={"gray"}
@@ -80,18 +73,11 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
               view all {post.comments.length} comments
             </Text>
           )}
-
           {isOpen ? (
-            <>
-              {" "}
-              <CommentsModal isOpen={isOpen} onClose={onClose} post={post} />
-            </>
-          ) : (
-            <></>
-          )}
+            <CommentsModal isOpen={isOpen} onClose={onClose} post={post} />
+          ) : null}
         </>
       )}
-
       {authUser && (
         <Flex
           alignItems={"center"}
@@ -102,11 +88,11 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
           <InputGroup>
             <Input
               variant={"flushed"}
-              placeholder={"add a comment"}
+              placeholder={"Add a comment"}
               fontSize={14}
+              onChange={(e) => setComment(e.target.value)}
               value={comment}
               ref={commentRef}
-              onChange={(e) => setComment(e.target.value)}
             />
             <InputRightElement>
               <Button
@@ -130,7 +116,3 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
 };
 
 export default PostFooter;
-
-const CommentsModal = () => {
-  return <></>;
-};

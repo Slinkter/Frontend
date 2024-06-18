@@ -18,20 +18,18 @@ import {
 import { AiFillHeart } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import useUserProfileStore from "../../store/userStore";
 import useAuthStore from "../../store/authStore";
 import useShowToast from "../../hooks/useShowToast";
 import usePostStore from "../../store/postStore";
-import usePostComment from "../../hooks/usePostComment";
-import useLikePost from "../../hooks/useLikePost";
-import {
-  CommentLogo,
-  NotificationsLogo,
-  UnlikeLogo,
-} from "../../assets/contains";
-import { timeAgo } from "../../utils/timeAgo";
+
 import PostFooter from "../FeedPosts/PostFooter";
+import Caption from "../Comment/Caption";
+import Comment from "../Comment/Comment";
+import { deleteObject, ref } from "firebase/storage";
+import { firestore, storage } from "../../firebase/config";
+import { arrayRemove, deleteDoc, doc, updateDoc } from "firebase/firestore";
 
 const ProfilePost = ({ post }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,7 +41,28 @@ const ProfilePost = ({ post }) => {
   const decrementPostsCount = useUserProfileStore((state) => state.deletePost);
 
   /*  */
-  const handleDeletePost = async () => {};
+  const handleDeletePost = async () => {
+    if (!window.confirm("Are you sure you want to delete this post?")) return;
+    if (isDeleting) return;
+    try {
+      const imageRef = ref(storage, `posts/${post.id}`);
+      const userRef = doc(firestore, "users", authUser.uid);
+      /*  */
+      await deleteObject(imageRef);
+      await deleteDoc(doc(firestore, "posts", post.id));
+      /*  */
+      await updateDoc(userRef, { posts: arrayRemove(post.id) });
+      /* */
+      deletePost(post.id);
+      decrementPostsCount(post.id);
+      showToast("Success", "Post deleted successfully", "success");
+    } catch (error) {
+      showToast("Error", error.message, "Error");
+      console.log(error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
 
   return (
     <>
@@ -82,11 +101,11 @@ const ProfilePost = ({ post }) => {
           <Flex>
             <FaComment size={20} />
             <Text fontWeight={"bold"} ml={2}>
-              {post.comments.length}{" "}
+              {post.comments.length}
             </Text>
           </Flex>
         </Flex>
-
+        dasds
         <Image
           src={post.imageURL}
           alt="profile post"
@@ -95,6 +114,7 @@ const ProfilePost = ({ post }) => {
           objectFit={"cover"}
         />
       </GridItem>
+
       <Modal
         isOpen={isOpen}
         onClose={onClose}
@@ -123,13 +143,18 @@ const ProfilePost = ({ post }) => {
               >
                 <Image src={post.imageURL} alt="profie post" />
               </Flex>
+
               <Flex
                 flex={1}
                 flexDirection={"column"}
                 px={10}
                 display={{ base: "none", md: "flex" }}
               >
-                <Flex alignItems={"center"} justifyContent={"center"}>
+                <Flex
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  border={"1px solid white"}
+                >
                   <Flex gap={4} alignItems={"center"}>
                     <Avatar
                       src={userProfile.profilePicURL}
@@ -155,20 +180,20 @@ const ProfilePost = ({ post }) => {
                   )}
                 </Flex>
                 <Divider my={4} bg={"gray.500"} />
-                {"----"}
                 <VStack
                   w={"full"}
                   alignItems={"star"}
                   maxH={"350px"}
                   overflowY={"auto"}
+                  border={"1px solid red"}
                 >
-                  {post.caption && <Caption />}
+                  {post.caption && <Caption post={post} />}
                   {post.comments.map((comment) => (
-                    <Comment key={comment.id} />
+                    <Comment key={comment.id} comment={comment} />
                   ))}
                 </VStack>
-                {"----"}
                 <Divider my={4} bg={"gray.800"} />
+
                 <PostFooter isProfilePage={true} post={post} />
               </Flex>
             </Flex>
@@ -180,7 +205,3 @@ const ProfilePost = ({ post }) => {
 };
 
 export default ProfilePost;
-
-const Caption = () => {};
-
-const Comment = () => {};

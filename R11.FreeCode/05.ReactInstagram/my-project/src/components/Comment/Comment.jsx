@@ -1,14 +1,14 @@
-import { Avatar, Flex, Skeleton, SkeletonCircle, Text } from "@chakra-ui/react";
+import React from "react";
 import useGetUserProfileById from "../../hooks/useGetUserProfileById";
+import { Avatar, Flex, Skeleton, SkeletonCircle, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { timeAgo } from "../../utils/timeAgo";
 
 const Comment = ({ comment }) => {
-  const { userProfile, isLoading } = useGetUserProfileById(comment.createdBy);
-
+  const { isLoading, userProfile } = useGetUserProfileById(comment.createdBy);
   if (isLoading) return <CommentSkeleton />;
   return (
-    <Flex gap={4}>
+    <Flex gap={4} border={"1px solid yellow"}>
       <Link to={`/${userProfile.username}`}>
         <Avatar src={userProfile.profilePicURL} size={"sm"} />
       </Link>
@@ -30,7 +30,6 @@ const Comment = ({ comment }) => {
 };
 
 export default Comment;
-
 const CommentSkeleton = () => {
   return (
     <Flex gap={4} w={"full"} alignItems={"center"}>
