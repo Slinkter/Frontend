@@ -5,50 +5,55 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase";
 import Navbar from "../../components/Navbar/Navbar";
 
-// instead of adding the Sidebar component to every page, we can add it only once to the PageLayout component and wrap the children with it. This way, we can have a sidebar on every page except the AuthPage.
-
+// PageLayout component wraps the entire layout of the application
 const PageLayout = ({ children }) => {
-    const { pathname } = useLocation();
-    const [user, loading] = useAuthState(auth);
-    const canRenderSidebar = pathname !== "/auth" && user;
-    const canRenderNavbar = !user && !loading && pathname !== "/auth";
+  // useLocation hook is used to get the current pathname
+  const { pathname } = useLocation();
+  // useAuthState hook from react-firebase-hooks is used to get the current user and loading state
+  const [user, loading] = useAuthState(auth);
+  // La barra lateral se renderiza solo si la ruta no es /auth y hay un usuario autenticado.
+  const canRenderSidebar = pathname !== "/auth" && user;
+  // Determine if the navbar should be rendered (user is not authenticated, not loading, and not on the /auth page)
+  const canRenderNavbar = !user && !loading && pathname !== "/auth";
 
-    const checkingUserIsAuth = !user && loading;
-    if (checkingUserIsAuth) return <PageLayoutSpinner />;
+  // If user is not authenticated and still loading, show the spinner
+  const checkingUserIsAuth = !user && loading;
+  if (checkingUserIsAuth) return <PageLayoutSpinner />;
 
-    return (
-        <Flex flexDir={canRenderNavbar ? "column" : "row"}>
-            {/* sidebar on the left */}
-            {canRenderSidebar ? (
-                <Box w={{ base: "70px", md: "240px" }}>
-                    <Sidebar />
-                </Box>
-            ) : null}
-            {/* Navbar */}
-            {canRenderNavbar ? <Navbar /> : null}
-            {/* the page content on the right */}
-            <Box
-                flex={1}
-                w={{ base: "calc(100% - 70px)", md: "calc(100% - 240px)" }}
-                mx={"auto"}
-            >
-                {children}
-            </Box>
-        </Flex>
-    );
+  return (
+    <Flex flexDir={canRenderNavbar ? "column" : "row"}>
+      {/* Sidebar on the left if conditions are met */}
+      {canRenderSidebar ? (
+        <Box w={{ base: "70px", md: "240px" }}>
+          <Sidebar />
+        </Box>
+      ) : null}
+      {/* Navbar if conditions are met */}
+      {canRenderNavbar ? <Navbar /> : null}
+      {/* The main content of the page */}
+      <Box
+        flex={1}
+        w={{ base: "calc(100% - 70px)", md: "calc(100% - 240px)" }}
+        mx={"auto"}
+      >
+        {children}
+      </Box>
+    </Flex>
+  );
 };
 
 export default PageLayout;
 
+// Spinner component shown while checking if user is authenticated
 const PageLayoutSpinner = () => {
-    return (
-        <Flex
-            flexDir="column"
-            h="100vh"
-            alignItems="center"
-            justifyContent="center"
-        >
-            <Spinner size="xl" />
-        </Flex>
-    );
+  return (
+    <Flex
+      flexDir="column"
+      h="100vh"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Spinner size="xl" />
+    </Flex>
+  );
 };

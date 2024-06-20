@@ -33,6 +33,7 @@ const usePostComment = () => {
       await updateDoc(doc(firestore, "posts", postId), {
         comments: arrayUnion(newComment),
       });
+
       addComment(postId, newComment); // Agregar el nuevo comentario al store local de posts
     } catch (error) {
       showToast("Error", error.message, "error"); // Mostrar un mensaje de error si algo sale mal
