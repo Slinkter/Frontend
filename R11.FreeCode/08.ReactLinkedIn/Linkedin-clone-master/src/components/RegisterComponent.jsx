@@ -7,6 +7,9 @@ import { getUniqueID } from "../helpers/getUniqueId";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
 
+const img_default =
+  "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80";
+
 export default function RegisterComponent() {
   let navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
@@ -18,8 +21,7 @@ export default function RegisterComponent() {
         userID: getUniqueID(),
         name: credentails.name,
         email: credentails.email,
-        imageLink:
-          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+        imageLink: img_default,
       });
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);

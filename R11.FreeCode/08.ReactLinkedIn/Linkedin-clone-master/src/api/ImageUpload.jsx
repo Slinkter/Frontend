@@ -1,58 +1,34 @@
-import { storage } from "../firebaseConfig";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { editProfile } from "./FirestoreAPI";
-
-export const uploadImage = (
-  file,
-  id,
-  setModalOpen,
-  setProgress,
-  setCurrentImage
+export const uploadPostImage = (
+  file, // Archivo de imagen a subir.
+  setPostImage, // Función para establecer la URL de la imagen del post.
+  setProgress // Función para actualizar el progreso de la subida.
 ) => {
-  const profilePicsRef = ref(storage, `profileImages/${file.name}`);
-  const uploadTask = uploadBytesResumable(profilePicsRef, file);
-
-  uploadTask.on(
-    "state_changed",
-    (snapshot) => {
-      const progress = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-
-      setProgress(progress);
-    },
-    (error) => {
-      console.error(err);
-    },
-    () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((response) => {
-        editProfile(id, { imageLink: response });
-        setModalOpen(false);
-        setCurrentImage({});
-        setProgress(0);
-      });
-    }
-  );
-};
-
-export const uploadPostImage = (file, setPostImage, setProgress) => {
+  // Crea una referencia en el almacenamiento de Firebase para la imagen del post con el nombre del archivo.
   const postPicsRef = ref(storage, `postImages/${file.name}`);
+
+  // Inicia la tarea de subida del archivo.
   const uploadTask = uploadBytesResumable(postPicsRef, file);
 
+  // Define los manejadores de eventos para la tarea de subida.
   uploadTask.on(
     "state_changed",
     (snapshot) => {
+      // Calcula el progreso de la subida en porcentaje.
       const progress = Math.round(
         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       );
 
+      // Actualiza el estado del progreso.
       setProgress(progress);
     },
     (error) => {
-      console.error(err);
+      // Maneja errores durante la subida.
+      console.error(error);
     },
     () => {
+      // Obtiene la URL de descarga una vez que la subida ha finalizado.
       getDownloadURL(uploadTask.snapshot.ref).then((response) => {
+        // Establece la URL de la imagen del post.
         setPostImage(response);
       });
     }

@@ -21,7 +21,9 @@ export default function Topbar({ currentUser }) {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  //
   let navigate = useNavigate();
+  //
   const goToRoute = (route) => {
     navigate(route);
   };
