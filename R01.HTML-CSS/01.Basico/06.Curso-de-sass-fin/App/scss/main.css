@@ -6,11 +6,11 @@ body {
 }
 
 nav {
-  width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: auto;
   color: #7c6a0a;
   padding: 15px;
 }
@@ -78,7 +78,6 @@ section {
   width: auto;
   height: auto;
   padding: 60px;
-  background-color: green;
 }
 section h2 {
   color: #7c6a0a;
@@ -145,7 +144,7 @@ section .furniture .product-card {
   font-weight: bold;
 }
 .about-us .mission-section {
-  border: 1px solid red;
+  border: 2px solid wheat;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

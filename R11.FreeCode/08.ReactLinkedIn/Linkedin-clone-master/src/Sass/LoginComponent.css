@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-wrapper {
+  background-color: white !important;
+  height: 100vh;
+}
+.login-wrapper .login-wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper .heading {
+  font-family: system-ui;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-wrapper .sub-heading {
+  margin-top: -20px;
+  font-family: system-ui;
+}
+
+.login-btn {
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #0073b1;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: system-ui;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.login-btn:hover {
+  background-color: #004c75;
+}
+
+.auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.linkedinLogo {
+  width: 80px;
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+}
+.hr-text:before {
+  content: "";
+  background: linear-gradient(to right, transparent, #818078, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+.hr-text:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  color: #818078;
+  background-color: #fcfcfa;
+}
+
+.google-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.google-btn-container .google-btn {
+  width: 300px !important;
+}
+.google-btn-container .go-to-signup {
+  font-size: 18px;
+}
+.google-btn-container .join-now {
+  color: #0072b1;
+  font-family: system-ui;
+  cursor: pointer;
+  font-size: 18px;
+}/*# sourceMappingURL=LoginComponent.css.map */

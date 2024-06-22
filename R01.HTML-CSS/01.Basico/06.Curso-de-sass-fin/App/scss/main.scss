@@ -28,8 +28,8 @@ body {
 }
 
 nav {
-  width: auto;
   @include flexCenter(row, space-between, center);
+  width: auto;
   color: $primary-text-color;
   padding: 15px;
   p {
@@ -85,7 +85,6 @@ section {
   width: auto;
   height: auto;
   padding: 60px;
-  background-color: green;
 
   h2 {
     color: $primary-text-color;
@@ -98,7 +97,6 @@ section {
       padding-bottom: 60px;
     }
     .card-section {
-      
       width: auto;
       height: auto;
       @include flexCenter(row, space-evenly, center);
@@ -155,7 +153,7 @@ section {
     font-weight: bold;
   }
   .mission-section {
-    border: 1px solid red;
+    border: 2px solid wheat;
     @include flexCenter(row, space-evenly, center);
     .earth {
       $text-color: #e86424;

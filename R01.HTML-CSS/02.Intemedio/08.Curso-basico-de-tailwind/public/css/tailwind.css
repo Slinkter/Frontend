@@ -725,10 +725,6 @@ select {
   margin-left: 4rem;
 }
 
-.mr-24 {
-  margin-right: 6rem;
-}
-
 .mt-8 {
   margin-top: 2rem;
 }
@@ -857,10 +853,6 @@ select {
   border-top-right-radius: 0.5rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -961,10 +953,6 @@ select {
 
 .pb-6 {
   padding-bottom: 1.5rem;
-}
-
-.pl-8 {
-  padding-left: 2rem;
 }
 
 .pr-2 {
@@ -1391,10 +1379,5 @@ select {
   .lg\:text-5xl {
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .lg\:text-black {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 }

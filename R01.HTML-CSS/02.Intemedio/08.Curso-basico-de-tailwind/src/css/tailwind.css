@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .Navtravel {
-  @apply hidden lg:flex w-full h-14 bg-white justify-between p-4 dark:bg-gray-800;
+  @apply hidden w-full h-14 bg-white justify-between p-4 lg:flex dark:bg-gray-800;
 }
 
 .nivel2 {

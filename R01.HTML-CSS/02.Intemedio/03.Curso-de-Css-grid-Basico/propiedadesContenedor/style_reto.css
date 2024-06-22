@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.contenedor {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 100px 100px 100px;
+  grid-auto-columns: 100px;
+  grid-auto-flow: column;
+  gap: 20px;
+  place-content: center;
+}
+.item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 2rem;
+}
+.item span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+.item-1, .item-4 {
+  background-color: #b5d844;
+}
+.item-1 span, .item-4 span {
+  background-color: #418223;
+}
+.item-2, .item-5 {
+  background-color: #82ba39;
+}
+.item-2 span, .item-5 span {
+  background-color: #438123;
+}
+.item-3, .item-6 {
+  background-color: #438123;
+}
+.item-3 span, .item-6 span {
+  background-color: #1b380a;
+}
