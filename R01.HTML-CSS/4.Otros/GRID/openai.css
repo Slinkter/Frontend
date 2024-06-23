@@ -3,14 +3,13 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  animation: fadeIn ease 3s;
+  animation: fadeIn ease 0.1s;
 }
 .photo-album {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10px;
   padding: 10px;
-  height: 100vh;
 }
 
 .photo-container {
@@ -18,12 +17,14 @@
   padding: 10px;
   text-align: center;
   border-radius: 8px;
+
+  height: auto;
 }
 
 img {
   width: auto;
   height: auto;
-  animation: fadeIn ease 1s;
+  animation: fadeIn ease 5s;
 }
 
 @keyframes fadeIn {
@@ -31,12 +32,6 @@ img {
     opacity: 0;
   }
 
-  20% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0.5;
-  }
   100% {
     opacity: 1;
   }

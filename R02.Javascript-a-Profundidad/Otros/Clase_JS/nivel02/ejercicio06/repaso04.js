@@ -1,7 +1,6 @@
 const materiaHTML = document.querySelector(".materias");
 // --> array de objetos
 const db_material = [];
-// --> insertar objecto
 db_material.push({ nombre: "Liam", apellido: "Cave" });
 db_material.push({ nombre: "Fiorela", apellido: "Sosa" });
 db_material.push({ nombre: "Andrea", apellido: "Vazques" });
@@ -22,14 +21,14 @@ const mostrarMaterias = async () => {
   let array_m = [];
   //
   for (i in db_material) {
-    //
     array_m[i] = await verificarMateriaPorID(i);
-    //
+
     let newHTMLCode = `
       <div class="materia">
         <div class="nombre">
            ${array_m[i].nombre}
         </div>
+        <span>   </span>
         <div class="nota">
         ${array_m[i].apellido}
         </div>

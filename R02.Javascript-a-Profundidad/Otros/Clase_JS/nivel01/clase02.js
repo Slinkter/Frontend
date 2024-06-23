@@ -29,7 +29,8 @@ let frase = `
 <b>  nombre :   </b>    ${nombre} <br> 
 <b>  procesador :   </b>    ${procesador} <br> 
 <b>  ram  :   </b>    ${ram} <br> 
-<b>  espacio  :   </b>    ${espacio} <br> `;
+<b>  espacio  :   </b>    ${espacio} <br> 
+`;
 //
 let name_pc2 = pc2[0];
 let cpu_pc2 = pc2[1];
@@ -39,13 +40,14 @@ let phrase = `
 <b>  nombre:   </b>    ${name_pc2} <br> 
 <b>  procesador:   </b>    ${cpu_pc2} <br> 
 <b>  ram:   </b>    ${ram_pc2} <br> 
-<b>  espacio:   </b>    ${space_pc2} <br> `;
+<b>  espacio:   </b>    ${space_pc2} <br> 
+`;
 //
 document.write("<br>-----------<br>");
 document.write(frase);
 document.write("<br>-----------<br>");
 document.write(phrase);
-document.write("<br><br>");
+document.write("<br>-----------<br>");
 //------------------------>
 document.write("===========================================");
 document.write("<br/>");

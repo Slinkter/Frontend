@@ -49,9 +49,7 @@ for (i in db_alumnos) {
   document.querySelector(".grid-container").innerHTML += htmlCode;
 }
 //
-const btn_confirmar = document.querySelector(".btn_confirmar ");
-btn_confirmar.addEventListener("click", () => sendFormulario());
-//
+
 function sendFormulario(evt) {
   //
   let elementos_nombres = document.querySelectorAll(".nombre");
@@ -63,3 +61,7 @@ function sendFormulario(evt) {
 
   console.log(array_nombre);
 }
+//
+const btn_confirmar = document.querySelector(".btn_confirmar ");
+btn_confirmar.addEventListener("click", () => sendFormulario());
+//

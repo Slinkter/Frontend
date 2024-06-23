@@ -1,44 +1,44 @@
 let nombres = ["pedro", "maria", "jorge", "ana"];
 // estos son metodos tranformadores
-document.write("Array original :<b>[" + nombres + "]</b> <br>  <br>");
+document.write(
+  "Array original :<b>[" + nombres.toString() + "]</b> <br>  <br>"
+);
 let resultado = nombres.pop();
 document.write(
-  "<span >----> Método .pop() : valor saliente </span> <b>" +
-  resultado +
-  "</b> <br><br>"
+  " ====> Método .pop() : valor saliente <b>" + resultado + "</b> <br> <br>"
 );
 document.write("Array  modificado : <b>[" + nombres + "]</b><br><br>");
 resultado = nombres.push("Angelica");
 document.write(
-  "----> Método .push(Angelica) : valor entrante <b>" +
-  nombres[resultado - 1] +
-  "</b> <br><br>"
+  "====> Método .push(Angelica) : valor entrante <b>" +
+    nombres[resultado - 1] +
+    "</b> <br><br>"
 );
 document.write("Array modificado <b>[" + nombres + "]</b><br><br>");
 
-document.write("----> Método .reverse() :  <b>" + "</b> <br><br>");
+document.write("====> Método .reverse() :  <b>" + "</b> <br><br>");
 resultado = nombres.reverse();
 document.write("Array modificado <b>[" + nombres + "]</b><br><br>");
-document.write("----> Método .unshift(a,b) :  <b>" + "</b> <br><br>");
+document.write("====> Método .unshift(a,b) :  <b>" + "</b> <br><br>");
 resultado = nombres.unshift("a", "b");
 document.write("Array modificado <b>[" + nombres + "]</b><br><br>");
 resultado = nombres.sort();
-document.write("----> Método .sort():  <b>" + "</b> <br><br>");
+document.write("====> Método .sort():  <b>" + "</b> <br><br>");
 document.write("Array modificado <b>[" + nombres + "]</b><br><br>");
 resultado = nombres.splice(1, 3);
-document.write("----> Método .splice(1,3)   <b>" + "</b> <br><br>");
+document.write("====> Método .splice(1,3)   <b>" + "</b> <br><br>");
 document.write("*** caso 1 : eliminar  según posición:  <b>" + "</b> <br><br>");
 document.write("Array modificado <b>[" + nombres + "]</b><br><br>");
 document.write("resultado <b>" + resultado + "</b><br><br>");
 resultado = nombres.splice(1, 3, "kiara", "Andorra");
 document.write(
-  "----> Método .splice(1,3,'kiara','Andorra')   <b>" + "</b> <br><br>"
+  "====> Método .splice(1,3,'kiara','Andorra')   <b>" + "</b> <br><br>"
 );
 document.write("*** caso 2 : aumentar según posición :  <b>" + "</b> <br><br>");
 document.write("Array modificado <b>" + nombres + "</b><br><br>");
 resultado = nombres.splice(0, -1, "Rose", "Carolina");
 document.write(
-  "----> Método .splice(-1,3,'Rose','Carolina')   <b>" + "</b> <br><br>"
+  "====> Método .splice(-1,3,'Rose','Carolina')   <b>" + "</b> <br><br>"
 );
 document.write("*** caso 3 : aumentar según posición :  <b>" + "</b> <br><br>");
 document.write("Array modificado <b>" + nombres + "</b><br><br>");

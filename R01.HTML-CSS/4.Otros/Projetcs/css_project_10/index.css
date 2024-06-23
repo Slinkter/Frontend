@@ -1,4 +1,4 @@
-body {
+* {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -9,27 +9,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  gap: 25px;
   height: 100vh;
 }
 
 .cards .flip-card {
-  width: 300px;
-  height: 300px;
-  border: solid 1px #f1f1f1;
-  border-radius: 20px;
-  perspective: 10000px;
+  width: 400px;
+  height: 400px;
+}
+.cards .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
 .cards .flip-card .flip-card-inner {
   width: 100%;
   height: 100%;
-  transition: all 0.2s ease-in-out;
+  transition: all 1.2s ease;
   transform-style: preserve-3d;
 }
-.cards .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+
+.cards .flip-card .flip-card-front img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  border: solid 5px #2d0c8888;
 }
 
 .cards .flip-card .flip-card-front,
