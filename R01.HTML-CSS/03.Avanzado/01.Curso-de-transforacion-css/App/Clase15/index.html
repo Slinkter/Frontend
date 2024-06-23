@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      body {
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
       ul {
         list-style: none;
@@ -27,8 +29,8 @@
       }
       .nav li:hover > ul {
         opacity: 1;
-        transition: opacity 400ms;
-        transition-delay: 300ms;
+        transition: opacity 100ms;
+        transition-delay: 100ms;
       }
       .nav li ul li {
         position: relative;
