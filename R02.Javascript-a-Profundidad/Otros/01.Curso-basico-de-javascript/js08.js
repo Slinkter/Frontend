@@ -1,6 +1,7 @@
 /*
 Definicion SCOPE:
   - Global
+  - local
   - Functions
   - Block
   - Code

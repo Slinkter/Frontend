@@ -1,10 +1,7 @@
-let formulario = document.getElementById('formulario');
+let formulario = document.getElementById("formulario");
 
-formulario.addEventListener('submit', e => {
-    e.defaultPrevented();
-    let nombre = e.target.nombre.value;
-    
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let nombre = e.target.nombre.value;
+  console.log(nombre);
 });
-
-
-

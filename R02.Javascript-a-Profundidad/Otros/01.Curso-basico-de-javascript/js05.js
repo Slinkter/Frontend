@@ -1,22 +1,20 @@
-//Declativa
+// Funcion Declativa
+function miFuncion(a, b) {
+  return a + b;
+}
 // --> tiene nombre la funcion
 // --> usa palabra reservada "function" para ser creada
 // --> le afecta el hoisting es decir:
 // --> son evaluada antes de ser ejecutadas.
-function miFuncion(a, b) {
-  return a + b;
-}
 
-//Expresion
-// --> es una funcion anonima (no tiene nombre)
-// --> necesita de la expresion = para ser creada
-// --> no le afecta el hoisting
+//Funcion Expresion
 
 var miFunction = function (a, b) {
   return a + b;
 };
-
-miFuncion();
+// --> es una funcion anonima (no tiene nombre)
+// --> necesita de la expresion "=" para ser creada
+// --> no le afecta el hoisting
 
 // Ejemplo
 function saludarEstudiantes(estudiante) {
