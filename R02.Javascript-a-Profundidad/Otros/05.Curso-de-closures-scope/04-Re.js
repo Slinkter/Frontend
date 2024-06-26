@@ -1,5 +1,7 @@
-var firstName; //        ---->  firstName : undefined   (declarar)
-firstName = "liam"; //   ---->  firstName : "liam"      (asignar)
+//    (declarar)  ---->  firstName = undefined
+var firstName;
+//    (asignar)   ---->  firstName = "liam"
+firstName = "liam";
 
 var lastName = "cave"; // ----> declaracion y asignacion
 lastName = "ana"; //      ----> reasignacion

@@ -28,6 +28,7 @@ Esto se debe a que saveCoins es una variable local,
 
 En cambio, la función moneyBoxClosure funciona porque
  crea una closure. 
+ 
  Una closure es una función que recuerda el valor de sus variables locales 
  incluso después de que la función haya terminado de ejecutarse.
   Esto se debe a que la closure tiene acceso a un entorno léxico especial

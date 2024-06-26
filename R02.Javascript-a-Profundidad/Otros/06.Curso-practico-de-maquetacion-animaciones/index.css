@@ -10,13 +10,14 @@ body {
   font-family: "Lato", sans-serif;
   height: 100vh;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   box-sizing: border-box;
 }
 
 .page {
-  height: 100%;
   position: relative;
+  height: 100%;
   width: 100%;
 }
 
@@ -90,6 +91,7 @@ body {
   position: absolute;
   grid-template-columns: 55% 45%;
   grid-template-rows: 20% 50% 30%;
+
   grid-template-areas:
     "nav     aside"
     "section aside"

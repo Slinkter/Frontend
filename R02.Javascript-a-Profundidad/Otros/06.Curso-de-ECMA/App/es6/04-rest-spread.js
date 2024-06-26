@@ -1,5 +1,4 @@
 /* array destructuring */
-
 let fruits = ["Apple", "Banana", "Orange"];
 let [a, b, c] = fruits;
 console.log(a, b, c);
