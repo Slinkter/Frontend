@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
-const initialPerson = { firstName: "", email: "", age: "" };
-const initialPeople = [];
-
 const ControlledInputs = () => {
   //
-  const [person, setPerson] = useState(initialPerson);
-  const [people, setPeople] = useState(initialPeople);
+  const [person, setPerson] = useState({ firstName: "", email: "", age: "" });
+  const [people, setPeople] = useState([]);
   // optional 1
   const handleChange = (e) => {
     const name = e.target.name;
@@ -22,8 +19,10 @@ const ControlledInputs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (person.firstName && person.email && person.age) {
-      const newPerson = { ...person, id: new Date().getTime().toString() };
-      setPeople([...people, newPerson]);
+      setPeople([
+        ...people,
+        { ...person, id: new Date().getTime().toString() },
+      ]);
       setPerson({ firstName: "", email: "", age: "" });
     } else {
       alert("falta");

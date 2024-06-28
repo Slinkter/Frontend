@@ -5,7 +5,7 @@ const UserChallenge = () => {
   document.title = "02-user-challenge";
   const [name, setName] = useState("");
   const [users, setUsers] = useState(data);
-  console.log(users);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //-->
@@ -22,7 +22,7 @@ const UserChallenge = () => {
   };
 
   return (
-    <div>
+    <>
       <form className="form" onSubmit={handleSubmit}>
         <h4>Add user</h4>
         <div className="form-row">
@@ -51,7 +51,7 @@ const UserChallenge = () => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

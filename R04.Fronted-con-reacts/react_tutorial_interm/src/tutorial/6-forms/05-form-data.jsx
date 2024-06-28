@@ -16,21 +16,21 @@ const UncontrolledInputs = () => {
     <div>
       <form className="form" onSubmit={handleSubmit}>
         <h4>FORM DATA API</h4>
-        {/* name */}
+
         <div className="form-row">
           <label htmlFor="name" className="form-label">
             name
           </label>
           <input type="text" className="form-input" id="name" name="name" />
         </div>
-        {/* email */}
+
         <div className="form-row">
           <label htmlFor="email" className="form-label">
             email
           </label>
           <input type="email" className="form-input" id="email" name="email" />
         </div>
-        {/* password */}
+
         <div className=" form-row">
           <label htmlFor="password" className="form-label">
             password
