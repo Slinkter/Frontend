@@ -16,7 +16,7 @@ console.log(elements.join("-"));
 // expected "Fire-Air-Water"
 
 function multiplyElements(array) {
-  return array.map((item) => item * 2);
+    return array.map((item) => item * 2);
 }
 
 const arraynumber = [1, 1, -2, -3];
