@@ -25,7 +25,7 @@ const UncontrolledInputs = () => {
         </div>
 
         <div className="form-row">
-          <label htmlFor="email" className="form-label">
+          <label htmlFor="ema il" className="form-label">
             email
           </label>
           <input type="email" className="form-input" id="email" name="email" />

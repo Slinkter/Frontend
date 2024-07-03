@@ -16,9 +16,9 @@ import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { ChangeAlert } from "../ChangeAlert";
-
+/* patron  custom hooks y  patron render prop */
 function App() {
-  //Patron de Composicion de components
+  /* custom hooks */
   const {
     error,
     loading,
@@ -36,12 +36,12 @@ function App() {
   } = useTodos();
 
   return (
-    <React.Fragment>
+    <>
       <TodoHeader loading={loading}>
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
-
+      {/* render props */}
       <TodoList
         error={error}
         loading={loading}
@@ -74,7 +74,7 @@ function App() {
 
       <CreateTodoButton setOpenModal={setOpenModal} />
       <ChangeAlert sincronize={sincronizeTodos} />
-    </React.Fragment>
+    </>
   );
 }
 

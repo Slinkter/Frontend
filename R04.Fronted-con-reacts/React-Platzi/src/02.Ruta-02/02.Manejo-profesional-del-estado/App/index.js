@@ -16,7 +16,12 @@ import { Modal } from "../Modal";
 import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
-  document.title = "03.Manejo-profesional-del-estado";
+  /* 
+  - custom hook
+  El hook useTodos es un hook personalizado que encapsula la lógica de manejo del estado y las funciones 
+  relacionadas con los todos. Esto ayuda a mantener la lógica separada de la presentación, mejorando
+  la reutilización y la legibilidad del código.
+  */
   const { state, stateUpdaters } = useTodos();
   const {
     error,
