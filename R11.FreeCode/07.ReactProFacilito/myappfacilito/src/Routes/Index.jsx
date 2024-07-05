@@ -9,33 +9,33 @@ import MyInfo from "../Views/Profile/components/MyInfo";
 import { Suspense } from "react";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <Error404 />,
-  },
-  {
-    path: "/detail/:eventId",
-    element: (
-      <Suspense fallback={<div> Cargando ... </div>}>
-        <Detail />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-    children: [
-      {
-        path: "my-info",
-        element: <MyInfo />,
-      },
-      {
-        path: "liked-events",
-        element: <LikedEvents />,
-      },
-    ],
-  },
+    {
+        path: "/",
+        element: <Home />,
+        errorElement: <Error404 />,
+    },
+    {
+        path: "/detail/:eventId",
+        element: (
+            <Suspense fallback={<div> Cargando ... </div>}>
+                <Detail />
+            </Suspense>
+        ),
+    },
+    {
+        path: "/profile",
+        element: <Profile />,
+        children: [
+            {
+                path: "my-info",
+                element: <MyInfo />,
+            },
+            {
+                path: "liked-events",
+                element: <LikedEvents />,
+            },
+        ],
+    },
 ]);
 
 const MyRoutes = () => <RouterProvider router={router} />;
