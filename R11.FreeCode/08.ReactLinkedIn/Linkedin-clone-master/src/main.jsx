@@ -9,8 +9,8 @@ import "react-quill/dist/quill.snow.css";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
-    <RouterProvider router={router} />
-    <ToastContainer />
-  </>
+    <>
+        <RouterProvider router={router} />
+        <ToastContainer />
+    </>
 );

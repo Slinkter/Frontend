@@ -6,24 +6,24 @@ import ProfileLayout from "../layouts/ProfileLayout";
 import ConnectionLayout from "../layouts/ConnectionLayout";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/home",
-    element: <HomeLayout />,
-  },
-  {
-    path: "/profile",
-    element: <ProfileLayout />,
-  },
-  {
-    path: "/connections",
-    element: <ConnectionLayout />,
-  },
+    {
+        path: "/",
+        element: <Login />,
+    },
+    {
+        path: "/register",
+        element: <Register />,
+    },
+    {
+        path: "/home",
+        element: <HomeLayout />,
+    },
+    {
+        path: "/profile",
+        element: <ProfileLayout />,
+    },
+    {
+        path: "/connections",
+        element: <ConnectionLayout />,
+    },
 ]);
