@@ -32,13 +32,14 @@ const AuthLayout = () => {
 
     const logout = () => {
         setUser(null);
-        goTo("/logout");
+        alert("usted ha salido");
+        goTo("/");
     };
 
     return (
         <AuthContext.Provider value={{ user, login, logout }}>
             <StickyNavbar />
-            <div className="border-8 border-purple-500 h-dvh container mx-auto ">
+            <div className="border-2 border-purple-500 h-dvh container mx-auto flex flex-col justify-center items-center">
                 <Outlet /> {/* Outlet para renderizar rutas hijas */}
             </div>
             <div>footer</div>

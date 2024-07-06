@@ -20,24 +20,13 @@ const LogoutPage = () => {
         <>
             <div className="flex justify-center items-center flex-col ">
                 <Typography variant="h1">Logout</Typography>
-
                 <Typography color="gray" className="mt-1 font-normal">
-                    Desea salir?
+                    ¿ Desea salir ?
                 </Typography>
-
-                <form className="mt-8 mb-2 w-full sm:w-96 ">
-                    <Button className="mt-6" fullWidth>
-                        sign up
+                <form className="mt-1 mb-2 w-full sm:w-96 ">
+                    <Button className="mt-6" fullWidth onClick={logout}>
+                        Salir
                     </Button>
-                    <Typography
-                        color="gray"
-                        className="mt-4 text-center font-normal"
-                    >
-                        Already have an account?{" "}
-                        <a href="#" className="font-medium text-gray-900">
-                            Sign In
-                        </a>
-                    </Typography>
                 </form>
             </div>
         </>
