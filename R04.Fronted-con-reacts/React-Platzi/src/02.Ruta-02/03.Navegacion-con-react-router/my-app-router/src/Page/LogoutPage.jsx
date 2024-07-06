@@ -1,12 +1,5 @@
-import React from "react";
 import { useAuth } from "../Layout/AuthLayout";
-import {
-    Button,
-    Card,
-    Checkbox,
-    Input,
-    Typography,
-} from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 
 const LogoutPage = () => {
     const auth = useAuth();

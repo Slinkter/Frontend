@@ -1,11 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "../Page/HomePage";
 import ErrorPage from "../Page/ErrorPage";
-import AuthLayout from "../Layout/AuthLayout";
+import AuthLayout, { AuthRoute } from "../Layout/AuthLayout";
 import ProfilePage from "../Page/ProfilePage";
 import LoginPage from "../Page/LoginPage";
 import BlogPost from "../Page/BlogPost";
 import LogoutPage from "../Page/LogoutPage";
+import BlogPage from "../Page/BlogPage";
 
 const router = createBrowserRouter([
     {
@@ -16,16 +17,24 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage />,
+            },
+            {
+                path: "/blog",
+                element: <BlogPage />,
                 children: [
                     {
-                        path: "blogpost",
+                        path: ":slug",
                         element: <BlogPost />,
                     },
                 ],
             },
             {
                 path: "/profile",
-                element: <ProfilePage />,
+                element: (
+                    <AuthRoute>
+                        <ProfilePage />
+                    </AuthRoute>
+                ),
             },
             {
                 path: "/login",

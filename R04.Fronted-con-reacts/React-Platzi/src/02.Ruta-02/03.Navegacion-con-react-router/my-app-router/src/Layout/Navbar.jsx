@@ -6,9 +6,13 @@ import {
     Button,
     IconButton,
 } from "@material-tailwind/react";
+import { NavLink } from "react-router-dom";
+import autoprefixer from "autoprefixer";
+import { useAuth } from "./AuthLayout";
 
 export function StickyNavbar() {
     const [openNav, setOpenNav] = React.useState(false);
+    const auth = useAuth();
 
     React.useEffect(() => {
         window.addEventListener(
@@ -20,82 +24,85 @@ export function StickyNavbar() {
     const styleNavList =
         "mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6";
 
+    const routes = [];
+    const r1 = {
+        to: "/",
+        text: "Home",
+        private: false,
+    };
+    const r2 = {
+        to: "/blog",
+        text: "Blog",
+        private: false,
+    };
+    const r3 = {
+        to: "/profile",
+        text: "Profile",
+        private: true,
+    };
+    const r4 = {
+        to: "/login",
+        text: "Login",
+        private: false,
+        publicOnly: true,
+    };
+    const r5 = {
+        to: "/logout",
+        text: "Logout",
+        private: true,
+    };
+
+    routes.push(r1); // home
+    routes.push(r2); // blog
+    routes.push(r3); // profile
+    routes.push(r4); // login
+    routes.push(r5); // logout
+    const navLinkStyle = ({ isActive }) => ({
+        color: isActive ? "red" : "blue",
+    });
+
     const navList = (
         <ul className={styleNavList}>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Pages
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Account
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Blocks
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Docs
-                </a>
-            </Typography>
+            {routes.map((r) => {
+                if (r.publicOnly && auth.user) return null;
+                if (r.private && !auth.user) return null;
+                return (
+                    <Typography
+                        as="li"
+                        variant="small"
+                        color="blue-gray"
+                        className="p-1 font-normal"
+                        key={r.text}
+                    >
+                        <NavLink
+                            to={r.to}
+                            className="flex items-center"
+                            style={navLinkStyle}
+                        >
+                            {r.text}
+                        </NavLink>
+                    </Typography>
+                );
+            })}
         </ul>
     );
 
     return (
         <>
             <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
-                <div className="flex items-center justify-between text-blue-gray-900 border-2 border-red-900">
+                <div className="flex items-center justify-between text-blue-gray-900 ">
                     <Typography
                         as="a"
                         href="#"
                         className="mr-4 cursor-pointer py-1.5 font-medium"
                     >
-                        Material Tailwind
+                        Empresa
                     </Typography>
-                    <div className="flex items-center gap-4 border-2 border-purple-400">
-                        <div className="mr-4 hidden lg:block border-2 border-orange-400">
+                    <div className="flex items-center gap-4">
+                        <div className="mr-4 hidden lg:block border-2 ">
                             {navList}
                         </div>
-                        <div className="flex items-center gap-x-1 border-2 border-green-400">
-                            <Button
-                                variant="text"
-                                size="sm"
-                                className="hidden lg:inline-block"
-                            >
-                                <span>Log In</span>
-                            </Button>
-                            <Button
-                                variant="gradient"
-                                size="sm"
-                                className="hidden lg:inline-block"
-                            >
-                                <span>Sign in</span>
-                            </Button>
-                        </div>
+
                         <IconButton
                             variant="text"
                             className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -135,22 +142,7 @@ export function StickyNavbar() {
                         </IconButton>
                     </div>
                 </div>
-                <MobileNav open={openNav}>
-                    {navList}
-                    <div className="flex items-center gap-x-1">
-                        <Button fullWidth variant="text" size="sm" className="">
-                            <span>Log In 2</span>
-                        </Button>
-                        <Button
-                            fullWidth
-                            variant="gradient"
-                            size="sm"
-                            className=""
-                        >
-                            <span>Sign in 2</span>
-                        </Button>
-                    </div>
-                </MobileNav>
+                <MobileNav open={openNav}>{navList}</MobileNav>
             </Navbar>
         </>
     );

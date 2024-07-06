@@ -8,7 +8,7 @@ const AuthContext = createContext();
 function AuthRoute({ children }) {
     const auth = useContext(AuthContext);
     if (!auth.user) {
-        return <Navigate to="/profile" />;
+        return <Navigate to="/login" />;
     }
     return children;
 }
@@ -27,7 +27,7 @@ const AuthLayout = () => {
         const isAdmin = adminList.find((person) => person === username);
         const userLogin = { username, isAdmin };
         setUser(userLogin);
-        goTo("/login");
+        goTo("/profile");
     };
 
     const logout = () => {
