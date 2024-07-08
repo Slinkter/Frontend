@@ -29,7 +29,7 @@ function HomePage() {
         stateUpdaters;
 
     return (
-        <React.Fragment>
+        <>
             <TodoHeader loading={loading}>
                 <TodoCounter
                     totalTodos={totalTodos}
@@ -47,6 +47,7 @@ function HomePage() {
                 totalTodos={totalTodos}
                 searchedTodos={searchedTodos}
                 searchText={searchValue}
+                /*  */
                 onError={() => <TodosError />}
                 onLoading={() => <TodosLoading />}
                 onEmptyTodos={() => <EmptyTodos />}
@@ -71,7 +72,7 @@ function HomePage() {
             <CreateTodoButton onclick={() => navigate("/new")} />
 
             <ChangeAlert sincronize={sincronizeTodos} />
-        </React.Fragment>
+        </>
     );
 }
 
