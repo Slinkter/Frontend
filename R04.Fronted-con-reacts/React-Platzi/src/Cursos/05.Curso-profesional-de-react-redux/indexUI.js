@@ -13,9 +13,9 @@ const store = createStore(reducer, state, componse);
 console.log(store);
 //
 const ProviderStore = (
-  <Provider store={store}>
-    <App />
-  </Provider>
+    <Provider store={store}>
+        <App />
+    </Provider>
 );
 
 export default ProviderStore;
