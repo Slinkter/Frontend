@@ -6,10 +6,10 @@ import ProductApp from "./Producto/ProductApp";
 function App() {
     return (
         <div>
-            {/* <CounterReducer /> */}
+            {<CounterReducer />}
             {/* <CounterApp /> */}
             {/* <TodoApp /> */}
-            {<ProductApp />}
+            {/* <ProductApp /> */}
             {/* <Store /> */}
         </div>
     );

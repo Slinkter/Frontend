@@ -1,8 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const WindowResize = () => {
-    document.title = "Hook - useEffect";
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     // component 1
