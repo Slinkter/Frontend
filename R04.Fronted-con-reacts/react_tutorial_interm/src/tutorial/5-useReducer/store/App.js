@@ -1,5 +1,5 @@
 import MyComponent from "./components/MyComponent.jsx";
-import StoreProvider from "./store/StoreProvider";
+import StoreProvider from "./store/StoreProvider.js";
 
 function App() {
     return (

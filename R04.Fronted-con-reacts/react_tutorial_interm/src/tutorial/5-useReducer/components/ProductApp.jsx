@@ -1,19 +1,14 @@
 import React from "react";
 import { useReducer } from "react";
-import { types } from "./ProductTypes";
-import { initialState } from "./ProductDb";
-import { productReducer } from "./ProductReducer";
+
+import { productReducer } from "./Producto/ProductReducer";
+import { initialState } from "./Producto/ProductDb";
+import { types } from "./Producto/ProductTypes";
 
 const ProductApp = () => {
     //
     const [state, dispatch] = useReducer(productReducer, initialState);
     const { products, cart, activeProduct } = state;
-
-    const handleShowPreviewProduct = (product) =>
-        dispatch({
-            type: types.productShow,
-            payload: product,
-        });
 
     const handleBtnAdd = (product) =>
         dispatch({
@@ -33,10 +28,15 @@ const ProductApp = () => {
             payload: id,
         });
 
+    const handleShowPreviewProduct = (product) =>
+        dispatch({
+            type: types.productShow,
+            payload: product,
+        });
+
     return (
         <div className="container">
             <h2 className="display-2">Product</h2>
-
             <ul>
                 {products.map((product) => (
                     <li key={product.id} className="">
@@ -56,7 +56,8 @@ const ProductApp = () => {
                     </li>
                 ))}
             </ul>
-            <h3 className="display-3">cart</h3>
+            <br />
+            <h2 className="display-3">cart</h2>
             <ul>
                 {cart.map((product) => (
                     <li key={product.id}>
@@ -77,6 +78,7 @@ const ProductApp = () => {
                     </li>
                 ))}
             </ul>
+            <br />
             <h3 className="display-3">preview</h3>
             <p>{activeProduct.title}</p>
         </div>

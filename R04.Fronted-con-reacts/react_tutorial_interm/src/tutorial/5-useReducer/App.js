@@ -1,7 +1,7 @@
 import CounterApp from "./components/CounterApp";
 import CounterReducer from "./components/CounterReducer";
 import TodoApp from "./components/TodoApp";
-import ProductApp from "./Producto/ProductApp";
+import ProductApp from "./components/ProductApp";
 
 function App() {
     return (
