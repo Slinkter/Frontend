@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+@layer base {
+    html {
+        @apply bg-slate-500;
+        @apply text-white;
+        @apply text-white;
+        font-family: "Roboto", sans-serif;
+        color: green;
+    }
+    h1 {
+        @apply bg-cyan-500 text-6xl;
+        @apply text-red-700;
+    }
+
+    h2 {
+        @apply bg-green-700 text-2xl;
+        @apply text-red-700;
+    }
+    h3 {
+        @apply bg-blue-700 text-xl;
+        @apply text-red-700;
+    }
+
+    p {
+        @apply bg-cyan-500;
+        @apply text-red-700;
+        @apply text-2xl;
+        font-family: "Gloria Hallelujah", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @layer components {
+        .container-img {
+            @apply w-full h-64 md:w-64 object-cover blur-sm hover:blur-none hover:scale-105 hover:rounded-lg hover:h-max  delay-150 duration-300  overflow-hidden hover:overflow-hidden;
+        }
+        .container-btn {
+            @apply animate-bounce  transition delay-100 duration-100  px-3 py-2 rounded-lg  cursor-pointer bg-cyan-500 shadow-md shadow-cyan-500/50 text-white;
+        }
+        .container-border {
+            @apply inline-block p-4 text-black bg-white border rounded-lg shadow-md hover:shadow-cyan-500;
+        }
+    }
+}
+ */
