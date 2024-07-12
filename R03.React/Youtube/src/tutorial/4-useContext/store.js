@@ -5,9 +5,9 @@ const MyContextStore = createContext();
 //Contenador Componentes
 const ThemeComponent = ({ children }) => {
     const [session, setSession] = useState(initialState.session);
-    const values = { session, setSession };
+    const props = { session, setSession };
     return (
-        <MyContextStore.Provider value={values}>
+        <MyContextStore.Provider value={props}>
             {children}
         </MyContextStore.Provider>
     );

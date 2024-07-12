@@ -2,21 +2,21 @@ import React from "react";
 import { data } from "../../../../db/data";
 // create context
 const PersonContext = React.createContext();
-// Combine context and funciones
+// Combine  funciones and context
 const ContextAPI = () => {
     // hook
     const [people, setPeople] = React.useState(data);
-    // func-remove
-    const removePerson = (id) => {
+    //
+    function removePerson(id) {
         setPeople((people) => {
             return people.filter((person) => person.id !== id);
         });
-    };
+    }
     //
-    const propValue = { people, removePerson };
-    // render
+    const props = { people, removePerson };
+    //
     return (
-        <PersonContext.Provider value={propValue}>
+        <PersonContext.Provider value={props}>
             <h3> CreateContext - Hook useContext</h3>
             <List />
         </PersonContext.Provider>
