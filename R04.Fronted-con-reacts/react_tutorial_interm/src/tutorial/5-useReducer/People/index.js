@@ -1,13 +1,13 @@
 import React, { useState, useReducer } from "react";
-import { reducer, defaultState, types } from "./reducer";
+import { reducer, defaultState, types } from "./tools";
 import Modal from "./Modal";
 
 const Index = () => {
     // Hooks
-    const [state, dispatch] = useReducer(reducer, defaultState);
     const [name, setName] = useState("");
-    // buttons
-    const handleSubmit = (e) => {
+    const [state, dispatch] = useReducer(reducer, defaultState);
+
+    const handleAddItem = (e) => {
         e.preventDefault();
         if (name) {
             const newItem = { id: new Date().getTime().toString(), name };
@@ -17,23 +17,22 @@ const Index = () => {
             dispatch({ type: types.noValue, payload: null });
         }
     };
-    // buttons
+
     const handleDeleteItem = (person) => {
         dispatch({
             type: types.removeItem,
             payload: person.id,
         });
     };
-    // buttons
+
     const closeModal = () => {
         dispatch({ type: types.closeModal, payload: null });
     };
-    // factorizar
 
+    // factorizar
     return (
         <>
-            {/* -------------------------------------------- */}
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={handleAddItem} className="form">
                 <label htmlFor=""> name:</label>
                 <input
                     type="text"
@@ -42,7 +41,7 @@ const Index = () => {
                 />
                 <button type="submit">add </button>
             </form>
-            {/* -------------------------------------------- */}
+
             {state.people.map((person) => {
                 return (
                     <div className="item" key={person.id}>
@@ -53,14 +52,13 @@ const Index = () => {
                     </div>
                 );
             })}
-            {/* -------------------------------------------- */}
+
             {state.isModalOpen && (
                 <Modal
                     modalContent={state.modalContent}
                     closeModal={closeModal}
                 />
             )}
-            {/* -------------------------------------------- */}
         </>
     );
 };

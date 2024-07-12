@@ -1,28 +1,15 @@
-const types = {
-    addItem: "ADD_ITEM",
-    noValue: "NO_VALUE",
-    closeModal: "CLOSE_MODAL",
-    removeItem: "REMOVE_ITEM",
-};
-
-const defaultState = {
-    people: [],
-    isModalOpen: false,
-    modalContent: "",
-};
-
 const reducer = (state, action) => {
     switch (action.type) {
         //------------------------->
         case types.addItem: {
             const newPeople = [...state.people, action.payload]; // action.payload =   array
-            const updateState = {
+            const newState = {
                 ...state,
                 people: newPeople,
                 isModalOpen: true,
                 modalContent: "item added",
             };
-            return updateState;
+            return newState;
         }
         //------------------------->
         case types.noValue: {
@@ -60,5 +47,17 @@ const reducer = (state, action) => {
             return state;
     }
 };
+const defaultState = {
+    people: [],
+    isModalOpen: false,
+    modalContent: "",
+};
 
-export { types, defaultState, reducer };
+const types = {
+    addItem: "ADD_ITEM",
+    noValue: "NO_VALUE",
+    closeModal: "CLOSE_MODAL",
+    removeItem: "REMOVE_ITEM",
+};
+
+export { reducer, defaultState, types };

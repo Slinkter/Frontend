@@ -61,7 +61,7 @@ const ProductApp = () => {
             <ul>
                 {cart.map((product) => (
                     <li key={product.id}>
-                        {product.title}
+                        <h1> {product.title}</h1>
                         <button
                             className="btn btn-warning m-1"
                             onClick={() => handleBtnDelete(product.id)}

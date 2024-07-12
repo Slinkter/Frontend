@@ -1,6 +1,6 @@
 import React from "react";
 import reducer from "./reducer";
-import { data } from "../../../../db/data";
+import { data } from "../../../db/data";
 import { CLEAR_LIST, RESET_LIST, REMOVE_ITEM } from "./action";
 
 const initialState = {
