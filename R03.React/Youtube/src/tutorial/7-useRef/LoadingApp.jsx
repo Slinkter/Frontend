@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "./Card";
+import Card from "./Loading/Card";
 
 const LoadingApp = () => {
     const [showBtn, setShowBtn] = useState(true);

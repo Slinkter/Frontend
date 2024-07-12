@@ -3,8 +3,8 @@ import { StoreContext, useDispatch, useStore } from "../store/StoreProvider";
 import { types } from "../store/StoreReducer";
 
 const MyComponent = () => {
-    /* const [store, dispatch] = useContext(StoreContext); */
-    /*   const { user, products } = store; */
+    // const [store, dispatch] = useContext(StoreContext);
+    // const { user, products } = store;
     const { user, products } = useStore();
     const dispatch = useDispatch();
 

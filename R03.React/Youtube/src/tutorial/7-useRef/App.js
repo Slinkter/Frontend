@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import CopyApp from "./CopyApp";
 import InputCounter from "./InputCounter";
-import LoadingApp from "./Loading/LoadingApp";
+import LoadingApp from "./LoadingApp";
 import MediaPlayer from "./MediaPlayer";
 import Rendeapp from "./Rendeapp";
 import Scrollani from "./Scrollani";
