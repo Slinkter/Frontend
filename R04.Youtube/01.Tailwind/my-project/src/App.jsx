@@ -6,7 +6,7 @@ import Columns from "./components/Columns";
 const App = () => {
     return (
         <>
-            {/* <Cube /> */}
+            {/*   <Cube /> */}
             <Page />
             {/*   <System /> */}
             {/*  <Columns /> */}

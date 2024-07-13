@@ -5,13 +5,9 @@ const Page = () => {
     return (
         <div className="border-4 border-red-600   p-4   flex justify-center items-center h-screen ">
             <div className="container-border ">
-                <img
-                    className=" w-full h-64 md:w-64 object-cover blur-sm hover:blur-none hover:scale-105 hover:rounded-lg hover:h-max  delay-150 duration-300  overflow-hidden hover:overflow-hidden"
-                    src={urlimg}
-                    alt=""
-                />
+                <img className=" container-img " src={urlimg} alt="" />
                 <h1 className="text-2xl">Hello</h1>
-                <p className="mb-4 bg-[#1e8fc7] ">this is my div</p>
+                <p className="mb-4 bg-[#67abcd] ">this is my div</p>
                 <button className="container-btn ">Say Hello</button>
             </div>
         </div>

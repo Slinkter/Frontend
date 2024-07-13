@@ -20,32 +20,32 @@ import ScrollToTopAndBottm from "./components/scroll-to-top-bot";
 import ScrollToSection from "./components/scroll-to-section";
 
 const App = () => {
-  return (
-    <>
-      {/* <RandomColor /> */}
-      {/*   <ImageSlider
-        url={"https://picsum.photos/v2/list"}
-        page={"1"}
-        limit={"2"}
-      /> */}
+    return (
+        <>
+            {/*  <RandomColor /> */}
+            {/*  <ImageSlider
+                url={"https://picsum.photos/v2/list"}
+                page={"1"}
+                limit={"10"}
+            /> */}
 
-      {/* <LoadMoreData /> */}
-      {/* <QrGenerator /> */}
-      {/* <LigthDarkMode /> */}
-      {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-      {/* {<TabTest />} */}
-      {/* <ModalTest /> */}
-      {/* <GithubProfileFinder /> */}
-      {/* <SearchAutoComplete /> */}
-      {/* <UseFetchHookTest /> */}
-      {/* <ScrollToTopAndBottm /> */}
-      {/* <ScrollToSection /> */}
-      {/* <StarRating noOfStarts={10} /> */}
-      {/* <TreeView menus={menus} /> */}
-      {/* <TicTacToe /> */}
-      {/* <UseWindowsResizeTest /> */}
-    </>
-  );
+            <LoadMoreData />
+            {/* <QrGenerator /> */}
+            {/* <LigthDarkMode /> */}
+            {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
+            {/*  {<TabTest />} */}
+            {/* <ModalTest /> */}
+            {/*  <GithubProfileFinder /> */}
+            {/* <SearchAutoComplete /> */}
+            {/*  <UseFetchHookTest /> */}
+            {/* <ScrollToTopAndBottm /> */}
+            {/* <ScrollToSection /> */}
+            {/* <StarRating noOfStarts={10} /> */}
+            {/*    <TreeView menus={menus} /> */}
+            {/* <TicTacToe /> */}
+            {/* <UseWindowsResizeTest /> */}
+        </>
+    );
 };
 
 export default App;
