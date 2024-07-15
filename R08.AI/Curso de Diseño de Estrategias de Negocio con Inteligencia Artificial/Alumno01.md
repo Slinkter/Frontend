@@ -4,28 +4,28 @@ Guia para proyectos de IA
 
 # **Impacto de la Inteligencia Artificial en los negocios**
 
-- El 68% de las iniciativas fallan por comunicación
+-   El 68% de las iniciativas fallan por comunicación
 
 Planificación mínima evita:
 
-- Desvíos presupuestarios inmensos
-- Pérdida de interés paulatina
-- Esfuerzos esporádicos que quedan en la nada
-- Fricciones entre equipos
-- Riesgos innecesarios
+-   Desvíos presupuestarios inmensos
+-   Pérdida de interés paulatina
+-   Esfuerzos esporádicos que quedan en la nada
+-   Fricciones entre equipos
+-   Riesgos innecesarios
 
 ---
 
 # **Las 8 dimensiones para planificar una estrategia en la era de la IA**
 
-- **Etapa 1** identificar áreas de oportunidad
-- **Etapa 2** Consideraciones previas
-- **Etapa 3** Selección de las tecnologías y herramientas a usar
-- **Etapa 4:** Elección del equipo en este proceso
-- **Etapa 5:** Viabilidad del proyecto (costos)
-- **Etapa 6:** Mitigación de riesgos
-- **Etapa 7:** Métricas de éxito
-- **Etapa 8:** Cultura de experimentación y aprendizaje constante
+-   **Etapa 1** identificar áreas de oportunidad
+-   **Etapa 2** Consideraciones previas
+-   **Etapa 3** Selección de las tecnologías y herramientas a usar
+-   **Etapa 4:** Elección del equipo en este proceso
+-   **Etapa 5:** Viabilidad del proyecto (costos)
+-   **Etapa 6:** Mitigación de riesgos
+-   **Etapa 7:** Métricas de éxito
+-   **Etapa 8:** Cultura de experimentación y aprendizaje constante
 
 **1. Identificar áreas de oportunidad**
 
@@ -121,63 +121,63 @@ En este panorama, podemos ver cómo desde diversas industrias, se están llevand
 
 # IA en experiencia del cliente
 
-- Entender a los clientes es de la cosas mas importantes, atender sus llamadas, sugerencias y complicaciones, cosas que un humano normal solo podrá atender unas 8 hrs diarias y no como una IA que lo hace las 24 hrs del día
-- Por esta iniciativa nacio [[Startup Vozy]] la cual automatiza los mensajes usando el tono de voz de las personas para poder dar una respuesta acorde
-- Tener disponibilidad inmediata para recibir “[[feedback]]” de nuestra empresa y que entienda el estado de animo al finalizar una llamada.
+-   Entender a los clientes es de la cosas mas importantes, atender sus llamadas, sugerencias y complicaciones, cosas que un humano normal solo podrá atender unas 8 hrs diarias y no como una IA que lo hace las 24 hrs del día
+-   Por esta iniciativa nacio [[Startup Vozy]] la cual automatiza los mensajes usando el tono de voz de las personas para poder dar una respuesta acorde
+-   Tener disponibilidad inmediata para recibir “[[feedback]]” de nuestra empresa y que entienda el estado de animo al finalizar una llamada.
 
-* Recomendaciones de productos afines que puedan ser de interés del cliente tal como entender al mismo.
-* Personalizar el contenido dependiendo de ciertas variables (cliente/país/ciudad/estación del año)
-* Traducción a tiempo real, permite llegar a mas clientes.
-* Segmentación de cliente según su perfil (actividad, edad, lugar)
-* Predicción de comportamiento de cliente según el estado de satisfacción.
-* Predicción de retención de clientes según su actividad ([[churn]])
-* Análisis de comentarios como se sienten los clientes con respecto al producto
+*   Recomendaciones de productos afines que puedan ser de interés del cliente tal como entender al mismo.
+*   Personalizar el contenido dependiendo de ciertas variables (cliente/país/ciudad/estación del año)
+*   Traducción a tiempo real, permite llegar a mas clientes.
+*   Segmentación de cliente según su perfil (actividad, edad, lugar)
+*   Predicción de comportamiento de cliente según el estado de satisfacción.
+*   Predicción de retención de clientes según su actividad ([[churn]])
+*   Análisis de comentarios como se sienten los clientes con respecto al producto
 
 # Identifica las áreas de oportunidad y valor generado por la IA
 
 **Oportunidades que nos abre la AI.**
 
-- Maximizar el valor de la AI.
-- Asegurar la alineación con los objetivos de la organización.
-- Ampliar la ventaja competitiva.
-- Analizar los procesos de negocio existentes.
-- Observar las tendencias de la industria y hacer [[benchmarking]] continuo.
-- Apoyarse en la comunidad.
+-   Maximizar el valor de la AI.
+-   Asegurar la alineación con los objetivos de la organización.
+-   Ampliar la ventaja competitiva.
+-   Analizar los procesos de negocio existentes.
+-   Observar las tendencias de la industria y hacer [[benchmarking]] continuo.
+-   Apoyarse en la comunidad.
 
 > Los objetivos de negocio no cambian pero la IA nos ayuda a alcanzarlos más rápido.
 
 Las 2 formas más comunes de obtener valor con la AI.
 
-- Optimización de las operaciones.
-  - Automatización de tareas repetitivas.
-  - Mejor eficiencia de asignación de recursos.
-  - Mejora en la cadena de suministros.
-- Creación de nuevos productos.
-  - Nuevas funcionalidades a los productos.
+-   Optimización de las operaciones.
+    -   Automatización de tareas repetitivas.
+    -   Mejor eficiencia de asignación de recursos.
+    -   Mejora en la cadena de suministros.
+-   Creación de nuevos productos.
+    -   Nuevas funcionalidades a los productos.
 
 > CREA VALOR PARA TUS USUARIOS
 
-- Usa los datos para identificar patrones y entender que es lo que necesitan y quieren tus usuarios.
-- Entender las expectativas de tus usuarios.
+-   Usa los datos para identificar patrones y entender que es lo que necesitan y quieren tus usuarios.
+-   Entender las expectativas de tus usuarios.
 
 # Consideraciones previas de datos en un proyecto de IA
 
-- Depende en gran medida de la calidad y cantidad de datos que introduzcamos en el modelo
-- En este punto es crucial comenzar a trabajar con alguien de la parte de ingeniería que nos haga el modelo
-- Para modelos de complejidad pequeña se necesita seguir la sig. regla para poder tener un resultado optimo en el análisis
+-   Depende en gran medida de la calidad y cantidad de datos que introduzcamos en el modelo
+-   En este punto es crucial comenzar a trabajar con alguien de la parte de ingeniería que nos haga el modelo
+-   Para modelos de complejidad pequeña se necesita seguir la sig. regla para poder tener un resultado optimo en el análisis
 
-      		![[Pasted image 20230925083300.png]]
+        		![[Pasted image 20230925083300.png]]
 
-- Tener en cuenta que la mayoría de los datos son falsos, no solamente por malicia del usuario, sino también por culpa de nuestro modelo, por lo que habrá que limpiar el formato
+-   Tener en cuenta que la mayoría de los datos son falsos, no solamente por malicia del usuario, sino también por culpa de nuestro modelo, por lo que habrá que limpiar el formato
 
 ## Las preguntas que debemos hacernos es
 
-- La calidad y cantidad de datos
-  - Cuales son los datos duplicados y faltantes
-  - Hay procesos confiables los intermedios por los cuales se capturan los datos
-  - Son representativo de lo que buscamos resolver
-- La disponibilidad de los datos
-  - Los datos están disponibles técnica y legalmente
+-   La calidad y cantidad de datos
+    -   Cuales son los datos duplicados y faltantes
+    -   Hay procesos confiables los intermedios por los cuales se capturan los datos
+    -   Son representativo de lo que buscamos resolver
+-   La disponibilidad de los datos
+    -   Los datos están disponibles técnica y legalmente
 
 # Elige las tecnologías para tu proyecto de IA
 
@@ -231,12 +231,12 @@ Para finalizar, vamos a entrar un poco en detalle en los los modelos de intelige
 
 Empezaremos examinando los criterios más importantes a la hora de seleccionar las herramientas de IA para tu proyecto.
 
-- **Compatibilidad con el modelo**: Dependiendo del modelo de IA que estés utilizando, algunas herramientas pueden ser más compatibles que otras. Tal es el caso de [[TensorFlow]] o [[PyTorch]], preferidos para trabajar con redes neuronales profundas, o DALI o MidJourney si estás generando imágenes a partir de texto.
-- **Facilidad de uso**: Si eres un principiante, querrás buscar herramientas con interfaces intuitivas y excelentes capacidades de depuración y visualización. La elección aquí dependerá en gran medida de las habilidades de tu equipo y su conocimiento del área.
-- **Soporte y comunidad**: Usar herramientas respaldadas por una robusta comunidad puede ser muy útil gracias a la abundancia de documentación, tutoriales y foros donde puedes obtener ayuda.
-- **Escalabilidad**: Si planeas entrenar modelos a gran escala o manejar grandes volúmenes de datos, necesitarás una herramienta capaz de gestionar eficientemente la computación paralela o distribuida.
-- **Costo**: Algunas herramientas son gratuitas y open-source, mientras que otras pueden tener costos asociados. Es esencial entender los gastos que conlleva un proyecto de IA.
-- **Integración**: Considera cómo la herramienta se integrará con tu sistema existente o con otras herramientas que planeas usar.
+-   **Compatibilidad con el modelo**: Dependiendo del modelo de IA que estés utilizando, algunas herramientas pueden ser más compatibles que otras. Tal es el caso de [[TensorFlow]] o [[PyTorch]], preferidos para trabajar con redes neuronales profundas, o DALI o MidJourney si estás generando imágenes a partir de texto.
+-   **Facilidad de uso**: Si eres un principiante, querrás buscar herramientas con interfaces intuitivas y excelentes capacidades de depuración y visualización. La elección aquí dependerá en gran medida de las habilidades de tu equipo y su conocimiento del área.
+-   **Soporte y comunidad**: Usar herramientas respaldadas por una robusta comunidad puede ser muy útil gracias a la abundancia de documentación, tutoriales y foros donde puedes obtener ayuda.
+-   **Escalabilidad**: Si planeas entrenar modelos a gran escala o manejar grandes volúmenes de datos, necesitarás una herramienta capaz de gestionar eficientemente la computación paralela o distribuida.
+-   **Costo**: Algunas herramientas son gratuitas y open-source, mientras que otras pueden tener costos asociados. Es esencial entender los gastos que conlleva un proyecto de IA.
+-   **Integración**: Considera cómo la herramienta se integrará con tu sistema existente o con otras herramientas que planeas usar.
 
 ## ¿Cómo seleccionar la herramienta correcta de IA para tu proyecto?
 
@@ -348,11 +348,11 @@ El costo de desarrollo de una solución de IA se determina por varios factores, 
 
 Además, estos costos pueden dividirse en dos categorías, según la metodología de trabajo que haya decidido el equipo:
 
-- **Costo fijo mensual asociado a un equipo de trabajo dedicado**, el cual es la opción recomendada para empresas que tienen los recursos para lanzar un proyecto de IA y trabajar de manera iterativa en el mismo.
+-   **Costo fijo mensual asociado a un equipo de trabajo dedicado**, el cual es la opción recomendada para empresas que tienen los recursos para lanzar un proyecto de IA y trabajar de manera iterativa en el mismo.
 
 Si se decide apostar por la tecnología IA, es beneficioso tener un "SQUAD" de profesionales multidisciplinarios dedicados a analizar y resolver el problema que presenta la implementación de la IA.
 
-- **Costo one-shot para la construcción de un MVP (Producto Mínimo Viable)**, que puede ser una opción adecuada para empresas que aún no tengan claro si esta implementación agrega valor y no quieren formar un equipo dedicado hasta no poder validar la propuesta.
+-   **Costo one-shot para la construcción de un MVP (Producto Mínimo Viable)**, que puede ser una opción adecuada para empresas que aún no tengan claro si esta implementación agrega valor y no quieren formar un equipo dedicado hasta no poder validar la propuesta.
 
 # ¿Cuáles son los costos de ejecución constantes?
 
@@ -376,8 +376,8 @@ Una vez determinados los costos, es relevante analizar la viabilidad y el retorn
 
 Este análisis puede llevarse a cabo de dos maneras:
 
-- **Sumando cada costo obtenido en cada etapa de forma directa**.
-- **Realizando ingeniería inversa**, definiendo primero qué presupuesto estás dispuesto a invertir para después entender si es suficiente para cubrir los costos de implementación.
+-   **Sumando cada costo obtenido en cada etapa de forma directa**.
+-   **Realizando ingeniería inversa**, definiendo primero qué presupuesto estás dispuesto a invertir para después entender si es suficiente para cubrir los costos de implementación.
 
 Finalmente, cabe recalcar que el diseño de un plan de escalado, las optimizaciones durante el desarrollo y controles de interacción con la IA son estrategias útiles para mantener el presupuesto bajo control, evitando costos sorpresivos y permitiendo a la organización adaptarse a cualquier imprevisto.
 
@@ -385,12 +385,12 @@ Finalmente, cabe recalcar que el diseño de un plan de escalado, las optimizacio
 
 Cuando piensas desarrollar una inteligencia artificial en el ambito de los negocios es importante tener en cuenta
 
-- Los derechos de autor o propiedad intelectual
-- Los términos de uso
-  - Que reglas define el uso de la tecnología y la política de los datos
-- La privacidad \* Es crucial tener su consentimiento y que sus datos sean anónimos
-  También es necesario cumplir con las regulaciones de protección de datos como el Reglamento General de Protección de Datos (RGPD) y la Ley General de Protecciones de Datos (LGPD) para asegurar la conformidad normativa en cada país y región.
-  Por lo tanto, la implementación de medidas sólidas de seguridad para proteger la información personal recopilada es buena praxis. Esto incluye el uso de sistemas de encriptación, la implementación de protocolos de seguridad y la adopción de buenas prácticas en el manejo de datos sensibles.
+-   Los derechos de autor o propiedad intelectual
+-   Los términos de uso
+    -   Que reglas define el uso de la tecnología y la política de los datos
+-   La privacidad \* Es crucial tener su consentimiento y que sus datos sean anónimos
+    También es necesario cumplir con las regulaciones de protección de datos como el Reglamento General de Protección de Datos (RGPD) y la Ley General de Protecciones de Datos (LGPD) para asegurar la conformidad normativa en cada país y región.
+    Por lo tanto, la implementación de medidas sólidas de seguridad para proteger la información personal recopilada es buena praxis. Esto incluye el uso de sistemas de encriptación, la implementación de protocolos de seguridad y la adopción de buenas prácticas en el manejo de datos sensibles.
 
 Los aspectos de propiedad intelectual, términos de uso y privacidad son esenciales para proteger los activos intangibles, garantizar la legalidad en el uso de la inteligencia artificial y salvaguardar la privacidad de los datos.
 Es esencial ==buscar asesoramiento legal== y profundizar en estas consideraciones, de acuerdo con las necesidades específicas y las regulaciones locales, para garantizar el éxito y la sostenibilidad de cualquier iniciativa basada en inteligencia artificial.
@@ -399,12 +399,12 @@ Es esencial ==buscar asesoramiento legal== y profundizar en estas consideracione
 
 # Propiedad intelectual en la era de IA
 
-- Investigación de Antecedentes.
-- Registro de los derechos de autor.
-- Identificación de aspectos patentables.
-- Consultar con expertos legales.
-- Acuerdos de confidencialidad.
-- Vigilancia de la competencia.
+-   Investigación de Antecedentes.
+-   Registro de los derechos de autor.
+-   Identificación de aspectos patentables.
+-   Consultar con expertos legales.
+-   Acuerdos de confidencialidad.
+-   Vigilancia de la competencia.
 
 Imagínate que tu equipo ha desarrollado una tecnología capaz de predecir tendencias de mercado con una precisión asombrosa. ¿No te gustaría proteger y aprovechar al máximo ese ingenio? Ahí es donde entra en juego la propiedad intelectual y se convierte en tu aliada. Como dato curioso, en los últimos años se sabe que las compañías con más patentes registradas son Tencent, Baidu, IBM, Samsung, Pingan y Microsoft.
 
@@ -441,9 +441,9 @@ Se establece que solo quien fue nombrado como inventor en una patente tiene dere
 
 **Si una inteligencia artificial realiza una invención sin intervención humana:**
 
-- ¿A quién o qué se le adjudica la invención y que pasaría con los derechos de la patente?
+-   ¿A quién o qué se le adjudica la invención y que pasaría con los derechos de la patente?
 
-- ¿Qué estrategias y modelos de negocios podrían aparecer con marcos legales diversos por país?
+-   ¿Qué estrategias y modelos de negocios podrían aparecer con marcos legales diversos por país?
 
 # Define mecanismos de seguridad para evitar vulnerabilidades en un proyecto de IA
 
@@ -596,9 +596,9 @@ La IA se combina con una variedad de herramientas y plataformas para ofrecer an�
 
 Herramientas como **Tableau, Power BI y Clicksense** utilizan técnicas de IA para analizar grandes volúmenes de datos y generar visualizaciones interactivas. Estas herramientas:
 
-- Permiten identificar patrones
-- Revelan tendencias en los datos
-- Desarrollan relaciones en los conjuntos de datos
+-   Permiten identificar patrones
+-   Revelan tendencias en los datos
+-   Desarrollan relaciones en los conjuntos de datos
 
 Todo esto facilita una mejor comprensión del rendimiento del negocio.
 
@@ -610,10 +610,10 @@ Los programas enfocados en inteligencia empresarial como **ThoughtSpot y Sisense
 
 El uso de asistentes virtuales de negocios como el Einstein Analytics de **Salesforce** puede ser una gran ayuda. Este asistente de negocio:
 
-- Proporciona métricas e información de negocios
-- Responde a preguntas
-- Ofrece análisis de datos
-- Assiste en toma de decisiones
+-   Proporciona métricas e información de negocios
+-   Responde a preguntas
+-   Ofrece análisis de datos
+-   Assiste en toma de decisiones
 
 ## ¿Cómo la inteligencia artificial ayuda con la automatización de procesos?
 
@@ -627,27 +627,27 @@ En resumen, la IA se está volviendo cada vez más integral en todos los aspecto
 
 \*_Análisis de datos y visualización_
 
-- [Tableau](https://www.tableau.com/)
-- [Power BI](https://powerbi.microsoft.com/es-es/)
-- [Qlik Sense](https://www.qlik.com/es-es/products/qlik-sense)
+-   [Tableau](https://www.tableau.com/)
+-   [Power BI](https://powerbi.microsoft.com/es-es/)
+-   [Qlik Sense](https://www.qlik.com/es-es/products/qlik-sense)
 
 **Inteligencia empresarial**
 
-- [ThoughtSpot](https://www.thoughtspot.com/)
-- [Sisense](https://www.sisense.com/)
+-   [ThoughtSpot](https://www.thoughtspot.com/)
+-   [Sisense](https://www.sisense.com/)
 
 **Asistentes virtuales de negocios**
 
-- [Salesforce Einstein Analytics](https://www.salesforce.com/mx/products/einstein-analytics/overview/)
+-   [Salesforce Einstein Analytics](https://www.salesforce.com/mx/products/einstein-analytics/overview/)
 
 \*\*RPA (Automatización de procesos empresariales)
 
-- [UiPath](https://www.uipath.com/)
-- [Automation Anywhere](https://www.automationanywhere.com/la)
+-   [UiPath](https://www.uipath.com/)
+-   [Automation Anywhere](https://www.automationanywhere.com/la)
 
 \*\*Inteligencia de mercado
 
-- [Gong](https://www.gong.io/)
+-   [Gong](https://www.gong.io/)
 
 # Crea una cultura de experimentación y aprendizaje continuo
 
@@ -713,16 +713,16 @@ Realiza encuestas o entrevistas para conocer las percepciones de los miembros de
 
 El seguimiento de estas métricas proporcionará una imagen valiosa de la cultura de aprendizaje y experimentación en tu equipo, lo que es fundamental para la mejora continua y la innovación en el lugar de trabajo.
 
-- Participación en actividades de aprendizaje
-  - Cursos de formación.
-  - Talleres.
-  - Conferencias.
-  - Sesiones de capacitación interna.
-- Retroalimentación y revisión de proyectos.
-- Experimentación y toma de riesgos.
-- Colaboración de conocimientos.
-- Aprendizaje autodirigido o proactivos.
-- Actitudes y percepciones.
+-   Participación en actividades de aprendizaje
+    -   Cursos de formación.
+    -   Talleres.
+    -   Conferencias.
+    -   Sesiones de capacitación interna.
+-   Retroalimentación y revisión de proyectos.
+-   Experimentación y toma de riesgos.
+-   Colaboración de conocimientos.
+-   Aprendizaje autodirigido o proactivos.
+-   Actitudes y percepciones.
 
 # Entrevista: Buenas prácticas en la ejecución de un proyecto con IA
 
@@ -742,17 +742,17 @@ La validación constante es un elemento crucial en este proceso. Debe fomentarse
 
 Para promover la innovación y el crecimiento dentro de un proyecto de IA, es vital seguir los siguientes puntos:
 
-- Crear espacios propicios para experimentar y probar.
-- Asegurar que los proyectos de IA se alineen con los indicadores clave de rendimiento (KPI) de la empresa.
-- Fomentar un constante feedback entre equipos.
+-   Crear espacios propicios para experimentar y probar.
+-   Asegurar que los proyectos de IA se alineen con los indicadores clave de rendimiento (KPI) de la empresa.
+-   Fomentar un constante feedback entre equipos.
 
 ### ¿Cómo gestionar la protección de datos en un proyecto de IA?
 
 Es crucial tomar en consideración que el manejo de datos en cualquier proyecto de IA debe ser sólido y seguro. Entre los aspectos a tener en cuenta se encuentran:
 
-- Garantizar el anonimato del usuario en todo momento.
-- Definir claramente para qué se van a utilizar los datos.
-- Identificar qué tipo de datos se poseen, ya sean sensibles, biométricos, genéricos, entre otros.
+-   Garantizar el anonimato del usuario en todo momento.
+-   Definir claramente para qué se van a utilizar los datos.
+-   Identificar qué tipo de datos se poseen, ya sean sensibles, biométricos, genéricos, entre otros.
 
 ### ¿Qué tecnologías se requieren para implementar la IA?
 
