@@ -6,7 +6,7 @@ const Index = () => {
     // Hooks
     const [name, setName] = useState("");
     const [state, dispatch] = useReducer(reducer, defaultState);
-
+    //
     const handleAddItem = (e) => {
         e.preventDefault();
         if (name) {

@@ -1,44 +1,37 @@
 import React from "react";
-import reducer from "./reducer";
-import { data } from "../../../db/data";
+import { reducer } from "./reducer";
+import { initialState } from "./state";
 import { CLEAR_LIST, RESET_LIST, REMOVE_ITEM } from "./action";
-
-const initialState = {
-    people: data,
-    isLoading: false,
-};
 
 const ReducerBasics = () => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
     const removeItem = (id) => {
-        dispatch({ type: REMOVE_ITEM, payload: { id } });
+        const exec = { type: REMOVE_ITEM, payload: { id } };
+        dispatch(exec);
     };
     const clearList = () => {
-        dispatch({ type: CLEAR_LIST });
+        const exec = { type: CLEAR_LIST };
+        dispatch(exec);
     };
     const resetList = () => {
-        dispatch({ type: RESET_LIST });
+        const exec = { type: RESET_LIST };
+        dispatch(exec);
     };
 
-    /* Render  */
     console.log(state);
-
+    /* Render  */
     return (
-        <div>
-            <h1>ReducerBasics</h1>
-            {/* ---------------------------------------------- */}
-            {state.people.map((person) => {
-                return (
-                    <div key={person.id} className="item">
-                        <h4>{person.name}</h4>
-                        <button onClick={() => removeItem(person.id)}>
-                            remove
-                        </button>
-                    </div>
-                );
-            })}
-            {/* ---------------------------------------------- */}
+        <>
+            <h1>Reducer Basics</h1>
+
+            {state.people.map(({ id, name }) => (
+                <div key={id} className="item">
+                    <h4>{name}</h4>
+                    <button onClick={() => removeItem(id)}>remove</button>
+                </div>
+            ))}
+
             {state.people.length < 1 ? (
                 <button
                     className="btn"
@@ -56,7 +49,7 @@ const ReducerBasics = () => {
                     clear
                 </button>
             )}
-        </div>
+        </>
     );
 };
 

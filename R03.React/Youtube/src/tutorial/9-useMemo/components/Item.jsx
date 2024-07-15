@@ -1,10 +1,9 @@
 import React, { memo, useEffect } from "react";
 
 const Item = memo(({ user, handleDeleteUser }) => {
-    useEffect(() => {});
     return (
         <li className="m-1">
-            {user.name}
+            <h1> {user.name} </h1>
             <button
                 className="btn btn-danger m-1"
                 onClick={() => handleDeleteUser(user.id)}
