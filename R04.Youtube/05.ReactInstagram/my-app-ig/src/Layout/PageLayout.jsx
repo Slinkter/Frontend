@@ -11,7 +11,7 @@ const PageLayout = ({ children }) => {
     const { pathname } = useLocation();
     const [authUser, loading] = useAuthState(auth);
     const canRenderSidebar = authUser && pathname !== "/auth";
-    const candRenderNav = !authUser && !loading && pathname !== "/auth";
+    const canRenderNavbar = !authUser && !loading && pathname !== "/auth";
     const checkIsUserIsAuth = !authUser && loading;
 
     if (checkIsUserIsAuth) {
@@ -20,31 +20,28 @@ const PageLayout = ({ children }) => {
 
     console.log("---".repeat(10));
     console.log("canRenderSidebar :", canRenderSidebar);
-    console.log("candRenderNav : ", candRenderNav);
+    console.log("candRenderNav : ", canRenderNavbar);
     document.title = "PageLayout" + " " + authUser?.email;
 
     return (
-        <>
-            <Flex flexDir={candRenderNav ? "column" : "row"}>
-                {canRenderSidebar ? (
-                    <Box w={{ base: "70px", md: "240px" }}>
-                        <Sidebar />
-                    </Box>
-                ) : null}
-                {candRenderNav ? (
-                    <Box>
-                        <Navbar />
-                    </Box>
-                ) : null}
-                <Box
-                    flex={1}
-                    w={{ base: "calc(100% -70px)", md: "calc(100% -240px)" }}
-                    mx={"auto"}
-                >
-                    {children}
+        <Flex flexDir={canRenderNavbar ? "column" : "row"}>
+            {/* Sidebar on the left if conditions are met */}
+            {canRenderSidebar ? (
+                <Box w={{ base: "70px", md: "240px" }}>
+                    <Sidebar />
                 </Box>
-            </Flex>
-        </>
+            ) : null}
+            {/* Navbar if conditions are met */}
+            {canRenderNavbar ? <Navbar /> : null}
+            {/* The main content of the page */}
+            <Box
+                flex={1}
+                w={{ base: "calc(100% - 70px)", md: "calc(100% - 240px)" }}
+                mx={"auto"}
+            >
+                {children}
+            </Box>
+        </Flex>
     );
 };
 
