@@ -9,7 +9,7 @@ import {
     useSignOut,
 } from "react-firebase-hooks/auth";
 import { auth } from "./firebase/firebase";
-import { signOut } from "firebase/auth";
+
 import HomePage from "./Pages/HomePage";
 import AuthPage from "./Pages/AuthPage";
 import ProfilePage from "./Pages/ProfilePage";
@@ -41,19 +41,16 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            authUser ? <HomePage /> : <Navigate to={"/auth"} />
+                            authUser ? <HomePage /> : <Navigate to="/auth" />
                         }
                     />
                     <Route
                         path="/auth"
-                        element={
-                            !authUser ? <AuthPage /> : <Navigate to={"/"} />
-                        }
+                        element={!authUser ? <AuthPage /> : <Navigate to="/" />}
                     />
                     <Route path="/:username" element={<ProfilePage />} />
                 </Routes>
             </PageLayout>
-
             {activeUser && activeUser.user.email}
             <br />
             <p style={{ textAlign: "left" }}>
