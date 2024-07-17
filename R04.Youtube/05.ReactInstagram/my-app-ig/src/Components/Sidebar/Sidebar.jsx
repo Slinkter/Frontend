@@ -1,13 +1,18 @@
 import { Box, Button, Flex, Link, Tooltip } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import { InstagramLogo, InstagramMobileLogo } from "../../assets/constants";
-
+import React from "react";
+import Home from "./SidebarItems/Home";
+import Search from "./SidebarItems/Search";
+import Notifications from "./SidebarItems/Notifications";
+import CreatePost from "./SidebarItems/CreatePost";
+import ProfileLink from "./SidebarItems/ProfileLink";
 import { BiLogOut } from "react-icons/bi";
-import useLogout from "../../hooks/useLogout";
-import SidebarItems from "./SidebarItems";
+import { Link as RouterLink } from "react-router-dom";
+import { InstagramLogo, InstagramMobileLogo } from "../../assets/Constantes";
+import useLogOut from "../../hooks/useLogout";
 
 const Sidebar = () => {
-    const { handleLogout, isLoggingOut } = useLogout();
+    const { handleLogout, isLoggingOut } = useLogOut();
+
     return (
         <Box
             height={"100vh"}
@@ -29,15 +34,27 @@ const Sidebar = () => {
                 >
                     <InstagramLogo />
                 </Link>
-                <Link>
+                <Link
+                    to={"/"}
+                    as={RouterLink}
+                    p={2}
+                    display={{ base: "block", md: "none" }}
+                    borderRadius={6}
+                    _hover={{
+                        bg: "whiteAlpha.200",
+                    }}
+                    w={10}
+                    cursor="pointer"
+                >
                     <InstagramMobileLogo />
                 </Link>
-                {/* SidebarItems */}
                 <Flex direction={"column"} gap={5} cursor={"pointer"}>
-                    <SidebarItems />
+                    <Home />
+                    <Search />
+                    <Notifications />
+                    <CreatePost />
+                    <ProfileLink />
                 </Flex>
-
-                {/* LOGOUT */}
                 <Tooltip
                     hasArrow
                     label={"Logout"}

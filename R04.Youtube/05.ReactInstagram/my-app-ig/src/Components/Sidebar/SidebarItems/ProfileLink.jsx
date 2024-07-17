@@ -1,8 +1,8 @@
-import { Box, Link, Tooltip } from "@chakra-ui/react";
+import { Avatar, Box, Link, Tooltip } from "@chakra-ui/react";
 import { AiFillHome } from "react-icons/ai";
 import { Link as RouterLink } from "react-router-dom";
 
-const Home = () => {
+const ProfileLink = () => {
     return (
         <Tooltip
             hasArrow
@@ -13,9 +13,9 @@ const Home = () => {
             display={{ base: "block", md: "none" }}
         >
             <Link
-                display={"flex"}
                 to={"/"}
                 as={RouterLink}
+                display={"flex"}
                 alignItems={"center"}
                 gap={4}
                 _hover={{ bg: "whiteAlpha.400" }}
@@ -24,11 +24,11 @@ const Home = () => {
                 w={{ base: 10, md: "full" }}
                 justifyContent={{ base: "center", md: "flex-start" }}
             >
-                <AiFillHome size={25} />
-                <Box display={{ base: "none", md: "block" }}>Home</Box>
+                <Avatar size={"sm"} src={""} />
+                <Box display={{ base: "none", md: "block" }}>Create</Box>
             </Link>
         </Tooltip>
     );
 };
 
-export default Home;
+export default ProfileLink;

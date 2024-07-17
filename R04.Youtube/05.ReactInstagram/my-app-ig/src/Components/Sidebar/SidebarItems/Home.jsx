@@ -13,9 +13,9 @@ const Home = () => {
             display={{ base: "block", md: "none" }}
         >
             <Link
-                display={"flex"}
                 to={"/"}
                 as={RouterLink}
+                display={"flex"}
                 alignItems={"center"}
                 gap={4}
                 _hover={{ bg: "whiteAlpha.400" }}
