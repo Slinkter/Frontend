@@ -6,13 +6,10 @@ const ScrollToSection = () => {
 
     function handleScrollToSection() {
         let position = ref.current.getBoundingClientRect().top;
-        //
         window.scrollTo({
             top: position,
             behavior: "smooth",
         });
-        console.log(ref);
-        console.log(position);
     }
 
     return (
