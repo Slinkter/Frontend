@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import defaultImage from "../../../assets/default-image.jpeg";
 //
-const Product = (props) => {
+const Product = ({ image, name, price }) => {
     //
-    const { image, name, price } = props;
     const url = image && image.url;
     //
     return (
@@ -28,6 +27,5 @@ Product.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
 };
-
 
 export default Product;

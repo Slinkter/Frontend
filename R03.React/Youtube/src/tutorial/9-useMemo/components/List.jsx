@@ -2,12 +2,6 @@ import React, { memo, useEffect } from "react";
 import Item from "./Item";
 
 const List = memo(({ users, handleDeleteUser }) => {
-    useEffect(() => {
-        /*   console.log("Component :List render"); */
-
-        return () => {};
-    });
-
     return (
         <ul>
             {users.map((user) => (

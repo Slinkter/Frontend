@@ -7,8 +7,13 @@ import {
     useSignInWithEmailAndPassword,
     useSignOut,
 } from "react-firebase-hooks/auth";
+<<<<<<< HEAD
+import { auth } from "./firebase/firebase";
+
+=======
 /*  */
 import PageLayout from "./Layout/PageLayout";
+>>>>>>> 119003f72fac86cf0c2aade014b8bc67ec64554b
 import HomePage from "./Pages/HomePage";
 import AuthPage from "./Pages/AuthPage";
 import ProfilePage from "./Pages/ProfilePage";
@@ -93,19 +98,16 @@ export default App;
                     <Route
                         path="/"
                         element={
-                            authUser ? <HomePage /> : <Navigate to={"/auth"} />
+                            authUser ? <HomePage /> : <Navigate to="/auth" />
                         }
                     />
                     <Route
                         path="/auth"
-                        element={
-                            !authUser ? <AuthPage /> : <Navigate to={"/"} />
-                        }
+                        element={!authUser ? <AuthPage /> : <Navigate to="/" />}
                     />
                     <Route path="/:username" element={<ProfilePage />} />
                 </Routes>
             </PageLayout>
-
             {activeUser && activeUser.user.email}
             <br />
             <p style={{ textAlign: "left" }}>

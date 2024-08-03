@@ -13,11 +13,10 @@ const initSearch = "";
 const initTextInput = "";
 
 const App = () => {
+    //
     const [users, setUsers] = useState(initUsers);
     const [search, setSearch] = useState(initSearch);
     const [textInput, setTextInput] = useState(initTextInput);
-
-    useEffect(() => {}, []);
 
     const filterUser = () =>
         users.filter((user) => {
@@ -25,10 +24,6 @@ const App = () => {
             const y = search.toLowerCase();
             return x.includes(y);
         });
-
-    // handleFilterUser es un arreglo que contiene los usuarios filtrados por el nombre en
-    // función del valor de search, y se actualizará solo cuando se modifique alguno de
-    // los estados users o search.
 
     const handleFilterUser = useMemo(filterUser, [users, search]);
 

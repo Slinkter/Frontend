@@ -1,6 +1,6 @@
 import React from "react";
 
-function git App() {
+function App() {
     return (
         <>
             <div className="container">hola</div>
