@@ -13,8 +13,7 @@ const Home = () => {
     const [isToggle, setIsToggle] = useState(false);
     const containerRef = useRef();
     const fetchMyEventsRef = useRef();
-    /*  */
-    fetchMyEventsRef.current = fetchEvents;
+
     const events = useMemo(
         () => data?._embedded?.events || [],
         [data?._embedded?.events]
@@ -32,7 +31,8 @@ const Home = () => {
         },
         [seachTerm, fetchEvents]
     );
-
+    /*  */
+    fetchMyEventsRef.current = fetchEvents;
     useEffect(() => {
         fetchMyEventsRef.current();
     }, []);
