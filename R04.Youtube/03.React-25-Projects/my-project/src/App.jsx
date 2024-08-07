@@ -22,12 +22,8 @@ import ScrollToSection from "./components/scroll-to-section";
 const App = () => {
     return (
         <>
-            {/*  <RandomColor /> */}
-            {/*  <ImageSlider
-                url={"https://picsum.photos/v2/list"}
-                page={"1"}
-                limit={"10"}
-            /> */}
+            {/*    <RandomColor /> */}
+            <ImageSlider />
 
             {/*  <LoadMoreData /> */}
             {/*    <QrGenerator /> */}

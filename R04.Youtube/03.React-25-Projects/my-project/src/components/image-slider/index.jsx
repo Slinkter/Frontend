@@ -3,7 +3,11 @@ import { useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "./index.css";
 
-const ImageSlider = ({ url, page, limit }) => {
+const url = "https://picsum.photos/v2/list";
+const page = "1";
+const limit = "10";
+
+const ImageSlider = () => {
     const [loading, setLoading] = useState(false); // boolean
     const [errorMsh, setErrorMsh] = useState(""); // string
     const [images, setImages] = useState([]); // [{},{},{},{},{},{},{},{}]
