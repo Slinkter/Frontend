@@ -1,11 +1,19 @@
 const System = () => {
     return (
-        <div className="h-screen  border-4 border-red-700">
-            <div className="container mx-auto px-5 h-1/5 grid grid-1 justify-center items-center border-2 border-green-700">
+        <div className=" h-dvh border-4 border-red-500 ">
+            <div className="container mx-auto p-5 h-2/5 grid grid-1 justify-center items-center border-4 border-green-400">
                 <div>
-                    <input placeholder="write something" />
+                    <input
+                        className="border-2 rounded-lg bg-white p-2 m-2"
+                        placeholder="write something"
+                    />
                     <input type="checkbox" id="checkbox" />
-                    <label htmlFor="checkbox">Checkbox</label>
+                    <label
+                        htmlFor="checkbox"
+                        className="text-blue-500 bg-slate-800"
+                    >
+                        Checkbox
+                    </label>
                 </div>
                 <div>
                     <button
@@ -24,7 +32,7 @@ const System = () => {
                     </select>
                 </div>
             </div>
-            <div className="whitespace-pre-line container mx-auto px-5 h-1/5  border-2 border-gray-700">
+            <div className="whitespace-pre-line container mx-auto p-5 h-3/5  border-2 border-gray-700">
                 <h1 className=""> Title 1 </h1>
                 <h2 className=""> Title 2 </h2>
                 <h3 className=""> Title 3 </h3>

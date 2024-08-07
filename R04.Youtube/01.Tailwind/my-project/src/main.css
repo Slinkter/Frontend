@@ -7,15 +7,13 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        @apply bg-slate-500;
-        @apply text-white;
-        @apply text-white;
+    * {
+        @apply bg-slate-100;
+        @apply text-green-300;
         font-family: "Roboto", sans-serif;
-        color: green;
     }
     h1 {
-        @apply bg-cyan-500 text-6xl;
+        @apply bg-cyan-500 text-2xl;
         @apply text-red-700;
     }
 
