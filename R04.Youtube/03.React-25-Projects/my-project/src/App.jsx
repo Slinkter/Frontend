@@ -23,13 +23,11 @@ const App = () => {
     return (
         <>
             {/*    <RandomColor /> */}
-            <ImageSlider />
-
-            {/*  <LoadMoreData /> */}
-            {/*    <QrGenerator /> */}
-            {/*  <LigthDarkMode /> */}
-            {/*    <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-            {/*       {<TabTest />} */}
+            {/*  <ImageSlider /> */}
+            {/* <LoadMoreData /> */}
+            {/*   <LigthDarkMode /> */}
+            {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
+            {<TabTest />}
             {/* <ModalTest /> */}
             {/*    <GithubProfileFinder /> */}
             {/*  <SearchAutoComplete /> */}
@@ -40,6 +38,7 @@ const App = () => {
             {/*  <TreeView menus={menus} /> */}
             {/* <TicTacToe /> */}
             {/* <UseWindowsResizeTest /> */}
+            {/*     <QrGenerator /> */}
         </>
     );
 };

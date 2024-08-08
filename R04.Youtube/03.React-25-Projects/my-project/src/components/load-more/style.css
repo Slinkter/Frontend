@@ -1,4 +1,5 @@
 .container-load-more {
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,6 +9,7 @@
     margin: auto;
     padding: 20px;
     border: 2px solid grey;
+    border-radius: 8px;
 }
 
 .product-container {
@@ -17,7 +19,8 @@
 }
 .product {
     margin: 0;
-    border: 1px solid red;
+    border: 1px solid grey;
+    border-radius: 8px;
     padding: 20px;
 
     display: flex;

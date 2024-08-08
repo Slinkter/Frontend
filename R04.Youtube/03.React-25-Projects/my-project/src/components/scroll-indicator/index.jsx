@@ -25,9 +25,9 @@ const ScrollIndicator = ({ url }) => {
 
     function handleScrollPercentage() {
         //
-        const a = document.documentElement.scrollTop; // element scrolled : valor varbile = [0 , 4249]
-        const b = document.documentElement.clientHeight; // altura de la ventana  de navegador valor fijo = 909
-        const c = document.documentElement.scrollHeight; // altura total de html generado valor fijo = 5158
+        const a = window.document.documentElement.scrollTop; // element scrolled : valor varbile = [0 , 4249]
+        const b = window.document.documentElement.clientHeight; // altura de la ventana  de navegador valor fijo = 909
+        const c = window.document.documentElement.scrollHeight; // altura total de html generado valor fijo = 5158
         // 5158 - 909 = 4249
         // inicio =  (0 / (5158-909)*100)
         // fin = (4249/(5158-909)*100)
@@ -69,7 +69,7 @@ const ScrollIndicator = ({ url }) => {
             <div className="data-container">
                 {data && data.length > 0
                     ? data.map((item) => {
-                          return <p key={item.id}>{item.title}</p>;
+                          return <span key={item.id}>{item.title}</span>;
                       })
                     : null}
             </div>
