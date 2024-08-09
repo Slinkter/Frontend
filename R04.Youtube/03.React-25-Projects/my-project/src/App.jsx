@@ -29,8 +29,8 @@ const App = () => {
             {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
             {/*      {<TabTest />} */}
             {/*    <ModalTest /> */}
-            <GithubProfileFinder />
-            {/*  <SearchAutoComplete /> */}
+            {/*     <GithubProfileFinder /> */}
+            <SearchAutoComplete />
             {/*   <UseFetchHookTest /> */}
             {/*  <ScrollToTopAndBottm /> */}
             {/* <ScrollToSection /> */}
