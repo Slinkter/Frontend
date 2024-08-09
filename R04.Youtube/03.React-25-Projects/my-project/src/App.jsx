@@ -27,9 +27,9 @@ const App = () => {
             {/* <LoadMoreData /> */}
             {/*   <LigthDarkMode /> */}
             {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-            {<TabTest />}
-            {/* <ModalTest /> */}
-            {/*    <GithubProfileFinder /> */}
+            {/*      {<TabTest />} */}
+            {/*    <ModalTest /> */}
+            <GithubProfileFinder />
             {/*  <SearchAutoComplete /> */}
             {/*   <UseFetchHookTest /> */}
             {/*  <ScrollToTopAndBottm /> */}

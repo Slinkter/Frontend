@@ -3,6 +3,7 @@ import User from "./user";
 import "./styles.css";
 
 const GithubProfileFinder = () => {
+    /* hooks */
     const [loading, setLoading] = useState(true);
     const [userName, setUserName] = useState("slinkter");
     const [userData, setUserData] = useState(null);
@@ -26,6 +27,11 @@ const GithubProfileFinder = () => {
     }
 
     function handleSubmit() {
+        if (!userName || userName.trim() === "") {
+            alert("nombre vacio o invalido");
+            return;
+        }
+
         fetchGithubUserData();
     }
 

@@ -9,17 +9,19 @@ function RandomComponent() {
 const t1 = { label: "tab 1", content: <div>This is content for Tab 1</div> };
 const t2 = { label: "tab 2", content: <div>This is content for Tab 2</div> };
 const t3 = { label: "tab 3", content: <RandomComponent /> };
-
-const tabs = [t1, t2, t3];
+const ListTabs = [t1, t2, t3];
 
 const TabTest = () => {
+    /* FUNCION */
     function handleChange(currentTabIndex) {
         console.log(currentTabIndex);
     }
+
+    /* RENDER */
     return (
-        <div>
-            <Tabs tabsContent={tabs} onChange={handleChange} />
-        </div>
+        <>
+            <Tabs tabsContent={ListTabs} onChange={handleChange} />
+        </>
     );
 };
 
