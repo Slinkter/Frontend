@@ -3,12 +3,13 @@ import { useState } from "react";
 import "./style.css";
 
 const LoadMoreData = () => {
-    const [products, setProducts] = useState([]); // array
-    const [disableButton, setDisableButton] = useState(false); // boolean
     const [loading, setLoading] = useState(false); // boolean
     const [count, setCount] = useState(0); // number
+    const [products, setProducts] = useState([]); // array
+    const [disableButton, setDisableButton] = useState(false); // boolean
 
     async function fetchProducts() {
+        setLoading(true);
         try {
             const countSkip = count === 0 ? 0 : count * 20;
             const url_api = `https://dummyjson.com/products?limit=20&skip=${countSkip}`;
@@ -27,7 +28,9 @@ const LoadMoreData = () => {
     }
 
     useEffect(() => {
-        fetchProducts();
+        setTimeout(() => {
+            fetchProducts();
+        }, 1000);
     }, [count]);
 
     useEffect(() => {
@@ -37,9 +40,14 @@ const LoadMoreData = () => {
     }, [products]);
 
     if (loading) {
-        return <div>Loading data !!! please wait</div>;
+        return (
+            <div className="container-load-more" style={{ height: "100vh" }}>
+                Loading data !!! please wait
+            </div>
+        );
     }
     console.log(products);
+
     return (
         <div className="container-load-more">
             <div className="product-container">

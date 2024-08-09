@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "./index.css";
 
@@ -18,6 +17,8 @@ const ImageSlider = () => {
             setLoading(true);
             // url
             const url_api = `${url}?page=${page}}&limit=${limit}`;
+            console.log(url_api);
+
             // exec
             const res = await fetch(url_api);
             const data = await res.json();
@@ -27,7 +28,6 @@ const ImageSlider = () => {
                 setLoading(false);
             }
             console.log(data);
-            console.log(url_api);
         } catch (e) {
             setErrorMsh(e.message);
             setLoading(false);
@@ -35,7 +35,7 @@ const ImageSlider = () => {
     }
 
     function handlePreviews() {
-        const lastElemnt = images.length - 1; // si currentSlide es igual a 0 ---> ir al ultimo( [array].length -1) ,--> sino -1
+        const lastElemnt = images.length - 1;
         setCurrentSlide(currentSlide === 0 ? lastElemnt : currentSlide - 1);
     }
 
@@ -48,7 +48,7 @@ const ImageSlider = () => {
         if (url !== "") {
             fetchImages();
         }
-    }, [url]);
+    }, []);
 
     if (loading) {
         return <div className="container">Loading Data !!! please wait</div>;
