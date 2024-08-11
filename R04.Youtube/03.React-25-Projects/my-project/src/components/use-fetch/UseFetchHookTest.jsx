@@ -1,10 +1,14 @@
 import React from "react";
-import useFetch from ".";
+import useFetch from "./useFetch";
 
+const url_api = "https://dummyjson.com/products?limit=100";
+/*  */
 const UseFetchHookTest = () => {
-    const url_api = "https://dummyjson.com/products?limit=100";
+    /*  */
     const { data, error, pending } = useFetch(url_api);
+    /*  */
     console.log(data, error, pending);
+    /*  */
     return (
         <div
             style={{

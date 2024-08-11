@@ -5,10 +5,12 @@ import "./index.css";
 const SearchAutoComplete = () => {
     const [loading, setloading] = useState(false);
     const [error, setError] = useState(null);
+
     const [users, setUsers] = useState([]);
+    const [filteredUsers, setFilteredUsers] = useState([]);
+
     const [searchParam, setSearchParam] = useState("");
     const [showDropDown, setShowDropDown] = useState(false);
-    const [filteredUsers, setFilteredUsers] = useState([]);
 
     async function fetchListOfUsers() {
         try {
@@ -19,9 +21,10 @@ const SearchAutoComplete = () => {
             const data = await res.json();
             // -->
             if (data && data.users && data.users.length) {
-                const onlyNames = data.users.map((user) => user.firstName);
-                setUsers(onlyNames);
-                setFilteredUsers(onlyNames);
+                const names = data.users.map((user) => user.firstName);
+
+                setFilteredUsers(names);
+                setUsers(names);
                 setloading(false);
                 setError(null);
                 setShowDropDown(true);
@@ -37,7 +40,7 @@ const SearchAutoComplete = () => {
         setSearchParam(inputName);
         // -->
         if (!inputName) {
-            setFilteredUsers(users);
+            setFilteredUsers(users); // show list orignal
         } else {
             const filteredData =
                 users && users.length
@@ -51,7 +54,7 @@ const SearchAutoComplete = () => {
     }
 
     function handleClick() {
-        console.log("ok");
+        console.log("past function");
     }
 
     useEffect(() => {

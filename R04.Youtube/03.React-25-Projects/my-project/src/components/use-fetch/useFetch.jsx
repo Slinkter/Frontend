@@ -10,10 +10,11 @@ const useFetch = (url, options = {}) => {
         try {
             setPending(true);
             const res = await fetch(url, { ...options });
-            console.log("res ", res);
-            if (!res.ok) throw new Error(res.statusText);
             const data = await res.json();
+            /*  */
+            if (!res.ok) throw new Error(res.statusText);
             setData(data);
+            
             setError(null);
             setPending(false);
         } catch (error) {

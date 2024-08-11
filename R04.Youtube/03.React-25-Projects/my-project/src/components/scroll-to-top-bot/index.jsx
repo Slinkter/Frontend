@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import useFetch from "../use-fetch";
+import useFetch from "../use-fetch/useFetch";
 
 const ScrollToTopAndBottm = () => {
     const url_api = "https://dummyjson.com/products?limit=100";
