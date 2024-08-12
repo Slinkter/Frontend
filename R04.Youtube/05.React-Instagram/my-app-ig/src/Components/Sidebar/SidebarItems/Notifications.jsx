@@ -1,6 +1,6 @@
 import { Box, Flex, Tooltip } from "@chakra-ui/react";
 import React from "react";
-import { NotificationsLogo } from "../../../assets/Constantes";
+import { NotificationsLogo } from "../../../assets/LogoSVG";
 
 const Notifications = () => {
     return (

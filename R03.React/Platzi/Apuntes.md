@@ -1,17 +1,14 @@
 # Curso de React.js
 
-[Curso de React.js](https://platzi.com/cursos/react/)
-
-> Inicio: `03-09-2023`
-> Finalización: ``
+[Curso de React.js](https://google.com/cursos/react/)
 
 ## **1.** ¿Qué necesitas para aprender React.js?
 
-- Programación Básica
-- HTML y CSS
-- JavaScript
-- Git y GitHub
-- NPM
+-   Programación Básica
+-   HTML y CSS
+-   JavaScript
+-   Git y GitHub
+-   NPM
 
 ### Inicializar proyecto
 
@@ -57,10 +54,10 @@ Veamos como arranca nuestro proyecto:
 npm start
 ```
 
-- [Repo: Curso react intro](https://github.com/platzi/curso-react-intro)
-- [ReactWiki by: midudev](https://www.reactjs.wiki/)
-- [Proyecto Task tune](https://tasktune.netlify.app/)
-- [Repo Task tune](https://github.com/GersenX3/taskTune)
+-   [Repo: Curso react intro](https://github.com/platzi/curso-react-intro)
+-   [ReactWiki by: midudev](https://www.reactjs.wiki/)
+-   [Proyecto Task tune](https://tasktune.netlify.app/)
+-   [Repo Task tune](https://github.com/GersenX3/taskTune)
 
 ## 2. ¿Qué es un componente?
 
@@ -76,7 +73,7 @@ Aquí hay un ejemplo sencillo de un componente de función en React que muestra 
 import React from "react";
 
 function Saludo(props) {
-  return <h1>Hola, {props.nombre}!</h1>;
+    return <h1>Hola, {props.nombre}!</h1>;
 }
 
 export default Saludo;
@@ -89,12 +86,12 @@ import React from "react";
 import Saludo from "./Saludo";
 
 function App() {
-  return (
-    <div>
-      <Saludo nombre="Juan" />
-      <Saludo nombre="María" />
-    </div>
-  );
+    return (
+        <div>
+            <Saludo nombre="Juan" />
+            <Saludo nombre="María" />
+        </div>
+    );
 }
 
 export default App;
@@ -110,9 +107,9 @@ En este ejemplo, `Saludo` se utiliza como un componente dentro de `App` y se le 
 import React from "react";
 
 class MiComponente extends React.Component {
-  render() {
-    return <h1>Hola desde un componente de clase!</h1>;
-  }
+    render() {
+        return <h1>Hola desde un componente de clase!</h1>;
+    }
 }
 
 export default MiComponente;
@@ -124,7 +121,7 @@ export default MiComponente;
 import React from "react";
 
 function MiComponente() {
-  return <h1>Hola desde un componente de función!</h1>;
+    return <h1>Hola desde un componente de función!</h1>;
 }
 
 export default MiComponente;
@@ -150,14 +147,14 @@ Aquí hay un ejemplo sencillo de cómo se utiliza JSX en un componente de funci�
 import React from "react";
 
 function MiComponente() {
-  return (
-    <div>
-      {" "}
-      👈👀👇
-      <h1>Hola, mundo!</h1>
-      <p>Este es un ejemplo de JSX en React.</p>
-    </div>
-  );
+    return (
+        <div>
+            {" "}
+            👈👀👇
+            <h1>Hola, mundo!</h1>
+            <p>Este es un ejemplo de JSX en React.</p>
+        </div>
+    );
 }
 
 export default MiComponente;
@@ -178,9 +175,9 @@ import React from "react";
 
 // Componente 👀👇 con nombre en PascalCase
 class MyCustomComponent extends React.Component {
-  render() {
-    return <div>Hello, World!</div>;
-  }
+    render() {
+        return <div>Hello, World!</div>;
+    }
 }
 
 // Elemento JSX con nombre en minúsculas 👀👇
@@ -188,12 +185,12 @@ const myHtmlElement = <div>Hello, World!</div>;
 
 // Uso de componentes en React
 const App = () => {
-  return (
-    <div>
-      <MyCustomComponent />
-      {myHtmlElement}
-    </div>
-  );
+    return (
+        <div>
+            <MyCustomComponent />
+            {myHtmlElement}
+        </div>
+    );
 };
 ```
 
@@ -205,12 +202,12 @@ El archivo `package.json` es un archivo de configuración utilizado en proyectos
 
 Explicación breve del contenido del archivo `package.json`:
 
-- `"name"`: Es el nombre del proyecto, en este caso, "platzi-intro-react-base".
-- `"version"`: Es la versión actual del proyecto, en este caso, "0.1.0".
-- `"dependencies"`: Es un objeto que enumera las dependencias del proyecto junto con sus versiones. En este caso, las dependencias son "react", "react-dom", "react-scripts" y "web-vitals".
-- `"scripts"`: Es un objeto que define comandos de script que puedes ejecutar en el proyecto. En este caso, los scripts son "start", "build" y "eject", que están asociados a los comandos proporcionados por "react-scripts".
-- `"eslintConfig"`: Es un objeto que contiene la configuración de ESLint, una herramienta de linting de JavaScript. En este caso, se extiende la configuración "react-app" predefinida.
-- `"browserslist"`: Es un objeto que define la lista de navegadores a los que se dirige el proyecto en diferentes entornos (producción y desarrollo), lo cual es útil para la compatibilidad con los navegadores.
+-   `"name"`: Es el nombre del proyecto, en este caso, "platzi-intro-react-base".
+-   `"version"`: Es la versión actual del proyecto, en este caso, "0.1.0".
+-   `"dependencies"`: Es un objeto que enumera las dependencias del proyecto junto con sus versiones. En este caso, las dependencias son "react", "react-dom", "react-scripts" y "web-vitals".
+-   `"scripts"`: Es un objeto que define comandos de script que puedes ejecutar en el proyecto. En este caso, los scripts son "start", "build" y "eject", que están asociados a los comandos proporcionados por "react-scripts".
+-   `"eslintConfig"`: Es un objeto que contiene la configuración de ESLint, una herramienta de linting de JavaScript. En este caso, se extiende la configuración "react-app" predefinida.
+-   `"browserslist"`: Es un objeto que define la lista de navegadores a los que se dirige el proyecto en diferentes entornos (producción y desarrollo), lo cual es útil para la compatibilidad con los navegadores.
 
 El archivo `package.json` es importante porque permite gestionar las dependencias del proyecto, ejecutar scripts personalizados y proporciona información esencial sobre el proyecto en general.
 
@@ -250,13 +247,13 @@ Explicación del uso de cada una de estas carpetas:
 
 1. Carpeta "public":
 
-   La carpeta "public" contiene los archivos estáticos que se sirven directamente al navegador sin procesamiento por parte de React u otras herramientas de compilación. Algunos de los archivos comunes que se encuentran en esta carpeta son el archivo HTML principal, imágenes, fuentes, archivos de manifest para aplicaciones web progresivas, entre otros. Estos archivos están disponibles públicamente y son accesibles desde la raíz del dominio o subdirectorio donde se encuentra alojada la aplicación.
+    La carpeta "public" contiene los archivos estáticos que se sirven directamente al navegador sin procesamiento por parte de React u otras herramientas de compilación. Algunos de los archivos comunes que se encuentran en esta carpeta son el archivo HTML principal, imágenes, fuentes, archivos de manifest para aplicaciones web progresivas, entre otros. Estos archivos están disponibles públicamente y son accesibles desde la raíz del dominio o subdirectorio donde se encuentra alojada la aplicación.
 
 2. Carpeta "src":
 
-   La carpeta "src" es el corazón del proyecto de React y contiene la mayor parte del código fuente de la aplicación. Aquí se encuentran los componentes de React, estilos CSS, archivos JavaScript, imágenes y otros recursos utilizados en la construcción de la interfaz de usuario. La estructura interna de la carpeta "src" puede variar según las preferencias y la arquitectura del proyecto, pero generalmente se organiza en subcarpetas temáticas o basadas en características, como "components" (componentes reutilizables), "pages" (páginas de la aplicación), "styles" (estilos CSS), entre otros.
+    La carpeta "src" es el corazón del proyecto de React y contiene la mayor parte del código fuente de la aplicación. Aquí se encuentran los componentes de React, estilos CSS, archivos JavaScript, imágenes y otros recursos utilizados en la construcción de la interfaz de usuario. La estructura interna de la carpeta "src" puede variar según las preferencias y la arquitectura del proyecto, pero generalmente se organiza en subcarpetas temáticas o basadas en características, como "components" (componentes reutilizables), "pages" (páginas de la aplicación), "styles" (estilos CSS), entre otros.
 
-   Es importante destacar que la carpeta "src" es el punto de entrada para el proceso de compilación y construcción del proyecto. Las herramientas de construcción, como Webpack o Babel, toman el código fuente de la carpeta "src" y lo transforman en un bundle (paquete) optimizado y listo para ser servido en el navegador. Es en esta carpeta donde se realiza el desarrollo activo de la aplicación, escribiendo código, creando componentes y definiendo la lógica de la interfaz de usuario.
+    Es importante destacar que la carpeta "src" es el punto de entrada para el proceso de compilación y construcción del proyecto. Las herramientas de construcción, como Webpack o Babel, toman el código fuente de la carpeta "src" y lo transforman en un bundle (paquete) optimizado y listo para ser servido en el navegador. Es en esta carpeta donde se realiza el desarrollo activo de la aplicación, escribiendo código, creando componentes y definiendo la lógica de la interfaz de usuario.
 
 En resumen, la carpeta "public" contiene los archivos estáticos que se sirven directamente al navegador, mientras que la carpeta "src" alberga el código fuente de la aplicación de React, incluyendo componentes, estilos y otros recursos. Ambas carpetas tienen roles distintos pero complementarios en la estructura y construcción del proyecto de React.
 
@@ -291,38 +288,39 @@ import logo from "./platzi.webp";
 import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <TodoItem /> {/* 👈👀 */}
-      <TodoItem /> {/* 👈👀 */}
-      <TodoItem /> {/* 👈👀 */}
-      <TodoItem /> {/* 👈👀 */}
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <TodoItem /> {/* 👈👀 */}
+            <TodoItem /> {/* 👈👀 */}
+            <TodoItem /> {/* 👈👀 */}
+            <TodoItem /> {/* 👈👀 */}
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    Edita el archivo <code>src/App.js</code> y guarda para
+                    recargar.
+                </p>
+                <a
+                    className="App-link"
+                    href="https://platzi.com/reactjs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Learn React
+                </a>
+            </header>
+        </div>
+    );
 }
 
 function TodoItem() {
-  return (
-    <li>
-      <span>✔</span>
-      <p>Don't cry</p>
-      <span>❌</span>
-    </li>
-  );
+    return (
+        <li>
+            <span>✔</span>
+            <p>Don't cry</p>
+            <span>❌</span>
+        </li>
+    );
 }
 
 export default App;
@@ -393,33 +391,33 @@ En resumen, el código importa las bibliotecas necesarias, establece el punto de
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <!-- Define la codificación de caracteres del documento -->
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <!-- Enlace al ícono del sitio web -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Configuración de la vista en dispositivos móviles -->
-    <meta name="theme-color" content="#97ca3f" />
-    <!-- Define el color de tema de la aplicación -->
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!-- Descripción del sitio web -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/react192.png" />
-    <!-- Enlace al ícono de la aplicación en dispositivos Apple -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!-- Enlace al archivo de manifiesto de la aplicación web -->
-    <title>React App</title>
-    <!-- Título de la página web -->
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!-- Mensaje para navegadores sin JavaScript habilitado -->
-    <div id="root"></div>
-    <!-- Punto de montaje para la aplicación de React -->
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <!-- Define la codificación de caracteres del documento -->
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <!-- Enlace al ícono del sitio web -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Configuración de la vista en dispositivos móviles -->
+        <meta name="theme-color" content="#97ca3f" />
+        <!-- Define el color de tema de la aplicación -->
+        <meta
+            name="description"
+            content="Web site created using create-react-app"
+        />
+        <!-- Descripción del sitio web -->
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/react192.png" />
+        <!-- Enlace al ícono de la aplicación en dispositivos Apple -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <!-- Enlace al archivo de manifiesto de la aplicación web -->
+        <title>React App</title>
+        <!-- Título de la página web -->
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <!-- Mensaje para navegadores sin JavaScript habilitado -->
+        <div id="root"></div>
+        <!-- Punto de montaje para la aplicación de React -->
+    </body>
 </html>
 ```
 
@@ -468,13 +466,13 @@ Es importante tener en cuenta que al realizar web scraping, es fundamental respe
 
 ### Documentación oficial de React
 
-- [Documentación React](https://react.dev/)
-- [Documentación React Español](https://es.react.dev/)
+-   [Documentación React](https://react.dev/)
+-   [Documentación React Español](https://es.react.dev/)
 
 Complementos:
 
-- [Curso de React 2023 por midudev](https://youtu.be/7iobxzd_2wY)
-- [Aprende React Desde Cero - Curso de React Con Proyectos](https://www.youtube.com/watch?v=6Jfk8ic3KVk)
+-   [Curso de React 2023 por midudev](https://youtu.be/7iobxzd_2wY)
+-   [Aprende React Desde Cero - Curso de React Con Proyectos](https://www.youtube.com/watch?v=6Jfk8ic3KVk)
 
 ### Dato útil
 
@@ -525,7 +523,7 @@ Vamos a crear diferentes componentes, cada uno con su respectivo archivo, de tal
 
 ```js
 function TodoCounter() {
-  return <h1>Has completado 3 de 5 ToDos</h1>;
+    return <h1>Has completado 3 de 5 ToDos</h1>;
 }
 
 export { TodoCounter };
@@ -535,7 +533,7 @@ export { TodoCounter };
 
 ```js
 function TodoSearch() {
-  return <input placeholder="Lorem lorem lorem" />;
+    return <input placeholder="Lorem lorem lorem" />;
 }
 
 export { TodoSearch };
@@ -545,7 +543,7 @@ export { TodoSearch };
 
 ```js
 function TodoList(props) {
-  return <ul>{props.children}</ul>;
+    return <ul>{props.children}</ul>;
 }
 
 export { TodoList };
@@ -555,13 +553,13 @@ export { TodoList };
 
 ```js
 function TodoItem() {
-  return (
-    <li>
-      <span>✔</span>
-      <p>Don't cry</p>
-      <span>❌</span>
-    </li>
-  );
+    return (
+        <li>
+            <span>✔</span>
+            <p>Don't cry</p>
+            <span>❌</span>
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -571,7 +569,7 @@ export { TodoItem };
 
 ```js
 function TodoButton() {
-  return <button>❤</button>;
+    return <button>❤</button>;
 }
 
 export { TodoButton };
@@ -589,20 +587,20 @@ import { TodoButton } from "./TodoButton";
 import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <TodoCounter />
-      <TodoSearch />
+    return (
+        <div className="App">
+            <TodoCounter />
+            <TodoSearch />
 
-      <TodoList>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-      </TodoList>
+            <TodoList>
+                <TodoItem />
+                <TodoItem />
+                <TodoItem />
+            </TodoList>
 
-      <TodoButton />
-    </div>
-  );
+            <TodoButton />
+        </div>
+    );
 }
 
 export default App;
@@ -624,14 +622,14 @@ import React from "react";
 import ComponenteHijo from "./ComponenteHijo";
 
 const ComponentePadre = () => {
-  const nombre = "Juan";
-  const edad = 25;
+    const nombre = "Juan";
+    const edad = 25;
 
-  return (
-    <div>
-      <ComponenteHijo nombre={nombre} edad={edad} />
-    </div>
-  );
+    return (
+        <div>
+            <ComponenteHijo nombre={nombre} edad={edad} />
+        </div>
+    );
 };
 
 export default ComponentePadre;
@@ -642,12 +640,12 @@ export default ComponentePadre;
 import React from "react";
 
 const ComponenteHijo = (props) => {
-  return (
-    <div>
-      <h2>Nombre: {props.nombre}</h2>
-      <p>Edad: {props.edad}</p>
-    </div>
-  );
+    return (
+        <div>
+            <h2>Nombre: {props.nombre}</h2>
+            <p>Edad: {props.edad}</p>
+        </div>
+    );
 };
 
 export default ComponenteHijo;
@@ -674,7 +672,7 @@ Ejemplo de exportación:
 import React from "react";
 
 const App = () => {
-  // ...
+    // ...
 };
 
 export default App;
@@ -698,11 +696,11 @@ Ejemplo de exportación:
 import React from "react";
 
 const Componente1 = () => {
-  // ...
+    // ...
 };
 
 const Componente2 = () => {
-  // ...
+    // ...
 };
 
 export { Componente1, Componente2 };
@@ -734,12 +732,12 @@ Aquí tienes un ejemplo que muestra cómo se utiliza la desestructuración con l
 import React from "react";
 
 const ComponenteHijo = ({ nombre, edad }) => {
-  return (
-    <div>
-      <h2>Nombre: {nombre}</h2>
-      <p>Edad: {edad}</p>
-    </div>
-  );
+    return (
+        <div>
+            <h2>Nombre: {nombre}</h2>
+            <p>Edad: {edad}</p>
+        </div>
+    );
 };
 
 export default ComponenteHijo;
@@ -764,15 +762,15 @@ Aquí tienes un ejemplo para ilustrar cómo se utiliza la prop `children`:
 import React from "react";
 
 const ComponentePadre = () => {
-  return (
-    <div>
-      <h1>Título del componente padre</h1>
-      <ComponenteHijo>
-        <p>Este es un párrafo dentro del componente hijo.</p>
-        <button>Haz clic</button>
-      </ComponenteHijo>
-    </div>
-  );
+    return (
+        <div>
+            <h1>Título del componente padre</h1>
+            <ComponenteHijo>
+                <p>Este es un párrafo dentro del componente hijo.</p>
+                <button>Haz clic</button>
+            </ComponenteHijo>
+        </div>
+    );
 };
 
 export default ComponentePadre;
@@ -783,12 +781,12 @@ export default ComponentePadre;
 import React from "react";
 
 const ComponenteHijo = ({ children }) => {
-  return (
-    <div>
-      <h2>Componente Hijo</h2>
-      {children}
-    </div>
-  );
+    return (
+        <div>
+            <h2>Componente Hijo</h2>
+            {children}
+        </div>
+    );
 };
 
 export default ComponenteHijo;
@@ -816,13 +814,13 @@ Aquí tienes un ejemplo para ilustrar cómo se utiliza `<React.Fragment>`:
 import React from "react";
 
 const ComponentePadre = () => {
-  return (
-    <React.Fragment>
-      <h1>Título del componente</h1>
-      <p>Este es un párrafo dentro del componente.</p>
-      <button>Haz clic</button>
-    </React.Fragment>
-  );
+    return (
+        <React.Fragment>
+            <h1>Título del componente</h1>
+            <p>Este es un párrafo dentro del componente.</p>
+            <button>Haz clic</button>
+        </React.Fragment>
+    );
 };
 
 export default ComponentePadre;
@@ -836,13 +834,13 @@ Una forma más corta y concisa de utilizar fragmentos es utilizando la sintaxis 
 import React from "react";
 
 const ComponentePadre = () => {
-  return (
-    <>
-      <h1>Título del componente</h1>
-      <p>Este es un párrafo dentro del componente.</p>
-      <button>Haz clic</button>
-    </>
-  );
+    return (
+        <>
+            <h1>Título del componente</h1>
+            <p>Este es un párrafo dentro del componente.</p>
+            <button>Haz clic</button>
+        </>
+    );
 };
 
 export default ComponentePadre;
@@ -864,15 +862,15 @@ Aquí tienes un ejemplo para ilustrar cómo renderizar elementos a través de un
 import React from "react";
 
 const ComponentePadre = () => {
-  const elementos = ["Elemento 1", "Elemento 2", "Elemento 3"];
+    const elementos = ["Elemento 1", "Elemento 2", "Elemento 3"];
 
-  return (
-    <div>
-      {elementos.map((elemento, index) => (
-        <p key={index}>{elemento}</p>
-      ))}
-    </div>
-  );
+    return (
+        <div>
+            {elementos.map((elemento, index) => (
+                <p key={index}>{elemento}</p>
+            ))}
+        </div>
+    );
 };
 
 export default ComponentePadre;
@@ -903,32 +901,32 @@ import "./App.css";
 import React from "react";
 
 const defaultTodos = [
-  { text: "Lorem lorem", completed: false },
-  { text: "Don't cry", completed: false },
-  { text: "Lorem lorem", completed: false },
-  { text: "Don't cry", completed: false },
-  { text: "Lorem lorem", completed: false },
+    { text: "Lorem lorem", completed: false },
+    { text: "Don't cry", completed: false },
+    { text: "Lorem lorem", completed: false },
+    { text: "Don't cry", completed: false },
+    { text: "Lorem lorem", completed: false },
 ];
 
 function App() {
-  return (
-    <React.Fragment>
-      <TodoCounter completed={16} total={25} />
-      <TodoSearch />
+    return (
+        <React.Fragment>
+            <TodoCounter completed={16} total={25} />
+            <TodoSearch />
 
-      <TodoList>
-        {defaultTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-      </TodoList>
+            <TodoList>
+                {defaultTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </React.Fragment>
-  );
+            <TodoButton />
+        </React.Fragment>
+    );
 }
 
 export default App;
@@ -938,11 +936,11 @@ export default App;
 
 ```js
 function TodoCounter({ completed, total }) {
-  return (
-    <h1>
-      Has completado {completed} de {total} ToDos
-    </h1>
-  );
+    return (
+        <h1>
+            Has completado {completed} de {total} ToDos
+        </h1>
+    );
 }
 
 export { TodoCounter };
@@ -952,7 +950,7 @@ export { TodoCounter };
 
 ```js
 function TodoList({ children }) {
-  return <ul>{children}</ul>;
+    return <ul>{children}</ul>;
 }
 
 export { TodoList };
@@ -962,13 +960,13 @@ export { TodoList };
 
 ```js
 function TodoItem(props) {
-  return (
-    <li>
-      <span>✔</span>
-      <p>{props.text}</p>
-      <span>❌</span>
-    </li>
-  );
+    return (
+        <li>
+            <span>✔</span>
+            <p>{props.text}</p>
+            <span>❌</span>
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -987,7 +985,7 @@ import React from "react";
 import "./styles.css";
 
 const MiComponente = () => {
-  return <div className="mi-estilo">Contenido del componente</div>;
+    return <div className="mi-estilo">Contenido del componente</div>;
 };
 
 export default MiComponente;
@@ -997,8 +995,8 @@ En el archivo CSS `styles.css`, puedes definir la clase `mi-estilo` con los esti
 
 ```css
 .mi-estilo {
-  color: blue;
-  font-weight: bold;
+    color: blue;
+    font-weight: bold;
 }
 ```
 
@@ -1008,12 +1006,12 @@ En el archivo CSS `styles.css`, puedes definir la clase `mi-estilo` con los esti
 import React from "react";
 
 const MiComponente = () => {
-  const estilo = {
-    color: "blue",
-    fontWeight: "bold",
-  };
+    const estilo = {
+        color: "blue",
+        fontWeight: "bold",
+    };
 
-  return <div style={estilo}>Contenido del componente</div>;
+    return <div style={estilo}>Contenido del componente</div>;
 };
 
 export default MiComponente;
@@ -1026,7 +1024,7 @@ import React from "react";
 import styles from "./styles.module.css";
 
 const MiComponente = () => {
-  return <div className={styles.miEstilo}>Contenido del componente</div>;
+    return <div className={styles.miEstilo}>Contenido del componente</div>;
 };
 
 export default MiComponente;
@@ -1036,8 +1034,8 @@ En el archivo `styles.module.css`, define las clases de estilo como propiedades 
 
 ```css
 .miEstilo {
-  color: blue;
-  font-weight: bold;
+    color: blue;
+    font-weight: bold;
 }
 ```
 
@@ -1067,11 +1065,11 @@ Supongamos que tenemos un componente llamado `TaskItem` que representa un elemen
 import React from "react";
 
 const TaskItem = (props) => {
-  return (
-    <div className={`task-item ${props.completed ? "task-completed" : ""}`}>
-      {props.taskName}
-    </div>
-  );
+    return (
+        <div className={`task-item ${props.completed ? "task-completed" : ""}`}>
+            {props.taskName}
+        </div>
+    );
 };
 
 export default TaskItem;
@@ -1167,15 +1165,15 @@ En el `index.html` agregamos las fuentes de nuestra preferencia.
 
 ```css
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body {
-  background-color: #090b10;
-  padding: 4rem 1.5rem 2rem;
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+    background-color: #090b10;
+    padding: 4rem 1.5rem 2rem;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 ```
 
@@ -1187,12 +1185,12 @@ body {
 import "../css/TodoCounter.css";
 
 function TodoCounter({ completed, total }) {
-  return (
-    <h1>
-      Has completado <span className="completed">{completed}</span> de{" "}
-      <span className="total">{total}</span> ToDos
-    </h1>
-  );
+    return (
+        <h1>
+            Has completado <span className="completed">{completed}</span> de{" "}
+            <span className="total">{total}</span> ToDos
+        </h1>
+    );
 }
 
 export { TodoCounter };
@@ -1202,20 +1200,20 @@ export { TodoCounter };
 
 ```css
 h1 {
-  width: auto;
-  height: 15vh;
-  font-size: 24px;
-  text-align: center;
-  margin: 0 auto;
-  /* display: flex;
+    width: auto;
+    height: 15vh;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto;
+    /* display: flex;
 	justify-content: center;
 	align-items: center; */
-  color: #cbd5e1;
-  padding: 0 2rem;
+    color: #cbd5e1;
+    padding: 0 2rem;
 }
 
 span {
-  color: #4f46e5;
+    color: #4f46e5;
 }
 ```
 
@@ -1227,7 +1225,7 @@ span {
 import "../css/TodoSearch.css";
 
 function TodoSearch() {
-  return <input className="search" placeholder="Search..." />;
+    return <input className="search" placeholder="Search..." />;
 }
 
 export { TodoSearch };
@@ -1237,27 +1235,27 @@ export { TodoSearch };
 
 ```css
 input {
-  margin: 1.5rem auto 2rem;
-  display: flex;
-  width: 15rem;
-  height: 2rem;
-  border-radius: 10px;
-  padding: 1rem;
+    margin: 1.5rem auto 2rem;
+    display: flex;
+    width: 15rem;
+    height: 2rem;
+    border-radius: 10px;
+    padding: 1rem;
 
-  background-image: url("../svg/search.svg");
-  background-repeat: no-repeat;
-  background-position: 202px center;
+    background-image: url("../svg/search.svg");
+    background-repeat: no-repeat;
+    background-position: 202px center;
 
-  border: 1px solid #4f46e5;
-  box-shadow: -5px 5px 5px -5px #4f46e5;
-  /* background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid #4f46e5;
+    box-shadow: -5px 5px 5px -5px #4f46e5;
+    /* background: rgba(255, 255, 255, 0.1); 
   background: hsla(0,0%,100%,.5); */
-  background-color: rgba(0.035, 0.043, 0.063, 0.1);
-  color: #cbd5e1;
+    background-color: rgba(0.035, 0.043, 0.063, 0.1);
+    color: #cbd5e1;
 }
 
 input::placeholder {
-  color: #cbd5e1;
+    color: #cbd5e1;
 }
 ```
 
@@ -1269,7 +1267,7 @@ input::placeholder {
 import "../css/TodoList.css";
 
 function TodoList({ children }) {
-  return <ul>{children}</ul>;
+    return <ul>{children}</ul>;
 }
 
 export { TodoList };
@@ -1279,10 +1277,10 @@ export { TodoList };
 
 ```css
 ul {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
 }
 ```
 
@@ -1294,14 +1292,17 @@ ul {
 import "../css/TodoItem.css";
 
 function TodoItem(props) {
-  return (
-    <li>
-      <span className={`check ${props.completed && "check--active"}`}></span> 👈👀🔥
-      <p className={`${props.completed && "p--completed"}`}>{props.text}</p>{" "}
-      👈👀🔥
-      <span className={`delete`}></span> 👈👀🔥
-    </li>
-  );
+    return (
+        <li>
+            <span className={`check ${props.completed && "check--active"}`}></span>{" "}
+            👈👀🔥
+            <p className={`${props.completed && "p--completed"}`}>
+                {props.text}
+            </p>{" "}
+            👈👀🔥
+            <span className={`delete`}></span> 👈👀🔥
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -1313,60 +1314,60 @@ Si dentro del array `defaultTodos` creado en el componente padre `App.js` existe
 
 ```css
 li {
-  list-style: none;
-  background-color: #cbd5e1;
-  width: 15rem;
-  height: 3rem;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem 0 0.5rem;
+    list-style: none;
+    background-color: #cbd5e1;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem 0 0.5rem;
 
-  position: relative;
+    position: relative;
 }
 
 .check {
-  background-image: url("../svg/check.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+    background-image: url("../svg/check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .check--active {
-  background-image: url("../svg/check-completed.svg");
+    background-image: url("../svg/check-completed.svg");
 }
 
 .delete {
-  background-image: url("../svg/delete.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
+    background-image: url("../svg/delete.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
 
-  position: absolute;
-  right: 0;
-  top: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .delete:hover {
-  background-image: url("../svg/delete-hover.svg");
+    background-image: url("../svg/delete-hover.svg");
 }
 
 p {
-  width: 85%;
-  height: auto;
-  margin: 0 5px 0;
-  color: #090b10;
+    width: 85%;
+    height: auto;
+    margin: 0 5px 0;
+    color: #090b10;
 }
 
 .p--completed {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 ```
 
@@ -1378,7 +1379,7 @@ p {
 import "../css/TodoButton.css";
 
 function TodoButton() {
-  return <button className="add"></button>;
+    return <button className="add"></button>;
 }
 
 export { TodoButton };
@@ -1388,39 +1389,39 @@ export { TodoButton };
 
 ```css
 .add {
-  border: none;
-  background-color: #090b10;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+    border: none;
+    background-color: #090b10;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
 
-  background-image: url("../svg/add-purple.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-image: url("../svg/add-purple.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  cursor: pointer;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
 
-  transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .add:hover {
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 ```
 
-- [Código de mi proyecto](https://github.com/aleroses/react-todo)
-- [Diseño en Figma](https://www.figma.com/file/3aZkIjXMEzBDACmWxqUVes/TODO-Machine-Mockup?type=design&node-id=0-1&mode=design&t=SrHeYaczPsRfmRLW-0)
-- [Diseño Prototipo](https://www.figma.com/proto/3aZkIjXMEzBDACmWxqUVes/TODO-Machine-Mockup?type=design&amp%3Bnode-id=1-3&amp%3Bt=NH0HT6nS2TxaLKp4-1&amp%3Bscaling=min-zoom&amp%3Bpage-id=0%3A1&amp%3Bstarting-point-node-id=1%3A3&amp%3Bmode=design&node-id=1-3&starting-point-node-id=1%3A3)
-- [Guía BEM](https://platzi.com/blog/bem/)
-- [Proyecto 01](https://pandrea-hub.github.io/TODOs/)
-- [Repo P01](https://github.com/dioselyn/tasks)
-- [Proyecto 02](https://dioselyn.github.io/tasks/)
-- [Repo 01](https://github.com/Sharonina/Taskify/tree/main)
-- [Repo 02](https://github.com/alejandroch1202/todo)
+-   [Código de mi proyecto](https://github.com/aleroses/react-todo)
+-   [Diseño en Figma](https://www.figma.com/file/3aZkIjXMEzBDACmWxqUVes/TODO-Machine-Mockup?type=design&node-id=0-1&mode=design&t=SrHeYaczPsRfmRLW-0)
+-   [Diseño Prototipo](https://www.figma.com/proto/3aZkIjXMEzBDACmWxqUVes/TODO-Machine-Mockup?type=design&amp%3Bnode-id=1-3&amp%3Bt=NH0HT6nS2TxaLKp4-1&amp%3Bscaling=min-zoom&amp%3Bpage-id=0%3A1&amp%3Bstarting-point-node-id=1%3A3&amp%3Bmode=design&node-id=1-3&starting-point-node-id=1%3A3)
+-   [Guía BEM](https://platzi.com/blog/bem/)
+-   [Proyecto 01](https://pandrea-hub.github.io/TODOs/)
+-   [Repo P01](https://github.com/dioselyn/tasks)
+-   [Proyecto 02](https://dioselyn.github.io/tasks/)
+-   [Repo 01](https://github.com/Sharonina/Taskify/tree/main)
+-   [Repo 02](https://github.com/alejandroch1202/todo)
 
 ## 6. Eventos en React: onClick, onChange
 
@@ -1450,13 +1451,13 @@ Aquí, `arg1` y `arg2` son los argumentos que se pasan al manejador de eventos `
 
 ```jsx
 function handleSubmit(event) {
-  event.preventDefault();
-  // Resto del código de manejo del formulario
+    event.preventDefault();
+    // Resto del código de manejo del formulario
 }
 
 <form onSubmit={handleSubmit}>
-  {/* Campos de formulario */}
-  <button type="submit">Enviar</button>
+    {/* Campos de formulario */}
+    <button type="submit">Enviar</button>
 </form>;
 ```
 
@@ -1486,11 +1487,11 @@ Aquí, `handleChange` es la función que se ejecutará cuando el valor del campo
 
 Cuando se utiliza `console.log(event)` para registrar la información proporcionada por un evento, se mostrará en la consola un objeto `Event` que contiene varios datos relevantes. Algunos de los datos más comunes y útiles que se pueden encontrar en el objeto `event` son:
 
-- `event.target`: Hace referencia al elemento del DOM en el que ocurrió el evento. Puede ser útil para identificar el elemento específico que desencadenó el evento.
-- `event.currentTarget`: Es similar a `event.target`, pero hace referencia al elemento en el que se definió el manejador de eventos. En la mayoría de los casos, `event.currentTarget` y `event.target` serán iguales, pero pueden diferir en situaciones donde se usan eventos delegados.
-- `event.preventDefault()`: Una función que se puede llamar para evitar el comportamiento predeterminado del evento, como evitar que un enlace cambie de página o que un formulario se envíe.
-- `event.stopPropagation()`: Una función que se puede llamar para detener la propagación del evento a elementos superiores. Esto evita que el evento se propague a través de la jerarquía de elementos en el DOM.
-- `event.keyCode` o `event.key`: Estos campos contienen información sobre la tecla que se presionó en eventos de teclado, lo cual puede ser útil para realizar acciones específicas en respuesta a una tecla en particular.
+-   `event.target`: Hace referencia al elemento del DOM en el que ocurrió el evento. Puede ser útil para identificar el elemento específico que desencadenó el evento.
+-   `event.currentTarget`: Es similar a `event.target`, pero hace referencia al elemento en el que se definió el manejador de eventos. En la mayoría de los casos, `event.currentTarget` y `event.target` serán iguales, pero pueden diferir en situaciones donde se usan eventos delegados.
+-   `event.preventDefault()`: Una función que se puede llamar para evitar el comportamiento predeterminado del evento, como evitar que un enlace cambie de página o que un formulario se envíe.
+-   `event.stopPropagation()`: Una función que se puede llamar para detener la propagación del evento a elementos superiores. Esto evita que el evento se propague a través de la jerarquía de elementos en el DOM.
+-   `event.keyCode` o `event.key`: Estos campos contienen información sobre la tecla que se presionó en eventos de teclado, lo cual puede ser útil para realizar acciones específicas en respuesta a una tecla en particular.
 
 Estos son solo algunos ejemplos de la información relevante que se puede encontrar en el objeto `event`. La disponibilidad y los detalles específicos pueden variar según el tipo de evento y el contexto en el que se utiliza.
 
@@ -1575,9 +1576,9 @@ Aquí hay algunos conceptos clave sobre los estados en React:
 import React, { useState } from "react";
 
 function MyComponent() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  // Resto del código del componente
+    // Resto del código del componente
 }
 ```
 
@@ -1587,7 +1588,7 @@ En este ejemplo, `count` es el estado y `setCount` es la función que se utiliza
 
 ```jsx
 function handleButtonClick() {
-  setCount(count + 1);
+    setCount(count + 1);
 }
 ```
 
@@ -1597,14 +1598,18 @@ En este caso, `setCount` se llama con el nuevo valor del estado, en este caso, `
 
 ```jsx
 function MyComponent() {
-  const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(true);
 
-  return (
-    <div>
-      {isVisible && <p>Este elemento se muestra si isVisible es verdadero</p>}
-      <button onClick={() => setIsVisible(!isVisible)}>Mostrar/Ocultar</button>
-    </div>
-  );
+    return (
+        <div>
+            {isVisible && (
+                <p>Este elemento se muestra si isVisible es verdadero</p>
+            )}
+            <button onClick={() => setIsVisible(!isVisible)}>
+                Mostrar/Ocultar
+            </button>
+        </div>
+    );
 }
 ```
 
@@ -1614,10 +1619,10 @@ En este ejemplo, el elemento `<p>` se muestra si el estado `isVisible` es `true`
 
 ```jsx
 function MyComponent() {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+    const [name, setName] = useState("");
+    const [age, setAge] = useState(0);
 
-  // Resto del código del componente
+    // Resto del código del componente
 }
 ```
 
@@ -1631,23 +1636,23 @@ Aquí tienes un ejemplo básico de cómo utilizar estados en React para crear un
 import React, { useState } from "react";
 
 function Counter() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  const increment = () => {
-    setCount(count + 1);
-  };
+    const increment = () => {
+        setCount(count + 1);
+    };
 
-  const decrement = () => {
-    setCount(count - 1);
-  };
+    const decrement = () => {
+        setCount(count - 1);
+    };
 
-  return (
-    <div>
-      <h1>Contador: {count}</h1>
-      <button onClick={increment}>Incrementar</button>
-      <button onClick={decrement}>Decrementar</button>
-    </div>
-  );
+    return (
+        <div>
+            <h1>Contador: {count}</h1>
+            <button onClick={increment}>Incrementar</button>
+            <button onClick={decrement}>Decrementar</button>
+        </div>
+    );
 }
 
 export default Counter;
@@ -1661,9 +1666,9 @@ Dentro del componente, mostramos el valor actual del contador utilizando la vari
 
 La diferencia principal entre los atributos `value` y `placeholder` en un elemento `input` en HTML es la siguiente:
 
-- `value`: El atributo `value` especifica el valor inicial o el valor actual de un campo de entrada. Muestra un texto predeterminado dentro del campo de entrada cuando se carga la página. El usuario puede editar o modificar este valor antes de enviarlo. Si el usuario no modifica el valor, se enviará el valor predeterminado establecido en el atributo `value`. Ejemplo: `<input type="text" value="Ejemplo de valor predeterminado">`.
+-   `value`: El atributo `value` especifica el valor inicial o el valor actual de un campo de entrada. Muestra un texto predeterminado dentro del campo de entrada cuando se carga la página. El usuario puede editar o modificar este valor antes de enviarlo. Si el usuario no modifica el valor, se enviará el valor predeterminado establecido en el atributo `value`. Ejemplo: `<input type="text" value="Ejemplo de valor predeterminado">`.
 
-- `placeholder`: El atributo `placeholder` se utiliza para proporcionar una sugerencia o una pista sobre el formato o el tipo de datos que se espera en el campo de entrada. Es un texto de marcador de posición que se muestra en el campo de entrada antes de que el usuario escriba algo. No se envía junto con el formulario al enviarlo, y desaparece tan pronto como el usuario comienza a escribir en el campo. El objetivo principal del atributo `placeholder` es brindar orientación al usuario sobre qué tipo de información debe ingresar en el campo. Ejemplo: `<input type="text" placeholder="Ingrese su nombre">`.
+-   `placeholder`: El atributo `placeholder` se utiliza para proporcionar una sugerencia o una pista sobre el formato o el tipo de datos que se espera en el campo de entrada. Es un texto de marcador de posición que se muestra en el campo de entrada antes de que el usuario escriba algo. No se envía junto con el formulario al enviarlo, y desaparece tan pronto como el usuario comienza a escribir en el campo. El objetivo principal del atributo `placeholder` es brindar orientación al usuario sobre qué tipo de información debe ingresar en el campo. Ejemplo: `<input type="text" placeholder="Ingrese su nombre">`.
 
 ### Código de la clase
 
@@ -1708,18 +1713,18 @@ import React, { useState } from "react";
 import ChildComponent from "./ChildComponent";
 
 function ParentComponent() {
-  const [childData, setChildData] = useState("");
+    const [childData, setChildData] = useState("");
 
-  const handleChildData = (data) => {
-    setChildData(data);
-  };
+    const handleChildData = (data) => {
+        setChildData(data);
+    };
 
-  return (
-    <div>
-      <ChildComponent onChildData={handleChildData} />
-      <p>Data from child: {childData}</p>
-    </div>
-  );
+    return (
+        <div>
+            <ChildComponent onChildData={handleChildData} />
+            <p>Data from child: {childData}</p>
+        </div>
+    );
 }
 
 export default ParentComponent;
@@ -1731,12 +1736,12 @@ export default ParentComponent;
 import React from "react";
 
 function ChildComponent({ onChildData }) {
-  const handleClick = () => {
-    const data = "Hello from child!";
-    onChildData(data);
-  };
+    const handleClick = () => {
+        const data = "Hello from child!";
+        onChildData(data);
+    };
 
-  return <button onClick={handleClick}>Send Data to Parent</button>;
+    return <button onClick={handleClick}>Send Data to Parent</button>;
 }
 
 export default ChildComponent;
@@ -1762,24 +1767,24 @@ Aquí tienes un ejemplo de cómo podrías implementar esto en un componente de R
 import React, { useState } from "react";
 
 const NumberList = () => {
-  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
+    const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
 
-  // Cálculo del estado derivado
-  const total = numbers.reduce(
-    (accumulator, current) => accumulator + current,
-    0
-  );
+    // Cálculo del estado derivado
+    const total = numbers.reduce(
+        (accumulator, current) => accumulator + current,
+        0
+    );
 
-  return (
-    <div>
-      <ul>
-        {numbers.map((number, index) => (
-          <li key={index}>{number}</li>
-        ))}
-      </ul>
-      <p>Total: {total}</p>
-    </div>
-  );
+    return (
+        <div>
+            <ul>
+                {numbers.map((number, index) => (
+                    <li key={index}>{number}</li>
+                ))}
+            </ul>
+            <p>Total: {total}</p>
+        </div>
+    );
 };
 
 export default NumberList;
@@ -1797,8 +1802,8 @@ Cuando se aplica el operador `!!` a un valor, se realiza una conversión implíc
 
 La conversión a booleano sigue las siguientes reglas:
 
-- Valores considerados "falsos": `false`, `0`, `""` (cadena vacía), `null`, `undefined`, `NaN`.
-- Valores considerados "verdaderos": cualquier valor que no sea "falso".
+-   Valores considerados "falsos": `false`, `0`, `""` (cadena vacía), `null`, `undefined`, `NaN`.
+-   Valores considerados "verdaderos": cualquier valor que no sea "falso".
 
 Aquí hay algunos ejemplos para ilustrar el uso del operador `!!`:
 
@@ -1850,7 +1855,7 @@ Aquí tienes un ejemplo de cómo usar `filter`:
 const numbers = [1, 2, 3, 4, 5, 6];
 
 const evenNumbers = numbers.filter(function (number) {
-  return number % 2 === 0;
+    return number % 2 === 0;
 });
 
 console.log(evenNumbers); // Resultado: [2, 4, 6]
@@ -1866,7 +1871,7 @@ Aquí tienes un ejemplo de cómo usar `find`:
 const fruits = ["apple", "banana", "orange", "mango"];
 
 const foundFruit = fruits.find(function (fruit) {
-  return fruit === "orange";
+    return fruit === "orange";
 });
 
 console.log(foundFruit); // Resultado: 'orange'
@@ -1887,40 +1892,43 @@ import { TodoItem } from "./components/TodoItem";
 import { TodoButton } from "./components/TodoButton";
 
 const defaultTodos = [
-  { text: "Lorem lorem", completed: true },
-  { text: "Don't cry", completed: false },
-  { text: "Lorem ipsus", completed: false },
-  { text: "Take care", completed: false },
-  { text: "Loremlorem", completed: true },
+    { text: "Lorem lorem", completed: true },
+    { text: "Don't cry", completed: false },
+    { text: "Lorem ipsus", completed: false },
+    { text: "Take care", completed: false },
+    { text: "Loremlorem", completed: true },
 ];
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
-  const [searchValue, setSearchValue] = React.useState("");
+    const [todos, setTodos] = React.useState(defaultTodos);
+    const [searchValue, setSearchValue] = React.useState("");
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
 
-  console.log("Users search ToDos from " + searchValue);
+    console.log("Users search ToDos from " + searchValue);
 
-  return (
-    <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+    return (
+        <>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
 
-      <TodoList>
-        {defaultTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-      </TodoList>
+            <TodoList>
+                {defaultTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </>
-  );
+            <TodoButton />
+        </>
+    );
 }
 
 export default App;
@@ -1933,16 +1941,16 @@ import React from "react";
 import "../css/TodoSearch.css";
 
 function TodoSearch({ searchValue, setSearchValue }) {
-  return (
-    <input
-      placeholder="Search..."
-      className="search"
-      value={searchValue}
-      onChange={(event) => {
-        setSearchValue(event.target.value);
-      }}
-    />
-  );
+    return (
+        <input
+            placeholder="Search..."
+            className="search"
+            value={searchValue}
+            onChange={(event) => {
+                setSearchValue(event.target.value);
+            }}
+        />
+    );
 }
 
 export { TodoSearch };
@@ -1956,7 +1964,7 @@ En JavaScript o React, `include` es un método que se utiliza para verificar si 
 
 El método `include` se utiliza principalmente para realizar comprobaciones de pertenencia en arrays y cadenas de texto. A continuación, te mostraré ejemplos de cómo se puede utilizar en ambos casos:
 
-- Con arrays:
+-   Con arrays:
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1967,7 +1975,7 @@ console.log(numbers.includes(6)); // false
 
 En este ejemplo, el método `includes` se utiliza para verificar si el número 3 está presente en el array `numbers`. Como el número 3 está en el array, el método devuelve `true`. Luego, se verifica si el número 6 está presente en el array, pero como no existe, el método devuelve `false`.
 
-- Con cadenas de texto:
+-   Con cadenas de texto:
 
 ```javascript
 const message = "Hello, world!";
@@ -1978,7 +1986,7 @@ console.log(message.includes("foo")); // false
 
 Aquí, se utiliza `includes` para verificar si la cadena de texto "Hello" está presente en el mensaje. Como la cadena "Hello" se encuentra en el mensaje, el método devuelve `true`. Sin embargo, al verificar la presencia de la cadena "foo", que no está en el mensaje, el método devuelve `false`.
 
-- Con cadenas de texto vacías:
+-   Con cadenas de texto vacías:
 
 ```javascript
 const vacio = ""; // Recuerda esto, es muy importante
@@ -2078,9 +2086,9 @@ export default App;
 
 ```jsx
 const searchedTodos = todos.filter((todo) => {
-  const todoText = todo.text.toLowerCase();
-  const searchText = searchValue.toLowerCase();
-  return todoText.includes(searchText);
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
 });
 ```
 
@@ -2097,11 +2105,11 @@ Si aplicamos un `includes()` cuyo valor es vacío, él va a devolver un `TRUE`, 
 
 ```jsx
 console.log({
-  letra: "A".includes(""), //True
-  vacio: "".includes(""), //True
-  nombre: "Ale".includes(""), //True
-  nombreCompleto: "Ale Roses".includes(""), //True
-  numero: "3".includes(""), //True
+    letra: "A".includes(""), //True
+    vacio: "".includes(""), //True
+    nombre: "Ale".includes(""), //True
+    nombreCompleto: "Ale Roses".includes(""), //True
+    numero: "3".includes(""), //True
 });
 ```
 
@@ -2130,11 +2138,11 @@ Uso:
 
 ```jsx
 const filteredTodos = todos.filter((todo) => {
-  let { text: normalizedTodo } = todo;
-  normalizedTodo = normalizeString(normalizedTodo);
-  let normalizedSearch = normalizeString(searchValue);
+    let { text: normalizedTodo } = todo;
+    normalizedTodo = normalizeString(normalizedTodo);
+    let normalizedSearch = normalizeString(searchValue);
 
-  return normalizedTodo.includes(normalizedSearch);
+    return normalizedTodo.includes(normalizedSearch);
 });
 ```
 
@@ -2173,7 +2181,7 @@ En este ejemplo, el operador de propagación se utiliza para combinar los elemen
 
 ```javascript
 function sum(a, b, c) {
-  return a + b + c;
+    return a + b + c;
 }
 
 const numbers = [1, 2, 3];
@@ -2196,11 +2204,11 @@ La sintaxis general del método `findIndex` es la siguiente:
 array.findIndex(callback( element[, index[, array]] )[, thisArg])
 ```
 
-- `callback`: Una función de devolución de llamada que se ejecuta para cada elemento del array. Recibe hasta tres argumentos opcionales:
-  - `element`: El elemento actual que se está procesando en el array.
-  - `index` (opcional): El índice del elemento actual en el array.
-  - `array` (opcional): El array en el que se está llamando a `findIndex`.
-- `thisArg` (opcional): Un valor que se utiliza como `this` cuando se ejecuta la función de devolución de llamada.
+-   `callback`: Una función de devolución de llamada que se ejecuta para cada elemento del array. Recibe hasta tres argumentos opcionales:
+    -   `element`: El elemento actual que se está procesando en el array.
+    -   `index` (opcional): El índice del elemento actual en el array.
+    -   `array` (opcional): El array en el que se está llamando a `findIndex`.
+-   `thisArg` (opcional): Un valor que se utiliza como `this` cuando se ejecuta la función de devolución de llamada.
 
 Aquí tienes un ejemplo para comprender cómo se utiliza `findIndex`:
 
@@ -2208,7 +2216,7 @@ Aquí tienes un ejemplo para comprender cómo se utiliza `findIndex`:
 const numbers = [1, 2, 3, 4, 5];
 
 const evenIndex = numbers.findIndex(function (number, index) {
-  return number % 2 === 0 && index % 2 === 0;
+    return number % 2 === 0 && index % 2 === 0;
 });
 
 console.log(evenIndex); // Resultado: -1 sin coincidencias
@@ -2240,9 +2248,9 @@ La sintaxis general del método `splice` es la siguiente:
 array.splice(start, deleteCount, item1, item2, ...);
 ```
 
-- `start`: Un índice entero que especifica la posición en la que se inicia la modificación del array. Si es un número negativo, se cuenta desde el final del array. Si es mayor que la longitud del array, `splice` actuará al final del array.
-- `deleteCount` (opcional): Un entero que indica el número de elementos que se deben eliminar a partir de la posición `start`. Si se omite o es 0, no se eliminarán elementos.
-- `item1, item2, ...` (opcional): Elementos que se agregarán al array a partir de la posición `start`.
+-   `start`: Un índice entero que especifica la posición en la que se inicia la modificación del array. Si es un número negativo, se cuenta desde el final del array. Si es mayor que la longitud del array, `splice` actuará al final del array.
+-   `deleteCount` (opcional): Un entero que indica el número de elementos que se deben eliminar a partir de la posición `start`. Si se omite o es 0, no se eliminarán elementos.
+-   `item1, item2, ...` (opcional): Elementos que se agregarán al array a partir de la posición `start`.
 
 A continuación, te mostraré algunos ejemplos para comprender cómo se usa el método `splice`:
 
@@ -2301,9 +2309,9 @@ Aquí tienes algunos ejemplos de cómo se utiliza el operador `delete`:
 
 ```javascript
 const persona = {
-  nombre: "Juan",
-  edad: 30,
-  ciudad: "Madrid",
+    nombre: "Juan",
+    edad: 30,
+    ciudad: "Madrid",
 };
 
 delete persona.edad; // Elimina la propiedad "edad" del objeto "persona"
@@ -2402,16 +2410,18 @@ export default App;
 import "../css/TodoItem.css";
 
 function TodoItem(props) {
-  return (
-    <li>
-      <span
-        className={`check ${props.completed && "check--active"}`}
-        onClick={props.onComplete}
-      ></span>
-      <p className={`${props.completed && "p--completed"}`}>{props.text}</p>
-      <span className="delete" onClick={props.onDelete}></span>
-    </li>
-  );
+    return (
+        <li>
+            <span
+                className={`check ${props.completed && "check--active"}`}
+                onClick={props.onComplete}
+            ></span>
+            <p className={`${props.completed && "p--completed"}`}>
+                {props.text}
+            </p>
+            <span className="delete" onClick={props.onDelete}></span>
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -2452,12 +2462,12 @@ Una vez que hayas instalado React Icons, puedes importar los iconos individuales
 import { FaHeart } from "react-icons/fa";
 
 const MiComponente = () => {
-  return (
-    <div>
-      <h1>Mi componente con icono</h1>
-      <FaHeart />
-    </div>
-  );
+    return (
+        <div>
+            <h1>Mi componente con icono</h1>
+            <FaHeart />
+        </div>
+    );
 };
 ```
 
@@ -2478,7 +2488,7 @@ import React from "react";
 import { TodoIcon } from "./TodoIcon";
 
 function CompleteIcon() {
-  return <TodoIcon type="check" color="gray" />;
+    return <TodoIcon type="check" color="gray" />;
 }
 
 export { CompleteIcon };
@@ -2491,7 +2501,7 @@ import React from "react";
 import { TodoIcon } from "./TodoIcon";
 
 function DeleteIcon() {
-  return <TodoIcon type="delete" color="red" />;
+    return <TodoIcon type="delete" color="red" />;
 }
 
 export { DeleteIcon };
@@ -2505,13 +2515,15 @@ import { DeleteIcon } from "./DeleteIcon";
 import "../css/TodoItem.css";
 
 function TodoItem(props) {
-  return (
-    <li>
-      <CompleteIcon />
-      <p className={`${props.completed && "p--completed"}`}>{props.text}</p>
-      <DeleteIcon />
-    </li>
-  );
+    return (
+        <li>
+            <CompleteIcon />
+            <p className={`${props.completed && "p--completed"}`}>
+                {props.text}
+            </p>
+            <DeleteIcon />
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -2524,13 +2536,13 @@ import { ReactComponent as CheckSvg } from "../svg/check.svg";
 import { ReactComponent as DeleteSvg } from "../svg/delete.svg";
 
 const iconTypes = {
-  check: <CheckSvg />,
-  delete: <DeleteSvg />,
+    check: <CheckSvg />,
+    delete: <DeleteSvg />,
 };
 
 function TodoIcon({ type }) {
-  return <span className={`${type} check--active`}>{iconTypes[type]}</span>;
-  /* 
+    return <span className={`${type} check--active`}>{iconTypes[type]}</span>;
+    /* 
 		<span
       className={`check ${props.completed && "check--active"}`}
         onClick={props.onComplete}
@@ -2629,22 +2641,22 @@ Aquí hay un ejemplo básico para ilustrar cómo funciona el patrón Render Prop
 ```jsx
 // Componente con Render Props
 class RenderPropComponent extends React.Component {
-  render() {
-    // Llama a la función prop y pasa un valor como argumento
-    return this.props.render("Hola desde el Render Prop");
-  }
+    render() {
+        // Llama a la función prop y pasa un valor como argumento
+        return this.props.render("Hola desde el Render Prop");
+    }
 }
 
 // Componente que utiliza el Render Prop
 class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>App</h1>
-        <RenderPropComponent render={(message) => <p>{message}</p>} />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <h1>App</h1>
+                <RenderPropComponent render={(message) => <p>{message}</p>} />
+            </div>
+        );
+    }
 }
 ```
 
@@ -2779,27 +2791,27 @@ Lógica para renderizar SVG's de forma dinámica
 Presentamos la siguiente situación:  
 Tenemos un componente llamado `TodoItem`, el cual renderiza cada uno de los elementos de nuestro listado de tareas a completar. Cada ítem contiene 3 elementos:
 
-- Un botón de completado que contiene un ícono ✔
-- El texto de la tarea
-- Un botón para eliminar la tarea que también contiene un ícono ❌
+-   Un botón de completado que contiene un ícono ✔
+-   El texto de la tarea
+-   Un botón para eliminar la tarea que también contiene un ícono ❌
 
 Para insertar esos íconos se pueden usar diferentes métodos como:
 
-- Emojis usando un plugin de Visual Studio Code o usando `Windows + .` para insertarlos directamente en el código.
-- Librerías de íconos para React.
-- Importando los SVG de forma dinámica como componentes de React. ✨
+-   Emojis usando un plugin de Visual Studio Code o usando `Windows + .` para insertarlos directamente en el código.
+-   Librerías de íconos para React.
+-   Importando los SVG de forma dinámica como componentes de React. ✨
 
 En este caso seguiremos el tercer camino, en primer lugar, vamos a añadir diferentes archivos en nuestra carpeta `src`:
 
-- Los SVG llamados en este caso:
-  - `check.svg`
-  - `delete.svg`.
-- Un archivo JS para cada ícono a renderizar:
-  - `CompleteIcon.js`
-  - `DeleteIcon.js`
-- Un archivo para contener la lógica de importación de los SVG's para todos los íconos con su respectivo CSS:
-  - `TodoIcon.js`
-  - `TodoIcon.css` ✨
+-   Los SVG llamados en este caso:
+    -   `check.svg`
+    -   `delete.svg`.
+-   Un archivo JS para cada ícono a renderizar:
+    -   `CompleteIcon.js`
+    -   `DeleteIcon.js`
+-   Un archivo para contener la lógica de importación de los SVG's para todos los íconos con su respectivo CSS:
+    -   `TodoIcon.js`
+    -   `TodoIcon.css` ✨
 
 Esta estructura de carpetas y archivos se vería así:
 
@@ -2876,9 +2888,9 @@ En este archivo lo primero que necesitamos es importar los íconos SVG como `Rea
 
 Creamos un componente para llamar al renderizado de los íconos. Este componente `TodoIcons` recibe 3 `props`:
 
-- `type`: El tipo de ícono que recibirá (`check` o `delete`)
-- `color`: El color de relleno del ícono.
-- `onClick`: El evento que va a realizar el ícono (botón) al darle clic.
+-   `type`: El tipo de ícono que recibirá (`check` o `delete`)
+-   `color`: El color de relleno del ícono.
+-   `onClick`: El evento que va a realizar el ícono (botón) al darle clic.
 
 📌 Dato importante: No confundir el `onClick` creado como prop con el `onClick` definido dentro de la etiqueta `span`, este último es un evento y el anterior como ya se dijo es una propiedad.
 
@@ -2888,10 +2900,10 @@ Dentro del `span` se llama al objeto `{iconTypes}` creado al inicio, luego le pa
 
 Toda esta lógica es una especie de componente plantilla para renderizar cualquier ícono. Dentro de este componente se realiza:
 
-- El `import` del SVG
-- El renderizado del ícono SVG
-- Se llama a los estilos para el ícono y el contenedor del ícono
-- La activación del evento `onClick`.
+-   El `import` del SVG
+-   El renderizado del ícono SVG
+-   Se llama a los estilos para el ícono y el contenedor del ícono
+-   La activación del evento `onClick`.
 
 2. `CompleteIcon.js` y `DeleteIcon.js` hijos de `TodoItem` y padres de `TodoIcons`.
 
@@ -2929,9 +2941,9 @@ Este archivo es más simple y su función es de recibir los props enviamos del c
 
 Por lo tanto, este archivo sirve para:
 
-- Recibir los props deconstruidos de su componente padre `TodoItem`: `completed` y `onComplete / onDelete`.
-- Crear el listado de props a enviar al componente hijo `TodoIcon`, los props son: `type`, `color` y `onClick`.
-- Declarar los valores para esos props que se enviarán al componente hijo, es decir, qué tipo de ícono es, el color y la acción que se realizará al darle `click` al ícono.
+-   Recibir los props deconstruidos de su componente padre `TodoItem`: `completed` y `onComplete / onDelete`.
+-   Crear el listado de props a enviar al componente hijo `TodoIcon`, los props son: `type`, `color` y `onClick`.
+-   Declarar los valores para esos props que se enviarán al componente hijo, es decir, qué tipo de ícono es, el color y la acción que se realizará al darle `click` al ícono.
 
 3. Pasamos al componente `TodoItem`. Este componente es hijo de `App` y padre de `CompleteIcon` y `DeleteIcon`. Como hijo recibe props y como padre envía `completed` y `onComplete / onDelete`.
 
@@ -2941,13 +2953,18 @@ import { DeleteIcon } from "./DeleteIcon";
 import "../css/TodoItem.css";
 
 function TodoItem(props) {
-  return (
-    <li>
-      <CompleteIcon completed={props.completed} onComplete={props.onComplete} />
-      <p className={`${props.completed && "p--completed"}`}>{props.text}</p>
-      <DeleteIcon onDelete={props.onDelete} />
-    </li>
-  );
+    return (
+        <li>
+            <CompleteIcon
+                completed={props.completed}
+                onComplete={props.onComplete}
+            />
+            <p className={`${props.completed && "p--completed"}`}>
+                {props.text}
+            </p>
+            <DeleteIcon onDelete={props.onDelete} />
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -2955,9 +2972,9 @@ export { TodoItem };
 
 Las funciones de este componente serán:
 
-- Llamar a los componentes `CompleteIcon` y `DeleteIcon` para ser renderizados en `TodoItem`.
-- Recibir los props `completed` y `onComplete / onDelete` del componente padre.
-- Crear el listado de props a enviar a los componentes hijos que necesitan saber los estados de los eventos. Para el ícono de `check` se necesita saber si está completado o no y la acción a realizar cuando esté completado. Para el ícono de `delete` únicamente la acción a realizar al darle `click` al botón, es decir `onDelete`.
+-   Llamar a los componentes `CompleteIcon` y `DeleteIcon` para ser renderizados en `TodoItem`.
+-   Recibir los props `completed` y `onComplete / onDelete` del componente padre.
+-   Crear el listado de props a enviar a los componentes hijos que necesitan saber los estados de los eventos. Para el ícono de `check` se necesita saber si está completado o no y la acción a realizar cuando esté completado. Para el ícono de `delete` únicamente la acción a realizar al darle `click` al botón, es decir `onDelete`.
 
 Se recibe también como props el texto y se realizan otras funciones para el renderizado de cada ítem, pero esto no es parte de la lógica del renderizado dinámico de los íconos.
 
@@ -2973,24 +2990,24 @@ import { ReactComponent as DeleteSvg } from "../svg/delete.svg";
 import "../css/TodoIcon.css";
 
 const iconTypes = {
-  check: (color) => <CheckSvg fill={color} />,
-  delete: (color) => (
-    <DeleteSvg
-      className="icon"
-      fill="#4F46E5"
-      stroke="#4F46E5"
-      strokeWidth="0.1"
-    />
-  ),
+    check: (color) => <CheckSvg fill={color} />,
+    delete: (color) => (
+        <DeleteSvg
+            className="icon"
+            fill="#4F46E5"
+            stroke="#4F46E5"
+            strokeWidth="0.1"
+        />
+    ),
 };
 
 function TodoIcon({ type, color, onClick }) {
-  return (
-    /* type puede ser check o delete	*/
-    <span className={`${type}`} onClick={onClick}>
-      {iconTypes[type](color)}
-    </span>
-  );
+    return (
+        /* type puede ser check o delete	*/
+        <span className={`${type}`} onClick={onClick}>
+            {iconTypes[type](color)}
+        </span>
+    );
 }
 
 export { TodoIcon };
@@ -3000,7 +3017,7 @@ export { TodoIcon };
 
 ```css
 .icon:hover {
-  fill: #ea0031;
+    fill: #ea0031;
 }
 ```
 
@@ -3011,13 +3028,13 @@ import React from "react";
 import { TodoIcon } from "./TodoIcon";
 
 function CompleteIcon({ completed, onComplete }) {
-  return (
-    <TodoIcon
-      type="check"
-      color={completed ? "#4CAF50" : "#4F46E5"}
-      onClick={onComplete}
-    />
-  );
+    return (
+        <TodoIcon
+            type="check"
+            color={completed ? "#4CAF50" : "#4F46E5"}
+            onClick={onComplete}
+        />
+    );
 }
 
 export { CompleteIcon };
@@ -3030,7 +3047,7 @@ import React from "react";
 import { TodoIcon } from "./TodoIcon";
 
 function DeleteIcon({ onDelete }) {
-  return <TodoIcon type="delete" color="#4F46E5" onClick={onDelete} />;
+    return <TodoIcon type="delete" color="#4F46E5" onClick={onDelete} />;
 }
 
 export { DeleteIcon };
@@ -3044,13 +3061,18 @@ import { DeleteIcon } from "./DeleteIcon";
 import "../css/TodoItem.css";
 
 function TodoItem(props) {
-  return (
-    <li>
-      <CompleteIcon completed={props.completed} onComplete={props.onComplete} />
-      <p className={`${props.completed && "p--completed"}`}>{props.text}</p>
-      <DeleteIcon onDelete={props.onDelete} />
-    </li>
-  );
+    return (
+        <li>
+            <CompleteIcon
+                completed={props.completed}
+                onComplete={props.onComplete}
+            />
+            <p className={`${props.completed && "p--completed"}`}>
+                {props.text}
+            </p>
+            <DeleteIcon onDelete={props.onDelete} />
+        </li>
+    );
 }
 
 export { TodoItem };
@@ -3165,11 +3187,11 @@ Hacemos algunas pruebas en la consola del navegador `Ctrl + Shift + i`:
 
 ```js
 const defaultTodos = [
-  { text: "Lorem lorem", completed: true },
-  { text: "Don't cry", completed: false },
-  { text: "Lorem ipsus", completed: false },
-  { text: "Take care", completed: false },
-  { text: "Loremlorem", completed: true },
+    { text: "Lorem lorem", completed: true },
+    { text: "Don't cry", completed: false },
+    { text: "Lorem ipsus", completed: false },
+    { text: "Take care", completed: false },
+    { text: "Loremlorem", completed: true },
 ];
 
 let stringTodos = JSON.stringify(defaultTodos);
@@ -3183,11 +3205,11 @@ localStorage.getItem("ToDos_v1");
 
 // Nuevamente agregamos info para visualizar en la web
 const defaultTodos = [
-  { text: "Lorem lorem", completed: true },
-  { text: "Don't cry", completed: false },
-  { text: "Lorem ipsus", completed: false },
-  { text: "Take care", completed: false },
-  { text: "Loremlorem", completed: true },
+    { text: "Lorem lorem", completed: true },
+    { text: "Don't cry", completed: false },
+    { text: "Lorem ipsus", completed: false },
+    { text: "Take care", completed: false },
+    { text: "Loremlorem", completed: true },
 ];
 
 localStorage.setItem("ToDos_v1", JSON.stringify(defaultTodos));
@@ -3292,9 +3314,9 @@ Acceder a los valores del `localStorage` dentro del componente es muy pesado e
 
 ```js
 const [todos, setTodos] = useState(() => {
-  const todosFromStorage = window.localStorage.getItem("TODOS_V1");
-  if (todosFromStorage) return JSON.parse(todosFromStorage);
-  return [];
+    const todosFromStorage = window.localStorage.getItem("TODOS_V1");
+    if (todosFromStorage) return JSON.parse(todosFromStorage);
+    return [];
 });
 ```
 
@@ -3312,17 +3334,17 @@ Aquí hay un ejemplo básico de un Custom Hook que maneja un contador:
 import { useState } from "react";
 
 function useCounter(initialValue) {
-  const [count, setCount] = useState(initialValue);
+    const [count, setCount] = useState(initialValue);
 
-  const increment = () => {
-    setCount(count + 1);
-  };
+    const increment = () => {
+        setCount(count + 1);
+    };
 
-  const decrement = () => {
-    setCount(count - 1);
-  };
-  // También se puede retornar como objeto {}
-  return [count, increment, decrement];
+    const decrement = () => {
+        setCount(count - 1);
+    };
+    // También se puede retornar como objeto {}
+    return [count, increment, decrement];
 }
 
 export default useCounter;
@@ -3337,18 +3359,18 @@ import React from "react";
 import useCounter from "./useCounter";
 
 function CounterComponent() {
-  // También se puede colocar como objeto {} incluso crear dos const y nombrarlas como counterOne y counterTwo esto para acceder con el . (punto) a increment y decrement
-  const [count, increment, decrement] = useCounter(0);
+    // También se puede colocar como objeto {} incluso crear dos const y nombrarlas como counterOne y counterTwo esto para acceder con el . (punto) a increment y decrement
+    const [count, increment, decrement] = useCounter(0);
 
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      // {counterOne.increment}
-      // {countertwo.decrement}
-    </div>
-  );
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+            // {counterOne.increment}
+            // {countertwo.decrement}
+        </div>
+    );
 }
 
 export default CounterComponent;
@@ -3480,7 +3502,7 @@ En su lugar, crea un custom Hook para abstraer la funcionalidad del paquete.
 import { useQueryPlatzi } from "query-platzi";
 
 export function useQueryApp() {
-  return useQueryPlatzi;
+    return useQueryPlatzi;
 }
 ```
 
@@ -3658,57 +3680,60 @@ localStorage.setItem("ToDos_v1", JSON.stringify(defaultTodos)); */
 // localStorage.removeItem("ToDos_v1");
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
+    const [todos, saveTodos] = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
 
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
 
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
 
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
 
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
 
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
 
-  return (
-    <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+    return (
+        <>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
 
-      <TodoList>
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+            <TodoList>
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </>
-  );
+            <TodoButton />
+        </>
+    );
 }
 
 export default App;
@@ -3720,24 +3745,24 @@ export default App;
 import React from "react";
 
 function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName);
+    const localStorageItem = localStorage.getItem(itemName);
 
-  let parsedItem;
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
+    let parsedItem;
+    if (!localStorageItem) {
+        localStorage.setItem(itemName, JSON.stringify(initialValue));
+        parsedItem = initialValue;
+    } else {
+        parsedItem = JSON.parse(localStorageItem);
+    }
 
-  const [item, setItem] = React.useState(parsedItem);
+    const [item, setItem] = React.useState(parsedItem);
 
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  };
+    const saveItem = (newItem) => {
+        localStorage.setItem(itemName, JSON.stringify(newItem));
+        setItem(newItem);
+    };
 
-  return [item, saveItem];
+    return [item, saveItem];
 }
 
 export { useLocalStorage };
@@ -3759,7 +3784,7 @@ Ejemplo de un componente sin estado en React:
 
 ```jsx
 function Greeting(props) {
-  return <h1>Hello, {props.name}!</h1>;
+    return <h1>Hello, {props.name}!</h1>;
 }
 ```
 
@@ -3771,23 +3796,23 @@ Ejemplo de un componente con estado en React:
 
 ```jsx
 class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
-  }
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
 
-  increment() {
-    this.setState({ count: this.state.count + 1 });
-  }
+    increment() {
+        this.setState({ count: this.state.count + 1 });
+    }
 
-  render() {
-    return (
-      <div>
-        <p>Count: {this.state.count}</p>
-        <button onClick={() => this.increment()}>Increment</button>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <p>Count: {this.state.count}</p>
+                <button onClick={() => this.increment()}>Increment</button>
+            </div>
+        );
+    }
 }
 ```
 
@@ -3808,16 +3833,16 @@ Aquí hay un ejemplo simplificado de cómo podría verse un archivo `AppUI.js`:
 import React from "react";
 
 const AppUI = () => {
-  return (
-    <div>
-      <header>
-        <h1>My App</h1>
-      </header>
-      <nav>{/* Componente de navegación */}</nav>
-      <main>{/* Componentes de contenido */}</main>
-      <footer>{/* Componente de pie de página */}</footer>
-    </div>
-  );
+    return (
+        <div>
+            <header>
+                <h1>My App</h1>
+            </header>
+            <nav>{/* Componente de navegación */}</nav>
+            <main>{/* Componentes de contenido */}</main>
+            <footer>{/* Componente de pie de página */}</footer>
+        </div>
+    );
 };
 
 export default AppUI;
@@ -3881,47 +3906,47 @@ import { AppUI } from "./AppUI";
 import { useLocalStorage } from "./useLocalStorage";
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
+    const [todos, saveTodos] = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
 
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
 
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
 
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
 
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
 
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
 
-  return (
-    <AppUI
-      completedTodos={completedTodos}
-      totalTodos={totalTodos}
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-      searchedTodos={searchedTodos}
-      completeTodo={completeTodo}
-      deleteTodo={deleteTodo}
-    />
-  );
+    return (
+        <AppUI
+            completedTodos={completedTodos}
+            totalTodos={totalTodos}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            searchedTodos={searchedTodos}
+            completeTodo={completeTodo}
+            deleteTodo={deleteTodo}
+        />
+    );
 }
 
 export default App;
@@ -3937,35 +3962,38 @@ import { TodoItem } from "../components/TodoItem/index";
 import { TodoButton } from "../components/TodoButton/index";
 
 function AppUI({
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
 }) {
-  return (
-    <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+    return (
+        <>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
 
-      <TodoList>
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+            <TodoList>
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </>
-  );
+            <TodoButton />
+        </>
+    );
 }
 
 export { AppUI };
@@ -3983,19 +4011,19 @@ La sintaxis básica del `useEffect` es la siguiente:
 import React, { useEffect } from "react";
 
 function MyComponent() {
-  useEffect(() => {
-    // 1er argumento () => {}
-    // Lógica del efecto
-    // Se ejecuta después del renderizado inicial y en cada actualización del componente
+    useEffect(() => {
+        // 1er argumento () => {}
+        // Lógica del efecto
+        // Se ejecuta después del renderizado inicial y en cada actualización del componente
 
-    // Retorno opcional de una función de limpieza
-    return () => {
-      // Lógica de limpieza (opcional)
-      // Se ejecuta antes de desmontar el componente o antes de la siguiente ejecución del efecto
-    };
-  }, [dependency1, dependency2]); // 2do argumento []
+        // Retorno opcional de una función de limpieza
+        return () => {
+            // Lógica de limpieza (opcional)
+            // Se ejecuta antes de desmontar el componente o antes de la siguiente ejecución del efecto
+        };
+    }, [dependency1, dependency2]); // 2do argumento []
 
-  // ...
+    // ...
 }
 ```
 
@@ -4013,28 +4041,28 @@ Aquí tienes un ejemplo de cómo se puede utilizar el hook `useEffect` en un com
 import React, { useState, useEffect } from "react";
 
 function Timer() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    // Función que se ejecuta después del renderizado inicial y en cada actualización del componente
-    console.log("Efecto ejecutado");
+    useEffect(() => {
+        // Función que se ejecuta después del renderizado inicial y en cada actualización del componente
+        console.log("Efecto ejecutado");
 
-    // Actualizar el título de la página con el valor actual de count
-    document.title = `Contador: ${count}`;
+        // Actualizar el título de la página con el valor actual de count
+        document.title = `Contador: ${count}`;
 
-    // Retorno de la función de limpieza
-    return () => {
-      // Función de limpieza que se ejecuta antes de desmontar el componente o antes de la siguiente ejecución del efecto
-      console.log("Efecto limpiado");
-    };
-  }, [count]);
+        // Retorno de la función de limpieza
+        return () => {
+            // Función de limpieza que se ejecuta antes de desmontar el componente o antes de la siguiente ejecución del efecto
+            console.log("Efecto limpiado");
+        };
+    }, [count]);
 
-  return (
-    <div>
-      <p>Contador: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Incrementar</button>
-    </div>
-  );
+    return (
+        <div>
+            <p>Contador: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Incrementar</button>
+        </div>
+    );
 }
 
 export default Timer;
@@ -4066,12 +4094,12 @@ A causa de un error, eliminamos el `ToDos_v1` del `localStorage` para volverlo a
 localStorage.removeItem("ToDos_v1"); // 1er paso 👈👀
 
 const defaultTodos = [
-  // 2do paso 👈👀👇
-  { text: "Lorem lorem", completed: true },
-  { text: "Don't cry", completed: false },
-  { text: "Lorem ipsus", completed: false },
-  { text: "Take care", completed: false },
-  { text: "Loremlorem", completed: true },
+    // 2do paso 👈👀👇
+    { text: "Lorem lorem", completed: true },
+    { text: "Don't cry", completed: false },
+    { text: "Lorem ipsus", completed: false },
+    { text: "Take care", completed: false },
+    { text: "Loremlorem", completed: true },
 ];
 
 localStorage.setItem("ToDos_v1", JSON.stringify(defaultTodos));
@@ -4085,54 +4113,54 @@ import { AppUI } from "./AppUI";
 import { useLocalStorage } from "./useLocalStorage";
 
 function App() {
-  const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
+    const {
+        item: todos,
+        saveItem: saveTodos,
+        loading,
+        error,
+    } = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
 
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
 
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
 
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
 
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
 
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
 
-  return (
-    <AppUI
-      loading={loading}
-      error={error}
-      completedTodos={completedTodos}
-      totalTodos={totalTodos}
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-      searchedTodos={searchedTodos}
-      completeTodo={completeTodo}
-      deleteTodo={deleteTodo}
-    />
-  );
+    return (
+        <AppUI
+            loading={loading}
+            error={error}
+            completedTodos={completedTodos}
+            totalTodos={totalTodos}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            searchedTodos={searchedTodos}
+            completeTodo={completeTodo}
+            deleteTodo={deleteTodo}
+        />
+    );
 }
 
 export default App;
@@ -4144,39 +4172,42 @@ export default App;
 import React from "react";
 
 function useLocalStorage(itemName, initialValue) {
-  const [item, setItem] = React.useState(initialValue);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
+    const [item, setItem] = React.useState(initialValue);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(false);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      try {
-        const localStorageItem = localStorage.getItem(itemName);
+    React.useEffect(() => {
+        setTimeout(() => {
+            try {
+                const localStorageItem = localStorage.getItem(itemName);
 
-        let parsedItem;
+                let parsedItem;
 
-        if (!localStorageItem) {
-          localStorage.setItem(itemName, JSON.stringify(initialValue));
-          parsedItem = initialValue;
-        } else {
-          parsedItem = JSON.parse(localStorageItem);
-          setItem(parsedItem);
-        }
+                if (!localStorageItem) {
+                    localStorage.setItem(
+                        itemName,
+                        JSON.stringify(initialValue)
+                    );
+                    parsedItem = initialValue;
+                } else {
+                    parsedItem = JSON.parse(localStorageItem);
+                    setItem(parsedItem);
+                }
 
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        setError(true);
-      }
-    }, 2000);
-  }, []);
+                setLoading(false);
+            } catch (error) {
+                setLoading(false);
+                setError(true);
+            }
+        }, 2000);
+    }, []);
 
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  };
+    const saveItem = (newItem) => {
+        localStorage.setItem(itemName, JSON.stringify(newItem));
+        setItem(newItem);
+    };
 
-  return { item, saveItem, loading, error };
+    return { item, saveItem, loading, error };
 }
 
 export { useLocalStorage };
@@ -4192,50 +4223,53 @@ import { TodoItem } from "../components/TodoItem/index";
 import { TodoButton } from "../components/TodoButton/index";
 
 function AppUI({
-  loading,
-  error,
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
+    loading,
+    error,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
 }) {
-  return (
-    <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+    return (
+        <>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
 
-      <TodoList>
-        {loading && <span>Loading...</span>}
-        {error && <span>An error occurred!!! 😬</span>}
-        {!loading && searchedTodos.lenght === 0 && (
-          <span>Create your first ToDo 🦄</span>
-        )}
+            <TodoList>
+                {loading && <span>Loading...</span>}
+                {error && <span>An error occurred!!! 😬</span>}
+                {!loading && searchedTodos.lenght === 0 && (
+                    <span>Create your first ToDo 🦄</span>
+                )}
 
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </>
-  );
+            <TodoButton />
+        </>
+    );
 }
 
 export { AppUI };
 ```
 
-- [Introduction to Backend Development by Bryan Garay](https://bg99astro.notion.site/bg99astro/96b34391949840388c431fd0fd3f02ce?v=36c7227e67784fc5848bc19835eeef8b)
-- [Curso de React con Vite by Bryan Garay](https://bg99astro.notion.site/bg99astro/2658332bba3f40448545b6f3ba1c099f?v=bde7de79341747989e2a5f1f5ac7df80)
+-   [Introduction to Backend Development by Bryan Garay](https://bg99astro.notion.site/bg99astro/96b34391949840388c431fd0fd3f02ce?v=36c7227e67784fc5848bc19835eeef8b)
+-   [Curso de React con Vite by Bryan Garay](https://bg99astro.notion.site/bg99astro/2658332bba3f40448545b6f3ba1c099f?v=bde7de79341747989e2a5f1f5ac7df80)
 
 ## 21. Reto: loading skeletons
 
@@ -4309,40 +4343,44 @@ import { TodosError } from "../components/TodosError";
 import { TodosEmpty } from "../components/TodosEmpty";
 
 function AppUI({
-  loading,
-  error,
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
+    loading,
+    error,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
 }) {
-  return (
-    <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+    return (
+        <>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
 
-      <TodoList>
-        {loading && <TodosLoading />} 👈👀🔥
-        {error && <TodosError />} 👈👀🔥
-        {!loading && searchedTodos.lenght === 0 && <TodosEmpty />} 👈👀🔥
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+            <TodoList>
+                {loading && <TodosLoading />} 👈👀🔥
+                {error && <TodosError />} 👈👀🔥
+                {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}{" "}
+                👈👀🔥
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </>
-  );
+            <TodoButton />
+        </>
+    );
 }
 
 export { AppUI };
@@ -4355,14 +4393,14 @@ import React from "react";
 import "./TodosLoading.css";
 
 function TodosLoading({}) {
-  return (
-    <div className="container">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  );
+    return (
+        <div className="container">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    );
 }
 
 export { TodosLoading };
@@ -4437,7 +4475,7 @@ export { TodosLoading };
 import React from "react";
 
 function TodosEmpty({}) {
-  return <span>Create your first ToDo...</span>;
+    return <span>Create your first ToDo...</span>;
 }
 
 export { TodosEmpty };
@@ -4449,7 +4487,7 @@ export { TodosEmpty };
 import React from "react";
 
 function TodosError({}) {
-  return <span>Error...</span>;
+    return <span>Error...</span>;
 }
 
 export { TodosError };
@@ -4483,31 +4521,31 @@ const MiContexto = React.createContext("valor por defecto");
 
 // Componente proveedor
 function ProveedorComponente() {
-  const valorContexto = "Valor del contexto proporcionado";
+    const valorContexto = "Valor del contexto proporcionado";
 
-  return (
-    <MiContexto.Provider value={valorContexto}>
-      <ComponenteHijo />
-    </MiContexto.Provider>
-  );
+    return (
+        <MiContexto.Provider value={valorContexto}>
+            <ComponenteHijo />
+        </MiContexto.Provider>
+    );
 }
 
 // Componente consumidor
 function ComponenteHijo() {
-  return (
-    <MiContexto.Consumer>
-      {(valor) => <p>El valor del contexto es: {valor}</p>}
-    </MiContexto.Consumer>
-  );
+    return (
+        <MiContexto.Consumer>
+            {(valor) => <p>El valor del contexto es: {valor}</p>}
+        </MiContexto.Consumer>
+    );
 }
 
 // Componente principal que utiliza el proveedor y el consumidor
 function App() {
-  return (
-    <div>
-      <ProveedorComponente />
-    </div>
-  );
+    return (
+        <div>
+            <ProveedorComponente />
+        </div>
+    );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
@@ -4601,29 +4639,29 @@ const MiContexto = React.createContext("valor por defecto");
 
 // Componente proveedor
 function ProveedorComponente() {
-  const valorContexto = "Valor del contexto proporcionado";
+    const valorContexto = "Valor del contexto proporcionado";
 
-  return (
-    <MiContexto.Provider value={valorContexto}>
-      <ComponenteHijo />
-    </MiContexto.Provider>
-  );
+    return (
+        <MiContexto.Provider value={valorContexto}>
+            <ComponenteHijo />
+        </MiContexto.Provider>
+    );
 }
 
 // Componente consumidor
 function ComponenteHijo() {
-  const valorContexto = useContext(MiContexto);
+    const valorContexto = useContext(MiContexto);
 
-  return <p>El valor del contexto es: {valorContexto}</p>;
+    return <p>El valor del contexto es: {valorContexto}</p>;
 }
 
 // Componente principal que utiliza el proveedor y el consumidor
 function App() {
-  return (
-    <div>
-      <ProveedorComponente />
-    </div>
-  );
+    return (
+        <div>
+            <ProveedorComponente />
+        </div>
+    );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
@@ -4643,11 +4681,11 @@ import { AppUI } from "./AppUI";
 import { TodoProvider } from "../components/TodoContext";
 
 function App() {
-  return (
-    <TodoProvider>
-      <AppUI />;
-    </TodoProvider>
-  );
+    return (
+        <TodoProvider>
+            <AppUI />;
+        </TodoProvider>
+    );
 }
 
 export default App;
@@ -4662,58 +4700,58 @@ import { useLocalStorage } from "./useLocalStorage";
 const TodoContext = React.createContext();
 
 function TodoProvider({ children }) {
-  const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
-
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
-
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
-
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
-
-  return (
-    <TodoContext.Provider
-      value={{
+    const {
+        item: todos,
+        saveItem: saveTodos,
         loading,
         error,
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+    } = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
+
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
+
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
+
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
+
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
+
+    return (
+        <TodoContext.Provider
+            value={{
+                loading,
+                error,
+                completedTodos,
+                totalTodos,
+                searchValue,
+                setSearchValue,
+                searchedTodos,
+                completeTodo,
+                deleteTodo,
+            }}
+        >
+            {children}
+        </TodoContext.Provider>
+    );
 }
 
 export { TodoContext, TodoProvider };
@@ -4734,33 +4772,33 @@ import { TodosEmpty } from "../components/TodosEmpty";
 import { TodoContext } from "../components/TodoContext";
 
 function AppUI({}) {
-  const { loading, error, searchedTodos, completeTodo, deleteTodo } =
-    React.useContext(TodoContext);
-  return (
-    <>
-      <TodoCounter />
-      <TodoSearch />
+    const { loading, error, searchedTodos, completeTodo, deleteTodo } =
+        React.useContext(TodoContext);
+    return (
+        <>
+            <TodoCounter />
+            <TodoSearch />
 
-      <TodoList>
-        {loading && <TodosLoading />}
-        {error && <TodosError />}
-        {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
+            <TodoList>
+                {loading && <TodosLoading />}
+                {error && <TodosError />}
+                {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
 
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
-    </>
-  );
+            <TodoButton />
+        </>
+    );
 }
 
 export { AppUI };
@@ -4772,39 +4810,42 @@ export { AppUI };
 import React from "react";
 
 function useLocalStorage(itemName, initialValue) {
-  const [item, setItem] = React.useState(initialValue);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
+    const [item, setItem] = React.useState(initialValue);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(false);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      try {
-        const localStorageItem = localStorage.getItem(itemName);
+    React.useEffect(() => {
+        setTimeout(() => {
+            try {
+                const localStorageItem = localStorage.getItem(itemName);
 
-        let parsedItem;
+                let parsedItem;
 
-        if (!localStorageItem) {
-          localStorage.setItem(itemName, JSON.stringify(initialValue));
-          parsedItem = initialValue;
-        } else {
-          parsedItem = JSON.parse(localStorageItem);
-          setItem(parsedItem);
-        }
+                if (!localStorageItem) {
+                    localStorage.setItem(
+                        itemName,
+                        JSON.stringify(initialValue)
+                    );
+                    parsedItem = initialValue;
+                } else {
+                    parsedItem = JSON.parse(localStorageItem);
+                    setItem(parsedItem);
+                }
 
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        setError(true);
-      }
-    }, 2000);
-  }, []);
+                setLoading(false);
+            } catch (error) {
+                setLoading(false);
+                setError(true);
+            }
+        }, 2000);
+    }, []);
 
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  };
+    const saveItem = (newItem) => {
+        localStorage.setItem(itemName, JSON.stringify(newItem));
+        setItem(newItem);
+    };
 
-  return { item, saveItem, loading, error };
+    return { item, saveItem, loading, error };
 }
 
 export { useLocalStorage };
@@ -4818,16 +4859,16 @@ import "../TodoCounter/TodoCounter.css";
 import { TodoContext } from "../TodoContext";
 
 function TodoCounter() {
-  const { completedTodos, totalTodos } = React.useContext(TodoContext);
+    const { completedTodos, totalTodos } = React.useContext(TodoContext);
 
-  return totalTodos == completedTodos ? (
-    <h1 className="total">Completaste todos los ToDos</h1>
-  ) : (
-    <h1>
-      Has completado <span className="completed">{completedTodos}</span> de{" "}
-      <span className="total">{totalTodos}</span> ToDos
-    </h1>
-  );
+    return totalTodos == completedTodos ? (
+        <h1 className="total">Completaste todos los ToDos</h1>
+    ) : (
+        <h1>
+            Has completado <span className="completed">{completedTodos}</span>{" "}
+            de <span className="total">{totalTodos}</span> ToDos
+        </h1>
+    );
 }
 
 export { TodoCounter };
@@ -4841,18 +4882,18 @@ import "./TodoSearch.css";
 import { TodoContext } from "../TodoContext";
 
 function TodoSearch() {
-  const { searchValue, setSearchValue } = React.useContext(TodoContext);
+    const { searchValue, setSearchValue } = React.useContext(TodoContext);
 
-  return (
-    <input
-      placeholder="Search..."
-      className="search"
-      value={searchValue}
-      onChange={(event) => {
-        setSearchValue(event.target.value);
-      }}
-    />
-  );
+    return (
+        <input
+            placeholder="Search..."
+            className="search"
+            value={searchValue}
+            onChange={(event) => {
+                setSearchValue(event.target.value);
+            }}
+        />
+    );
 }
 
 export { TodoSearch };
@@ -4880,25 +4921,25 @@ import ReactDOM from "react-dom";
 
 // Componente principal
 function App() {
-  return (
-    <div>
-      {/* ... */}
-      {ReactDOM.createPortal(
-        <ModalComponente />,
-        document.getElementById("modal-root")
-      )}
-    </div>
-  );
+    return (
+        <div>
+            {/* ... */}
+            {ReactDOM.createPortal(
+                <ModalComponente />,
+                document.getElementById("modal-root")
+            )}
+        </div>
+    );
 }
 
 // Componente de modal
 function ModalComponente() {
-  return (
-    <div className="modal">
-      <h2>Modal</h2>
-      {/* ... */}
-    </div>
-  );
+    return (
+        <div className="modal">
+            <h2>Modal</h2>
+            {/* ... */}
+        </div>
+    );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
@@ -4918,11 +4959,11 @@ import { AppUI } from "./AppUI";
 import { TodoProvider } from "../components/TodoContext";
 
 function App() {
-  return (
-    <TodoProvider>
-      <AppUI />;
-    </TodoProvider>
-  );
+    return (
+        <TodoProvider>
+            <AppUI />;
+        </TodoProvider>
+    );
 }
 
 export default App;
@@ -4944,42 +4985,42 @@ import { Modal } from "../components/Modal";
 import { TodoContext } from "../components/TodoContext";
 
 function AppUI({}) {
-  const {
-    loading,
-    error,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-  } = React.useContext(TodoContext);
-  return (
-    <>
-      <TodoCounter />
-      <TodoSearch />
+    const {
+        loading,
+        error,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+    } = React.useContext(TodoContext);
+    return (
+        <>
+            <TodoCounter />
+            <TodoSearch />
 
-      <TodoList>
-        {loading && <TodosLoading />}
-        {error && <TodosError />}
-        {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
+            <TodoList>
+                {loading && <TodosLoading />}
+                {error && <TodosError />}
+                {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
 
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton />
+            <TodoButton />
 
-      {openModal && <Modal>Add ToDo 🦄</Modal>}
-    </>
-  );
+            {openModal && <Modal>Add ToDo 🦄</Modal>}
+        </>
+    );
 }
 
 export { AppUI };
@@ -4994,61 +5035,61 @@ import { useLocalStorage } from "./useLocalStorage";
 const TodoContext = React.createContext();
 
 function TodoProvider({ children }) {
-  const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(true); //👈👀
-
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
-
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
-
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
-
-  return (
-    <TodoContext.Provider
-      value={{
+    const {
+        item: todos,
+        saveItem: saveTodos,
         loading,
         error,
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-        openModal,
-        setOpenModal,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+    } = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
+    const [openModal, setOpenModal] = React.useState(true); //👈👀
+
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
+
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
+
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
+
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
+
+    return (
+        <TodoContext.Provider
+            value={{
+                loading,
+                error,
+                completedTodos,
+                totalTodos,
+                searchValue,
+                setSearchValue,
+                searchedTodos,
+                completeTodo,
+                deleteTodo,
+                openModal,
+                setOpenModal,
+            }}
+        >
+            {children}
+        </TodoContext.Provider>
+    );
 }
 
 export { TodoContext, TodoProvider };
@@ -5061,10 +5102,10 @@ import React from "react";
 import ReactDom from "react-dom";
 
 function Modal({ children }) {
-  return ReactDom.createPortal(
-    <div className="Modal">{children}</div>,
-    document.getElementById("modal")
-  );
+    return ReactDom.createPortal(
+        <div className="Modal">{children}</div>,
+        document.getElementById("modal")
+    );
 }
 
 export { Modal };
@@ -5074,9 +5115,9 @@ export { Modal };
 
 ```js
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <div id="modal"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="modal"></div>
 </body>
 ```
 
@@ -5093,61 +5134,61 @@ import { useLocalStorage } from "./useLocalStorage";
 const TodoContext = React.createContext();
 
 function TodoProvider({ children }) {
-  const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false); //👈👀
-
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
-
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
-
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
-
-  return (
-    <TodoContext.Provider
-      value={{
+    const {
+        item: todos,
+        saveItem: saveTodos,
         loading,
         error,
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-        openModal,
-        setOpenModal,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+    } = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
+    const [openModal, setOpenModal] = React.useState(false); //👈👀
+
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
+
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
+
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
+
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
+
+    return (
+        <TodoContext.Provider
+            value={{
+                loading,
+                error,
+                completedTodos,
+                totalTodos,
+                searchValue,
+                setSearchValue,
+                searchedTodos,
+                completeTodo,
+                deleteTodo,
+                openModal,
+                setOpenModal,
+            }}
+        >
+            {children}
+        </TodoContext.Provider>
+    );
 }
 
 export { TodoContext, TodoProvider };
@@ -5169,39 +5210,39 @@ import { Modal } from "../components/Modal";
 import { TodoContext } from "../components/TodoContext";
 
 function AppUI({}) {
-  const {
-    loading,
-    error,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-  } = React.useContext(TodoContext);
-  return (
-    <>
-      <TodoCounter />
-      <TodoSearch />
-      <TodoList>
-        {loading && <TodosLoading />}
-        {error && <TodosError />}
-        {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
+    const {
+        loading,
+        error,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+    } = React.useContext(TodoContext);
+    return (
+        <>
+            <TodoCounter />
+            <TodoSearch />
+            <TodoList>
+                {loading && <TodosLoading />}
+                {error && <TodosError />}
+                {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
 
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
-      <TodoButton setOpenModal={setOpenModal} /> 👈👀
-      {openModal && <Modal>Add ToDo 🦄</Modal>}
-    </>
-  );
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
+            <TodoButton setOpenModal={setOpenModal} /> 👈👀
+            {openModal && <Modal>Add ToDo 🦄</Modal>}
+        </>
+    );
 }
 
 export { AppUI };
@@ -5244,14 +5285,14 @@ export { AppUI };
 import "./TodoButton.css";
 
 function TodoButton({ setOpenModal }) {
-  return (
-    <button
-      className="add"
-      onClick={() => {
-        setOpenModal((state) => !state);
-      }}
-    ></button>
-  );
+    return (
+        <button
+            className="add"
+            onClick={() => {
+                setOpenModal((state) => !state);
+            }}
+        ></button>
+    );
 }
 
 export { TodoButton };
@@ -5265,10 +5306,10 @@ import ReactDom from "react-dom";
 import "./Modal.css";
 
 function Modal({ children }) {
-  return ReactDom.createPortal(
-    <div className="ModalBackground">{children}</div>,
-    document.getElementById("modal")
-  );
+    return ReactDom.createPortal(
+        <div className="ModalBackground">{children}</div>,
+        document.getElementById("modal")
+    );
 }
 
 export { Modal };
@@ -5278,25 +5319,25 @@ export { Modal };
 
 ```css
 .ModalBackground {
-  width: 80dvw;
-  max-width: 25rem;
-  height: 40dvh;
-  background-color: rgba(79, 70, 229, 0.99);
-  /* border: 1px solid #090b10; 
+    width: 80dvw;
+    max-width: 25rem;
+    height: 40dvh;
+    background-color: rgba(79, 70, 229, 0.99);
+    /* border: 1px solid #090b10; 
 	box-shadow: -5px 5px 5px -5px #090b10;*/
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  color: #090b10;
-  font-weight: 600;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: #090b10;
+    font-weight: 600;
 
-  position: fixed;
-  top: 14rem;
-  left: 0;
-  right: 0;
-  /* bottom: 0; */
+    position: fixed;
+    top: 14rem;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
 }
 ```
 
@@ -5321,46 +5362,46 @@ import { TodoContext } from "../components/TodoContext";
 import { TodoForm } from "../components/TodoForm";
 
 function AppUI({}) {
-  const {
-    loading,
-    error,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-  } = React.useContext(TodoContext);
-  return (
-    <>
-      <TodoCounter />
-      <TodoSearch />
+    const {
+        loading,
+        error,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+    } = React.useContext(TodoContext);
+    return (
+        <>
+            <TodoCounter />
+            <TodoSearch />
 
-      <TodoList>
-        {loading && <TodosLoading />}
-        {error && <TodosError />}
-        {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
+            <TodoList>
+                {loading && <TodosLoading />}
+                {error && <TodosError />}
+                {!loading && searchedTodos.lenght === 0 && <TodosEmpty />}
 
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            // Pasar una función a un componente sin ejecutarla inmediatamente
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+                {searchedTodos.map((todo) => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        // Pasar una función a un componente sin ejecutarla inmediatamente
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
 
-      <TodoButton setOpenModal={setOpenModal} />
+            <TodoButton setOpenModal={setOpenModal} />
 
-      {openModal && (
-        <Modal>
-          <TodoForm />
-        </Modal>
-      )}
-    </>
-  );
+            {openModal && (
+                <Modal>
+                    <TodoForm />
+                </Modal>
+            )}
+        </>
+    );
 }
 
 export { AppUI };
@@ -5373,31 +5414,31 @@ import React from "react";
 import "./TodoForm.css";
 
 function TodoForm() {
-  return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
-      action=""
-    >
-      <label htmlFor="">Write a new ToDo</label>
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-        placeholder="Write something..."
-      />
-      <div className="buttons">
-        <button type="" className="TodoForm cancel">
-          Cancel
-        </button>
-        <button type="" className="TodoForm save">
-          Save
-        </button>
-      </div>
-    </form>
-  );
+    return (
+        <form
+            onSubmit={(event) => {
+                event.preventDefault();
+            }}
+            action=""
+        >
+            <label htmlFor="">Write a new ToDo</label>
+            <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Write something..."
+            />
+            <div className="buttons">
+                <button type="" className="TodoForm cancel">
+                    Cancel
+                </button>
+                <button type="" className="TodoForm save">
+                    Save
+                </button>
+            </div>
+        </form>
+    );
 }
 
 export { TodoForm };
@@ -5466,18 +5507,18 @@ Aquí tienes un ejemplo básico de cómo se puede utilizar el estado local en un
 import React, { useState } from "react";
 
 function MiComponente() {
-  const [contador, setContador] = useState(0);
+    const [contador, setContador] = useState(0);
 
-  const incrementarContador = () => {
-    setContador(contador + 1);
-  };
+    const incrementarContador = () => {
+        setContador(contador + 1);
+    };
 
-  return (
-    <div>
-      <p>Contador: {contador}</p>
-      <button onClick={incrementarContador}>Incrementar</button>
-    </div>
-  );
+    return (
+        <div>
+            <p>Contador: {contador}</p>
+            <button onClick={incrementarContador}>Incrementar</button>
+        </div>
+    );
 }
 ```
 
@@ -5495,46 +5536,50 @@ import { TodoContext } from "../TodoContext";
 import "./TodoForm.css";
 
 function TodoForm() {
-  const { addTodo, setOpenModal } = React.useContext(TodoContext);
+    const { addTodo, setOpenModal } = React.useContext(TodoContext);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    addTodo(newTodoValue);
-    setOpenModal(false);
-  };
+    const onSubmit = (event) => {
+        event.preventDefault();
+        addTodo(newTodoValue);
+        setOpenModal(false);
+    };
 
-  const [newTodoValue, setNewTodoValue] = React.useState("");
+    const [newTodoValue, setNewTodoValue] = React.useState("");
 
-  const onCancel = () => {
-    setOpenModal(false);
-  };
+    const onCancel = () => {
+        setOpenModal(false);
+    };
 
-  const onChange = (event) => {
-    setNewTodoValue(event.target.value);
-  };
+    const onChange = (event) => {
+        setNewTodoValue(event.target.value);
+    };
 
-  return (
-    <form onSubmit={onSubmit} action="">
-      <label htmlFor="">Write a new ToDo</label>
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-        placeholder="Write something..."
-        value={newTodoValue}
-        onChange={onChange}
-      />
-      <div className="buttons">
-        <button type="button" className="TodoForm cancel" onClick={onCancel}>
-          Cancel
-        </button>
-        <button type="submit" className="TodoForm save">
-          Save
-        </button>
-      </div>
-    </form>
-  );
+    return (
+        <form onSubmit={onSubmit} action="">
+            <label htmlFor="">Write a new ToDo</label>
+            <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Write something..."
+                value={newTodoValue}
+                onChange={onChange}
+            />
+            <div className="buttons">
+                <button
+                    type="button"
+                    className="TodoForm cancel"
+                    onClick={onCancel}
+                >
+                    Cancel
+                </button>
+                <button type="submit" className="TodoForm save">
+                    Save
+                </button>
+            </div>
+        </form>
+    );
 }
 
 export { TodoForm };
@@ -5549,72 +5594,72 @@ import { useLocalStorage } from "./useLocalStorage";
 const TodoContext = React.createContext();
 
 function TodoProvider({ children }) {
-  const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage("ToDos_v1", []);
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false); //👈👀
-
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
-
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchText = searchValue.toLowerCase();
-    return todoText.includes(searchText);
-  });
-
-  const addTodo = (text) => {
-    const newTodos = [...todos];
-
-    newTodos.push({
-      text,
-      completed: false,
-    });
-    saveTodos(newTodos);
-  };
-
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    // newTodos[todoIndex].completed = true;
-    // true = false / false = true
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
-
-  return (
-    <TodoContext.Provider
-      value={{
+    const {
+        item: todos,
+        saveItem: saveTodos,
         loading,
         error,
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-        openModal,
-        setOpenModal,
-        addTodo,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+    } = useLocalStorage("ToDos_v1", []);
+    const [searchValue, setSearchValue] = React.useState("");
+    const [openModal, setOpenModal] = React.useState(false); //👈👀
+
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
+
+    const searchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+    });
+
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+
+        newTodos.push({
+            text,
+            completed: false,
+        });
+        saveTodos(newTodos);
+    };
+
+    const completeTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        // newTodos[todoIndex].completed = true;
+        // true = false / false = true
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    };
+
+    const deleteTodo = (text) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
+
+    return (
+        <TodoContext.Provider
+            value={{
+                loading,
+                error,
+                completedTodos,
+                totalTodos,
+                searchValue,
+                setSearchValue,
+                searchedTodos,
+                completeTodo,
+                deleteTodo,
+                openModal,
+                setOpenModal,
+                addTodo,
+            }}
+        >
+            {children}
+        </TodoContext.Provider>
+    );
 }
 
 export { TodoContext, TodoProvider };
@@ -5702,18 +5747,18 @@ Este es un proyecto de ToDo List simple y fácil de usar. Te permite crear, orga
 
 ## Características
 
-- Agrega tareas con un título y una descripción.
-- Marca las tareas como completadas.
-- Elimina las tareas que ya no necesitas.
-- Filtra las tareas según su estado (completadas, pendientes).
-- Interfaz intuitiva y fácil de usar.
+-   Agrega tareas con un título y una descripción.
+-   Marca las tareas como completadas.
+-   Elimina las tareas que ya no necesitas.
+-   Filtra las tareas según su estado (completadas, pendientes).
+-   Interfaz intuitiva y fácil de usar.
 
 ## Tecnologías utilizadas
 
-- HTML
-- CSS
-- JavaScript
-- React
+-   HTML
+-   CSS
+-   JavaScript
+-   React
 
 ## Demo
 
@@ -5742,9 +5787,9 @@ En este ejemplo, he incluido secciones como Características, Tecnologías utili
 
 Recuerda reemplazar las URLs de las capturas de pantalla y la demostración en vivo con las URLs correspondientes a tu proyecto. Además, asegúrate de tener un archivo de captura de pantalla llamado `screenshot.png` (o cambia el nombre en el archivo README.md) en el mismo directorio que el archivo README.md.
 
-- [Un interesante proyecto](https://gaoux.github.io/to-do-list/)
-- [Repo](https://github.com/Gaoux/to-do-list)
-- [Otro diseño](https://alvarenga144.github.io/TodoList-Reactjs18/)
+-   [Un interesante proyecto](https://gaoux.github.io/to-do-list/)
+-   [Repo](https://github.com/Gaoux/to-do-list)
+-   [Otro diseño](https://alvarenga144.github.io/TodoList-Reactjs18/)
 
 Probar hosting: Vercel  
 [😲 Subir Tu Página Web a Internet ¡GRATIS! con Vercel ⭐](https://www.youtube.com/watch?v=OcmYyTmAsOI)
@@ -5817,8 +5862,8 @@ npm start
 
 Algo que nos puede ayudar a encontrar la solución a los problemas de migrar un proyecto a una versión anterior es buscar:
 
-- ¿Qué diferencias hay entre una versión en específico y la última?
-- Change React 18 17.0.2
+-   ¿Qué diferencias hay entre una versión en específico y la última?
+-   Change React 18 17.0.2
 
 [Info](https://dev.to/ifeanyichima/how-to-downgrade-from-react-18-to-1702-818)
 

@@ -1,6 +1,6 @@
 import { Box, Flex, Tooltip } from "@chakra-ui/react";
 import React from "react";
-import { CreatePostLogo } from "../../../assets/Constantes";
+import { CreatePostLogo } from "../../../assets/LogoSVG";
 
 const CreatePost = () => {
     return (

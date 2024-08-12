@@ -52,8 +52,6 @@ El Scrum Master no es un policía ni un dictador, sino un líder que sirve al eq
 
 Recuerda descargar la guía de Scrum y compartir tus aprendizajes en los comentarios. Nos vemos en la siguiente clase, donde explicaré Scrum desde el punto de vista del Scrum Master.
 
-
-
 ## clase 3/17:Scrum desde la perspectiva del Scrum Master
 
 ¡Claro! Aquí tienes tu texto corregido:
@@ -96,54 +94,54 @@ Y los modelos predictivos de control entonces consisten en buscar formas de gest
 
 #### Modelos de control al nivel de producto (elementos)
 
-- 1. Transparencia, existen dos artefactos :
-  - Producto Backlog : debe ser accesible para todos
-  - Increment : Ocurren en sprint review , un historial de que se hizo .
-- 2.Inspecion: proceso de analizar la informacion para tomar decisiones . Se da cuando el cliente interauta con el producto ,
+-   1. Transparencia, existen dos artefactos :
+    -   Producto Backlog : debe ser accesible para todos
+    -   Increment : Ocurren en sprint review , un historial de que se hizo .
+-   2.Inspecion: proceso de analizar la informacion para tomar decisiones . Se da cuando el cliente interauta con el producto ,
 
-- Sprint Review : es la revision del sprint (no hace seguimiento) es un error mostrar diapositiva de informacion .
+-   Sprint Review : es la revision del sprint (no hace seguimiento) es un error mostrar diapositiva de informacion .
 
-- 3.Adaptacion : El cliente nos da un feedback , el comportamiento del cliente (lenguaje no verbal) al usar el producto . El equipo hace observacion al ver al cliente para mejorar .
+-   3.Adaptacion : El cliente nos da un feedback , el comportamiento del cliente (lenguaje no verbal) al usar el producto . El equipo hace observacion al ver al cliente para mejorar .
 
-  - Sprint Planning : Este paso se ve los apuntes para mejorar .
+    -   Sprint Planning : Este paso se ve los apuntes para mejorar .
 
-  ![clase04](./clase04.png)
+    ![clase04](./clase04.png)
 
 ## clase 5/17: Mac en Proceso
 
-- Transparencia :
-  - Sprint Backlog :
-  - Define of done : controls de calidad dentor de equipo
-- Inspecion :
-  - Sprint Retrospective : es un artefazo apra ver que estrategia funciono o no
-- Adaptacion
-  - Sprint Retrospective :va de la mano con inspeccion
+-   Transparencia :
+    -   Sprint Backlog :
+    -   Define of done : controls de calidad dentor de equipo
+-   Inspecion :
+    -   Sprint Retrospective : es un artefazo apra ver que estrategia funciono o no
+-   Adaptacion
+    -   Sprint Retrospective :va de la mano con inspeccion
 
 ## clase 6/17:MAC en progreso
 
 Hasta este punto Scrum tiene 2 modelos adaptivos de control (al nivel de produ to y al nivel de proceso)
 
-- 3er modelo:
-  Daily Scrum : se aplica los 3
-  La Daily scrum es un modelo adaptativo de control que provee transparencia, inspección y adaptación de la forma de trabajar dentro de la sprint.
-  .
-  Este espacio es para que los developers se junten para tener un ejercicio de transparencia por medio de saber ¿qué se hizo ayer?¿que se hará hoy?¿qué obstáculos existen?
-  .
-  la inspección ocurre cuando se preguntan ¿qué se hará con esta información que se tiene?¿que tan cerca esta el objetivo del sprint?
+-   3er modelo:
+    Daily Scrum : se aplica los 3
+    La Daily scrum es un modelo adaptativo de control que provee transparencia, inspección y adaptación de la forma de trabajar dentro de la sprint.
+    .
+    Este espacio es para que los developers se junten para tener un ejercicio de transparencia por medio de saber ¿qué se hizo ayer?¿que se hará hoy?¿qué obstáculos existen?
+    .
+    la inspección ocurre cuando se preguntan ¿qué se hará con esta información que se tiene?¿que tan cerca esta el objetivo del sprint?
 
-  - Transparencia : cuando el equipo conversa sobre lo que hicieron
-  - Inspecion : que se va hacer con la informacion (que tan cerca esta)
-  - Adaptacion : si se necesita cambiar o no el plan que se definio en backlog
+    -   Transparencia : cuando el equipo conversa sobre lo que hicieron
+    -   Inspecion : que se va hacer con la informacion (que tan cerca esta)
+    -   Adaptacion : si se necesita cambiar o no el plan que se definio en backlog
 
-  Aqui no existe rendcion de cuentas (envio de correo al grupo de avance)
+    Aqui no existe rendcion de cuentas (envio de correo al grupo de avance)
 
-  🌊Transparencia
-  Daily Scrum haciéndolo visible el trabajo actual realizado
-  🔍Inspección
-  Daily Scrum que tan cerca se está de cumplir el objetivo del Sprint
-  🔩Adaptación
-  Daily Scrum revisando si debemos cambiar el plan definido en el Sprint Backlog
-  📌Objetivo Principal: Es decir si la estrategia presentada inicialmente nos está acercando al objetivo, o si hay que cambiarla
+    🌊Transparencia
+    Daily Scrum haciéndolo visible el trabajo actual realizado
+    🔍Inspección
+    Daily Scrum que tan cerca se está de cumplir el objetivo del Sprint
+    🔩Adaptación
+    Daily Scrum revisando si debemos cambiar el plan definido en el Sprint Backlog
+    📌Objetivo Principal: Es decir si la estrategia presentada inicialmente nos está acercando al objetivo, o si hay que cambiarla
 
 ## clase 7/17: Servicio al Product Owner
 
@@ -157,12 +155,12 @@ Servicios Product Owner
 💻 La sección de producto describe las tres a cinco características que hacen que el producto sea deseable y lo diferencian de los competidores, pero evite convertir esta sección en un mini backlog.
 📈 La sección de objetivos empresariales expone los beneficios empresariales deseados del producto, los prioriza y los concreta, y evita utilizar objetivos genéricos.
 
-- Ayudar a encontrar Técnicas para definir objetivos del producto
-- Ayudar al Scrum Team a Comprender la necesidad de tener elementos del Product Backlog claros y concisos
-- Ayudar a establecer una Planificación empírica(estimación) de producto para un entorno complejo
-- Facilita la colaboración de los interesados
-- Exige alta colaboración entre equipo scrum y el resto de la organización
-- Scrum Master debe asistir y facilitar la comunicación de todo el team
+-   Ayudar a encontrar Técnicas para definir objetivos del producto
+-   Ayudar al Scrum Team a Comprender la necesidad de tener elementos del Product Backlog claros y concisos
+-   Ayudar a establecer una Planificación empírica(estimación) de producto para un entorno complejo
+-   Facilita la colaboración de los interesados
+-   Exige alta colaboración entre equipo scrum y el resto de la organización
+-   Scrum Master debe asistir y facilitar la comunicación de todo el team
 
 ## clase 8/17: Servicio al Scrum team
 
@@ -275,27 +273,27 @@ Una buena practica es que los developers sean quien presenten al cliente el incr
 Herramientas:
 Metáforas visuales: para ayudar a entender mejor y mantener la atención del equipo. Plantillas para explicar , ganancias,riesgos , luz al final de camino o pontenciales ganancias.
 
-- miro.com/es/
-- Retroma.org/es/
+-   miro.com/es/
+-   Retroma.org/es/
 
 ## clase 14/17: Antipatrones de Scrum
 
 mapa de Scrum :
 Identificar los modelos adaptativos de control.
 
-- Al nivel de producto
+-   Al nivel de producto
 
-- Transparencia : El product backlog esta visibles para todos o esta escodido ? es facil de interpretar , hay un documento que estan ordenados? , criterio de priorizacion.
-  Cuando no aparecen estas como anti patrones .
+-   Transparencia : El product backlog esta visibles para todos o esta escodido ? es facil de interpretar , hay un documento que estan ordenados? , criterio de priorizacion.
+    Cuando no aparecen estas como anti patrones .
 
-- Inspeccion : Ocurren en la sprint Review
+-   Inspeccion : Ocurren en la sprint Review
 
 si no se da es un antipatron
 La sprint review no aporta a la inspeccion debe eliminarse.
 
 Lo puede enseñar el entrenador (sobrero).
 
-- Adaptacion:
+-   Adaptacion:
 
 Occuren en Sprint Planning , verificar si la informacion que se correcogio en la inspeccion sirve para algo ??
 Cuando el producto no se esta adaptado .
@@ -303,7 +301,7 @@ si no hay adaptacion hay un antipatron al nivel de procuto. herramienta incorrec
 
 Ponerse el sobrero de consultor para ayudar para mostar el verdadero valor de SCrum
 
-- Al nivel de proceso
+-   Al nivel de proceso
 
 tranparencias : Sprint backlog y definition of done (artefactos) si no existen es antipatron
 
@@ -311,7 +309,7 @@ Inspeccion y Adaptaccion : si no existen es un antipatron
 el equipo no response al nivel de sus capacidades
 Tiene que ver mejoras
 
-- Al nivel de Daily Scrum (modelo adaptivo de control )
+-   Al nivel de Daily Scrum (modelo adaptivo de control )
 
 Permite ver la insetidumbre dentro del sprint , si el equipo no cumple sus comprimos al final del sprint , hay un antipatron que viene progreso no esta funcionado .
 

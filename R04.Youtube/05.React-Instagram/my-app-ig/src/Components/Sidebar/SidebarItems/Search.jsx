@@ -14,7 +14,7 @@ import {
     Tooltip,
     useDisclosure,
 } from "@chakra-ui/react";
-import { SearchLogo } from "../../../assets/Constantes";
+import { SearchLogo } from "../../../assets/LogoSVG";
 
 const Search = () => {
     return (
