@@ -22,23 +22,23 @@ import ScrollToSection from "./components/scroll-to-section";
 const App = () => {
     return (
         <>
-            {/*    <RandomColor /> */}
+            {/* <RandomColor /> */}
             {/*  <ImageSlider /> */}
             {/* <LoadMoreData /> */}
-            {/*   <LigthDarkMode /> */}
-            {/*  <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-            {/*      {<TabTest />} */}
-            {/*    <ModalTest /> */}
-            {/*     <GithubProfileFinder /> */}
-            {/*            <SearchAutoComplete /> */}
-            <UseFetchHookTest />
-            {/*  <ScrollToTopAndBottm /> */}
+            {/* <LigthDarkMode /> */}
+            {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
+            {/* <TabTest /> */}
+            {/* <ModalTest /> */}
+            {/* <GithubProfileFinder /> */}
+            {/* <SearchAutoComplete /> */}
+            {/* <UseFetchHookTest /> */}
+            {/* <ScrollToTopAndBottm /> */}
             {/* <ScrollToSection /> */}
             {/* <StarRating noOfStarts={10} /> */}
-            {/*  <TreeView menus={menus} /> */}
+            {/* <TreeView menus={menus} /> */}
             {/* <TicTacToe /> */}
             {/* <UseWindowsResizeTest /> */}
-            {/*     <QrGenerator /> */}
+            {/* <QrGenerator /> */}
         </>
     );
 };

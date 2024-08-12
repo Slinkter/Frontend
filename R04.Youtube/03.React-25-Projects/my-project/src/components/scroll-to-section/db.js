@@ -1,44 +1,44 @@
 const data = [
-  {
-    label: "Fisrt Card",
-    style: {
-      width: "100%",
-      height: "300px",
-      background: "red",
+    {
+        label: "Fisrt Card",
+        style: {
+            width: "100%",
+            height: "80vh",
+            background: "red",
+        },
     },
-  },
-  {
-    label: "Second Card",
-    style: {
-      width: "100%",
-      height: "300px",
-      background: "blue",
+    {
+        label: "Second Card",
+        style: {
+            width: "100%",
+            height: "80vh",
+            background: "blue",
+        },
     },
-  },
-  {
-    label: "third Card",
-    style: {
-      width: "100%",
-      height: "300px",
-      background: "green",
+    {
+        label: "third Card",
+        style: {
+            width: "100%",
+            height: "80vh",
+            background: "green",
+        },
     },
-  },
-  {
-    label: "Fourth Card",
-    style: {
-      width: "100%",
-      height: "300px",
-      background: "gray",
+    {
+        label: "Fourth Card",
+        style: {
+            width: "100%",
+            height: "80vh",
+            background: "gray",
+        },
     },
-  },
-  {
-    label: "Fifth Card",
-    style: {
-      width: "100%",
-      height: "300px",
-      background: "orange",
+    {
+        label: "Fifth Card",
+        style: {
+            width: "100%",
+            height: "80vh",
+            background: "orange",
+        },
     },
-  },
 ];
 
 export default data;
