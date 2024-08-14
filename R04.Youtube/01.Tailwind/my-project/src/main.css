@@ -34,16 +34,16 @@
         font-weight: 400;
         font-style: normal;
     }
+}
 
-    @layer components {
-        .container-border {
-            @apply inline-block p-4 text-black bg-white border rounded-lg shadow-md hover:shadow-cyan-500;
-        }
-        .container-img {
-            @apply w-full h-64 md:w-64 object-cover blur-sm hover:blur-none hover:scale-105 hover:rounded-lg hover:h-max  delay-150 duration-300  overflow-hidden hover:overflow-hidden;
-        }
-        .container-btn {
-            @apply animate-bounce  transition delay-100 duration-100  px-3 py-2 rounded-lg  cursor-pointer bg-cyan-500 shadow-md shadow-cyan-500/50 text-white;
-        }
+@layer components {
+    .container-border {
+        @apply inline-block p-4 text-black bg-white border rounded-lg shadow-md hover:shadow-cyan-500;
+    }
+    .container-img {
+        @apply w-full h-64 md:w-64 object-cover blur-sm hover:blur-none hover:scale-105 hover:rounded-lg hover:h-max  delay-150 duration-300  overflow-hidden hover:overflow-hidden;
+    }
+    .container-btn {
+        @apply animate-bounce  transition delay-100 duration-100  px-3 py-2 rounded-lg  cursor-pointer bg-cyan-500 shadow-md shadow-cyan-500/50 text-white;
     }
 }
