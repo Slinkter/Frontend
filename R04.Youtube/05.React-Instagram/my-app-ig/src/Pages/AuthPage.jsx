@@ -10,16 +10,12 @@ const AuthPage = () => {
             alignItems={"center"}
             px={4}
         >
-            <Container
-                maxW={"container.md"}
-                border={"1px solid white"}
-                padding={0}
-            >
+            <Container maxW={"container.md"} padding={0}>
                 <Flex justifyContent={"center"} alignItems={"center"} gap={10}>
                     <Box display={{ base: "none", md: "block" }}>
                         <Image src="./auth.png" alt="logo" h={650} />
                     </Box>
-                    <VStack>
+                    <VStack spacing={4} align={"stretch"}>
                         <AuthForm />
                         <Box>Get the app</Box>
                         <Flex>
