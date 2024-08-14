@@ -10,7 +10,7 @@ const styles = {
         body: {
             bg: mode("white", "gray.900")(props),
             color: mode("gray.800", "whiteAlpha.900")(props),
-            //  fontFamily: "console",
+            fontFamily: "console",
         },
     }),
 };
