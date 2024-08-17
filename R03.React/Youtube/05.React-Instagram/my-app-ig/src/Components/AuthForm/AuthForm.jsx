@@ -10,7 +10,6 @@ const AuthForm = () => {
     return (
         <>
             <Box border={"1px solid gray"} borderRadius={4} padding={5}>
-                <h1>Authform</h1>
                 <VStack spacing={4}>
                     <Image
                         src="/logo.png"

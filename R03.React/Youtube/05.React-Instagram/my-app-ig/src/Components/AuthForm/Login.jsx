@@ -7,7 +7,7 @@ const Login = () => {
     const { loading, error, login } = useLogin();
 
     return (
-        <div>
+        <>
             <Input
                 placeholder="Email"
                 fontSize={14}
@@ -45,7 +45,7 @@ const Login = () => {
             >
                 Login
             </Button>
-        </div>
+        </>
     );
 };
 
