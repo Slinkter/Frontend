@@ -4,10 +4,9 @@ import { auth } from "../../firebase/firebase";
 import useShowToast from "../../hooks/useShowToast";
 
 const GoogleAuth = () => {
-    const [] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
     const showToast = useShowToast();
-    /*    const loginUser = useAuthStore(state => state.login)
-     */
+
     return <div>GoogleAuth</div>;
 };
 
