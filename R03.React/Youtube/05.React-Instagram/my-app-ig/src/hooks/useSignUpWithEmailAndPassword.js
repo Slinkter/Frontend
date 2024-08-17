@@ -11,13 +11,37 @@ const useSignUpWithEmailAndPassword = () => {
     const loginUser = useAuthStore((state) => state.login);
 
     const signup = async (inputs) => {
+        /* validar */
+        if (
+            !inputs.email ||
+            !inputs.password ||
+            !inputs.username ||
+            !inputs.fullName
+        ) {
+            showToast("Error", "Please fill all the fields", "error");
+            return;
+        }
+
+        /* config query Firestore */
         const usersRef = collection(firestore, "users");
-        const q = query(usersRef, where("username", "==", inputs.username));
+        const qWhere = where("username", "==", inputs.username);
+        const q = query(usersRef, qWhere);
+        /* go  query */
         const querySnapShot = await getDocs(q);
         if (!querySnapShot.empty) {
             showToast("error", "username alreadey existe", "error");
             return;
         }
+        /*  */
+        try {
+            const newUser = await createUserWithEmailAndPassword(
+                inputs.email,
+                inputs.password
+            );
+            if (!newUser && error) {
+                showToast("Error");
+            }
+        } catch (error) {}
     };
 
     return {};
