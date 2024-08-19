@@ -46,8 +46,23 @@ const useFollowUser = (userId) => {
                     );
                     setUserProfile({ ...userProfile, followers: update });
                 }
+                //
+                const filter = user.following.filter((uid) => uid !== userId);
+                const save = JSON.stringify({ ...user, following: filter });
+                localStorage.setItem("user-info", save);
             } else {
-                setUser({});
+                const newFollowing = [...user.following, userId];
+                setUser({ ...user, following: newFollowing });
+                //
+                if (userProfile) {
+                    const newFollowers = [...userProfile.followers, user.uid];
+                    setUserProfile({ ...userProfile, followers: newFollowers });
+                }
+                //
+                const newState = [...user.following, userId];
+                const save = JSON.stringify({ ...user, following: newState });
+                localStorage.setItem("user-info", save);
+                setIsFollowing(true)
             }
         } catch (error) {
             // Mostrar un mensaje de error si algo sale mal
