@@ -51,18 +51,21 @@ const useFollowUser = (userId) => {
                 const save = JSON.stringify({ ...user, following: filter });
                 localStorage.setItem("user-info", save);
             } else {
-                const newFollowing = [...user.following, userId];
-                setUser({ ...user, following: newFollowing });
+                const addUserId = [...user.following, userId];
+                setUser({ ...user, following: addUserId });
                 //
                 if (userProfile) {
-                    const newFollowers = [...userProfile.followers, user.uid];
-                    setUserProfile({ ...userProfile, followers: newFollowers });
+                    const addUser = [...userProfile.followers, user.uid];
+                    setUserProfile({ ...userProfile, followers: addUser });
                 }
                 //
                 const newState = [...user.following, userId];
-                const save = JSON.stringify({ ...user, following: newState });
-                localStorage.setItem("user-info", save);
-                setIsFollowing(true)
+                const userInfo = JSON.stringify({
+                    ...user,
+                    following: newState,
+                });
+                localStorage.setItem("user-info", userInfo);
+                setIsFollowing(true);
             }
         } catch (error) {
             // Mostrar un mensaje de error si algo sale mal
