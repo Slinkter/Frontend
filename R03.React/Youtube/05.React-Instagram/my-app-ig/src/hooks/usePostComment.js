@@ -21,12 +21,15 @@ const usePostComment = () => {
         newComment.postId = postId;
         //
         try {
-            addComment(postId, newComment);
+            addComment(postId, newComment); // store
             const docRef = doc(firestore, "posts", postId);
             const fieldRef = { comments: arrayUnion(newComment) };
+            //--->
             await updateDoc(docRef, fieldRef);
         } catch (error) {
             showToast("Error", error.message, "error");
+        } finally {
+            setisCommenting(false);
         }
     };
 
