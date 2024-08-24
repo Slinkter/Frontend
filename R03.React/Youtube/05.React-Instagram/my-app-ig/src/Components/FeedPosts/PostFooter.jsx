@@ -18,6 +18,7 @@ import {
     UnlikeLogo,
 } from "../../assets/LogoSVG";
 import { timeAgo } from "../../utils/timeAgo";
+import CommentsModal from "../Modals/CommentsModal";
 
 const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
     const [comment, setComment] = useState("");
@@ -73,7 +74,13 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
                             View all {post.comments.length} comments
                         </Text>
                     )}
-                    {true ? <p>CommentsModal</p> : null}
+                    {isOpen ? (
+                        <CommentsModal
+                            isOpen={isOpen}
+                            onClose={onClose}
+                            post={post}
+                        />
+                    ) : null}
                 </>
             )}
             {user && (
@@ -114,9 +121,3 @@ const PostFooter = ({ post, isProfilePage, creatorProfile }) => {
 };
 
 export default PostFooter;
-/* 
-Function arrayUnion() called with invalid data. 
-Unsupported field value: undefined 
-(found in document posts/CPz9nYFkVA6RHFv4DhA4)
-
-*/

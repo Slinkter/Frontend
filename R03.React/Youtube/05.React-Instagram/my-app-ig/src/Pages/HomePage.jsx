@@ -7,23 +7,16 @@ const HomePage = () => {
     document.title = "Home Page";
     return (
         <>
-            <Container maxW={"container.xl"} bg={"blue.900"}>
+            <Container maxW={"container.lg"} border={"1px solid white"}>
                 <Flex gap={20}>
-                    <Box
-                        flex={2}
-                        py={10}
-                        border={"3px solid"}
-                        borderColor={"green.500"}
-                    >
+                    <Box flex={2} py={10}>
                         <FeedPosts />
                     </Box>
                     <Box
                         flex={3}
                         mr={20}
                         maxW={"300px"}
-                        display={{ base: "block", md: "block" }}
-                        border={"3px solid"}
-                        borderColor={"red.500"}
+                        display={{ base: "none", md: "block" }}
                     >
                         <SuggestedUsers />
                     </Box>

@@ -16,7 +16,13 @@ const FeedPosts = () => {
     console.log("isloading : ", isLoading, "posts : ", posts);
 
     return (
-        <Container maxW={"container.sm"} py={10} px={2}>
+        <Container
+            maxW={"container.sm"}
+            py={10}
+            px={2}
+            border={"3px solid"}
+            borderColor={"green.200"}
+        >
             {isLoading &&
                 [0, 1, 2].map((_, idx) => (
                     <VStack key={idx} gap={4} alignItems={"flex-start"} mb={10}>
