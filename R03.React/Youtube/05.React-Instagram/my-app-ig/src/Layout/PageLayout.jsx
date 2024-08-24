@@ -10,15 +10,7 @@ const PageLayout = ({ children }) => {
     // hooks
     const { pathname } = useLocation();
     const [authUser, loading] = useAuthState(auth);
-    //
-    console.log(
-        "authUser ",
-        authUser,
-        " loading :",
-        loading,
-        " pathname",
-        pathname
-    );
+
     //
     const showSidebar = authUser && pathname !== "/auth";
     const showNavbar = !authUser && !loading && pathname !== "/auth";

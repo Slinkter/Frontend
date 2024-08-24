@@ -13,8 +13,7 @@ import "./App.css";
 function App() {
     //custom hook
     const [authUser] = useAuthState(auth);
-    //
-    console.log("authUser : ", { ...authUser });
+
     const routeHome = authUser ? <HomePage /> : <Navigate to="/auth" />;
     const routeAuth = !authUser ? <AuthPage /> : <Navigate to="/" />;
 

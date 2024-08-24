@@ -42,7 +42,7 @@ const SuggestedUsers = () => {
             )}
 
             {suggestedUsers.map((user) => (
-                <SuggestedUser key={user.id}> asdasdsa</SuggestedUser>
+                <SuggestedUser key={user.id} user={user} />
             ))}
 
             <Box fontSize={12} color={"gray.500"} mt={5} alignSelf={"start"}>
