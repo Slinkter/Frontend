@@ -4,12 +4,13 @@ import {
     Button,
     Flex,
     Text,
-    VStack,
     useDisclosure,
+    VStack,
 } from "@chakra-ui/react";
+import React from "react";
 import useUserProfileStore from "../../store/userProfileStore";
+
 import useAuthStore from "../../store/authStore";
-import EditProfile from "./EditProfile";
 import useFollowUser from "../../hooks/useFollowUser";
 
 const ProfileHeader = () => {
@@ -19,8 +20,10 @@ const ProfileHeader = () => {
     const { isFollowing, isUpdating, handleFollowUser } = useFollowUser(
         userProfile?.uid
     );
+
     const visitingOwnProfileAndAuth =
         authUser && authUser.username === userProfile.username;
+
     const visitingAnotherProfileAndAuth =
         authUser && authUser.username !== userProfile.username;
 
@@ -38,10 +41,9 @@ const ProfileHeader = () => {
             >
                 <Avatar
                     src={userProfile.profilePicURL}
-                    alt="As a programmer logo"
+                    alt="picture username"
                 />
             </AvatarGroup>
-
             <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
                 <Flex
                     gap={4}
@@ -62,11 +64,11 @@ const ProfileHeader = () => {
                             <Button
                                 bg={"white"}
                                 color={"black"}
-                                _hover={{ bg: "whiteAlpha.800" }}
                                 size={{ base: "xs", md: "sm" }}
                                 onClick={onOpen}
+                                _hover={{ bg: "whiteAlpha.800" }}
                             >
-                                Edit Profile
+                                EditProfile
                             </Button>
                         </Flex>
                     )}
@@ -79,34 +81,33 @@ const ProfileHeader = () => {
                             <Button
                                 bg={"blue.500"}
                                 color={"white"}
-                                _hover={{ bg: "blue.600" }}
                                 size={{ base: "xs", md: "sm" }}
+                                _hover={{ bg: "blue.600" }}
                                 onClick={handleFollowUser}
                                 isLoading={isUpdating}
                             >
-                                {isFollowing ? "Unfollow" : "Follow"}
+                                {isFollowing ? "unfollow" : "follow"}
                             </Button>
                         </Flex>
                     )}
                 </Flex>
-
                 <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>
                     <Text fontSize={{ base: "xs", md: "sm" }}>
-                        <Text as="span" fontWeight={"bold"} mr={1}>
+                        <Text as={"span"} fontWeight={"bold"} mr={1}>
                             {userProfile.posts.length}
                         </Text>
                         Posts
                     </Text>
                     <Text fontSize={{ base: "xs", md: "sm" }}>
-                        <Text as="span" fontWeight={"bold"} mr={1}>
-                            {userProfile.followers.length}
-                        </Text>
+                        <Text as={"span"} fontWeight={"bold"} mr={1}>
+                            {userProfile.followers.length}{" "}
+                        </Text>{" "}
                         Followers
                     </Text>
                     <Text fontSize={{ base: "xs", md: "sm" }}>
-                        <Text as="span" fontWeight={"bold"} mr={1}>
+                        <Text as={"span"} fontWeight={"bold"} mr={1}>
                             {userProfile.following.length}
-                        </Text>
+                        </Text>{" "}
                         Following
                     </Text>
                 </Flex>
@@ -115,9 +116,9 @@ const ProfileHeader = () => {
                         {userProfile.fullName}
                     </Text>
                 </Flex>
-                <Text fontSize={"sm"}>{userProfile.bio}</Text>
+                <Text fontSize={"sm"}> {userProfile.bio} bio </Text>
             </VStack>
-            {isOpen && <EditProfile isOpen={isOpen} onClose={onClose} />}
+            {isOpen && <span>EditProfile</span>}
         </Flex>
     );
 };
