@@ -34,7 +34,7 @@ const ProfilePage = () => {
                 flexDirection={"column"}
             >
                 {!isLoading && userProfile && <ProfileHeader />}
-                {!isLoading && <ProfileHeaderSkeleton />}
+                {isLoading && <ProfileHeaderSkeleton />}
             </Flex>
             <Flex
                 px={{ base: 2, sm: 4 }}
