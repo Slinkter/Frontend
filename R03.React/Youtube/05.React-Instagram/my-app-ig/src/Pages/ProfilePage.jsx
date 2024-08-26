@@ -18,7 +18,6 @@ import ProfilePosts from "../Components/Profile/ProfilePosts";
 const ProfilePage = () => {
     const { username } = useParams();
     const { isLoading, userProfile } = useGetUserProfileByUsername(username);
-    console.log(userProfile);
     const userNotFound = !isLoading && !userProfile;
     if (userNotFound) return <UserNotFound />;
     console.log(username);

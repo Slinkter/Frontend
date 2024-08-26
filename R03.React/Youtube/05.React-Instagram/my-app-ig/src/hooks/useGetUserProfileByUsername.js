@@ -17,7 +17,7 @@ const useGetUserProfileByUsername = (username) => {
             const q = query(collectionRef, where("username", "==", username));
             // exec
             const querySnapshot = await getDocs(q);
-            console.log(querySnapshot);
+
             //
             if (querySnapshot.empty) return setUserProfile(null);
             let userDoc = "";

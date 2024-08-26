@@ -60,7 +60,6 @@ const SuggestedUser = ({ user, setUser }) => {
                         onClick={onFollowUser}
                         isLoading={isUpdating}
                     >
-                        {" "}
                         {isFollowing ? "unfollow" : "follow"}
                     </Button>
                 )}

@@ -18,7 +18,9 @@ const useSignUpWithEmailAndPassword = () => {
     const loginUser = useAuthStore((state) => state.login);
 
     const signup = async (inputs) => {
-        /* validar */
+        console.log(inputs);
+
+        // Validar campos de entrada
         if (
             !inputs.email ||
             !inputs.password ||
@@ -26,48 +28,52 @@ const useSignUpWithEmailAndPassword = () => {
             !inputs.fullName
         ) {
             showToast("Error", "Please fill all the fields", "error");
+            console.log("Validation failed:", inputs);
             return;
         }
 
-        /* config query Firestore */
+        // Configurar la consulta para verificar si el nombre de usuario ya existe
         const usersRef = collection(firestore, "users");
-        const qFilter = where("username", "==", inputs.username);
-        const q = query(usersRef, qFilter);
-        const querySnapShot = await getDocs(q); // exec  query
-        /* check user  */
-        if (!querySnapShot.empty) {
-            showToast("error", "username alreadey existe", "error");
+        const q = query(usersRef, where("username", "==", inputs.username));
+        const querySnapshot = await getDocs(q);
+
+        // Comprobar si el nombre de usuario ya está en uso
+        if (!querySnapshot.empty) {
+            showToast("Error", "Username already exists", "error");
             return;
         }
-        /*  */
+
         try {
+            // Crear el nuevo usuario con email y contraseña
             const newUser = await createUserWithEmailAndPassword(
                 inputs.email,
                 inputs.password
             );
-            if (!newUser && error) {
-                showToast("Error", error.message, "error");
+            if (!newUser) {
+                if (error) {
+                    showToast("Error", error.message, "error");
+                }
                 return;
             }
-            if (newUser) {
-                //
-                let userDoc = {};
-                userDoc.uid = newUser.user.uid;
-                userDoc.emial = inputs.email;
-                userDoc.username = inputs.username;
-                userDoc.fullName = inputs.fullName;
-                userDoc.bio = "";
-                userDoc.profilePicUrl = "";
-                userDoc.followers = [];
-                userDoc.following = [];
-                userDoc.posts = [];
-                userDoc.createdAt = Date.now();
-                //
-                const docRef = doc(firestore, "users", newUser.user.uid);
-                await setDoc(docRef, userDoc);
-                localStorage.setItem("user-info", JSON.stringify(userDoc));
-                loginUser(userDoc);
-            }
+
+            // Configurar los datos del nuevo usuario
+            const userDoc = {
+                uid: newUser.user.uid,
+                email: inputs.email,
+                username: inputs.username,
+                fullName: inputs.fullName,
+                bio: "",
+                profilePicURL: "",
+                followers: [],
+                following: [],
+                posts: [],
+                createdAt: Date.now(),
+            };
+
+            // Guardar los datos del usuario en Firestore
+            await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
+            localStorage.setItem("user-info", JSON.stringify(userDoc));
+            loginUser(userDoc);
         } catch (error) {
             showToast("Error", error.message, "error");
         }

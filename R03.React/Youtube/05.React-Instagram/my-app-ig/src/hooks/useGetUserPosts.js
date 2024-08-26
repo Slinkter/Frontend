@@ -39,7 +39,7 @@ const useGetUserPosts = () => {
     //
     useEffect(() => {
         getPosts();
-    }, []);
+    }, [setPosts, userProfile, showToast]);
 
     return { isLoading, posts };
 };

@@ -15,7 +15,7 @@ const Signup = () => {
         fullName: "",
         username: "",
         email: "",
-        passowrd: "",
+        password: "",
     });
 
     const [showPassword, setShowPassword] = useState(false);
@@ -59,9 +59,9 @@ const Signup = () => {
                     fontSize={14}
                     type={showPassword ? "text" : "password"}
                     size={"sm"}
-                    value={inputs.passowrd}
+                    value={inputs.password}
                     onChange={(e) =>
-                        setInputs({ ...inputs, passowrd: e.target.value })
+                        setInputs({ ...inputs, password: e.target.value })
                     }
                 />
                 <InputRightElement h={"full"}>
