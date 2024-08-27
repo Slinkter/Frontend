@@ -1,8 +1,14 @@
-import { Avatar, Box, Link, Tooltip } from "@chakra-ui/react";
+import { Avatar, Box, Link, Tooltip, useDisclosure } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { Link as RouterLink } from "react-router-dom";
+import useCreatePost from "../../../hooks/useCreatePost";
 
 const ProfileLink = () => {
+    const [caption, setCaption] = useState();
+    const imageRef = useRef(null);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isLoading } = useCreatePost();
     return (
         <Tooltip
             hasArrow

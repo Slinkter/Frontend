@@ -1,8 +1,19 @@
-import { Box, Flex, Tooltip } from "@chakra-ui/react";
-import React from "react";
+import { Box, Flex, Tooltip, useDisclosure } from "@chakra-ui/react";
+import React, { useRef, useState } from "react";
 import { CreatePostLogo } from "../../../assets/LogoSVG";
+import usePreviewImg from "../../../hooks/usePreviewImg";
+import useShowToast from "../../../hooks/useShowToast";
+import useCreatePost from "../../../hooks/useCreatePost";
 
 const CreatePost = () => {
+    const [caption, setCaption] = useState("");
+    const imageRef = useRef(null);
+    const { selectedFile, handleImageChange, setSelectedFile } =
+        usePreviewImg();
+    const {} = useCreatePost();
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const showToast = useShowToast();
     return (
         <>
             <Tooltip
