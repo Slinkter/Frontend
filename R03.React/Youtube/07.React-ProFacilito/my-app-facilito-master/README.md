@@ -2,12 +2,10 @@ npm run dev
 
 https://plucky-crabapple-e82.notion.site/Recursos-Curso-Profesional-de-React-cc84a4ca3be841dfbacab0c71467e2be
 
-### Libreria de Formularios
 
-react hook form
-https://react-hook-form.com/
 
-https://codigofacilito.com/videos/introduccion-a-hooks
+
+
 
 ### Clase 30
 
