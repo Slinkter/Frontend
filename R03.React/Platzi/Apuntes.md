@@ -1,6 +1,22 @@
 # Curso de React.js
 
-[Curso de React.js](https://google.com/cursos/react/)
+Apuntes
+
+-   React is a javascript library created by facebook
+-   Is a tool for building UI components
+-   React create virtual dom in memory.
+-   React not manipulating the browsers'DOM
+-   Need node.js installed
+-   ES6 (2015) = Class,Arrow function,destructuring,module,spread operator, method array(map)
+-   var = function scope , respecta black scopr (not block scope)
+-   [].map() : return a new [] , in react it used for list
+-   Destructuring Array: extract only what is needed
+    -   const [car,truck,suv]= vehicles.
+-   Desctructuring Objects :
+    -   const {} = object
+-   Spread Operator : copy all or par of [] -------> const myobject = {...object}
+-   Ternary Operator : condition ? <true>:<false>
+-   https://www.w3schools.com/react/react_render.asp
 
 ## **1.** ¿Qué necesitas para aprender React.js?
 
