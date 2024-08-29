@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LIKED_EVENTS_STORAGE_KEY } from '../../../../utils/constants';
-import EventItem from '../../../../components/Events/components/EventItem';
+import { LIKED_EVENTS_STORAGE_KEY } from "../../../../utils/constants";
+import EventItem from "../../../../components/Events/components/EventItem";
 
 const LikedEvents = () => {
     const [events, setEvents] = useState([]);
@@ -10,29 +10,36 @@ const LikedEvents = () => {
     const [error, setError] = useState({});
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchEventsDetails = async () => {
-            try {
-                setIsLoading(true);
-                const likedEvents = JSON.parse(localStorage.getItem(LIKED_EVENTS_STORAGE_KEY)) || [];
-                
-                const results = [];
+    const fetchEventsDetails = async () => {
+        try {
+            setIsLoading(true);
+            const dataLocal = JSON.parse(
+                localStorage.getItem(LIKED_EVENTS_STORAGE_KEY)
+            );
+            //-->
+            const likedEvents = dataLocal || [];
+            const results = [];
 
-                for (const eventId of likedEvents) {
-                    const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TICKETMASTER_API_KEY}`);
-                    const data = await response.json();
+            for (const eventId of likedEvents) {
+                const url = `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${
+                    import.meta.env.VITE_TICKETMASTER_API_KEY
+                }`;
+                //
+                const response = await fetch(url);
+                const data = await response.json();
 
-                    results.push(data);
-                }
-                
-                setEvents(results);
-            } catch (error) {
-                setError(error);
-            } finally {
-                setIsLoading(false);
+                results.push(data);
             }
-        };
 
+            setEvents(results);
+        } catch (error) {
+            setError(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchEventsDetails();
     }, []);
 
@@ -51,7 +58,7 @@ const LikedEvents = () => {
     return (
         <div>
             {events.map((event, index) => (
-                <EventItem 
+                <EventItem
                     key={`liked-event-item-${event.id}-${index}`}
                     name={event.name}
                     info={event.info}

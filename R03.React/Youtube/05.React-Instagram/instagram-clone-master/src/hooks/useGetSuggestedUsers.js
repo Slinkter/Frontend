@@ -9,6 +9,8 @@ import {
     where,
 } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useGetSuggestedUsers = () => {
     const [isLoading, setIsLoading] = useState(true); // Estado para controlar si se están cargando los usuarios sugeridos
