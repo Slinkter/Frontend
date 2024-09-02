@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      p {
-        font-size: 30px;
-        color: black;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* Especificidad baja */
+            p {
+                font-size: 30px;
+                color: black;
+            }
+            /* Especificidad media */
+            .parrafo {
+                color: red;
+            }
+            /* Especificidad alta */
+            #parrafoid {
+                color: blue;
+            }
+            /* Especificidad combinado */
 
-      .parrafo {
-        color: red;
-      }
+            .parrafo#parrafoid {
+                color: green;
+            }
+        </style>
+    </head>
 
-      #parrafoid {
-        color: blue;
-      }
-      .parrafo#parrafoid {
-        color: green;
-      }
-    </style>
-  </head>
-
-  <body>
-    <p>soy un texto 1</p>
-    <p class="parrafo">soy un texto 2</p>
-    <p id="parrafoid">soy un texto 3</p>
-    <p id="parrafoid" class="parrafo">soy un texto 4</p>
-    <p id="parrafoid" class="parrafo" style="color: rgb(134, 13, 189)">
-      soy un texto 5
-    </p>
-  </body>
+    <body>
+        <p>soy un texto 1</p>
+        <p class="parrafo">soy un texto 2</p>
+        <p id="parrafoid">soy un texto 3</p>
+        <p id="parrafoid" class="parrafo">soy un texto 4</p>
+        <p id="parrafoid" class="parrafo" style="color: rgb(134, 13, 189)">
+            soy un texto 5
+        </p>
+    </body>
 </html>

@@ -1,25 +1,25 @@
 /* 1. Estilos Globales: */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 10px;
+    padding: 20px;
 }
 
 /* Selectores de Clase con Combinadores: */
 .nextElement h2 + p {
-  color: red;
-  font-size: 50px;
+    color: red;
+    font-size: 20px;
 }
 
-.clasetresone h2 ~ p {
-  color: blue;
+.allInk h2 ~ p {
+    color: blue;
 }
 
 .clasetresdos div > p {
-  color: green;
+    color: purple;
 }

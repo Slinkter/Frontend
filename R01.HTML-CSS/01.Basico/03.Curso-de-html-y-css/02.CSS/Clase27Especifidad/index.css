@@ -1,43 +1,39 @@
 * {
-  margin: 0;
-  box-sizing: border-box;
-  padding: 0;
-  scroll-behavior: smooth;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    scroll-behavior: smooth;
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 main .title {
-  font-family: "Courier New", Courier, monospace;
-  color: purple;
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-family: monospace;
+    font-family: "Courier New", Courier, monospace;
+    color: purple;
+    margin-bottom: 10px;
+    font-size: 28px;
 }
-
 ul.container {
-  margin-top: 30px;
-  border: 1px solid red;
-  /*   list-style-type: none; */
+    margin: 10px;
 }
-
 .container li {
-  display: inline-block;
-  margin: 15px;
+    display: inline-block;
+    margin: 15px;
 }
 
 .container a {
-  background-color: #13a4a4;
-  color: white;
-  padding: 5px;
-  border-radius: 8px;
+    background-color: #13a4a4;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .container .blog {
-  background-color: purple;
+    background-color: purple;
 }

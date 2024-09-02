@@ -1,9 +1,8 @@
 @media (min-width: 600px) {
-  .c1,
-  .c2,
-  .c3 {
-    width: 10%;
-    background-color: black;
-    border: 1px solid red;
-  }
+    .c1,
+    .c2,
+    .c3 {
+        width: 180px;
+        border: 1px solid red;
+    }
 }
