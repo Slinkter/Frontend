@@ -17,10 +17,9 @@ const AuthForm = () => {
                         cursor={"pointer"}
                         alt="Instagram"
                     />
-
+                    {/* ----------------  -------------- */}
                     {isLogin ? <Login /> : <Signup />}
 
-                    {/* ---------------- OR -------------- */}
                     <Flex
                         alignItems={"center"}
                         justifyContent={"center"}
@@ -34,7 +33,7 @@ const AuthForm = () => {
                         </Text>
                         <Box flex={2} h={"1px"} bg={"gray.400"} />
                     </Flex>
-
+                    {/* ----------------  -------------- */}
                     <GoogleAuth prefix={isLogin ? "Log in" : "Sign up"} />
                 </VStack>
             </Box>

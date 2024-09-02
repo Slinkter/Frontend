@@ -10,13 +10,16 @@ import {
 import { useState } from "react";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword";
 
+const initInput = {
+    fullName: "",
+    username: "",
+    email: "",
+    password: "",
+};
+
 const Signup = () => {
-    const [inputs, setInputs] = useState({
-        fullName: "",
-        username: "",
-        email: "",
-        password: "",
-    });
+    // hooks
+    const [inputs, setInputs] = useState(initInput);
     const [showPassword, setShowPassword] = useState(false);
     const { loading, error, signup } = useSignUpWithEmailAndPassword();
 

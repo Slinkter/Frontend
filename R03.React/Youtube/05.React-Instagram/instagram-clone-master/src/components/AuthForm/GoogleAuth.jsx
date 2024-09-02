@@ -7,8 +7,8 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const GoogleAuth = ({ prefix }) => {
     const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
-    const showToast = useShowToast();
     const loginUser = useAuthStore((state) => state.login);
+    const showToast = useShowToast();
 
     const handleGoogleAuth = async () => {
         try {
@@ -19,7 +19,7 @@ const GoogleAuth = ({ prefix }) => {
             }
             const userRef = doc(firestore, "users", newUser.user.uid);
             const userSnap = await getDoc(userRef);
-
+            // valida que exista el usuario
             if (userSnap.exists()) {
                 // login
                 const userDoc = userSnap.data();
@@ -39,10 +39,9 @@ const GoogleAuth = ({ prefix }) => {
                     posts: [],
                     createdAt: Date.now(),
                 };
-                await setDoc(
-                    doc(firestore, "users", newUser.user.uid),
-                    userDoc
-                );
+                const docRef = doc(firestore, "users", newUser.user.uid);
+                // save firestore and localStorage and store
+                await setDoc(docRef, userDoc);
                 localStorage.setItem("user-info", JSON.stringify(userDoc));
                 loginUser(userDoc);
             }

@@ -13,14 +13,14 @@ const useFollowUser = (userId) => {
     // Obtener el usuario autenticado y las funciones para actualizarlo del store
     const authUser = useAuthStore((state) => state.user);
     const setAuthUser = useAuthStore((state) => state.setUser);
-
-    const { userProfile, setUserProfile } = useUserProfileStore(); // Obtener el perfil del usuario seguido y la función para actualizarlo
-    const showToast = useShowToast(); // Hook personalizado para mostrar mensajes toast
-
+    // Obtener el perfil del usuario seguido y la función para actualizarlo
+    const { userProfile, setUserProfile } = useUserProfileStore();
+    // Hook personalizado para mostrar mensajes toast
+    const showToast = useShowToast();
     // Función para seguir o dejar de seguir a un usuario
 
     const handleFollowUser = async () => {
-        setIsUpdating(true); // Establecer el estado de actualización a true
+        setIsUpdating(true);
         try {
             // Referencias a los documentos de Firestore para el usuario autenticado y
             // el usuario a seguir/dejar de seguir

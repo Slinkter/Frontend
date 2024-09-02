@@ -26,10 +26,8 @@ const theme = extendTheme({ config, styles });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
-        {/* nivel 1 */}
         <ChakraProvider theme={theme}>
-            {/* nivel 2*/}
-            <App /> {/* nivel 3 */}
+            <App />
         </ChakraProvider>
     </BrowserRouter>
 );

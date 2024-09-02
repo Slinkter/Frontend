@@ -18,7 +18,13 @@ const AuthPage = () => {
 
                     {/* Right hand-side */}
                     <VStack spacing={4} align={"stretch"}>
+<<<<<<< HEAD
                         <AuthForm />
+=======
+                        {/* LogIn or SignUp */}
+                        <AuthForm />
+
+>>>>>>> 651d7de (update)
                         <Box textAlign={"center"}>Get the app.</Box>
                         <Flex gap={5} justifyContent={"center"}>
                             <Image

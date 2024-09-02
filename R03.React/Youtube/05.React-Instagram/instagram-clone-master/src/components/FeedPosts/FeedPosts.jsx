@@ -15,6 +15,7 @@ const FeedPosts = () => {
 
     return (
         <Container maxW={"container.sm"} py={10} px={2}>
+            {/* Skeleton */}
             {isLoading &&
                 [0, 1, 2].map((_, idx) => (
                     <VStack key={idx} gap={4} alignItems={"flex-start"} mb={10}>
@@ -30,11 +31,11 @@ const FeedPosts = () => {
                         </Skeleton>
                     </VStack>
                 ))}
-
+            {/* render post > 0 */}
             {!isLoading &&
                 posts.length > 0 &&
                 posts.map((post) => <FeedPost key={post.id} post={post} />)}
-
+            {/* render post = 0 */}
             {!isLoading && posts.length === 0 && (
                 <>
                     <Text fontSize={"md"} color={"red.400"}>

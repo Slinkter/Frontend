@@ -7,28 +7,27 @@ import { firestore } from "../firebase/firebase"; // Instancia de Firestore conf
 const useGetUserProfileById = (userId) => {
     const [isLoading, setIsLoading] = useState(true); // Estado para controlar si se está cargando el perfil
     const [userProfile, setUserProfile] = useState(null); // Estado para almacenar el perfil del usuario
-
     const showToast = useShowToast(); // Hook personalizado para mostrar notificaciones
 
-    useEffect(() => {
-        // Función asíncrona para obtener el perfil de usuario
-        const getUserProfile = async () => {
+    // Función asíncrona para obtener el perfil de usuario
+    const getUserProfile = async () => {
+        try {
             setIsLoading(true); // Marcar que se está cargando el perfil
             setUserProfile(null); // Limpiar el estado del perfil del usuario
-            try {
-                // Obtener la referencia al documento del usuario en Firestore
-                const userRef = await getDoc(doc(firestore, "users", userId));
-                if (userRef.exists()) {
-                    // Si el documento existe, establecer los datos en el estado de userProfile
-                    setUserProfile(userRef.data());
-                }
-            } catch (error) {
-                // Mostrar un mensaje de error si algo sale mal
-                showToast("Error", error.message, "error");
-            } finally {
-                setIsLoading(false); // Marcar que se ha terminado de cargar el perfil
+            // Obtener la referencia al documento del usuario en Firestore
+            const userRef = await getDoc(doc(firestore, "users", userId));
+            // Si el documento existe,
+            if (userRef.exists()) {
+                setUserProfile(userRef.data()); //establecer los datos en el estado de userProfile
             }
-        };
+        } catch (error) {
+            showToast("Error", error.message, "error");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
         getUserProfile(); // Llamar a la función para obtener el perfil de usuario cuando se monta el componente
     }, [showToast, setUserProfile, userId]); // Ejecutar el efecto cuando cambian estas dependencias
 
