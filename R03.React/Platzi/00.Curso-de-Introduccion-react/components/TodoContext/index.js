@@ -6,9 +6,7 @@ const TodoContext = React.createContext();
 function TodoProvider(props) {
     const [openModel, setOpenModal] = useState(false);
     const [stateSearch, setStateSearch] = useState("");
-    //
     const { loading, error, item: data, saveItem } = useLocalStorage("V1", []);
-    //
     const totalTodos = data.length;
     const completedTodos = data.filter((item) => item.completed).length;
 
