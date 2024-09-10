@@ -2,23 +2,10 @@ import { createContext, useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const adminList = ["Liam", "Jhonny"];
-const AuthContext = createContext(); // renderiza
+
+const AuthContext = createContext();
 
 /*  */
-function AuthRoute({ children }) {
-    const { user, login, logout } = useContext(AuthContext); // ProfilePage = {children}
-
-    if (!user) {
-        return <Navigate to="/login" />;
-    }
-    return children;
-}
-/*  */
-function useAuth() {
-    const auth = useContext(AuthContext);
-    return auth;
-}
-/* main element */
 function AuthProvider({ children }) {
     const [user, setUser] = useState({});
     const navigate = useNavigate();
@@ -35,11 +22,27 @@ function AuthProvider({ children }) {
         navigate("/");
     };
 
+    const globalValues = (user, login, logout);
+
     return (
-        <AuthContext.Provider value={(user, login, logout)}>
+        <AuthContext.Provider value={globalValues}>
             {children}
         </AuthContext.Provider>
     );
+}
+
+function AuthRoute({ children }) {
+    const { user } = useContext(AuthContext); // ProfilePage = {children}
+
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
+    return children;
+}
+
+function useAuth() {
+    const auth = useContext(AuthContext);
+    return auth;
 }
 
 export { AuthRoute, useAuth, AuthProvider };

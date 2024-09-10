@@ -47,7 +47,7 @@ function App() {
                     setSearchValue={setSearchValue}
                 />
             </TodoHeader>
-            {/* render props */}
+
             <TodoList
                 error={error}
                 loading={loading}
@@ -86,12 +86,55 @@ function App() {
 
 export default App;
 
-/* render={(todo) => (
-                    <TodoItem
-                        key={todo.text}
-                        text={todo.text}
-                        completed={todo.completed}
-                        onComplete={() => completeTodo(todo.text)}
-                        onDelete={() => deleteTodo(todo.text)}
-                    />
-                )}  */
+//---------------> Children
+{
+    /* 
+    <TodoList
+    error={error}
+    loading={loading}
+    totalTodos={totalTodos}
+    searchedTodos={searchedTodos}
+    searchText={searchValue}
+    onError={() => <TodosError />}
+    onLoading={() => <TodosLoading />}
+    onEmptyTodos={() => <EmptyTodos />}
+    onEmptySearchResults={(searchText) => (
+        <p>No hay resultados para {searchText}</p>
+    )}
+>
+    {(todo) => (
+        <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+        />
+    )}
+</TodoList>;
+ */
+}
+//---------------> Render Props:
+/*  <TodoList
+     error={error}
+     loading={loading}
+     totalTodos={totalTodos}
+     searchedTodos={searchedTodos}
+     searchText={searchValue}
+     onError={() => <TodosError />}
+     onLoading={() => <TodosLoading />}
+     onEmptyTodos={() => <EmptyTodos />}
+     onEmptySearchResults={(searchText) => (
+         <p>No hay resultados para {searchText}</p>
+     )}
+     render={(todo) => (
+         <TodoItem
+             key={todo.text}
+             text={todo.text}
+             completed={todo.completed}
+             onComplete={() => completeTodo(todo.text)}
+             onDelete={() => deleteTodo(todo.text)}
+         />
+     )}
+ />;
+ */

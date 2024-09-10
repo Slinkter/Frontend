@@ -22,6 +22,7 @@ function TodoProvider(props) {
         );
     }
 
+    /* Todo Operations: */
     const addTodo = (text) => {
         const copyTodos = [...data]; // copy array
         const newTodo = {
@@ -45,7 +46,7 @@ function TodoProvider(props) {
         copyTodos.splice(index, 1); // delete 1 element
         saveItem(copyTodos);
     };
-
+    /* Context Value: */
     const global = {
         loading,
         error,

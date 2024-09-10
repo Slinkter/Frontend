@@ -11,8 +11,13 @@ import { TodoForm } from "../components/TodoForm";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../components/Modal";
 
+/* 
+
+This file defines the UI component for the Todo List application. It utilizes the Context API to access global state and conditionally renders different elements based on the state
+*/
+
 function AppUI() {
-    // -->
+    /* useContext hook */
     const {
         error,
         loading,
@@ -22,6 +27,8 @@ function AppUI() {
         openModel,
         setOpenModal,
     } = React.useContext(TodoContext);
+
+    /* Conditional Rendering */
 
     const renderError = error && <p> Hubo un error</p>;
     const renderLoading = loading && <p> Estamos cargando</p>;

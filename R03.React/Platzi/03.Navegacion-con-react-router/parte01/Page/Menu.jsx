@@ -7,10 +7,6 @@ const Menu = () => {
     //
     const auth = useAuth();
     //
-    const navLinkStyle = ({ isActive }) => ({
-        color: isActive ? "red" : "blue",
-    });
-
     return (
         <nav>
             <ul className="nav justify-content-center">
@@ -23,7 +19,9 @@ const Menu = () => {
                             <NavLink
                                 className="nav-link"
                                 to={route.to}
-                                style={navLinkStyle}
+                                style={({ isActive }) => ({
+                                    color: isActive ? "red" : "blue",
+                                })}
                             >
                                 {route.text}
                             </NavLink>

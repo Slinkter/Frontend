@@ -5,12 +5,10 @@ import { useTodos } from "../useTodos";
 
 const EditTodoPage = () => {
     const location = useLocation();
-
     const { id } = useParams();
     const idTodo = Number(id);
 
     const { state, stateUpdaters } = useTodos();
-
     const { getTodo, loading } = state;
     const { editTodo } = stateUpdaters;
 

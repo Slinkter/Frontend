@@ -1,29 +1,29 @@
 const routes = [];
 const r1 = {
-  to: "/",
-  text: "Home",
-  private: false,
+    to: "/",
+    text: "Home",
+    private: false,
 };
 const r2 = {
-  to: "/blog",
-  text: "Blog",
-  private: false,
+    to: "/blog",
+    text: "Blog",
+    private: false,
 };
 const r3 = {
-  to: "/profile",
-  text: "Profile",
-  private: true,
+    to: "/profile",
+    text: "Profile",
+    private: true,
 };
 const r4 = {
-  to: "/login",
-  text: "Login",
-  private: false,
-  publicOnly: true,
+    to: "/login",
+    text: "Login",
+    private: false,
+    publicOnly: true,
 };
 const r5 = {
-  to: "/logout",
-  text: "Logout",
-  private: true,
+    to: "/logout",
+    text: "Logout",
+    private: true,
 };
 
 routes.push(r1); // home
