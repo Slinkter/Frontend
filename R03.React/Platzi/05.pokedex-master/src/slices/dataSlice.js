@@ -7,6 +7,9 @@ const initialState = {
     searchFilter: "",
 };
 
+/* createSlice y createAsyncThunk son funciones de la librería Redux Toolkit 
+que nos ayudan a crear slices y acciones asíncronas de manera más sencilla. */
+
 export const fetchPokemonWithDetails = createAsyncThunk(
     "data/fetch",
     async (_, { dispatch }) => {

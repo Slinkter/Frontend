@@ -15,5 +15,4 @@ export const uiSliece = createSlice({
 });
 
 export const { setLoading } = uiSliece.actions;
-
 export default uiSliece.reducer;
