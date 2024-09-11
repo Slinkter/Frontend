@@ -89,7 +89,7 @@ export default App;
 // ### useMemo
 //
 // Este hook  memoriza el resultado de lo filtrado
-// para actulizar necesita tener las dependencias [users, search]
+// para actualizar necesita tener las dependencias [users, search]
 // cuando se agregar un usuario debe memorizar de nuevo la funcion filtro
 // cuando se cambio el inpu debe meorizar de nuevo la funcion filtro
 //
