@@ -139,4 +139,20 @@
 -   importar = dar acceso a variables y funciones
 -   exportar = disponible para otros modulos
 
-## 1:01:54
+## Modulo built - in (core)
+
+-   moduilos que viene incorporador en Node
+-   para tareas comunes
+    -   HTTP/HTTPS
+    -   FS
+    -   OS
+    -   Path
+
+## modulo console
+
+-   similar a console.log() de la web para ejecutar JS
+-
+
+## Modulo process
+
+-   info del proceso que se ejecuta
