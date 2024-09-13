@@ -144,8 +144,12 @@
 -   moduilos que viene incorporador en Node
 -   para tareas comunes
     -   HTTP/HTTPS
-    -   FS
-    -   OS
+    -   FS : File System : sistema de archivo,
+        -   metodos : leer,modificar copiar eliminar cambiar nombre un archivo
+        -   los metodos son asincronos (no bloquea el proceso principal )
+        -   se puede configurara para que sea sincronos (sync)
+    -
+    -   OS : Operating System : info del dispositivo donde se ejecuta node
     -   Path
 
 ## modulo console
@@ -156,3 +160,10 @@
 ## Modulo process
 
 -   info del proceso que se ejecuta
+
+## Modulo timers (temporizador)
+
+-   espera un tiempo x para ejecutar una funcion
+    -   setTimeout() : espera x milisegundos para ejecutar ,
+    -   setImmediate() : primero se ejecuta sincrono y luego codigo asincronico
+    -   setInterval() : ejecutar infinitoveces
