@@ -19,3 +19,13 @@ export default function Login() {
     }, []);
     return loading ? <Loader /> : <LoginComponent />;
 }
+
+/* 
+ onAuthStateChanged: Una función de Firebase que monitorea los cambios en el estado de autenticación del usuario.
+onAuthStateChanged: Monitorea el estado de autenticación. 
+Si el usuario está autenticado (res?.accessToken), redirige a la ruta /home  
+No esta autentica , renderiza LoginComponent
+
+
+
+*/

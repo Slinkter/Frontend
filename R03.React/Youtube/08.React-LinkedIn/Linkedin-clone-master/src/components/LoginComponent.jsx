@@ -1,26 +1,24 @@
 import { useState } from "react";
-import { LoginAPI } from "../api/AuthAPI"; // Importa la función de API para iniciar sesión
 import { useNavigate } from "react-router-dom"; // Hook para la navegación
+import { toast } from "react-toastify"; // Librería para mostrar notificaciones
+//
+import { LoginAPI } from "../api/AuthAPI"; // Importa la función de API para iniciar sesión
 import LinkedinLogo from "../assets/linkedinLogo.png"; // Importa el logotipo de LinkedIn
 import "../Sass/LoginComponent.scss"; // Estilos SCSS para el componente
-import { toast } from "react-toastify"; // Librería para mostrar notificaciones
 
 export default function LoginComponent() {
-    let navigate = useNavigate(); // Hook para la navegación
     // Estado local para almacenar las credenciales de inicio de sesión (email y contraseña)
     const [credentials, setCredentials] = useState({});
-    // Función asincrónica para manejar el inicio de sesión
+    let navigate = useNavigate(); // Hook para la navegación
+    // Función asincrónica
     const login = async () => {
         try {
             // Llama a la función LoginAPI para autenticar con las credenciales proporcionadas
             let res = await LoginAPI(credentials.email, credentials.password);
-
             // Muestra una notificación de éxito si el inicio de sesión es exitoso
             toast.success("Signed In to Linkedin!");
-
             // Almacena el correo electrónico del usuario en el almacenamiento local
             localStorage.setItem("userEmail", res.user.email);
-
             // Navega hacia la página de inicio después de iniciar sesión correctamente
             navigate("/home");
         } catch (err) {
@@ -30,13 +28,11 @@ export default function LoginComponent() {
         }
     };
 
-    // Renderiza el componente de inicio de sesión
+    // Renderiza el componente
     return (
         <div className="login-wrapper">
-            {/* Logo de LinkedIn */}
             <img src={LinkedinLogo} className="linkedinLogo" />
             <div className="login-wrapper-inner">
-                {/* Encabezado y subtítulo */}
                 <h1 className="heading">Sign in</h1>
                 <p className="sub-heading">
                     Stay updated on your professional world
