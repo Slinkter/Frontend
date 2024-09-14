@@ -4,7 +4,8 @@ import PostsCard from "../PostsCard";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
-import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
+import uploadPostImage from "../../../api/ImageUpload";
+
 import "./index.scss";
 
 export default function ProfileCard({ onEdit, currentUser }) {
@@ -23,7 +24,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
     };
 
     const uploadImage = () => {
-        uploadImageAPI(
+        uploadPostImage(
             currentImage,
             setCurrentImage,
             setProgress,

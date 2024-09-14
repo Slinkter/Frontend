@@ -1,4 +1,4 @@
-export const uploadPostImage = (
+const uploadPostImage = (
     file, // Archivo de imagen a subir. (file.name)
     setPostImage, // Función para establecer la URL de la imagen del post.
     setProgress // Función para actualizar el progreso de la subida.
@@ -30,3 +30,5 @@ export const uploadPostImage = (
         }
     );
 };
+
+export default uploadPostImage;

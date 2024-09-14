@@ -1,5 +1,5 @@
 // Importamos las configuraciones de Firestore desde un archivo de configuración
-import { firestore } from "../firebaseConfig";
+import { firestore } from "../../firebaseConfig";
 // Importamos funciones de Firebase Firestore necesarias para realizar operaciones CRUD y consultas
 import {
     addDoc, // Función para agregar documentos a las colecciones
