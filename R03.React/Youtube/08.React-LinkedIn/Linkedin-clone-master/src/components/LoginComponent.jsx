@@ -13,16 +13,11 @@ export default function LoginComponent() {
     // Función asincrónica
     const login = async () => {
         try {
-            // Llama a la función LoginAPI para autenticar con las credenciales proporcionadas
-            let res = await LoginAPI(credentials.email, credentials.password);
-            // Muestra una notificación de éxito si el inicio de sesión es exitoso
-            toast.success("Signed In to Linkedin!");
-            // Almacena el correo electrónico del usuario en el almacenamiento local
-            localStorage.setItem("userEmail", res.user.email);
-            // Navega hacia la página de inicio después de iniciar sesión correctamente
+            let res = await LoginAPI(credentials.email, credentials.password); // Llama a la función LoginAPI para autenticar con las credenciales proporcionadas
+            toast.success("Signed In to Linkedin!"); // Muestra una notificación de éxito si el inicio de sesión es exitoso
+            localStorage.setItem("userEmail", res.user.email); // Almacena el correo electrónico del usuario en el almacenamiento local
             navigate("/home");
         } catch (err) {
-            // Captura cualquier error y muestra una notificación de error
             console.log(err);
             toast.error("Please Check your Credentials");
         }
