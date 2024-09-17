@@ -3,7 +3,7 @@ const urlimg =
 
 const Page = () => {
     return (
-        <div className="border-4 border-red-600   p-4   flex justify-center items-center h-dvh ">
+        <div className="h-dvh border-4 border-red-600 p-4 flex justify-center items-center  ">
             <div className="container-border ">
                 <img className=" container-img " src={urlimg} alt="" />
                 <h1>Hello</h1>

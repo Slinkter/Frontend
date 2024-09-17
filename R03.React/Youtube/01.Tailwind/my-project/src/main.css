@@ -9,7 +9,7 @@
 @layer base {
     * {
         @apply bg-slate-100;
-        @apply text-green-300;
+        @apply text-gray-900;
         font-family: "Roboto", sans-serif;
     }
     h1 {
@@ -37,6 +37,29 @@
 }
 
 @layer components {
+    .containerColumn-main {
+        @apply text-white bg-red-500  border-4 border-gray-950 h-dvh;
+    }
+    .containerColumn-h {
+        @apply container mx-auto h-[500px];
+    }
+    .containerColumn-grid {
+        @apply h-full m-0 border-2 p-4 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 justify-center items-center;
+    }
+    .main-reactangular {
+        @apply p-6 rounded-lg bg-sky-500;
+    }
+
+    .cube-container {
+        @apply flex flex-row  bg-red-900 h-dvh  justify-evenly items-center;
+    }
+    .cube-sidebar {
+        @apply w-1/5 min-h-dvh bg-blue-400;
+    }
+    .cube-main {
+        @apply w-4/5 min-h-dvh bg-green-600;
+    }
+
     .container-border {
         @apply inline-block p-4 text-black bg-white border rounded-lg shadow-md hover:shadow-cyan-500;
     }

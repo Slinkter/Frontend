@@ -6,10 +6,14 @@ import Columns from "./components/Columns";
 const App = () => {
     return (
         <>
-            <Columns />
+            {/*            <Columns /> */}
+            {/*   <Cube /> */}
             <Page />
-            <Cube />
-            <System />
+            {/*    
+           
+          
+            <System /> 
+            */}
         </>
     );
 };
