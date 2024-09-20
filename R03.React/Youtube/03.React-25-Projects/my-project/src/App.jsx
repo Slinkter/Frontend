@@ -24,7 +24,7 @@ const App = () => {
         <>
             {/*   <RandomColor /> */}
             {/*      <ImageSlider /> */}
-            {/*  <LoadMoreData /> */}
+            <LoadMoreData />
             {/*  <LigthDarkMode /> */}
             {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
             {/* <TabTest /> */}
