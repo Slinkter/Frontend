@@ -46,7 +46,6 @@ const LoadMoreData = () => {
             </div>
         );
     }
-    console.log(products);
 
     return (
         <div className="container-load-more">
