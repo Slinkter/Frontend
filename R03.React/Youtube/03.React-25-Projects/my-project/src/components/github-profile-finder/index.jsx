@@ -37,6 +37,8 @@ const GithubProfileFinder = () => {
         }
     }, [userName]);
 
+    1260;
+
     const handleSubmit = useCallback(() => {
         if (!searchText || searchText.trim() === "") {
             alert("Nombre vacío o inválido");
