@@ -1,12 +1,12 @@
 import React from "react";
-import { data } from "../../../../db/data";
+import { data } from "../../../db/data";
 // create context
 const PersonContext = React.createContext();
 // Combine  funciones and context
 const ContextAPI = () => {
     // hook
     const [people, setPeople] = React.useState(data);
-    //
+    // main func
     function removePerson(id) {
         setPeople((people) => {
             return people.filter((person) => person.id !== id);
@@ -24,9 +24,9 @@ const ContextAPI = () => {
 };
 
 const List = () => {
-    // get data from PersonContext
+    // get data(people) from PersonContext
     const data = React.useContext(PersonContext);
-    // render component - list
+    // render component (list)
     return (
         <>
             {data.people.map((person) => (
@@ -37,7 +37,7 @@ const List = () => {
 };
 // Component
 const Person = ({ id, name }) => {
-    // get removePerson from PersonContext
+    // get main func (removePerson) from PersonContext
     const { removePerson } = React.useContext(PersonContext);
     // use removePerson
     const handleRemove = () => removePerson(id);

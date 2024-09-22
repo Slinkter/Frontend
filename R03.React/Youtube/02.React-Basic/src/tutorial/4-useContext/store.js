@@ -4,7 +4,9 @@ import { initialState } from "./db";
 const MyContextStore = createContext();
 //Contenador Componentes
 const ThemeComponent = ({ children }) => {
+    //hook
     const [session, setSession] = useState(initialState.session);
+    // props context
     const props = { session, setSession };
     return (
         <MyContextStore.Provider value={props}>

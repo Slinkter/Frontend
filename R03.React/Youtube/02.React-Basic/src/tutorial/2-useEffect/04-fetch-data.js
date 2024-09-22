@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-const url = "https://api.github.com/users";
-const initialUsers = [];
 
 const UseEffectFetchData = () => {
-    //
-    const [users, setUsers] = useState(initialUsers);
-    //
+    //   hook
+    const [users, setUsers] = useState([]);
+    //  getData from API Githun
     const getUsers = async () => {
         try {
+            const url = "https://api.github.com/users";
             const res = await fetch(url);
             const data = await res.json();
             setUsers(data);
@@ -21,7 +20,6 @@ const UseEffectFetchData = () => {
     }, []);
 
     //  Render components
-
     return (
         <>
             <h3>github users</h3>
