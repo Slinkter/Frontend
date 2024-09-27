@@ -23,8 +23,8 @@ const App = () => {
     return (
         <>
             {/*   <RandomColor /> */}
-            {/*      <ImageSlider /> */}
-            <LoadMoreData />
+            <ImageSlider />
+            {/* <LoadMoreData /> */}
             {/*  <LigthDarkMode /> */}
             {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
             {/* <TabTest /> */}
