@@ -16,8 +16,7 @@ const ImageSlider = () => {
         try {
             setLoading(true);
             // url
-            const url_api = `${url}?page=${page}}&limit=${limit}`;
-            console.log(url_api);
+            const url_api = `${url}?page=${page}&limit=${limit}`;
 
             // exec
             const res = await fetch(url_api);
@@ -27,6 +26,8 @@ const ImageSlider = () => {
                 setImages(data);
                 setLoading(false);
             }
+            console.log(url_api);
+            console.log(res);
             console.log(data);
         } catch (e) {
             setErrorMsh(e.message);
@@ -59,6 +60,7 @@ const ImageSlider = () => {
     }
 
     console.log(currentSlide);
+    console.log(images);
 
     return (
         <div className="container">
@@ -110,6 +112,25 @@ const ImageSlider = () => {
 };
 
 export default ImageSlider;
+
+const db_example = [
+    {
+        id: "0",
+        author: "Alejandro Escamilla",
+        width: 5000,
+        height: 3333,
+        url: "https://unsplash.com/photos/yC-Yzbqy7PY",
+        download_url: "https://picsum.photos/id/0/5000/3333",
+    },
+    {
+        id: "1",
+        author: "Alejandro Escamilla",
+        width: 5000,
+        height: 3333,
+        url: "https://unsplash.com/photos/LNRyGwIJr5c",
+        download_url: "https://picsum.photos/id/1/5000/3333",
+    },
+];
 
 /* 
 
