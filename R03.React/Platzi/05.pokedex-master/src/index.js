@@ -14,10 +14,11 @@ import {
 import rootReducer from "./reducers/rootReducer.js";
 import { logger } from "./middlewares/index.js";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
 const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const composeEnhacers = composeAlt(applyMiddleware(thunk, logger));
 const store = createStore(rootReducer, composeEnhacers);
+//
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <Provider store={store}>

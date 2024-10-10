@@ -6,7 +6,7 @@ import { Searcher } from "../components/searcher/searcher.jsx";
 import { PokemonList } from "../components/pokemonList/pokemonList.jsx";
 
 //rdux import
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { fetchPokemonWithDetails } from "../slices/dataSlice.js";
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchPokemonWithDetails());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
