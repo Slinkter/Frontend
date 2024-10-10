@@ -14,3 +14,10 @@ let notebook = { title: "notebook" }
 //console.log(items);
 
 
+let bike: { brand: string, year: number } = { brand: "yamaha", year: 2010 }
+let laptop: { brand: string, year: number } = { brand: "Dell", year: 2020 }
+
+let p1 = { title: "shirt", price: 20 }
+let p2 = { title: "pants" }
+let products: { title: string, price?: number }[] = [p1, p2]
+products.push({ title: "shoes" })
