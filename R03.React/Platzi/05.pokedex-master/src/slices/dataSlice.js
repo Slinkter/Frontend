@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; // Importa herramientas de Redux Toolkit.
 import { getPokemon, getPokemonDetails } from "../api"; // Importa funciones API que obtienen la lista de pokemons y sus detalles.
-import { setLoading } from "./uiSlice"; // Importa una acción del slice de la interfaz de usuario para manejar el estado de carga.
+import { setError, setLoading } from "./uiSlice"; // Importa una acción del slice de la interfaz de usuario para manejar el estado de carga.
 
 // Estado inicial del slice de datos. Inicia con una lista vacía de pokemons y un filtro de búsqueda vacío.
 const initialState = {
@@ -14,12 +14,21 @@ export const fetchPokemonWithDetails = createAsyncThunk(
     "data/fetch", // Nombre de la acción.
     async (_, { dispatch }) => {
         dispatch(setLoading(true)); // Activa el estado de carga (loading).
-        const pokemonsRes = await getPokemon(); // Obtiene la lista de pokemons de la API.
-        const pokemonDetailed = await Promise.all(
-            pokemonsRes.map((pokemon) => getPokemonDetails(pokemon)) // Obtiene los detalles de cada pokemon.
-        );
-        dispatch(setPokemons(pokemonDetailed)); // Despacha la acción para guardar los pokemons detallados en el estado.
-        dispatch(setLoading(false)); // Desactiva el estado de carga.
+        try {
+            const pokemonsRes = await getPokemon(dispatch); // Obtiene la lista de pokemons de la API.
+            console.log(pokemonsRes);
+
+            const pokemonDetailed = await Promise.all(
+                pokemonsRes.map((pokemon) =>
+                    getPokemonDetails(pokemon, dispatch)
+                ) // Obtiene los detalles de cada pokemon.
+            );
+            dispatch(setPokemons(pokemonDetailed)); // Despacha la acción para guardar los pokemons detallados en el estado.
+        } catch (error) {
+            // dispatch(setError("Error fetchhing pokemon data " + error));
+        } finally {
+            dispatch(setLoading(false)); // Desactiva el estado de carga.
+        }
     }
 );
 

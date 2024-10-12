@@ -12,6 +12,7 @@ import { fetchPokemonWithDetails } from "../slices/dataSlice.js";
 function App() {
     const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
     const loading = useSelector((state) => state.ui.loading);
+    const error = useSelector((state) => state.ui.error);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -26,6 +27,9 @@ function App() {
             <Col span={8} offset={8}>
                 <Searcher />
             </Col>
+
+            {error && <p> {error}</p>}
+
             {loading ? (
                 <Col offset={12}>
                     <Spin spinning size="large" />
