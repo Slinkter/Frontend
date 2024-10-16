@@ -1,11 +1,45 @@
-.App{
-    margin-top: 3rem;
+/* App.css */
+.layout {
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(100% - 16px);
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #f0f2f5; /* Gris claro */
 }
 
-.App{
-    margin-top: 3rem;
+.header {
+    text-align: center;
+    color: #ffffff; /* Blanco para el texto */
+    padding: 16px 0;
 }
 
-.App img{
-    margin-bottom: 3rem;
+.content {
+    text-align: center;
+    min-height: 200px;
+    line-height: 200px;
+    background-color: #ffffff; /* Blanco para el fondo */
+    color: #000000; /* Negro para el texto */
+    padding: 24px;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.footer {
+    text-align: center;
+
+    color: #ffffff; /* Blanco para el texto */
+    padding: 12px 0;
+    font-size: 14px;
+    border-top: 1px solid #e8e8e8;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    color: #ff4d4f; /* Rojo de error */
+    font-weight: bold;
 }

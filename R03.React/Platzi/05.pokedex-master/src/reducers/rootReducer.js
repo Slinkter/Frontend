@@ -1,6 +1,6 @@
 import { combineReducers } from "redux"; //  la función combineReducers  permite combinar varios reducers.
-import dataReducer from "../slices/dataSlice"; // Importa el reducer que maneja el estado relacionado con los datos (probablemente de la API o de la aplicación).
 import uiReducer from "../slices/uiSlice"; // Importa el reducer que maneja el estado relacionado con la interfaz de usuario (como el modo oscuro, loaders, etc.).
+import dataReducer from "../slices/dataSlice"; // Importa el reducer que maneja el estado relacionado con los datos (probablemente de la API o de la aplicación).
 
 // Combina ambos reducers en un solo reducer.
 // Esto crea un estado global donde "data" será manejado por `dataReducer` y "ui" por `uiReducer`.
