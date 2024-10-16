@@ -1,8 +1,9 @@
 https://emilysdominguez.notion.site/Arquitecturas-CSS-af3de095ef7c4ea4b6492b5f6568297b
-
 https://mateorol.notion.site/Arquitectura-4da59144051d4b879e8187e8e6e653af
 
 ## C-1 : ¿Qué son las arquitecturas CSS?
+
+Las arquitecturas CSS son enfoques y metodologías para organizar y estructurar el código CSS con el objetivo de mejorar su mantenibilidad, escalabilidad y eficiencia en proyectos de desarrollo web. Cada arquitectura tiene sus principios y prácticas específicas que ayudan a los desarrolladores a escribir CSS de forma más coherente y estructurada, especialmente en proyectos grandes
 
 Necesitamos hacer que el CSS sea:
 
@@ -29,33 +30,32 @@ SOLID es un acrónimo acuñado por Robert C. Martin
 Representan los cinco principios básicos de la programación orientada a objetos.
 
 -   S : Single resposability principle : cada clase debe hacer una sola cosa.
--   O : open-close principle : padre - hijo no sobreheradar
--   L : Liskov subtitution : Una clase derivada debe poder ser utilizada en lugar de la clase base sin romper el comportamiento esperado del programa
--   I : Interface Segregation : No sobreescribir estilo hererados
+-   O : open-close principle : padre - hijo no sobre-heradar
+-   L : Liskov subtitution : Una _clase derivada_ debe poder ser utilizada en lugar de la _clase base_ sin romper el comportamiento esperado del programa
+-   I : Interface Segregation : No sobre-escribir estilo hererados
 -   D : Depency inversion : No depender de modulos de alto nivel
 
 ### DRY
 
 -   dont repeat yourself
 -   Reducir la repetición de código
--
 
 ### inmutabilidad
 
-Objeto cuyo estado no puede ser modificado una vez creado.
-no debe ser modificado, el mal uso de !importal en subclase
+-   Objeto cuyo estado no puede ser modificado una vez creado.
+-   No debe ser modificado, el mal uso de !importal en subclase
 
 ## C-3 : BEM
 
 (Block Element Modifier): Es una metodología que se centra en la estructura del HTML y nombra las clases de manera descriptiva para formar bloques (componentes), elementos y modificadores.
 
-B:bloque
-E:elemento
-M:modificado
+-   B:bloque
+-   E:elemento
+-   M:modificado
 
-<div class="comment__button--like">
-    something
-</div>
+```js
+<div class="comment__button--like">something</div>
+```
 
 -   Bloque: contenedor principal.
     -   Card, button, form, menú, header…
@@ -70,10 +70,7 @@ M:modificado
 
 ## C-4 : Casos practicos de BEM
 
-ejemplo en imagenes
-ejemplo que no debe ser en imaganes
--no se debe usar bloque-modificador en elemento
--p>i : class card-icon (bloque\_\_elemento_elemento)
+-   Combinacion no permitida : Bloque-Modificador
 
 ## C-5 :Errores comunes al implementar BEM
 
