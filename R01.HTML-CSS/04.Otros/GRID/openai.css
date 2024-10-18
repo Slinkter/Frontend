@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    animation: fadeIn ease 0.1s;
+}
+.container-photo-album {
+    background: #a7a7a7;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+}
+
+.cardPhoto {
+    background-color: #8820d89a;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+
+img {
+    width: 10rem;
+    height: 15rem;
+    animation: fadeIn ease 5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 600px) {
+    .container-photo-album {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,23 @@
+:root {
+    --color-orage: orange;
+    --color-red: red;
+}
+
+body {
+    font-size: 2em;
+}
+
+[class*="button-"] {
+    display: inline-block;
+    margin: 10px;
+    padding: 50px;
+    color: white;
+}
+
+.button-cta {
+    background: var(--color-orage);
+}
+
+.button-alert {
+    background: var(--color-red);
+}

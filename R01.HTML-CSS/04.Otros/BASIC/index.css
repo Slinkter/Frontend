@@ -1,24 +1,32 @@
 * {
     font-size: 34px;
     color: black;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    box-sizing: border-box;
     transition: 1s all ease-in-out;
 }
 
+.inline-block {
+    background-color: red;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+}
+
 .container {
-    background-color: green;
-    height: 200px; /* imagen  */
+    background-color: rgb(153, 229, 153);
+    height: 300px; /* imagen  */
     margin: 0px;
     padding: 0px;
 }
 
 .left {
     float: left;
-    width: 200px;
-    height: inherit;
+    height: 100%;
 }
 
 .right {
@@ -119,17 +127,9 @@ a:active {
     color: gray;
 }
 
-ul {
-    background-color: tomato;
-    list-style-type: none;
-
-    padding: 0;
-    /*   list-style-position: inside; */
-}
-
 table {
-    width: 100%;
     border-collapse: collapse;
+    width: 25%;
 }
 th,
 td {
@@ -138,8 +138,8 @@ td {
 }
 
 th {
-    background-color: rgb(255, 71, 141);
-    text-align: left;
+    background-color: rgb(234, 153, 184);
+    text-align: center;
 }
 
 tr:nth-child(even) {
@@ -150,21 +150,23 @@ tr:hover {
     background-color: rgba(135, 86, 86, 0.971);
 }
 
+ul {
+    background-color: tomato;
+    /*     list-style-type: none; */
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    list-style-position: inside;
+}
+
 span {
     max-width: 900px;
     display: block;
-    background-color: tomato;
+    background-color: rgb(71, 99, 255);
 }
 
 #position {
     position: sticky;
     left: 200px;
     top: 15px;
-}
-
-.inline-block {
-    display: inline-block;
-    height: 200px;
-    background-color: red;
-    width: 200px;
 }
