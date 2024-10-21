@@ -6,7 +6,6 @@ import "./App.css";
 /* 
 Tod0Provider It provides access to global application state related to todos to any descendant component.
 AppUI: This component is responsible for rendering the user interface of the Todo List application.
-
 */
 
 function App() {
