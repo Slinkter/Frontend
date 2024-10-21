@@ -1,19 +1,17 @@
 class UserAuth {
-  user = "";
+    constructor(user) {
+        this.user = user;
+    }
 
-  constructor(user) {
-    this.user = user;
-  }
-
-  verifyCredentials() {
-    return true;
-  }
+    verifyCredentials() {
+        return true;
+    }
 }
 
 class UserGlass extends UserAuth {
-  setting = " ";
-  constructor() {
-    super(user);
-    this.setting = this.setting;
-  }
+    setting = " ";
+    constructor() {
+        super(user);
+        this.setting = this.setting;
+    }
 }

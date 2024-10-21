@@ -1,14 +1,14 @@
 // objeto literal
 const natalia = {
-  name: "natalia",
-  age: 20,
-  cursosAprobado: ["curso de css ", "curso de js", "curso de html"],
-  aprobarCurso(curso) {
-    this.cursosAprobado.push(curso);
-  },
-  aumentarAge() {
-    this.age += 1;
-  },
+    name: "natalia",
+    age: 20,
+    cursosAprobado: ["curso de css ", "curso de js", "curso de html"],
+    aprobarCurso(curso) {
+        this.cursosAprobado.push(curso);
+    },
+    aumentarAge() {
+        this.age += 1;
+    },
 };
 
 // Settear objecto literal
@@ -21,17 +21,17 @@ console.log(natalia);
 //
 
 // crear prototipo con funciones constructoras
-function StudentPrototipo(name, age, cursosAprobado) {
-  this.name = name; // String
-  this.age = age; // String
-  this.cursosAprobado = cursosAprobado; // []
+function Student(name, age, cursosAprobado) {
+    this.name = name; // String
+    this.age = age; // String
+    this.cursosAprobado = cursosAprobado; // []
 }
 // Crear metodo -  proto - funciona anonima
-StudentPrototipo.prototype.aprobarCurso = function (nameCurso) {
-  this.cursosAprobado.push(nameCurso);
+Student.prototype.aprobarCurso = function (nameCurso) {
+    this.cursosAprobado.push(nameCurso);
 };
 // crear una instancia
-const juliana = new StudentPrototipo("juliana", 25, []);
+const juliana = new Student("juliana", 25, []);
 juliana.aprobarCurso("Curso de Mathlab");
 juliana.aprobarCurso("Curso de Marketing");
 console.log(juliana);
