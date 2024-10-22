@@ -30,4 +30,3 @@ https://pollen-zebra-c8b.notion.site/Curso-de-Estructuras-de-Datos-con-JavaScrip
     -   dirigidos , no dirigidos
     -   ponderados , no ponderados
     -   ciclico , aciclico
-    -

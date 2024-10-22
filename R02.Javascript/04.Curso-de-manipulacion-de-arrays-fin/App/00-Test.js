@@ -1,44 +1,26 @@
-const products = [
+const numbers = [1, 30, 4, 21, 100000];
+console.log(numbers.sort((a, b) => a - b));
+const orders = [
     {
-        id: "🍕",
-        name: "Pizza",
-        price: 12,
+        customerName: "Nicolas",
+        total: 600,
+        delivered: true,
     },
     {
-        id: "🍔",
-        name: "Burger",
-        price: 23,
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
     },
     {
-        id: "🌭",
-        name: "Hot dog",
-        price: 34,
+        customerName: "Santiago",
+        total: 1840,
+        delivered: true,
     },
     {
-        id: "🥞",
-        name: "Hot cakes",
-        price: 355,
+        customerName: "Valentina",
+        total: 240,
+        delivered: true,
     },
 ];
 
-console.log("-".repeat(20));
-const cart = [];
-const isFoundProduct = products.findIndex((x) => x.id === "🍔");
-if (isFoundProduct) {
-    cart.push(products[isFoundProduct]);
-    products.splice(isFoundProduct, 1);
-}
-
-console.log(isFoundProduct);
-console.log(cart);
-console.log(products);
-const update = {
-    id: "🥞",
-    changes: {
-        price: 200,
-        title: "delicioso",
-    },
-};
-
-
-const 
+console.log(orders.sort((a, b) => b.total - a.total));

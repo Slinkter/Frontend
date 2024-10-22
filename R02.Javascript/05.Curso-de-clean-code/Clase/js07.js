@@ -1,4 +1,5 @@
 /* 
+
 Ambitos de las variables 
 Ambitos = Scope
 
@@ -16,15 +17,15 @@ Ambitos = Scope
 //
 let greeting = "Hello World";
 function greet() {
-  console.log(greeting);
+    console.log(greeting);
 }
 greet(); //----> Hello world
 //
 /* -------Ámbito local o de función------- */
 //>
 function greet() {
-  let greeting = "Hello World";
-  console.log(greeting);
+    let greeting = "Hello World";
+    console.log(greeting);
 }
 greet(); //----> Hello world
 console.log(greeting); //> Variable no definida
@@ -32,9 +33,9 @@ console.log(greeting); //> Variable no definida
 /* -------Ámbito de bloque------- */
 //>
 {
-  let greeting = "Hello World";
-  var lang = "English";
-  console.log(greeting);
+    let greeting = "Hello World";
+    var lang = "English";
+    console.log(greeting);
 }
 console.log(lang); //> English
 console.log(greeting); //> Uncaught ReferenceError: greeting is not defined
@@ -42,10 +43,10 @@ console.log(greeting); //> Uncaught ReferenceError: greeting is not defined
 //>
 const age = 28;
 function printAge() {
-  console.log(age);
+    console.log(age);
 }
 function mainApp() {
-  const age = 26;
-  printAge();
+    const age = 26;
+    printAge();
 }
 mainApp(); //> 28
