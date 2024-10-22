@@ -12,12 +12,11 @@ import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../components/Modal";
 
 /* 
-
-This file defines the UI component for the Todo List application. It utilizes the Context API to access global state and conditionally renders different elements based on the state
+This file defines the UI component for the Todo List application. 
+It utilizes the Context API to access global state and conditionally renders different elements based on the state
 */
 
 function AppUI() {
-    /* useContext hook */
     const {
         error,
         loading,
@@ -29,13 +28,9 @@ function AppUI() {
     } = React.useContext(TodoContext);
 
     /* Conditional Rendering */
-
     const renderError = error && <p> Hubo un error</p>;
     const renderLoading = loading && <p> Estamos cargando</p>;
-    const renderFirstTime = !loading && !listTodos.lenght && (
-        <p>Crear tu primer TODO</p>
-    );
-
+    const renderFT = !loading && !listTodos && <p>Crear tu primer TODO</p>;
     const renderList = listTodos.map((item) => (
         <TodoItem
             key={item.text}
@@ -46,7 +41,7 @@ function AppUI() {
         />
     ));
 
-    const renderMolda = !!openModel && (
+    const renderModal = !!openModel && (
         <Modal>
             <TodoForm />
         </Modal>
@@ -59,12 +54,11 @@ function AppUI() {
             <TodoList>
                 {renderError}
                 {renderLoading}
-                {renderFirstTime}
+                {renderFT}
                 {renderList}
             </TodoList>
-
             <CreateTodoButton setOpenModal={setOpenModal} />
-            {renderMolda}
+            {renderModal}
         </>
     );
 }

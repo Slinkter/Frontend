@@ -1,169 +1,161 @@
-https://pollen-zebra-c8b.notion.site/Curso-de-React-js-Patrones-de-Render-y-Composici-n-605d51bd9e2d4d2ab45751444bbf154e
+### Introducción
 
-# Introduccion Composición de componentes
+Composición de componentes
 
-# 1.Principios de diseño en React
+### 1. Principios de diseño en React
 
-## A) Filosofia de React para Team Facebook
+#### A) Filosofía de React para el equipo de Facebook
 
-### Abstracciones comunes:
+**Abstracciones comunes:**  
+React no quiere incluir código innecesario en su núcleo, especialmente código demasiado específico para casos de uso concretos. Sin embargo, existen excepciones.
 
--   Se refiere que a React no quiere incluir código inútil en su core, código que sea demasiado especifico para caso de uso demasiado concreto. Sin embargo, existen excepciones.
+**Interoperabilidad:**  
+React trata de trabajar bien con otras bibliotecas de interfaz de usuario.
 
-### Interoperabilidad:
+**Estabilidad:**  
+React va a mantener sus APIs, componentes, funcionamiento, etc., aunque estén descontinuados para no romper el código que usamos.
 
--   React trata de trabajar bien con otras bibliotecas de interfaz de usuario .
+**Válvulas de escape:**  
+Cuando React quiera descontinuar un patrón que no les gusta, es su responsabilidad considerar todos los casos de uso existentes y educar a la comunidad respecto a las alternativas antes de descontinuarlo.
 
-### Estabilidad:
+**Experiencia de desarrollo:**  
+El objetivo de React no es solo solucionar nuestros problemas con su código, sino también proporcionar una buena experiencia y disfrute. El `React Context` es un ejemplo de cambio en actualizaciones para usarlo.
 
--   React va a mantener sus apis, componentes, funcionamiento, etc… aunque estén descontinuados para no romper el código que usamos.
+**Implementación:**  
+Siempre que sea posible, React preferirá código sencillo a código elegante. El código es desechable y cambia a menudo. Es importante no introducir nuevas abstracciones internas a menos que sea absolutamente necesario. Se prefiere código detallado que sea fácil de mover, cambiar y eliminar, sobre código elegante que esté abstraído de manera prematura y sea difícil de cambiar.
 
-### Válvulas de escape:
+**Optimizado para instrumentación:**  
+React siempre busca nombres distintivos y detallados (no necesariamente nombres largos).
 
--   Cuando React quiera descontinuar un patrón que no les gusta, es sus responsabilidad considerar todos los casos de uso existentes para él, y antes de descontinuarlo educar a la comunidad respecto a las alternativas.
+**Dogfooding:**  
+React priorizará a Facebook en temas de mejoras de implementación y código o mantenimiento. Esto beneficia no solo a su empresa sino también a todos los desarrolladores que utilizan React.
 
-### Experiencia de desarrollo:
+#### B) Filosofía de React para ti
 
--   el objetivo de React no es solo que con su código podamos solucionar nuestro problemas también van a buscar una solución que nos den una buena experiencia y disfrute. react context fue un ejemplo de cambio en actualizaciones para usarlo.
+**1) Planificación:**  
+Aquí es donde dividimos nuestras responsabilidades de lo que debemos hacer y lo que debe hacer React por detrás con las descripciones que le damos. React transforma nuestro código para que funcione en HTML.
 
-### Implementación:
+**2) Configuración:**  
+React asegura que tengamos compatibilidad entre cualquier librería y aplicación que utilicemos con React. React no permite cambiar el core en tiempo de ejecución.
 
--   Siempre que sea posible React preferirá código aburrido a código elegante. El código es descartable y cambia a menudo. Así que es importante que no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario. Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que esté abstraído de manera prematura y que sea difícil de cambiar.
+**3) Depuración:**  
+React siempre deja pistas predecibles donde podamos buscar errores en nuestra aplicación, como mensajes de errores de lógica en la consola.
 
-### Optimizado para instrumentación:
+#### 4) Patrón de composición de componentes
 
--   React siempre va a buscar el nombre mas distintivos y detallados(no necesariamente nombres largos).
+No usa `React Context` pues es un reemplazo.
 
-### Dogfooding:
+Es un patrón o principio que indica que cada componente debe darnos mucha libertad para elegir dónde y cómo usarlo. Cada componente debe realizar una tarea muy específica, pero no debe decirnos cómo usar esa solución que nos brinda; debe ser flexible al momento de utilizarlo. Nos permitirá tener componentes mucho más fáciles de integrar al resto de componentes y facilitará reutilizar o hacer cambios en nuestros componentes.
 
--   React va a priorizar a Facebook en temas de mejoras de implentacion y codigo o mantenimiento , Esto tiene la ventaja no solo para su empresa sino también a todos los desarrolladores que utiliza React.
+-   La colocación de estado es un problema.
+-   Principio de la máxima cercanía a la relevancia.
+-   Principio Stateful vs Stateless: no mezclar UI con lógica.
+    -   App (estado)
+        -   TodoHeader
+            -   TodoCounter (stateless: solo consume la data del estado)
+            -   TodoSearch (stateful: tiene un estado distinto)
+        -   TodoList
+            -   TodoItem (stateful)
 
-## B) Filosofia de React para ti
+Es un patrón de diseño. Se define un estado y se pasa un solo estado a los componentes. Toda la información de variables está en `App` y se distribuye a todos los componentes.
 
-### 1)Planificación:
+-   App (state)
+    -   TodoHeader
+        -   TodoCounter
+        -   TodoSearch (state)
+    -   TodoList
+        -   `Array.map(item => <Component {...state}>`
 
--   Acá es donde nosotros dividimos nuestras responsabilidades de los que debemos hacer y lo que tiene que hacer React por detrás con las descripciones que le hacemos. react tranforma nuestro codigo para que funciones en htlm
+Cuando aumenta la complejidad, se usa `React Context`.
 
-### 2)Configuración :
+#### 5) Patrón de Render Props y Render Functions
 
--   React siempre se asegurara que nosotros tengamos compatibilidad entre cualquier librería y aplicación que utilicemos React.React no permite cambiar el core en tiempo de ejecucion.
+El patrón de Render Props es una técnica en React que permite compartir lógica entre componentes mediante una prop cuyo valor es una función. Este patrón es útil para crear componentes reutilizables y flexibles.
 
-### 3) Depuración:
+Definición y Conceptos
+Render Props: Es una técnica en la que un componente recibe una función que retorna un elemento React y lo utiliza para renderizar su salida. Esta función se pasa como una prop al componente.
 
--   se refiere que a React siempre va a dejarte pistas un rastro predecible, donde podamos buscar los errores en nuestra aplicación.Mensaje de Errores de logica en consola.
+Es la continuación del patrón de composición de componentes. Ahora tenemos dos tipos de propiedades del componente:
 
----
+-   Props normales (valor o variable)
+-   Props render (devuelve un componente o elemento)
 
-### 4) Patron de Composicion de componentes(patron)
+Ya no es necesario renderizar en el `{children}`, sino que todo sube a la sección de propiedad, donde la propiedad `render` es la principal.
 
-No usa react context pues es un reemplazo
-Es un patron o principio, indica que cada componente debe darnos mucha libertad para elegir donde y como usarlo.
-
-Cada componente debe realizar una tarea muy específica, pero no debe de decirnos como usar esa solución que nos brinda, debe de ser flexible al momento de utilizarlo Nos permitirá tener componentes mucho más fáciles de integrar al resto de componentes.
-Nos facilitará reutilizar o hacer cambios en nuestros componentes.
-
--   La colocación de estado es un problemas.
--   Principio de la Maxima cercania a la relevancias.
--   Principio Stateful vs stateless : no mezclar UI con lógica.
-
-        -App (estado )
-        **TodoHeader
-        ---TodoCounter (stateless : solo consume la data del estado)
-        ---TodoSearch (statefull : tiene un estado distinto)
-        **TodoList
-        ---TodoItem (statefull)
-
--   Es un patron de diseño
--   Se define un estado y se pasa uno solo estado a los componentes
--   Toda la informacion de variables esta en App y se da todos los componentes.
-
-        - App (state)
-        -- TodoHeader
-        --- TodoCounter
-        --- TodoSearch (state)
-         -- TodoList
-        --- Array.map( item => <Component {...state}>)
-
--   cuando aumenta la complejidad se usa react context.
-
----
-
-### 5)Patron de Render props y render functions
-
-es la continuacion del patron de composicion de componentes
-ahora tenemos dos tipos propiedades del componente  
- _ props normal ( valor o variable)
-_ props render (devuelve un component o elemento)
-
-Ya no es necesario renderizar en el {children} sino todo sube a la section de propiedad.Donde la propiedad render es la principal
-
-```JSX
-<Component >
-      {error & <Error/>}
-      {loading & <Loading/>}
-      <Item/>
-</Compontent>
-
+```jsx
+<Component>
+    {error && <Error />}
+    {loading && <Loading />}
+    <Item />
+</Component>
 ```
 
-```JSX
+```jsx
 <Component
-      error={error}
-      loading={loading}
-      onError = {() => <Error/>}
-      onLoading={() => <Loading/>}
-      render = { <Item/>}
+    error={error}
+    loading={loading}
+    onError={() => <Error />}
+    onLoading={() => <Loading />}
+    render={<Item />}
 />
-
 ```
+
+Ventajas del Patrón de Render Props
+
+-   Reutilización de Lógica: Permite encapsular y reutilizar lógica compleja en diferentes componentes.
+-   Flexibilidad: Los componentes pueden definir cómo se renderiza la lógica compartida.
+-   Mantenimiento: Facilita el mantenimiento y la prueba de componentes al separar la lógica de la presentación.
+
+Render Functions
+
+-   Las Render Functions son similares a las Render Props, pero en lugar de pasar una función como prop, se utiliza una función directamente en el cuerpo del componente para renderizar elementos dinámicamente.
 
 #### React-Children y React CloneElement
 
--   son hooks para para pasar propiedades especiales a los components hijos
+Son hooks para pasar propiedades especiales a los componentes hijos.
+
+#### 6) High Order Components (HOC)
+
+Las funciones de orden superior (High Order Functions) y currying son funciones que devuelven otras funciones y pueden recibir parámetros.
+
+Es un patrón de diseño. Las funciones pueden devolver un valor en sus retornos, pero estas funciones de orden superior devuelven otras funciones, es decir, es una función que devuelve otra función.
+
+Si llamamos a la HOC y le enviamos un parámetro, aún no tendremos un resultado. Como está devolviendo otra función, debemos llamar a esa función que obtenemos luego de llamar a la de orden superior, enviarle los nuevos parámetros que necesita la función de retorno y entonces obtendremos nuestro resultado.
+
+Los High Order Components (componentes de orden superior) son componentes que reciben un componente y retornan otro componente con nuevas props o elementos, lo que permite reutilizar lógica dentro de varios componentes. Con este HOC, podemos reutilizar este código y no tenemos que crear un estado local para cada componente, sino que delegamos esta tarea a otro componente.
+
+Los Higher-Order Components (HOC) son una técnica avanzada en React para reutilizar la lógica de los componentes. No forman parte de la API de React como tal, sino que son un patrón que surge de la naturaleza composicional de React.
+
+Definición y Conceptos
+Un Higher-Order Component es una función que toma un componente y retorna un nuevo componente con funcionalidades adicionales. Los HOCs permiten añadir comportamiento a los componentes sin modificar su código original.
+
+Ventajas de los Higher-Order Components
+Reutilización de Lógica: Permiten encapsular y reutilizar lógica compleja en diferentes componentes.
+Separación de Preocupaciones: Ayudan a mantener el código limpio y modular al separar la lógica de la presentación.
+Flexibilidad: Los HOCs pueden tomar argumentos adicionales para personalizar su comportamiento, lo que los hace muy flexibles.
+
+```jsx
+// Definición del HOC
+function HOC(var1) {
+    return function FuncReturn(var2) {
+        return var1 + var2;
+    };
+}
+
+// Creación de una instancia del HOC
+const withSum = HOC(1);
+
+// Uso del HOC para sumar valores
+const sumTotal = withSum(2);
+console.log(sumTotal); // Output: 3
+```
+
+### Conclusión: Render Props vs HOCs vs React Hooks
+
+-   **Render Props:** Son útiles cuando deseamos realizar validaciones o renderizados condicionales, ya que podemos definir qué vamos a mostrar en un componente desde sus props.
+-   **HOC:** Los High Order Components muestran todo su potencial cuando queremos reutilizar lógica, código e inyectar información a un componente por medio de sus props. Aumentan la complejidad del código, pero si se utilizan correctamente, son una herramienta poderosa.
+-   **Custom Hooks:** Disponibles desde la versión 16.8.0 de React, permiten encapsular lógica dentro de una función que podemos utilizar tantas veces como queramos. Por ejemplo, podríamos crear un custom hook que haga peticiones a un endpoint y nos retorne el estado actual de la petición para saber qué renderizar mientras llega la data.
 
 ---
 
-### 6) High Order Components (HOC)
-
--   high ordern funcion y curring , estas funciones de orden superior devuelven funciones , pueder recibir parametros
-
--   Es un patron de diseño.
-    Las funciones como las conocemos pueden devolvernos un valor en sus returns, pero estas funciones de “orden superior”, son funciones que devuelven otras funciones, es decir Es una funcion de vuelven otra funcion.
-
--   Si llamamos a la HOC y le enviamos un parámetro no tendremos todavía un resultado, como está devolviendo otra función tenemos que llamar a esa función que obtenemos luego de llamar a la de orden superior, enviarle los nuevos parámetros que necesita la función de retorno y entonces si, obtendremos nuestro resultado.
-
--   Los high order components (o componentes de orden superior) son componentes que reciben un componente y retornan otro componente con nuevas props o elementos, lo cual nos permite reutilizar lógica dentro de varios componentes.
-
--   Y con este HOC ahora podemos reutilizar este código, y ya no tenemos que crear un estado local para cada componente, sino que le delegamos esta tarea a otro componente.
-
-```JSX
-// --> Definición del HOC
-function HOC(var1) {
-  return function FuncReturn(var2) {
-    return var1 + var2;
-  }
-}
-
-// --> Creación de una instancia del HOC
-const withSum = HOC(1);
-
-// --> Uso del HOC para sumar valores
-const sumTotal = withSum(2);
-console.log(sumTotal); // Output: 3
-
-
-```
-
-## Conclusion : Render-props vs HOCs vs React-Hooks
-
--   Render props
-
-Las render props son muy útiles cuando deseamos realizar validaciones o renderizados condicionales, ya que podemos definir que es lo que vamos a mostrar en un componente desde sus props.
-
--   HOC.
-
-Los high order components muestran todo su potencial cuando queremos reutilizar lógica, código e inyectar información a un componente por medio de sus props. Es cierto que estos aumentan la complejidad de nuestro código, pero si son utilizados correctamente llegan a ser una herramienta muy poderosa.
-
--   Custom Hooks
-
-Los hooks de React son una herramienta que está disponible desde la versión 16.8.0, estos nos permiten encapsular lógica dentro de una función, la cual podemos utilizar tantas veces como queramos. Por ejemplo, podríamos crear un custom hook que nos permite hacer peticiones hacia cierto endpoint y que nos retorne el estado actual de la petición para saber que renderizar mientras llega la data.
+He corregido y ampliado algunas frases para mayor claridad y precisión. También he añadido más información complementaria y mejorado la organización del contenido. ¡Espero que te resulte útil!

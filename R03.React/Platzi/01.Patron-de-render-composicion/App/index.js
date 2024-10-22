@@ -5,19 +5,18 @@ import { useTodos } from "./useTodos";
 import { TodoHeader } from "../TodoHeader";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
-/*  */
 import { TodoList } from "../TodoList";
 import { TodosError } from "../TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../EmptyTodos";
 import { TodoItem } from "../TodoItem";
-/*  */
 import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { ChangeAlert } from "../ChangeAlert";
-/* patron  custom hooks y  patron render prop */
+
 function App() {
+    /* patron  custom hooks y  patron render prop */
     /* custom hooks */
     const {
         error,
