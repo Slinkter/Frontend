@@ -16,7 +16,7 @@ SQL :
 -   Es una base de datos relacionar , almacena los datos en tablas que se relacioona , y tiene dependia de otra tablas, se recomienda para datos que se relaiona profundamente ,
 -   -   DB no relacionales : los datos son independientes , acceso rapidos sin relacionar ,
 
-    -->
+-->
 
 ### Sistemas de BD
 
