@@ -1,217 +1,169 @@
 link https://platzi.com/clases/6735-patrones-diseno-software/60235-nuestros-planes-para-aprender-patrones-de-diseno/
 
-## Clase 02 : Nuestros planes para aprender patrones de diseño
+## Clase 02: Nuestros planes para aprender patrones de diseño
 
-los patrones de diseño tiene
+Los patrones de diseño se dividen en tres categorías principales:
 
-    * 1. Patrones Creacionales
-    * 2. Patrones Estructurales
-    * 3. Patrones de Comportamiento
+1. **Patrones Creacionales**
+2. **Patrones Estructurales**
+3. **Patrones de Comportamiento**
 
-## Clase 03 :Ingeniería de Software
+## Clase 03: Ingeniería de Software
 
-sin este concepto no habria diseño ,
+La ingeniería de software es fundamental para el diseño. Sin este concepto, no existiría un enfoque estructurado para crear software.
 
-- Ingenieria es diseño las pruebas la construcion de maquina utilizando matemticas y ciencias .
+-   **Ingeniería**: Es el diseño, pruebas y construcción de sistemas utilizando matemáticas y ciencias.
+-   **Producto**: Para nosotros, el producto es el software.
 
-el producto es software para nosotros
+### Ingeniería de Software
 
-- I.de Software : IEEE define como es la aplicación de un enfoque sistemático, disciplinado y cuantificable al diseño, desarrollo, operación y mantenimiento de software.
+La IEEE define la ingeniería de software como "la aplicación de un enfoque sistemático, disciplinado y cuantificable al diseño, desarrollo, operación y mantenimiento del software".
 
-- Historia
-  - la Maquina Analitica
-  - 1966 : se utiliza la palabra ing. de software
-  - 1968 : conferencia en la OTAN
-  - NASA : Margaret Heafield H. desarrolló el Software del programa Apolo.
+#### Historia
 
-## Clase 04 :Ciclo de Vida del Desarrollo de Software (SDLC)
+-   **Máquina Analítica**: Primeras bases de la ingeniería.
+-   **1966**: Se empieza a utilizar el término "Ingeniería de Software".
+-   **1968**: Conferencia en la OTAN sobre ingeniería de software.
+-   **NASA**: Margaret Heafield H. desarrolló el software del programa Apolo.
 
-- La produccion de un software con las siguiente caracteristicas
+## Clase 04: Ciclo de Vida del Desarrollo de Software (SDLC)
 
-  - Alta calidad
-  - Costos bajos
-  - Menor tiempo posible
-  - Todo el proceso tiene Fases
+El objetivo es producir software con las siguientes características:
 
-  ### Fase 1 : Planeación :
+-   Alta calidad
+-   Bajos costos
+-   Menor tiempo posible
+-   Dividido en fases
 
-  - Ideal del cliente
-  - Se da una forma para que se viable
+### Fases del SDLC
 
-  ### Fase 2 : Diseño
+1. **Planeación**: Idea del cliente y viabilidad del proyecto.
+2. **Diseño**: Implementación de la solución, diseño de la interacción del usuario y tecnologías a usar.
+3. **Implementación**: Programación según el diseño. Es la fase más larga.
+4. **Pruebas**: Validación con los usuarios.
+5. **Despliegue**: Lanzamiento del proyecto.
+6. **Mantenimiento**: Preparación para enfrentar problemas o caídas.
 
-  - Implementacion de la solucion
-  - Diseño de interacion del usuario
-  - Tipos de tecnologia a usar
+### Perspectivas de implementación
 
-  ### Fase 3 : Implementacion
+-   **Waterfall**: Similar a las fases, se debe completar una antes de avanzar a la siguiente.
+-   **Ágil**: El framework más utilizado.
 
-  - la fase mas larga
-  - programacion segun diseño
+## Clase 05: Elementos de un buen diseño de software
 
-  ### Fase 4 : Pruebas.
+El diseño de software abarca distintas perspectivas:
 
-  - validar con los usuarios (equipo de diseño se encargar).
+-   **UI/UX**: Interfaz, ubicación de elementos y colores.
+-   **Ingeniería**: Arquitectura, equipo de trabajo, metodología.
 
-  ### Fase 5 : Despliegue
+### Aspectos importantes
 
-  - Deploy del proyecto (lanzar la aplicacion)
+1. **Modularidad**: Pedazos de software con responsabilidades bien delimitadas.
+2. **Tolerancia a fallos**: Capacidad de solucionar problemas en funcionamiento.
+3. **Robustez**: Resistencia ante situaciones de estrés.
+4. **Seguridad**: Políticas de seguridad, credenciales y accesos.
+5. **Usabilidad**: ¿Cumple su labor la interfaz?
+6. **Reusabilidad**: Reutilización y crecimiento del software.
+7. **Extensibilidad**: Capacidad de integrar cambios sin modificar lo existente.
 
-  ### Fase 6 : Mantenimiento
+## Clase 06: Reusabilidad
 
-  - Estar preparado por cualquier situacion si se cae la aplicacion
+Ventajas:
 
-- Implementacion del ciclo de vida (2 perspectiva)
+-   Reducción de costos y tiempo.
+-   Recursos destinados a otros temas.
+-   Eliminación de duplicación mediante DRY (Don't Repeat Yourself).
 
-  ### WaterFall
+### Niveles de reusabilidad
 
-        * Se parece a las fases, es obligatoria terminar
+1. **N1**: Clases y funciones (ingredientes).
+2. **N2**: Patrones de diseño (recetas).
+3. **N3**: Frameworks (comida congelada).
 
-  ### Agil
+## Clase 07: Extensibilidad
 
-        * El framework mas usado
+Capacidad de agregar cosas nuevas sin modificar lo existente.
 
-## Clase 05 :Elementos de un buen diseño de software
+-   **Retos**:
+    -   Uso de interfaces como contrato: Reglas que las clases deben seguir.
 
-- Fase de diseño de software
+## Clase 08: Soluciones a problemas a través de patrones
 
-- existe muchos tipos de diseños
+Nos enfocamos en:
 
-- para construir aplicacion existe 2 perpectiva .
+-   Reusabilidad
+-   Extensibilidad
+-   Sencillez
 
-  - UI/UX : interfaz, donde colocar cierto elementos y colores
-  - Ingenieira :arq. , staff del equipo , metodologia.
+### Proceso para resolver problemas
 
-### Ingenieria :
+1. Planteamiento del problema
+2. Implementación intuitiva
+3. Nuevos requerimientos
+4. Planear para reutilizar y extender
+5. Repetir
 
-    - La modularidad (Pedazos de software que funcionan como código cuyas responsabilidades están bien delimitadas).
+## Clase 09: Historia de los patrones
 
-    - Tolerancia a fallo (Capacidades para solucionar problemas que se puedan presentar en el funcionamiento de la aplicación).
+-   **1977**: Libro sobre lenguajes de patrones en la ciudad y naturaleza.
+-   **1994**: Inspiración para crear patrones de diseño en software.
 
-    - Robustez (Funcionamiento de la aplicación ante situaciones de estrés como memoria insuficiente, bases de datos llenas, peticiones altas, etc.)
+Los patrones de diseño enseñan a pensar en estrategias, modelar y expandir la mente.
 
-    - Seguridad (Políticas de seguridad, credenciales, accesos, etc.)
+-   Un patrón no es un algoritmo.
+-   Un algoritmo es un conjunto de pasos ordenados.
 
-    - Usabilidad(La interfaz cumple su labor? Abarca todos los casos de Uso?)
+## Clase 10: Categorías de patrones
 
-    - Reusabilidad (Reusar piezas de software y crecimiento del mismo)
+1. **Patrones Creacionales**: Creación de objetos para mejorar flexibilidad y reutilización.
 
-    - Extensibilidad (Capacidad de integrar nuevos cambios sin tener que modificar lo ya existente)
+    - Builder
+    - Factory Method
+    - Singleton
 
-## Clase 06 : Reusabilidad
+2. **Patrones Estructurales**: Ensamblar objetos y clases en estructuras grandes manteniendo flexibilidad.
 
-- reducion de costo y tiempo
-- los recursos se destina para otros temas
-- eliminar la duplicacion y crear la abstraccion (DRY,dont repetir yourseft)
--
+    - Adapter
+    - Decorator
+    - Facade
+    - Proxy
 
-### Nivel de reusabilidad
+3. **Patrones de Comportamiento**: Comunicación efectiva y asignación de responsabilidades.
+    - Command
+    - Iterator
+    - Observer
+    - Strategy
 
-    -N1 : Clases y funciones (ingredientes)
-    -N2 : Patrones de diseño (receta de cocina)
-    -N3 : Frameworks (cogelado comida)
+## Clase 11: Programación Orientada a Objetos (POO)
 
-## Clase 07 : Extensibilidad
+La POO utiliza patrones de diseño, trabajando con objetos y clases, que son abstracciones del mundo real.
 
-- la capacidad de agregar/integrar nuevas coasas sin la necesidad de cambiar lo existente.
-- Modificar lo menos posible
-- retos :
-  - uso de interfaz-contrato :
-    - Estipula las reglas que, las clases que lo implementen, tienen que seguir.
-    - En este sentido, una interfaz puede entenderse como un contrato abstracto que establece el comportamiento esperado del componente que la implementa, así como las restricciones, requisitos y formatos de entrada y salida que deben cumplirse
+### Pilares de la POO
 
-## Clase 08 : Soluciones a problemas a través de patrones
+1. **Abstracción**
+2. **Polimorfismo**: Modificar comportamientos.
+3. **Encapsulación**: Comportamientos únicos.
+4. **Herencia**: Relación padre-hijo, hereda comportamientos.
 
-nos enfocamos en la Reusabilidad , Extensibilidad y Sencillez
+## Clase 12: Herencia y composición
 
-proceso para llegar a resolver un problemas :
+1. La subclase utiliza métodos de la superclase.
+2. Los métodos públicos son la interfaz, los privados son internos.
+3. Se reutiliza código para crear clases intermedias.
 
-    1.Planteamiento del problema
-    2.Implementación intuitiva
-    3.Nuevos requerimientos
-    4.Planear reutilizar y extender
-    5.Repetir
+### Composición
 
-## Clase 09 :
+Prioritaria sobre la herencia. Una clase depende de otra para ser creada, similar a una clave foránea en SQL.
 
-1977 - Libro : lenguaje de patrones ciudad y naturales
-1994 - Libro inspirado para crear patrones de diseño
+## Clase 13: Relaciones entre clases
 
-los diseños de de patrones te enseña a pensar estrategias , modelar , expandir tu mente .
+**UML (Unified Modeling Language)**: Diagrama gráfico de clases o procesos.
 
-los patrones de diseño son aplicado segun el contexto de problemas , los elementos identificados para crear la solucion.
+### Tipos de relaciones
 
-un patron no es un algoritmo
-un patron es resultado y funciones. no existe pasos a seguir. son consideraciones , clases .nos toca detectar las consideracion para implementar el patron de la mejor forma posible (crear un plan)
-un algorito es conjunto de pasos ordenados.
-
-## Clase 10 : Categorias
-
-Patrones Creaciones : proporcionan mecanismos de creación de objetos que incrementan la flexibilidad y la reutilización de código existente.
-
-- Builder
-- Factory Method
-- Singleton
-
-Patrones Estructurales : explican cómo ensamblar objetos y clases en estructuras más grandes a la vez que se mantiene la flexibilidad y eficiencia de la estructura.
-
-- Adapter
-- Decorator
-- Facade
-- Proxy
-
-Patrones de Comportamiento :se encargan de una comunicación efectiva y la asignación de responsabilidades entre objetos.
-
-- Command
-- Iterator
-- Observer
-- Strategy
-
-## Clase 11 :
-
-la POO usa muchos de patrones de diseño
-
-POO : Objectos y clases
-
-los objectos son abstraciones del mundo real , tangibles y no tangible
-pero tiene comportamiento y caracteristica.
-
-Pilares de la Poo :
-
-- Abstraccion :
-- Polimorfismo : puede modificar los comportamientos . (corre de naruto)
-- Encapsulacion : comportamiento unicas
-- Herencia : padre-hijo , hereda comportamientos
-
-## Clase 12 : Herencia y composicion
-
-1 : la subclase utiliza metodos de la superclase(estan unidades)
-2 : los metodos publico de la superclases son intefaz y los metodos privados solo funciona internamente y no esta espuestos a la subclase. la subclase puede extender el comportamiento de la superClase ,
-3 : Arbol de clases , se reutiliza codigo para crear clases intermedias .
-
-la Composicion : sobre herencia , se prioriza
-
-una clase depende de otra clase para ser creada . es como una llave foreana
-sql .
-
-La agregacion es muy similar a la composicion
-
-## Clase 13 : Relaciones entre Clase
-
-UML : Unified Model Languaje.
-
-- Escribir de manera grafica diagrama de clase o proceso
-
-### Relaciones
-
-- dependencia: Se da cuándo al realizar cambios en una clase se modifica otra
-
-- asociación: Se da cuándo una clase tiene acceso permanente a otra clase
-
-- implementación: Se da cuándo una clase define su comportamiento basado en cierto método
-
-- herencia: Similar a la anterior, pero puede extender su comportamiento
-
-- agregación: Se da cuándo una clase necesita de otras clases, pero no interfiere en su creación o eliminación. Simplemente las añade mientras sean útiles
-
-- composición: Se da cuándo una clase necesita de otras clases, pero interfiere en su creación y eliminación. Así mismo si el elemento mayor desaparece, las demás clases dejan de ser útiles
+-   **Dependencia**: Cambios en una clase afectan a otra.
+-   **Asociación**: Acceso permanente de una clase a otra.
+-   **Implementación**: Define el comportamiento basado en métodos.
+-   **Herencia**: Similar a la implementación, pero puede extender comportamientos.
+-   **Agregación**: Añade clases útiles pero no interfiere en su eliminación.
+-   **Composición**: La clase mayor controla la creación y eliminación de otras.
