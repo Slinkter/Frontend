@@ -12,4 +12,3 @@
 -   formato de texto , almacena informacion.
 -   almacena objecto como texto
 -   puede contener varios tipos de valores (String,number,[],boolenado,objectos)
--   
