@@ -37,13 +37,14 @@ export const dataSlice = createSlice({
         },
     },
 });
-
+// Nombre de la acción.
 /* 
 Acción asíncrona para obtener pokemons con sus detalles. 
+
 `createAsyncThunk` se usa para crear acciones que manejan llamadas asíncronas a APIs. 
 */
 export const fetchPokemonWithDetails = createAsyncThunk(
-    "data/fetch", // Nombre de la acción.
+    "data/fetch",
     async (_, { dispatch }) => {
         dispatch(setLoading(true)); // Activa el estado de carga (loading).
         try {
