@@ -34,10 +34,6 @@ const employee: Employee = {
     },
 };
 
-console.log(person.getDetails());
-console.log("---");
-console.log(employee.getDetails());
-
 interface ManagerDog extends Person, DogOwner {
     managePeople(): void;
 }

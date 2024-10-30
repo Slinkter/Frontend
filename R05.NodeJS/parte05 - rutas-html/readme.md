@@ -26,3 +26,5 @@
     -   4. Headers
     -   5. Body : enviar al cliente informacion
     -   Node y Express podemos especificar codigos de estados
+
+## 4:35:16
