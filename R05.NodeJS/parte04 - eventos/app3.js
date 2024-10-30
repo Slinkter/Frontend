@@ -1,6 +1,7 @@
-const isComplete = false;
-
-const miPromesa = new Promise((res, rej) => {
+// Promesa
+const isComplete = true;
+// res y rej son funciones
+const callbackPromesa = (res, rej) => {
     setTimeout(() => {
         if (isComplete) {
             res("promesa cumplida");
@@ -8,13 +9,16 @@ const miPromesa = new Promise((res, rej) => {
             rej("promesa rechazada...");
         }
     }, 3000);
-});
+};
+const miPromesa = new Promise(callbackPromesa);
 
 const f1 = (valor) => {
     console.log(valor);
+
+    return valor;
 };
 const f2 = (valor) => {
     console.log(valor);
 };
 
-miPromesa.then(f1, f2);
+miPromesa.then(f1).then(f2);
