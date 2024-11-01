@@ -1,0 +1,5 @@
+POST http://localhost:3001/
+
+PUT http://localhost:3001/
+
+DELETE http://localhost:3001/

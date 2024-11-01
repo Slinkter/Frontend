@@ -27,4 +27,19 @@
     -   5. Body : enviar al cliente informacion
     -   Node y Express podemos especificar codigos de estados
 
-## 4:35:16
+## Primer servidor con Node.js
+
+-   para crear el primer servidor node se necesita el **modulo http**
+-   este servidor escucha solicitudes
+-   puerto : ubicacion virtual en el S.O.
+-   req y res
+-
+
+## Estructura de una URL
+
+-   uniform resource locator
+-   direccion de un recurso en el servidor
+-   subdominio : www.\_\_\_
+-   dominio : .google. referencia unica
+-   (TLD)dominio nivel superior : .org|.com|.edu
+-   (Path) camino : /recurso/item
