@@ -43,3 +43,13 @@
 -   dominio : .google. referencia unica
 -   (TLD)dominio nivel superior : .org|.com|.edu
 -   (Path) camino : /recurso/item
+-   (Query) parametros : ?q=recurso
+
+## Modulo URL
+
+-   ejercicio
+
+## Routing en node
+
+-   solicitud de cliente (metodo y camino)
+-   ejercicio
