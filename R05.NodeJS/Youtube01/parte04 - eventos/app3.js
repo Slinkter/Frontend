@@ -1,7 +1,7 @@
 // Promesa
 const isComplete = true;
 // res y rej son funciones
-const callbackPromesa = (res, rej) => {
+const f_callbackPromesa = (res, rej) => {
     setTimeout(() => {
         if (isComplete) {
             res("promesa cumplida");
@@ -10,11 +10,10 @@ const callbackPromesa = (res, rej) => {
         }
     }, 3000);
 };
-const miPromesa = new Promise(callbackPromesa);
+const miPromesa = new Promise(f_callbackPromesa);
 
 const f1 = (valor) => {
     console.log(valor);
-
     return valor;
 };
 const f2 = (valor) => {

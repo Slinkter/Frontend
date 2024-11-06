@@ -22,7 +22,7 @@ let infoCursos = {
             nivel: "basico",
         },
     ],
-    matemaicas: [
+    matematicas: [
         {
             id: 1,
             titulo: "Aprender Calculo",

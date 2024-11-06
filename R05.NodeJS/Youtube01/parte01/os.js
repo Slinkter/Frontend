@@ -1,7 +1,4 @@
-/* 
 const os = require("os");
-
-
 console.log(os.type());
 console.log(os.homedir());
 console.log(os.uptime());
@@ -21,10 +18,9 @@ setTimeout(sumar, 1000, 1, 11);
 //
 console.log("1");
 setImmediate(mostrarTema, "node1", "node2");
-console.log("2"); 
-*/
+console.log("2");
 
 function mostrarTema(tema) {
     console.log(` estoy aprendiendo ${tema}`);
 }
-///setInterval(mostrarTema, 4000, "node");
+setInterval(mostrarTema, 4000, "node");

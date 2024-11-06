@@ -1,31 +1,49 @@
-// async await
-//
+// async-await
 
-function ordenarProducto(producto) {
+function f_ordenarProducto(producto) {
     return new Promise((res, rej) => {
-        console.log(`1:ordernando : ${producto}`);
-
+        console.log(`1  ---> ordernando : ${producto}`);
         setTimeout(() => {
             if (producto === "taza") {
-                res("2.1ordeando una taza ");
+                res("2.1 ---> ordeando una taza ");
             } else {
-                rej("2.2este producto no esta disponible");
+                rej("2.2  ---> este producto no esta disponible");
             }
         }, 3000);
     });
 }
-function procesarPedido(rpta) {
+
+function f_procesarPedido(rpta) {
     return new Promise((res, rej) => {
-        console.log("3.procesando respuesta");
-        console.log(`4.la respuesta fue : "${rpta}"`);
+        console.log("3.  ---> procesando respuesta ...");
+        console.log(`4.  ---> la respuesta fue : "${rpta}"`);
         setTimeout(() => {
-            res("5.Gracias por tu compra");
+            res("5.  ---> Gracias por tu compra");
         }, 3000);
     });
 }
-// ejecutar 2 funciones asicronos
-// version then y catch
-/* ordenarProducto("taza")
+// version async-await
+async function realizarPedido(obj) {
+    try {
+        const x = await f_ordenarProducto(obj);
+        const y = await f_procesarPedido(x);
+        /*  */
+        console.log("respuesta recibida");
+        console.log(x);
+        console.log(y);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+realizarPedido("taza");
+
+/* 
+ ejecutar 2 funciones asicronos
+ version then y catch
+
+
+ordenarProducto("taza")
     .then((rpta) => {
         console.log("respuesta recibida");
         console.log(rpta);
@@ -36,20 +54,5 @@ function procesarPedido(rpta) {
     })
     .catch((err) => {
         console.log(err);
-    }); */
-// version async-await
-
-async function realizarPedido(obj) {
-    try {
-        const rpta = await ordenarProducto(obj);
-        const rpta2 = await procesarPedido(rpta);
-        /*  */
-        console.log("respuesta recibida");
-        console.log(rpta);
-        console.log(rpta2);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-realizarPedido("taza");
+    }); 
+*/

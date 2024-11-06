@@ -1,5 +1,5 @@
 const miURL = new URL(
-    "https://www.ejemplo.org/cursos/node?ordernar=vistas&nivel=1"
+    "https://www.ejemplo.org/cursos/node/cursobasico?ordernar=vistas&nivel=basico"
 );
 
 //console.log(miURL);
