@@ -2,6 +2,7 @@ export default {
     darkMode: "class",
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
+        //extend : permite extender la configuración predeterminada de Tailwind CSS
         extend: {
             colors: {
                 bluejs: "#1fb6ff",
