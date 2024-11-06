@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 const MainApp = () => {
     return (
         <>
-            <Header />
             <Main />
             <Videos />
             <Footer />

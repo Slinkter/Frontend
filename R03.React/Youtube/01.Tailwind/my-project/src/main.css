@@ -6,7 +6,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
+/* 
+@layer base {
     * {
         @apply bg-slate-100;
         @apply text-gray-900;
