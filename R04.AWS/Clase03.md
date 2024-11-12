@@ -1,4 +1,4 @@
-## AWS AutoScaling 38:22
+## AWS AutoScaling
 
 -   Escalamiento Vertical (Recursos CPU-RAM)
     -   1pc :(2 CPU , 4 GB RAM)
@@ -63,4 +63,15 @@
 -   Es para auditoria de paquetes
 -   Inspeciona el trafico
 
-## AWS LAmda
+# AWS LAMBDA
+
+-   es un servicio de computo
+-   Es como un trigger que se ejecuta
+-   Correr codigo sin instalaciar un servidor (no administrar el servidor)
+-   Alta disponibilidad
+-   Caso de uso
+    -   1.1)File Processing : cuando llega un archivo grande a AWS S3, se ejecuta un funciona para comprimir o cambiar formato
+    -   1.2)Stream processing: Amazon Kinesis
+    -   1.3)Web Applicaions:API-Gateway ,
+    -   1.4)IOT backends : procesamietno de archivos
+    -   1.5)Mobile Backends:
