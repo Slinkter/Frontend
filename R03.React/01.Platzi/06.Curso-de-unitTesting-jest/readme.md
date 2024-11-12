@@ -28,7 +28,8 @@ Esto nos asegura:
 ## No funcionales.
 
 Jest
-Jest es un framework de JavaScript para pruebas.
+
+-   Jest es un framework de JavaScript para pruebas.
 
 ## Instalacion de paquetes
 

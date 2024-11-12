@@ -7,6 +7,7 @@ test("It should has the word Ironman", () => {
 // Ejemplo 2
 
 const fruits = ["manzana", "platano", "fresa"];
+//
 test("¿Tenemos mango?", () => {
     expect(fruits).toContain("manzana");
 });
