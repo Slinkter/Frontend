@@ -1,23 +1,21 @@
 # Curso de Manipulación de Arrays en JavaScript
 
-> **Nicolas Molina** [Google Developer Expert en Google](https://platzi.com/)
-
 ## Introducción
 
 ### Tu AS bajo la manga
 
 #### 1. Requisitos iniciales
 
-- git clone git@github.com:platzi/curso-manipulacion-de-arrays.git
-- cd curso-manipulacion-de-arrays
-- npm install
-  - Vemos algunas vulnerabilidades incluso criticas
-- npm update
-- npm audit
-- npm list
-- npm audit fix --force
-- npm audit
-  - found 0 vulnerabilities
+-   git clone git@github.com:platzi/curso-manipulacion-de-arrays.git
+-   cd curso-manipulacion-de-arrays
+-   npm install
+    -   Vemos algunas vulnerabilidades incluso criticas
+-   npm update
+-   npm audit
+-   npm list
+-   npm audit fix --force
+-   npm audit
+    -   found 0 vulnerabilities
 
 ### 2. ForEach
 
@@ -31,8 +29,8 @@ Ejemplo 01:
 const letters = ["a", "b", "c"];
 
 for (let i = 0; i < letters.length; i++) {
-  const element = letters[i];
-  console.log(element);
+    const element = letters[i];
+    console.log(element);
 }
 // a
 // b
@@ -48,18 +46,18 @@ Ejemplo 02:
 
 ```html
 <body>
-  <div id="app"></div>
-  <script>
-    const products = [
-      { title: "Burger", price: 121 },
-      { title: "Pizza", price: 20 },
-    ];
+    <div id="app"></div>
+    <script>
+        const products = [
+            { title: "Burger", price: 121 },
+            { title: "Pizza", price: 20 },
+        ];
 
-    const app = document.getElementById("app");
-    products.forEach((product) => {
-      app.innerHTML += `<li>${product.title} - ${product.price}</li>`;
-    });
-  </script>
+        const app = document.getElementById("app");
+        products.forEach((product) => {
+            app.innerHTML += `<li>${product.title} - ${product.price}</li>`;
+        });
+    </script>
 </body>
 ```
 
@@ -136,8 +134,8 @@ La transformación implica cambiar cualquier elemento en otro, ya sea un número
 
 Este método recibe **dos argumentos**:
 
-- La función que itera y transforma cada elemento del *array* (obligatorio).
-- Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
+-   La función que itera y transforma cada elemento del *array* (obligatorio).
+-   Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
 
 ```js
 let otherArray = array.map(function(), thisArg)
@@ -145,9 +143,9 @@ let otherArray = array.map(function(), thisArg)
 
 La función, que recibe como argumento el método `map`, utiliza **tres parámetros**:
 
-- El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
-- El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
-- El ***array* que está iterando**.
+-   El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
+-   El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
+-   El ***array* que está iterando**.
 
 ```js
 const other = array.map(function(element, index, array))
@@ -166,8 +164,8 @@ const numbers = [1, 2, 3, 4, 5];
 const newNumbers = [];
 
 for (let i = 0; i < numbers.length; i++) {
-  const number = numbers[i];
-  newNumbers.push(number * 2);
+    const number = numbers[i];
+    newNumbers.push(number * 2);
 }
 
 console.log(newNumbers); // [ 2, 4, 6, 8, 10 ]
@@ -178,7 +176,7 @@ Con el método `map`, solo debemos establecer la función que indique la transf
 ```js
 const numbers = [1, 2, 3, 4, 5];
 const newNumbers = numbers.map(function (number) {
-  return number * 2;
+    return number * 2;
 });
 // o
 const newNumbers = numbers.map((number) => number * 2);
@@ -239,7 +237,7 @@ Tienes un array de números, tu reto es retornar los números de ese array multi
 
 Para solucionarlo vas a encontrar una función llamada `multiplyElements` que recibe un parámetro de entrada:
 
-- array: Un array de números
+-   array: Un array de números
 
 Dentro del cuerpo de la función `multiplyElements` debes escribir tu solución.
 
@@ -261,7 +259,7 @@ Output: [1, 1, -4, -6];
 
 ```js
 export function multiplyElements(array) {
-  return array.map((n) => n * 2);
+    return array.map((n) => n * 2);
 }
 
 multiplyElements([2, 4, 5, 6, 8]);
@@ -275,7 +273,7 @@ const array_one = [2, 4, 5, 6, 8];
 const array_two = [1, 1, -2, -3];
 
 function multiply_elements(array) {
-  console.log(array.map((n) => n * 2));
+    console.log(array.map((n) => n * 2));
 }
 
 multiply_elements(array_one);
@@ -288,26 +286,26 @@ Ahora que ya sabes cómo funciona el método `map` de *arrays* estudiemos di
 
 ```js
 const orders = [
-  {
-    customerName: "Nicolas",
-    total: 60,
-    delivered: true,
-  },
-  {
-    customerName: "Zulema",
-    total: 120,
-    delivered: false,
-  },
-  {
-    customerName: "Santiago",
-    total: 180,
-    delivered: true,
-  },
-  {
-    customerName: "Valentina",
-    total: 240,
-    delivered: true,
-  },
+    {
+        customerName: "Nicolas",
+        total: 60,
+        delivered: true,
+    },
+    {
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
+    },
+    {
+        customerName: "Santiago",
+        total: 180,
+        delivered: true,
+    },
+    {
+        customerName: "Valentina",
+        total: 240,
+        delivered: true,
+    },
 ];
 ```
 
@@ -330,8 +328,8 @@ Los parámetros por referencia los debes tener presente cuando manejes objetos y
 ```js
 // Ejemplo donde transformas los objetos originales
 const tarifas = orders.map((order) => {
-  order.tax = 0.19; // tax = impuesto
-  return order;
+    order.tax = 0.19; // tax = impuesto
+    return order;
 });
 
 // Al ser una cópia que tiene un dato adicional no debería ser igual al original
@@ -344,10 +342,10 @@ Una forma de evitar este comportamiento, es crear un nuevo objeto con el *[spre
 ```js
 // Ejemplo donde no transformas los objetos originales
 const tarifas = orders.map((order) => {
-  return {
-    ...order,
-    item: 0.19,
-  };
+    return {
+        ...order,
+        item: 0.19,
+    };
 });
 
 tarifas[0] === orders[0]; // false
@@ -358,9 +356,9 @@ tarifas[1] === orders[1]; // false
 
 Tienes un array de objetos que representan datos de productos con los siguientes atributos:
 
-- name
-- price
-- stock
+-   name
+-   price
+-   stock
 
 Tu reto es agregar y calcular una nueva propiedad llamada "taxes", los impuestos deben ser del 19% con base al precio base y debes tener en cuenta que como resultado se debe dejar un valor entero, **sin decimales**.
 
@@ -368,7 +366,7 @@ Por ejemplo si aplicamos el 19% de impuestos para un producto con precio de **$
 
 Para solucionarlo vas a encontrar una función llamada `addNewAttr` que recibe un parámetro de entrada:
 
-- array: Un array de objetos.
+-   array: Un array de objetos.
 
 Dentro del cuerpo de la función `addNewAttr` debes escribir tu solución.
 
@@ -376,33 +374,33 @@ Ejemplo:
 
 ```js
 Input: [
-  {
-    name: "Product 1",
-    price: 1000,
-    stock: 10,
-  },
-  {
-    name: "Product 2",
-    price: 2000,
-    stock: 20,
-  },
+    {
+        name: "Product 1",
+        price: 1000,
+        stock: 10,
+    },
+    {
+        name: "Product 2",
+        price: 2000,
+        stock: 20,
+    },
 ];
 ```
 
 ```js
 Output: [
-  {
-    name: "Product 1",
-    price: 1000,
-    stock: 10,
-    taxes: 190,
-  },
-  {
-    name: "Product 2",
-    price: 2000,
-    stock: 20,
-    taxes: 380,
-  },
+    {
+        name: "Product 1",
+        price: 1000,
+        stock: 10,
+        taxes: 190,
+    },
+    {
+        name: "Product 2",
+        price: 2000,
+        stock: 20,
+        taxes: 380,
+    },
 ];
 ```
 
@@ -412,10 +410,10 @@ De la comunidad:
 
 ```js
 export function addNewAttr(array) {
-  return array.map((item) => ({
-    ...item,
-    taxes: Math.trunc(item.price * 0.19),
-  }));
+    return array.map((item) => ({
+        ...item,
+        taxes: Math.trunc(item.price * 0.19),
+    }));
 }
 ```
 
@@ -435,26 +433,26 @@ Personal:
 
 ```js
 const data = [
-  {
-    name: "Product 1",
-    price: 1000,
-    stock: 10,
-  },
-  {
-    name: "Product 2",
-    price: 2125,
-    stock: 20,
-  },
+    {
+        name: "Product 1",
+        price: 1000,
+        stock: 10,
+    },
+    {
+        name: "Product 2",
+        price: 2125,
+        stock: 20,
+    },
 ];
 
 function add_new_attribute(array) {
-  const data_taxes = array.map((element) => {
-    return {
-      ...element,
-      taxes: Math.floor(element.price * 0.19),
-    };
-  });
-  console.log(data_taxes);
+    const data_taxes = array.map((element) => {
+        return {
+            ...element,
+            taxes: Math.floor(element.price * 0.19),
+        };
+    });
+    console.log(data_taxes);
 }
 
 add_new_attribute(data);
@@ -488,8 +486,8 @@ El método `filter` consiste en crear un nuevo *array* a partir de los eleme
 
 Este proceso recibe **dos argumentos**:
 
-- La función que itera y evalúa si cada elemento del *array* si cumple con la condición especificada (obligatorio).
-- Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
+-   La función que itera y evalúa si cada elemento del *array* si cumple con la condición especificada (obligatorio).
+-   Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
 
 ```js
 let otherArray = array.filter(function(), thisArg)
@@ -497,9 +495,9 @@ let otherArray = array.filter(function(), thisArg)
 
 La función, que recibe como argumento el método `filter`, utiliza **tres parámetros**:
 
-- El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
-- El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
-- El ***array* que está iterando**.
+-   El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
+-   El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
+-   El ***array* que está iterando**.
 
 ```js
 const other = array.map(function(element, index, array))
@@ -518,10 +516,10 @@ const words = ["spray", "elites", "limit", "apple", "exuberant"];
 const newWords = [];
 
 for (let i = 0; i < words.length; i++) {
-  const word = words[i];
-  if (word.length >= 6) {
-    newWords.push(word);
-  }
+    const word = words[i];
+    if (word.length >= 6) {
+        newWords.push(word);
+    }
 }
 
 console.log(newWords); // [ 'elites', 'exuberant' ]
@@ -533,11 +531,11 @@ Con el método `filter`, solo debemos establecer la función que indique la con
 const words = ["spray", "elites", "limit", "apple", "exuberant"];
 
 const newWords = words.filter(function (word) {
-  if (word.length >= 6) {
-    return true;
-  } else {
-    return false;
-  }
+    if (word.length >= 6) {
+        return true;
+    } else {
+        return false;
+    }
 });
 // o
 const newWords = words.filter((word) => word.length >= 6);
@@ -555,26 +553,26 @@ Teniendo en cuenta que el nuevo *array* contendrá el **objeto completo** qu
 
 ```js
 const orders = [
-  {
-    customerName: "Nicolas",
-    total: 60,
-    delivered: true,
-  },
-  {
-    customerName: "Zulema",
-    total: 120,
-    delivered: false,
-  },
-  {
-    customerName: "Santiago",
-    total: 180,
-    delivered: true,
-  },
-  {
-    customerName: "Valentina",
-    total: 240,
-    delivered: true,
-  },
+    {
+        customerName: "Nicolas",
+        total: 60,
+        delivered: true,
+    },
+    {
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
+    },
+    {
+        customerName: "Santiago",
+        total: 180,
+        delivered: true,
+    },
+    {
+        customerName: "Valentina",
+        total: 240,
+        delivered: true,
+    },
 ];
 ```
 
@@ -605,7 +603,7 @@ Tienes un array de strings que contienen diferentes palabras, tu reto es retorna
 
 Para solucionarlo vas a encontrar una función llamada `filterByLength` que recibe un parámetro de entrada:
 
-- array: Un array de strigs con palabras
+-   array: Un array de strigs con palabras
 
 Dentro del cuerpo de la función `filterByLength` debes escribir tu solución.
 
@@ -627,7 +625,7 @@ Output: ["rosa", "gafas"];
 
 ```js
 export function filterByLength(array) {
-  return array.filter((word) => word.length >= 4);
+    return array.filter((word) => word.length >= 4);
 }
 ```
 
@@ -637,7 +635,7 @@ export function filterByLength(array) {
 const words = ["amor", "sol", "piedra", "día"];
 
 function filter_by_length(array) {
-  return array.filter((word) => word.length >= 4);
+    return array.filter((word) => word.length >= 4);
 }
 
 filter_by_length(words);
@@ -649,8 +647,8 @@ El método `reduce` **es inmutable** y consiste en retornar un solo valor del
 
 Este método recibe **dos argumentos**:
 
-- La función que itera y reduce cada elemento del *array*. (obligatorio)
-- El valor inicial que utilizará como argumento la función. Si no se especifica, en la primera iteración el valor inicial será el primer elemento del *array* y no ejecuta la función.
+-   La función que itera y reduce cada elemento del *array*. (obligatorio)
+-   El valor inicial que utilizará como argumento la función. Si no se especifica, en la primera iteración el valor inicial será el primer elemento del *array* y no ejecuta la función.
 
 ```js
 let reducedValue = array.reduce(function(), initialValue)
@@ -658,10 +656,10 @@ let reducedValue = array.reduce(function(), initialValue)
 
 La función, que recibe como argumento el método `reduce`, utiliza **cuatro parámetros**:
 
-- El **valor acumulado por la función** *(callback)*. En la primera iteración será igual al valor inicial del argumento del método. (obligatorio)
-- El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente. (obligatorio)
-- El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
-- El ***array* que está iterando**.
+-   El **valor acumulado por la función** *(callback)*. En la primera iteración será igual al valor inicial del argumento del método. (obligatorio)
+-   El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente. (obligatorio)
+-   El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
+-   El ***array* que está iterando**.
 
 ```js
 let reducedValue = array.reduce(
@@ -685,8 +683,8 @@ const numbers = [5, 4, 8, 6, 2];
 let suma = 0;
 
 for (let i = 0; i < numbers.length; i++) {
-  const number = numbers[i];
-  suma = suma + number ** 2;
+    const number = numbers[i];
+    suma = suma + number ** 2;
 }
 
 console.log(suma); // 145
@@ -766,12 +764,12 @@ Ahora que ya sabes cómo funciona el método `reduce` de *arrays*, podemos ut
 
 Para obtener un objeto de frecuencias de cada elemento de un *array* es necesario tener presente las siguientes consideraciones:
 
-- Establecer un objeto vacío como valor inicial del método `reduce`.
-- El objeto vacío también será nuestro acumulador.
-- Verificar si el elemento ya existe en nuestro objeto de frecuencias.
-- Si no existe, creamos la propiedad referente al elemento del *array* y lo inicializamos en 1.
-- Si ya existe solamente debemos aumentar en una unidad la propiedad de nuestro objeto referente al elemento del array.
-- Finalmente, debes retornar el objeto dentro de la función del método `reduce`.
+-   Establecer un objeto vacío como valor inicial del método `reduce`.
+-   El objeto vacío también será nuestro acumulador.
+-   Verificar si el elemento ya existe en nuestro objeto de frecuencias.
+-   Si no existe, creamos la propiedad referente al elemento del *array* y lo inicializamos en 1.
+-   Si ya existe solamente debemos aumentar en una unidad la propiedad de nuestro objeto referente al elemento del array.
+-   Finalmente, debes retornar el objeto dentro de la función del método `reduce`.
 
 Por ejemplo, con el siguiente *array* llamado `items`:
 
@@ -796,13 +794,13 @@ Una vez entendido la entrada y salida del algoritmo, entonces el código será u
 
 ```js
 const frecuencias = items.reduce((objeto, elemento) => {
-  if (!objeto[elemento]) {
-    objeto[elemento] = 1;
-  } else {
-    objeto[elemento] = objeto[elemento] + 1;
-  }
+    if (!objeto[elemento]) {
+        objeto[elemento] = 1;
+    } else {
+        objeto[elemento] = objeto[elemento] + 1;
+    }
 
-  return objeto;
+    return objeto;
 }, {});
 ```
 
@@ -816,13 +814,13 @@ De esta manera obtendrás el objeto de frecuencias. Puedes utilizar este algorit
 const items = [1, 3, 2, 3, 3, 1, 10];
 
 const rpta = items.reduce((obj, item) => {
-  // obj = {} 👈👀
-  if (!obj[item]) {
-    obj[item] = 1;
-  } else {
-    obj[item] = obj[item] + 1;
-  }
-  return obj;
+    // obj = {} 👈👀
+    if (!obj[item]) {
+        obj[item] = 1;
+    } else {
+        obj[item] = obj[item] + 1;
+    }
+    return obj;
 }, {}); // obj = {} 👈👀
 console.log(rpta);
 // { '1': 2, '2': 1, '3': 3, '10': 1 }
@@ -839,15 +837,15 @@ Nota: Para comprender lo que ocurre en el if y else debemos saber lo siguiente, 
 
 ```js
 const something = {
-  1: `a`,
-  2: `b`,
-  3: `c`,
+    1: `a`,
+    2: `b`,
+    3: `c`,
 };
 
 const another_thing = {
-  a: 1,
-  b: 2,
-  c: 3,
+    a: 1,
+    b: 2,
+    c: 3,
 };
 // Obtenemos valores
 console.log(something[2]); //b
@@ -860,7 +858,7 @@ Entonces:
 
 ```js
 if (!obj[item]) {
-  obj[item] = 1;
+    obj[item] = 1;
 }
 ```
 
@@ -883,38 +881,38 @@ Al final de la iteración, el **objeto acumulador obj** se devuelve como el resu
 
 ```js
 const data = [
-  {
-    customerName: "Nicolas",
-    level: "low",
-  },
-  {
-    customerName: "Andrea",
-    level: "medium",
-  },
-  {
-    customerName: "Zulema",
-    level: "hight",
-  },
-  {
-    customerName: "Santiago",
-    level: "low",
-  },
-  {
-    customerName: "Valentina",
-    level: "medium",
-  },
+    {
+        customerName: "Nicolas",
+        level: "low",
+    },
+    {
+        customerName: "Andrea",
+        level: "medium",
+    },
+    {
+        customerName: "Zulema",
+        level: "hight",
+    },
+    {
+        customerName: "Santiago",
+        level: "low",
+    },
+    {
+        customerName: "Valentina",
+        level: "medium",
+    },
 ];
 
 const rpta1 = data
-  .map((item) => item.level)
-  .reduce((obj, item) => {
-    if (!obj[item]) {
-      obj[item] = 1;
-    } else {
-      obj[item] = obj[item] + 1;
-    }
-    return obj;
-  }, {});
+    .map((item) => item.level)
+    .reduce((obj, item) => {
+        if (!obj[item]) {
+            obj[item] = 1;
+        } else {
+            obj[item] = obj[item] + 1;
+        }
+        return obj;
+    }, {});
 
 console.log(rpta1);
 
@@ -925,8 +923,8 @@ Otra forma:
 
 ```js
 const find = data.reduce((obj, item) => {
-  obj[item.level] ? (obj[item.level] += 1) : (obj[item.level] = 1);
-  return obj;
+    obj[item.level] ? (obj[item.level] += 1) : (obj[item.level] = 1);
+    return obj;
 }, {});
 
 console.log(find);
@@ -939,32 +937,32 @@ console.log(find);
 const number_list = [];
 // Generamos numeros aleatorios
 for (let i = 0; i < 10; i++) {
-  number_list.push(Math.floor(Math.random() * 10) + 1);
+    number_list.push(Math.floor(Math.random() * 10) + 1);
 }
 
 const find_ranges = number_list.reduce(
-  (range, item) => {
-    if (item <= 2) {
-      range["1-2"] += 1;
-    } else if (item <= 4) {
-      range["3-4"] += 1;
-    } else if (item <= 6) {
-      range["5-6"] += 1;
-    } else if (item <= 8) {
-      range["7-8"] += 1;
-    } else if (item <= 10) {
-      range["9-10"] += 1;
-    }
+    (range, item) => {
+        if (item <= 2) {
+            range["1-2"] += 1;
+        } else if (item <= 4) {
+            range["3-4"] += 1;
+        } else if (item <= 6) {
+            range["5-6"] += 1;
+        } else if (item <= 8) {
+            range["7-8"] += 1;
+        } else if (item <= 10) {
+            range["9-10"] += 1;
+        }
 
-    return range;
-  },
-  {
-    "1-2": 0,
-    "3-4": 0,
-    "5-6": 0,
-    "7-8": 0,
-    "9-10": 0,
-  }
+        return range;
+    },
+    {
+        "1-2": 0,
+        "3-4": 0,
+        "5-6": 0,
+        "7-8": 0,
+        "9-10": 0,
+    }
 );
 
 console.log(number_list);
@@ -977,7 +975,7 @@ Tienes un array de números y tu reto es retornar la suma de todos los valores e
 
 Para solucionarlo vas a encontrar una función llamada `calcSum` que recibe un parámetro de entrada:
 
-- numbers: Un array de números
+-   numbers: Un array de números
 
 Dentro del cuerpo de la función `calcSum` debes escribir tu solución.
 
@@ -1006,7 +1004,7 @@ Output: 0;
 
 ```js
 function calc_sum(array) {
-  console.log(array.reduce((sum, item) => sum + item, 0));
+    console.log(array.reduce((sum, item) => sum + item, 0));
 }
 
 calc_sum([1, 1, 1]); // 3
@@ -1022,8 +1020,8 @@ El método `some`es **inmutable** y consiste retornar un valor lógico verdad
 
 Este método recibe **dos argumentos**:
 
-- La función que itera y evalúa cada elemento del *array* hasta que al menos uno cumpla con la condición especificada (obligatorio).
-- Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
+-   La función que itera y evalúa cada elemento del *array* hasta que al menos uno cumpla con la condición especificada (obligatorio).
+-   Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
 
 ```js
 array.some(function(), thisArg)
@@ -1031,9 +1029,9 @@ array.some(function(), thisArg)
 
 La función, que recibe como argumento el método `some`, utiliza **tres parámetros**:
 
-- El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
-- El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
-- El **array que está iterando**.
+-   El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
+-   El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
+-   El **array que está iterando**.
 
 ```js
 array.some(function(element, index, array))
@@ -1052,11 +1050,11 @@ const numbers = [1, 2, 3, 5];
 
 let respuesta = false;
 for (let i = 0; i < numbers.length; i++) {
-  const element = numbers[i];
-  if (element % 2 === 0) {
-    respuesta = true;
-    break;
-  }
+    const element = numbers[i];
+    if (element % 2 === 0) {
+        respuesta = true;
+        break;
+    }
 }
 
 console.log(respuesta); // true
@@ -1086,26 +1084,26 @@ console.log(validate); //true
 
 ```js
 const orders = [
-  {
-    customerName: "Nicolas",
-    total: 60,
-    delivered: true,
-  },
-  {
-    customerName: "Zulema",
-    total: 120,
-    delivered: false,
-  },
-  {
-    customerName: "Santiago",
-    total: 180,
-    delivered: true,
-  },
-  {
-    customerName: "Nicolas",
-    total: 240,
-    delivered: true,
-  },
+    {
+        customerName: "Nicolas",
+        total: 60,
+        delivered: true,
+    },
+    {
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
+    },
+    {
+        customerName: "Santiago",
+        total: 180,
+        delivered: true,
+    },
+    {
+        customerName: "Nicolas",
+        total: 240,
+        delivered: true,
+    },
 ];
 
 const order = orders.some((item) => item.delivered);
@@ -1118,7 +1116,7 @@ Para este ejemplo debemos instalar una librería, esto con la finalidad de saber
 
 Dentro del repositorio clonado:
 
-- npm i date-fns
+-   npm i date-fns
 
 Luego ingresamos a https://date-fns.org/ ingresamos en su documentación, buscamos `areIntervalsOverlapping` y copiamos `var areIntervalsOverlapping = require('date-fns/areIntervalsOverlapping')` esto luego lo usaremos en el código mirar ejemplo:
 
@@ -1164,7 +1162,7 @@ console.log(isOverlap(new_appointment));
 
 Tu reto es retornar `true` si dentro de array de números al menos uno es un número par, para solucionarlo vas a encontrar una función llamada `checkArray` que recibe un parámetro de entrada:
 
-- numbers: Un array de números
+-   numbers: Un array de números
 
 Dentro del cuerpo de la función `checkArray` debes escribir tu solución.
 
@@ -1193,7 +1191,7 @@ Output: false;
 
 ```js
 function check_array(numbers) {
-  return numbers.some((number) => number % 2 === 0);
+    return numbers.some((number) => number % 2 === 0);
 }
 
 check_array([1, 3, 5, 7, 10, 11]); // true
@@ -1207,8 +1205,8 @@ El método `every`es **inmutable** y consiste retornar un valor lógico verda
 
 Este método recibe **dos argumentos**:
 
-- La función que itera y evalúa cada elemento del *array* hasta que al menos uno cumpla con la condición especificada (obligatorio).
-- Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
+-   La función que itera y evalúa cada elemento del *array* hasta que al menos uno cumpla con la condición especificada (obligatorio).
+-   Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
 
 ```js
 array.every(function(), thisArg)
@@ -1216,9 +1214,9 @@ array.every(function(), thisArg)
 
 La función, que recibe como argumento el método `every`, utiliza **tres parámetros**:
 
-- El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
-- El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
-- El **array que está iterando**.
+-   El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
+-   El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
+-   El **array que está iterando**.
 
 ```js
 array.every(function(element, index, array))
@@ -1237,11 +1235,11 @@ const numbers = [1, 30, 41, 29, 10, 13];
 
 let respuesta = true;
 for (let i = 0; i < numbers.length; i++) {
-  const element = numbers[i];
-  if (element >= 40) {
-    respuesta = false;
-    break;
-  }
+    const element = numbers[i];
+    if (element >= 40) {
+        respuesta = false;
+        break;
+    }
 }
 
 console.log(respuesta); // false
@@ -1261,22 +1259,22 @@ console.log(respuesta); // true
 ```js
 // Todos deben ser menores de 15
 const team = [
-  {
-    name: "Nicolas",
-    age: 12,
-  },
-  {
-    name: "Andrea",
-    age: 8,
-  },
-  {
-    name: "Zulema",
-    age: 2,
-  },
-  {
-    name: "Santiago",
-    age: 18,
-  },
+    {
+        name: "Nicolas",
+        age: 12,
+    },
+    {
+        name: "Andrea",
+        age: 8,
+    },
+    {
+        name: "Zulema",
+        age: 2,
+    },
+    {
+        name: "Santiago",
+        age: 18,
+    },
 ];
 
 const result = team.every((item) => item.age < 15);
@@ -1287,7 +1285,7 @@ console.log(result);
 
 Tu reto es retornar `true` si dentro de array de números todos son pares, para solucionarlo vas a encontrar una función llamada `checkArray` que recibe un parámetro de entrada:
 
-- numbers: Un array de números
+-   numbers: Un array de números
 
 Dentro del cuerpo de la función `checkArray` debes escribir tu solución.
 
@@ -1325,7 +1323,7 @@ Output: false;
 // Evaluar si todos son pares
 
 function check_array(array) {
-  return array.length > 0 ? array.every((index) => index % 2 === 0) : false;
+    return array.length > 0 ? array.every((index) => index % 2 === 0) : false;
 }
 
 check_array([2, 4, 6, 8, 10]); //true
@@ -1342,8 +1340,8 @@ En el caso de `find` retornará el elemento completo, si cumple con la condici
 
 Estos procedimientos reciben **dos argumentos**:
 
-- La función que itera y evalúa cada elemento del *array* hasta encuentre uno que cumpla con la condición especificada (obligatorio).
-- Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
+-   La función que itera y evalúa cada elemento del *array* hasta encuentre uno que cumpla con la condición especificada (obligatorio).
+-   Un objeto al que puede hacer referencia el contexto `this` en la función. Si se lo omite, será `undefined`. Recuerde que `this` en *arrow functions* es el objeto global.
 
 ```js
 array.find(function(), thisArg)
@@ -1352,9 +1350,9 @@ array.findIndex(function(), thisArg)
 
 La función, que recibe como argumento los métodos `find` y `findIndex`, utiliza **tres parámetros**:
 
-- El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
-- El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
-- El **array que está iterando**.
+-   El **valor actual del elemento iterado**. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
+-   El **índice del elemento iterado**. Es decir, si es la primera iteración, será el índice `0`, y así sucesivamente.
+-   El **array que está iterando**.
 
 ```js
 array.find(function(element, index, array))
@@ -1374,11 +1372,11 @@ const numbers = [1, 30, 41, 29, 50, 60];
 
 let respuesta = undefined;
 for (let i = 0; i < numbers.length; i++) {
-  const element = numbers[i];
-  if (element >= 40) {
-    respuesta = element;
-    break;
-  }
+    const element = numbers[i];
+    if (element >= 40) {
+        respuesta = element;
+        break;
+    }
 }
 
 console.log(respuesta); // 41
@@ -1416,8 +1414,8 @@ El método `includes` determina si un *array* o *string* incluye un determ
 
 Este método recibe dos argumentos:
 
-- El **elemento** a comparar.
-- El **índice inicial** desde donde comparar hasta el último elemento.
+-   El **elemento** a comparar.
+-   El **índice inicial** desde donde comparar hasta el último elemento.
 
 #### Índices positivos y negativos
 
@@ -1446,11 +1444,11 @@ const pets = ["cat", "dog", "bat"];
 
 let includeInArray = false;
 for (let i = 0; i < pets.length; i++) {
-  const item = pets[i];
-  if (item === "cat") {
-    includeInArray = true;
-    break;
-  }
+    const item = pets[i];
+    if (item === "cat") {
+        includeInArray = true;
+        break;
+    }
 }
 
 console.log(includeInArray); // true
@@ -1489,8 +1487,8 @@ Tu reto es retornar un array solo con las palabras que cumplan con la condición
 
 Para solucionarlo vas a encontrar una función llamada `filterByTerm` que recibe los siguientes parámetros de entrada:
 
-- array: Un array de strigs con palabras
-- term: Un string con el término a buscar
+-   array: Un array de strigs con palabras
+-   term: Un string con el término a buscar
 
 Dentro del cuerpo de la función `filterByTerm` debes escribir tu solución.
 
@@ -1518,7 +1516,7 @@ Output: [];
 //  Retornar un array solo con las palabras que cumplan con la condición
 
 function filter_by_term(array, term) {
-  return array.filter((x) => x.includes(term));
+    return array.filter((x) => x.includes(term));
 }
 
 filter_by_term(["ana", "santi", "nico", "anastasia"], "ana");
@@ -1533,7 +1531,7 @@ El método `join` une los elementos del *array*, mediante una separación, y 
 
 Este procedimiento recibe un argumento:
 
-- La **separación** de cada elemento del *array* al unirlos.
+-   La **separación** de cada elemento del *array* al unirlos.
 
 ```js
 array.join(separación);
@@ -1551,12 +1549,12 @@ const elements = ["hola", null, "como", "estas"];
 let acumulator = "";
 const separator = "/";
 for (let i = 0; i < elements.length; i++) {
-  const element = elements[i] ?? "";
-  if (i !== elements.length - 1) {
-    acumulator += element + separator;
-  } else {
-    acumulator += element;
-  }
+    const element = elements[i] ?? "";
+    if (i !== elements.length - 1) {
+        acumulator += element + separator;
+    } else {
+        acumulator += element;
+    }
 }
 
 console.log(acumulator); // 'hola//como/estas'
@@ -1578,12 +1576,12 @@ El método `split` de *strings*, es lo contrario que el método `join`, cons
 
 Este método recibe dos argumentos:
 
-- El **separador** que especifica el conjunto de caracteres a separar en *substrings*.
-- El **límite** de elementos separados a retornar.
+-   El **separador** que especifica el conjunto de caracteres a separar en *substrings*.
+-   El **límite** de elementos separados a retornar.
 
 ```js
 const cadena =
-  "JavaScript es maravilloso, con JavaScript puedo crear el futuro de la web.";
+    "JavaScript es maravilloso, con JavaScript puedo crear el futuro de la web.";
 
 cadena.split(" ");
 /* [ 'JavaScript', 'es', 'maravilloso,', 'con', 'JavaScript', 'puedo', 'crear', 'el', 'futuro', 'de', 'la', 'web.' ]
@@ -1630,7 +1628,7 @@ En este desafío vas a recibir el título de un artículo y tú debes transforma
 
 Para solucionarlo vas a encontrar una función llamada `parseToURL` que recibe un parámetro de entrada:
 
-- title: Un String con el título.
+-   title: Un String con el título.
 
 Dentro del cuerpo de la función `parseToURL` debes escribir tu solución.
 
@@ -1660,7 +1658,7 @@ Output: "curso-de-arrays";
 ```js
 // Unir con -- y volver a minusculas
 function parse_to_url(title) {
-  return title.split(" ").join("-").toLowerCase();
+    return title.split(" ").join("-").toLowerCase();
 }
 
 parse_to_url("La forma de correr Python");
@@ -1674,7 +1672,7 @@ El método `concat` **es inmutable** y consiste en crear un nuevo *array* a
 
 Este método recibe **uno o varios argumentos**:
 
-- Valores cualesquiera y/o *arrays* para concatenar.
+-   Valores cualesquiera y/o *arrays* para concatenar.
 
 ```js
 let result = array.concat(otherArray);
@@ -1751,7 +1749,7 @@ El método `flat` es **inmutable** que consiste en retornar un *array* don
 
 Este procedimiento recibe un argumento:
 
-- La **profundidad** del aplanamiento, por defecto, tiene un valor de 1. Si se desea aplanar todos los *sub-arrays* en una sola dimensión, utiliza el valor de `Infinity`.
+-   La **profundidad** del aplanamiento, por defecto, tiene un valor de 1. Si se desea aplanar todos los *sub-arrays* en una sola dimensión, utiliza el valor de `Infinity`.
 
 ```js
 array.flat(profundidad);
@@ -1763,18 +1761,18 @@ Si se utiliza la estructura `for` para aplanar un *array* de *arrays*, es n
 
 ```js
 const matrix = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
 ];
 
 const flatArray = [];
 
 for (let i = 0; i < matrix.length; i++) {
-  const array = matrix[i];
-  for (let j = 0; j < array.length; j++) {
-    flatArray.push(matrix[i][j]);
-  }
+    const array = matrix[i];
+    for (let j = 0; j < array.length; j++) {
+        flatArray.push(matrix[i][j]);
+    }
 }
 
 console.log(flatArray);
@@ -1806,20 +1804,20 @@ result4; // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```js
 // Si matriz fuera = 'Hola', la función retornaría [ 'hola' ]
 const matriz = [
-  [1, 2, 3],
-  [4, 5, 6, [1, 2, [1, 2]]],
-  [7, 8, 9],
+    [1, 2, 3],
+    [4, 5, 6, [1, 2, [1, 2]]],
+    [7, 8, 9],
 ];
 
 // Profundidad
 function depth(list) {
-  let new_list = [];
-  if (typeof list != "object") return [list];
+    let new_list = [];
+    if (typeof list != "object") return [list];
 
-  list.forEach((element) => {
-    new_list = new_list.concat(depth(element));
-  });
-  return new_list;
+    list.forEach((element) => {
+        new_list = new_list.concat(depth(element));
+    });
+    return new_list;
 }
 
 const new_array = depth(matriz);
@@ -1838,11 +1836,11 @@ Un ejemplo simple de función recursiva en JavaScript es la función factorial, 
 
 ```js
 function factorial(n) {
-  if (n === 0) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
+    if (n === 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
 }
 ```
 
@@ -1852,11 +1850,11 @@ Otro ejemplo de recursividad en JavaScript es la función `fibonacci`, que calcu
 
 ```js
 function fibonacci(n) {
-  if (n === 0 || n === 1) {
-    return n;
-  } else {
-    return fibonacci(n - 1) + fibonacci(n - 2);
-  }
+    if (n === 0 || n === 1) {
+        return n;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 }
 ```
 
@@ -1901,9 +1899,9 @@ numbers2.flatMap((number) => [number * 2]);
 
 ```js
 const users = [
-  { userId: 1, username: "Tom", attributes: ["Nice", "Cute"] },
-  { userId: 2, username: "Mike", attributes: ["Lovely"] },
-  { userId: 3, username: "Nico", attributes: ["Nice", "Cool"] },
+    { userId: 1, username: "Tom", attributes: ["Nice", "Cute"] },
+    { userId: 2, username: "Mike", attributes: ["Lovely"] },
+    { userId: 3, username: "Nico", attributes: ["Nice", "Cool"] },
 ];
 
 // Extraemos los attributes y convertimos todo a un solo array
@@ -1918,35 +1916,35 @@ console.log(result_two);
 
 // Ejemplo 02
 const calendars = {
-  primaryCalendar: [
-    {
-      startDate: new Date(2021, 1, 1, 15),
-      endDate: new Date(2021, 1, 1, 15, 30),
-      title: "Cita 1",
-    },
-    {
-      startDate: new Date(2021, 1, 1, 17),
-      endDate: new Date(2021, 1, 1, 18),
-      title: "Cita 2",
-    },
-  ],
-  secondaryCalendar: [
-    {
-      startDate: new Date(2021, 1, 1, 12),
-      endDate: new Date(2021, 1, 1, 12, 30),
-      title: "Cita 2",
-    },
-    {
-      startDate: new Date(2021, 1, 1, 9),
-      endDate: new Date(2021, 1, 1, 10),
-      title: "Cita 4",
-    },
-  ],
+    primaryCalendar: [
+        {
+            startDate: new Date(2021, 1, 1, 15),
+            endDate: new Date(2021, 1, 1, 15, 30),
+            title: "Cita 1",
+        },
+        {
+            startDate: new Date(2021, 1, 1, 17),
+            endDate: new Date(2021, 1, 1, 18),
+            title: "Cita 2",
+        },
+    ],
+    secondaryCalendar: [
+        {
+            startDate: new Date(2021, 1, 1, 12),
+            endDate: new Date(2021, 1, 1, 12, 30),
+            title: "Cita 2",
+        },
+        {
+            startDate: new Date(2021, 1, 1, 9),
+            endDate: new Date(2021, 1, 1, 10),
+            title: "Cita 4",
+        },
+    ],
 };
 
 const result_three = Object.values(calendars).flatMap((item) => {
-  /* console.log('item', item); */
-  return item.map((date) => date.startDate);
+    /* console.log('item', item); */
+    return item.map((date) => date.startDate);
 });
 
 console.log(result_three);
@@ -1966,7 +1964,7 @@ En este desafío tienes array de strings y cada línea es un fragmento, el Zen d
 
 Para solucionarlo vas a encontrar una función llamada `countWords` que tiene un parámetro de entrada:
 
-- array: Un array de frases
+-   array: Un array de frases
 
 Dentro del cuerpo de la función `countWords` debes escribir tu solución.
 
@@ -1974,10 +1972,10 @@ Ejemplo:
 
 ```js
 Input: [
-  "Beautiful is better than ugly",
-  "Explicit is better than implicit",
-  "Simple is better than complex",
-  "Complex is better than complicated",
+    "Beautiful is better than ugly",
+    "Explicit is better than implicit",
+    "Simple is better than complex",
+    "Complex is better than complicated",
 ];
 
 Output: 20;
@@ -1987,15 +1985,15 @@ Output: 20;
 
 ```js
 function words(array) {
-  // Divide cada frase y la vuelve a unir luego hace un conteo
-  return array.flatMap((w) => w.split(" ")).length;
+    // Divide cada frase y la vuelve a unir luego hace un conteo
+    return array.flatMap((w) => w.split(" ")).length;
 }
 
 words([
-  "Beautiful is better than ugly",
-  "Explicit is better than implicit",
-  "Simple is better than complex",
-  "Complex is better than complicated",
+    "Beautiful is better than ugly",
+    "Explicit is better than implicit",
+    "Simple is better than complex",
+    "Complex is better than complicated",
 ]); // 20
 words([]); // 0
 ```
@@ -2004,12 +2002,12 @@ words([]); // 0
 
 Las funciones mutables consisten en cambiar el *array* original. Estos métodos son:
 
-- push
-- unshift
-- pop
-- shift
-- splice
-- sort
+-   push
+-   unshift
+-   pop
+-   shift
+-   splice
+-   sort
 
 #### Método push
 
@@ -2059,9 +2057,9 @@ El método `splice` **extrae** uno o varios elementos del *array* original 
 
 El método `splice` recibe tres argumentos:
 
-- El **índice** donde comenzará a cambiar el *array*.
-- La **cantidad de elementos** que serán reemplazados.
-- **Uno o varios elementos** que reemplazarán a los originales del *array*.
+-   El **índice** donde comenzará a cambiar el *array*.
+-   La **cantidad de elementos** que serán reemplazados.
+-   **Uno o varios elementos** que reemplazarán a los originales del *array*.
 
 ```js
 array.splice(índice, cantidad, items)
@@ -2087,9 +2085,9 @@ console.log(array); // [ 1, 'dos', 'tres', 4 ]
 ```js
 // Reto 01: Eliminar un elemento sin borrarlo de la lista original
 const reto_one = [
-  { title: "Pizza", price: 121, id: "🍕" },
-  { title: "Burger", price: 121, id: "🍔" },
-  { title: "Hot cakes", price: 121, id: "🥞" },
+    { title: "Pizza", price: 121, id: "🍕" },
+    { title: "Burger", price: 121, id: "🍔" },
+    { title: "Hot cakes", price: 121, id: "🥞" },
 ];
 
 const products_one = reto_one.filter((p) => p.id != "🍔");
@@ -2102,25 +2100,25 @@ console.log("Copia: ", products_one);
 // Debemos copiar solo los elementos para que no tengan la misma dirección en memoria.
 
 const reto_two = [
-  { title: "Pizza", price: 121, id: "🍕" },
-  { title: "Burger", price: 121, id: "🍔" },
-  { title: "Hot cakes", price: 121, id: "🥞" },
+    { title: "Pizza", price: 121, id: "🍕" },
+    { title: "Burger", price: 121, id: "🍔" },
+    { title: "Hot cakes", price: 121, id: "🥞" },
 ];
 
 const update_two = {
-  id: "🥞",
-  changes: {
-    price: 200,
-    description: "delicious",
-  },
+    id: "🥞",
+    changes: {
+        price: 200,
+        description: "delicious",
+    },
 };
 
 const product_index_two = reto_two.findIndex((item) => item.id === update.id);
 
 const products_two = [...reto_two];
 products_two[product_index_two] = {
-  ...reto_two[product_index_two],
-  ...update_two.changes,
+    ...reto_two[product_index_two],
+    ...update_two.changes,
 };
 
 console.log("Original", reto_two);
@@ -2133,7 +2131,7 @@ El método `sort` es **mutable** y consiste en ordenar un *array* a partir
 
 Este proceso recibe **un argumento**:
 
-- Una función de comparación que compara cada elemento con otro. Por defecto, evalúa el valor Unicode del caracter.
+-   Una función de comparación que compara cada elemento con otro. Por defecto, evalúa el valor Unicode del caracter.
 
 ```js
 let sortedArray = array.sort(function())
@@ -2141,8 +2139,8 @@ let sortedArray = array.sort(function())
 
 La función comparativa, que recibe como argumento el método `sort`, utiliza **dos parámetros**:
 
-- El **primer elemento** a comparar.
-- El **segundo elemento** a comparar.
+-   El **primer elemento** a comparar.
+-   El **segundo elemento** a comparar.
 
 ```js
 array.sort(function(first, second))
@@ -2158,13 +2156,13 @@ Ten en cuenta que las mayúsculas, minúsculas y caracteres con tilde tienen un 
 
 ```js
 const words = [
-  "réservé",
-  "premier",
-  "communiqué",
-  "café",
-  "adieu",
-  "éclair",
-  "banana",
+    "réservé",
+    "premier",
+    "communiqué",
+    "café",
+    "adieu",
+    "éclair",
+    "banana",
 ];
 
 words.sort((a, b) => a.localeCompare(b));
@@ -2184,8 +2182,8 @@ console.log(numbers);
 
 Para arreglar este comportamiento, es necesario utilizar la siguiente función comparativa:
 
-- De manera ascendente `(a, b) => a - b`
-- De manera descendente `(a, b) => b - a`
+-   De manera ascendente `(a, b) => a - b`
+-   De manera descendente `(a, b) => b - a`
 
 ```js
 // Ascendente
@@ -2207,26 +2205,26 @@ A partir de la función comparativa puedes ordenar los elementos de cualquier fo
 
 ```js
 const orders = [
-  {
-    customerName: "Nicolas",
-    total: 600,
-    delivered: true,
-  },
-  {
-    customerName: "Zulema",
-    total: 120,
-    delivered: false,
-  },
-  {
-    customerName: "Santiago",
-    total: 1840,
-    delivered: true,
-  },
-  {
-    customerName: "Valentina",
-    total: 240,
-    delivered: true,
-  },
+    {
+        customerName: "Nicolas",
+        total: 600,
+        delivered: true,
+    },
+    {
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
+    },
+    {
+        customerName: "Santiago",
+        total: 1840,
+        delivered: true,
+    },
+    {
+        customerName: "Valentina",
+        total: 240,
+        delivered: true,
+    },
 ];
 ```
 
@@ -2263,7 +2261,7 @@ console.log(orders);
 
 ## Otros apuntes :poop:
 
-- [Notion](https://funny-tibia-d59.notion.site/Manipulaci-n-de-Arrays-en-JS-893d49287bc94bd289fac1a218a0ca83)
+-   [Notion](https://funny-tibia-d59.notion.site/Manipulaci-n-de-Arrays-en-JS-893d49287bc94bd289fac1a218a0ca83)
 
 ## Examen 📌
 
@@ -2278,7 +2276,7 @@ console.log(orders);
     const rta = array.flat();
     ```
 
-    - 📌 `[ '🐸', '🐱', '🐹', '🐯' ]`
+    -   📌 `[ '🐸', '🐱', '🐹', '🐯' ]`
 
 2.  ¿Cuál es el resultado del siguiente código?
 
@@ -2287,7 +2285,7 @@ console.log(orders);
     const rta = array.map((item) => item.length);
     ```
 
-    - 📌 `[ 1, 2, 3 ]`
+    -   📌 `[ 1, 2, 3 ]`
 
 3.  Cuál de estos métodos me retorna la posición del array en donde está el emoji 🐸?
 
@@ -2298,7 +2296,7 @@ console.log(orders);
 
 4.  El método forEach es el recomendado para filtrar elementos de un array?
 
-    - 📌Falso
+    -   📌Falso
 
     El método `forEach()` en JavaScript es utilizado para iterar sobre los elementos de un array y ejecutar una función para cada uno de ellos. Sin embargo, no es el método recomendado para filtrar elementos de un array, ya que no devuelve un nuevo array con los elementos filtrados.
 
@@ -2329,27 +2327,27 @@ console.log(orders);
 
 8.  Reduce es un método que NO cambia el estado original de un array?
 
-    - 📌Verdadero
+    -   📌Verdadero
 
 9.  Sort es un método que cambia el estado original de un array?
 
-    - 📌Verdadero
+    -   📌Verdadero
 
 10. Filter es un método que cambia el estado original de un array?
 
-    - 📌Falso
+    -   📌Falso
 
 11. ¿Por qué el siguiente código cambia el estado original del array?
 
     ```javascript
     const array = [{ age: 1 }, { age: 2 }];
     const rta = array.map((item) => {
-      item.name = "My name";
-      return item;
+        item.name = "My name";
+        return item;
     });
     ```
 
-    - 📌Porque al trabajar con objetos se está modificando la referencia en memoria.
+    -   📌Porque al trabajar con objetos se está modificando la referencia en memoria.
 
 12. Si quiero obtener la suma de todos los valores de este array `[1,1,1,1,1]`, ¿cuál es el código que lo va a resolver?
 
