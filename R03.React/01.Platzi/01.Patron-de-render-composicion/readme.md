@@ -1,3 +1,129 @@
+# Patrones de Render y Composición en React
+
+### Patrones de Render
+
+1. **Render Props**:
+
+    - Permite que un componente comparta lógica con otros componentes mediante una función que se pasa como prop.
+    - Ejemplo:
+
+        ```jsx
+        const DataProvider = ({ render }) => {
+            const data = fetchData();
+            return render(data);
+        };
+
+        const App = () => (
+            <DataProvider render={(data) => <DisplayData data={data} />} />
+        );
+        ```
+
+2. **Higher-Order Components (HOCs)**:
+
+    - Es una función que toma un componente y devuelve un nuevo componente con lógica adicional.
+    - Ejemplo:
+
+        ```jsx
+        const withData = (WrappedComponent) => {
+            return class extends React.Component {
+                state = { data: null };
+
+                componentDidMount() {
+                    this.setState({ data: fetchData() });
+                }
+
+                render() {
+                    return (
+                        <WrappedComponent
+                            data={this.state.data}
+                            {...this.props}
+                        />
+                    );
+                }
+            };
+        };
+
+        const EnhancedComponent = withData(DisplayData);
+        ```
+
+3. **Conditional Rendering**:
+    - Renderiza componentes basados en condiciones.
+    - Ejemplo:
+        ```jsx
+        const App = ({ isLoggedIn }) => (
+            <div>{isLoggedIn ? <Dashboard /> : <Login />}</div>
+        );
+        ```
+
+### Patrones de Composición
+
+1. **Composición de Componentes**:
+
+    - Combina componentes pequeños y reutilizables para crear componentes más complejos.
+    - Ejemplo:
+
+        ```jsx
+        const Header = () => <header>Header</header>;
+        const Footer = () => <footer>Footer</footer>;
+
+        const Layout = ({ children }) => (
+            <div>
+                <Header />
+                {children}
+                <Footer />
+            </div>
+        );
+
+        const App = () => (
+            <Layout>
+                <main>Main Content</main>
+            </Layout>
+        );
+        ```
+
+2. **Children Props**:
+
+    - Permite pasar componentes hijos a través de props.
+    - Ejemplo:
+
+        ```jsx
+        const Card = ({ children }) => <div className="card">{children}</div>;
+
+        const App = () => (
+            <Card>
+                <h1>Title</h1>
+                <p>Content</p>
+            </Card>
+        );
+        ```
+
+3. **Slot Pattern**:
+
+    - Similar a los children props, pero permite definir múltiples "slots" para diferentes partes del componente.
+    - Ejemplo:
+
+        ```jsx
+        const Modal = ({ header, body, footer }) => (
+            <div className="modal">
+                <div className="modal-header">{header}</div>
+                <div className="modal-body">{body}</div>
+                <div className="modal-footer">{footer}</div>
+            </div>
+        );
+
+        const App = () => (
+            <Modal
+                header={<h1>Header</h1>}
+                body={<p>Body Content</p>}
+                footer={<button>Close</button>}
+            />
+        );
+        ```
+
+### Visualización Gráfica
+
+Imagina la siguiente estructura de componentes:
+
 ### Introducción
 
 Composición de componentes

@@ -86,8 +86,8 @@ function App() {
 export default App;
 
 //---------------> Children
-{
-    /* 
+
+/* 
     <TodoList
     error={error}
     loading={loading}
@@ -112,7 +112,7 @@ export default App;
     )}
 </TodoList>;
  */
-}
+
 //---------------> Render Props:
 /*  <TodoList
      error={error}
