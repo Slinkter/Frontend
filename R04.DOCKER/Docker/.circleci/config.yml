@@ -1,0 +1,45 @@
+version: 2.1
+jobs:
+    test:
+        docker:
+            - image: python:3.10.13
+        steps:
+            - checkout
+            - run:
+                name: Show version
+                command: python3 --version
+            - run:
+                name: Run tests
+                command: python3 flaskapp/test.py 
+    build:
+        docker:
+            - image: cimg/base:2022.09
+              auth:
+                username: $DOCKERHUB_USERNAME
+                password: $DOCKERHUB_PASSWORD
+        steps:
+            - checkout
+            - setup_remote_docker
+            - run:
+                name: Copy files
+                command: cp flaskapp/* .
+            - run:
+                name: Build and Push application Docker image
+                command: |
+                    docker build -t $DOCKERHUB_USERNAME/myapp:${CIRCLE_TAG} .
+                    echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+                    docker push $DOCKERHUB_USERNAME/myapp:${CIRCLE_TAG}
+
+workflows:
+    example:
+        jobs:
+            - test:
+                filters:
+                    tags:
+                        only: /.*/
+            - build:
+                filters:
+                    tags:
+                        only: /.*/
+                    branches:
+                        ignore: /.*/
