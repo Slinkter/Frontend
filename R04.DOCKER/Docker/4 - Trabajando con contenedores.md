@@ -5,6 +5,7 @@ Un contenedor de Docker es un contenedor ejecutable, independiente, ligero que i
 ## 1 Principales comandos
 
 #### Hello world en docker
+
 Vamos a ejecutar el clasico "hello world" en docker con el siguiente comando
 
 ```sh
@@ -62,7 +63,7 @@ El comando equivalente es el siguiente
 $ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
 
-##### docker container run (Ejemplo)
+##### docker container run
 
 A continuación vamos a correr el servidor nginx paso a paso revisando cada uno de las opciones disponibles junto al comando run para dejar corriendo nuestro servidor.
 
@@ -85,9 +86,20 @@ Para detener el contenedor presionamos "ctrl + C"
 $ docker run -p 8080:80 nginx
 ```
 
-Con la bandera -p asignamos un puerto del host al puerto del contenedor (-p host_port:container_port)
+Cuando ejecutas este comando, Docker hará lo siguiente:
 
-Para realizar una petición http al servidor dentro del contenedor vamos a lanzar el siguiente comando desde una consola diferente a la que se encuentra corriendo el contenedor (también podríamos hacer la petición desde nuestro navegador web)
+-   Descargar la imagen de Nginx desde Docker Hub (si no está ya descargada).
+-   Crear un nuevo contenedor a partir de la imagen de Nginx.
+-   Mapear el puerto 80 del contenedor al puerto 8080 de tu máquina.
+-   Iniciar el servidor Nginx dentro del contenedor.
+
+El comando `docker run -p 8080:80` nginx se utiliza para ejecutar un contenedor de Docker con la imagen de Nginx y mapear los puertos del contenedor a los puertos del host. Aquí tienes una explicación detallada
+
+-   docker run: Este comando se utiliza para crear y ejecutar un nuevo contenedor a partir de una imagen de Docker.
+
+-   -p 8080:80: Cualquier solicitud que llegue al **puerto 8080 de tu máquina** será redirigida al **puerto 80 del contenedor**.
+
+nginx: Esta es la imagen de Docker que se utilizará para crear el contenedor. En este caso, se está utilizando la imagen oficial de Nginx, que es un servidor web.
 
 ```sh
 $ curl localhost:8080
@@ -111,6 +123,16 @@ Por otro lado en la pestaña donde hicimos curl, verificamos que la respuesta fu
 $ docker run -p 8080:80 -d nginx
 ```
 
+#### Desglose del Comando
+
+-   docker run: Este comando se utiliza para crear y ejecutar un nuevo contenedor a partir de una imagen de Docker.
+
+-   -p 8080:80: Esta opción mapea el puerto 80 del contenedor al puerto 8080 del host. Esto significa que cualquier solicitud que llegue al puerto 8080 de tu máquina será redirigida al puerto 80 del contenedor.
+
+-   -d: Esta opción ejecuta el contenedor en segundo plano (detached mode). Esto permite que el contenedor se ejecute sin bloquear la terminal.
+
+-   nginx: Esta es la imagen de Docker que se utilizará para crear el contenedor. En este caso, se está utilizando la imagen oficial de Nginx, que es un servidor web.
+
 vamos a ver que el contenedor empieza a correr desatachado de la consola
 
 <p align="center">
@@ -123,6 +145,18 @@ vamos a ver que el contenedor empieza a correr desatachado de la consola
 $ docker run --name mynginx -p 8081:80 -d nginx
 ```
 
+#### Desglose del Comando
+
+-   **docker run**: Este comando se utiliza para crear y ejecutar un nuevo contenedor a partir de una imagen de Docker.
+
+-   **--name mynginx**: Esta opción asigna el nombre `mynginx` al contenedor. Esto facilita la identificación y gestión del contenedor.
+
+-   **-p 8081:80**: Esta opción mapea el puerto 80 del contenedor al puerto 8081 del host. Esto significa que cualquier solicitud que llegue al puerto 8081 de tu máquina será redirigida al puerto 80 del contenedor.
+
+-   **-d**: Esta opción ejecuta el contenedor en segundo plano (detached mode). Esto permite que el contenedor se ejecute sin bloquear la terminal.
+
+-   **nginx**: Esta es la imagen de Docker que se utilizará para crear el contenedor. En este caso, se está utilizando la imagen oficial de Nginx, que es un servidor web.
+
 ##### docker container stop
 
 Envia una señal al contenedor o contenedores para detener su ejecucion
@@ -130,12 +164,12 @@ Envia una señal al contenedor o contenedores para detener su ejecucion
 ```sh
 $ docker container stop [CONTAINER...]
 ```
+
 El comando equivalente es el siguiente
 
 ```sh
 $ docker stop [CONTAINER...]
 ```
-
 
 ##### docker container rm
 
@@ -159,12 +193,13 @@ El comando docker exec ejecuta un nuevo comando en un contenedor en ejecución.
 El comando que especifica con Docker Exec solo se ejecuta mientras se ejecuta el proceso principal del contenedor (PID 1) y no se reinicia si se reinicia el contenedor.
 
 ```sh
-$ docker container exec CONTAINER COMMAND 
+$ docker container exec CONTAINER COMMAND
 ```
+
 El comando equivalente es el siguiente
 
 ```sh
-$ docker exec CONTAINER COMMAND 
+$ docker exec CONTAINER COMMAND
 ```
 
 Ejemplo:
@@ -172,7 +207,7 @@ Ejemplo:
 Normalmente vamos a requerir acceder a un contenedor que se encuentra corriendo para revisar algunos archivos, para esto utilizaresmo el comando exec para ingresar al contenedor usando bash
 
 ```sh
-$ docker exec -it CONTAINER bash 
+$ docker exec -it CONTAINER bash
 ```
 
 ##### docker container logs
@@ -182,6 +217,7 @@ El comando Docker Logs recupera por lotes los registros presentes en el momento 
 ```sh
 $ docker container logs CONTAINER
 ```
+
 El comando equivalente es el siguiente
 
 ```sh
@@ -194,7 +230,7 @@ Si deseas ver los logs en tiempo real, debe lanzar el siguiente comando
 $ docker logs --follow CONTAINER
 ```
 
-##### docker container diff 
+##### docker container diff
 
 Muestra los archivos y directorios modificados en el sistema de archivos de un contenedor desde que se creó el contenedor.
 
@@ -207,8 +243,9 @@ El comando equivalente es el siguiente
 ```sh
 $ docker diff CONTAINER
 ```
+
 Muestra 3 estados
- 
-- A: Added
-- D: Deleted
-- C: Changed
+
+-   A: Added
+-   D: Deleted
+-   C: Changed

@@ -1,6 +1,6 @@
 function Component(): JSX.Element | null | string {
-  return null;
-  return 'hello';
-  return <h2>hello from typescript</h2>;
+    return <h2>hello from typescript</h2>;
+    return "hello";
+    return null;
 }
 export default Component;
