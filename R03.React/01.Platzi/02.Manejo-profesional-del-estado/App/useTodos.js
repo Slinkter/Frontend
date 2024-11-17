@@ -5,21 +5,21 @@ import { useLocalStorage } from "./useLocalStorage";
 function useTodos() {
     // importar
     const {
+        error, // boolenado
+        loading, // booleando
         item: data, // array
         saveItem: saveTodos, // funcion
         sincronizeItem: sincronizeTodos, // funcion
-        loading, // booleando
-        error, // boolenado
     } = useLocalStorage("TODOS_V1", []);
 
     const completedTodos = data.filter((todo) => !!todo.completed).length; // number
     const totalTodos = data.length; // number
 
-    let searchedTodos = []; // lista de Todo
     //
     const [searchValue, setSearchValue] = React.useState(""); // String
     const [openModal, setOpenModal] = React.useState(false); // booleando
     //
+    let searchedTodos = []; // lista de Todo
     if (!searchValue.length >= 1) {
         searchedTodos = data;
     } else {
