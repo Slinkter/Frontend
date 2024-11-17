@@ -1,23 +1,25 @@
-import { useState, useEffect } from "react";
-import { type Tour, tourSchema } from "./types";
+//
 const url = "https://www.course-api.com/react-tours-project";
+//
+import { useState, useEffect } from "react";
+import { type Tour } from "./types";
+import { tourSchema } from "./types";
+//
 function Component() {
     // tours
-    const [tours, setTours] = useState<Tour[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [tours, setTours] = useState<Tour[]>([]);
 
     useEffect(() => {
+        // exec -->
         const fetchData = async () => {
-            setIsLoading(true);
             try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch tours...`);
-                }
-                const rawData: Tour[] = await response.json();
+                setIsLoading(true);
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`Failed to fetch tours...`);
+                const rawData: Tour[] = await res.json();
                 const result = tourSchema.array().safeParse(rawData);
-
                 if (!result.success) {
                     console.log(result.error.message);
                     throw new Error(`Failed to parse tours`);
@@ -33,6 +35,7 @@ function Component() {
                 setIsLoading(false);
             }
         };
+        // exec -->
         fetchData();
     }, []);
 
