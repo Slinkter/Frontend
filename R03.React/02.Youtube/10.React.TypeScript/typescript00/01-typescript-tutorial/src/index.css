@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .button-custom {
+        @apply px-4 py-1  text-xl text-purple-600 font-semibold rounded-xl border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2;
+    }
+    .inpunt-custom {
+        @apply mt-1 block w-full rounded-md bg-gray-100 border-transparent border-2 shadow-md focus:border-2 focus:border-purple-600  sm:text-sm focus:ring-0;
+    }
+}
