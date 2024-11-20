@@ -1,56 +1,79 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 
-const Component = (): JSX.Element => {
-    const [text, setText] = useState("");
-    const [email, setEmail] = useState("");
+type TypeAction = {
+    type: "incremente" | "decrement" | "reset";
+};
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setEmail(e.target.value);
-    };
+type CounterState = {
+    count: number;
+    status: string;
+};
+
+const initialState: CounterState = {
+    count: 0,
+    status: "pending ...",
+};
+
+type CounterAction = TypeAction;
+
+const counterReducer = (
+    state: CounterState,
+    action: CounterAction
+): CounterState => {
+    switch (action.type) {
+        case "incremente":
+            return state;
+        case "decrement":
+            return state;
+        case "reset":
+            return state;
+        default:
+            return state;
+    }
+};
+
+const Component = () => {
+    /* reducer */
+    /* initial */
+    const [state, dispatch] = useReducer(counterReducer, initialState);
 
     return (
-        <section className="w-3/4 md:w-2/4">
-            <h2>Event example</h2>
-            <form
-                action=""
-                className="flex flex-col justify-center gap-6 w-full"
-            >
-                <div>
-                    <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-600 "
-                    >
-                        Text
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="hola"
-                        className="inpunt-custom "
-                    />
-                </div>
-                {/*  */}
-                <div>
-                    <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-600 "
-                    >
-                        email
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="email"
-                        className="inpunt-custom "
-                    />
-                </div>
+        <div className="text-center flex flex-col gap-6 w-3/4 ">
+            <h2>Count: 0</h2>
+            <h2>Status: Active</h2>
 
-                <button className="mt-2 button-custom ">submit</button>
-            </form>
-            <br />
-        </section>
+            <div className="btn-container">
+                <button
+                    onClick={() => console.log("increment")}
+                    className="btn"
+                >
+                    Increment
+                </button>
+                <button
+                    onClick={() => console.log("decrement")}
+                    className="btn"
+                >
+                    Decrement
+                </button>
+                <button onClick={() => console.log("reset")} className="btn">
+                    Reset
+                </button>
+            </div>
+            <div className="btn-container">
+                <button
+                    onClick={() => console.log("set status to active")}
+                    className="btn"
+                >
+                    Set Status to Active
+                </button>
+                <button
+                    className="btn"
+                    onClick={() => console.log("set status to inactive")}
+                >
+                    Set Status to Inactive
+                </button>
+            </div>
+        </div>
     );
 };
 
