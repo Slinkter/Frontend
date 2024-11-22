@@ -1,99 +1,3 @@
-## c1 :JavaScript: orientado a objetos, basado en prototipos
-
-Afirmaciones :
-
-- objecto vs objecto vs objeto : todo en js es objecto
-- javascript :
-  - Nueveos elemento > objecot > protipos
-  - todos los objecto esta creados por prototipos
-  -
-
-## c2 : Qué es programación orientada a objetos
-
-- Paradigmas :son forma o caminos para programar,
-
-  - Paradigma estruturado
-  - Paradigma OOP (orientado a objeto)
-  - Paradigma funcional
-
-- Paradigma OOP
-  - Orden : Objecto estudiante .
-  - Reutilizar codigo : moldes o planillas
-  - Prototipos : no esta basado en clase pero en prototipos.
-
-## c3 : Bonus: fútbol y programación orientada a objetos
-
-- Clase :
-  - Atributos : propiedades del Objecto
-  - Metodos : Acciones del Objecto
-- Objecto :
-  - Es la base de la POO
-  - Los objectos son la instancias de las clases
-  - la clase son el molde(planilla) de los objetos
-- Herencias
-  - Crear nuevas clases a partir de otras clases (caracteristicas iguales)
-- Encapsulamiento : oculatar algo
-- Polimorfismo :muchas formas, mensaje personalizados a cada objeto .
-
-## c4 : Qué es un objeto en JavaScript
-
-Se llama objeto a:
-
-    - Los Objetos literales : son utilizados para almacenar y organizar datos en pares clave-valor.
-
-    -Los Prototipos, son objetos a partir de los cuales se crean otros objetos, son como una especie de plantilla o molde.
-
-    -Las Instancias, son objetos que han sido creados a partir de un prototipo.
-
-    -Los Arrays, son objetos especiales que almacenan datos de manera ordenada.
-
-    -El Prototipo Object(), es un prototipo por defecto que viene incluido en JS.
-
-## c5 : Objetos literales y prototipos en JavaScript
-
-codgio
-
-## c9/20 : Qué es abstracción
-
-abstracion de algo que se repite (una clase)
-
-## c11/20 : Que es encapsulamiento
-
-    * limitar el acceso a nuestros atributos y propiedades en los prototipos y objectos.
-    * analogia : Banco-Personas.
-    * metodos y atributos privados
-    * no permite la alteracion de metodos y atributos (no sobreescribir)
-
-## c12/20 : Getters y setters en JavaScript
-
-// Poliformos
-
-// herencia 2.0 , es pilar de la POO
-// permite a la subclases cambiar o anula de los metodos
-// hereados o atributos padre
-// cambia el comportamiento .
-// Tipos de polimorfismo
-// _ Sobrecarga
-// _ parametrico
-// _ Inclusion (solo funcnona en JS)
-/_ \*/
-
-# Paradigma:
-
-Es la teoría que suministra las bases y el modelo para resolver problemas.
-
-# Abstracción:
-
-Es la capacidad de representar objetos del mundo real en términos de sus características y comportamientos esenciales, ocultando los detalles complejos de su implementación.
-
-# Encapsulamiento:
-
-Es la capacidad de ocultar la complejidad interna de los objetos, protegiendo sus propiedades (atributos) y métodos para que no sean accesibles desde fuera de la clase
-
-Polimorfismo:
-
-Herencia:
-
 # Curso Básico de Programación Orientada a Objetos con JavaScript
 
 ## JavaScript Orientado a Objetos
@@ -104,15 +8,15 @@ JavaScript tiene características que lo hacen parecer roto, pero tienen un moti
 
 #### Objetos vs. objetos vs. objetos
 
-- En JS casi todo es un objeto
-- Para crear algoritmos, funcionalidades debemos crear objetos
-- Podemos crear objetos de diferentes formas:
-  1.  Abriendo llaves `{}`
-  2.  `Object.create`
-  3.  Podemos crear objetos a través de funciones
-      1.  Podemos utilizar o no la palabra `new`
-- Al utilizar la palabra `new` ya no estaríamos creando objetos literales sino instancias de prototipos
-- Para crear prototipos podemos implementar tanto la sintaxis de prototipos como la sintaxis de clases
+-   En JS casi todo es un objeto
+-   Para crear algoritmos, funcionalidades debemos crear objetos
+-   Podemos crear objetos de diferentes formas:
+    1.  Abriendo llaves `{}`
+    2.  `Object.create`
+    3.  Podemos crear objetos a través de funciones
+        1.  Podemos utilizar o no la palabra `new`
+-   Al utilizar la palabra `new` ya no estaríamos creando objetos literales sino instancias de prototipos
+-   Para crear prototipos podemos implementar tanto la sintaxis de prototipos como la sintaxis de clases
 
 Normalmente, los lenguajes de programación son orientados a objetos y basados en clases. JS es orientado a objetos y basado en prototipos.
 
@@ -138,16 +42,16 @@ Todo nuevo paradigma surge para resolver nuevas necesidades que los viejos parad
 
 Dentro de sus ventajas tenemos:
 
-- El orden: Al separar nuestros elementos en Objetos será mas fácil mantener nuestro código y hacerlo escalable.
-- Reutilización del código: DRY (Don’t Repeat Yourself), Nuestras piezas de código no deberían de repetirse ya que esto nos dificultará la evolución futura (y su mantenimiento).
+-   El orden: Al separar nuestros elementos en Objetos será mas fácil mantener nuestro código y hacerlo escalable.
+-   Reutilización del código: DRY (Don’t Repeat Yourself), Nuestras piezas de código no deberían de repetirse ya que esto nos dificultará la evolución futura (y su mantenimiento).
 
 #### ¿Qué Elementos podemos encontrar en la POO?
 
 Hasta ahora hemos escuchado de estos 4 ( y los seguirás escuchando muy a menudo):
 
-- Clases: Son bloques de código que nos permiten definir métodos y atributos (base) para nuestros objetos.
-- Atributos: Son las características de nuestros objetos (Altura, peso, Si es estudiante (o no)
-- Métodos: Son funciones que guardamos en nuestros objetos para actualizar la información de forma segura.
+-   Clases: Son bloques de código que nos permiten definir métodos y atributos (base) para nuestros objetos.
+-   Atributos: Son las características de nuestros objetos (Altura, peso, Si es estudiante (o no)
+-   Métodos: Son funciones que guardamos en nuestros objetos para actualizar la información de forma segura.
 
 ### 3. Bonus: fútbol y programación orientada a objetos
 
@@ -191,16 +95,16 @@ También es posible crear objetos utilizando la sintaxis de la función construc
 ```js
 // Definición de clase Coche
 class Coche {
-  constructor(marca, modelo, año) {
-    this.marca = marca;
-    this.modelo = modelo;
-    this.año = año;
-  }
+    constructor(marca, modelo, año) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+    }
 
-  // Método
-  conducir() {
-    console.log(`Conduciendo un ${this.marca} ${this.modelo}`);
-  }
+    // Método
+    conducir() {
+        console.log(`Conduciendo un ${this.marca} ${this.modelo}`);
+    }
 }
 
 // Creación de objeto coche con la clase Coche
@@ -212,24 +116,24 @@ En este ejemplo, se define una clase Coche con un constructor que establece las 
 
 En resumen, los objetos en JavaScript son colecciones de propiedades que pueden contener valores de diferentes tipos, incluyendo otros objetos. Se pueden crear utilizando la sintaxis de objeto literal, la función constructora o la clase. Los objetos en JavaScript son muy flexibles y pueden ser dinámicamente modificados durante la ejecución del programa, lo que los hace muy útiles para la programación en JavaScript.
 
-- **Las clases** es la forma en que se va a obtener la información de cada objetos, a estos se les llama atributos. A partir de estas clases podemos crear objetos, a esto se le llama Instanciar de una clase.
+-   **Las clases** es la forma en que se va a obtener la información de cada objetos, a estos se les llama atributos. A partir de estas clases podemos crear objetos, a esto se le llama Instanciar de una clase.
 
-- **Atributos**: Son las propiedades que tendrán cada uno de los objetos creados con nuestras clases, por ejemplo en la clase lápiz tiene como propiedades o atributos un color, textura, tamaño, forma de la punta, etc. Para el siguiente ejemplo tomamos una clase Usuario y le ponemos como atributo “nombre”
+-   **Atributos**: Son las propiedades que tendrán cada uno de los objetos creados con nuestras clases, por ejemplo en la clase lápiz tiene como propiedades o atributos un color, textura, tamaño, forma de la punta, etc. Para el siguiente ejemplo tomamos una clase Usuario y le ponemos como atributo “nombre”
 
-- **Métodos**: Son simples funciones que existen dentro de la clase que determinan las acciones, por ejemplo en el caso del borrador tiene una función de borrar, para el lápiz tiene la función de escribir al igual que la pluma.
+-   **Métodos**: Son simples funciones que existen dentro de la clase que determinan las acciones, por ejemplo en el caso del borrador tiene una función de borrar, para el lápiz tiene la función de escribir al igual que la pluma.
 
 #### En la POO hay 4 pilares que debemos comprender
 
-- **Herencia**: Crear nuevas clases con características similares a partir de otras. Con la herencia puedes crear una clase que sea hijo o una copia de otra clase, al heredar una clase se tiene todos los métodos y atributos de la clase padre, podrás modificarlas solo en caso de ser necesario. Funciona como una jerarquía de lo mas general a lo mas especifico.
-- **Encapsulamiento**: Esconder datos que solo pueden ser accedidos por la clase. Esta significa restringir u ocultar el acceso a los datos dentro de la misma clase al “mundo exterior”, usualmente solo se modifican en la misma clase. Existen tres clases de encapsulamiento.
-  1.  Encapsulamiento público:  
-      Los miembros públicos de una clase son accesibles desde cualquier parte del programa, incluyendo clases y objetos externos. Los métodos y propiedades públicas se definen con la palabra clave "public" y se utilizan para interactuar con el objeto desde fuera de la clase.
-  1.  Encapsulamiento protegido:  
-      Los miembros protegidos de una clase son accesibles solo desde la clase y sus subclases. Los métodos y propiedades protegidos se definen con la palabra clave "protected" y se utilizan para proporcionar una interfaz interna para la clase y sus subclases.
-  1.  Encapsulamiento privado:  
-      Los miembros privados de una clase son accesibles solo desde la propia clase. Los métodos y propiedades privados se definen con la palabra clave "private" y se utilizan para ocultar los detalles internos de la clase y protegerla de modificaciones externas.
-- **Abstracción**: La abstracción son los datos necesarios de una clase, por ejemplo si se elabora el menu de un restaurante, es necesario el nombre del platillo y precio, otros datos como el color favorito del chef no son necesarios. Esto debe ir de lo mas general a lo especifico
-- **Polimorfismo**: Es la habilidad de tener diferentes comportamientos o formas basados en que subclase se esta utilizando, relacionado a la herencia.
+-   **Herencia**: Crear nuevas clases con características similares a partir de otras. Con la herencia puedes crear una clase que sea hijo o una copia de otra clase, al heredar una clase se tiene todos los métodos y atributos de la clase padre, podrás modificarlas solo en caso de ser necesario. Funciona como una jerarquía de lo mas general a lo mas especifico.
+-   **Encapsulamiento**: Esconder datos que solo pueden ser accedidos por la clase. Esta significa restringir u ocultar el acceso a los datos dentro de la misma clase al “mundo exterior”, usualmente solo se modifican en la misma clase. Existen tres clases de encapsulamiento.
+    1.  Encapsulamiento público:  
+        Los miembros públicos de una clase son accesibles desde cualquier parte del programa, incluyendo clases y objetos externos. Los métodos y propiedades públicas se definen con la palabra clave "public" y se utilizan para interactuar con el objeto desde fuera de la clase.
+    1.  Encapsulamiento protegido:  
+        Los miembros protegidos de una clase son accesibles solo desde la clase y sus subclases. Los métodos y propiedades protegidos se definen con la palabra clave "protected" y se utilizan para proporcionar una interfaz interna para la clase y sus subclases.
+    1.  Encapsulamiento privado:  
+        Los miembros privados de una clase son accesibles solo desde la propia clase. Los métodos y propiedades privados se definen con la palabra clave "private" y se utilizan para ocultar los detalles internos de la clase y protegerla de modificaciones externas.
+-   **Abstracción**: La abstracción son los datos necesarios de una clase, por ejemplo si se elabora el menu de un restaurante, es necesario el nombre del platillo y precio, otros datos como el color favorito del chef no son necesarios. Esto debe ir de lo mas general a lo especifico
+-   **Polimorfismo**: Es la habilidad de tener diferentes comportamientos o formas basados en que subclase se esta utilizando, relacionado a la herencia.
 
 ## Objetos, clases y prototipos
 
@@ -255,9 +159,9 @@ Por ejemplo, si se crea un objeto literal como este:
 
 ```js
 const persona = {
-  nombre: "Diego",
-  edad: 30,
-  ciudad: "Madrid",
+    nombre: "Diego",
+    edad: 30,
+    ciudad: "Madrid",
 };
 ```
 
@@ -284,9 +188,9 @@ Podemos pensarlo como un “molde” de objetos.
 
 ```js
 function Student() {
-  this.name = "Nombre";
-  this.age = "18";
-  this.points = "750";
+    this.name = "Nombre";
+    this.age = "18";
+    this.points = "750";
 }
 
 const Juanita = new Student();
@@ -300,12 +204,12 @@ El uso de prototipos es la base de la herencia en JavaScript. Cuando se crea un 
 
 ```js
 function Persona(nombre, edad) {
-  this.nombre = nombre;
-  this.edad = edad;
+    this.nombre = nombre;
+    this.edad = edad;
 }
 
 Persona.prototype.saludar = function () {
-  console.log(`Hola, mi nombre es ${this.nombre}`);
+    console.log(`Hola, mi nombre es ${this.nombre}`);
 };
 
 const persona1 = new Persona("Juan", 30);
@@ -333,8 +237,8 @@ Por ejemplo, aquí hay un objeto creado a partir de una función constructora:
 
 ```js
 function Persona(nombre, edad) {
-  this.nombre = nombre;
-  this.edad = edad;
+    this.nombre = nombre;
+    this.edad = edad;
 }
 
 const persona1 = new Persona("Juan", 30);
@@ -348,8 +252,8 @@ Por ejemplo, aquí hay un objeto literal:
 
 ```js
 const persona2 = {
-  nombre: "Maria",
-  edad: 25,
+    nombre: "Maria",
+    edad: 25,
 };
 ```
 
@@ -369,11 +273,11 @@ Por ejemplo, si tenemos una clase "Coche", los atributos podrían ser "marca", "
 
 ```js
 class Coche {
-  constructor(marca, modelo, color) {
-    this.marca = marca;
-    this.modelo = modelo;
-    this.color = color;
-  }
+    constructor(marca, modelo, color) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
+    }
 }
 ```
 
@@ -389,14 +293,16 @@ En JavaScript, los métodos se definen dentro de una clase utilizando la sintaxi
 
 ```js
 class Persona {
-  constructor(nombre, edad) {
-    this.nombre = nombre;
-    this.edad = edad;
-  }
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
 
-  saludar() {
-    console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`);
-  }
+    saludar() {
+        console.log(
+            `Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`
+        );
+    }
 }
 ```
 
@@ -415,18 +321,18 @@ Otro ejemplo de método en JavaScript sería el siguiente:
 
 ```js
 class Rectangulo {
-  constructor(base, altura) {
-    this.base = base;
-    this.altura = altura;
-  }
+    constructor(base, altura) {
+        this.base = base;
+        this.altura = altura;
+    }
 
-  calcularArea() {
-    return this.base * this.altura;
-  }
+    calcularArea() {
+        return this.base * this.altura;
+    }
 
-  calcularPerimetro() {
-    return 2 * (this.base + this.altura);
-  }
+    calcularPerimetro() {
+        return 2 * (this.base + this.altura);
+    }
 }
 ```
 
@@ -458,12 +364,12 @@ Por ejemplo, considera la siguiente función constructora:
 
 ```js
 function Persona(nombre, edad) {
-  this.nombre = nombre;
-  this.edad = edad;
+    this.nombre = nombre;
+    this.edad = edad;
 }
 
 Persona.prototype.saludar = function () {
-  console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`);
+    console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`);
 };
 ```
 
@@ -500,12 +406,12 @@ Por ejemplo, considera la siguiente función constructora:
 
 ```js
 function Persona(nombre, edad) {
-  this.nombre = nombre;
-  this.edad = edad;
+    this.nombre = nombre;
+    this.edad = edad;
 }
 
 Persona.prototype.saludar = function () {
-  console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`);
+    console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`);
 };
 ```
 
@@ -536,15 +442,15 @@ En resumen, una instancia en JavaScript es un objeto creado a partir de una func
 ```js
 // Objeto literal
 const natalia = {
-  name: "Natalia",
-  age: 20,
-  approved_courses: ["Course 01", "Course 02"],
+    name: "Natalia",
+    age: 20,
+    approved_courses: ["Course 01", "Course 02"],
 
-  // Metodo función
-  approved_course(new_course) {
-    //approved_course: function()
-    this.approved_courses.push(new_course);
-  },
+    // Metodo función
+    approved_course(new_course) {
+        //approved_course: function()
+        this.approved_courses.push(new_course);
+    },
 };
 
 // Modificar objeto literal
@@ -565,18 +471,18 @@ natalia;
 ```js
 // Prototipo
 function Student(name, age, approved_courses) {
-  this.name = name;
-  this.age = age;
-  this.approved_courses = approved_courses;
-  // No es buena practica
-  // this.approved_course = function(new_course){
-  //     this.approved_courses.push(new_course);
-  // }
+    this.name = name;
+    this.age = age;
+    this.approved_courses = approved_courses;
+    // No es buena practica
+    // this.approved_course = function(new_course){
+    //     this.approved_courses.push(new_course);
+    // }
 }
 
 // Crear método
 Student.prototype.approved_course = function (new_course) {
-  this.approved_courses.push(new_course);
+    this.approved_courses.push(new_course);
 };
 
 const michael = new Student("Michael Connor", 15, ["Course 01", "Course 02"]);
@@ -599,12 +505,12 @@ A menudo tenemos que crear muchos objetos del mismo tipo. ¡Digamos que tenemos
 
 ```js
 function Dog(name, breed, color) {
-  this.name = name;
-  this.breed = breed;
-  this.color = color;
-  this.bark = function () {
-    return "Woof!";
-  };
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+    this.bark = function () {
+        return "Woof!";
+    };
 }
 ```
 
@@ -668,23 +574,23 @@ En una clase extendida, podemos acceder al constructor de la clase principal usa
 
 ```js
 class Dog {
-  constructor(name) {
-    this.name = name;
-  }
+    constructor(name) {
+        this.name = name;
+    }
 
-  bark() {
-    return "Woof!";
-  }
+    bark() {
+        return "Woof!";
+    }
 }
 
 class Chihuahua extends Dog {
-  constructor(name) {
-    super(name);
-  }
+    constructor(name) {
+        super(name);
+    }
 
-  smallBark() {
-    return "Small woof!";
-  }
+    smallBark() {
+        return "Small woof!";
+    }
 }
 
 const myPet = new Chihuahua("Max");
@@ -708,8 +614,8 @@ Hacemos esto, pasando un *objeto existente* como argumento al `Object.create`
 
 ```js
 const person = {
-  name: "Lydia",
-  age: 21,
+    name: "Lydia",
+    age: 21,
 };
 
 const me = Object.create(person);
@@ -734,15 +640,15 @@ Una clase en JavaScript no es más que una sintaxis en algunos casos más cómod
 ```js
 // Prototipos con la sintaxis de clases
 class Student_two {
-  constructor(name, age, approved_courses) {
-    this.name = name;
-    this.age = age;
-    this.approved_courses = approved_courses;
-  }
+    constructor(name, age, approved_courses) {
+        this.name = name;
+        this.age = age;
+        this.approved_courses = approved_courses;
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 
 const george = new Student_two("George Reece", 28, ["Course 01", "Course 02"]);
@@ -758,21 +664,21 @@ george.approved_courses;
 ```js
 // Prototipos con la sintaxis de clases con { }
 class Student_three {
-  constructor({ name, age, approved_courses = [], email, social_media }) {
-    this.name = name;
-    this.age = age;
-    this.approved_courses = approved_courses;
-  }
+    constructor({ name, age, approved_courses = [], email, social_media }) {
+        this.name = name;
+        this.age = age;
+        this.approved_courses = approved_courses;
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 
 const alexander = new Student_three({
-  name: "Alexander",
-  age: 28,
-  /* approved_courses: [
+    name: "Alexander",
+    age: 28,
+    /* approved_courses: [
         'Course 01',
         'Course 02'
     ] */
@@ -791,14 +697,14 @@ La capacidad de visualizar `[[Prototype]]` en lugar de `__proto__` en la consola
 
 Atajos de VSC
 
-- **Mover una línea hacia arriba y abajo**
-  - alt + flecha hacia arriba (o flecha hacia abajo)
-- **Copiar una línea hacia arriba o abajo**
-  - alt + shift + flecha hacia arriba (o flecha hacia abajo)
-- **Selección multiple**
-  - alt + ctrl + flecha (arriba o abajo)
-- **Borrar una línea completa a la vez**
-  - shift + supr
+-   **Mover una línea hacia arriba y abajo**
+    -   alt + flecha hacia arriba (o flecha hacia abajo)
+-   **Copiar una línea hacia arriba o abajo**
+    -   alt + shift + flecha hacia arriba (o flecha hacia abajo)
+-   **Selección multiple**
+    -   alt + ctrl + flecha (arriba o abajo)
+-   **Borrar una línea completa a la vez**
+    -   shift + supr
 
 ### 7. Ventajas de la programación orientada a objetos
 
@@ -807,24 +713,24 @@ Trabajar con objetos literales no es practico cuando se tiene mucha información
 ```js
 // Esto no es escalable
 const juan_one = {
-  name: "Juan Despues de Cristo",
-  username: "JuanDC",
-  points: 100,
-  social_media: {
-    twitter: "juan_dc",
-    instagram: "juan_dc",
-    facebook: undefined,
-  },
-  approved_courses: ["Courso 01", "Course 02"],
-  learning_pat: [
-    {
-      name: "School 01",
-      courses: ["Course 01", "Course 02", "Course 03"],
+    name: "Juan Despues de Cristo",
+    username: "JuanDC",
+    points: 100,
+    social_media: {
+        twitter: "juan_dc",
+        instagram: "juan_dc",
+        facebook: undefined,
     },
-    {
-      name: "School 02",
-    },
-  ],
+    approved_courses: ["Courso 01", "Course 02"],
+    learning_pat: [
+        {
+            name: "School 01",
+            courses: ["Course 01", "Course 02", "Course 03"],
+        },
+        {
+            name: "School 02",
+        },
+    ],
 };
 ```
 
@@ -835,59 +741,59 @@ Para esto llega la POO.
 // Crear una clase para escuelas (Learnin_path()) y una instancia para cada escuela (escuela_dw)
 
 class School {
-  constructor({ path, courses = [] }) {
-    this.path = path;
-    this.courses = courses;
-  }
+    constructor({ path, courses = [] }) {
+        this.path = path;
+        this.courses = courses;
+    }
 
-  launch_of_new_course(new_release) {
-    this.courses.push(new_release);
-  }
+    launch_of_new_course(new_release) {
+        this.courses.push(new_release);
+    }
 }
 
 // Prototipo para los Students
 class Student_four {
-  constructor({
-    name,
-    email,
-    username,
-    twitter = undefined,
-    instagram = undefined,
-    facebook = undefined,
-    approved_courses = [],
-    learning_paths = [],
-  }) {
-    this.name = name;
-    this.email = email;
-    this.username = username;
-    this.social_media = {
-      // twitter: twitter
-      twitter,
-      instagram,
-      facebook,
-    };
-    this.approved_courses = approved_courses;
-    this.learning_paths = learning_paths;
-  }
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approved_courses = [],
+        learning_paths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.social_media = {
+            // twitter: twitter
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approved_courses = approved_courses;
+        this.learning_paths = learning_paths;
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 
 const school_01 = new School({
-  path: "Web development",
-  courses: ["Course 01", "Course 02", "Course 03", "Course 04", "Course 05"],
+    path: "Web development",
+    courses: ["Course 01", "Course 02", "Course 03", "Course 04", "Course 05"],
 });
 
 const school_02 = new School({
-  path: "Video games development",
-  courses: ["Course 01", "Course 02", "Course 03", "Course 04", "Course 05"],
+    path: "Video games development",
+    courses: ["Course 01", "Course 02", "Course 03", "Course 04", "Course 05"],
 });
 
 const school_03 = new School({
-  path: "Artificial intelligence",
-  courses: ["Course 01", "Course 02", "Course 03", "Course 04", "Course 05"],
+    path: "Artificial intelligence",
+    courses: ["Course 01", "Course 02", "Course 03", "Course 04", "Course 05"],
 });
 
 school_01.launch_of_new_course("Course 06");
@@ -898,18 +804,18 @@ school_03.launch_of_new_course("Course 07");
 school_03.launch_of_new_course("Course 08");
 
 const simone = new Student_four({
-  name: "Simone Simons",
-  username: "si_mones",
-  twitter: "si_mone_s",
-  learning_paths: [school_01, school_02],
+    name: "Simone Simons",
+    username: "si_mones",
+    twitter: "si_mone_s",
+    learning_paths: [school_01, school_02],
 });
 
 const alissa = new Student_four({
-  name: "Alissa White-Gluz",
-  username: "alissa_wg",
-  email: "alissa_wg@mail.com",
-  instagram: "alissa_wg",
-  learning_paths: [school_01, school_03],
+    name: "Alissa White-Gluz",
+    username: "alissa_wg",
+    email: "alissa_wg@mail.com",
+    instagram: "alissa_wg",
+    learning_paths: [school_01, school_03],
 });
 
 simone.approved_course("Course 01");
@@ -927,14 +833,14 @@ Dadas la siguientes clases:
 
 Clase Banda con las propiedades:
 
-- nombre - string
-- géneros - Array
-- integrantes - Array
+-   nombre - string
+-   géneros - Array
+-   integrantes - Array
 
 Crea una clase llamada "Integrante" con las propiedades:
 
-- nombre - string
-- instrumento - string
+-   nombre - string
+-   instrumento - string
 
 Escribe la lógica para agregar integrantes a la clase Banda en la función agregar Integrante. En esta función no debe dejar agregar más de un baterista, es decir hay que validar que solo se pueda agregar un integrante con instrumento "Batería".
 
@@ -944,16 +850,16 @@ Input
 
 ```js
 const data = {
-  nombre: "Los Jacks",
-  generos: ["rock", "pop", "post-punk"],
-  integrantes: [],
+    nombre: "Los Jacks",
+    generos: ["rock", "pop", "post-punk"],
+    integrantes: [],
 };
 const banda = new Banda(data);
 banda.agregarIntegrante(
-  new Integrante({ nombre: "Erik", instrumento: "Guitarra" })
+    new Integrante({ nombre: "Erik", instrumento: "Guitarra" })
 );
 banda.agregarIntegrante(
-  new Integrante({ nombre: "Paul", instrumento: "Bateria" })
+    new Integrante({ nombre: "Paul", instrumento: "Bateria" })
 );
 ```
 
@@ -973,43 +879,43 @@ Output
 
 ```js
 class Banda {
-  constructor({ nombre, generos = [] }) {
-    this.nombre = nombre;
-    this.generos = generos;
-    this.integrantes = [];
-  }
-  agregarIntegrante(integranteNuevo) {
-    const drums_found = this.integrantes.find(
-      (x) => x.instrumento == "Bateria"
-    );
-
-    if (integranteNuevo.instrumento == "Bateria" && drums_found) {
-      console.log("Ya existe baterista");
-    } else {
-      this.integrantes.push(integranteNuevo);
+    constructor({ nombre, generos = [] }) {
+        this.nombre = nombre;
+        this.generos = generos;
+        this.integrantes = [];
     }
-  }
+    agregarIntegrante(integranteNuevo) {
+        const drums_found = this.integrantes.find(
+            (x) => x.instrumento == "Bateria"
+        );
+
+        if (integranteNuevo.instrumento == "Bateria" && drums_found) {
+            console.log("Ya existe baterista");
+        } else {
+            this.integrantes.push(integranteNuevo);
+        }
+    }
 }
 
 //Crear clase Integrante
 class Integrante {
-  constructor({ nombre, instrumento }) {
-    this.nombre = nombre;
-    this.instrumento = instrumento;
-  }
+    constructor({ nombre, instrumento }) {
+        this.nombre = nombre;
+        this.instrumento = instrumento;
+    }
 }
 
 const data = {
-  nombre: "Los Jacks",
-  generos: ["rock", "pop", "post-punk"],
-  integrantes: [],
+    nombre: "Los Jacks",
+    generos: ["rock", "pop", "post-punk"],
+    integrantes: [],
 };
 const banda = new Banda(data);
 banda.agregarIntegrante(
-  new Integrante({ nombre: "Erik", instrumento: "Guitarra" })
+    new Integrante({ nombre: "Erik", instrumento: "Guitarra" })
 );
 banda.agregarIntegrante(
-  new Integrante({ nombre: "Paul", instrumento: "Bateria" })
+    new Integrante({ nombre: "Paul", instrumento: "Bateria" })
 );
 
 export { Banda, Integrante };
@@ -1019,44 +925,44 @@ export { Banda, Integrante };
 
 ```js
 class Band {
-  constructor({
-    name,
-    genres = [],
-    /* members = [], */
-  }) {
-    this.name = name;
-    this.genres = genres;
-    this.members = [];
-  }
-
-  new_member(member) {
-    const drums_found = this.members.find((x) => x.instrument == "drums");
-
-    if (member.instrument == "drums" && drums_found) {
-      console.log(
-        `There is already a band member who plays the drums. It's ${drums_found.name}`
-      );
-    } else {
-      this.members.push(member);
+    constructor({
+        name,
+        genres = [],
+        /* members = [], */
+    }) {
+        this.name = name;
+        this.genres = genres;
+        this.members = [];
     }
-  }
+
+    new_member(member) {
+        const drums_found = this.members.find((x) => x.instrument == "drums");
+
+        if (member.instrument == "drums" && drums_found) {
+            console.log(
+                `There is already a band member who plays the drums. It's ${drums_found.name}`
+            );
+        } else {
+            this.members.push(member);
+        }
+    }
 }
 
 class Members {
-  constructor({ name, instrument }) {
-    this.name = name;
-    this.instrument = instrument;
-  }
+    constructor({ name, instrument }) {
+        this.name = name;
+        this.instrument = instrument;
+    }
 }
 
 const band_one = new Band({
-  name: "Band One",
-  genres: ["Indie Rock", "Pop Rock"],
+    name: "Band One",
+    genres: ["Indie Rock", "Pop Rock"],
 });
 
 const band_two = new Band({
-  name: "Band Two",
-  genres: ["Electronics", "Trance"],
+    name: "Band Two",
+    genres: ["Electronics", "Trance"],
 });
 
 band_one.new_member(new Members({ name: "Ale", instrument: "piano" }));
@@ -1074,11 +980,11 @@ array.every(function(currentValue, index, arr), thisValue)
 
 Donde:
 
-- `array` es el array en el que se desea comprobar si todos los elementos cumplen con la condición.
-- `currentValue` es el valor del elemento actual que se está evaluando en el array.
-- `index` es el índice del elemento actual que se está evaluando en el array.
-- `arr` es el array en el que se está comprobando si todos los elementos cumplen con la condición.
-- `thisValue` es un valor opcional que se utiliza como `this` dentro de la función que se ejecuta en cada elemento del array.
+-   `array` es el array en el que se desea comprobar si todos los elementos cumplen con la condición.
+-   `currentValue` es el valor del elemento actual que se está evaluando en el array.
+-   `index` es el índice del elemento actual que se está evaluando en el array.
+-   `arr` es el array en el que se está comprobando si todos los elementos cumplen con la condición.
+-   `thisValue` es un valor opcional que se utiliza como `this` dentro de la función que se ejecuta en cada elemento del array.
 
 La función que se pasa como argumento al método `every()` se ejecuta en cada elemento del array y debe devolver un valor booleano. Si la función devuelve `true` para todos los elementos del array, el método `every()` devuelve `true`. Si la función devuelve `false` para al menos un elemento del array, el método `every()` devuelve `false`.
 
@@ -1088,7 +994,7 @@ Aquí hay un ejemplo de cómo usar el método `every()` para comprobar si todos 
 const numeros = [2, 4, 6, 8];
 
 const todosMayoresQueCero = numeros.every(function (numero) {
-  return numero > 0;
+    return numero > 0;
 });
 
 console.log(todosMayoresQueCero); // true
@@ -1098,13 +1004,13 @@ Otro ejemplo podría ser comprobar si todos los elementos de un array de objetos
 
 ```javascript
 const personas = [
-  { nombre: "Juan", edad: 25 },
-  { nombre: "María", edad: 30 },
-  { nombre: "Pedro", edad: 20 },
+    { nombre: "Juan", edad: 25 },
+    { nombre: "María", edad: 30 },
+    { nombre: "Pedro", edad: 20 },
 ];
 
 const todosMayoresDeEdad = personas.every(function (persona) {
-  return persona.edad >= 18;
+    return persona.edad >= 18;
 });
 
 console.log(todosMayoresDeEdad); // true
@@ -1135,55 +1041,55 @@ La ventaja principal de la abstracción en JS POO es que permite escribir códig
 // 3. Revisar que no se repitan coursos dentro de las escuelas
 
 class Classes {
-  constructor({ topic }) {
-    this.topic = topic;
-  }
+    constructor({ topic }) {
+        this.topic = topic;
+    }
 }
 
 class Course {
-  constructor({ name, classes = [] }) {
-    this.name = name;
-    this.classes = classes;
-  }
+    constructor({ name, classes = [] }) {
+        this.name = name;
+        this.classes = classes;
+    }
 }
 
 class School {
-  constructor({ path, courses = [] }) {
-    this.path = path;
-    this.courses = courses;
-  }
+    constructor({ path, courses = [] }) {
+        this.path = path;
+        this.courses = courses;
+    }
 
-  launch_of_new_course(new_release) {
-    this.courses.push(new_release);
-  }
+    launch_of_new_course(new_release) {
+        this.courses.push(new_release);
+    }
 }
 
 class Pupil {
-  constructor({
-    name,
-    email,
-    username,
-    twitter,
-    instagram,
-    facebook,
-    approved_courses = [],
-    learning_paths = [],
-  }) {
-    this.name = name;
-    this.email = email;
-    this.username = username;
-    this.social_media = {
-      twitter,
-      instagram,
-      facebook,
-    };
-    this.approved_courses = approved_courses;
-    this.learning_paths = learning_paths;
-  }
+    constructor({
+        name,
+        email,
+        username,
+        twitter,
+        instagram,
+        facebook,
+        approved_courses = [],
+        learning_paths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.social_media = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approved_courses = approved_courses;
+        this.learning_paths = learning_paths;
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 
 const class_one = new Classes({ topic: "Class One" });
@@ -1194,106 +1100,106 @@ const class_five = new Classes({ topic: "Class Five" });
 const class_six = new Classes({ topic: "Class Six" });
 
 const course_one = new Course({
-  name: "Course 01",
-  classes: [class_one, class_two, class_three, class_six],
+    name: "Course 01",
+    classes: [class_one, class_two, class_three, class_six],
 });
 
 const course_two = new Course({
-  name: "Course 02",
-  classes: [class_one, class_three, class_four],
+    name: "Course 02",
+    classes: [class_one, class_three, class_four],
 });
 
 const course_three = new Course({
-  name: "Course 03",
-  classes: [class_one, class_two, class_three, class_four, class_five],
+    name: "Course 03",
+    classes: [class_one, class_two, class_three, class_four, class_five],
 });
 
 const school_01 = new School({
-  path: "Web development",
-  courses: [course_one, course_two, course_three],
+    path: "Web development",
+    courses: [course_one, course_two, course_three],
 });
 
 const school_02 = new School({
-  path: "Video games development",
-  courses: [course_one, course_two, course_three],
+    path: "Video games development",
+    courses: [course_one, course_two, course_three],
 });
 
 const school_03 = new School({
-  path: "Artificial intelligence",
-  courses: [course_one, course_two, course_three],
+    path: "Artificial intelligence",
+    courses: [course_one, course_two, course_three],
 });
 
 const simone = new Pupil({
-  name: "Simone Simons",
-  email: "simons@mail.com",
-  username: "simone_simons",
-  twitter: "s_simons",
-  learning_paths: [school_01, school_02],
+    name: "Simone Simons",
+    email: "simons@mail.com",
+    username: "simone_simons",
+    twitter: "s_simons",
+    learning_paths: [school_01, school_02],
 });
 
 const alissa = new Pupil({
-  name: "Alissa White_Gluz",
-  username: "alissa_wg",
-  email: "alisa_wg@mail.com",
-  instagram: "alisa_wg",
-  learning_paths: [school_01, school_03],
+    name: "Alissa White_Gluz",
+    username: "alissa_wg",
+    email: "alisa_wg@mail.com",
+    instagram: "alisa_wg",
+    learning_paths: [school_01, school_03],
 });
 
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 simone.approved_course(course_one);
@@ -1325,45 +1231,45 @@ Es guardar, proteger o limitar el acceso de cierto atributos y/o propiedades en 
 
 Cuando hablamos de **encapsulamiento **hablamos de:
 
-- Esconder métodos y atributos 👻
-- No permitir la alteración de métodos y atributos ❌
+-   Esconder métodos y atributos 👻
+-   No permitir la alteración de métodos y atributos ❌
 
 ##### Formas de aplicar encapsulamiento en JavaScript
 
-- Getters y setters 🖐
-- Namespaces 🙂
-- Object.defineProperties 🎈
-- Módulo de ES6 🤝
+-   Getters y setters 🖐
+-   Namespaces 🙂
+-   Object.defineProperties 🎈
+-   Módulo de ES6 🤝
 
 ### 12. Getters y setters en JavaScript
 
 ```js
 class Course {
-  constructor({ name, classes = [] }) {
-    this._name = name;
-    this.classes = classes;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  // change_name(new_name){
-  //     this._name = new_name;
-  // }
-
-  set name(new_name) {
-    if (new_name === "Bad Coding Course") {
-      console.error("Hey! Te wa madrear...");
-    } else {
-      this._name = new_name;
+    constructor({ name, classes = [] }) {
+        this._name = name;
+        this.classes = classes;
     }
-  }
+
+    get name() {
+        return this._name;
+    }
+
+    // change_name(new_name){
+    //     this._name = new_name;
+    // }
+
+    set name(new_name) {
+        if (new_name === "Bad Coding Course") {
+            console.error("Hey! Te wa madrear...");
+        } else {
+            this._name = new_name;
+        }
+    }
 }
 
 const course_one = new Course({
-  name: "Course 01",
-  classes: [class_one, class_two, class_three, class_six],
+    name: "Course 01",
+    classes: [class_one, class_two, class_three, class_six],
 });
 
 // Haciendo uso de get and set en Course (pruebas en consola)
@@ -1391,34 +1297,34 @@ Aquí hay un ejemplo de cómo usar `get` y `set` en JavaScript:
 
 ```javascript
 class Persona {
-  constructor(nombre, edad) {
-    this._nombre = nombre;
-    this._edad = edad;
-  }
-
-  // Definir un getter para la propiedad "nombre"
-  get nombre() {
-    return this._nombre;
-  }
-
-  // Definir un setter para la propiedad "nombre"
-  set nombre(nuevoNombre) {
-    this._nombre = nuevoNombre;
-  }
-
-  // Definir un getter para la propiedad "edad"
-  get edad() {
-    return this._edad;
-  }
-
-  // Definir un setter para la propiedad "edad"
-  set edad(nuevaEdad) {
-    if (nuevaEdad > 0) {
-      this._edad = nuevaEdad;
-    } else {
-      console.log("La edad debe ser un número mayor que cero.");
+    constructor(nombre, edad) {
+        this._nombre = nombre;
+        this._edad = edad;
     }
-  }
+
+    // Definir un getter para la propiedad "nombre"
+    get nombre() {
+        return this._nombre;
+    }
+
+    // Definir un setter para la propiedad "nombre"
+    set nombre(nuevoNombre) {
+        this._nombre = nuevoNombre;
+    }
+
+    // Definir un getter para la propiedad "edad"
+    get edad() {
+        return this._edad;
+    }
+
+    // Definir un setter para la propiedad "edad"
+    set edad(nuevaEdad) {
+        if (nuevaEdad > 0) {
+            this._edad = nuevaEdad;
+        } else {
+            console.log("La edad debe ser un número mayor que cero.");
+        }
+    }
 }
 
 // Crear un objeto "persona"
@@ -1483,8 +1389,8 @@ El uso de los módulos en JavaScript depende de las declaraciones **_Export_**�
 
 Para modular, solo basta que el archivo tenga la extensión **_.js_**, pero el motor V8 que es el que corre en los navegadores, recomienda usar la extensión **_.mjs_**
 
-- Esto es util porque queda claro cuál archivo es modulo y cual no.
-- Asegura que los archivos de modulo sean tratados como tal por la extensión **Babel** o **Node.js**
+-   Esto es util porque queda claro cuál archivo es modulo y cual no.
+-   Asegura que los archivos de modulo sean tratados como tal por la extensión **Babel** o **Node.js**
 
 #### Export
 
@@ -1532,7 +1438,7 @@ import { ClasesPlatzi, RutaAprendizaje } from "/ruta";
 
 _NOTA:_
 
-- Se recomienda que el cambio de nombre se haga en la importación y no en la exportación, pero eso ya es criterio del programador
+-   Se recomienda que el cambio de nombre se haga en la importación y no en la exportación, pero eso ya es criterio del programador
 
 #### Código de la clase
 
@@ -1541,26 +1447,26 @@ Se ejecuta usando la extensión Code Runner
 ```js
 // archivo: 12.modulos.mjs
 function play_video(id) {
-  const secret_url = "https://platzisecret.com/" + id;
-  console.log("Playing from url " + secret_url);
+    const secret_url = "https://platzisecret.com/" + id;
+    console.log("Playing from url " + secret_url);
 }
 function pause_video(id) {
-  const secret_url = "https://platzisecret.com/" + id;
-  console.log("Paused from url " + secret_url);
+    const secret_url = "https://platzisecret.com/" + id;
+    console.log("Paused from url " + secret_url);
 }
 
 export class PlatziClass {
-  constructor({ name, videoID }) {
-    this.name = name;
-    this.videoID = videoID;
-  }
+    constructor({ name, videoID }) {
+        this.name = name;
+        this.videoID = videoID;
+    }
 
-  play() {
-    play_video(this.videoID);
-  }
-  pause() {
-    pause_video(this.videoID);
-  }
+    play() {
+        play_video(this.videoID);
+    }
+    pause() {
+        pause_video(this.videoID);
+    }
 }
 ```
 
@@ -1569,8 +1475,8 @@ export class PlatziClass {
 import { PlatziClass } from "./12.modulos.mjs";
 
 const highway_67 = new PlatziClass({
-  name: "JavaScript: OOP",
-  videoID: "0123456789",
+    name: "JavaScript: OOP",
+    videoID: "0123456789",
 });
 
 highway_67.play();
@@ -1607,7 +1513,7 @@ Para usar `export` e `import` en JavaScript, debes seguir los siguientes pasos:
 export const PI = 3.14159;
 
 export function saludar(nombre) {
-  console.log(`Hola, ${nombre}!`);
+    console.log(`Hola, ${nombre}!`);
 }
 ```
 
@@ -1628,14 +1534,14 @@ saludar("Juan"); // Output: Hola, Juan!
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>My App</title>
-  </head>
-  <body>
-    <script src="./module.js" type="module"></script>
-    <script src="./app.js" type="module"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My App</title>
+    </head>
+    <body>
+        <script src="./module.js" type="module"></script>
+        <script src="./app.js" type="module"></script>
+    </body>
 </html>
 ```
 
@@ -1651,22 +1557,22 @@ En este reto dada la siguiente clase:
 
 ```js
 export class Course {
-  constructor({ name, classes = [] }) {
-    this.name = name;
-    this.classes = classes;
-  }
+    constructor({ name, classes = [] }) {
+        this.name = name;
+        this.classes = classes;
+    }
 
-  get name() {}
+    get name() {}
 
-  set name(nuevoNombrecito) {}
+    set name(nuevoNombrecito) {}
 }
 ```
 
 Usando el `set` de la propiedad **name** valida siempre que se le quiera asignar un valor lo siguiente:
 
-- Que sea de tipo string.
-  - Si es string convierte la primera letra de cada palabra del nombre en mayúsculas
-- Si no es un string no se cambia el valor de la propiedad name.
+-   Que sea de tipo string.
+    -   Si es string convierte la primera letra de cada palabra del nombre en mayúsculas
+-   Si no es un string no se cambia el valor de la propiedad name.
 
 La solución debería tener un input y output como los siguientes:
 
@@ -1675,7 +1581,7 @@ Input
 ```js
 const courseName = "curso de programación básica";
 const nombreMaysuculas = new Course({
-  name: courseName,
+    name: courseName,
 });
 nombreMayusculas.name;
 ```
@@ -1688,9 +1594,9 @@ Output
 
 Nota: Para resolver este ejercicio se usan métodos vistos en cursos anteriores.
 
-- `.split()` [[taller-js-primer-videojuego#6. Arreglos multidimensionales en JavaScript#.split]]
-- `.map()` [[js-basico#19. Métodos de recorridos de Arrays]]
-- `.slice()` [[js-basico#14. Arrays#Métodos de los Arrays]]
+-   `.split()` [[taller-js-primer-videojuego#6. Arreglos multidimensionales en JavaScript#.split]]
+-   `.map()` [[js-basico#19. Métodos de recorridos de Arrays]]
+-   `.slice()` [[js-basico#14. Arrays#Métodos de los Arrays]]
 
 #### `.charAt()`
 
@@ -1786,30 +1692,30 @@ El método `join()` es muy útil para trabajar con arrays de elementos en JavaSc
 
 ```js
 class Course {
-  constructor({ name, classes = [] }) {
-    this.name = name; //this._name = name;👈👀
-    this.classes = classes;
-  }
-
-  get name() {
-    return this._name;
-  }
-  set name(new_name) {
-    if (typeof new_name === "string") {
-      this._name = new_name;
-      const x = new_name
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-      console.log(x);
-    } else {
-      console.log(`${new_name} isn't a string!`);
+    constructor({ name, classes = [] }) {
+        this.name = name; //this._name = name;👈👀
+        this.classes = classes;
     }
-  }
+
+    get name() {
+        return this._name;
+    }
+    set name(new_name) {
+        if (typeof new_name === "string") {
+            this._name = new_name;
+            const x = new_name
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+            console.log(x);
+        } else {
+            console.log(`${new_name} isn't a string!`);
+        }
+    }
 }
 
 const course_one = new Course({
-  name: "course one",
+    name: "course one",
 });
 
 course_one;
@@ -1840,10 +1746,10 @@ Al usar `this._name = name;` no se aplica el set a la primera instancia creada, 
 
 ```js
 class Course {
-  constructor({ name, classes = [] }) {
-    this.name = name; //this._name = name; 👈👀
-    this.classes = classes;
-  }
+    constructor({ name, classes = [] }) {
+        this.name = name; //this._name = name; 👈👀
+        this.classes = classes;
+    }
 }
 ```
 
@@ -1911,19 +1817,19 @@ Para crear una clase que herede de otra clase en JavaScript, se puede utilizar l
 
 ```javascript
 class Animal {
-  constructor(name) {
-    this.name = name;
-  }
+    constructor(name) {
+        this.name = name;
+    }
 
-  speak() {
-    console.log(`${this.name} hace un sonido.`);
-  }
+    speak() {
+        console.log(`${this.name} hace un sonido.`);
+    }
 }
 
 class Perro extends Animal {
-  speak() {
-    console.log(`${this.name} ladra.`);
-  }
+    speak() {
+        console.log(`${this.name} ladra.`);
+    }
 }
 
 let perro = new Perro("Fido");
@@ -1936,25 +1842,25 @@ También se pueden utilizar las propiedades y métodos de la clase padre en la c
 
 ```javascript
 class Animal {
-  constructor(name) {
-    this.name = name;
-  }
+    constructor(name) {
+        this.name = name;
+    }
 
-  speak() {
-    console.log(`${this.name} hace un sonido.`);
-  }
+    speak() {
+        console.log(`${this.name} hace un sonido.`);
+    }
 }
 
 class Perro extends Animal {
-  constructor(name, raza) {
-    super(name);
-    this.raza = raza;
-  }
+    constructor(name, raza) {
+        super(name);
+        this.raza = raza;
+    }
 
-  speak() {
-    super.speak();
-    console.log(`${this.name} ladra.`);
-  }
+    speak() {
+        super.speak();
+        console.log(`${this.name} ladra.`);
+    }
 }
 
 let perro = new Perro("Fido", "Golden Retriever");
@@ -1969,131 +1875,131 @@ La herencia en JavaScript es una herramienta poderosa que permite reutilizar có
 
 ```js
 function play_video(id) {
-  const secret_url = "https://platzisecret.com/" + id;
-  console.log("Playing from url" + secret_url);
+    const secret_url = "https://platzisecret.com/" + id;
+    console.log("Playing from url" + secret_url);
 }
 function pause_video(id) {
-  const secret_url = "https://platzisecret.com/" + id;
-  console.log("Paused from url" + secret_url);
+    const secret_url = "https://platzisecret.com/" + id;
+    console.log("Paused from url" + secret_url);
 }
 
 class PlatziClass {
-  constructor({ name, videoID }) {
-    this.name = name;
-    this.videoID = videoID;
-  }
+    constructor({ name, videoID }) {
+        this.name = name;
+        this.videoID = videoID;
+    }
 
-  play() {
-    play_video(this.videoID);
-  }
-  pause() {
-    pause_video(this.videoID);
-  }
+    play() {
+        play_video(this.videoID);
+    }
+    pause() {
+        pause_video(this.videoID);
+    }
 }
 class Classes {
-  constructor({ topic }) {
-    this.topic = topic;
-  }
+    constructor({ topic }) {
+        this.topic = topic;
+    }
 }
 
 class Course {
-  constructor({ name, classes = [], is_free = false, language = "spanish" }) {
-    this._name = name;
-    this.classes = classes;
-    this.is_free = is_free;
-    this.language = language;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  set name(new_name) {
-    if (new_name === "Bad Coding Course") {
-      console.error("Web...no");
-    } else {
-      this._name = new_name;
+    constructor({ name, classes = [], is_free = false, language = "spanish" }) {
+        this._name = name;
+        this.classes = classes;
+        this.is_free = is_free;
+        this.language = language;
     }
-  }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(new_name) {
+        if (new_name === "Bad Coding Course") {
+            console.error("Web...no");
+        } else {
+            this._name = new_name;
+        }
+    }
 }
 
 class School {
-  constructor({ path, courses = [] }) {
-    this.path = path;
-    this.courses = courses;
-  }
+    constructor({ path, courses = [] }) {
+        this.path = path;
+        this.courses = courses;
+    }
 
-  launch_of_new_course(new_release) {
-    this.courses.push(new_release);
-  }
+    launch_of_new_course(new_release) {
+        this.courses.push(new_release);
+    }
 }
 
 // Trabajamos con pupil y herencia
 class Pupil {
-  constructor({
-    name,
-    email,
-    username,
-    twitter,
-    instagram,
-    facebook,
-    approved_courses = [],
-    learning_paths = [],
-  }) {
-    this.name = name;
-    this.email = email;
-    this.username = username;
-    this.social_media = {
-      twitter,
-      instagram,
-      facebook,
-    };
-    this.approved_courses = approved_courses;
-    this.learning_paths = learning_paths;
-  }
+    constructor({
+        name,
+        email,
+        username,
+        twitter,
+        instagram,
+        facebook,
+        approved_courses = [],
+        learning_paths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.social_media = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approved_courses = approved_courses;
+        this.learning_paths = learning_paths;
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 class Free_pupil extends Pupil {
-  constructor(properties) {
-    super(properties);
-  }
-
-  approved_course(new_course) {
-    if (new_course.is_free) {
-      this.approved_courses.push(new_course);
-    } else {
-      console.log(`Sorry, ${this.name}, You can only take free courses.`);
+    constructor(properties) {
+        super(properties);
     }
-  }
+
+    approved_course(new_course) {
+        if (new_course.is_free) {
+            this.approved_courses.push(new_course);
+        } else {
+            console.log(`Sorry, ${this.name}, You can only take free courses.`);
+        }
+    }
 }
 
 class Basic_pupil extends Pupil {
-  constructor(properties) {
-    super(properties);
-  }
-
-  approved_course(new_course) {
-    if (new_course.language !== "english") {
-      this.approved_courses.push(new_course);
-    } else {
-      console.log(
-        `Sorry, ${this.name}, You can't take the English academy courses.`
-      );
+    constructor(properties) {
+        super(properties);
     }
-  }
+
+    approved_course(new_course) {
+        if (new_course.language !== "english") {
+            this.approved_courses.push(new_course);
+        } else {
+            console.log(
+                `Sorry, ${this.name}, You can't take the English academy courses.`
+            );
+        }
+    }
 }
 
 class Expert_pupil extends Pupil {
-  constructor(properties) {
-    super(properties);
-  }
+    constructor(properties) {
+        super(properties);
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 
 const class_one = new Classes({ topic: "Class One" });
@@ -2104,20 +2010,20 @@ const class_five = new Classes({ topic: "Class Five" });
 const class_six = new Classes({ topic: "Class Six" });
 
 const course_one = new Course({
-  name: "Course 01",
-  classes: [class_one, class_two, class_three, class_six],
-  is_free: true,
+    name: "Course 01",
+    classes: [class_one, class_two, class_three, class_six],
+    is_free: true,
 });
 
 const course_two = new Course({
-  name: "Course 02",
-  classes: [class_one, class_three, class_four],
-  language: "english",
+    name: "Course 02",
+    classes: [class_one, class_three, class_four],
+    language: "english",
 });
 
 const course_three = new Course({
-  name: "Course 03",
-  classes: [class_one, class_two, class_three, class_four, class_five],
+    name: "Course 03",
+    classes: [class_one, class_two, class_three, class_four, class_five],
 });
 
 // Haciendo uso de get and set en Course (pruebas en consola)
@@ -2129,91 +2035,91 @@ course_one.name = "This is the new course name";
 course_one.name = "Bad Coding Course"; //mensaje error
 
 const school_01 = new School({
-  path: "Web development",
-  courses: [course_one, course_two, course_three],
+    path: "Web development",
+    courses: [course_one, course_two, course_three],
 });
 
 const school_02 = new School({
-  path: "Video games development",
-  courses: [course_one, course_two, course_three],
+    path: "Video games development",
+    courses: [course_one, course_two, course_three],
 });
 
 const school_03 = new School({
-  path: "Artificial intelligence",
-  courses: [course_one, course_two, course_three],
+    path: "Artificial intelligence",
+    courses: [course_one, course_two, course_three],
 });
 
 const simone = new Free_pupil({
-  name: "Simone Simons",
-  email: "simons@mail.com",
-  username: "simone_simons",
-  twitter: "s_simons",
-  learning_paths: [school_01, school_02],
+    name: "Simone Simons",
+    email: "simons@mail.com",
+    username: "simone_simons",
+    twitter: "s_simons",
+    learning_paths: [school_01, school_02],
 });
 
 const alissa = new Basic_pupil({
-  name: "Alissa White_Gluz",
-  username: "alissa_wg",
-  email: "alisa_wg@mail.com",
-  instagram: "alisa_wg",
-  learning_paths: [school_01, school_03],
+    name: "Alissa White_Gluz",
+    username: "alissa_wg",
+    email: "alisa_wg@mail.com",
+    instagram: "alisa_wg",
+    learning_paths: [school_01, school_03],
 });
 
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 simone.approved_course(course_one);
@@ -2233,9 +2139,9 @@ alissa.approved_courses;
 
 ### 17. Qué es polimorfismo
 
-- Sobrecarga
-- Paramétrico
-- Inclusión
+-   Sobrecarga
+-   Paramétrico
+-   Inclusión
 
 El polimorfismo en programación orientada a objetos (POO) es la capacidad de los objetos de una clase de tomar diferentes formas y comportamientos en función del contexto en el que se utilizan. En JavaScript, el polimorfismo se logra mediante la capacidad de los objetos de tener diferentes métodos o propiedades dependiendo de su tipo.
 
@@ -2248,34 +2154,38 @@ A continuación se muestra un ejemplo de código que ilustra el polimorfismo en 
 ```js
 // Definir una clase "Figura"
 class Figura {
-  calcularArea() {
-    console.log("El método calcularArea debe ser implementado en la subclase");
-  }
+    calcularArea() {
+        console.log(
+            "El método calcularArea debe ser implementado en la subclase"
+        );
+    }
 }
 
 // Definir una clase "Rectángulo" que hereda de "Figura"
 class Rectangulo extends Figura {
-  constructor(base, altura) {
-    super();
-    this.base = base;
-    this.altura = altura;
-  }
+    constructor(base, altura) {
+        super();
+        this.base = base;
+        this.altura = altura;
+    }
 
-  calcularArea() {
-    console.log(`El área del rectángulo es ${this.base * this.altura}`);
-  }
+    calcularArea() {
+        console.log(`El área del rectángulo es ${this.base * this.altura}`);
+    }
 }
 
 // Definir una clase "Círculo" que hereda de "Figura"
 class Circulo extends Figura {
-  constructor(radio) {
-    super();
-    this.radio = radio;
-  }
+    constructor(radio) {
+        super();
+        this.radio = radio;
+    }
 
-  calcularArea() {
-    console.log(`El área del círculo es ${Math.PI * this.radio * this.radio}`);
-  }
+    calcularArea() {
+        console.log(
+            `El área del círculo es ${Math.PI * this.radio * this.radio}`
+        );
+    }
 }
 
 // Crear objetos de tipo "Rectángulo" y "Círculo"
@@ -2295,24 +2205,24 @@ Por ejemplo, podemos crear tres funciones con el mismo nombre y diferentes opera
 
 ```javascript
 class Animal {
-  constructor(name) {
-    this.name = name;
-  }
-  makeSound() {
-    console.log("Animal sound");
-  }
+    constructor(name) {
+        this.name = name;
+    }
+    makeSound() {
+        console.log("Animal sound");
+    }
 }
 
 class Dog extends Animal {
-  makeSound() {
-    console.log("Bark");
-  }
+    makeSound() {
+        console.log("Bark");
+    }
 }
 
 class Cat extends Animal {
-  makeSound() {
-    console.log("Meow");
-  }
+    makeSound() {
+        console.log("Meow");
+    }
 }
 
 const dog = new Dog("Buddy");
@@ -2326,173 +2236,173 @@ cat.makeSound(); // Output: Meow
 
 ```js
 class Comment {
-  constructor({ content, pupil_name, pupil_role = "pupils" }) {
-    this.content = content;
-    this.pupil_name = pupil_name;
-    this.pupil_role = pupil_role;
-    this.likes = 0;
-  }
+    constructor({ content, pupil_name, pupil_role = "pupils" }) {
+        this.content = content;
+        this.pupil_name = pupil_name;
+        this.pupil_role = pupil_role;
+        this.likes = 0;
+    }
 
-  publish() {
-    console.log(`${this.pupil_name} + (${this.pupil_role})`);
-    console.log(`${this.likes} likes`);
-    console.log(this.content);
-  }
+    publish() {
+        console.log(`${this.pupil_name} + (${this.pupil_role})`);
+        console.log(`${this.likes} likes`);
+        console.log(this.content);
+    }
 }
 
 function play_video(id) {
-  const secret_url = "https://platzisecret.com/" + id;
-  console.log("Playing from url" + secret_url);
+    const secret_url = "https://platzisecret.com/" + id;
+    console.log("Playing from url" + secret_url);
 }
 function pause_video(id) {
-  const secret_url = "https://platzisecret.com/" + id;
-  console.log("Paused from url" + secret_url);
+    const secret_url = "https://platzisecret.com/" + id;
+    console.log("Paused from url" + secret_url);
 }
 
 class PlatziClass {
-  constructor({ name, videoID }) {
-    this.name = name;
-    this.videoID = videoID;
-  }
+    constructor({ name, videoID }) {
+        this.name = name;
+        this.videoID = videoID;
+    }
 
-  play() {
-    play_video(this.videoID);
-  }
-  pause() {
-    pause_video(this.videoID);
-  }
+    play() {
+        play_video(this.videoID);
+    }
+    pause() {
+        pause_video(this.videoID);
+    }
 }
 class Classes {
-  constructor({ topic }) {
-    this.topic = topic;
-  }
+    constructor({ topic }) {
+        this.topic = topic;
+    }
 }
 
 class Course {
-  constructor({ name, classes = [], is_free = false, language = "spanish" }) {
-    this._name = name;
-    this.classes = classes;
-    this.is_free = is_free;
-    this.language = language;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  set name(new_name) {
-    if (new_name === "Bad Coding Course") {
-      console.error("Web...no");
-    } else {
-      this._name = new_name;
+    constructor({ name, classes = [], is_free = false, language = "spanish" }) {
+        this._name = name;
+        this.classes = classes;
+        this.is_free = is_free;
+        this.language = language;
     }
-  }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(new_name) {
+        if (new_name === "Bad Coding Course") {
+            console.error("Web...no");
+        } else {
+            this._name = new_name;
+        }
+    }
 }
 
 class School {
-  constructor({ path, courses = [] }) {
-    this.path = path;
-    this.courses = courses;
-  }
+    constructor({ path, courses = [] }) {
+        this.path = path;
+        this.courses = courses;
+    }
 
-  launch_of_new_course(new_release) {
-    this.courses.push(new_release);
-  }
+    launch_of_new_course(new_release) {
+        this.courses.push(new_release);
+    }
 }
 
 // Trabajamos con pupil y herencia
 class Pupil {
-  constructor({
-    name,
-    email,
-    username,
-    twitter,
-    instagram,
-    facebook,
-    approved_courses = [],
-    learning_paths = [],
-  }) {
-    this.name = name;
-    this.email = email;
-    this.username = username;
-    this.social_media = {
-      twitter,
-      instagram,
-      facebook,
-    };
-    this.approved_courses = approved_courses;
-    this.learning_paths = learning_paths;
-  }
+    constructor({
+        name,
+        email,
+        username,
+        twitter,
+        instagram,
+        facebook,
+        approved_courses = [],
+        learning_paths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.social_media = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approved_courses = approved_courses;
+        this.learning_paths = learning_paths;
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 
-  post_comment(comment_content) {
-    const comment = new Comment({
-      content: comment_content,
-      pupil_name: this.name,
-    });
+    post_comment(comment_content) {
+        const comment = new Comment({
+            content: comment_content,
+            pupil_name: this.name,
+        });
 
-    comment.publish();
-  }
+        comment.publish();
+    }
 }
 class Free_pupil extends Pupil {
-  /*  */
-  constructor(properties) {
-    super(properties);
-  }
-
-  approved_course(new_course) {
-    if (new_course.is_free) {
-      this.approved_courses.push(new_course);
-    } else {
-      console.log(`Sorry, ${this.name}, You can only take free courses.`);
+    /*  */
+    constructor(properties) {
+        super(properties);
     }
-  }
+
+    approved_course(new_course) {
+        if (new_course.is_free) {
+            this.approved_courses.push(new_course);
+        } else {
+            console.log(`Sorry, ${this.name}, You can only take free courses.`);
+        }
+    }
 }
 class Basic_pupil extends Pupil {
-  constructor(properties) {
-    super(properties);
-  }
-
-  approved_course(new_course) {
-    if (new_course.language !== "english") {
-      this.approved_courses.push(new_course);
-    } else {
-      console.log(
-        `Sorry, ${this.name}, You can't take the English academy courses.`
-      );
+    constructor(properties) {
+        super(properties);
     }
-  }
+
+    approved_course(new_course) {
+        if (new_course.language !== "english") {
+            this.approved_courses.push(new_course);
+        } else {
+            console.log(
+                `Sorry, ${this.name}, You can't take the English academy courses.`
+            );
+        }
+    }
 }
 class Expert_pupil extends Pupil {
-  constructor(properties) {
-    super(properties);
-  }
+    constructor(properties) {
+        super(properties);
+    }
 
-  approved_course(new_course) {
-    this.approved_courses.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_courses.push(new_course);
+    }
 }
 class Teacher_student extends Pupil {
-  constructor(properties) {
-    super(properties);
-  }
+    constructor(properties) {
+        super(properties);
+    }
 
-  approved_course(new_course) {
-    this.approved_course.push(new_course);
-  }
+    approved_course(new_course) {
+        this.approved_course.push(new_course);
+    }
 
-  post_comment(comment_content) {
-    const comment = new Comment({
-      content: comment_content,
-      pupil_name: this.name,
-      pupil_role: "teacher",
-    });
+    post_comment(comment_content) {
+        const comment = new Comment({
+            content: comment_content,
+            pupil_name: this.name,
+            pupil_role: "teacher",
+        });
 
-    comment.publish();
-  }
+        comment.publish();
+    }
 }
 
 const class_one = new Classes({ topic: "Class One" });
@@ -2503,20 +2413,20 @@ const class_five = new Classes({ topic: "Class Five" });
 const class_six = new Classes({ topic: "Class Six" });
 
 const course_one = new Course({
-  name: "Course 01",
-  classes: [class_one, class_two, class_three, class_six],
-  is_free: true,
+    name: "Course 01",
+    classes: [class_one, class_two, class_three, class_six],
+    is_free: true,
 });
 
 const course_two = new Course({
-  name: "Course 02",
-  classes: [class_one, class_three, class_four],
-  language: "english",
+    name: "Course 02",
+    classes: [class_one, class_three, class_four],
+    language: "english",
 });
 
 const course_three = new Course({
-  name: "Course 03",
-  classes: [class_one, class_two, class_three, class_four, class_five],
+    name: "Course 03",
+    classes: [class_one, class_two, class_three, class_four, class_five],
 });
 
 // Haciendo uso de get and set en Course (pruebas en consola)
@@ -2528,98 +2438,98 @@ course_one.name = "This is the new course name";
 course_one.name = "Bad Coding Course"; //mensaje error
 
 const school_01 = new School({
-  path: "Web development",
-  courses: [course_one, course_two, course_three],
+    path: "Web development",
+    courses: [course_one, course_two, course_three],
 });
 
 const school_02 = new School({
-  path: "Video games development",
-  courses: [course_one, course_two, course_three],
+    path: "Video games development",
+    courses: [course_one, course_two, course_three],
 });
 
 const school_03 = new School({
-  path: "Artificial intelligence",
-  courses: [course_one, course_two, course_three],
+    path: "Artificial intelligence",
+    courses: [course_one, course_two, course_three],
 });
 
 const simone = new Free_pupil({
-  name: "Simone Simons",
-  email: "simons@mail.com",
-  username: "simone_simons",
-  twitter: "s_simons",
-  learning_paths: [school_01, school_02],
+    name: "Simone Simons",
+    email: "simons@mail.com",
+    username: "simone_simons",
+    twitter: "s_simons",
+    learning_paths: [school_01, school_02],
 });
 
 const alissa = new Basic_pupil({
-  name: "Alissa White_Gluz",
-  username: "alissa_wg",
-  email: "alisa_wg@mail.com",
-  instagram: "alisa_wg",
-  learning_paths: [school_01, school_03],
+    name: "Alissa White_Gluz",
+    username: "alissa_wg",
+    email: "alisa_wg@mail.com",
+    instagram: "alisa_wg",
+    learning_paths: [school_01, school_03],
 });
 
 const angela = new Teacher_student({
-  name: "Angela Gossow",
-  username: "angela_gossow",
-  email: "gossow@mail.com",
-  instagram: "angelagossow",
+    name: "Angela Gossow",
+    username: "angela_gossow",
+    email: "gossow@mail.com",
+    instagram: "angelagossow",
 });
 
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_01.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_02.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 04",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 04",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 05",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 05",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 school_03.launch_of_new_course(
-  new Course({
-    name: "Course 06",
-    classes: [class_one, class_two, class_three, class_six],
-  })
+    new Course({
+        name: "Course 06",
+        classes: [class_one, class_two, class_three, class_six],
+    })
 );
 
 simone.approved_course(course_one);
@@ -2649,19 +2559,19 @@ Dentro de este reto encuentras las clases **Student** y **Comment** con un c
 
 Tu reto consisten en:
 
-- Hacer que la clase `TeacherStudent` herede de `Student`
-- Agrega un propiedad de tipo Array llamada `skills` a la clase `TeacherStudent`.
-- Sobrescribir el método `publicarComentario` dentro de `TeacherStundent`.
-- Debe agregar el array de skills en su la propiedad `studentRole` de la clase `Comment`.
-- El string debe verse de la siguiente manera "profesor de skill1, skill2".
+-   Hacer que la clase `TeacherStudent` herede de `Student`
+-   Agrega un propiedad de tipo Array llamada `skills` a la clase `TeacherStudent`.
+-   Sobrescribir el método `publicarComentario` dentro de `TeacherStundent`.
+-   Debe agregar el array de skills en su la propiedad `studentRole` de la clase `Comment`.
+-   El string debe verse de la siguiente manera "profesor de skill1, skill2".
 
 Input
 
 ```js
 const skills = ["js", "python", "mongodb"];
 const props = {
-  name: "Erik Ochoa",
-  username: "elyager",
+    name: "Erik Ochoa",
+    username: "elyager",
 };
 
 const profesor = new TeacherStudent(props, skills);
@@ -2682,21 +2592,21 @@ Output
 
 ```js
 export class Comment {
-  constructor({ content, studentName, studentRole = "estudiante" }) {
-    this.content = content;
-    this.studentName = studentName;
-    this.studentRole = studentRole;
-    this.likes = 0;
-  }
+    constructor({ content, studentName, studentRole = "estudiante" }) {
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0;
+    }
 
-  publicar() {
-    const comentario = {
-      studentName: this.studentName + " (" + this.studentRole + ")",
-      likes: this.likes + " likes",
-      content: this.content,
-    };
-    return comentario;
-  }
+    publicar() {
+        const comentario = {
+            studentName: this.studentName + " (" + this.studentRole + ")",
+            likes: this.likes + " likes",
+            content: this.content,
+        };
+        return comentario;
+    }
 }
 ```
 
@@ -2706,35 +2616,35 @@ export class Comment {
 import { Comment } from "./Comment";
 
 export class Student {
-  constructor({
-    name,
-    email,
-    username,
-    twitter = undefined,
-    instagram = undefined,
-    facebook = undefined,
-    approvedCourses = [],
-    learningPaths = [],
-  }) {
-    this.name = name;
-    this.email = email;
-    this.username = username;
-    this.socialMedia = {
-      twitter,
-      instagram,
-      facebook,
-    };
-    this.approvedCourses = approvedCourses;
-    this.learningPaths = learningPaths;
-  }
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses = [],
+        learningPaths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.socialMedia = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approvedCourses = approvedCourses;
+        this.learningPaths = learningPaths;
+    }
 
-  publicarComentario(commentContent) {
-    const comment = new Comment({
-      content: commentContent,
-      studentName: this.name,
-    });
-    return comment.publicar();
-  }
+    publicarComentario(commentContent) {
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+        });
+        return comment.publicar();
+    }
 }
 ```
 
@@ -2745,19 +2655,19 @@ import { Comment } from "./Comment";
 import { Student } from "./Student";
 
 export class TeacherStudent extends Student {
-  constructor(props, skills = []) {
-    super(props);
-    this.skills = skills;
-  }
+    constructor(props, skills = []) {
+        super(props);
+        this.skills = skills;
+    }
 
-  publicarComentario(commentContent) {
-    const comment = new Comment({
-      content: commentContent,
-      studentName: this.name,
-      studentRole: `profesor de ${this.skills.join()}`,
-    });
-    return comment.publicar();
-  }
+    publicarComentario(commentContent) {
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+            studentRole: `profesor de ${this.skills.join()}`,
+        });
+        return comment.publicar();
+    }
 }
 ```
 
@@ -2769,7 +2679,7 @@ export class TeacherStudent extends Student {
 
 1.  ¿Qué es **proto** en JavaScript?
 
-    - 📌El mecanismo para que las instancias hereden los métodos y atributos de sus prototipos.
+    -   📌El mecanismo para que las instancias hereden los métodos y atributos de sus prototipos.
 
     La propiedad `__proto__` es un enlace interno que tienen todos los objetos en JavaScript que apunta a su prototipo. El prototipo es un objeto del cual el objeto actual hereda métodos y propiedades. Cuando se accede a una propiedad en un objeto, JavaScript primero busca la propiedad en el propio objeto y luego en su prototipo a través de la cadena de prototipos hasta que se encuentra la propiedad o se llega al final de la cadena de prototipos.
 
@@ -2777,11 +2687,11 @@ export class TeacherStudent extends Student {
 
 2.  ¿Qué podemos guardar dentro de los objetos?
 
-    - Strings
-    - Números
-    - 📌Todas las respuestas son correctas.
-    - Arrays
-    - Otros objetos
+    -   Strings
+    -   Números
+    -   📌Todas las respuestas son correctas.
+    -   Arrays
+    -   Otros objetos
 
     En JavaScript, los objetos pueden contener una variedad de tipos de datos, incluyendo strings, números, arrays, otros objetos y otros tipos de datos. Los objetos en JavaScript se definen como colecciones de pares clave-valor, donde la clave es una cadena que identifica la propiedad y el valor puede ser de cualquier tipo de dato, incluyendo los mencionados anteriormente.
 
@@ -2791,7 +2701,7 @@ export class TeacherStudent extends Student {
 
 3.  Los módulos de ECMAScript 6 nos permiten:
 
-    - 📌Aplicar encapsulamiento a nivel de archivos.
+    -   📌Aplicar encapsulamiento a nivel de archivos.
 
     Los módulos de ECMAScript 6 nos permiten definir y exportar un conjunto de funciones, objetos y/o variables desde un archivo JavaScript para que puedan ser importados y utilizados en otros archivos JavaScript. El uso de módulos permite aplicar encapsulamiento a nivel de archivo, lo que significa que el código dentro de un módulo está aislado del código fuera de él, lo que ayuda a prevenir conflictos de nombres y a mantener el código organizado y modularizado.
 
@@ -2801,43 +2711,43 @@ export class TeacherStudent extends Student {
 
 4.  ¿Para qué creamos objetos en JavaScript?
 
-    - Para agrupar propiedades en una lista dándole un “nombre clave” a cada elemento.
-    - Para agrupar variables relacionadas en un mismo lugar dentro del código.
-    - 📌Todas las respuestas son correctas.
-    - 📌Para crear los moldes de elementos que necesitan nuestros proyectos.
+    -   Para agrupar propiedades en una lista dándole un “nombre clave” a cada elemento.
+    -   Para agrupar variables relacionadas en un mismo lugar dentro del código.
+    -   📌Todas las respuestas son correctas.
+    -   📌Para crear los moldes de elementos que necesitan nuestros proyectos.
 
 5.  ¿Cuál es la convención para nombrar atributos o métodos privados en JavaScript?
 
-    - 📌 Empezar con \_ (guión bajo).
+    -   📌 Empezar con \_ (guión bajo).
 
 6.  ¿Cómo podrías crear un getter que exponga al atributo "privado" \_name en JavaScript?
 
-    - 📌get name() { return this.\_name; }
+    -   📌get name() { return this.\_name; }
 
 7.  ¿Qué son los prototipos en JavaScript?
 
-    - 📌Moldes para crear objetos.
+    -   📌Moldes para crear objetos.
 
 8.  ¿Cuál de las siguientes líneas de código para acceder al atributo de un objeto en JavaScript es INCORRECTA?
 
-    - 📌objeto->atributo
-    - objeto.atributo
-    - objeto["atributo"]
-    - objeto[variable]
+    -   📌objeto->atributo
+    -   objeto.atributo
+    -   objeto["atributo"]
+    -   objeto[variable]
 
     Esta sintaxis no es válida en JavaScript para acceder a los atributos de un objeto. En su lugar, se pueden utilizar las siguientes opciones:
 
-    - La sintaxis de punto `objeto.atributo`: esta sintaxis se utiliza para acceder a un atributo de un objeto utilizando el nombre del atributo como una cadena después del operador de punto.
+    -   La sintaxis de punto `objeto.atributo`: esta sintaxis se utiliza para acceder a un atributo de un objeto utilizando el nombre del atributo como una cadena después del operador de punto.
 
-    - La sintaxis de corchetes `objeto["atributo"]`: esta sintaxis se utiliza para acceder a un atributo de un objeto utilizando el nombre del atributo como una cadena dentro de corchetes.
+    -   La sintaxis de corchetes `objeto["atributo"]`: esta sintaxis se utiliza para acceder a un atributo de un objeto utilizando el nombre del atributo como una cadena dentro de corchetes.
 
-    - La sintaxis de corchetes con una variable `objeto[variable]`: esta sintaxis se utiliza para acceder a un atributo de un objeto utilizando una variable que contiene el nombre del atributo dentro de corchetes.
+    -   La sintaxis de corchetes con una variable `objeto[variable]`: esta sintaxis se utiliza para acceder a un atributo de un objeto utilizando una variable que contiene el nombre del atributo dentro de corchetes.
 
     Es importante destacar que la sintaxis de punto es más comúnmente utilizada y es más fácil de leer, mientras que la sintaxis de corchetes es útil en situaciones en las que el nombre del atributo es dinámico o se desconoce de antemano.
 
 9.  ¿Si todos los arrays tienen el método .push dentro de su atributo **proto**, cuál es la forma más cómoda de ejecutarlo desde el array asignaturas en JavaScript?
 
-    - 📌asignaturas.push()
+    -   📌asignaturas.push()
 
     En JavaScript, el método `push()` es un método que se encuentra en el objeto `Array.prototype`, lo que significa que todos los arrays en JavaScript tienen este método disponible a través de su propiedad `__proto__`. Sin embargo, es importante destacar que el acceso directo a la propiedad `__proto__` no es recomendado para su uso en código de producción y se debe evitar en su lugar se debe utilizar la sintaxis de punto o corchetes para acceder a los métodos y propiedades de un objeto.
 
@@ -2847,23 +2757,23 @@ export class TeacherStudent extends Student {
 
 10. Las instancias de prototipos también heredan los métodos y atributos del prototipo Object. Esta afirmación es:
 
-    - 📌Verdadera
+    -   📌Verdadera
 
 11. ¿Qué es herencia en JavaScript?
 
-    - 📌La capacidad de heredar/extender los métodos y atributos de un prototipo "madre".
+    -   📌La capacidad de heredar/extender los métodos y atributos de un prototipo "madre".
 
 12. Para aplicar la herencia en JavaScript, ¿cómo podemos ejecutar el método constructor del prototipo del que extendemos?
 
-    - 📌Con el método super.
+    -   📌Con el método super.
 
 13. ¿Qué es abstracción en JavaScript?
 
-    - 📌Crear prototipos "molde" para abstraer la lógica y datos de nuestros objetos.
+    -   📌Crear prototipos "molde" para abstraer la lógica y datos de nuestros objetos.
 
 14. ¿Cuál de las siguientes es una mejor forma de calificar nuestro código JavaScript?
 
-    - 📌Legibilidad.
+    -   📌Legibilidad.
 
     La legibilidad se refiere a la facilidad con la que el código se puede leer y entender. Es importante que el código sea legible porque facilita la mantención y solución de errores en el código, y también ayuda a que otros desarrolladores puedan entender el código y colaborar en el proyecto.
 
@@ -2873,7 +2783,7 @@ export class TeacherStudent extends Student {
 
 15. Los atributos **proto** en los objetos de JS pueden contener otro atributo **proto** por dentro. Esto es:
 
-    - 📌Verdadero
+    -   📌Verdadero
 
 16. ¿Cuáles son las palabras clave que diferencian a una función “normal” de un prototipo en JavaScript?
 
@@ -2881,18 +2791,18 @@ export class TeacherStudent extends Student {
 
     En JavaScript, una función constructora o prototipo es una función especial que se utiliza para crear objetos. Estas funciones se distinguen de las funciones regulares por el uso de las palabras clave `this`, `new` y `prototype`.
 
-    - `this` se refiere al objeto actual que se está creando o modificando.
-    - `new` se utiliza para crear una nueva instancia del objeto.
-    - `prototype` se refiere al objeto que se utiliza como plantilla para crear nuevos objetos.
+    -   `this` se refiere al objeto actual que se está creando o modificando.
+    -   `new` se utiliza para crear una nueva instancia del objeto.
+    -   `prototype` se refiere al objeto que se utiliza como plantilla para crear nuevos objetos.
 
     Por lo tanto, la combinación de estas palabras clave es lo que distingue a una función prototipo de una función regular.
 
 17. ¿Cuál de las siguientes afirmaciones sobre los objetos en JavaScript es INCORRECTA?
 
-    - 📌Los objetos literales NO son instancias de ningún prototipo.
-    - Object es el prototipo madre de todos los objetos y prototipos.
-    - Los objetos son instancias de prototipos.
-    - Los arrays son objetos.
+    -   📌Los objetos literales NO son instancias de ningún prototipo.
+    -   Object es el prototipo madre de todos los objetos y prototipos.
+    -   Los objetos son instancias de prototipos.
+    -   Los arrays son objetos.
 
     En JavaScript, todos los objetos son instancias de prototipos, incluyendo los objetos literales. De hecho, los objetos literales son instancias de `Object.prototype`.
 
@@ -2906,7 +2816,7 @@ export class TeacherStudent extends Student {
 
 18. ¿Cuáles son los pilares de la POO?
 
-    - 📌Abstracción, encapsulamiento, herencia y polimorfismo.
+    -   📌Abstracción, encapsulamiento, herencia y polimorfismo.
 
     Los pilares de la programación orientada a objetos (POO) son cuatro:
 
@@ -2920,7 +2830,7 @@ export class TeacherStudent extends Student {
 
 19. ¿Qué son los objetos literales en JavaScript?
 
-    - 📌Instancias directas del prototipo Object.
+    -   📌Instancias directas del prototipo Object.
 
     En JavaScript, un objeto literal es una forma de crear un objeto de forma directa, sin necesidad de utilizar una función constructora. La sintaxis de un objeto literal es un conjunto de pares clave-valor entre llaves `{}`.
 
@@ -2928,8 +2838,8 @@ export class TeacherStudent extends Student {
 
     ```js
     let miObjeto = {
-      propiedad1: "valor1",
-      propiedad2: "valor2",
+        propiedad1: "valor1",
+        propiedad2: "valor2",
     };
     ```
 
@@ -2948,3 +2858,101 @@ export class TeacherStudent extends Student {
         Cada paradigma tiene sus ventajas y desventajas, y no existe un paradigma que sea superior a todos los demás en todos los casos. En cambio, los programadores deben elegir el paradigma que mejor se adapte a sus necesidades y objetivos, y deben estar dispuestos a aprender y adaptarse a medida que evoluciona la tecnología y cambian las demandas del mercado.
 
     </details>
+
+## c1 :JavaScript: orientado a objetos, basado en prototipos
+
+Afirmaciones :
+
+-   objecto vs objecto vs objeto : todo en js es objecto
+-   javascript :
+    -   Nueveos elemento > objecot > protipos
+    -   todos los objecto esta creados por prototipos
+    -
+
+## c2 : Qué es programación orientada a objetos
+
+-   Paradigmas :son forma o caminos para programar,
+
+    -   Paradigma estructurado
+    -   Paradigma OOP (orientado a objeto)
+    -   Paradigma funcional
+
+-   Paradigma OOP
+    -   Orden : Objecto estudiante .
+    -   Reutilizar codigo : moldes o planillas
+    -   Prototipos : no esta basado en clase pero en prototipos.
+
+## C3 : Bonus: fútbol y programación orientada a objetos
+
+-   Clase :
+    -   Atributos : propiedades del Objecto
+    -   Metodos : Acciones del Objecto
+-   Objecto :
+    -   Es la base de la POO
+    -   Los objectos son la instancias de las clases
+    -   las clases son el molde de los objetos (planilla)
+-   Herencias
+    -   Crear nuevas clases a partir de otras clases (caracteristicas iguales)
+-   Encapsulamiento :
+    -   oculatar algo
+-   Polimorfismo :
+    -   muchas formas, mensaje personalizados a cada objeto .
+
+## C4 : Qué es un objeto en JavaScript
+
+Se llama objeto a:
+
+-   Los Objetos literales : son utilizados para almacenar y organizar datos en pares clave-valor.
+
+-   Los Prototipos, son objetos a partir de los cuales se crean otros objetos, son como una especie de plantilla o molde.
+
+-   Las Instancias, son objetos que han sido creados a partir de un prototipo.
+
+    -Los Arrays, son objetos especiales que almacenan datos de manera ordenada.
+
+    -El Prototipo Object(), es un prototipo por defecto que viene incluido en JS.
+
+## c5 : Objetos literales y prototipos en JavaScript
+
+codgio
+
+## c9/20 : Qué es abstracción
+
+abstracion de algo que se repite (una clase)
+
+## c11/20 : Que es encapsulamiento
+
+    * limitar el acceso a nuestros atributos y propiedades en los prototipos y objectos.
+    * analogia : Banco-Personas.
+    * metodos y atributos privados
+    * no permite la alteracion de metodos y atributos (no sobreescribir)
+
+## c12/20 : Getters y setters en JavaScript
+
+// Poliformos
+
+// herencia 2.0 , es pilar de la POO
+// permite a la subclases cambiar o anula de los metodos
+// hereados o atributos padre
+// cambia el comportamiento .
+// Tipos de polimorfismo
+// _ Sobrecarga
+// _ parametrico
+// _ Inclusion (solo funcnona en JS)
+/_ \*/
+
+# Paradigma:
+
+Es la teoría que suministra las bases y el modelo para resolver problemas.
+
+# Abstracción:
+
+Es la capacidad de representar objetos del mundo real en términos de sus características y comportamientos esenciales, ocultando los detalles complejos de su implementación.
+
+# Encapsulamiento:
+
+Es la capacidad de ocultar la complejidad interna de los objetos, protegiendo sus propiedades (atributos) y métodos para que no sean accesibles desde fuera de la clase
+
+Polimorfismo:
+
+Herencia:
