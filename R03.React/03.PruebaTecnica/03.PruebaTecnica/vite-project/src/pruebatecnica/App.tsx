@@ -1,20 +1,45 @@
-import React, { useEffect, useRef, useState } from "react";
-import { listUser } from "./listuser";
-import { User } from "./pruebatecnica/type/user";
+import { useEffect, useRef, useState } from "react";
+import { User } from "./type/user";
 
 const URL_API_USERRANDOM = "https://randomuser.me/api/?results=100";
 
 const App = () => {
+    // hooks States
     const [users, setUsers] = useState<User[]>([]);
     const [isPaintRow, setisPaintRow] = useState(false);
     const [isOrderByCountry, setisOrderByCountry] = useState(false);
     const [countrySearch, setCountrySearch] = useState<string>("");
-
+    //
     const originuser = useRef<User[]>([]);
+    // hook efect
+    useEffect(() => {
+        getUsers();
+    }, []);
 
-    const handleTogglePaintRows = () => setisPaintRow(!isPaintRow);
+    // funtions
+    const getUsers = async () => {
+        try {
+            const res = await fetch(URL_API_USERRANDOM);
+            if (!res.ok) {
+                throw Error("error en la api");
+            }
+            const data = await res.json();
+            setUsers(data.results);
+            originuser.current = data.results;
+            console.log(res);
+            console.log(data.results);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleTogglePaintRows = () => {
+        setisPaintRow(!isPaintRow);
+    };
+
     const handleToggleOrderByCountry = () => {
         setisOrderByCountry(!isOrderByCountry);
+
         if (isOrderByCountry) {
             setUsers(originuser.current);
             return;
@@ -33,7 +58,9 @@ const App = () => {
         setUsers(newlist);
     };
 
-    const restoreOriginUsers = () => setUsers(originuser.current);
+    const restoreOriginUsers = () => {
+        setUsers(originuser.current);
+    };
 
     const usersSorted = isOrderByCountry
         ? [...users].sort((a, b) => {
@@ -45,34 +72,10 @@ const App = () => {
         u.location.country.toLowerCase().includes(countrySearch.toLowerCase())
     );
 
-    useEffect(() => {
-        const getUsers = async () => {
-            try {
-                const res = await fetch(URL_API_USERRANDOM);
-                if (!res.ok) {
-                    throw Error("error en la api");
-                }
-                const data = await res.json();
-                setUsers(data.results);
-                originuser.current = data.results;
-
-                console.log(res);
-                console.log(data.results);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        getUsers();
-    }, []);
-
-    console.log(isPaintRow);
-    console.log();
-
     return (
         <div>
             <h1>Lista de usuarios </h1>
-            <div
+            <section
                 style={{
                     margin: "1rem 0",
                     display: "flex",
@@ -92,7 +95,7 @@ const App = () => {
                     value={countrySearch}
                     onChange={(e) => setCountrySearch(e.target.value)}
                 />
-            </div>
+            </section>
             <table
                 style={{
                     width: "100%",

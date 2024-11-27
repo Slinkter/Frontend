@@ -8,10 +8,8 @@ export default function App() {
     return (
         <div className="maincontainer">
             <SearchProvider>
-                <div>
-                    <CatFactContainer />
-                    <GiphyContainer />
-                </div>
+                <CatFactContainer />
+                <GiphyContainer />
             </SearchProvider>
         </div>
     );
