@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { schema, TypeApi, User } from "./Type/user";
-const URL_USER = "https://randomuser.me/api/?results=5";
+const URL_USER = "https://randomuser.me/api/?results=50";
 
 const App = () => {
+    const [users, setUsers] = useState<User[]>([]);
     const [isPaintRow, setIsPaintRow] = useState(false);
     const [isOrderByCountry, setIsOrderByCountry] = useState(false);
     const [countrySearch, setCountrySearch] = useState("");
 
-    const [users, setUsers] = useState<User[]>([]);
-
     const listOrigin = useRef<User[]>([]);
+
+    useEffect(() => {
+        fethData();
+    }, []);
 
     const fethData = async () => {
         try {
@@ -33,30 +36,62 @@ const App = () => {
         }
     };
 
-    useEffect(() => {
-        fethData();
-    }, []);
-
     /* function */
 
     const btnTogglePaintRows = () => {
         setIsPaintRow(!isPaintRow);
     };
-    const btnToggleOrderByCountry = () => {};
-    const btnDeleteUserById = () => {};
-    const btnRestoreOriginUser = () => {};
+    const btnToggleOrderByCountry = () => {
+        setIsOrderByCountry((prev) => !prev);
 
-    const userSorted = isOrderByCountry ? users : users;
+        if (isOrderByCountry) {
+            setUsers(listOrigin.current);
+            return;
+        }
 
-    const userRender = userSorted;
+        const listsort = [...users].sort((a, b) => {
+            return a.location.country.localeCompare(b.location.country);
+        });
+
+        setUsers(listsort);
+    };
+    const btnDeleteUserById = (id: string) => {
+        const newlist = [...users].filter((u) => u.login.uuid !== id);
+        setUsers(newlist);
+    };
+    const btnRestoreOriginUser = () => {
+        setUsers(listOrigin.current);
+    };
+
+    const userSorted = isOrderByCountry
+        ? users.sort((u1, u2) => {
+              return u1.location.country.localeCompare(u2.location.country);
+          })
+        : users;
+
+    const userRender = userSorted.filter((user) => {
+        return user.location.country
+            .toLowerCase()
+            .includes(countrySearch.toLowerCase());
+    });
 
     return (
         <div>
             <h1>Tabla de paises</h1>
             <section className="main-section ">
                 <button onClick={btnTogglePaintRows}>colorear fila</button>
-                <button>ordernar por pais</button>
-                <button>restaurar estado inicial </button>
+                <button onClick={() => btnToggleOrderByCountry()}>
+                    ordernar por pais
+                </button>
+                <button onClick={() => btnRestoreOriginUser()}>
+                    restaurar estado inicial{" "}
+                </button>
+                <input
+                    className="text-cyan-600"
+                    type="text"
+                    value={countrySearch}
+                    onChange={(e) => setCountrySearch(e.target.value)}
+                />
             </section>
 
             <table className={isPaintRow ? "paintRow" : ""}>
@@ -80,7 +115,13 @@ const App = () => {
                                 <td>{user.name.last}</td>
                                 <td>{user.location.country}</td>
                                 <td>
-                                    <button>Eliminar</button>
+                                    <button
+                                        onClick={() =>
+                                            btnDeleteUserById(user.login.uuid)
+                                        }
+                                    >
+                                        Eliminar
+                                    </button>
                                 </td>
                             </tr>
                         );
