@@ -4,6 +4,31 @@
 
 @layer base {
     body {
-        @apply bg-slate-900 text-white m-auto w-screen border-2 flex justify-center items-center;
+        @apply bg-slate-900 text-white m-auto w-screen min-h-dvh border-4 flex justify-center items-center;
+    }
+
+    button {
+        @apply bg-blue-500 px-5 py-2 m-1 rounded-lg hover:bg-blue-900 cursor-pointer;
+    }
+    table {
+        @apply w-full text-center;
+    }
+
+    section {
+        width: 60vw;
+    }
+
+    th {
+        color: white;
+        background-color: black;
+    }
+}
+
+@layer components {
+    .rowColored tbody tr:nth-child(odd) {
+        @apply bg-white text-black;
+    }
+    .rowColored tbody tr:nth-child(even) {
+        @apply bg-gray-500 text-black;
     }
 }
