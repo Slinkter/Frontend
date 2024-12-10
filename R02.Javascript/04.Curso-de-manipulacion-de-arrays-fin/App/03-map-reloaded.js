@@ -22,8 +22,8 @@ const orders = [
 ];
 
 console.log("original", orders);
-
-// el map es inmutable porque no modifica el array original
+/* ------------------- */
+// el array.map() es inmutable porque no modifica el array original
 // crear un nuevo array y tiene el mismo tamaño de elementos
 const rta = orders.map((item) => item.total);
 console.log("rta", rta);

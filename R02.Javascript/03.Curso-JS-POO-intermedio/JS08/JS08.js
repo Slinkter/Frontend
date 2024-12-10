@@ -1,4 +1,5 @@
 const numbers = [12, 351, 123, 54, 657, 568, 76, 4354, 1231];
+
 for (let i = 0; i < numbers.length; ++i) {
     console.log("i : ", i, " numeros : ", numbers[i]);
 }
@@ -16,7 +17,6 @@ function recursivaArray(arrayRandom) {
         const getFirstElement = arrayRandom[0];
         arrayRandom.shift();
         recursivaArray(arrayRandom);
-        console.log(getFirstElement);
     } else {
         console.log("end of array");
     }
@@ -69,19 +69,6 @@ const obj1 = {
     },
     editA() {
         this.a = "modificar a";
-    },
-};
-
-const student = {
-    name: undefined,
-    email: undefined,
-    age: undefined,
-    approvedCourses: undefined,
-    learningPaths: undefined,
-    socialMedia: {
-        twitter: undefined,
-        instagram: undefined,
-        facebook: undefined,
     },
 };
 

@@ -11,16 +11,15 @@ const obj1 = {
 };
 
 /* 
-obj2 es una copia superficial de obj1. Las propiedades primitivas (a, b) se copian correctamente,
-pero x es un objeto anidado, por lo que obj2.x y obj1.x apuntan al mismo objeto en memoria. 
+obj2 es una copia superficial de obj1. 
+Las propiedades primitivas (a, b) se copian correctamente,
+x es un objeto anidado, por lo que obj2.x y obj1.x apuntan al mismo objeto en memoria. 
 Cualquier cambio en obj1.x se reflejará en obj2.x.
 */
 
 const obj2 = {};
-for (prop in obj1) {
-    obj2[prop] = obj1[prop];
-    console.log(prop);
-    console.log(obj2);
+for (i in obj1) {
+    obj2[i] = obj1[i];
 }
 /* 
 Object.assign también realiza una copia superficial. 

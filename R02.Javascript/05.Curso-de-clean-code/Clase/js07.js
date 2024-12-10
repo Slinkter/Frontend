@@ -3,12 +3,12 @@
 Ambitos de las variables 
 Ambitos = Scope
 
-- Ambito Global
+- Scope Global
     * puede ser accesde desde cualquier lugar
-- Ambito Local/funcion
-    * 
+- Scope Local/funcion
+    *  function {}
 - Ambito Bloque
-    * funciona y trabaja dentro de llaves "{ }" 
+    * if { }
     * se recomeinda solo usar let y const 
     * excepcion : var trabaja de manera global rompiendo el ambito
 */
