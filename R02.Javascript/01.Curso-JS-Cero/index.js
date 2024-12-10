@@ -1,5 +1,4 @@
 console.log("hola mundo");
-
 let cajaDeAndy = "Woody";
 console.log(cajaDeAndy);
 let c = "Woody";
@@ -28,7 +27,7 @@ frutas[0] = "sandia";
 console.log(frutas);
 
 function cambiarNombre(objeto) {
-  objeto.nombre = "Nuevo nombre";
+    objeto.nombre = "Nuevo nombre";
 }
 
 let persona = { nombre: "Antonio" };

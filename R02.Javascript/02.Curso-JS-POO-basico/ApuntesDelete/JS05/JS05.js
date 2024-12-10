@@ -10,6 +10,7 @@ const natalia = {
         this.age += 1;
     },
 };
+console.log(natalia);
 
 // Settear objecto literal
 natalia.name = "Nath";
