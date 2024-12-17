@@ -13,10 +13,5 @@ clase 7
     -   se crear un bucket y alli se almace el objecto
 -   los backetes son globales en todo AWS
 -
--        Amazon EBS, son para procesar archivos al instante porque se eliminan
-- buscar en la web ,desactivar block y agregar bucket policy .
-
-
-### Amazon CloudFront
-
-### Global Accelerator
+-   Amazon EBS, son para procesar archivos al instante porque se eliminan
+-   buscar en la web ,desactivar block y agregar bucket policy .
