@@ -12,7 +12,7 @@
 -   MANEJO DE FRAMEWORK : ANGULAR | REACT | VUE
 -   MANEJO DE FRAMEWORK CSS: BOOSTRAP | TAILWIND
 -   MANEJO DE PREPROCESADOR CSS: SASS
--   MANEJO DE API :
+-   MANEJO DE API 
 -   Diseño responsiblo
 -   compatibilidad con navegadores
 -   Hacer testint y debugging
@@ -21,9 +21,9 @@
 
 ### Junior vs Semi-senior vs senior
 
-junior: 2 años de exp,ser guiada , debe aprender
-semi : 2-4 años de exp,proactivo
-senior : 5-6 años de exp, autonomo,productivo,toma decisiones,sabe del negocio,
+- junior : 2 años de exp,ser guiada , debe aprender
+- semi   : 2-4 años de exp,proactivo
+- senior : 5-6 años de exp, autonomo,productivo,toma decisiones,sabe del negocio,
 
 ### Tips para CV
 
@@ -36,8 +36,8 @@ senior : 5-6 años de exp, autonomo,productivo,toma decisiones,sabe del negocio,
 -   DOM
 -   MODELO DE CAJA
 -   TIPOS DE DISPLAY
--   PSEUDO -CLASES
--   PSEUDO -ELEMENTOS
+-   PSEUDO - CLASES hover
+-   PSEUDO - ELEMENTOS 
 -   MEDIAQUERIES
 -   ARQ.
 -   VERSIONES
