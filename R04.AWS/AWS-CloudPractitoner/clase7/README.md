@@ -13,11 +13,7 @@ clase 7
     -   se crear un bucket y alli se almace el objecto
 -   los backetes son globales en todo AWS
 -
-<<<<<<< HEAD
--   Amazon EBS, son para procesar archivos al instante porque se eliminan
--   buscar en la web ,desactivar block y agregar bucket policy .
-=======
--                                            Amazon EBS, son para procesar archivos al instante porque se eliminan
+-                                              Amazon EBS, son para procesar archivos al instante porque se eliminan
 -   buscar en la web ,desactivar block y agregar bucket policy .
 
 #### Versioning
@@ -63,4 +59,3 @@ backend de espejos
     -   Intercambio de archivo entre EC2
     -   funciona como NAS
     -   no es global region , solo funciona en una AZ
->>>>>>> 15cb806b3ebdb715cedc6604d128339a3c60b155
