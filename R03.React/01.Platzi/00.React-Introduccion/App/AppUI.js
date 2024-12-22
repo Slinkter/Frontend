@@ -41,7 +41,7 @@ function AppUI() {
         />
     ));
 
-    const renderModal = !!openModel && (
+    const showModal = openModel && (
         <Modal>
             <TodoForm />
         </Modal>
@@ -58,7 +58,7 @@ function AppUI() {
                 {renderList}
             </TodoList>
             <CreateTodoButton setOpenModal={setOpenModal} />
-            {renderModal}
+            {showModal}
         </>
     );
 }

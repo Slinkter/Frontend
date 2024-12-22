@@ -6,21 +6,18 @@ const TodoContext = React.createContext();
 function TodoProvider(props) {
     //
     const { loading, error, item: data, saveItem } = useLocalStorage("V1", []);
-    const totalTodos = data.length;
-    const completedTodos = data.filter((item) => item.completed).length;
-    //
     const [openModel, setOpenModal] = useState(false);
     const [stateSearch, setStateSearch] = useState("");
+    //
+    const totalTodos = data.length;
+    const completedTodos = data.filter((item) => item.completed).length;
 
-    let searchedTodos = [];
-
-    if (stateSearch.length === 0) {
-        searchedTodos = data;
-    } else {
-        searchedTodos = data.filter((item) =>
-            item.text.toLowerCase().includes(stateSearch.toLowerCase())
-        );
-    }
+    const searchedTodos =
+        stateSearch.length === 0
+            ? data
+            : data.filter((item) =>
+                  item.text.toLowerCase().includes(stateSearch.toLowerCase())
+              );
 
     /* Todo Operations: */
     const addTodo = (text) => {
@@ -34,20 +31,20 @@ function TodoProvider(props) {
     };
 
     const onUpdateItem = (text) => {
-        const index = data.findIndex((item) => item.text === text); // return number
         const copyTodos = [...data]; // copy array
+        const index = data.findIndex((item) => item.text === text); // return number
         copyTodos[index].completed = true; //cambiar a true
         saveItem(copyTodos);
     };
 
     const onDeleteItem = (text) => {
-        const index = data.findIndex((item) => item.text === text); // return number
         const copyTodos = [...data]; // copy array
+        const index = data.findIndex((item) => item.text === text); // return number
         copyTodos.splice(index, 1); // delete 1 element
         saveItem(copyTodos);
     };
     /* Context Value: */
-    const global = {
+    const props = {
         loading,
         error,
         totalTodos,
@@ -63,7 +60,7 @@ function TodoProvider(props) {
     };
 
     return (
-        <TodoContext.Provider value={global}>
+        <TodoContext.Provider value={props}>
             {props.children}
         </TodoContext.Provider>
     );

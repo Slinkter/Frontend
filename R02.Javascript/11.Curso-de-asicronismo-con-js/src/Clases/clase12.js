@@ -1,6 +1,6 @@
 /* Fetch POST */
 function postData(urlApi, data) {
-    const obj = {
+    const options = {
         method: "POST",
         mode: "cars",
         credentials: "same-origin",
@@ -10,7 +10,7 @@ function postData(urlApi, data) {
         body: JSON.stringify(data),
     };
     // -->
-    const response = fetch(urlApi, obj);
+    const response = fetch(urlApi, options);
     return response;
 }
 /* Exec */

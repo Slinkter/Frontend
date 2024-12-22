@@ -8,18 +8,16 @@ Como requisito, antes de comenzar deberás haber completado el Curso Básico de 
 
 En este curso aprenderás:
 
-- Qué es un JavaScript Engine
-- Qué es y cómo funciona V8
-- Qué es el Entorno y Objeto Global
-- Hoisting y cómo evitarlo
-- Cómo funciona el JIT Compiler
-- Sincronía y Asincronía de JavaScript
-- Qué es el Memory heap y Call Stack
-- Qué es un Stack overflow
-- Cómo funciona JavaScript Runtime
-- Asegúrate de hacer los ejercicios.
-
-Profesor: Diego De Granda (Software Engineering Manager en Platzi)
+-   Qué es un JavaScript Engine
+-   Qué es y cómo funciona V8
+-   Qué es el Entorno y Objeto Global
+-   Hoisting y cómo evitarlo
+-   Cómo funciona el JIT Compiler
+-   Sincronía y Asincronía de JavaScript
+-   Qué es el Memory heap y Call Stack
+-   Qué es un Stack overflow
+-   Cómo funciona JavaScript Runtime
+-   Asegúrate de hacer los ejercicios.
 
 ### ¿Qué herramienta vas a utilizar?
 
@@ -29,17 +27,17 @@ Utilizaremos el navegador Google Chrome y la consola de este. La consola se mues
 
 En 1991 nace HTTP y en 1992 nace HTML.
 
-- **NetScape :** Fue el segundo navegador de internet, en este punto era muy difícil poder encontrar las paginas web porque no había un buscador que indexara, al igual las paginas eran estáticas y casi sin nada de estilo y es ahí donde [NetScape](https://es.wikipedia.org/wiki/Netscape_Communications_Corporation) estaba viendo que los usuarios estaban pidiendo una evolución en la web y es por eso que nace JavaScript.
+-   **NetScape :** Fue el segundo navegador de internet, en este punto era muy difícil poder encontrar las paginas web porque no había un buscador que indexara, al igual las paginas eran estáticas y casi sin nada de estilo y es ahí donde [NetScape](https://es.wikipedia.org/wiki/Netscape_Communications_Corporation) estaba viendo que los usuarios estaban pidiendo una evolución en la web y es por eso que nace JavaScript.
 
-El fundador de JavaScript es Brendan Eich pero antes de ser bautizado como JS el primer lenguaje que desarrollo fue :
+El fundador de JavaScript es **Brendan Eich** pero antes de ser bautizado como JS el primer lenguaje que desarrollo fue :
 
 1. Mocha (1995) = se desarrollo aproximadamente entre 2-3 semanas este lenguaje intentaba darle un poco de interacción a las paginas
 2. LiveScript (1995) = dado a que mocha fue desarrollado muy rápido tuvo que evolucionar a LiveScript en el mismo año para esta evolución había mas interacción en las paginas.
 3. JavaScript (1995) ❤️ = A finales del año es que nace JS su nombre fue mas comercial ya que Java se estaba convirtiendo en un lenguaje popular entonces solo lo acompañaron con Script por ello es JavaScript.
 
-- ECMA (1997) = Vino a poner Orden a los lenguajes que iban saliendo (era muy peligroso tener muchos estándares de programación trabajando en el navegador) y es por ello donde decidieron bautizar a JavaScript como lenguaje que corre en el Navegador.
-- V8 (2008) = Engine de JS que corre en el navegador
-- ECMAScript = Es una especificación estandarizada por ECMA Internacional, Fue creada para estandarizar JS y para ayudar a fomentar múltiples implementaciones independientes.
+-   ECMA (1997) = Vino a poner Orden a los lenguajes que iban saliendo (era muy peligroso tener muchos estándares de programación trabajando en el navegador) y es por ello donde decidieron bautizar a JavaScript como lenguaje que corre en el Navegador.
+-   V8 (2008) = Engine de JS que corre en el navegador
+-   ECMAScript = Es una especificación estandarizada por ECMA Internacional, Fue creada para estandarizar JS y para ayudar a fomentar múltiples implementaciones independientes.
 
 Un breakpoint importante fue v8 creado en 2008, es un engine que corre en el navegador.
 
@@ -63,9 +61,9 @@ Una vez que Chrome recibe el código o los scripts JavaScript en la página web,
 
 ### Memory Heap (Montón)
 
-- Donde se almacena los valores de las variables y las funciones
-- Se destina un espacio en memoria para las variables.
-- La información en el memory heap, No se guarda de manera lineal u organizada.
+-   Donde se almacena los valores de las variables y las funciones
+-   Se destina un espacio en memoria para las variables.
+-   La información en el memory heap, No se guarda de manera lineal u organizada.
 
 > Los objetos son asignados a un montículo (Espacio grande en memoria no organizado)
 
@@ -75,14 +73,14 @@ El primer contenedor en el entorno, que también forma parte del motor V8 JS Eng
 
 ### Call Stack (Pila) = El ultimo que entra es el primero en salir
 
-- Como se mandan a llamar las variables y las funciones
-- Las tareas en el call stack se apilan de abajo hacia arriba.
-- Se llaman de la última que mandamos a llamar hacia abajo (LIFO: Last-in, First-out)
-- En la base de la pila reposa el Global Object
-- Si una función llama a otra, la pone encima de la pila.
-- Se ejecuta una tarea a la vez (sincronía)
-- Una vez que se van ejecutando las tareas se van retirando de la pila
-- Al ejecutar todas las tareas se retira el Global object.
+-   Como se mandan a llamar las variables y las funciones
+-   Las tareas en el call stack se apilan de abajo hacia arriba.
+-   Se llaman de la última que mandamos a llamar hacia abajo (LIFO: Last-in, First-out)
+-   En la base de la pila reposa el Global Object
+-   Si una función llama a otra, la pone encima de la pila.
+-   Se ejecuta una tarea a la vez (sincronía)
+-   Una vez que se van ejecutando las tareas se van retirando de la pila
+-   Al ejecutar todas las tareas se retira el Global object.
 
 > Apila de forma organizada las instrucciones de nuestro programa.
 
@@ -94,13 +92,13 @@ El segundo contenedor en el entorno se denomina “pila de llamadas”. Tambié
 /* Ejemplo */
 
 function main() {
-  console.log("Hola");
+    console.log("Hola");
 
-  setTimeout(() => {
-    console.log("Mundo!!");
-  }, 0);
+    setTimeout(() => {
+        console.log("Mundo!!");
+    }, 0);
 
-  console.log("Otro mensaje");
+    console.log("Otro mensaje");
 }
 
 main();
@@ -108,12 +106,12 @@ main();
 
 El orden de ejecución del código de ejemplo es el siguiente:
 
-- Primero llamamos a nuestra función `main()` y se coloca en la pila.
-- Luego coloca el `console.log` en la misma pila y lo ejecuta inmediatamente, esto hace que se elimine de la pila.
-- Llega al `setTimeout()` y decide dejarlo hasta el final, sin importar el tiempo que se le esté dando.
-- Llega al ultimo `console.log` lo coloca en la pila y lo ejecuta inmediatamente.
-- Por ultimo ejecuta el `setTimeOut`, terminando con todo el proceso.
-- Al no tener mas procesos, nuestra función `main()` sale de la pila.
+-   Primero llamamos a nuestra función `main()` y se coloca en la pila.
+-   Luego coloca el `console.log` en la misma pila y lo ejecuta inmediatamente, esto hace que se elimine de la pila.
+-   Llega al `setTimeout()` y decide dejarlo hasta el final, sin importar el tiempo que se le esté dando.
+-   Llega al ultimo `console.log` lo coloca en la pila y lo ejecuta inmediatamente.
+-   Por ultimo ejecuta el `setTimeOut`, terminando con todo el proceso.
+-   Al no tener mas procesos, nuestra función `main()` sale de la pila.
 
 ### Task Queue (Cola) = El primer que entra es el primero en salir
 
@@ -162,18 +160,18 @@ Cuando se logro correr de la mejor manera google maps se comienza a trabajar mas
 
 Una vez que se ejecuta un archivo en el navegador, **el motor de JavaScript genera un entorno global** *(Global environment)*. El entorno global hace tres cosas muy importantes:
 
-- Genera un **objeto global** llamado `window`.
-- Genera un **contexto** llamado `this`. En un contexto global `this` es igual a `window`.
-- **Ambiente de ejecución**.
+-   Genera un **objeto global** llamado `window`.
+-   Genera un **contexto** llamado `this`. En un contexto global `this` es igual a `window`.
+-   **Ambiente de ejecución**.
 
 Después de generar el entorno global, comienza el **contexto de ejecución** *(Execution context)* **donde corre el código de JavaScript utilizando un *Stack* de tareas**, apilándolas una por una, en la cuál la última tarea añadida será la primera en ejecutarse.
 
 Una vez que el motor de JavaScript está interactuando con el navegador, realiza los siguientes procesos:
 
-- **Parser**: genera un parseo del documento completo mediante palabras claves.
-- **AST:** Se crea a partir de los nodos que genera el *parser*. Es una estructura de árbol que representa tu código sintácticamente. Puedes utilizar la página [AST Explorer](https://astexplorer.net/){target="\_blank"} para ver cómo funciona.
-- **Intérprete:** El intérprete recorre el AST y **genera *Bytecode*** (lenguaje que entiende la computadora y no es binario) basado en la información que contiene. Sin embargo, si el intérprete detecta que puede optimizar tu código, no genera *Bytecode*, sino que genera un proceso de optimización que consiste en el *profiler* y *compiler*.
-- **Profiler y compiler:** El *profiler* monitorea y mira el código para optimizarlo. El *compiler* optimiza ese código y genera *machine code* (lenguaje binario). En esta etapa, por la intención de optimizar el código, también genera errores como el *Hoisting*.
+-   **Parser**: genera un parseo del documento completo mediante palabras claves.
+-   **AST:** Se crea a partir de los nodos que genera el *parser*. Es una estructura de árbol que representa tu código sintácticamente. Puedes utilizar la página [AST Explorer](https://astexplorer.net/){target="\_blank"} para ver cómo funciona.
+-   **Intérprete:** El intérprete recorre el AST y **genera *Bytecode*** (lenguaje que entiende la computadora y no es binario) basado en la información que contiene. Sin embargo, si el intérprete detecta que puede optimizar tu código, no genera *Bytecode*, sino que genera un proceso de optimización que consiste en el *profiler* y *compiler*.
+-   **Profiler y compiler:** El *profiler* monitorea y mira el código para optimizarlo. El *compiler* optimiza ese código y genera *machine code* (lenguaje binario). En esta etapa, por la intención de optimizar el código, también genera errores como el *Hoisting*.
 
 ![Engine JavaScript](https://i.postimg.cc/s29HF701/5-engine.png)
 
@@ -190,8 +188,8 @@ Por otro lado, el Machine code es el código de bajo nivel que se ejecuta direct
 
 En resumen, Bytecode es un código intermedio generado durante la fase de compilación y se ejecuta en la máquina virtual de V8, mientras que el Machine code es el código de máquina altamente optimizado generado durante la fase de optimización y se ejecuta directamente en la CPU. El bytecode se utiliza para acelerar la compilación y la optimización del código en tiempo de ejecución, mientras que el código de máquina se utiliza para obtener el máximo rendimiento durante la ejecución del código JavaScript.
 
-- Bytecode: Código parecido a assembly, es portátil y es ejecutado por una virtual machine.
-- Machine code: Es binario y son instrucciones especificadas a una arquitectura o procesador.
+-   Bytecode: Código parecido a assembly, es portátil y es ejecutado por una virtual machine.
+-   Machine code: Es binario y son instrucciones especificadas a una arquitectura o procesador.
 
 ## 6. Ejemplo de Objeto global y hoisting
 
@@ -214,10 +212,10 @@ El código permanece igual, solo es una interpretación del motor de JavaScript 
 
 Mas info:
 
-- Si llamamos una variable antes de ser declarada, el compiler crea la variable en la memory heap y la inicializa como undefined
-- En el caso de las funciones es distinto, primero mandamos a llamar a las funciones antes de ejecutarlas.
-- El hoisting a veces funciona pero no tenemos control de las variables que se van a cambiar
-- Si llamamos a una constante (const) antes de inicializar retorna un error de tipo: Uncaught ReferenceError, que corresponde a variables que son referenciadas pero no pudieron ser capturadas
+-   Si llamamos una variable antes de ser declarada, el compiler crea la variable en la memory heap y la inicializa como undefined
+-   En el caso de las funciones es distinto, primero mandamos a llamar a las funciones antes de ejecutarlas.
+-   El hoisting a veces funciona pero no tenemos control de las variables que se van a cambiar
+-   Si llamamos a una constante (const) antes de inicializar retorna un error de tipo: Uncaught ReferenceError, que corresponde a variables que son referenciadas pero no pudieron ser capturadas
 
 ### Hoisting en variables declaradas con var
 
@@ -245,7 +243,7 @@ apellido();
 var nombre = "Diego";
 
 function apellido() {
-  console.log("De Granda");
+    console.log("De Granda");
 }
 ```
 
@@ -254,7 +252,7 @@ El motor de JavaScript lo interpreta de la siguiente manera:
 ```javascript
 var nombre = undefined;
 function apellido() {
-  console.log("De Grada");
+    console.log("De Grada");
 }
 
 console.log(nombre);
@@ -336,7 +334,7 @@ El comportamiento de JavaScript es síncrono, es decir, solamente puede **ejecu
 
 El *memory heap* **consiste en una manera desorganizada o aleatoria de guardar la información**, ya sea valores, funciones, entre otros. ¿Recuerdas el componente de tu computador que guarda información de manera aleatoria? Exactamente, la RAM es donde **guardará esta información mediante una referencia o dirección**.
 
-- [Memoria y cómo se guardan los datos.](https://platzi.com/clases/2156-estructuras-datos/33722-memoria-y-como-se-guardan-los-datos/)
+-   [Memoria y cómo se guardan los datos.](https://platzi.com/clases/2156-estructuras-datos/33722-memoria-y-como-se-guardan-los-datos/)
 
 Por ejemplo, declaras una variable `nombre` y le asignas un valor, esta se guardará en la memoria RAM utilizando una referencia que manejará el *memory heap*. De esta manera, el Engine sabrá que variable mostrar cuando sea utilizada después de la declaración, **pidiendo la referencia de memoria al *memory heap* y buscándola en la memoria RAM**.
 
@@ -403,12 +401,12 @@ Para acceder al debugger del navegador y hacer pruebas de Call Stack puedes abri
 
 ```js
 function restarDos(num) {
-  return num - 2;
+    return num - 2;
 }
 
 function calcular() {
-  const sumarTotal = 4 + 5;
-  return restarDos(sumarTotal);
+    const sumarTotal = 4 + 5;
+    return restarDos(sumarTotal);
 }
 
 debugger;
@@ -462,8 +460,8 @@ Otro ejemplo: Creamos un objeto con algunos datos que serán almacenados en memo
 
 ```js
 var car = {
-  marca: "Totoya",
-  modelo: "2020",
+    marca: "Totoya",
+    modelo: "2020",
 };
 
 car = "Mio";
@@ -552,9 +550,9 @@ baz(); // Entró en baz, ejecutó y se eliminó
 
 El resultado es:
 
-- Primero se muestra en consola `"First"`.
-- Segundo se muestra en consola `"Third"`.
-- Después de medio segundo, `"Second"`.
+-   Primero se muestra en consola `"First"`.
+-   Segundo se muestra en consola `"Third"`.
+-   Después de medio segundo, `"Second"`.
 
 Esto es porque la función `bar` salió del *Call Stack* para esperar asíncronamente un tiempo definido (0 segundos en este caso). Después tendrá que esperar (sin importar el tiempo establecido en `setTimeout`) hasta que se vacíe el *Call Stack* para que el *Event loop* le permita entrar nuevamente al *Call Stack* para ejecutarse.
 
@@ -574,15 +572,15 @@ Aún con sus mejoras del lenguaje, la naturaleza de JS de solo poder procesar un
 
 ### Temas
 
-- Qué es un JavaScript Engine
-- Qué es y cómo funciona V8
-- Qué es el Entorno y Objeto Global
-- Hoisting y cómo evitarlo
-- Cómo funciona el JIT Compiler (Just In Time Compiler)
-- Sincronía y Asincronía de JavaScript
-- Qué es Memory Heap y Call Stack
-- Qué es un Stack overflow
-- Cómo funciona JavaScript Runtime
+-   Qué es un JavaScript Engine
+-   Qué es y cómo funciona V8
+-   Qué es el Entorno y Objeto Global
+-   Hoisting y cómo evitarlo
+-   Cómo funciona el JIT Compiler (Just In Time Compiler)
+-   Sincronía y Asincronía de JavaScript
+-   Qué es Memory Heap y Call Stack
+-   Qué es un Stack overflow
+-   Cómo funciona JavaScript Runtime
 
 ![](https://i.postimg.cc/L5pgfgVK/3-v8.png)
 
@@ -596,55 +594,55 @@ Aún con sus mejoras del lenguaje, la naturaleza de JS de solo poder procesar un
 
 1. ¿Qué es un stack overflow?
 
-   - 📌Es cuando tenemos más de las tareas de las que podemos procesar en el call stack.
+    - 📌Es cuando tenemos más de las tareas de las que podemos procesar en el call stack.
 
 2. El proceso de hoisting solo sucede con dos palabras reservadas de JavaScript, ¿Cuáles son?
 
-   - 📌var y function
+    - 📌var y function
 
 3. Al igual que window como objeto global, ¿Qué otro elemento se crea como referencia a este mismo objeto en el contexto global?
 
-   - 📌Se crea la variable this, que hace referencia al objeto global window
+    - 📌Se crea la variable this, que hace referencia al objeto global window
 
 4. ¿A qué nos referimos cuando decimos que JavaScript se comporta como "Asynchronous"?
 
-   - 📌A que hay ciertas funciones que nos ayudan a que JavaScript pueda trabajar tareas de forma simultánea.
+    - 📌A que hay ciertas funciones que nos ayudan a que JavaScript pueda trabajar tareas de forma simultánea.
 
-   Cuando decimos que JavaScript es "asynchronous" o asíncrono, nos referimos a que puede ejecutar tareas de forma simultánea sin bloquear el flujo de ejecución del programa. Esto es posible gracias al uso de callbacks, promesas y async/await, que permiten que las tareas se ejecuten en segundo plano mientras el programa continúa su ejecución.
+    Cuando decimos que JavaScript es "asynchronous" o asíncrono, nos referimos a que puede ejecutar tareas de forma simultánea sin bloquear el flujo de ejecución del programa. Esto es posible gracias al uso de callbacks, promesas y async/await, que permiten que las tareas se ejecuten en segundo plano mientras el programa continúa su ejecución.
 
-   Es importante destacar que la asincronía en JavaScript no implica necesariamente el uso de múltiples procesadores o la GPU, sino más bien la capacidad de ejecutar tareas en segundo plano y continuar con otras tareas mientras se espera a que se completen las tareas asincrónicas.
+    Es importante destacar que la asincronía en JavaScript no implica necesariamente el uso de múltiples procesadores o la GPU, sino más bien la capacidad de ejecutar tareas en segundo plano y continuar con otras tareas mientras se espera a que se completen las tareas asincrónicas.
 
 5. ¿Qué significa AST?
 
-   - 📌Abstract Syntax Tree
+    - 📌Abstract Syntax Tree
 
-   El AST (Abstract Syntax Tree) es una estructura de datos que representa la estructura sintáctica de un programa de computadora. El AST se construye a partir del código fuente y se utiliza en muchas herramientas de desarrollo de software, como compiladores, intérpretes, analizadores de código, editores de código y linters.
+    El AST (Abstract Syntax Tree) es una estructura de datos que representa la estructura sintáctica de un programa de computadora. El AST se construye a partir del código fuente y se utiliza en muchas herramientas de desarrollo de software, como compiladores, intérpretes, analizadores de código, editores de código y linters.
 
-   El AST es una representación abstracta del código fuente que se utiliza para analizar y manipular el programa en tiempo de compilación o en tiempo de ejecución. El AST está compuesto por nodos que representan las diferentes estructuras sintácticas del programa, como expresiones, declaraciones, bloques, entre otros. Cada nodo del AST puede tener cero o más nodos hijos, que representan las subestructuras sintácticas del programa.
+    El AST es una representación abstracta del código fuente que se utiliza para analizar y manipular el programa en tiempo de compilación o en tiempo de ejecución. El AST está compuesto por nodos que representan las diferentes estructuras sintácticas del programa, como expresiones, declaraciones, bloques, entre otros. Cada nodo del AST puede tener cero o más nodos hijos, que representan las subestructuras sintácticas del programa.
 
-   El AST es una herramienta fundamental en el análisis y manipulación de código fuente, ya que permite a los desarrolladores entender y modificar la estructura sintáctica del programa de forma programática.
+    El AST es una herramienta fundamental en el análisis y manipulación de código fuente, ya que permite a los desarrolladores entender y modificar la estructura sintáctica del programa de forma programática.
 
 6. ¿A qué nos referimos cuando decimos que JavaScript es "Synchronous"?
 
-   - 📌 Nos referimos a que JavaScript solo puede procesar una tarea a la vez.
+    - 📌 Nos referimos a que JavaScript solo puede procesar una tarea a la vez.
 
 7. ¿Qué navegador inventó V8 Engine?
 
-   - 📌 Chrome
+    - 📌 Chrome
 
 8. El motor de JavaScript V8 es lanzado en el 2008.
 
-   - 📌Verdadero
+    - 📌Verdadero
 
-   El motor de JavaScript V8 fue lanzado por primera vez en el año 2008 por Google. Fue diseñado para mejorar significativamente el rendimiento de JavaScript en el navegador y fue utilizado inicialmente en Google Chrome. Desde entonces, V8 ha sido adoptado por otros navegadores, como Opera y Microsoft Edge, y también se utiliza en servidores a través de Node.js.
+    El motor de JavaScript V8 fue lanzado por primera vez en el año 2008 por Google. Fue diseñado para mejorar significativamente el rendimiento de JavaScript en el navegador y fue utilizado inicialmente en Google Chrome. Desde entonces, V8 ha sido adoptado por otros navegadores, como Opera y Microsoft Edge, y también se utiliza en servidores a través de Node.js.
 
-   V8 es un motor de JavaScript de código abierto y es conocido por su rendimiento y eficiencia. Utiliza técnicas de compilación just-in-time (JIT) para compilar el código JavaScript en código nativo de la CPU, lo que reduce significativamente el tiempo de ejecución y mejora el rendimiento. Además, V8 utiliza técnicas avanzadas de gestión de memoria, como la recolección de basura incremental, para reducir el impacto de la gestión de memoria en el rendimiento del programa.
+    V8 es un motor de JavaScript de código abierto y es conocido por su rendimiento y eficiencia. Utiliza técnicas de compilación just-in-time (JIT) para compilar el código JavaScript en código nativo de la CPU, lo que reduce significativamente el tiempo de ejecución y mejora el rendimiento. Además, V8 utiliza técnicas avanzadas de gestión de memoria, como la recolección de basura incremental, para reducir el impacto de la gestión de memoria en el rendimiento del programa.
 
-   En resumen, V8 ha sido una contribución importante a la evolución de JavaScript y ha permitido que se utilice en una variedad de contextos, desde aplicaciones web hasta servidores.
+    En resumen, V8 ha sido una contribución importante a la evolución de JavaScript y ha permitido que se utilice en una variedad de contextos, desde aplicaciones web hasta servidores.
 
 9. ¿Cuál es el nombre del creador de JavaScript?
 
-   - 📌Brendan Eich
+    - 📌Brendan Eich
 
 10. ¿Qué función realiza el EventLoop?
 

@@ -5,6 +5,30 @@ function useLocalStorage(dbName, initialValue) {
     const [loading, setLoading] = React.useState(true);
     const [item, setItem] = React.useState(initialValue);
 
+    React.useEffect(() => {
+        setTimeout(() => {
+            getDataLocalStorage();
+        }, 1000);
+    }, [dbName, initialValue]);
+
+    const getDataLocalStorage = () => {
+        try {
+            setLoading(true);
+            const db_ls = localStorage.getItem(dbName);
+            if (!db_ls) {
+                saveItem(initialValue);
+            } else {
+                setItem(JSON.parse(db_ls));
+            }
+
+            setError(false);
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    // save in localStorage y items
     const saveItem = (array) => {
         try {
             localStorage.setItem(dbName, JSON.stringify(array));
@@ -13,27 +37,6 @@ function useLocalStorage(dbName, initialValue) {
             setError(error);
         }
     };
-
-    React.useEffect(() => {
-        const getDataLocalStorage = () => {
-            try {
-                const db_ls = localStorage.getItem(dbName);
-                if (!db_ls) {
-                    saveItem(initialValue);
-                } else {
-                    setItem(JSON.parse(db_ls));
-                }
-                setLoading(false);
-                setError(false);
-            } catch (error) {
-                setError(error);
-            }
-        };
-
-        setTimeout(() => {
-            getDataLocalStorage();
-        }, 1000);
-    }, [dbName, initialValue]);
 
     return { loading, error, item, saveItem };
 }
