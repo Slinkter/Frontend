@@ -1,20 +1,16 @@
 /* al menos 1 cumple con la condicion es TRUE sino FALSE */
 const numbers = [1, 2, 3, 4, 5];
 
-// Devuelve true porque al menos uno de los elementos del array es mayor que 3
-numbers.some((number) => number > 3);
+console.log(numbers.some((number) => number > 3)); // Devuelve true porque al menos uno de los elementos del array es mayor que 3
 
-// Devuelve false porque todos los elementos del array son menores o iguales que 3
-numbers.some((number) => number > 5);
+console.log(numbers.some((number) => number > 5)); // Devuelve false porque todos los elementos del array son menores o iguales que 3
 
+console.log(numbers.some((number) => number > 3, 0));
 // Devuelve true porque el primer elemento del array es mayor que 3
-numbers.some((number) => number > 3, 0);
 
-// Devuelve false porque el primer elemento del array es menor o igual que 3
-numbers.some((number) => number > 5, 0);
+numbers.some((number) => number > 5, 0); // Devuelve false porque el primer elemento del array es menor o igual que 3
 
-// Devuelve true porque al menos uno de los elementos del array es un número par
-numbers.some((number) => number % 2 === 0);
+numbers.some((number) => number % 2 === 0); // Devuelve true porque al menos uno de los elementos del array es un número par
 
 // Devuelve false porque todos los elementos del array son números impares
 numbers.some((number) => number % 2 === 0);
@@ -44,31 +40,31 @@ const rta2 = numbers.some((item) => item % 2 === 0);
 console.log("rta2", rta2);
 
 const orders = [
-  {
-    customerName: "Nicolas",
-    total: 60,
-    delivered: true,
-  },
-  {
-    customerName: "Zulema",
-    total: 120,
-    delivered: false,
-  },
-  {
-    customerName: "Santiago",
-    total: 180,
-    delivered: true,
-  },
-  {
-    customerName: "Valentina",
-    total: 240,
-    delivered: true,
-  },
-  {
-    customerName: "Nicolas",
-    total: 2322,
-    delivered: false,
-  },
+    {
+        customerName: "Nicolas",
+        total: 60,
+        delivered: true,
+    },
+    {
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
+    },
+    {
+        customerName: "Santiago",
+        total: 180,
+        delivered: true,
+    },
+    {
+        customerName: "Valentina",
+        total: 240,
+        delivered: true,
+    },
+    {
+        customerName: "Nicolas",
+        total: 2322,
+        delivered: false,
+    },
 ];
 
 const rta3 = orders.some((item) => item.delivered);
