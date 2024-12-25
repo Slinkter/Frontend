@@ -11,6 +11,7 @@ function useLocalStorage(dbName, initialValue) {
         const fetchData = async () => {
             try {
                 const data = localStorage.getItem(dbName);
+
                 if (!data) {
                     localStorage.setItem(dbName, JSON.stringify(initialValue));
                 }

@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 // --> context
 import { AuthProvider, AuthRoute } from "./provider/auth";
-// AuthProvider, AuthRoute, useAuth;
+
 // ---> Page
 import Menu from "./Page/Menu";
 import BlogPage from "./Page/BlogPage";
