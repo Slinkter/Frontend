@@ -4,16 +4,14 @@ import blogdata from "../db/datablog";
 import { useAuth } from "../provider/auth";
 
 const BlogPost = () => {
-    const { slug } = useParams();
-    console.log("slug : /", slug);
-    const navigate = useNavigate();
     const auth = useAuth();
+    const navigate = useNavigate();
+    const { slug } = useParams();
     //
     const blogpost = blogdata.find((post) => post.slug === slug);
-    //
     const canDelete =
         auth.user?.isAdmin || blogpost.author === auth.user?.username;
-
+    console.log("slug : /", slug);
     return (
         <div className="container">
             <hr />

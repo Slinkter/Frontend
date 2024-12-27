@@ -1,8 +1,6 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-// --> context
 import { AuthProvider, AuthRoute } from "./provider/auth";
-
 // ---> Page
 import Menu from "./Page/Menu";
 import BlogPage from "./Page/BlogPage";
@@ -20,12 +18,13 @@ import ProfilePage from "./Page/ProfilePage";
 
 HashRouter:
 
-Aplicaciones alojadas en servidores antiguos: Si tu aplicación se va a desplegar en un servidor con una configuración antigua, es posible que no tenga habilitado el History API.
+Aplicaciones alojadas en servidores antiguos:
+Si tu aplicación se va a desplegar en un servidor con una configuración antigua, 
+es posible que no tenga habilitado el History API.
 
 ¿Qué es el History API?
 
 El History API es una interfaz del navegador que permite manipular el historial de navegación de una manera más flexible
-
 Si tu servidor soporta el History API: Utiliza BrowserRouter.
 Si tu servidor no soporta el History API: Utiliza HashRouter.
 

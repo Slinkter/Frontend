@@ -13,8 +13,8 @@ import { TodosLoading } from "../../ui/TodosLoading";
 import { useTodos } from "../useTodos";
 
 function HomePage() {
-    const { state, stateUpdaters } = useTodos();
     const navigate = useNavigate();
+    const { state, stateUpdaters } = useTodos();
 
     const {
         error,
