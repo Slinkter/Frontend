@@ -6,10 +6,8 @@
 
 #### 1. Requisitos iniciales
 
--   git clone git@github.com:platzi/curso-manipulacion-de-arrays.git
--   cd curso-manipulacion-de-arrays
+-   mkdir curso-arrays && cd curso-arrays
 -   npm install
-    -   Vemos algunas vulnerabilidades incluso criticas
 -   npm update
 -   npm audit
 -   npm list
@@ -18,10 +16,6 @@
     -   found 0 vulnerabilities
 
 ### 2. ForEach
-
-Live server, una extensión de vsc que solo haciendo clic de derecho sobre el html podemos correrlo en el navegador.
-
-#### Código de la clase
 
 Ejemplo 01:
 
