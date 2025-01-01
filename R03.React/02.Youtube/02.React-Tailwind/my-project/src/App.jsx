@@ -8,10 +8,10 @@ const App = () => {
     return (
         <>
             <MainApp />
-            {/* <Columns /> */}
-            {/* <Cube /> */}
-            {/* <Page /> */}
-            {/* <System /> */}
+            <Columns />
+            <Cube />
+            <Page />
+            <System />
         </>
     );
 };
