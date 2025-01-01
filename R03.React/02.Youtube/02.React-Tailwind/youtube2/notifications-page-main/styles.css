@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: hsl(1, 90%, 64%);
+    --blue: hsl(219, 85%, 26%);
+
+    /* Neutral */
+    --white: hsl(0, 0%, 100%);
+    --very-light-grayish-blue: hsl(210, 60%, 98%);
+    --light-grayish-blue-1: hsl(211, 68%, 94%);
+    --light-grayish-blue-2: hsl(205, 33%, 90%);
+    --grayish-blue: hsl(219, 14%, 63%);
+    --dark-grayish-blue: hsl(219, 12%, 42%);
+    --very-dark-blue: hsl(224, 21%, 14%);
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url(./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+body {
+    font-family: "Plus Jakarta Sans";
+    background-color: cadetblue;
+}
+
+.main {
+    padding: 24px 16px;
+    border: 1px solid red;
+}
+
+.notifications {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    & .title {
+        color: var(--very-dark-blue);
+        font-weight: 800;
+        font-size: 1.25em;
+        word-spacing: 9px;
+    }
+
+    & .number {
+        display: inline-block;
+        background: var(--blue);
+        color: var(--white);
+        width: 32px;
+        height: 25px;
+        text-align: center;
+        border-radius: 6px;
+    }
+    & .mark {
+        color: var(--dark-grayish-blue);
+        font-size: 0.875em; /* 14px/16px = 0.875rem */
+        font-weight: 500;
+        cursor: pointer;
+        &:hover {
+            color: var(--blue);
+        }
+    }
+}
+
+.post {
+    border-radius: 8px;
+    background-color: var(--very-light-grayish-blue);
+    display: flex;
+    gap: 13px;
+    padding: 16px;
+    font-size: 0.875em;
+    cursor: pointer;
+    color: var(--dark-grayish-blue);
+    & .image {
+        width: 39px;
+        height: 39px;
+    }
+    & .name {
+        font-weight: bold;
+        color: var(--very-dark-blue);
+        &:hover {
+            color: var(--blue);
+        }
+    }
+    & .reaction {
+        font-weight: bold;
+        &:hover {
+            color: var(--blue);
+        }
+    }
+}
+
+.not-read {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    background-color: var(--red);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
