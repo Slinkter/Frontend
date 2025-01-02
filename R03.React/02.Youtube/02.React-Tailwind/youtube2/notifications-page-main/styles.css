@@ -25,12 +25,10 @@
 
 body {
     font-family: "Plus Jakarta Sans";
-    background-color: cadetblue;
 }
 
 .main {
     padding: 24px 16px;
-    border: 1px solid red;
 }
 
 .notifications {
@@ -66,13 +64,17 @@ body {
 }
 
 .post {
-    border-radius: 8px;
     background-color: var(--very-light-grayish-blue);
+    border-radius: 8px;
     display: flex;
     gap: 13px;
+    min-width: 343px;
+    position: relative;
     padding: 16px;
     font-size: 0.875em;
     cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 10px;
     color: var(--dark-grayish-blue);
     & .image {
         width: 39px;
@@ -87,9 +89,16 @@ body {
     }
     & .reaction {
         font-weight: bold;
+
         &:hover {
-            color: var(--blue);
+            color: var(--very-dark-blue);
         }
+    }
+
+    & .time {
+        color: var(--blue);
+        font-size: 0.875em;
+        font-weight: 500;
     }
 }
 
@@ -102,10 +111,39 @@ body {
     background-color: var(--red);
 }
 
+.message-container {
+    border: 1px solid var(--light-grayish-blue-2);
+    border-radius: 5px;
+    padding: 16px;
+    margin-top: 12px;
+    &:hover {
+        background-color: var(--light-grayish-blue-1);
+    }
+    & .message {
+    }
+    & .picture {
+        width: 39px;
+        height: 39px;
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
 .attribution {
     font-size: 11px;
     text-align: center;
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 768px) {
+    .main {
+        width: 730px;
+        margin: 0 auto;
+    }
+    .post {
+        font-size: 1em;
+    }
 }

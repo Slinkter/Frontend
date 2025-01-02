@@ -1,5 +1,8 @@
 # Hello SQL
 
+postgresql :
+password : luis
+
 **Este es el curso completo en [vídeo](https://youtu.be/OuJerKzV5T0) de 7 horas en YouTube asociado al código de este repositorio.**
 
 ## Lecciones y código

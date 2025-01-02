@@ -1,0 +1,106 @@
+-- SQLBook: Code
+-- Active: 1735775193333@@127.0.0.1@5432@postgres
+SELECT * from clientes;
+-- SQLBook: Code
+CREATE DATABASE test;
+
+CREATE DATABASE test2;
+-- SQLBook: Markup
+### conexion
+
+psql -U postgres -h 127.0.0.1 -p 5432 -d test  
+Password for user postgres:
+psql (17.2)
+Type "help" for help.
+
+test=#
+
+-- SQLBook: Markup
+## change db
+
+postgres=# \l
+List of databases
+Name | Owner | Encoding | Locale Provider | Collate | Ctype | Locale | ICU Rules | Access privileges  
+-----------+----------+----------+-----------------+---------+-------+--------+-----------+-----------------------
+postgres | postgres | UTF8 | libc | C | C | | |
+template0 | postgres | UTF8 | libc | C | C | | | =c/postgres +
+| | | | | | | | postgres=CTc/postgres
+template1 | postgres | UTF8 | libc | C | C | | | =c/postgres +
+| | | | | | | | postgres=CTc/postgres
+test | postgres | UTF8 | libc | C | C | | |
+test2 | postgres | UTF8 | libc | C | C | | |
+(5 rows)
+
+postgres=# \c test2
+You are now connected to database "test2" as user "postgres".
+test2=#
+
+-- SQLBook: Code
+
+-- SQLBook: Markup
+# A Very Dangerous Command
+
+''' [sql]
+CREATE DATABASE test;
+DROP DATABASE test;
+'''
+
+-- SQLBook: Code
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE
+    pg_stat_activity.datname = 'test2'
+    AND pid <> pg_backend_pid();
+-- SQLBook: Code
+CREATE DATABASE test;
+
+DROP DATABASE test2;
+-- SQLBook: Markup
+### Create Tables
+
+-- SQLBook: Markup
+export PGPASSWORD='luis' && psql -U postgres -h 127.0.0.1 -p 5432 -d test
+psql (17.2)
+Type "help" for help.
+
+test=#
+
+-- SQLBook: Markup
+## Creating tables withut constraints
+
+-- SQLBook: Code
+-- Active: 1735775193333@@127.0.0.1@5432@test
+CREATE TABLE person (
+    id int,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    gender VARCHAR(7),
+    data_of_birth DATE
+)
+
+
+-- SQLBook: Code
+test=# \d
+         List of relations
+ Schema |  Name  | Type  |  Owner   
+--------+--------+-------+----------
+ public | person | table | postgres
+(1 row)
+
+test=# \d person
+                         Table "public.person"
+    Column     |         Type          | Collation | Nullable | Default 
+---------------+-----------------------+-----------+----------+---------
+ id            | integer               |           |          | 
+ first_name    | character varying(50) |           |          | 
+ last_name     | character varying(50) |           |          | 
+ gender        | character varying(7)  |           |          | 
+ data_of_birth | date                  |           |          | 
+
+test=# 
+-- SQLBook: Markup
+### Creating tables with constraints 
+
+-- SQLBook: Code
+###
+-- SQLBook: Code
