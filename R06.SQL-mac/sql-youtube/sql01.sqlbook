@@ -5,7 +5,7 @@ SELECT * from clientes;
 CREATE DATABASE test;
 
 CREATE DATABASE test2;
--- SQLBook: Markup
+-- SQLBook: Code
 ### conexion
 
 psql -U postgres -h 127.0.0.1 -p 5432 -d test  
@@ -20,30 +20,26 @@ test=#
 
 postgres=# \l
 List of databases
-Name | Owner | Encoding | Locale Provider | Collate | Ctype | Locale | ICU Rules | Access privileges  
------------+----------+----------+-----------------+---------+-------+--------+-----------+-----------------------
-postgres | postgres | UTF8 | libc | C | C | | |
-template0 | postgres | UTF8 | libc | C | C | | | =c/postgres +
-| | | | | | | | postgres=CTc/postgres
-template1 | postgres | UTF8 | libc | C | C | | | =c/postgres +
-| | | | | | | | postgres=CTc/postgres
-test | postgres | UTF8 | libc | C | C | | |
-test2 | postgres | UTF8 | libc | C | C | | |
 (5 rows)
 
 postgres=# \c test2
 You are now connected to database "test2" as user "postgres".
 test2=#
 
+``` sql  
+CREATE DATABASE test;
+DROP DATABASE test;
+```
 -- SQLBook: Code
 
 -- SQLBook: Markup
 # A Very Dangerous Command
 
-''' [sql]
-CREATE DATABASE test;
-DROP DATABASE test;
-'''
+``` sql
+
+```
+
+
 
 -- SQLBook: Code
 SELECT pg_terminate_backend(pg_stat_activity.pid)
