@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
-const ScrollIndicator = ({ url }) => {
+const url = "https://dummyjson.com/products?limit=100";
+
+const ScrollIndicator = () => {
     const [loading, setLoading] = useState(true); // boolean
     const [errorMessage, setErrorMessage] = useState(""); // string
     const [data, setData] = useState([]); // array
