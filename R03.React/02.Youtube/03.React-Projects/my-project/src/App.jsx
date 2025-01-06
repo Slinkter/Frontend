@@ -18,15 +18,18 @@ import TreeView from "./components/tree-view";
 import UseFetchHookTest from "./components/use-fetch/UseFetchHookTest";
 import UseWindowsResizeTest from "./components/use-window-resize/test";
 import menus from "./components/tree-view/data";
-import RandomColorLuis from "./componentsLuis/RandomColorLuis";
+import RandomColorLuis from "./componentsLuis/random-color/RandomColorLuis";
+import ImageSliderLuis from "./componentsLuis/ImageSlider/ImageSliderLuis";
 
 const App = () => {
     return (
         <>
-            {/* Profesor */}
-            {/* <RandomColor /> */}
-            {/*      <ImageSlider />
             <LoadMoreData />
+            {/* -----> Profesor <----- */}
+            {/* <RandomColor /> */}
+            {/* <ImageSlider /> */}
+            {/* 
+           
             <LigthDarkMode />
             <ScrollIndicator />
             <TabTest />
@@ -41,8 +44,10 @@ const App = () => {
             {/* <TicTacToe /> */}
             {/* <UseWindowsResizeTest /> */}
             {/* <QrGenerator /> */}
-            {/* Luis */}
-            <RandomColorLuis />
+            {/* -----> Luis <----- */}
+            {/*     <RandomColorLuis /> */}
+
+            {/*   <ImageSliderLuis /> */}
         </>
     );
 };
