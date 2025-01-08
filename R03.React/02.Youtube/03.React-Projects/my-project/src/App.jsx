@@ -20,6 +20,7 @@ import UseWindowsResizeTest from "./components/use-window-resize/test";
 import menus from "./components/tree-view/data";
 import RandomColorLuis from "./componentsLuis/random-color/RandomColorLuis";
 import ImageSliderLuis from "./componentsLuis/ImageSlider/ImageSliderLuis";
+import LoadMoreDataLuis from "./componentsLuis/LoadMoreDataLuis/LoadMoreDataLuis";
 
 const App = () => {
     return (
@@ -46,8 +47,8 @@ const App = () => {
             {/* <QrGenerator /> */}
             {/* -----> Luis <----- */}
             {/*     <RandomColorLuis /> */}
-
             {/*   <ImageSliderLuis /> */}
+            <LoadMoreDataLuis />
         </>
     );
 };

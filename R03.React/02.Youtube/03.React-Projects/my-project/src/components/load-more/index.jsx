@@ -1,12 +1,12 @@
-import { useEffect } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import "./style.css";
 
 const LoadMoreData = () => {
-    const [loading, setLoading] = useState(false); // boolean
-    const [count, setCount] = useState(0); // number
-    const [products, setProducts] = useState([]); // array
-    const [disableButton, setDisableButton] = useState(false); // boolean
+    const [loading, setLoading] = useState(false);
+    const [count, setCount] = useState(0);
+    const [products, setProducts] = useState([]);
+    const [disableButton, setDisableButton] = useState(false);
 
     async function fetchProducts() {
         setLoading(true);
@@ -16,9 +16,9 @@ const LoadMoreData = () => {
             //
             const res = await fetch(url_api);
             const data = await res.json();
-            //
             if (data && data.products && data.products.length) {
-                setProducts((prevData) => [...prevData, ...data.products]);
+                const state = (prevData) => [...prevData, ...data.products];
+                setProducts(state);
                 setLoading(false);
             }
         } catch (error) {
