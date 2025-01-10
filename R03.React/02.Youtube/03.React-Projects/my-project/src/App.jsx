@@ -21,20 +21,22 @@ import menus from "./components/tree-view/data";
 import RandomColorLuis from "./componentsLuis/random-color/RandomColorLuis";
 import ImageSliderLuis from "./componentsLuis/ImageSlider/ImageSliderLuis";
 import LoadMoreDataLuis from "./componentsLuis/LoadMoreDataLuis/LoadMoreDataLuis";
+import ScrollIndicatorLuis from "./componentsLuis/ScrollIndicatorLuis/ScrollIndicatorLuis";
 
 const App = () => {
     return (
         <>
-            <LoadMoreData />
+            <TabTest />
             {/* -----> Profesor <----- */}
             {/* <RandomColor /> */}
             {/* <ImageSlider /> */}
+            {/* <LoadMoreData /> */}
+            {/* <ScrollIndicator /> */}
+
             {/* 
-           
-            <LigthDarkMode />
-            <ScrollIndicator />
-            <TabTest />
             <ModalTest /> */}
+
+            {/* <LigthDarkMode /> */}
             {/* <GithubProfileFinder /> */}
             {/* <SearchAutoComplete /> */}
             {/* <UseFetchHookTest /> */}
@@ -46,9 +48,10 @@ const App = () => {
             {/* <UseWindowsResizeTest /> */}
             {/* <QrGenerator /> */}
             {/* -----> Luis <----- */}
-            {/*     <RandomColorLuis /> */}
-            {/*   <ImageSliderLuis /> */}
-            <LoadMoreDataLuis />
+            {/*  <RandomColorLuis /> */}
+            {/*  <ImageSliderLuis /> */}
+            {/*  <LoadMoreDataLuis /> */}
+            {/*   <ScrollIndicatorLuis /> */}
         </>
     );
 };

@@ -4,10 +4,23 @@ import "./style.css";
 const url = "https://dummyjson.com/products?limit=100";
 
 const ScrollIndicator = () => {
+    //
     const [loading, setLoading] = useState(true); // boolean
     const [errorMessage, setErrorMessage] = useState(""); // string
     const [data, setData] = useState([]); // array
     const [scrollPercentage, setScrollPercentage] = useState(0); // number
+    //
+
+    useEffect(() => {
+        fetchData(url);
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScrollPercentage);
+        return () => {
+            window.removeEventListener("scroll", handleScrollPercentage);
+        };
+    }, []);
 
     async function fetchData(getUrl) {
         try {
@@ -15,10 +28,10 @@ const ScrollIndicator = () => {
             const res = await fetch(getUrl);
             const data = await res.json();
             //
-            if (data && data.products && data.products.length > 0) {
+            if (data && data.products) {
                 setData(data.products.slice(0, 100));
-                setLoading(false);
             }
+            setLoading(false);
         } catch (error) {
             console.log(error);
             setErrorMessage(error.message);
@@ -27,55 +40,43 @@ const ScrollIndicator = () => {
 
     function handleScrollPercentage() {
         //
-        const a = window.document.documentElement.scrollTop; // element scrolled : valor varbile = [0 , 4249]
-        const b = window.document.documentElement.clientHeight; // altura de la ventana  de navegador valor fijo = 909
-        const c = window.document.documentElement.scrollHeight; // altura total de html generado valor fijo = 5158
         // 5158 - 909 = 4249
         // inicio =  (0 / (5158-909)*100)
         // fin = (4249/(5158-909)*100)
+        const a = window.document.documentElement.scrollTop; //  [0 , 4249]
+        const b = window.document.documentElement.clientHeight; // h de windows = 909
+        const c = window.document.documentElement.scrollHeight; // h de html  = 5158
         const percent = (a / (c - b)) * 100;
         setScrollPercentage(percent);
-        console.log(a, b, c);
     }
 
-    useEffect(() => {
-        fetchData(url);
-    }, [url]);
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScrollPercentage);
-        return () => {
-            window.removeEventListener("scroll", () => {});
-        };
-    }, []);
-
-    if (errorMessage) {
-        return <div>Error!</div>;
-    }
     if (loading) {
         return <div>loading data ! please wait</div>;
     }
+    if (errorMessage) {
+        return <div>Error: {errorMessage}</div>;
+    }
 
     return (
-        <>
-            <div className="top-container">
-                <h1>Curstom Scrool Indicator</h1>
-                <div className="scroll-progress-tracking-container">
-                    <div
+        <div className="container-scroll2">
+            <div className="navbar">
+                <h1>Custom Scroll Indicator</h1>
+                <div className="scroll-progress">
+                    <p
                         className="current-progress-bar"
-                        style={{ width: ` ${scrollPercentage}%` }}
-                    ></div>
+                        style={{ width: `${scrollPercentage}%` }}
+                    ></p>
                 </div>
             </div>
 
             <div className="data-container">
                 {data && data.length > 0
-                    ? data.map((item) => {
-                          return <span key={item.id}>{item.title}</span>;
-                      })
+                    ? data.map((item) => (
+                          <span key={item.id}>{item.title}</span>
+                      ))
                     : null}
             </div>
-        </>
+        </div>
     );
 };
 

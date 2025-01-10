@@ -4,14 +4,14 @@ import { useState } from "react";
 const Tabs = ({ tabsContent = [], onChange }) => {
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
     /*  */
-    function handleOnClick(getcurrentIndex) {
-        setCurrentTabIndex(getcurrentIndex);
-        onChange(getcurrentIndex);
+    function handleOnClick(index) {
+        setCurrentTabIndex(index);
+        onChange(index);
     }
 
     /*  */
     return (
-        <div className="wrapper">
+        <div className="wrapper-tab">
             <div className="heading">
                 {tabsContent &&
                     tabsContent.map((tabItem, index) => (
@@ -19,7 +19,7 @@ const Tabs = ({ tabsContent = [], onChange }) => {
                             key={index}
                             onClick={() => handleOnClick(index)}
                             className={`tab-item ${
-                                currentTabIndex === index ? "active" : ""
+                                currentTabIndex === index && "active"
                             }`}
                         >
                             <span className="label">{tabItem.label}</span>
