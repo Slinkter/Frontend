@@ -1,66 +1,55 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import QRCode from "react-qr-code";
 
-const QrGenerator = () => {
-    // hooks
+const styles = {
+    container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        border: "10px solid gray",
+    },
+    header: {
+        marginBottom: "20px",
+    },
+    inputContainer: {
+        marginBottom: "20px",
+    },
+    qrCode: {
+        border: "1px solid red",
+    },
+};
 
+const QrGenerator = () => {
     const [input, setInput] = useState("");
     const [qrCode, setQrCode] = useState("");
 
-    function handleGenerateQRCode() {
+    const handleGenerateQRCode = () => {
         setQrCode(input);
         setInput("");
-    }
-    /* render */
-    return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100vh",
+    };
 
-                border: "10px solid gray",
-            }}
-        >
-            <h1
-                style={{
-                    marginBottom: "20px",
-                }}
-            >
-                {" "}
-                QR code Generator{" "}
-            </h1>
-            <div
-                style={{
-                    marginBottom: "20px",
-                }}
-            >
+    return (
+        <div style={styles.container}>
+            <h1 style={styles.header}>QR code Generator</h1>
+            <div style={styles.inputContainer}>
                 <input
                     type="text"
-                    placeholder="enter your value here"
-                    name="qr-code"
-                    value={input}
+                    placeholder="Enter your value here"
                     onChange={(e) => setInput(e.target.value)}
+                    value={input}
                 />
-                {/* false : se deactiva */}
-                <button
-                    disabled={input && input.trim() !== "" ? false : true}
-                    onClick={handleGenerateQRCode}
-                >
+                <button onClick={handleGenerateQRCode} disabled={!input.trim()}>
                     Generate
                 </button>
             </div>
             <div>
                 <QRCode
-                    id="qr-code-value"
                     value={qrCode}
                     size={400}
                     bgColor="#fff"
-                    style={{
-                        border: "1px solid red",
-                    }}
+                    style={styles.qrCode}
                 />
             </div>
         </div>

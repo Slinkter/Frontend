@@ -22,36 +22,40 @@ import RandomColorLuis from "./componentsLuis/random-color/RandomColorLuis";
 import ImageSliderLuis from "./componentsLuis/ImageSlider/ImageSliderLuis";
 import LoadMoreDataLuis from "./componentsLuis/LoadMoreDataLuis/LoadMoreDataLuis";
 import ScrollIndicatorLuis from "./componentsLuis/ScrollIndicatorLuis/ScrollIndicatorLuis";
+import CustomTab from "./componentsLuis/customTab/CustomTab";
+import ModalCustom from "./componentsLuis/ModalCustom/ModalCustom";
+import SearchName from "./componentsLuis/SearchName/SearchName";
 
 const App = () => {
     return (
         <>
-            <TabTest />
             {/* -----> Profesor <----- */}
-            {/* <RandomColor /> */}
+            {/*   <Accordian /> */}
+            {/*  <GithubProfileFinder /> */}
             {/* <ImageSlider /> */}
-            {/* <LoadMoreData /> */}
-            {/* <ScrollIndicator /> */}
-
-            {/* 
-            <ModalTest /> */}
-
             {/* <LigthDarkMode /> */}
-            {/* <GithubProfileFinder /> */}
-            {/* <SearchAutoComplete /> */}
-            {/* <UseFetchHookTest /> */}
-            {/* <ScrollToTopAndBottm /> */}
-            {/* <ScrollToSection /> */}
-            {/* <StarRating noOfStarts={10} /> */}
-            {/* <TreeView menus={menus} /> */}
-            {/* <TicTacToe /> */}
-            {/* <UseWindowsResizeTest /> */}
+            {/* <LoadMoreData /> */}
+            {/* <ModalTest /> */}
             {/* <QrGenerator /> */}
+            {/*   <RandomColor /> */}
+            {/* <SearchAutoComplete /> */}
+            {/* <ScrollIndicator /> */}
+            {/* <ScrollToSection /> */}
+            {/*   <ScrollToTopAndBottm /> */}
+            {/*  <StarRating /> */}
+            {/* <TabTest /> */}
+            {/* <TicTacToe /> */}
+            {/*    <UseFetchHookTest /> */}
+            {/*   <UseWindowsResizeTest /> */}
+
             {/* -----> Luis <----- */}
-            {/*  <RandomColorLuis /> */}
-            {/*  <ImageSliderLuis /> */}
-            {/*  <LoadMoreDataLuis /> */}
-            {/*   <ScrollIndicatorLuis /> */}
+            {/* <CustomTab /> */}
+            {/* <ImageSliderLuis /> */}
+            {/* <LoadMoreDataLuis /> */}
+            {/* <ModalCustom /> */}
+            {/* <RandomColorLuis /> */}
+            {/* <ScrollIndicatorLuis /> */}
+            {/*    <SearchName /> */}
         </>
     );
 };

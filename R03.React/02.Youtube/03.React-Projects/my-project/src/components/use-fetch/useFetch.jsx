@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 
 const useFetch = (url, options = {}) => {
     //-->
-    const [data, setData] = useState(null);
-    const [pending, setPending] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(false);
+    const [pending, setPending] = useState(true);
+    const [data, setData] = useState([]);
     //-->
     async function fetchData() {
         try {
             setPending(true);
-            /*  */
             const res = await fetch(url, { ...options });
             const data = await res.json();
             /*  */
@@ -19,8 +18,9 @@ const useFetch = (url, options = {}) => {
             setPending(false);
         } catch (error) {
             setError(error);
+            setData([]);
+        } finally {
             setPending(false);
-            setData(null);
         }
     }
 

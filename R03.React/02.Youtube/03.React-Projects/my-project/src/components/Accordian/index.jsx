@@ -1,68 +1,55 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import data from "./data";
 import "./style.css";
 
 const Accordian = () => {
-  const [select, setSelect] = useState(null);
-  const [enableMultiSelection, setEnableMultiSelection] = useState(false);
-  const [multiple, setMultiple] = useState([]);
+    const [enableMultiSelection, setEnableMultiSelection] = useState(false);
+    const [select, setSelect] = useState(null);
+    const [multiple, setMultiple] = useState([]);
 
-  const handleSingleSelection = (id) => {
-    setSelect(id === select ? null : id);
-  };
+    const handleSelection = (id) => {
+        if (enableMultiSelection) {
+            setMultiple((prev) =>
+                prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+            );
+        } else {
+            setSelect((prev) => (prev === id ? null : id));
+        }
+    };
 
-  const handleMultiSelection = (getCurrentID) => {
-    let cpyMultiple = [...multiple];
-    const findIndexOfCurrentId = cpyMultiple.indexOf(getCurrentID);
+    const isItemSelected = (id) => {
+        return enableMultiSelection ? multiple.includes(id) : select === id;
+    };
 
-    if (findIndexOfCurrentId === -1) {
-      cpyMultiple.push(getCurrentID);
-    } else {
-      cpyMultiple.splice(findIndexOfCurrentId, 1);
-    }
-    setMultiple(cpyMultiple);
-  };
-
-  console.log(select, multiple);
-
-  return (
-    <div className="wrapper">
-      {/*  */}
-      <button onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
-        Enable multiSelection
-      </button>
-      {/*  */}
-      <div className="accordian">
-        {data && data.length > 0 ? (
-          data.map((item) => (
-            <div className="item" key={item.id}>
-              <div
-                onClick={
-                  enableMultiSelection
-                    ? () => handleMultiSelection(item.id)
-                    : () => handleSingleSelection(item.id)
-                }
-                className="title "
-              >
-                <h3>{item.question}</h3>
-                <span>+ </span>
-              </div>
-              {/* render answer */}
-              {enableMultiSelection
-                ? multiple.indexOf(item.id) !== -1 && (
-                    <div className="content">{item.answer} </div>
-                  )
-                : select === item.id && (
-                    <div className="content">{item.answer} </div>
-                  )}
+    return (
+        <div className="wrapper">
+            <button onClick={() => setEnableMultiSelection((prev) => !prev)}>
+                {enableMultiSelection
+                    ? "Disenable multiSelection"
+                    : "Enable multiSelection"}
+            </button>
+            <div className="accordian">
+                {data ? (
+                    data.map((item) => (
+                        <div className="item" key={item.id}>
+                            <div
+                                className="title"
+                                onClick={() => handleSelection(item.id)}
+                            >
+                                <span>{item.question} </span>
+                                <span>+</span>
+                            </div>
+                            {isItemSelected(item.id) && (
+                                <div className="content">{item.answer}</div>
+                            )}
+                        </div>
+                    ))
+                ) : (
+                    <div>no data found!</div>
+                )}
             </div>
-          ))
-        ) : (
-          <div> no data found !</div>
-        )}
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Accordian;

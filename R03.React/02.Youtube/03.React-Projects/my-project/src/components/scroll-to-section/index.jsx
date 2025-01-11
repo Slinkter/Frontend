@@ -1,39 +1,44 @@
 import { useRef } from "react";
 import data from "./db";
 
+const divStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    maxWidth: "800px",
+};
+
 const ScrollToSection = () => {
-    const ref = useRef(null);
+    const refDiv = useRef(null);
 
-    function handleScrollToSection() {
-        let position = null;
-        position = ref.current.getBoundingClientRect().top;
-        window.scrollTo({ top: position, behavior: "smooth" });
-        console.log("handleScrool : ", position);
-    }
-
-    const divstyle = {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        maxWidth: "800px",
+    // Function to handle scrolling to the specific section
+    const handleScrollToSection = () => {
+        const top = refDiv.current.getBoundingClientRect().top;
+        const pos = top;
+        window.scrollTo({ top: pos, behavior: "smooth" });
+        console.log("pos: ", pos);
     };
 
+    console.log(refDiv);
+
     return (
-        <div className="" style={divstyle}>
-            <h1>Scroll to a particular section</h1>
-            <button onClick={handleScrollToSection}> click to scrooll</button>
-            {data &&
-                data.length &&
-                data.map((item, index) => (
+        <div style={divStyle}>
+            <div style={{ width: "80vw" }}>
+                <h1>Scroll to a particular section</h1>
+                <button onClick={handleScrollToSection}>Click to scroll</button>
+            </div>
+            <div style={{ width: "80vw" }}>
+                {data?.map((item, index) => (
                     <div
                         key={item.label}
                         style={item.style}
-                        ref={index === 4 ? ref : null}
+                        ref={index === 4 ? refDiv : null}
                     >
-                        <h3>{item.label} </h3>
+                        <h3>{item.label}</h3>
                     </div>
                 ))}
+            </div>
         </div>
     );
 };

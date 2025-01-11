@@ -1,0 +1,17 @@
+.container-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    background: #0ea7e1;
+}
+input {
+    width: 300px;
+    border: none;
+    border: 1px solid black;
+}
+
+.list-search {
+    transition: all 1.3s ease-in-out;
+}

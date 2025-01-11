@@ -1,37 +1,36 @@
 import React, { useEffect, useState } from "react";
 import Suggestions from "./suggesstion";
 import "./index.css";
-
+/*  */
+const url = "https://dummyjson.com/users";
+/*  */
 const SearchAutoComplete = () => {
     const [loading, setloading] = useState(false);
     const [error, setError] = useState(null);
-
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
-
     const [searchParam, setSearchParam] = useState("");
     const [showDropDown, setShowDropDown] = useState(false);
 
     async function fetchListOfUsers() {
         try {
             setloading(true);
-            const url = "https://dummyjson.com/users";
             //
             const res = await fetch(url);
             const data = await res.json();
             // -->
             if (data && data.users && data.users.length) {
-                const names = data.users.map((user) => user.firstName);
-
+                const names = [...data.users.map((user) => user.firstName)];
                 setFilteredUsers(names);
                 setUsers(names);
-                setloading(false);
-                setError(null);
                 setShowDropDown(true);
             }
         } catch (error) {
             setloading(false);
             setError(error);
+        } finally {
+            setloading(false);
+            setError(null);
         }
     }
 
@@ -40,14 +39,11 @@ const SearchAutoComplete = () => {
         setSearchParam(inputName);
         // -->
         if (!inputName) {
-            setFilteredUsers(users); // show list orignal
+            setFilteredUsers(users); // show original list
         } else {
-            const filteredData =
-                users && users.length
-                    ? users.filter((user) =>
-                          user.toLowerCase().includes(inputName)
-                      ) //true : encuentra --> add filteredData , false : -1
-                    : [];
+            const filteredData = users.filter((user) =>
+                user.toLowerCase().includes(inputName)
+            );
             setFilteredUsers(filteredData);
             setShowDropDown(true);
         }

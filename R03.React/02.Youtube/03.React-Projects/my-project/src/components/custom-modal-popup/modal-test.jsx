@@ -29,6 +29,7 @@ const ModalTest = () => {
                 <button onClick={handleSwitchModalPopup}>
                     Open Modal Popup
                 </button>
+
                 {showModalPopup && (
                     <Modal
                         id={"custom-id"}
