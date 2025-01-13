@@ -1,5 +1,6 @@
+import React from "react";
 import { pageLinks } from "../data";
-import PageLink from "./PageLink";
+
 const PageLinks = ({ parentClass, itemClass }) => {
     return (
         <ul className={parentClass} id="nav-links">
@@ -12,3 +13,13 @@ const PageLinks = ({ parentClass, itemClass }) => {
     );
 };
 export default PageLinks;
+
+const PageLink = ({ link, itemClass }) => {
+    return (
+        <li key={link.id}>
+            <a href={link.href} className={itemClass}>
+                {link.text}
+            </a>
+        </li>
+    );
+};

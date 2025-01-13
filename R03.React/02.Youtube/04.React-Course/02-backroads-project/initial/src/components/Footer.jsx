@@ -1,6 +1,7 @@
-import { pageLinks, socialLinks } from "../data";
+import React from "react";
 import PageLinks from "./PageLinks";
-import SocialLink from "./SocialLink";
+import { socialLinks } from "../data";
+
 const Footer = () => {
     return (
         <footer className="section footer">
@@ -25,3 +26,18 @@ const Footer = () => {
     );
 };
 export default Footer;
+
+const SocialLink = ({ itemClass, href, icon }) => {
+    return (
+        <li>
+            <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className={itemClass}
+            >
+                <i className={icon}></i>
+            </a>
+        </li>
+    );
+};

@@ -9,9 +9,9 @@ const Navbar = () => {
                 <div className="nav-header">
                     <img src={logo} className="nav-logo" alt="backroads" />
                     <button
-                        type="button"
                         className="nav-toggle"
                         id="nav-toggle"
+                        type="button"
                     >
                         <i className="fas fa-bars"></i>
                     </button>
@@ -24,9 +24,9 @@ const Navbar = () => {
                     {socialLinks.map((link) => {
                         return (
                             <SocialLink
-                                {...link}
                                 key={link.id}
                                 itemClass="nav-icon"
+                                {...link}
                             />
                         );
                     })}
