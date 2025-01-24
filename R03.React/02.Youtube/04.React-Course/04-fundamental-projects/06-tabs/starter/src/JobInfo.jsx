@@ -1,7 +1,7 @@
+import React from "react";
 import Duties from "./Duties";
 
 const JobInfo = ({ jobs, currentItem }) => {
-    // alternatives
     const { company, dates, duties, title } = jobs[currentItem];
 
     return (
@@ -13,4 +13,5 @@ const JobInfo = ({ jobs, currentItem }) => {
         </article>
     );
 };
+
 export default JobInfo;
