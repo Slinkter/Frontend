@@ -1,7 +1,7 @@
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 const CartItem = ({ id, img, title, price, amount }) => {
   return (
-    <article className='cart-item'>
+    <article className='cart-item' style={{border: '1px solid red'}}>
       <img src={img} alt={title} />
       <div>
         <h5>{title}</h5>
