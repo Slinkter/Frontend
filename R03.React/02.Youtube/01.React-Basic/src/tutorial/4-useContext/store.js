@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 import { initialState } from "./db";
-// Create context
-const MyContextStore = createContext();
+
+
 //Contenador Componentes
 const ThemeComponent = ({ children }) => {
     //hook
@@ -14,5 +14,9 @@ const ThemeComponent = ({ children }) => {
         </MyContextStore.Provider>
     );
 };
-export { MyContextStore };
 export { ThemeComponent };
+
+
+// Create context
+const MyContextStore = createContext();
+export { MyContextStore };
