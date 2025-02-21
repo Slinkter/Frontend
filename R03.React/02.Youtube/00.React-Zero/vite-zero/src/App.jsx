@@ -1,11 +1,17 @@
 import React from "react";
-import CounterReducer from "./components/CounterReducer";
+import { ThemeProviderUser } from "./context/ContextUser";
+import { ThemeProviderMovie } from "./context/ContextMovie";
+import Navbar from "./components/Navbar";
+import Movies from "./components/Movies";
 
 const App = () => {
   return (
-    <div className="container-1 bg-slate-700">
-      <CounterReducer />
-    </div>
+    <ThemeProviderUser>
+      <ThemeProviderMovie>
+        <Navbar />
+        <Movies />
+      </ThemeProviderMovie>
+    </ThemeProviderUser>
   );
 };
 
