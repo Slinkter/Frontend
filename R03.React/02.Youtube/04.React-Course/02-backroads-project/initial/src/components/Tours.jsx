@@ -1,19 +1,20 @@
 import React from "react";
-import Title from "./Title";
 import { tours } from "../data";
-import Tour from "./Tour";
+import Title from "../util/Title";
+import Tour from "../util/Tour";
 
 const Tours = () => {
-    return (
-        <section className="section" id="touts">
-            <Title title={"featured"} subTitle={"tours"} />
-            <div className="section-center featured-center">
-                {tours.map((tour) => {
-                    return <Tour key={tour.id} {...tour} />;
-                })}
-            </div>
-        </section>
-    );
+  return (
+    <section className="section ">
+      <Title title="featured" subTitle="tours" />
+      <div className="section-center featured-center ">
+        {tours.map((tour) => {
+          return <Tour key={tour.id} {...tour} />;
+        })}
+      </div>
+      Tours
+    </section>
+  );
 };
 
 export default Tours;
