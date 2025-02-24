@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { data } from '../../../../data';
-import Counter from './Counter';
-import List from './List';
+import { useState } from "react";
+import { data } from "../../../../data";
+import Counter from "./Counter";
+import List from "./List";
 const LowerState = () => {
   const [people, setPeople] = useState(data);
 
