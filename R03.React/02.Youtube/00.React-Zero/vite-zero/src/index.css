@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .container-1 {
+    .container-main {
         @apply  flex flex-col min-h-screen justify-center items-center w-screen m-0 p-0  transition-colors duration-1000 ease-in-out  bg-slate-400;
     }
 

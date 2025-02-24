@@ -4,4 +4,5 @@ const types = {
   productRemoveFromCart: "productRemoveFromCart",
   productRemoveOneFromCart: "productRemoveOneFromCart",
 };
+
 export { types };
