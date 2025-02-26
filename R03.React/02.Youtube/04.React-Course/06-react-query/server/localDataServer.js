@@ -1,19 +1,19 @@
-import express from 'express';
-import cors from 'cors';
-import { nanoid } from 'nanoid';
-import fs from 'fs/promises';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import express from "express";
+import cors from "cors";
+import { nanoid } from "nanoid";
+import fs from "fs/promises";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-import morgan from 'morgan';
+import morgan from "morgan";
 
-const dataFilePath = path.join(__dirname, 'tasks.json');
+const dataFilePath = path.join(__dirname, "tasks.json");
 
 const readTasksFromFile = async () => {
   try {
-    const data = await fs.readFile(dataFilePath, 'utf8');
+    const data = await fs.readFile(dataFilePath, "utf8");
     return JSON.parse(data);
   } catch (error) {
     console.error(error);
@@ -31,25 +31,25 @@ const writeTasksToFile = async (tasks) => {
 
 let taskList = await readTasksFromFile();
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(morgan('dev'));
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
 }
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello From Server...</h1>');
+app.get("/", (req, res) => {
+  res.send("<h1>Hello From Server...</h1>");
 });
 
-app.get('/api/tasks', (req, res) => {
+app.get("/api/tasks", (req, res) => {
   res.json({ taskList });
 });
 
-app.post('/api/tasks', async (req, res) => {
+app.post("/api/tasks", async (req, res) => {
   const { title } = req.body;
   if (!title) {
-    res.status(400).json({ msg: 'please provide title' });
+    res.status(400).json({ msg: "please provide title" });
     return;
   }
   const newTask = { id: nanoid(), title, isDone: false };
@@ -58,7 +58,7 @@ app.post('/api/tasks', async (req, res) => {
   res.json({ task: newTask });
 });
 
-app.patch('/api/tasks/:id', async (req, res) => {
+app.patch("/api/tasks/:id", async (req, res) => {
   const { id } = req.params;
   const { isDone } = req.body;
 
@@ -70,17 +70,17 @@ app.patch('/api/tasks/:id', async (req, res) => {
   });
 
   await writeTasksToFile(taskList);
-  res.json({ msg: 'task updated' });
+  res.json({ msg: "task updated" });
 });
 
-app.delete('/api/tasks/:id', async (req, res) => {
+app.delete("/api/tasks/:id", async (req, res) => {
   const { id } = req.params;
   taskList = taskList.filter((task) => task.id !== id);
   await writeTasksToFile(taskList);
-  res.json({ msg: 'task removed' });
+  res.json({ msg: "task removed" });
 });
 
-app.use((req, res) => res.status(404).send('Route does not exist'));
+app.use((req, res) => res.status(404).send("Route does not exist"));
 
 const port = process.env.PORT || 5000;
 

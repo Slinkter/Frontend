@@ -1,6 +1,6 @@
-import { useContext, useReducer, useEffect, createContext } from 'react';
-import reducer from './reducer';
-import cartItems from './data';
+import { useContext, useReducer, useEffect, createContext } from "react";
+import reducer from "./reducer";
+import cartItems from "./data";
 import {
   CLEAR_CART,
   REMOVE,
@@ -8,9 +8,9 @@ import {
   DECREASE,
   LOADING,
   DISPLAY_ITEMS,
-} from './actions';
-import { getTotals } from './utils';
-const url = 'https://www.course-api.com/react-useReducer-cart-project';
+} from "./actions";
+import { getTotals } from "./utils";
+const url = "https://www.course-api.com/react-useReducer-cart-project";
 
 const AppContext = createContext();
 

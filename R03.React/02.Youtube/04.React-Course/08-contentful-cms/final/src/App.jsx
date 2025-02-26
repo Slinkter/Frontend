@@ -1,5 +1,5 @@
-import Hero from './Hero';
-import Projects from './Projects';
+import Hero from "./Hero";
+import Projects from "./Projects";
 
 const App = () => {
   return (

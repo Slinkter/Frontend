@@ -1,7 +1,7 @@
 // components
-import Navbar from './Navbar';
-import CartContainer from './CartContainer';
-import { useGlobalContext } from './context';
+import Navbar from "./Navbar";
+import CartContainer from "./CartContainer";
+import { useGlobalContext } from "./context";
 // items
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   if (loading) {
     return (
       <main>
-        <div className='loading' style={{ marginTop: '6rem' }}></div>
+        <div className="loading" style={{ marginTop: "6rem" }}></div>
       </main>
     );
   }
