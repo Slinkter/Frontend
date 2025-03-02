@@ -1,7 +1,5 @@
-let tax: number | string = 10; // union type
-tax = 100;
-tax = "1000";
-/* */
-let status: "pending" | "success" | "error" = "pending";
-status = "success";
-console.log(status);
+let temperatures: number[] = [20, 25, 30];
+let colors: string[] = ["red", "green", "blue"];
+let mixedArray: (number | string)[] = [1, "two", 3];
+console.log(temperatures);
+
