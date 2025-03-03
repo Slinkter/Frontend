@@ -2,17 +2,13 @@ import React, { memo, useEffect } from "react";
 import Item from "./Item";
 
 const List = memo(({ users, handleDeleteUser }) => {
-    return (
-        <ul>
-            {users.map((user) => (
-                <Item
-                    key={user.id}
-                    user={user}
-                    handleDeleteUser={handleDeleteUser}
-                />
-            ))}
-        </ul>
-    );
+  return (
+    <ul>
+      {users.map((user) => (
+        <Item key={user.id} user={user} handleDeleteUser={handleDeleteUser} />
+      ))}
+    </ul>
+  );
 });
 
 export default List;

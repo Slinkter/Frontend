@@ -1,82 +1,38 @@
 import React from "react";
-import { useReducer } from "react";
-import { reducer } from "./reducer";
-import { initialState } from "./store";
-import { types } from "./types";
-
+import { useState } from "react";
+const initUsers = [
+  { id: 1, name: "luis" },
+  { id: 2, name: "ana" },
+  { id: 3, name: "pepe" },
+  { id: 4, name: "Carmen" },
+];
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const btnShow = (product) => {
-    dispatch({ type: types.show, payload: product });
-  };
-  const btnAdd = (product) => {
-    dispatch({ type: types.add, payload: product });
-  };
-  const btnRemove = (product) => {
-    dispatch({ type: types.remove, payload: product });
-  };
-  const btnClear = (product) => {
-    dispatch({ type: types.clear, payload: product });
-  };
+  const [users, setUsers] = useState(initUsers);
+  const [search, setSearch] = useState("");
+  const [inputText, setInputText] = useState("");
 
   return (
-    <div className="container-main">
-      <section>
-        <h2>Product</h2>
-        <ul>
-          {state.products.map((product) => {
-            return (
-              <li key={product.id}>
-                {product.title}
-                <button
-                  className="btn-default"
-                  onClick={() => btnShow(product)}
-                >
-                  Show{" "}
-                </button>
-                <button className="btn-default" onClick={() => btnAdd(product)}>
-                  Add{" "}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-      <section>
-        <h2>Cart</h2>
-        <ul>
-          {state.cart.map((item) => {
-            return (
-              <li key={item.id}>
-                {item.title}{" "}
-                <span>
-                  {item.quantity}
-
-                  <button
-                    className="btn-default"
-                    onClick={() => btnRemove(item)}
-                  >
-                    remove one
-                  </button>
-                  <button
-                    className="btn-default"
-                    onClick={() => btnClear(item)}
-                  >
-                    remove all
-                  </button>
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-      <section>
-        <h2>preview</h2>
-        <p>{state.activeProduct.title}</p>
-      </section>
+    <div className="bg-slate-600 min-h-dvh text-white flex flex-col justify-center items-center ">
+      hola
+      <ComponetList></ComponetList>
     </div>
   );
 };
 
 export default App;
+
+const ComponetList = ({ users = [], handleDeleteUser }) => {
+  return (
+    <ul>
+      {users &&
+        users.map((user) => {
+          return <ComponentItem />;
+        })}
+      hello
+    </ul>
+  );
+};
+
+const ComponentItem = () => {
+  return <p>hola 123</p>;
+};
