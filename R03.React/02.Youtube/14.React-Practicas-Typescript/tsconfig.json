@@ -1,8 +1,0 @@
-{
-    "files": [],
-    "types": ["vitest/globals"],
-    "references": [
-        { "path": "./tsconfig.app.json" },
-        { "path": "./tsconfig.node.json" }
-    ]
-}
