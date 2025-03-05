@@ -27,38 +27,26 @@ import ModalCustom from "./componentsLuis/ModalCustom/ModalCustom";
 import SearchName from "./componentsLuis/SearchName/SearchName";
 
 const App = () => {
-    return (
-        <>
-            {/* -----> Profesor <----- */}
-            {/*   <Accordian /> */}
-            {/*  <GithubProfileFinder /> */}
-            {/* <ImageSlider /> */}
-            {/* <LigthDarkMode /> */}
-            {/* <LoadMoreData /> */}
-            {/* <ModalTest /> */}
-            {/* <QrGenerator /> */}
-            {/*   <RandomColor /> */}
-            {/* <SearchAutoComplete /> */}
-            {/* <ScrollIndicator /> */}
-            {/* <ScrollToSection /> */}
-            {/*   <ScrollToTopAndBottm /> */}
-            {/*  <StarRating /> */}
-            {/* <TabTest /> */}
-            {/* <TicTacToe /> */}
-            {/*    <UseFetchHookTest /> */}
-
-            {/*   <UseWindowsResizeTest /> */}
-
-            {/* -----> Luis <----- */}
-            {/* <CustomTab /> */}
-            {/* <ImageSliderLuis /> */}
-            {/* <LoadMoreDataLuis /> */}
-            {/* <ModalCustom /> */}
-            {/* <RandomColorLuis /> */}
-            {/* <ScrollIndicatorLuis /> */}
-            {/*    <SearchName /> */}
-        </>
-    );
+  return (
+    <>
+      <Accordian />
+      {/*  <GithubProfileFinder /> */}
+      {/* <ImageSlider /> */}
+      {/* <LigthDarkMode /> */}
+      {/* <LoadMoreData /> */}
+      {/* <ModalTest /> */}
+      {/* <QrGenerator /> */}
+      {/*   <RandomColor /> */}
+      {/* <SearchAutoComplete /> */}
+      {/* <ScrollIndicator /> */}
+      {/* <ScrollToSection /> */}
+      {/*   <ScrollToTopAndBottm /> */}
+      {/*  <StarRating /> */}
+      {/* <TabTest /> */}
+      {/* <TicTacToe /> */}
+      {/*    <UseFetchHookTest /> */}
+    </>
+  );
 };
 
 export default App;

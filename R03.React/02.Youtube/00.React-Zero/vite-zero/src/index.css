@@ -7,7 +7,5 @@
         @apply  flex flex-col min-h-screen justify-center items-center w-screen m-0 p-0  transition-colors duration-1000 ease-in-out  bg-slate-400;
     }
 
-    .btn-default {
-        @apply rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500;
-    }
+   
 }
