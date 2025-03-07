@@ -1,7 +1,10 @@
 const types = {
-  show: "SHOW",
-  add: "ADD",
-  remove: "REMOVE",
-  clear: "CLEAR",
+  CLEART_CART: "CLEART_CART",
+  REMOVE: "REMOVE",
+  INCREASE: "INCREASE",
+  DECREASE: "DECREASE",
+  LOADING: "LOADING",
+  DISPLAY_ITEM: "DISPLAY_ITEM",
 };
+
 export { types };
