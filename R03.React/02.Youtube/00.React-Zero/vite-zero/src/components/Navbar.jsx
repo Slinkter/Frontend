@@ -1,20 +1,31 @@
 import React from "react";
-import { useGlobalContext } from "../context";
-import { FaCartPlus } from "react-icons/fa";
+import { links } from "./data";
+
+/* 
+sm:640px
+md:768px
+*/
 
 const Navbar = () => {
-  const { totalAmount } = useGlobalContext();
-  console.log(totalAmount);
-
   return (
-    <nav>
-      <div className="nav-center">
-        <h4>useReducer</h4>
-        <div className="nav-container">
-          <FaCartPlus className="cart-icon" />
-          <div className="amount-container">
-            <p className="total-amount">{totalAmount}</p>
-          </div>
+    <nav className="bg-emerald-100">
+      <div className="align-element py-4 flex flex-col md:gap-0  sm:gap-x-16 sm:items-center sm:py-8">
+        <h2>
+          web <span>dev</span>
+        </h2>
+        <div className="flex gap-x-3">
+          {links.map((link) => {
+            const { id, href, text } = link;
+            return (
+              <a
+                key={id}
+                className="capitalize  text-lg tracking-wide hover:text-emerald-600 duration-300"
+                href={href}
+              >
+                {text}
+              </a>
+            );
+          })}
         </div>
       </div>
     </nav>

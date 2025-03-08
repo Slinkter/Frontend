@@ -1,27 +1,19 @@
 import React from "react";
-import { useGlobalContext } from "./context";
 import Navbar from "./components/Navbar";
-import Cart from "./components/Cart";
+import Hero from "./components/Hero";
+import Skills from "./components/Skills";
+import About from "./components/About";
+import Projects from "./components/Projects";
 
 const App = () => {
-  const { loading } = useGlobalContext();
-
-  console.log(loading);
-
-  if (loading) {
-    return (
-      <main>
-        <div className="loading"></div>
-      </main>
-    );
-  }
-
   return (
-    <main>
-      App
+    <div>
       <Navbar />
-      <Cart />
-    </main>
+      {/*    <Hero />
+      <Skills />
+      <About /> */}
+      <Projects />
+    </div>
   );
 };
 
