@@ -38,10 +38,10 @@
 
 @layer components {
     .containerColumn-main {
-        @apply text-white bg-red-500  border-4 border-gray-950 h-dvh;
+        @apply  bg-red-500  border-2 border-gray-950 min-h-dvh flex flex-col items-center justify-center;
     }
     .containerColumn-h {
-        @apply container mx-auto h-[500px];
+        @apply bg-green-100  container mx-auto h-[500px];
     }
     .containerColumn-grid {
         @apply h-full m-0 border-2 p-4 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 justify-center items-center;

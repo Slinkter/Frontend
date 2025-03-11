@@ -3,8 +3,10 @@ import React from "react";
 const Columns = () => {
     return (
         <div className="containerColumn-main">
-            <div className="containerColumn-h ">
+            <div className="containerColumn-h p-6">
+   
                 <div className=" containerColumn-grid ">
+                
                     <div className="main-reactangular">1 Colum</div>
                     <div className="main-reactangular">2 Colum</div>
                     <div className="main-reactangular">3 Colum</div>

@@ -7,11 +7,13 @@ import MainApp from "./components/Youtube/MainApp";
 const App = () => {
     return (
         <>
-            <MainApp />
+          {/*   <MainApp /> */}
+               
             <Columns />
-            <Cube />
+       {/*      <Cube />
             <Page />
-            <System />
+            <System />  */}
+           
         </>
     );
 };

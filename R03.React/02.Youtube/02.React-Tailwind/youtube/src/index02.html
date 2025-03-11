@@ -6,16 +6,18 @@
         <title>Document</title>
         <link rel="stylesheet" href="./output.css" />
     </head>
-    <body class="bg-blue-400">
-        <form class="bg-white w-80 mx-auto mt-8 rounded-lg p-6">
+    <body class="bg-blue-200">
+        <form class="bg-white w-80 sm:w-40 md:w-40 lg:w-96 mx-auto mt-8 rounded-lg p-6
+        shadow-md duration-300 hover:shadow-xl hover:scale-105
+        ">
             <input
-                class="border-2 border-gray-300 w-full px-3 py-2 mb-4 rounded-md disabled:bg-red-200"
+                class="border-none border-gray-300 w-full px-3 py-2 mb-4 rounded-md disabled:bg-red-200"
                 type="text"
                 disabled
                 placeholder="nombre"
             />
             <input
-                class="border border-gray-300 w-full px-3 py-2 mb-4 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-600 invalid:focus:ring-red-400 peer"
+                class="border-none border-gray-300 w-full px-3 py-2 mb-4 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-600 invalid:focus:ring-red-400 peer"
                 type="email"
                 placeholder="correo"
             />
@@ -23,7 +25,7 @@
                 correo es incorrent
             </p>
             <input
-                class="border-2 border-gray-300 w-full px-3 py-2 mb-4 rounded-md"
+                class="border-none border-gray-300 w-full px-3 py-2 mb-4 rounded-md"
                 type="password"
                 placeholder="contraseña"
             />
