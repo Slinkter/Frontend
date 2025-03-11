@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { openModal } from '../modal/modalSlice';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { openModal } from "../modal/modalSlice";
 
-const url = 'https://www.course-api.com/react-useReducer-cart-project';
+const url = "https://www.course-api.com/react-useReducer-cart-project";
 
 const initialState = {
   cartItems: [],
@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const getCartItems = createAsyncThunk(
-  'cart/getCartItems',
+  "cart/getCartItems",
   async (name, thunkAPI) => {
     try {
       // console.log(name);
@@ -23,13 +23,13 @@ export const getCartItems = createAsyncThunk(
 
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue('something went wrong');
+      return thunkAPI.rejectWithValue("something went wrong");
     }
   }
 );
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     clearCart: (state) => {
