@@ -1,4 +1,15 @@
+import CartContainer from "./components/CartContainer";
+import Modal from "./components/Modal";
+import Navbar from "./components/Navbar";
+import { CartIcon } from "./icons";
+
 function App() {
-  return <h2>Redux Toolkit</h2>;
+  return (
+    <main>
+      <Modal />
+      <Navbar />
+      <CartContainer />
+    </main>
+  );
 }
 export default App;
