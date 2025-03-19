@@ -1,7 +1,15 @@
-const propNanme = "Age";
+const propAge = "Age";
+const propName = "Name";
+const propBreed = "Breed";
 type Animal = {
-  [propNanme]: number;
+  [propAge]: number;
+  [propName]: string;
+  [propBreed]?: string;
 };
 
-let tiger: Animal = { [propNanme]: 5 };
+let tiger: Animal = {
+  [propAge]: 5,
+  [propName]: "Tobi",
+  [propBreed]: "Pitbull",
+};
 console.log(tiger);
