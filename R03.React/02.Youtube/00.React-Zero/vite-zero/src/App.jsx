@@ -10,25 +10,48 @@ import Orders from "./components/Orders";
 import Products from "./components/Products";
 import Register from "./components/Register";
 import SingleProduct from "./components/SingleProduct";
+import { createBrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Landing /> },
+      {
+        path: "products",
+        element: <Products />,
+      },
+      {
+        path: "products/:id",
+        element: <SingleProduct />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "cheackout",
+        element: <Checkout />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
+      },
+    ],
+  },
+  { path: "/login", element: <Login />, errorElement: <Error /> },
+  { path: "/register", element: <Register />, errorElement: <Error /> },
+]);
 
 const App = () => {
-  return (
-    <section className="">
-      Taildiwnd project
-      <About />
-      <Cart />
-      <Checkout />
-      <Error />
-      <HomeLayout />
-      <Landing />
-      <Login />
-      <Login />
-      <Orders />
-      <Products />
-      <Register />
-      <SingleProduct />
-    </section>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
