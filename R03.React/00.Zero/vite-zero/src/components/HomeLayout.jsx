@@ -1,16 +1,20 @@
 import React from "react";
 import { Outlet } from "react-router";
+import Header from "./Header";
+import Navbar from "./Navbar";
+import Hero from "./Hero";
 
 const HomeLayout = () => {
     return (
         <>
-            <nav>
-                <span className="text-4xl text-primary ">comfy</span>
-            </nav>
+            <Navbar></Navbar>
 
+            <Header />
             <section className="align-element py-20 border-red-500 border-2">
                 <Outlet />
             </section>
+
+            <Hero></Hero>
         </>
     );
 };
