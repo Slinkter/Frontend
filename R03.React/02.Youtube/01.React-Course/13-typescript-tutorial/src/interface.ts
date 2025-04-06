@@ -1,17 +1,30 @@
-interface Person {
-  p_name: string;
-  getDetails(): string;
+let unknownValue: unknown
+unknownValue = "Hello world"
+unknownValue = [1, 2, 3]
+unknownValue = 43.12312
+console.log(unknownValue);
+
+if (typeof unknownValue === "number") {
+  console.log(unknownValue.toFixed(2));
 }
 
-interface Person {
-  age: number;
+function runSomeCode() {
+  const random = Math.random()
+  if (random < 0.5) {
+    throw new Error("something went wrong")
+  } else {
+    throw "some error"
+  }
 }
-const person: Person = {
-  p_name: "Jhonny",
-  age: 20,
-  getDetails() {
-    return "hola " + this.p_name + " tu edad es " + this.age;
-  },
-};
 
-console.log(person.getDetails());
+
+try {
+  runSomeCode()
+} catch (error) {
+  if (error instanceof Error) {
+    console.log(error.message);
+  } else {
+    console.log(error);
+
+  }
+}
