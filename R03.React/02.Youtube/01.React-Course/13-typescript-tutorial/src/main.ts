@@ -1,6 +1,6 @@
 import logoTs from "./typescript.svg";
 import logoVite from "/vite.svg";
-import { setupCounter } from "./counter.ts";
+
 import "./tutorial.ts";
 import "./interface.ts";
 /*  */
@@ -22,5 +22,3 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </p>
   </div>
 `;
-
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
