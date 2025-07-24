@@ -7,21 +7,21 @@ import { useNavigation } from "react-router-dom";
 import { isPending } from "@reduxjs/toolkit";
 
 const HomeLayout = () => {
-    const navigation = useNavigation();
-    const isPageLoading = navigation.state === "loading";
-    return (
-        <div>
-            <Header></Header>
-            <Navbar></Navbar>
-            {!isPending ? (
-                <Loading></Loading>
-            ) : (
-                <section className="align-element py-20">
-                    <Outlet></Outlet>
-                </section>
-            )}
-        </div>
-    );
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === "loading";
+  return (
+    <div>
+      <Header></Header>
+      <Navbar></Navbar>
+      {!isPending ? (
+        <Loading></Loading>
+      ) : (
+        <section className="align-element py-20">
+          <Outlet></Outlet>
+        </section>
+      )}
+    </div>
+  );
 };
 
 export default HomeLayout;

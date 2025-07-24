@@ -3,9 +3,20 @@ import { createBrowserRouter } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ErrorElement from "./components/ErrorElement";
+import HomeLayout from "./pages/HomeLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import HomeLayout from "./pages/HomeLayout";
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+};
+
+export default App;
 
 const router = createBrowserRouter([
   {
@@ -44,14 +55,3 @@ const queryClient = new QueryClient({
     },
   },
 });
-
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  );
-};
-
-export default App;
