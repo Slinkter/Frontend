@@ -1,7 +1,4 @@
 -- SQLBook: Code
--- Active: 1735775193333@@127.0.0.1@5432@postgres
-SELECT * from clientes;
--- SQLBook: Code
 CREATE DATABASE test;
 
 CREATE DATABASE test2;

@@ -1,0 +1,128 @@
+-- SQLBook: Code
+-- Active: 1753409124854@@127.0.0.1@5432@postgres
+psql -U postgres -h 127.0.0.1 -p 5432
+-- SQLBook: Code
+
+-- SQLBook: Code
+
+-- SQLBook: Code
+-- Active: 1753409124854@@127.0.0.1@5432@postgres
+# crear db
+create DATABASE emp_seguros;
+
+use DATABASE emp_seguros;
+-- SQLBook: Code
+-- Active: 1753409124854@@127.0.0.1@5432@emp_seguros
+drop table clientes;
+
+create table clientes (
+    nombre varchar(25),
+    apellido varchar(25),
+    dni VARCHAR(15),
+    fecha_nac DATE,
+    sueldo DECIMAL(10, 2)
+)
+
+ALTER TABLE clientes ADD COLUMN num_client SERIAL PRIMARY KEY;
+
+ALTER TABLE clientes drop COLUMN num_client;
+
+DROP TABLE servicios;
+
+CREATE TABLE servicios (
+    codigo int PRIMARY KEY,
+    tipo VARCHAR(20),
+    detalle_cobertura VARCHAR(120),
+    precio DECIMAL(10, 2)
+)
+
+alter table servicios ADD COLUMN num_client int FOREIGN KEY
+
+alter table servicios ADD COLUMN codigo_prop int FOREIGN KEY
+
+drop table propiedades;
+
+CREATE TABLE propiedades (
+    direccion varchar(120),
+    metros_cuadrados DECIMAL(10, 2),
+    zona varchar(45),
+    valor_mercado DECIMAL(10, 2)
+)
+
+alter table propiedades ADD COLUMN codigo_prop int PRIMARY KEY
+-- SQLBook: Markup
+# Clase 03
+
+-- SQLBook: Markup
+
+-- SQLBook: Code
+CREATE DATABASE consulta_sql;
+
+DROP DATABASE consulta_sql;
+-- SQLBook: Code
+-- Active: 1753409124854@@127.0.0.1@5432@consulta_sql
+CREATE TABLE tb_name (
+    id int not NULL PRIMARY KEY,
+    name varchar(50) NOT NULL
+)
+
+DROP TABLE productos;
+
+CREATE TABLE productos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(55) NOT NULL,
+    precio DOUBLE PRECISION NOT NULL,
+    stock int DEFAULT 0 NOT NULL
+);
+-- SQLBook: Code
+ALTER TABLE productos ADD COLUMN descripcion varchar(250);
+
+ALTER TABLE productos RENAME COLUMN precio TO costo;
+
+ALTER TABLE productos RENAME COLUMN costo TO precio;
+
+ALTER TABLE productos ALTER COLUMN precio TYPE NUMERIC(10, 2);
+
+ALTER TABLE productos ALTER COLUMN costo TYPE NUMERIC(10, 2);
+
+ALTER TABLE productos drop COLUMN descripcion;
+
+DROP TABLE productos;
+-- SQLBook: Code
+INSERT INTO
+    productos (nombre, precio, stock)
+VALUES ('producto1', 39.99, 4)
+
+INSERT INTO
+    productos (nombre, precio, stock)
+VALUES ('producto2', 29.99, 3);
+
+INSERT INTO productos (nombre, precio, stock) VALUES ('PRODUCTO3',45,60) , ('PRDUCTO4',99.99,3)
+
+INSERT INTO productos (nombre, precio, stock) VALUES
+('Carne de res', 29.99, 50),
+('Pechuga de pollo', 21.50, 60),
+('Leche entera', 4.75, 100),
+('Huevos (docena)', 6.90, 80),
+('Tomates', 3.20, 120),
+('Papas amarillas', 2.80, 130),
+('Arroz blanco (kg)', 5.10, 200),
+('Aceite vegetal (1L)', 9.99, 90),
+('Pan francés (unidad)', 0.35, 300),
+('Zanahorias', 2.40, 110);
+
+-- SQLBook: Code
+SELECT id,nombre,precio,stock FROM productos
+
+SELECT (id,nombre,precio,stock) FROM productos
+
+SELECT id,nombre,precio,stock FROM productos where precio < 9
+
+
+-- SQLBook: Code
+UPDATE productos
+SET precio = precio*1.10
+WHERE id = 7
+-- SQLBook: Code
+
+-- SQLBook: Markup
