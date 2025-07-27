@@ -124,5 +124,101 @@ UPDATE productos
 SET precio = precio*1.10
 WHERE id = 7
 -- SQLBook: Code
+DELETE 
+FROM productos
+WHERE id = 11
+
+SELECT * FROM productos
+# MAL PRACTICA
+
+DELETE FROM productos;
+-- SQLBook: Markup
+## Clase 04
+
+-- SQLBook: Code
+-- Active: 1753409124854@@127.0.0.1@5432@consulta_sql
+# DML : select insert update delete
+# --- IGNORE ---
+SELECT COLUMN1,COLUMN2 
+FROM TB_NAME
+WHERE COLUMN1 = 'valor'
+ORDER BY COLUMN1 ASC
+# --- EXAMPLE ---
+
+SELECT * from productos ORDER BY nombre ASC
+
+SELECT * FROM productos ORDER BY nombre DESC
+
+SELECT * FROM productos ORDER BY stock
+
+
+-- SQLBook: Markup
+### funciones de agregacion
+
+- se usa con el select , actua como complemento 
+- contar sumar promedio max min (operaciones matematicas)
+
+-- SQLBook: Code
+SELECT COUNT(COLUMN1,COLUMN2) 
+FROM TB_NAME
+WHERE COLUMN1 = 'valor'
+# --- EXAMPLE 1 ---
+
+SELECT COUNT(*) 
+FROM productos
+# --- EXAMPLE 2 ---
+
+SELECT COUNT(*) AS cant_productos 
+FROM productos;
+
+-- SQLBook: Code
+# --- SUM  ---
+SELECT SUM(stock) 
+FROM productos;
+
+SELECT SUM(stock) 
+FROM productos 
+WHERE stock > 1
+-- SQLBook: Code
+# --- MAX/MIN  ---
+SELECT MAX(PRECIO)
+FROM PRODUCTOS; 
+
+SELECT MIN(PRECIO)
+FROM PRODUCTOS; 
+
+# --- MAX/MIN Con varchar ---
+# buscar mas lejana del abecedario que es z 
+SELECT MAX(nombre)
+FROM productos;
+# buscar mas cerca del abecedario que es z 
+SELECT MIN(nombre)
+FROM productos;
+-- SQLBook: Code
+# --- AVG  ---
+SELECT AVG(precio)
+FROM productos;
+-- SQLBook: Code
+# --- GROUP BY  ---
+# tienque cumplir con la condicion para agrupar
+SELECT COLUMN1,COLUMN2
+FROM TB_NAME
+GROUP BY COLUMN1
+
+# --- EXAMPLE 1  ---
+# solo postgress necesita agregacion
+SELECT nombre,MIN(precio)
+FROM productos
+GROUP BY nombre;
+
+
+-- SQLBook: Code
+# --- DISTINC  ---
+# no trae los repetidos
+SELECT DISTINCT nombre
+FROM productos;
+-- SQLBook: Code
+4:01
+-- SQLBook: Markup
 
 -- SQLBook: Markup
