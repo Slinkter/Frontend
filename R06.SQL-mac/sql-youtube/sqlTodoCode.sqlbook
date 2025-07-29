@@ -218,7 +218,130 @@ GROUP BY nombre;
 SELECT DISTINCT nombre
 FROM productos;
 -- SQLBook: Code
-4:01
+# --- HAVIN  ---
+# Usa el select , funciones agregada 
+# group by 
+# Es un condicional que aplica al group by
+
+SELECT FUNCION-AGREGADA(COLUMNS1)
+FROM productos
+GROUP BY nombre
+HAVING FUNCION-AGREGADA(COLUMNS1) > 10;
+
+SELECT * FROM productos;
+
+INSERT INTO productos (nombre, precio, stock) VALUES
+('Aceite de cocina', 5.99, 120),
+('Pan integral', 2.49, 85),
+('Leche deslactosada', 3.15, 200),
+('Papel higiénico', 4.75, 150),
+('Detergente líquido', 6.30, 95),
+('Café molido', 7.80, 60),
+('Arroz extra', 2.95, 210),
+('Jugo natural', 3.65, 100),
+('Cepillo dental', 1.99, 250),
+('Shampoo herbal', 5.45, 70),
+('Galletas de avena', 3.25, 120),
+('Agua mineral', 1.55, 180),
+('Crema dental', 2.35, 140),
+('Atún enlatado', 4.10, 80),
+('Sal rosada', 2.85, 150),
+('Azúcar rubia', 3.00, 95),
+('Cereal mixto', 4.60, 110),
+('Maní tostado', 2.20, 160),
+('Yogurt natural', 2.75, 130),
+('Salsa de tomate', 3.40, 145),
+('Aceite de cocina', 6.10, 110),
+('Pan integral', 2.55, 90),
+('Leche deslactosada', 3.20, 180),
+('Papel higiénico', 4.70, 130),
+('Detergente líquido', 6.40, 100),
+('Café molido', 7.75, 55),
+('Arroz extra', 3.00, 195),
+('Jugo natural', 3.70, 85),
+('Cepillo dental', 2.05, 230),
+('Shampoo herbal', 5.35, 75),
+('Galletas de avena', 3.30, 115),
+('Agua mineral', 1.60, 170),
+('Crema dental', 2.40, 135),
+('Atún enlatado', 4.15, 75),
+('Sal rosada', 2.90, 140),
+('Azúcar rubia', 3.10, 90),
+('Cereal mixto', 4.55, 100),
+('Maní tostado', 2.25, 155),
+('Yogurt natural', 2.80, 125),
+('Salsa de tomate', 3.35, 135),
+-- 60 más abajo
+('Aceitunas verdes', 3.90, 80),
+('Harina de trigo', 2.50, 100),
+('Vinagre blanco', 1.95, 110),
+('Mermelada fresa', 3.75, 120),
+('Mantequilla sin sal', 4.50, 95),
+('Gel de ducha', 5.60, 70),
+('Desodorante sólido', 3.85, 60),
+('Champú anticaspa', 6.15, 85),
+('Limpiador multiuso', 4.20, 90),
+('Bolsa de basura', 2.95, 140),
+('Fideos largos', 2.70, 180),
+('Sopa instantánea', 1.45, 150),
+('Crema corporal', 5.25, 65),
+('Cacao en polvo', 4.00, 80),
+('Helado de vainilla', 3.50, 130),
+('Pizza congelada', 6.99, 40),
+('Huevos orgánicos', 3.95, 100),
+('Queso fresco', 4.25, 85),
+('Té verde', 2.30, 150),
+('Gaseosa cola', 2.75, 190),
+('Aceitunas verdes', 3.85, 70),
+('Harina de trigo', 2.55, 95),
+('Vinagre blanco', 2.00, 105),
+('Mermelada fresa', 3.80, 115),
+('Mantequilla sin sal', 4.55, 90),
+('Gel de ducha', 5.65, 65),
+('Desodorante sólido', 3.90, 55),
+('Champú anticaspa', 6.20, 80),
+('Limpiador multiuso', 4.25, 85),
+('Bolsa de basura', 3.00, 135),
+('Fideos largos', 2.75, 175),
+('Sopa instantánea', 1.50, 145),
+('Crema corporal', 5.30, 60),
+('Cacao en polvo', 4.05, 75),
+('Helado de vainilla', 3.55, 125),
+('Pizza congelada', 7.05, 35),
+('Huevos orgánicos', 4.00, 95),
+('Queso fresco', 4.30, 80),
+('Té verde', 2.35, 145),
+('Gaseosa cola', 2.80, 185),
+('Frijoles negros', 2.60, 160),
+('Lentejas peruanas', 2.65, 170),
+('Chocolate oscuro', 3.85, 90),
+('Pastillas de menta', 1.90, 200),
+('Servilletas papel', 2.30, 190),
+('Platos descartables', 2.80, 210),
+('Cerveza artesanal', 5.75, 55),
+('Vino tinto', 9.80, 35),
+('Ron blanco', 10.50, 40),
+('Cubiertos plásticos', 1.50, 180),
+('Toallas húmedas', 3.65, 115),
+('Pañales bebé', 8.95, 60),
+('Pasta dental kids', 2.20, 125),
+('Snack de papas', 2.50, 175),
+('Agua saborizada', 1.75, 140),
+('Té de hierbas', 2.10, 130),
+('Crema para manos', 3.40, 70),
+('Tortillas de maíz', 2.65, 160),
+('Salsa BBQ', 3.15, 145)
+;
+
+-- SQLBook: Code
+#limte
+# PARA HACER TOP 5 ,PAGINACION 
+#  
+LIMIT 
+
+SELECT * FROM productos ORDER BY precio LIMIT 5
+-- SQLBook: Markup
+## 5. Join
 -- SQLBook: Markup
 
 -- SQLBook: Markup
