@@ -342,6 +342,96 @@ LIMIT
 SELECT * FROM productos ORDER BY precio LIMIT 5
 -- SQLBook: Markup
 ## 5. Join
+-- SQLBook: Code
+CREATE DATABASE db_joins
+-- SQLBook: Code
+-- Active: 1753409124854@@127.0.0.1@5432@db_joins
+CREATE TABLE departamento(
+             id_departamento INT PRIMARY KEY,
+             nombre VARCHAR(50),
+             edificio VARCHAR(50),
+             piso INT
+)
+
+SELECT * FROM departamento;
+
+INSERT INTO departamento (id_departamento, nombre, edificio, piso)
+VALUES  (7, 'CONTABILIDAD', 'Edificio Z', 30);
+       
+-- SQLBook: Code
+DROP TABLE EMPLEADO;
+CREATE TABLE EMPLEADO (
+             id_empleado SERIAL PRIMARY KEY ,
+             dni VARCHAR(15),
+             nombre VARCHAR(50),
+             apellido VARCHAR(50),
+             id_departamento INT,
+             FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento)
+)
+
+# OPCION 2 PARA FOREIGN KEY
+
+ALTER TABLE EMPLEADO 
+ADD CONSTRAINT fk_departamento 
+FOREIGN KEY (id_departamento) 
+REFERENCES departamento(id_departamento);
+
+DROP TABLE EMPLEADO;
+SELECT * FROM EMPLEADO
+
+
+-- SQLBook: Code
+INSERT INTO EMPLEADO (dni, nombre, apellido, id_departamento)
+VALUES 
+  ('12345678', 'Juan', 'Pérez', 1),
+  ('87654321', 'Ana', 'Gómez', 2),
+  ('11223344', 'Luis', 'Martínez', 3),
+  ('44332211', 'María', 'López', 4),
+  ('55667788', 'Carlos', 'Sánchez', 5),
+  ('99887766', 'Laura', 'Ramírez', 6),
+  ('77441122', 'Pedro', 'Valenzuela', 1),
+  ('33118822', 'Sofía', 'Torres', 2),
+  ('88990011', 'Javier', 'Castro', 3),
+  ('10293847', 'Natalia', 'Fernández', 4),
+  ('56473829', 'Andrés', 'Vargas', 5),
+  ('66554433', 'Camila', 'Rojas', 6),
+  ('77788899', 'Fernando', 'León', 1),
+  ('11229988', 'Mónica', 'Reyes', 2),
+  ('22334455', 'Diego', 'Salazar', 3),
+  ('99884477', 'Lucía', 'Morales', 4),
+  ('33445566', 'Rodrigo', 'Mendoza', 5),
+  ('66778899', 'Valeria', 'Ortiz', 6),
+  ('44556677', 'Tomás', 'Navarro', 1),
+  ('55664433', 'Isabela', 'Cárdenas', 2);
+
+
+  INSERT INTO EMPLEADO (dni, nombre, apellido, id_departamento)
+VALUES 
+  ('12345678', 'Juan', 'Pérez', null),
+  ('87654321', 'Ana', 'Gómez', null)
+-- SQLBook: Code
+## inner join
+### Tabla A :  EMPLEADO 
+### Tabla B :  DEPARTAMENTO
+
+SELECT * FROM empleado ;
+
+# version explicita
+SELECT * FROM empleado 
+inner join departamento
+ON empleado.id_departamento = departamento.id_departamento; 
+# version implicita
+SELECT * FROM empleado,departamento 
+WHERE EMPLEADO.id_departamento=departamento.id_departamento;
+-- SQLBook: Code
+## LEFT JOIN
+### Tabla A :  EMPLEADO 
+### Tabla B :  DEPARTAMENTO
+
+SELECT * FROM empleado
+LEFT JOIN departamento
+ON empleado.id_departamento= departamento.id_departamento;
+
 -- SQLBook: Markup
 
 -- SQLBook: Markup
