@@ -1,8 +1,4 @@
 -- SQLBook: Code
-CREATE DATABASE test;
-
-CREATE DATABASE test2;
--- SQLBook: Code
 ### conexion
 
 psql -U postgres -h 127.0.0.1 -p 5432 -d test  
@@ -27,17 +23,8 @@ test2=#
 CREATE DATABASE test;
 DROP DATABASE test;
 ```
--- SQLBook: Code
-
 -- SQLBook: Markup
 # A Very Dangerous Command
-
-``` sql
-
-```
-
-
-
 -- SQLBook: Code
 SELECT pg_terminate_backend(pg_stat_activity.pid)
 FROM pg_stat_activity

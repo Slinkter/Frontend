@@ -1,10 +1,23 @@
+-- SQLBook: Markup
+MAC OS
+
+Installation Directory: /Library/PostgreSQL/17
+Server Installation Directory: /Library/PostgreSQL/17
+Data Directory: /Library/PostgreSQL/17/data
+Database Port: 5432
+Database Superuser: postgres
+Operating System Account: postgres
+Database Service: postgresql-17
+Command Line Tools Installation Directory: /Library/PostgreSQL/17
+pgAdmin4 Installation Directory: /Library/PostgreSQL/17/pgAdmin 4
+Stack Builder Installation Directory: /Library/PostgreSQL/17
+Installation Log: /tmp/install-postgresql.log
+
+CON TRA SE NA. : = ROOT
+
 -- SQLBook: Code
 -- Active: 1753409124854@@127.0.0.1@5432@postgres
 psql -U postgres -h 127.0.0.1 -p 5432
--- SQLBook: Code
-
--- SQLBook: Code
-
 -- SQLBook: Code
 -- Active: 1753409124854@@127.0.0.1@5432@postgres
 # crear db
@@ -97,36 +110,45 @@ INSERT INTO
     productos (nombre, precio, stock)
 VALUES ('producto2', 29.99, 3);
 
-INSERT INTO productos (nombre, precio, stock) VALUES ('PRODUCTO3',45,60) , ('PRDUCTO4',99.99,3)
+INSERT INTO
+    productos (nombre, precio, stock)
+VALUES ('PRODUCTO3', 45, 60),
+    ('PRDUCTO4', 99.99, 3)
 
-INSERT INTO productos (nombre, precio, stock) VALUES
-('Carne de res', 29.99, 50),
-('Pechuga de pollo', 21.50, 60),
-('Leche entera', 4.75, 100),
-('Huevos (docena)', 6.90, 80),
-('Tomates', 3.20, 120),
-('Papas amarillas', 2.80, 130),
-('Arroz blanco (kg)', 5.10, 200),
-('Aceite vegetal (1L)', 9.99, 90),
-('Pan francés (unidad)', 0.35, 300),
-('Zanahorias', 2.40, 110);
-
+INSERT INTO
+    productos (nombre, precio, stock)
+VALUES ('Carne de res', 29.99, 50),
+    ('Pechuga de pollo', 21.50, 60),
+    ('Leche entera', 4.75, 100),
+    ('Huevos (docena)', 6.90, 80),
+    ('Tomates', 3.20, 120),
+    ('Papas amarillas', 2.80, 130),
+    (
+        'Arroz blanco (kg)',
+        5.10,
+        200
+    ),
+    (
+        'Aceite vegetal (1L)',
+        9.99,
+        90
+    ),
+    (
+        'Pan francés (unidad)',
+        0.35,
+        300
+    ),
+    ('Zanahorias', 2.40, 110);
 -- SQLBook: Code
-SELECT id,nombre,precio,stock FROM productos
+SELECT id, nombre, precio, stock FROM productos
 
-SELECT (id,nombre,precio,stock) FROM productos
+SELECT (id, nombre, precio, stock) FROM productos
 
-SELECT id,nombre,precio,stock FROM productos where precio < 9
-
-
+SELECT id, nombre, precio, stock FROM productos where precio < 9
 -- SQLBook: Code
-UPDATE productos
-SET precio = precio*1.10
-WHERE id = 7
+UPDATE productos SET precio = precio * 1.10 WHERE id = 7
 -- SQLBook: Code
-DELETE 
-FROM productos
-WHERE id = 11
+DELETE FROM productos WHERE id = 11
 
 SELECT * FROM productos
 # MAL PRACTICA
@@ -150,12 +172,10 @@ SELECT * from productos ORDER BY nombre ASC
 SELECT * FROM productos ORDER BY nombre DESC
 
 SELECT * FROM productos ORDER BY stock
-
-
 -- SQLBook: Markup
 ### funciones de agregacion
 
-- se usa con el select , actua como complemento 
+- se usa con el select , actua como complemento
 - contar sumar promedio max min (operaciones matematicas)
 
 -- SQLBook: Code
@@ -168,30 +188,25 @@ SELECT COUNT(*)
 FROM productos
 # --- EXAMPLE 2 ---
 
-SELECT COUNT(*) AS cant_productos 
-FROM productos;
-
+SELECT COUNT(*) AS cant_productos FROM productos;
 -- SQLBook: Code
 # --- SUM  ---
 SELECT SUM(stock) 
 FROM productos;
 
-SELECT SUM(stock) 
-FROM productos 
-WHERE stock > 1
+SELECT SUM(stock) FROM productos WHERE stock > 1
 -- SQLBook: Code
 # --- MAX/MIN  ---
 SELECT MAX(PRECIO)
-FROM PRODUCTOS; 
+FROM PRODUCTOS;
 
-SELECT MIN(PRECIO)
-FROM PRODUCTOS; 
+SELECT MIN(PRECIO) FROM PRODUCTOS;
 
 # --- MAX/MIN Con varchar ---
-# buscar mas lejana del abecedario que es z 
+# buscar mas lejana del abecedario que es z
 SELECT MAX(nombre)
 FROM productos;
-# buscar mas cerca del abecedario que es z 
+# buscar mas cerca del abecedario que es z
 SELECT MIN(nombre)
 FROM productos;
 -- SQLBook: Code
@@ -210,8 +225,6 @@ GROUP BY COLUMN1
 SELECT nombre,MIN(precio)
 FROM productos
 GROUP BY nombre;
-
-
 -- SQLBook: Code
 # --- DISTINC  ---
 # no trae los repetidos
@@ -219,8 +232,8 @@ SELECT DISTINCT nombre
 FROM productos;
 -- SQLBook: Code
 # --- HAVIN  ---
-# Usa el select , funciones agregada 
-# group by 
+# Usa el select , funciones agregada
+# group by
 # Es un condicional que aplica al group by
 
 SELECT FUNCION-AGREGADA(COLUMNS1)
@@ -230,143 +243,247 @@ HAVING FUNCION-AGREGADA(COLUMNS1) > 10;
 
 SELECT * FROM productos;
 
-INSERT INTO productos (nombre, precio, stock) VALUES
-('Aceite de cocina', 5.99, 120),
-('Pan integral', 2.49, 85),
-('Leche deslactosada', 3.15, 200),
-('Papel higiénico', 4.75, 150),
-('Detergente líquido', 6.30, 95),
-('Café molido', 7.80, 60),
-('Arroz extra', 2.95, 210),
-('Jugo natural', 3.65, 100),
-('Cepillo dental', 1.99, 250),
-('Shampoo herbal', 5.45, 70),
-('Galletas de avena', 3.25, 120),
-('Agua mineral', 1.55, 180),
-('Crema dental', 2.35, 140),
-('Atún enlatado', 4.10, 80),
-('Sal rosada', 2.85, 150),
-('Azúcar rubia', 3.00, 95),
-('Cereal mixto', 4.60, 110),
-('Maní tostado', 2.20, 160),
-('Yogurt natural', 2.75, 130),
-('Salsa de tomate', 3.40, 145),
-('Aceite de cocina', 6.10, 110),
-('Pan integral', 2.55, 90),
-('Leche deslactosada', 3.20, 180),
-('Papel higiénico', 4.70, 130),
-('Detergente líquido', 6.40, 100),
-('Café molido', 7.75, 55),
-('Arroz extra', 3.00, 195),
-('Jugo natural', 3.70, 85),
-('Cepillo dental', 2.05, 230),
-('Shampoo herbal', 5.35, 75),
-('Galletas de avena', 3.30, 115),
-('Agua mineral', 1.60, 170),
-('Crema dental', 2.40, 135),
-('Atún enlatado', 4.15, 75),
-('Sal rosada', 2.90, 140),
-('Azúcar rubia', 3.10, 90),
-('Cereal mixto', 4.55, 100),
-('Maní tostado', 2.25, 155),
-('Yogurt natural', 2.80, 125),
-('Salsa de tomate', 3.35, 135),
--- 60 más abajo
-('Aceitunas verdes', 3.90, 80),
-('Harina de trigo', 2.50, 100),
-('Vinagre blanco', 1.95, 110),
-('Mermelada fresa', 3.75, 120),
-('Mantequilla sin sal', 4.50, 95),
-('Gel de ducha', 5.60, 70),
-('Desodorante sólido', 3.85, 60),
-('Champú anticaspa', 6.15, 85),
-('Limpiador multiuso', 4.20, 90),
-('Bolsa de basura', 2.95, 140),
-('Fideos largos', 2.70, 180),
-('Sopa instantánea', 1.45, 150),
-('Crema corporal', 5.25, 65),
-('Cacao en polvo', 4.00, 80),
-('Helado de vainilla', 3.50, 130),
-('Pizza congelada', 6.99, 40),
-('Huevos orgánicos', 3.95, 100),
-('Queso fresco', 4.25, 85),
-('Té verde', 2.30, 150),
-('Gaseosa cola', 2.75, 190),
-('Aceitunas verdes', 3.85, 70),
-('Harina de trigo', 2.55, 95),
-('Vinagre blanco', 2.00, 105),
-('Mermelada fresa', 3.80, 115),
-('Mantequilla sin sal', 4.55, 90),
-('Gel de ducha', 5.65, 65),
-('Desodorante sólido', 3.90, 55),
-('Champú anticaspa', 6.20, 80),
-('Limpiador multiuso', 4.25, 85),
-('Bolsa de basura', 3.00, 135),
-('Fideos largos', 2.75, 175),
-('Sopa instantánea', 1.50, 145),
-('Crema corporal', 5.30, 60),
-('Cacao en polvo', 4.05, 75),
-('Helado de vainilla', 3.55, 125),
-('Pizza congelada', 7.05, 35),
-('Huevos orgánicos', 4.00, 95),
-('Queso fresco', 4.30, 80),
-('Té verde', 2.35, 145),
-('Gaseosa cola', 2.80, 185),
-('Frijoles negros', 2.60, 160),
-('Lentejas peruanas', 2.65, 170),
-('Chocolate oscuro', 3.85, 90),
-('Pastillas de menta', 1.90, 200),
-('Servilletas papel', 2.30, 190),
-('Platos descartables', 2.80, 210),
-('Cerveza artesanal', 5.75, 55),
-('Vino tinto', 9.80, 35),
-('Ron blanco', 10.50, 40),
-('Cubiertos plásticos', 1.50, 180),
-('Toallas húmedas', 3.65, 115),
-('Pañales bebé', 8.95, 60),
-('Pasta dental kids', 2.20, 125),
-('Snack de papas', 2.50, 175),
-('Agua saborizada', 1.75, 140),
-('Té de hierbas', 2.10, 130),
-('Crema para manos', 3.40, 70),
-('Tortillas de maíz', 2.65, 160),
-('Salsa BBQ', 3.15, 145)
-;
-
+INSERT INTO
+    productos (nombre, precio, stock)
+VALUES ('Aceite de cocina', 5.99, 120),
+    ('Pan integral', 2.49, 85),
+    (
+        'Leche deslactosada',
+        3.15,
+        200
+    ),
+    ('Papel higiénico', 4.75, 150),
+    (
+        'Detergente líquido',
+        6.30,
+        95
+    ),
+    ('Café molido', 7.80, 60),
+    ('Arroz extra', 2.95, 210),
+    ('Jugo natural', 3.65, 100),
+    ('Cepillo dental', 1.99, 250),
+    ('Shampoo herbal', 5.45, 70),
+    (
+        'Galletas de avena',
+        3.25,
+        120
+    ),
+    ('Agua mineral', 1.55, 180),
+    ('Crema dental', 2.35, 140),
+    ('Atún enlatado', 4.10, 80),
+    ('Sal rosada', 2.85, 150),
+    ('Azúcar rubia', 3.00, 95),
+    ('Cereal mixto', 4.60, 110),
+    ('Maní tostado', 2.20, 160),
+    ('Yogurt natural', 2.75, 130),
+    ('Salsa de tomate', 3.40, 145),
+    ('Aceite de cocina', 6.10, 110),
+    ('Pan integral', 2.55, 90),
+    (
+        'Leche deslactosada',
+        3.20,
+        180
+    ),
+    ('Papel higiénico', 4.70, 130),
+    (
+        'Detergente líquido',
+        6.40,
+        100
+    ),
+    ('Café molido', 7.75, 55),
+    ('Arroz extra', 3.00, 195),
+    ('Jugo natural', 3.70, 85),
+    ('Cepillo dental', 2.05, 230),
+    ('Shampoo herbal', 5.35, 75),
+    (
+        'Galletas de avena',
+        3.30,
+        115
+    ),
+    ('Agua mineral', 1.60, 170),
+    ('Crema dental', 2.40, 135),
+    ('Atún enlatado', 4.15, 75),
+    ('Sal rosada', 2.90, 140),
+    ('Azúcar rubia', 3.10, 90),
+    ('Cereal mixto', 4.55, 100),
+    ('Maní tostado', 2.25, 155),
+    ('Yogurt natural', 2.80, 125),
+    ('Salsa de tomate', 3.35, 135),
+    -- 60 más abajo
+    ('Aceitunas verdes', 3.90, 80),
+    ('Harina de trigo', 2.50, 100),
+    ('Vinagre blanco', 1.95, 110),
+    ('Mermelada fresa', 3.75, 120),
+    (
+        'Mantequilla sin sal',
+        4.50,
+        95
+    ),
+    ('Gel de ducha', 5.60, 70),
+    (
+        'Desodorante sólido',
+        3.85,
+        60
+    ),
+    ('Champú anticaspa', 6.15, 85),
+    (
+        'Limpiador multiuso',
+        4.20,
+        90
+    ),
+    ('Bolsa de basura', 2.95, 140),
+    ('Fideos largos', 2.70, 180),
+    ('Sopa instantánea', 1.45, 150),
+    ('Crema corporal', 5.25, 65),
+    ('Cacao en polvo', 4.00, 80),
+    (
+        'Helado de vainilla',
+        3.50,
+        130
+    ),
+    ('Pizza congelada', 6.99, 40),
+    ('Huevos orgánicos', 3.95, 100),
+    ('Queso fresco', 4.25, 85),
+    ('Té verde', 2.30, 150),
+    ('Gaseosa cola', 2.75, 190),
+    ('Aceitunas verdes', 3.85, 70),
+    ('Harina de trigo', 2.55, 95),
+    ('Vinagre blanco', 2.00, 105),
+    ('Mermelada fresa', 3.80, 115),
+    (
+        'Mantequilla sin sal',
+        4.55,
+        90
+    ),
+    ('Gel de ducha', 5.65, 65),
+    (
+        'Desodorante sólido',
+        3.90,
+        55
+    ),
+    ('Champú anticaspa', 6.20, 80),
+    (
+        'Limpiador multiuso',
+        4.25,
+        85
+    ),
+    ('Bolsa de basura', 3.00, 135),
+    ('Fideos largos', 2.75, 175),
+    ('Sopa instantánea', 1.50, 145),
+    ('Crema corporal', 5.30, 60),
+    ('Cacao en polvo', 4.05, 75),
+    (
+        'Helado de vainilla',
+        3.55,
+        125
+    ),
+    ('Pizza congelada', 7.05, 35),
+    ('Huevos orgánicos', 4.00, 95),
+    ('Queso fresco', 4.30, 80),
+    ('Té verde', 2.35, 145),
+    ('Gaseosa cola', 2.80, 185),
+    ('Frijoles negros', 2.60, 160),
+    (
+        'Lentejas peruanas',
+        2.65,
+        170
+    ),
+    ('Chocolate oscuro', 3.85, 90),
+    (
+        'Pastillas de menta',
+        1.90,
+        200
+    ),
+    (
+        'Servilletas papel',
+        2.30,
+        190
+    ),
+    (
+        'Platos descartables',
+        2.80,
+        210
+    ),
+    ('Cerveza artesanal', 5.75, 55),
+    ('Vino tinto', 9.80, 35),
+    ('Ron blanco', 10.50, 40),
+    (
+        'Cubiertos plásticos',
+        1.50,
+        180
+    ),
+    ('Toallas húmedas', 3.65, 115),
+    ('Pañales bebé', 8.95, 60),
+    (
+        'Pasta dental kids',
+        2.20,
+        125
+    ),
+    ('Snack de papas', 2.50, 175),
+    ('Agua saborizada', 1.75, 140),
+    ('Té de hierbas', 2.10, 130),
+    ('Crema para manos', 3.40, 70),
+    (
+        'Tortillas de maíz',
+        2.65,
+        160
+    ),
+    ('Salsa BBQ', 3.15, 145);
 -- SQLBook: Code
 #limte
-# PARA HACER TOP 5 ,PAGINACION 
-#  
-LIMIT 
+# PARA HACER TOP 5 ,PAGINACION
+#
+LIMIT
 
 SELECT * FROM productos ORDER BY precio LIMIT 5
 -- SQLBook: Markup
 ## 5. Join
+
 -- SQLBook: Code
+-- Active: 1753908709913@@127.0.0.1@5432@db_joins
 CREATE DATABASE db_joins
 -- SQLBook: Code
--- Active: 1753409124854@@127.0.0.1@5432@db_joins
-CREATE TABLE departamento(
-             id_departamento INT PRIMARY KEY,
-             nombre VARCHAR(50),
-             edificio VARCHAR(50),
-             piso INT
-)
 
-SELECT * FROM departamento;
+-- SQLBook: Code
+CREATE TABLE
+    departamento (
+        id_departamento INT PRIMARY KEY,
+        nombre VARCHAR(50),
+        edificio VARCHAR(50),
+        piso INT
+    )
+SELECT
+    *
+FROM
+    departamento;
 
-INSERT INTO departamento (id_departamento, nombre, edificio, piso)
-VALUES  (7, 'CONTABILIDAD', 'Edificio Z', 30);
-       
+INSERT INTO
+    departamento (id_departamento, nombre, edificio, piso)
+VALUES
+    (1, 'RECURSOS HUMANOS', 'Edificio A', 5),
+    (2, 'VENTAS', 'Edificio B', 10),
+    (3, 'MARKETING', 'Edificio C', 7),
+    (4, 'TECNOLOGIA', 'Edificio D', 12),
+    (5, 'FINANZAS', 'Edificio E', 8),
+    (6, 'PRODUCCION', 'Edificio F', 1),
+    (8, 'INVESTIGACION Y DESARROLLO', 'Edificio G', 15),
+    (9, 'LOGISTICA', 'Edificio H', 3),
+    (10, 'SERVICIO AL CLIENTE', 'Edificio I', 2),
+    (11, 'COMPRAS', 'Edificio J', 6),
+    (12, 'CALIDAD', 'Edificio K', 9),
+    (13, 'DIRECCION GENERAL', 'Edificio L', 20),
+    (14, 'OPERACIONES', 'Edificio M', 4),
+    (15, 'ADMINISTRACION', 'Edificio N', 11);
 -- SQLBook: Code
 DROP TABLE EMPLEADO;
+
 CREATE TABLE EMPLEADO (
-             id_empleado SERIAL PRIMARY KEY ,
-             dni VARCHAR(15),
-             nombre VARCHAR(50),
-             apellido VARCHAR(50),
-             id_departamento INT,
-             FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento)
+    id_empleado SERIAL PRIMARY KEY,
+    dni VARCHAR(15),
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    id_departamento INT,
+    FOREIGN KEY (id_departamento) REFERENCES departamento (id_departamento)
 )
 
 # OPCION 2 PARA FOREIGN KEY
@@ -377,41 +494,41 @@ FOREIGN KEY (id_departamento)
 REFERENCES departamento(id_departamento);
 
 DROP TABLE EMPLEADO;
+
 SELECT * FROM EMPLEADO
-
-
 -- SQLBook: Code
-INSERT INTO EMPLEADO (dni, nombre, apellido, id_departamento)
-VALUES 
-  ('12345678', 'Juan', 'Pérez', 1),
-  ('87654321', 'Ana', 'Gómez', 2),
-  ('11223344', 'Luis', 'Martínez', 3),
-  ('44332211', 'María', 'López', 4),
-  ('55667788', 'Carlos', 'Sánchez', 5),
-  ('99887766', 'Laura', 'Ramírez', 6),
-  ('77441122', 'Pedro', 'Valenzuela', 1),
-  ('33118822', 'Sofía', 'Torres', 2),
-  ('88990011', 'Javier', 'Castro', 3),
-  ('10293847', 'Natalia', 'Fernández', 4),
-  ('56473829', 'Andrés', 'Vargas', 5),
-  ('66554433', 'Camila', 'Rojas', 6),
-  ('77788899', 'Fernando', 'León', 1),
-  ('11229988', 'Mónica', 'Reyes', 2),
-  ('22334455', 'Diego', 'Salazar', 3),
-  ('99884477', 'Lucía', 'Morales', 4),
-  ('33445566', 'Rodrigo', 'Mendoza', 5),
-  ('66778899', 'Valeria', 'Ortiz', 6),
-  ('44556677', 'Tomás', 'Navarro', 1),
-  ('55664433', 'Isabela', 'Cárdenas', 2);
+INSERT INTO
+    EMPLEADO (dni, nombre, apellido, id_departamento)
+VALUES
+    ('12345678', 'Juan', 'Pérez', 1),
+    ('87654321', 'Ana', 'Gómez', 2),
+    ('11223344', 'Luis', 'Martínez', 3),
+    ('44332211', 'María', 'López', 4),
+    ('55667788', 'Carlos', 'Sánchez', 5),
+    ('99887766', 'Laura', 'Ramírez', 6),
+    ('77441122', 'Pedro', 'Valenzuela', 1),
+    ('33118822', 'Sofía', 'Torres', 2),
+    ('88990011', 'Javier', 'Castro', 3),
+    ('10293847', 'Natalia', 'Fernández', 4),
+    ('56473829', 'Andrés', 'Vargas', 5),
+    ('66554433', 'Camila', 'Rojas', 6),
+    ('77788899', 'Fernando', 'León', 1),
+    ('11229988', 'Mónica', 'Reyes', 2),
+    ('22334455', 'Diego', 'Salazar', 3),
+    ('99884477', 'Lucía', 'Morales', 4),
+    ('33445566', 'Rodrigo', 'Mendoza', 5),
+    ('66778899', 'Valeria', 'Ortiz', 6),
+    ('44556677', 'Tomás', 'Navarro', 1),
+    ('55664433', 'Isabela', 'Cárdenas', 2);
 
-
-  INSERT INTO EMPLEADO (dni, nombre, apellido, id_departamento)
-VALUES 
-  ('12345678', 'Juan', 'Pérez', null),
-  ('87654321', 'Ana', 'Gómez', null)
+INSERT INTO
+    EMPLEADO (dni, nombre, apellido, id_departamento)
+VALUES
+    ('12345678', 'Juan', 'Pérez', null),
+    ('87654321', 'Ana', 'Gómez', null)
 -- SQLBook: Code
 ## inner join
-### Tabla A :  EMPLEADO 
+### Tabla A :  EMPLEADO
 ### Tabla B :  DEPARTAMENTO
 
 SELECT * FROM empleado ;
@@ -419,31 +536,127 @@ SELECT * FROM empleado ;
 # version explicita
 SELECT * FROM empleado 
 inner join departamento
-ON empleado.id_departamento = departamento.id_departamento; 
+ON empleado.id_departamento = departamento.id_departamento;
 # version implicita
 SELECT * FROM empleado,departamento 
 WHERE EMPLEADO.id_departamento=departamento.id_departamento;
 -- SQLBook: Code
 ## LEFT JOIN
-### Tabla A :  EMPLEADO 
+### Tabla A :  EMPLEADO
 ### Tabla B :  DEPARTAMENTO
 
 SELECT * FROM empleado
 LEFT JOIN departamento
 ON empleado.id_departamento= departamento.id_departamento;
-
 -- SQLBook: Markup
-### Sub Clases
+### 6.Sub Clases
 
 -- SQLBook: Code
--- Active: 1753903924006@@127.0.0.1@5432
--- Active: 1753903924006@@127.0.0.1@543203924006@@127.0.0.1@5432
+# las subconsultar empieza por las mas pequena ,
+# reglas :
+# 1. solo una columna
+# 2. no usa between , like , order by
+# 3.
+-- SQLBook: Code
+ALTER TABLE empleado
+ADD COLUMN IF NOT EXISTS sueldo DECIMAL(10,2)
+
+SELECT * FROM EMPLEADO;
+
+UPDATE empleado
+SET sueldo = ROUND((RANDOM()*(4500-1130)+1130)::NUMERIC,2)
+-- SQLBook: Code
+# CONSULTAR MAYOR : OBTENER LOS EMPLEADOS QUE SUPERENTE EL SUELDO MAYOR
+# CONSULTAR MENOR : CALCULAR EL SUELDO PROMEDIO
+
+## EJM 1 
+SELECT * 
+FROM empleado
+WHERE sueldo>= (select avg(sueldo) from empleado)
 
 
-create DATABASE testing2
 
-SELECT * FROM productos;
+-- SQLBook: Code
 
+# NUEVA BASE DE DATOS
+CREATE DATABASE DB_FUTBOL;
+
+CREATE TABLE TB_HINCHAS (
+    id_hincha int ,
+    nombre VARCHAR(65),
+    apellido VARCHAR(65),
+    equipo_futbol VARCHAR(65)
+) ;
+
+INSERT INTO TB_HINCHAS (id_hincha, nombre, apellido, equipo_futbol) VALUES
+(1, 'Roberto', 'Carlos', 'Atlético Fénix'),
+(2, 'Patricia', 'Díaz', 'Deportivo Cóndor'),
+(3, 'Miguel', 'Vásquez', 'Unión Estrellas'),
+(4, 'Sofía', 'Castro', 'Sporting Dragones'),
+(5, 'José', 'Flores', 'Real Victoria'),
+(6, 'Ana', 'Rojas', 'Club Defensor Lima'),
+(7, 'Ricardo', 'Soto', 'Fuerza Imperial'),
+(8, 'Carolina', 'Guerra', 'Atlético Milagro'),
+(9, 'Daniel', 'Silva', 'Estudiantes del Sur'),
+(10, 'Laura', 'Moreno', 'Leones del Norte'),
+(11, 'Pablo', 'Mendoza', 'Atlético Fénix'),
+(12, 'Elena', 'Cruz', 'Deportivo Cóndor'),
+(13, 'Jorge', 'Paredes', 'Unión Estrellas'),
+(14, 'Andrea', 'Núñez', 'Sporting Dragones'),
+(15, 'Manuel', 'Quispe', 'Real Victoria'),
+(16, 'Valeria', 'Ramos', 'Club Defensor Lima'),
+(17, 'Fernando', 'Torres', 'Fuerza Imperial'),
+(18, 'Isabel', 'Vargas', 'Atlético Milagro'),
+(19, 'Gonzalo', 'Huamán', 'Estudiantes del Sur'),
+(20, 'Mariana', 'Jiménez', 'Leones del Norte');
+
+INSERT INTO TB_HINCHAS (id_hincha, nombre, apellido, equipo_futbol) VALUES (21, 'JUANITO ', 'SOSO', 'Los tercos de lima');
+
+SELECT * FROM TB_HINCHAS;
+
+CREATE  TABLE TB_EQUIPO_PRIMERA(
+    id_equipo int,
+    nombre_equipo VARCHAR(65),
+    cantidad_socios int,
+    localidad VARCHAR(65),
+    categoria VARCHAR(65)
+)
+
+INSERT INTO TB_EQUIPO_PRIMERA (id_equipo, nombre_equipo, cantidad_socios, localidad, categoria) VALUES
+(1, 'Atlético Fénix', 15000, 'Lima', 'Primera División'),
+(2, 'Deportivo Cóndor', 12000, 'Arequipa', 'Primera División'),
+(3, 'Unión Estrellas', 20000, 'Trujillo', 'Primera División'),
+(4, 'Sporting Dragones', 9500, 'Cusco', 'Primera División'),
+(5, 'Real Victoria', 18000, 'Piura', 'Primera División'),
+(6, 'Club Defensor Lima', 11000, 'Lima', 'Primera División'),
+(7, 'Fuerza Imperial', 14000, 'Chiclayo', 'Primera División'),
+(8, 'Atlético Milagro', 8000, 'Huancayo', 'Primera División'),
+(9, 'Estudiantes del Sur', 16500, 'Tacna', 'Primera División'),
+(10, 'Leones del Norte', 10500, 'Cajamarca', 'Primera División');
+
+INSERT INTO TB_EQUIPO_PRIMERA (id_equipo, nombre_equipo, cantidad_socios, localidad, categoria) VALUES (11, 'Los tercos de lima', 19, 'Lima', 'Primera División');
+
+SELECT * FROM TB_EQUIPO_PRIMERA
+
+# eliminar 10 ultimos
+
+DELETE FROM TB_EQUIPO_PRIMERA 
+WHERE id_equipo in 
+(SELECT id_equipo FROM TB_EQUIPO_PRIMERA ORDER BY id_equipo DESC LIMIT 5)
+
+DROP TABLE TB_EQUIPO_PRIMERA
+
+
+
+-- SQLBook: Code
+# CONSULTA 1 : 
+# CONSULTA 2 : 
+
+SELECT * 
+FROM TB_HINCHAS 
+WHERE equipo_futbol IN (SELECT nombre_equipo FROM TB_EQUIPO_PRIMERA)
+-- SQLBook: Markup
+## 7. NORMALIZACION
 -- SQLBook: Markup
 
 -- SQLBook: Markup
