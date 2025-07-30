@@ -433,5 +433,17 @@ LEFT JOIN departamento
 ON empleado.id_departamento= departamento.id_departamento;
 
 -- SQLBook: Markup
+### Sub Clases
+
+-- SQLBook: Code
+-- Active: 1753903924006@@127.0.0.1@5432
+-- Active: 1753903924006@@127.0.0.1@543203924006@@127.0.0.1@5432
+
+
+create DATABASE testing2
+
+SELECT * FROM productos;
+
+-- SQLBook: Markup
 
 -- SQLBook: Markup
