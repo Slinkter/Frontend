@@ -2,10 +2,22 @@ import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import {
+  About,
+  Cart,
+  Checkout,
+  Error,
+  HomeLayout,
+  Landing,
+  Login,
+  Orders,
+  Products,
+  Register,
+  SingleProduct,
+} from "./pages";
+
 import ErrorElement from "./components/ErrorElement";
-import HomeLayout from "./pages/HomeLayout";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 
 const App = () => {
   return (

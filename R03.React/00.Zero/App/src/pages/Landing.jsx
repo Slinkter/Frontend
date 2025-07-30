@@ -5,19 +5,19 @@ import ProductsGrid from "./ProductsGrid";
 const url = "/products?featured=true";
 
 export const loader = async () => {
-    const response = await customFetch(url);
-    const products = response.data.data;
-    return { products };
+  const response = await customFetch(url);
+  const products = response.data.data;
+  return { products };
 };
 
 const Landing = () => {
-    return (
-        <div>
-            <Hero />
+  return (
+    <div>
+      {/* <Hero /> */}
 
-            <ProductsGrid />
-        </div>
-    );
+      {/*  <ProductsGrid /> */}
+    </div>
+  );
 };
 
 export default Landing;
