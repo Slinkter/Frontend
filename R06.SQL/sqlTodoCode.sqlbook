@@ -445,35 +445,101 @@ CREATE DATABASE db_joins
 -- SQLBook: Code
 
 -- SQLBook: Code
-CREATE TABLE
-    departamento (
-        id_departamento INT PRIMARY KEY,
-        nombre VARCHAR(50),
-        edificio VARCHAR(50),
-        piso INT
-    )
-SELECT
-    *
-FROM
-    departamento;
+CREATE TABLE departamento (
+    id_departamento INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    edificio VARCHAR(50),
+    piso INT
+)
+SELECT *
+FROM departamento;
 
 INSERT INTO
-    departamento (id_departamento, nombre, edificio, piso)
-VALUES
-    (1, 'RECURSOS HUMANOS', 'Edificio A', 5),
+    departamento (
+        id_departamento,
+        nombre,
+        edificio,
+        piso
+    )
+VALUES (
+        1,
+        'RECURSOS HUMANOS',
+        'Edificio A',
+        5
+    ),
     (2, 'VENTAS', 'Edificio B', 10),
-    (3, 'MARKETING', 'Edificio C', 7),
-    (4, 'TECNOLOGIA', 'Edificio D', 12),
-    (5, 'FINANZAS', 'Edificio E', 8),
-    (6, 'PRODUCCION', 'Edificio F', 1),
-    (8, 'INVESTIGACION Y DESARROLLO', 'Edificio G', 15),
-    (9, 'LOGISTICA', 'Edificio H', 3),
-    (10, 'SERVICIO AL CLIENTE', 'Edificio I', 2),
-    (11, 'COMPRAS', 'Edificio J', 6),
-    (12, 'CALIDAD', 'Edificio K', 9),
-    (13, 'DIRECCION GENERAL', 'Edificio L', 20),
-    (14, 'OPERACIONES', 'Edificio M', 4),
-    (15, 'ADMINISTRACION', 'Edificio N', 11);
+    (
+        3,
+        'MARKETING',
+        'Edificio C',
+        7
+    ),
+    (
+        4,
+        'TECNOLOGIA',
+        'Edificio D',
+        12
+    ),
+    (
+        5,
+        'FINANZAS',
+        'Edificio E',
+        8
+    ),
+    (
+        6,
+        'PRODUCCION',
+        'Edificio F',
+        1
+    ),
+    (
+        8,
+        'INVESTIGACION Y DESARROLLO',
+        'Edificio G',
+        15
+    ),
+    (
+        9,
+        'LOGISTICA',
+        'Edificio H',
+        3
+    ),
+    (
+        10,
+        'SERVICIO AL CLIENTE',
+        'Edificio I',
+        2
+    ),
+    (
+        11,
+        'COMPRAS',
+        'Edificio J',
+        6
+    ),
+    (
+        12,
+        'CALIDAD',
+        'Edificio K',
+        9
+    ),
+    (
+        13,
+        'DIRECCION GENERAL',
+        'Edificio L',
+        20
+    ),
+    (
+        14,
+        'OPERACIONES',
+        'Edificio M',
+        4
+    ),
+    (
+        15,
+        'ADMINISTRACION',
+        'Edificio N',
+        11
+    );
 -- SQLBook: Code
 DROP TABLE EMPLEADO;
 
@@ -498,34 +564,147 @@ DROP TABLE EMPLEADO;
 SELECT * FROM EMPLEADO
 -- SQLBook: Code
 INSERT INTO
-    EMPLEADO (dni, nombre, apellido, id_departamento)
-VALUES
-    ('12345678', 'Juan', 'Pérez', 1),
+    EMPLEADO (
+        dni,
+        nombre,
+        apellido,
+        id_departamento
+    )
+VALUES (
+        '12345678',
+        'Juan',
+        'Pérez',
+        1
+    ),
     ('87654321', 'Ana', 'Gómez', 2),
-    ('11223344', 'Luis', 'Martínez', 3),
-    ('44332211', 'María', 'López', 4),
-    ('55667788', 'Carlos', 'Sánchez', 5),
-    ('99887766', 'Laura', 'Ramírez', 6),
-    ('77441122', 'Pedro', 'Valenzuela', 1),
-    ('33118822', 'Sofía', 'Torres', 2),
-    ('88990011', 'Javier', 'Castro', 3),
-    ('10293847', 'Natalia', 'Fernández', 4),
-    ('56473829', 'Andrés', 'Vargas', 5),
-    ('66554433', 'Camila', 'Rojas', 6),
-    ('77788899', 'Fernando', 'León', 1),
-    ('11229988', 'Mónica', 'Reyes', 2),
-    ('22334455', 'Diego', 'Salazar', 3),
-    ('99884477', 'Lucía', 'Morales', 4),
-    ('33445566', 'Rodrigo', 'Mendoza', 5),
-    ('66778899', 'Valeria', 'Ortiz', 6),
-    ('44556677', 'Tomás', 'Navarro', 1),
-    ('55664433', 'Isabela', 'Cárdenas', 2);
+    (
+        '11223344',
+        'Luis',
+        'Martínez',
+        3
+    ),
+    (
+        '44332211',
+        'María',
+        'López',
+        4
+    ),
+    (
+        '55667788',
+        'Carlos',
+        'Sánchez',
+        5
+    ),
+    (
+        '99887766',
+        'Laura',
+        'Ramírez',
+        6
+    ),
+    (
+        '77441122',
+        'Pedro',
+        'Valenzuela',
+        1
+    ),
+    (
+        '33118822',
+        'Sofía',
+        'Torres',
+        2
+    ),
+    (
+        '88990011',
+        'Javier',
+        'Castro',
+        3
+    ),
+    (
+        '10293847',
+        'Natalia',
+        'Fernández',
+        4
+    ),
+    (
+        '56473829',
+        'Andrés',
+        'Vargas',
+        5
+    ),
+    (
+        '66554433',
+        'Camila',
+        'Rojas',
+        6
+    ),
+    (
+        '77788899',
+        'Fernando',
+        'León',
+        1
+    ),
+    (
+        '11229988',
+        'Mónica',
+        'Reyes',
+        2
+    ),
+    (
+        '22334455',
+        'Diego',
+        'Salazar',
+        3
+    ),
+    (
+        '99884477',
+        'Lucía',
+        'Morales',
+        4
+    ),
+    (
+        '33445566',
+        'Rodrigo',
+        'Mendoza',
+        5
+    ),
+    (
+        '66778899',
+        'Valeria',
+        'Ortiz',
+        6
+    ),
+    (
+        '44556677',
+        'Tomás',
+        'Navarro',
+        1
+    ),
+    (
+        '55664433',
+        'Isabela',
+        'Cárdenas',
+        2
+    );
 
 INSERT INTO
-    EMPLEADO (dni, nombre, apellido, id_departamento)
-VALUES
-    ('12345678', 'Juan', 'Pérez', null),
-    ('87654321', 'Ana', 'Gómez', null)
+    EMPLEADO (
+        dni,
+        nombre,
+        apellido,
+        id_departamento
+    )
+VALUES (
+        '12345678',
+        'Juan',
+        'Pérez',
+        null
+    ),
+    (
+        '87654321',
+        'Ana',
+        'Gómez',
+        null
+    )
 -- SQLBook: Code
 ## inner join
 ### Tabla A :  EMPLEADO
@@ -558,63 +737,182 @@ ON empleado.id_departamento= departamento.id_departamento;
 # 2. no usa between , like , order by
 # 3.
 -- SQLBook: Code
-ALTER TABLE empleado
-ADD COLUMN IF NOT EXISTS sueldo DECIMAL(10,2)
+ALTER TABLE empleado ADD COLUMN IF NOT EXISTS sueldo DECIMAL(10, 2)
 
 SELECT * FROM EMPLEADO;
 
 UPDATE empleado
-SET sueldo = ROUND((RANDOM()*(4500-1130)+1130)::NUMERIC,2)
+SET
+    sueldo = ROUND(
+        (
+            RANDOM() * (4500 -1130) + 1130
+        )::NUMERIC,
+        2
+    )
 -- SQLBook: Code
 # CONSULTAR MAYOR : OBTENER LOS EMPLEADOS QUE SUPERENTE EL SUELDO MAYOR
 # CONSULTAR MENOR : CALCULAR EL SUELDO PROMEDIO
 
-## EJM 1 
+## EJM 1
 SELECT * 
 FROM empleado
 WHERE sueldo>= (select avg(sueldo) from empleado)
-
-
-
 -- SQLBook: Code
-
 # NUEVA BASE DE DATOS
 CREATE DATABASE DB_FUTBOL;
 
 CREATE TABLE TB_HINCHAS (
-    id_hincha int ,
+    id_hincha int,
     nombre VARCHAR(65),
     apellido VARCHAR(65),
     equipo_futbol VARCHAR(65)
-) ;
+);
 
-INSERT INTO TB_HINCHAS (id_hincha, nombre, apellido, equipo_futbol) VALUES
-(1, 'Roberto', 'Carlos', 'Atlético Fénix'),
-(2, 'Patricia', 'Díaz', 'Deportivo Cóndor'),
-(3, 'Miguel', 'Vásquez', 'Unión Estrellas'),
-(4, 'Sofía', 'Castro', 'Sporting Dragones'),
-(5, 'José', 'Flores', 'Real Victoria'),
-(6, 'Ana', 'Rojas', 'Club Defensor Lima'),
-(7, 'Ricardo', 'Soto', 'Fuerza Imperial'),
-(8, 'Carolina', 'Guerra', 'Atlético Milagro'),
-(9, 'Daniel', 'Silva', 'Estudiantes del Sur'),
-(10, 'Laura', 'Moreno', 'Leones del Norte'),
-(11, 'Pablo', 'Mendoza', 'Atlético Fénix'),
-(12, 'Elena', 'Cruz', 'Deportivo Cóndor'),
-(13, 'Jorge', 'Paredes', 'Unión Estrellas'),
-(14, 'Andrea', 'Núñez', 'Sporting Dragones'),
-(15, 'Manuel', 'Quispe', 'Real Victoria'),
-(16, 'Valeria', 'Ramos', 'Club Defensor Lima'),
-(17, 'Fernando', 'Torres', 'Fuerza Imperial'),
-(18, 'Isabel', 'Vargas', 'Atlético Milagro'),
-(19, 'Gonzalo', 'Huamán', 'Estudiantes del Sur'),
-(20, 'Mariana', 'Jiménez', 'Leones del Norte');
+INSERT INTO
+    TB_HINCHAS (
+        id_hincha,
+        nombre,
+        apellido,
+        equipo_futbol
+    )
+VALUES (
+        1,
+        'Roberto',
+        'Carlos',
+        'Atlético Fénix'
+    ),
+    (
+        2,
+        'Patricia',
+        'Díaz',
+        'Deportivo Cóndor'
+    ),
+    (
+        3,
+        'Miguel',
+        'Vásquez',
+        'Unión Estrellas'
+    ),
+    (
+        4,
+        'Sofía',
+        'Castro',
+        'Sporting Dragones'
+    ),
+    (
+        5,
+        'José',
+        'Flores',
+        'Real Victoria'
+    ),
+    (
+        6,
+        'Ana',
+        'Rojas',
+        'Club Defensor Lima'
+    ),
+    (
+        7,
+        'Ricardo',
+        'Soto',
+        'Fuerza Imperial'
+    ),
+    (
+        8,
+        'Carolina',
+        'Guerra',
+        'Atlético Milagro'
+    ),
+    (
+        9,
+        'Daniel',
+        'Silva',
+        'Estudiantes del Sur'
+    ),
+    (
+        10,
+        'Laura',
+        'Moreno',
+        'Leones del Norte'
+    ),
+    (
+        11,
+        'Pablo',
+        'Mendoza',
+        'Atlético Fénix'
+    ),
+    (
+        12,
+        'Elena',
+        'Cruz',
+        'Deportivo Cóndor'
+    ),
+    (
+        13,
+        'Jorge',
+        'Paredes',
+        'Unión Estrellas'
+    ),
+    (
+        14,
+        'Andrea',
+        'Núñez',
+        'Sporting Dragones'
+    ),
+    (
+        15,
+        'Manuel',
+        'Quispe',
+        'Real Victoria'
+    ),
+    (
+        16,
+        'Valeria',
+        'Ramos',
+        'Club Defensor Lima'
+    ),
+    (
+        17,
+        'Fernando',
+        'Torres',
+        'Fuerza Imperial'
+    ),
+    (
+        18,
+        'Isabel',
+        'Vargas',
+        'Atlético Milagro'
+    ),
+    (
+        19,
+        'Gonzalo',
+        'Huamán',
+        'Estudiantes del Sur'
+    ),
+    (
+        20,
+        'Mariana',
+        'Jiménez',
+        'Leones del Norte'
+    );
 
-INSERT INTO TB_HINCHAS (id_hincha, nombre, apellido, equipo_futbol) VALUES (21, 'JUANITO ', 'SOSO', 'Los tercos de lima');
+INSERT INTO
+    TB_HINCHAS (
+        id_hincha,
+        nombre,
+        apellido,
+        equipo_futbol
+    )
+VALUES (
+        21,
+        'JUANITO ',
+        'SOSO',
+        'Los tercos de lima'
+    );
 
 SELECT * FROM TB_HINCHAS;
 
-CREATE  TABLE TB_EQUIPO_PRIMERA(
+CREATE TABLE TB_EQUIPO_PRIMERA (
     id_equipo int,
     nombre_equipo VARCHAR(65),
     cantidad_socios int,
@@ -622,19 +920,100 @@ CREATE  TABLE TB_EQUIPO_PRIMERA(
     categoria VARCHAR(65)
 )
 
-INSERT INTO TB_EQUIPO_PRIMERA (id_equipo, nombre_equipo, cantidad_socios, localidad, categoria) VALUES
-(1, 'Atlético Fénix', 15000, 'Lima', 'Primera División'),
-(2, 'Deportivo Cóndor', 12000, 'Arequipa', 'Primera División'),
-(3, 'Unión Estrellas', 20000, 'Trujillo', 'Primera División'),
-(4, 'Sporting Dragones', 9500, 'Cusco', 'Primera División'),
-(5, 'Real Victoria', 18000, 'Piura', 'Primera División'),
-(6, 'Club Defensor Lima', 11000, 'Lima', 'Primera División'),
-(7, 'Fuerza Imperial', 14000, 'Chiclayo', 'Primera División'),
-(8, 'Atlético Milagro', 8000, 'Huancayo', 'Primera División'),
-(9, 'Estudiantes del Sur', 16500, 'Tacna', 'Primera División'),
-(10, 'Leones del Norte', 10500, 'Cajamarca', 'Primera División');
+INSERT INTO
+    TB_EQUIPO_PRIMERA (
+        id_equipo,
+        nombre_equipo,
+        cantidad_socios,
+        localidad,
+        categoria
+    )
+VALUES (
+        1,
+        'Atlético Fénix',
+        15000,
+        'Lima',
+        'Primera División'
+    ),
+    (
+        2,
+        'Deportivo Cóndor',
+        12000,
+        'Arequipa',
+        'Primera División'
+    ),
+    (
+        3,
+        'Unión Estrellas',
+        20000,
+        'Trujillo',
+        'Primera División'
+    ),
+    (
+        4,
+        'Sporting Dragones',
+        9500,
+        'Cusco',
+        'Primera División'
+    ),
+    (
+        5,
+        'Real Victoria',
+        18000,
+        'Piura',
+        'Primera División'
+    ),
+    (
+        6,
+        'Club Defensor Lima',
+        11000,
+        'Lima',
+        'Primera División'
+    ),
+    (
+        7,
+        'Fuerza Imperial',
+        14000,
+        'Chiclayo',
+        'Primera División'
+    ),
+    (
+        8,
+        'Atlético Milagro',
+        8000,
+        'Huancayo',
+        'Primera División'
+    ),
+    (
+        9,
+        'Estudiantes del Sur',
+        16500,
+        'Tacna',
+        'Primera División'
+    ),
+    (
+        10,
+        'Leones del Norte',
+        10500,
+        'Cajamarca',
+        'Primera División'
+    );
 
-INSERT INTO TB_EQUIPO_PRIMERA (id_equipo, nombre_equipo, cantidad_socios, localidad, categoria) VALUES (11, 'Los tercos de lima', 19, 'Lima', 'Primera División');
+INSERT INTO
+    TB_EQUIPO_PRIMERA (
+        id_equipo,
+        nombre_equipo,
+        cantidad_socios,
+        localidad,
+        categoria
+    )
+VALUES (
+        11,
+        'Los tercos de lima',
+        19,
+        'Lima',
+        'Primera División'
+    );
 
 SELECT * FROM TB_EQUIPO_PRIMERA
 
@@ -645,18 +1024,16 @@ WHERE id_equipo in
 (SELECT id_equipo FROM TB_EQUIPO_PRIMERA ORDER BY id_equipo DESC LIMIT 5)
 
 DROP TABLE TB_EQUIPO_PRIMERA
-
-
-
 -- SQLBook: Code
-# CONSULTA 1 : 
-# CONSULTA 2 : 
+# CONSULTA 1 :
+# CONSULTA 2 :
 
 SELECT * 
 FROM TB_HINCHAS 
 WHERE equipo_futbol IN (SELECT nombre_equipo FROM TB_EQUIPO_PRIMERA)
 -- SQLBook: Markup
 ## 7. NORMALIZACION
+
 -- SQLBook: Markup
 
 -- SQLBook: Markup
