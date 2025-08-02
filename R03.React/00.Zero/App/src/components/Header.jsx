@@ -1,41 +1,43 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { use } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../features/cart/cartSlice";
+import { logoutUser } from "../features/user/userSlice";
 
 const Header = () => {
     const navigate = useNavigate();
-    //const dispatch = useDispatch();
-    //const queryClient = useQueryClient();
-    const user = null;
+    const dispatch = useDispatch();
+    const queryClient = useQueryClient();
+    const user = useSelector((state) => state.userState.user);
+
+    const handleLogout = () => {
+        navigate("/");
+        dispatch(clearCart());
+        dispatch(logoutUser());
+        queryClient.removeQueries();
+    };
 
     return (
-        <header className="border-2 bg-neutral py-2 text-neutral-content">
-            <div className="flex justify-center sm:justify-end">
+        <header className="">
+            <div className="">
                 {user ? (
-                    <div className="flex gap-x-2 sm:gap-x-8 items-center">
-                        <p className="text-xs sm:text-sm">{"Hello username"}</p>
-                        <button
-                            className="btn btn-xs btn-outline btn-primary"
-                            onClick={() => {}}
-                        >
-                            logout
-                        </button>
-                    </div>
+                    <>
+                        <div className="">
+                            <p className=""> hello , {user.username}</p>
+                            <button className="" onClick={handleLogout}>
+                                logut
+                            </button>
+                        </div>
+                    </>
                 ) : (
-                    <div className="flex gap-x-6 justify-center items-center">
-                        <Link
-                            to={"/login"}
-                            className="link link-hover text-xs sm:text-sm"
-                        >
-                            Sign in /Guest
+                    <div className="">
+                        <Link to="/login" className="">
+                            Sign in/Guest
                         </Link>
-                        <Link
-                            to={"/register"}
-                            className="link link-hover text-xs sm:text-sm"
-                        >
-                            Create account
+                        <Link to="/register" className="">
+                            Create Account
                         </Link>
                     </div>
                 )}
