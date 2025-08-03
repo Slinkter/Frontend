@@ -31,14 +31,32 @@ const PaginationContainer = () => {
                         if (prevPage < 1) {
                             prevPage = pageCount;
                         }
+                        handlePageChange(prevPage);
                     }}
                 >
                     prev
                 </button>
                 {pages.map((pageNumber) => {
-                    return <button>{pageNumber}</button>;
+                    return (
+                        <button
+                            key={pageNumber}
+                            onClick={() => handlePageChange(pageNumber)}
+                            className={` ${""}`}
+                        >
+                            {pageNumber}
+                        </button>
+                    );
                 })}
-                <button className="" onClick={() => {}}>
+                <button
+                    className=""
+                    onClick={() => {
+                        let nextPage = page + 1;
+                        if (nextPage > pageCount) {
+                            nextPage = 1;
+                            handlePageChange(nextPage);
+                        }
+                    }}
+                >
                     Next
                 </button>
             </div>

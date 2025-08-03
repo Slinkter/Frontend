@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
 
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../features/user/userSlice";
+import { toogleTheme } from "../features/user/userSlice";
 
 const Navbar = () => {
     const dispatch = useDispatch();
 
     const handleTheme = () => {
-        dispatch(toggleTheme());
+        dispatch(toogleTheme());
     };
 
     const numItemsInCart = useSelector(
