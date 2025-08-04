@@ -16,11 +16,15 @@ const allProductsQuery = (queryParams) => {
             search ?? "",
             category ?? "all",
             company ?? "all",
-            sort ?? 10000,
+            sort ?? "a-z",
+            price ?? 100000,
             shipping ?? false,
             page ?? 1,
         ],
-        queryFn: () => customFetch(url, { params: queryParams }),
+        queryFn: () =>
+            customFetch(url, {
+                params: queryParams,
+            }),
     };
 };
 

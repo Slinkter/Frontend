@@ -18,7 +18,7 @@ const Cart = () => {
     return (
         <>
             <SectionTitle text={"shopping cart"} />
-            <div className="">
+            <div className="mt-8 grid gap-8 lg:grid-cols-12">
                 <div className="">
                     <CartItemsList />
                 </div>

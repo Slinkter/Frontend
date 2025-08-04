@@ -1,3 +1,4 @@
+// filepath: src/components/NavLinks.jsx
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -23,7 +24,7 @@ const NavLinks = () => {
 
                 return (
                     <li key={id}>
-                        <NavLink className={"capitalize"} to={url}>
+                        <NavLink key={id} className={"capitalize"} to={url}>
                             {text}
                         </NavLink>
                     </li>

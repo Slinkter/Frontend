@@ -12,7 +12,9 @@ const PaginationContainer = () => {
         return index + 1;
     });
     const { search, pathname } = useLocation();
+
     const navigate = useNavigate();
+
     const handlePageChange = (pageNumber) => {
         const searchParams = new URLSearchParams(search);
         searchParams.set("page", pageNumber);
@@ -22,10 +24,10 @@ const PaginationContainer = () => {
     if (pageCount < 2) return null;
 
     return (
-        <div className="">
-            <div className="">
+        <div className="mt-16 flex justify-end">
+            <div className="join">
                 <button
-                    className=""
+                    className="btn btn-xs sm:btn-md join-item"
                     onClick={() => {
                         let prevPage = page - 1;
                         if (prevPage < 1) {
@@ -41,14 +43,18 @@ const PaginationContainer = () => {
                         <button
                             key={pageNumber}
                             onClick={() => handlePageChange(pageNumber)}
-                            className={` ${""}`}
+                            className={`btn btn-xs sm:md border-none join-item ${
+                                pageNumber === page
+                                    ? "bg-base-300 border-base-300"
+                                    : ""
+                            }`}
                         >
                             {pageNumber}
                         </button>
                     );
                 })}
                 <button
-                    className=""
+                    className="btn btn-xs sm:btn-md join-item"
                     onClick={() => {
                         let nextPage = page + 1;
                         if (nextPage > pageCount) {

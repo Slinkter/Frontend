@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 const singleProductQuery = (id) => {
     return {
-        queryKey: ["single", id],
-        queryFn: () => customFetch(`/product/${id}`),
+        queryKey: ["singleProduct", id],
+        queryFn: () => customFetch(`/products/${id}`),
     };
 };
 
@@ -45,6 +45,7 @@ const SingleProduct = () => {
         productColor,
         amount,
     };
+
     const dispatch = useDispatch();
 
     const addToCart = () => {
@@ -53,7 +54,7 @@ const SingleProduct = () => {
 
     return (
         <section>
-            <div className="">
+            <div className="text-md breadcrumbs">
                 <ul>
                     <li>
                         <Link to="/">Home</Link>
@@ -63,36 +64,49 @@ const SingleProduct = () => {
                     </li>
                 </ul>
             </div>
-            <div>
-                <img src={image} alt={title} className="" />
+            <div className="mt-6 grid gap-y-8 lg:grid-cols-2 lg:gap-x-16">
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-96 h-96 object-cover rounded-lg lg:w-full"
+                />
 
                 <div>
-                    <h1>{title}</h1>
-                    <h4>{company}</h4>
-                    <p>{dollarAmount}</p>
-                    <p>{description}</p>
-                    <div className="">
-                        <h4 className="">colors</h4>
+                    <h1 className="capitalize text-3xl font-bold">{title}</h1>
+                    <h4 className="text-xl text-neutral-content font-bold mt-2">
+                        {company}
+                    </h4>
+                    <p className="mt-3 text-xl">{dollarAmount}</p>
+                    <p className="mt-6 leading-8">{description}</p>
+                    <div className="mt-6">
+                        <h4 className="text-md font-medium tracking-wider capitalize">
+                            colors
+                        </h4>
                     </div>
-                    <div>
+                    <div className="mt-2">
                         {colors.map((color) => {
                             return (
                                 <button
                                     key={color}
                                     type="button"
-                                    className=""
+                                    className={`badge w-6 h-6 mr-2 ${
+                                        color === productColor &&
+                                        "border-2 border-secondary"
+                                    }`}
                                     style={{ background: color }}
                                     onClick={() => setProductColor(color)}
                                 ></button>
                             );
                         })}
                     </div>
-                    <div>
-                        <label htmlFor="">
-                            <h4>amount</h4>
+                    <div className="form-control w-full max-w-xs">
+                        <label htmlFor="amount" className="label">
+                            <h4 className="text-md font-medium -tracking-wider capitalize">
+                                amount
+                            </h4>
                         </label>
                         <select
-                            className=""
+                            className="select select-secondary select-bordered select-md"
                             id="amount"
                             value={amount}
                             onChange={handleAmount}
@@ -100,8 +114,13 @@ const SingleProduct = () => {
                             {generateAmountOptions(20)}
                         </select>
                     </div>
-                    <div className="" onClick={addToCart}>
-                        <button>Add To bag</button>
+                    <div className="mt-10">
+                        <button
+                            className="btn btn-secondary btn-md"
+                            onClick={addToCart}
+                        >
+                            Add To bag
+                        </button>
                     </div>
                 </div>
             </div>

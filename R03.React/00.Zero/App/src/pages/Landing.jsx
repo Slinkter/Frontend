@@ -1,6 +1,7 @@
 import Hero from "../components/Hero";
 import { customFetch } from "../utils";
 import ProductsGrid from "../components/ProductsGrid";
+import { FeaturedProducts } from "../components";
 const url = "/products?featured=true";
 
 const featuredProductsQuery = {
@@ -18,8 +19,7 @@ const Landing = () => {
     return (
         <div>
             <Hero />
-
-            <ProductsGrid />
+            <FeaturedProducts />
         </div>
     );
 };
