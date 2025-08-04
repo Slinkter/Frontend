@@ -6,10 +6,12 @@ const OrdersList = () => {
     const { orders, meta } = useLoaderData();
 
     return (
-        <div>
-            <h4>total orders : {meta.pagination.total}</h4>
-            <div>
-                <table>
+        <div className="mt-8">
+            <h4 className="mb-4 capitalize">
+                total orders : {meta.pagination.total}
+            </h4>
+            <div className="overflow-x-auto">
+                <table className="table table-zebra">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -38,7 +40,7 @@ const OrdersList = () => {
                                     <td>{address}</td>
                                     <td>{numItemsInCart}</td>
                                     <td>{orderTotal}</td>
-                                    <td className="">{date}</td>
+                                    <td className="hidden sm:block">{date}</td>
                                 </tr>
                             );
                         })}

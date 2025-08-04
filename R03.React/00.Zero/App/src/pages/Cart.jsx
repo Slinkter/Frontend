@@ -18,16 +18,27 @@ const Cart = () => {
     return (
         <>
             <SectionTitle text={"shopping cart"} />
+
             <div className="mt-8 grid gap-8 lg:grid-cols-12">
-                <div className="">
+                <div className="lg:col-span-8">
                     <CartItemsList />
                 </div>
-                <div className="">
+                <div className="lg:col-span-4 lg:pl-4">
                     <CartTotals />
                     {user ? (
-                        <Link className="/checkout">proceed to checkout</Link>
+                        <Link
+                            to="/checkout"
+                            className="btn btn-primary btn-block mt-8"
+                        >
+                            proceed to checkout
+                        </Link>
                     ) : (
-                        <Link className="/login">please login</Link>
+                        <Link
+                            to="/login"
+                            className="btn btn-primary btn-block mt-8"
+                        >
+                            please login
+                        </Link>
                     )}
                 </div>
             </div>

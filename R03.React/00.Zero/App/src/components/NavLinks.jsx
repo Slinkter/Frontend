@@ -15,7 +15,7 @@ const NavLinks = () => {
     const user = useSelector((state) => state.userState.user);
 
     return (
-        <div>
+        <>
             {links.map((link) => {
                 const { id, url, text } = link;
                 if ((url === "checkout" || url === "orders") && !user) {
@@ -30,7 +30,7 @@ const NavLinks = () => {
                     </li>
                 );
             })}
-        </div>
+        </>
     );
 };
 
