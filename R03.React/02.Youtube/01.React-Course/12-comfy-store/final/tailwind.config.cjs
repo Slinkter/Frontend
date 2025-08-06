@@ -8,4 +8,4 @@ export default {
   daisyui: {
     themes: ['winter', 'dracula'],
   },
-};
+}; 
