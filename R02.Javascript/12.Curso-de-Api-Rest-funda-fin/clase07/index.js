@@ -24,7 +24,9 @@ async function loadRandomMichis() {
     try {
         const objAxios = null;
         const urlAxios = "/images/search?limit=3";
+        // exe axios
         const resAxios = await api.get(urlAxios);
+
         const { data, status } = resAxios;
         /*  */
         console.log({ resAxios });
@@ -64,6 +66,7 @@ async function loadFavouriteCat() {
     try {
         const objAxios = null;
         const urlAxios = "/favourites";
+        // exec axios
         const resAxios = await api.get(urlAxios);
         const { data } = resAxios;
         console.log({ resAxios });
