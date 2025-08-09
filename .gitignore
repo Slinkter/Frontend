@@ -1,5 +1,9 @@
 node_modules
 
+# IDE / Editor specific
+.idea/
+.vscode/
+
 # Created by https://www.toptal.com/developers/gitignore/api/node,windows,linux,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,linux,macos
 
@@ -89,8 +93,8 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
-/node_modules/
+# node_modules/ # Redundant: Covered by `node_modules` at the top
+# /node_modules/ # Redundant: Covered by `node_modules` at the top
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -123,6 +127,7 @@ web_modules/
 # dotenv environment variables file
 .env
 .env.test
+.env.local
 .env.production
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -136,6 +141,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+build/
 
 # Gatsby files
 .cache/
@@ -193,4 +199,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-

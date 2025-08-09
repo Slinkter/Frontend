@@ -1,15 +1,15 @@
 import React from "react";
 // useContext
-import { TodoContext } from "../components/TodoContext";
+import { TodoContext } from "../Curso/components/TodoContext";
 // Components
-import { TodoCounter } from "../components/TodoCounter";
-import { TodoSearch } from "../components/TodoSearch";
-import { TodoList } from "../components/TodoList";
-import { TodoItem } from "../components/TodoItem";
-import { TodoForm } from "../components/TodoForm";
+import { TodoCounter } from "../Curso/components/TodoCounter";
+import { TodoSearch } from "../Curso/components/TodoSearch";
+import { TodoList } from "../Curso/components/TodoList";
+import { TodoItem } from "../Curso/components/TodoItem";
+import { TodoForm } from "../Curso/components/TodoForm";
 // Tools
-import { CreateTodoButton } from "../components/CreateTodoButton";
-import { Modal } from "../components/Modal";
+import { CreateTodoButton } from "../Curso/components/CreateTodoButton";
+import { Modal } from "../Curso/components/Modal";
 
 /* 
 This file defines the UI component for the Todo List application. 
