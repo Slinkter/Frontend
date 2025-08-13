@@ -16,7 +16,7 @@ const initialState = {
 /* setFavorite : Acción para marcar o desmarcar un pokemon como favorito. */
 export const dataSlice = createSlice({
     name: "data", // Nombre del slice.
-    initialState, // Estado inicial.
+    initialState: initialState, // Estado inicial.
     reducers: {
         setPokemons: (state, action) => {
             state.pokemons = action.payload; // Actualiza la lista de pokemons con los datos recibidos en la acción.
@@ -26,13 +26,13 @@ export const dataSlice = createSlice({
         },
         setFavorite: (state, action) => {
             // Encuentra el índice del pokemon correspondiente.
-            const currentPokemonIndex = state.pokemons.findIndex((pokemon) => {
+            const index = state.pokemons.findIndex((pokemon) => {
                 return pokemon.id === action.payload.pokemonId;
             });
 
-            if (currentPokemonIndex >= 0) {
-                const isFavorite = state.pokemons[currentPokemonIndex].favorite; // Verifica si el pokemon ya es favorito.
-                state.pokemons[currentPokemonIndex].favorite = !isFavorite; // Cambia el estado de favorito.
+            if (index >= 0) {
+                const isFavorite = state.pokemons[index].favorite; // Verifica si el pokemon ya es favorito.
+                state.pokemons[index].favorite = !isFavorite; // Cambia el estado de favorito.
             }
         },
     },
@@ -49,18 +49,15 @@ export const fetchPokemonWithDetails = createAsyncThunk(
         dispatch(setLoading(true)); // Activa el estado de carga (loading).
         try {
             // Obtiene la lista de pokemons de la API.
-            const pokemonsRes = await getPokemon(dispatch);
+            const pokemons = await getPokemon(dispatch);
+            console.log(pokemons);
             // Obtiene los detalles de cada pokemon.
-            const pokemonDetailed = await Promise.all(
-                pokemonsRes.map((pokemon) =>
-                    getPokemonDetails(pokemon, dispatch)
-                )
+            const pokemonsPlus = await Promise.all(
+                pokemons.map((pokemon) => getPokemonDetails(pokemon, dispatch))
             );
+            console.log(pokemonsPlus);
             // Despacha la acción para guardar los pokemons detallados en el estado.
-            dispatch(setPokemons(pokemonDetailed));
-            // Log
-            console.log(pokemonsRes);
-            console.log(pokemonDetailed);
+            dispatch(setPokemons(pokemonsPlus));
         } catch (error) {
             // dispatch(setError("Error fetchhing pokemon data " + error));
             console.log(error);

@@ -20,7 +20,6 @@ const reducer = (state, action) => {
                     (item) => item.id !== action.payload
                 ),
             };
-
         case types.getVideoSource:
             return {
                 ...state,

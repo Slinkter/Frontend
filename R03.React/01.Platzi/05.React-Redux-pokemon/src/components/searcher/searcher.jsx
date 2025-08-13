@@ -5,16 +5,16 @@ import { useDispatch } from "react-redux";
 const Searcher = () => {
     const dispatch = useDispatch();
 
-    const filterPokemon = (inputFilter) => {
-        const inputFilterFormat = inputFilter.trim().toLowerCase();
-        dispatch(setSearchFilter(inputFilterFormat));
+    const handleChange = (inputText) => {
+        const text = inputText.trim().toLowerCase();
+        dispatch(setSearchFilter(text));
     };
 
     return (
         <Input
             placeholder="Buscar..."
             style={{ marginBottom: 10 }}
-            onChange={(event) => filterPokemon(event.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
         />
     );
 };

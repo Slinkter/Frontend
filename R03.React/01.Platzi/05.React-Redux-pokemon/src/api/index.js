@@ -20,9 +20,9 @@ export const getPokemonDetails = async (pokemon, dispatch) => {
         const res = await axios.get(pokemon.url);
         return res.data;
     } catch (err) {
-        console.log(err);
         dispatch(
             setError(`Msg Error: no fetching details for ${pokemon.name}`)
         );
+        console.log(err);
     }
 };
