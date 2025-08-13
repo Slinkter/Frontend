@@ -1,53 +1,70 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 const UseRefBasics = () => {
-  const [value, setValue] = useState(0);
-  const refContainer = useRef(null);
-  const isMounted = useRef(false);
+    // Estado para demostrar re-render manual
+    const [counter, setCounter] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(refContainer.current);
-    const name = refContainer.current.value;
-    console.log(name);
-  };
-  useEffect(() => {
-    // console.log(refContainer.current);
-    refContainer.current.focus();
-  });
+    // Referencia al input de nombre
+    const nameInputRef = useRef(null);
 
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    console.log('re-render');
-  }, [value]);
+    // Referencia para saber si el componente ya se montó
+    const hasMounted = useRef(false);
 
-  return (
-    <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            Name
-          </label>
-          <input
-            type='text'
-            id='name'
-            ref={refContainer}
-            className='form-input'
-          />
+    // Manejador del submit del formulario
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Accede directamente al DOM del input
+        console.log("Elemento input:", nameInputRef.current);
+
+        // Obtiene el valor del input usando la referencia
+        const name = nameInputRef.current.value;
+        console.log("Nombre ingresado:", name);
+    };
+
+    // Enfoca el input al montar el componente
+    useEffect(() => {
+        nameInputRef.current.focus();
+    }, []);
+
+    // Detecta re-renders después del primer montaje
+    useEffect(() => {
+        if (!hasMounted.current) {
+            hasMounted.current = true; // Marca como montado
+            return;
+        }
+        console.log("El componente se ha re-renderizado");
+    }, [counter]);
+
+    return (
+        <div>
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="form-row">
+                    <label htmlFor="name" className="form-label">
+                        Nombre
+                    </label>
+                    <input
+                        ref={nameInputRef}
+                        id="name"
+                        type="text"
+                        className="form-input"
+                        placeholder="Escribe tu nombre"
+                    />
+                </div>
+                <button type="submit" className="btn btn-block">
+                    Enviar
+                </button>
+            </form>
+
+            {/* Muestra el valor actual del contador */}
+            <h1>Contador: {counter}</h1>
+
+            {/* Botón para incrementar el contador */}
+            <button onClick={() => setCounter(counter + 1)} className="btn">
+                Incrementar
+            </button>
         </div>
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-      <h1>value : {value}</h1>
-      <button onClick={() => setValue(value + 1)} className='btn'>
-        increase
-      </button>
-    </div>
-  );
+    );
 };
 
 export default UseRefBasics;
