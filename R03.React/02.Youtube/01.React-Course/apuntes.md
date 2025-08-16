@@ -1,6 +1,0 @@
-<!--
-
-file .env
-
-VITE_RAPIDAPI_KEY=132d33a956msh82d8f59fd876370p198c9ejsncf98f2f52735
- -->
