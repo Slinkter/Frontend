@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; // Importa herramientas de Redux Toolkit.
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getPokemon, getPokemonDetails } from "../api"; // Importa funciones API que obtienen la lista de pokemons y sus detalles.
 import { setError, setLoading } from "./uiSlice"; // Importa una acción del slice de la interfaz de usuario para manejar el estado de carga.
 
@@ -11,9 +11,9 @@ const initialState = {
 };
 
 /* Slice de datos que maneja las acciones relacionadas con los pokemons. */
-/* setPokemons : Acción para establecer la lista de pokemons en el estado. */
-/* setSearchFilter : Acción para establecer un filtro de búsqueda. */
-/* setFavorite : Acción para marcar o desmarcar un pokemon como favorito. */
+/*** setPokemons : Acción para establecer la lista de pokemons en el estado. */
+/*** setSearchFilter : Acción para establecer un filtro de búsqueda. */
+/*** setFavorite : Acción para marcar o desmarcar un pokemon como favorito. */
 export const dataSlice = createSlice({
     name: "data", // Nombre del slice.
     initialState: initialState, // Estado inicial.
@@ -26,23 +26,19 @@ export const dataSlice = createSlice({
         },
         setFavorite: (state, action) => {
             // Encuentra el índice del pokemon correspondiente.
-            const index = state.pokemons.findIndex((pokemon) => {
-                return pokemon.id === action.payload.pokemonId;
-            });
+            const id = action.payload.pokemonId;
+            const index = state.pokemons.findIndex(
+                (pokemon) => pokemon.id === id
+            );
 
             if (index >= 0) {
-                const isFavorite = state.pokemons[index].favorite; // Verifica si el pokemon ya es favorito.
-                state.pokemons[index].favorite = !isFavorite; // Cambia el estado de favorito.
+                const status = status.pokemons[index].favorite;
+                status.pokemons[index].favorite = !status;
             }
         },
     },
 });
-// Nombre de la acción.
-/* 
-Acción asíncrona para obtener pokemons con sus detalles. 
 
-`createAsyncThunk` se usa para crear acciones que manejan llamadas asíncronas a APIs. 
-*/
 export const fetchPokemonWithDetails = createAsyncThunk(
     "data/fetch",
     async (_, { dispatch }) => {
@@ -59,7 +55,7 @@ export const fetchPokemonWithDetails = createAsyncThunk(
             // Despacha la acción para guardar los pokemons detallados en el estado.
             dispatch(setPokemons(pokemonsPlus));
         } catch (error) {
-            // dispatch(setError("Error fetchhing pokemon data " + error));
+            dispatch(setError("Error fetchhing pokemon data " + error));
             console.log(error);
         } finally {
             dispatch(setLoading(false)); // Desactiva el estado de carga.
