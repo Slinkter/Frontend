@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -20,7 +19,6 @@ const config = {
     initialColorMode: "dark",
     useSystemColorMode: false,
 };
-
 
 const theme = extendTheme({ config, styles });
 
