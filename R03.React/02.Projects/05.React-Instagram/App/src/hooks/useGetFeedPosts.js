@@ -8,57 +8,60 @@ import useUserProfileStore from "../store/userProfileStore";
 import useShowToast from "./useShowToast";
 
 const useGetFeedPosts = () => {
-    // Estado para saber si se están cargando los posts. Inicia en `true`.
     const [isLoading, setIsLoading] = useState(true);
-    // Obtiene el usuario autenticado desde el store global de Zustand.
-    const authUser = useAuthStore((state) => state.user);
 
-    // Obtiene los posts y la función para actualizarlos desde el store de posts.
-    const { posts, setPosts } = usePostStore();
-    // Obtiene la función para actualizar el perfil de usuario (aunque no se usa aquí, está en las dependencias).
-    const { setUserProfile } = useUserProfileStore();
+    const authUser = useAuthStore((state) => state.user); // Obtiene el usuario autenticado desde el store
+    const { posts, setPosts } = usePostStore(); // Obtiene los posts desde el store de posts.
 
-    // Hook personalizado para mostrar notificaciones (toasts).
     const showToast = useShowToast();
 
     // useEffect se ejecuta cuando el componente se monta o cuando una de sus dependencias cambia.
     useEffect(() => {
-        // Función asíncrona para obtener los posts del feed.
+        // F-asíncrona para obtener los posts .
         const getFeedPosts = async () => {
-            // Inicia el estado de carga.
             setIsLoading(true);
 
             // Si el usuario no sigue a nadie, no hay nada que mostrar.
+
             if (authUser.following.length === 0) {
-                setIsLoading(false); // Detiene la carga.
-                setPosts([]); // Asegura que no haya posts antiguos.
+                setIsLoading(false);
+                setPosts([]);
                 return; // Termina la ejecución de la función.
             }
 
+            const examplepost = {
+                id: "string", // ID único del documento del post en Firestore.
+                caption: "string", // El texto o descripción que acompaña a la imagen (inferido).
+                imageURL: "string", // La URL de la imagen de la publicación (inferido).
+                createdBy: "string", // El `uid` del usuario que creó el post.
+                createdAt: "number", // Fecha de creación del post, en formato timestamp.
+                likes: ["array"], // Un array con los `uid` de los usuarios que le han dado "me gusta".
+                comments: ["array"], // Un array de objetos `comment`.
+            };
+
             try {
+                const feedPosts = [];
                 // Crea una consulta a Firestore.
+                // Busca en la colección "posts".
+                // traer los posts de los usuario al que sigue el usuario logeado ,
+                // filtra por  "createdBy"
                 const q = query(
-                    collection(firestore, "posts"), // Busca en la colección "posts".
-                    // Filtra los documentos donde el campo "createdBy" coincida con alguno de los UIDs
-                    // que el usuario actual está siguiendo (`authUser.following`).
-                    // NOTA: La cláusula 'in' de Firestore tiene un límite (actualmente 30 elementos).
+                    collection(firestore, "posts"),
                     where("createdBy", "in", authUser.following)
                 );
-
                 // Ejecuta la consulta y obtiene una "instantánea" de los resultados.
                 const querySnapshot = await getDocs(q);
-                const feedPosts = [];
-
                 // Itera sobre cada documento en los resultados.
                 querySnapshot.forEach((doc) => {
                     // Añade el post al array, incluyendo su ID de documento.
-                    feedPosts.push({ id: doc.id, ...doc.data() });
+                    const post = { id: doc.id, ...doc.data() };
+                    feedPosts.push(post);
                 });
 
                 // Ordena los posts por fecha de creación, del más nuevo al más viejo.
                 feedPosts.sort((a, b) => b.createdAt - a.createdAt);
 
-                // Actualiza el estado global con los posts obtenidos.
+                // Actualiza el estado global con los posts .
                 setPosts(feedPosts);
             } catch (error) {
                 // Si ocurre un error, muestra una notificación.
@@ -71,7 +74,9 @@ const useGetFeedPosts = () => {
         };
 
         // Solo ejecuta la función si hay un usuario autenticado.
-        if (authUser) getFeedPosts();
+        if (authUser) {
+            getFeedPosts();
+        }
     }, [authUser, showToast, setPosts]); // Dependencias del useEffect.
 
     // El hook devuelve el estado de carga y la lista de posts para que los componentes los usen.

@@ -6,7 +6,6 @@ import { firestore } from "../firebase/firebase";
 const useGetUserProfileById = (userId) => {
     const [isLoading, setIsLoading] = useState(true);
     const [userProfile, setUserProfile] = useState(null);
-
     const showToast = useShowToast();
 
     useEffect(() => {
@@ -14,7 +13,8 @@ const useGetUserProfileById = (userId) => {
             setIsLoading(true);
             setUserProfile(null);
             try {
-                const userRef = await getDoc(doc(firestore, "users", userId));
+                const q = doc(firestore, "users", userId);
+                const userRef = await getDoc(q);
                 if (userRef.exists()) {
                     setUserProfile(userRef.data());
                 }
