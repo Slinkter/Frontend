@@ -132,9 +132,9 @@ La lógica de la aplicación se abstrae en componentes y _hooks_ personalizados.
 -   **`App.jsx`**: Es el componente raíz que controla el enrutamiento. Utiliza `react-firebase-hooks` para verificar si un usuario está autenticado y decide si mostrar la página principal o la de autenticación.
 -   **`CreatePost.jsx`**: Este componente maneja la creación de nuevos _posts_. Usa **`useState`** para el estado local y delega la lógica de subida y manejo de datos al _hook_ **`useCreatePost`**.
 -   **Custom Hooks:**
-    -   **`useCreatePost`**: Es un _hook_ personalizado crucial. Se encarga de la lógica para subir la imagen a **Firebase Storage**, crear el documento en **Firestore** y actualizar el estado global en **Zustand**. Esto mantiene el componente `CreatePost` limpio y enfocado en la interfaz.
-    -   **`usePreviewImg`**: Abstrae la lógica para previsualizar una imagen antes de subirla.
-    -   **`useShowToast`**: Encapsula el manejo de notificaciones de Chakra UI.
+-   **`useCreatePost`**: Es un _hook_ personalizado crucial. Se encarga de la lógica para subir la imagen a **Firebase Storage**, crear el documento en **Firestore** y actualizar el estado global en **Zustand**. Esto mantiene el componente `CreatePost` limpio y enfocado en la interfaz.
+-   **`usePreviewImg`**: Abstrae la lógica para previsualizar una imagen antes de subirla.
+-   **`useShowToast`**: Encapsula el manejo de notificaciones de Chakra UI.
 
 ---
 
