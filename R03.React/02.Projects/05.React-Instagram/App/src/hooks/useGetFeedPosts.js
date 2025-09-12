@@ -10,8 +10,8 @@ import useShowToast from "./useShowToast";
 const useGetFeedPosts = () => {
     const [isLoading, setIsLoading] = useState(true);
 
-    const authUser = useAuthStore((state) => state.user); // Obtiene el usuario autenticado desde el store
-    const { posts, setPosts } = usePostStore(); // Obtiene los posts desde el store de posts.
+    const authUser = useAuthStore((state) => state.user); //  store del usuario
+    const { posts, setPosts } = usePostStore(); //  store de posts.
 
     const showToast = useShowToast();
 
@@ -28,16 +28,6 @@ const useGetFeedPosts = () => {
                 setPosts([]);
                 return; // Termina la ejecución de la función.
             }
-
-            const examplepost = {
-                id: "string", // ID único del documento del post en Firestore.
-                caption: "string", // El texto o descripción que acompaña a la imagen (inferido).
-                imageURL: "string", // La URL de la imagen de la publicación (inferido).
-                createdBy: "string", // El `uid` del usuario que creó el post.
-                createdAt: "number", // Fecha de creación del post, en formato timestamp.
-                likes: ["array"], // Un array con los `uid` de los usuarios que le han dado "me gusta".
-                comments: ["array"], // Un array de objetos `comment`.
-            };
 
             try {
                 const feedPosts = [];

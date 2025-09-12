@@ -13,6 +13,16 @@ import useGetFeedPosts from "../../hooks/useGetFeedPosts";
 const FeedPosts = () => {
     const { isLoading, posts } = useGetFeedPosts();
 
+    const examplepost = {
+        id: "string", // ID único del documento del post en Firestore.
+        caption: "string", // El texto o descripción que acompaña a la imagen (inferido).
+        imageURL: "string", // La URL de la imagen de la publicación (inferido).
+        createdBy: "string", // El `uid` del usuario que creó el post.
+        createdAt: "number", // Fecha de creación del post, en formato timestamp.
+        likes: ["array"], // Un array con los `uid` de los usuarios que le han dado "me gusta".
+        comments: ["array"], // Un array de objetos `comment`.
+    };
+
     return (
         <Container maxW={"container.sm"} py={10} px={2}>
             {/*  */}
