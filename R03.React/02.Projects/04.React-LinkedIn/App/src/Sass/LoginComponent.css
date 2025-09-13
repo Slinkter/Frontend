@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-wrapper {
+  background-color: white !important;
+  height: 100vh;
+}
+.login-wrapper .login-wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper .login-wrapper-inner .heading {
+  font-family: system-ui;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-wrapper .login-wrapper-inner .auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+.login-wrapper .sub-heading {
+  margin-top: -20px;
+  font-family: system-ui;
+}
+
+.login-btn {
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #0073b1;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: system-ui;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.login-btn:hover {
+  background-color: #004c75;
+}
+
+.linkedinLogo {
+  width: 80px;
+}
+
+.google-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.google-btn-container .google-btn {
+  width: 300px !important;
+}
+.google-btn-container .go-to-signup {
+  font-size: 18px;
+}
+.google-btn-container .join-now {
+  color: #0072b1;
+  font-family: system-ui;
+  cursor: pointer;
+  font-size: 18px;
+}/*# sourceMappingURL=LoginComponent.css.map */
