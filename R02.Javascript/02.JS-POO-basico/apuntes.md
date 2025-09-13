@@ -2232,9 +2232,7 @@ dog.makeSound(); // Output: Bark
 cat.makeSound(); // Output: Meow
 ```
 
-### 18. Polimorfismo en JavaScript
-
-```js
+```javascript
 class Comment {
     constructor({ content, pupil_name, pupil_role = "pupils" }) {
         this.content = content;
@@ -2310,7 +2308,7 @@ class School {
     }
 }
 
-// Trabajamos con pupil y herencia
+// Clase Padre
 class Pupil {
     constructor({
         name,
@@ -2347,8 +2345,9 @@ class Pupil {
         comment.publish();
     }
 }
+
+// Clases Hijas
 class Free_pupil extends Pupil {
-    /*  */
     constructor(properties) {
         super(properties);
     }
@@ -2385,6 +2384,8 @@ class Expert_pupil extends Pupil {
         this.approved_courses.push(new_course);
     }
 }
+
+// Clase Hija que demuestra Polimorfismo
 class Teacher_student extends Pupil {
     constructor(properties) {
         super(properties);
@@ -2394,6 +2395,7 @@ class Teacher_student extends Pupil {
         this.approved_course.push(new_course);
     }
 
+    // Sobreescribimos el método de la clase padre
     post_comment(comment_content) {
         const comment = new Comment({
             content: comment_content,
@@ -2404,6 +2406,8 @@ class Teacher_student extends Pupil {
         comment.publish();
     }
 }
+
+/* --- Creación de Instancias --- */
 
 const class_one = new Classes({ topic: "Class One" });
 const class_two = new Classes({ topic: "Class Two" });
@@ -2428,14 +2432,6 @@ const course_three = new Course({
     name: "Course 03",
     classes: [class_one, class_two, class_three, class_four, class_five],
 });
-
-// Haciendo uso de get and set en Course (pruebas en consola)
-course_one;
-course_one.name;
-// course_one.name = "Another way to change the name"
-// course_one.change_name('A new course name')
-course_one.name = "This is the new course name";
-course_one.name = "Bad Coding Course"; //mensaje error
 
 const school_01 = new School({
     path: "Web development",
@@ -2475,82 +2471,21 @@ const angela = new Teacher_student({
     instagram: "angelagossow",
 });
 
-school_01.launch_of_new_course(
-    new Course({
-        name: "Course 04",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-school_01.launch_of_new_course(
-    new Course({
-        name: "Course 05",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-school_01.launch_of_new_course(
-    new Course({
-        name: "Course 06",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-
-school_02.launch_of_new_course(
-    new Course({
-        name: "Course 04",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-school_02.launch_of_new_course(
-    new Course({
-        name: "Course 05",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-school_02.launch_of_new_course(
-    new Course({
-        name: "Course 06",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-
-school_03.launch_of_new_course(
-    new Course({
-        name: "Course 04",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-school_03.launch_of_new_course(
-    new Course({
-        name: "Course 05",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-school_03.launch_of_new_course(
-    new Course({
-        name: "Course 06",
-        classes: [class_one, class_two, class_three, class_six],
-    })
-);
-
-simone.approved_course(course_one);
-simone.approved_course(course_three);
-
-alissa.approved_course(course_one);
-alissa.approved_course(course_two);
-
-// herencia
-simone;
-simone.approved_course(course_one);
-simone.approved_courses;
-simone.approved_course(course_two); //ingles
-alissa.approved_course(course_three);
-alissa.approved_courses;
-
-// polimorfismo
-angela;
-angela.post_comment("We want more practical courses and less theory :3");
+/* --- Pruebas de Polimorfismo --- */
+// `alissa` es una instancia de `Pupil`, por lo que su rol es "pupils" (estudiante).
 alissa.post_comment("I also want more practical courses and less theory!!!");
-angela;
+// Output:
+// Alissa White_Gluz + (pupils)
+// 0 likes
+// I also want more practical courses and less theory!!!
+
+// `angela` es una instancia de `Teacher_student`, que sobreescribe el método.
+// Su rol es "teacher".
+angela.post_comment("We want more practical courses and less theory :3");
+// Output:
+// Angela Gossow + (teacher)
+// 0 likes
+// We want more practical courses and less theory :3
 ```
 
 ### 19. Playgrounds: Sobrescribir métodos heredados
