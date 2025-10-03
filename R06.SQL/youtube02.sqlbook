@@ -1,0 +1,7 @@
+-- SQLBook: Code
+-- Active: 1759459348836@@127.0.0.1@3306@Northwind
+show DATABASEs;
+use Northwind
+
+
+-- SQLBook: Code
