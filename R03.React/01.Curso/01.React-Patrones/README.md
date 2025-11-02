@@ -1,16 +1,39 @@
-# React + Vite
+# React Patterns Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple TODO application that demonstrates various React patterns and best practices.
 
-Currently, two official plugins are available:
+## Description and Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The main purpose of this project is to showcase how to apply Clean Architecture and Clean Code principles in a React application. It demonstrates how to refactor a project to improve its structure, reusability, and maintainability.
 
-## React Compiler
+## Installation and Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+To run this project, you need to have Node.js and pnpm installed.
 
-## Expanding the ESLint configuration
+1.  Clone the repository:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    ```bash
+    git clone https://github.com/your-username/react-patterns.git
+    ```
+
+2.  Install the dependencies:
+
+    ```bash
+    pnpm install
+    ```
+
+3.  Run the development server:
+
+    ```bash
+    pnpm dev
+    ```
+
+## Applied Architecture
+
+This project follows the principles of Clean Architecture and Clean Code. The main patterns and techniques used are:
+
+*   **Component Composition:** The application is built by combining small, reusable components to create more complex UIs.
+*   **React Context:** The `TodoContext` is used to manage the application's global state and avoid prop drilling.
+*   **Custom Hooks:** The `useTodos` hook encapsulates the logic for managing the TODOs, including fetching data from `localStorage`.
+*   **Separation of Concerns:** The application is divided into components, hooks, and context, each with a specific responsibility.
+*   **Conditional Rendering:** The `AppUI` component handles the conditional rendering of the different states of the application (loading, error, empty, etc.).
