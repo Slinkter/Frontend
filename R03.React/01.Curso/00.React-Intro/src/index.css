@@ -1,0 +1,36 @@
+/* ---------------------------------------------------- */
+/* 1. CSS RESET: Aplica la consistencia de caja y fuente */
+/* ---------------------------------------------------- */
+* {
+    /* Reseteo de márgenes y paddings por defecto */
+    margin: 0;
+    padding: 0;
+    /* Incluye padding y borde en el ancho total del elemento (Clean CSS) */
+    box-sizing: border-box;
+
+    /* Colores y Tipografía Global */
+    background: #c9c6c6;
+    color: #1e1e1f;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+/* ---------------------------------------------------- */
+/* 2. ESTILOS DEL CONTENEDOR RAIZ (#root) */
+/* ---------------------------------------------------- */
+#root {
+    /* Altura mínima de la pantalla menos el margen (para asegurar que quepa sin scroll innecesario) */
+    min-height: calc(
+        100dvh - 48px
+    ); /* 24px margin arriba + 24px margin abajo = 48px total */
+
+    /* Margen exterior que crea el espacio alrededor de la "caja" principal */
+    margin: 24px;
+    /* Padding interno */
+    padding: 24px;
+
+    /* Estilos del contenedor */
+    position: relative;
+    border: 1px solid #d1d5d9;
+    border-radius: 25px;
+    box-shadow: #1f1f1e 0px 0px 6px;
+}
