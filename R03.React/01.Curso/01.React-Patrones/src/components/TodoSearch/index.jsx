@@ -1,29 +1,32 @@
-import React from 'react';
-import { TodoContext } from '../TodoContext/index.jsx';
-import './TodoSearch.css';
+import React from "react";
+import { TodoContext } from "../TodoContext/index.jsx";
+import "./TodoSearch.css";
 
 /**
  * @file TodoSearch.jsx
- * @description Search input for filtering TODOs.
+ * @description A search input for filtering TODOs in real-time.
  * @returns {JSX.Element} - The TodoSearch component.
  */
-
 function TodoSearch() {
-  const { searchValue, setSearchValue } = React.useContext(TodoContext);
-  const onSearchValueChange = (event) => {
-    setSearchValue(event.target.value);
-  };
+    // Consume the context to get the search value and its dispatcher
+    const { searchValue, setSearchValue } = React.useContext(TodoContext);
 
-  return (
-    <input
-      className="TodoSearch"
-      placeholder="Cebolla"
-      value={searchValue}
-      onChange={onSearchValueChange}
-    />
-  );
+    /**
+     * Handles the change event on the search input.
+     * @param {React.ChangeEvent<HTMLInputElement>} event - The change event.
+     */
+    const onSearchValueChange = (event) => {
+        setSearchValue(event.target.value);
+    };
+
+    return (
+        <input
+            className="TodoSearch"
+            placeholder="Cebolla"
+            value={searchValue}
+            onChange={onSearchValueChange}
+        />
+    );
 }
 
 export { TodoSearch };
-
-

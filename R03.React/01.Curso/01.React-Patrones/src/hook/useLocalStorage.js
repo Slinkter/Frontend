@@ -2,62 +2,74 @@ import React from "react";
 
 /**
  * @file useLocalStorage.js
- * @description Custom hook for managing data in localStorage.
- * @param {string} dbName - The name of the database in localStorage.
- * @param {*} initialValue - The initial value for the data.
- * @returns {object} - The state and functions for managing data in localStorage.
+ * @description Custom hook for managing data in `localStorage`.
+ * It handles loading, error, and synchronization states.
+ * @param {string} dbName - The name of the key in `localStorage`.
+ * @param {*} initialValue - The initial value if no data is found in `localStorage`.
+ * @returns {{item: *, saveItem: function, loading: boolean, error: boolean, sincronizeItem: function}} - The state and functions for managing data in `localStorage`.
  */
-
 function useLocalStorage(dbName, initialValue) {
-  //
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
-  const [item, setItem] = React.useState(initialValue);
-  const [sincronizedItem, setSincronizedItem] = React.useState(true);
-  //
-  React.useEffect(() => {
-    const fetchData = () => {
-      try {
-        const data = localStorage.getItem(dbName);
+    // State to track loading status
+    const [loading, setLoading] = React.useState(true);
+    // State to track any errors
+    const [error, setError] = React.useState(false);
+    // State for the stored item
+    const [item, setItem] = React.useState(initialValue);
+    // State to force synchronization
+    const [sincronizedItem, setSincronizedItem] = React.useState(true);
 
-        if (!data) {
-          localStorage.setItem(dbName, JSON.stringify(initialValue));
+    React.useEffect(() => {
+        // Simulate a delay to show the loading state
+        setTimeout(() => {
+            try {
+                const db_ls = localStorage.getItem(dbName);
+                let parsedList;
+                // If no item exists, create it with the initial value
+                if (!db_ls) {
+                    localStorage.setItem(dbName, JSON.stringify(initialValue));
+                    parsedList = initialValue;
+                } else {
+                    parsedList = JSON.parse(db_ls);
+                }
+
+                setItem(parsedList);
+                setLoading(false);
+                setSincronizedItem(true);
+            } catch (error) {
+                setError(error);
+            }
+        }, 1000); // 1-second delay
+    }, [dbName, initialValue, sincronizedItem]);
+
+    /**
+     * Saves a new item to `localStorage` and updates the state.
+     * @param {*} newItem - The new item to save.
+     */
+    const saveItem = (newItem) => {
+        try {
+            const stringifiedList = JSON.stringify(newItem);
+            localStorage.setItem(dbName, stringifiedList);
+            setItem(newItem);
+        } catch (error) {
+            setError(error);
         }
-        const parsed = data ? JSON.parse(data) : initialValue;
-        setItem(parsed);
-        setLoading(false);
-        setSincronizedItem(true);
-      } catch (error) {
-        setError(error);
-      }
     };
 
-    fetchData();
-  }, [sincronizedItem]);
+    /**
+     * Triggers a re-fetch of the data from `localStorage`.
+     */
+    const sincronizeItem = () => {
+        setLoading(true);
+        setSincronizedItem(false);
+    };
 
-  const saveItem = (newArray) => {
-    try {
-      const stringifiedItem = JSON.stringify(newArray);
-      localStorage.setItem(dbName, stringifiedItem);
-      setItem(newArray);
-    } catch (error) {
-      setError(error);
-    }
-  };
-
-  const sincronizeItem = () => {
-    setLoading(true);
-    setSincronizedItem(false);
-  };
-
-  return {
-    error,
-    loading,
-    item,
-    saveItem,
-    sincronizeItem,
-  };
+    return {
+        item,
+        saveItem,
+        loading,
+        error,
+        sincronizeItem,
+    };
 }
 
 export { useLocalStorage };
-

@@ -1,19 +1,21 @@
 import React from "react";
 import { TodoContext } from "../TodoContext/index.jsx";
 import { useStorageListener } from "../../hook/useStorageListener.js";
-//
 import "./ChangeAlert.css";
 
 /**
  * @file ChangeAlert.jsx
- * @description Alerts the user if there are changes in localStorage from another tab/window.
- * @returns {JSX.Element} - The ChangeAlert component.
+ * @description A component that alerts the user if `localStorage` has changed in another browser tab/window.
+ * It provides an option to synchronize the state.
+ * @returns {JSX.Element | null} - The ChangeAlert component, or `null` if there are no changes.
  */
-
 function ChangeAlert() {
+  // Consume the context to get the synchronization function
   const { sincronizeTodos } = React.useContext(TodoContext);
+  // Use the custom hook to listen for storage changes
   const { show, toggleShow } = useStorageListener(sincronizeTodos);
 
+  // If 'show' is true, render the alert
   if (show) {
     return (
       <div className="ChangeAlert-bg">
@@ -25,7 +27,7 @@ function ChangeAlert() {
           <p>¿Quieres sincronizar tus TODOs?</p>
           <button
             className="TodoForm-button TodoForm-button--add"
-            onClick={toggleShow}
+            onClick={toggleShow} // When clicked, synchronizes and hides the alert
           >
             Yes!
           </button>
@@ -33,6 +35,7 @@ function ChangeAlert() {
       </div>
     );
   } else {
+    // Otherwise, render nothing
     return null;
   }
 }

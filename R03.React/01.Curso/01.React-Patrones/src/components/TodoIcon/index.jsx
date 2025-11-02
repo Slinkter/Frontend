@@ -1,11 +1,12 @@
 import React from "react";
-import CheckSVG from "./check.svg?react";
-import DeleteSVG from "./delete.svg?react";
+import { ReactComponent as CheckSVG } from "./check.svg";
+import { ReactComponent as DeleteSVG } from "./delete.svg";
 import "./TodoIcon.css";
 
 /**
  * @file TodoIcon.jsx
- * @description Generic icon component for TODO actions.
+ * @description A generic icon component for TODO actions.
+ * It dynamically renders an SVG based on the `type` prop.
  * @param {object} props - The component props.
  * @param {string} props.type - The type of the icon (e.g., "check", "delete").
  * @param {string} [props.color="gray"] - The color of the icon.
@@ -13,6 +14,7 @@ import "./TodoIcon.css";
  * @returns {JSX.Element} - The TodoIcon component.
  */
 
+// A dictionary to map icon types to their respective SVG components
 const iconTypes = {
   check: (color) => (
     <CheckSVG className="Icon-svg Icon-svg--check" fill={color} />
@@ -28,6 +30,7 @@ function TodoIcon({ type, color = "gray", onClick }) {
       className={`Icon-container Icon-container--${type}`}
       onClick={onClick}
     >
+      {/* Render the icon by calling the function from the iconTypes dictionary */}
       {iconTypes[type](color)}
     </span>
   );

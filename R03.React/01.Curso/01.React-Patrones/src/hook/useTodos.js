@@ -3,67 +3,82 @@ import { useLocalStorage } from "../hook/useLocalStorage";
 
 /**
  * @file useTodos.js
- * @description Custom hook for managing TODOs.
+ * @description Custom hook for managing the entire state and logic .
  * @returns {object} - The state and functions for managing TODOs.
  */
-
 function useTodos() {
-  //
+    const [searchValue, setSearchValue] = React.useState(""); // State for the search input value
+    const [openModal, setOpenModal] = React.useState(false); // State to control the modal visibility
 
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false);
-  const {
-    error,
-    loading,
-    item: todos,
-    saveItem: saveTodos,
-    sincronizeItem: sincronizeTodos,
-  } = useLocalStorage("V1", []);
-  //
+    // Use the useLocalStorage hook to persist TODOs
+    const {
+        loading,
+        error,
+        item: todos,
+        saveItem: saveTodos,
+        sincronizeItem: sincronizeTodos,
+    } = useLocalStorage("TODOS_V1", []);
 
-  const completedTodos = todos.filter((todo) => todo.completed).length;
-  const totalTodos = todos.length;
-  const searchedTodos = !searchValue.length
-    ? todos
-    : todos.filter((todo) => {
-        const todoText = todo.text.toLowerCase();
-        const searchText = searchValue.toLowerCase();
-        return todoText.includes(searchText);
-      });
+    // Derived state: count of completed TODOs
+    const completedTodos = todos.filter((todo) => todo.completed).length;
+    // Derived state: total number of TODOs
+    const totalTodos = todos.length;
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text: text, completed: false }];
-    saveTodos(newTodos);
-  };
+    // Derived state: filter TODOs based on the search value
+    const searchedTodos = !searchValue.length
+        ? todos
+        : todos.filter((todo) => {
+              const todoText = todo.text.toLowerCase();
+              const searchText = searchValue.toLowerCase();
+              return todoText.includes(searchText);
+          });
 
-  const completeTodo = (text) => {
-    const newTodos = todos.map((obj) =>
-      obj.text === text ? { ...obj, completed: true } : obj
-    );
-    saveTodos(newTodos);
-  };
+    /**
+     * Adds a new TODO to the list.
+     * @param {string} text - The text of the new TODO.
+     */
+    const addTodo = (text) => {
+        const newTodos = [...todos, { text, completed: false }];
+        saveTodos(newTodos);
+    };
 
-  const deleteTodo = (text) => {
-    const newTodos = todos.filter((x) => x.text !== text);
-    saveTodos(newTodos);
-  };
+    /**
+     * Marks a TODO as completed.
+     * @param {string} text - The text of the TODO to complete.
+     */
+    const completeTodo = (text) => {
+        const todoIndex = todos.findIndex((todo) => todo.text === text);
+        const newTodos = [...todos];
+        newTodos[todoIndex].completed = true;
+        saveTodos(newTodos);
+    };
 
-  return {
-    loading,
-    error,
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    addTodo,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-    sincronizeTodos,
-  };
+    /**
+     * Deletes a TODO from the list.
+     * @param {string} text - The text of the TODO to delete.
+     */
+    const deleteTodo = (text) => {
+        const todoIndex = todos.findIndex((todo) => todo.text === text);
+        const newTodos = [...todos];
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
+    };
+
+    return {
+        loading,
+        error,
+        totalTodos,
+        completedTodos,
+        searchValue,
+        setSearchValue,
+        searchedTodos,
+        addTodo,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+        sincronizeTodos,
+    };
 }
 
 export { useTodos };
-

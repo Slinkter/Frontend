@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * @file TodosError.jsx
@@ -7,8 +7,7 @@ import React from 'react';
  */
 
 function TodosError() {
-  return <p>Desespérate, hubo un error...</p>;
+    return <p>Desespérate, hubo un error...</p>;
 }
 
 export { TodosError };
-
