@@ -1,23 +1,12 @@
 import React from "react";
-import { useContext } from "react";
-import { TodoContext } from "../Context/TodoContext";
-import TodoItem from "./TodoItem";
+import "../style/TodoList.css";
 
-const TodoList = () => {
-    const { renderList } = useContext(TodoContext);
-
+function TodoList(props) {
     return (
-        <div
-            style={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-            }}
-        >
-            {renderList.map((item) => TodoItem({ ...item, key: item.text }))}
-        </div>
+        <section>
+            <ul>{props.children}</ul>
+        </section>
     );
-};
+}
 
-export default TodoList;
+export { TodoList };

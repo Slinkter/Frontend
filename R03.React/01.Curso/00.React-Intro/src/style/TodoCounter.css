@@ -1,0 +1,12 @@
+
+.TodoCounterh2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    padding: var(--spacing-xlarge);
+    color: var(--text-color);
+}
+
+.TodoCounterh2 span {
+    color: var(--primary-color);
+}

@@ -1,18 +1,23 @@
 import React from "react";
-import { TodoContext } from "../Context/TodoContext";
+import { TodoContext } from "../context/customContext.jsx";
+import "../style/TodoSearch.css";
 
-const TodoSearch = () => {
-    const { searchInput, setSearchInput } = React.useContext(TodoContext);
+function TodoSearch() {
+    // Hook
+    const { stateSearch, setStateSearch } = React.useContext(TodoContext);
+    // Funcion
+    const onSearchValueChange = (e) => {
+        setStateSearch(e.target.value);
+    };
+
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="text"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-            />
-        </div>
+        <input
+            className="TodoSearch"
+            placeholder="ingresar un valor"
+            value={stateSearch}
+            onChange={onSearchValueChange}
+        />
     );
-};
+}
 
-export default TodoSearch;
+export { TodoSearch };

@@ -1,38 +1,61 @@
 import React from "react";
-import { TodoProvider } from "./Context/TodoContext.jsx";
-import TodoCounter from "./components/TodoCounter";
-import TodoSearch from "./components/TodoSearch";
-import TodoList from "./components/TodoList.jsx";
-import TodoForm from "./components/TodoForm.jsx";
-import TodoModal from "./components/TodoModal.jsx";
-import TodoButton from "./components/TodoButton.jsx";
+// useContext
+import { TodoContext } from "./context/customContext";
+// Components
+import { TodoCounter } from "./components/TodoCounter.jsx";
+import { TodoSearch } from "./components/TodoSearch.jsx";
+import { TodoList } from "./components/TodoList.jsx";
+import { TodoItem } from "./components/TodoItem.jsx";
+import { TodoForm } from "./components/TodoForm.jsx";
+// Tools
+import { CreateTodoButton } from "./components/CreateTodoButton.jsx";
+import { Modal } from "./components/Modal.jsx";
 
-const App = () => {
-    return (
-        <TodoProvider>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyItems: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                }}
-            >
-                <div
-                    style={{
-                        margin: "2px",
-                    }}
-                >
-                    <TodoForm />
-                </div>
+function AppUI() {
+    const {
+        error,
+        loading,
+        searchedTodos: listTodos,
+        onUpdateItem,
+        onDeleteItem,
+        openModel,
+        setOpenModal,
+    } = React.useContext(TodoContext);
 
-                <TodoCounter />
-                <TodoSearch />
-                <TodoList />
-            </div>
-        </TodoProvider>
+    /* Conditional Rendering */
+    const renderError = error && <p> Hubo un error</p>;
+    const renderLoading = loading && <p> Estamos cargando</p>;
+    const renderFT = !loading && !listTodos && <p>Crear tu primer TODO</p>;
+    const renderList = listTodos.map((item) => (
+        <TodoItem
+            key={item.text}
+            text={item.text}
+            completed={item.completed}
+            onUpdateItem={() => onUpdateItem(item.text)}
+            onDeleteItem={() => onDeleteItem(item.text)}
+        />
+    ));
+
+    const showModal = openModel && (
+        <Modal>
+            <TodoForm />
+        </Modal>
     );
-};
 
-export default App;
+    return (
+        <>
+            <TodoCounter />
+            <TodoSearch />
+            <TodoList>
+                {renderError}
+                {renderLoading}
+                {renderFT}
+                {renderList}
+            </TodoList>
+            <CreateTodoButton setOpenModal={setOpenModal} />
+            {showModal}
+        </>
+    );
+}
+
+export { AppUI };

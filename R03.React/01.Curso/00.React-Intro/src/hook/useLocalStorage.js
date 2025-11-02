@@ -1,46 +1,44 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 
-const useLocalStorage = (dbName) => {
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(null);
-    const [data, setData] = useState([]);
+function useLocalStorage(dbName, initialValue) {
+    const [error, setError] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
+    const [item, setItem] = React.useState(initialValue);
 
-    const getDataLocal = () => {
-        const bd_local = localStorage.getItem(dbName);
-        if (!bd_local) {
-            localStorage.setItem(dbName, JSON.stringify([]));
-            setData([]);
-        } else {
-            setData(JSON.parse(bd_local));
-        }
-    };
+    React.useEffect(() => {
+        setTimeout(() => {
+            getDataLocalStorage();
+        }, 1000);
+    }, [dbName, initialValue]);
 
-    const setDataLocal = (list) => {
+    const getDataLocalStorage = () => {
         try {
-            localStorage.setItem(dbName, JSON.stringify(list));
-            setData(list);
-        } catch (error) {
-            setError(true);
-            console.log(error);
-        }
-    };
+            setLoading(true);
+            const db_ls = localStorage.getItem(dbName);
+            if (!db_ls) {
+                saveItem(initialValue);
+            } else {
+                setItem(JSON.parse(db_ls));
+            }
 
-    /*  */
-
-    useEffect(() => {
-        setLoading(true);
-        try {
-            getDataLocal();
+            setError(false);
         } catch (error) {
-            setError(true);
-            console.log(error);
+            setError(error);
         } finally {
             setLoading(false);
         }
-    }, []);
+    };
+    // save in localStorage y items
+    const saveItem = (array) => {
+        try {
+            localStorage.setItem(dbName, JSON.stringify(array));
+            setItem(array);
+        } catch (error) {
+            setError(error);
+        }
+    };
 
-    return { loading, error, data, setDataLocal };
-};
+    return { loading, error, item, saveItem };
+}
 
-export default useLocalStorage;
+export { useLocalStorage };

@@ -1,30 +1,25 @@
 import React from "react";
-import { useContext } from "react";
-import { TodoContext } from "../Context/TodoContext";
+import "../style/TodoItem.css";
 
-const TodoItem = (props) => {
-    const { editTodo, deleteTodo } = useContext(TodoContext);
+function TodoItem({ text, completed, onUpdateItem, onDeleteItem }) {
     return (
-        <div
-            style={{
-                display: "flex",
-                flexBasis: "row",
-                flexGrow: 1,
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: "10px",
-                border: "1px solid #d1d5d9",
-                backgroundColor: "#ffffff",
-                borderRadius: "8px",
-                padding: "8px",
-                width: "100%",
-            }}
-        >
-            <p style={{ color: "none", background: "none" }}>{props.text}</p>
-            <button onClick={() => editTodo(props.text)}>Check</button>
-            <button onClick={() => deleteTodo(props.text)}>Delete</button>
-        </div>
+        <li className="TodoItem">
+            <span
+                className={`Icon Icon-check ${
+                    completed && "Icon-check--active"
+                }`}
+                onClick={onUpdateItem}
+            >
+                C
+            </span>
+            <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
+                {text}
+            </p>
+            <span className="Icon Icon-delete" onClick={onDeleteItem}>
+                X
+            </span>
+        </li>
     );
-};
+}
 
-export default TodoItem;
+export { TodoItem };

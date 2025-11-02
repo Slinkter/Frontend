@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import { TodoProvider } from "./context/customContext.jsx";
+import { AppUI } from "./App.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <App />
+        <TodoProvider>
+            <AppUI />
+        </TodoProvider>
     </StrictMode>
 );
