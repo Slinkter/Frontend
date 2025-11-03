@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
+/*  */
 const SECURITY_CODE = "paradigma";
+/*  */
 const initialState = {
     value: "",
     error: false,

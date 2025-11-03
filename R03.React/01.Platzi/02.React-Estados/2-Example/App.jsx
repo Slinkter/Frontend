@@ -4,22 +4,21 @@ import ExampleClassState from "./ExampleClassState";
 import UseReducer from "./UseReducer";
 
 const App = () => {
-  return (
-    <div
-      className="App"
-      style={{
+    const stylecustom = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
         margin: 20,
-      }}
-    >
-      <ExampleUseState nameprops="Use State" />
-      <ExampleClassState nameprops="Class State" />
-      <UseReducer />
-    </div>
-  );
+    };
+
+    return (
+        <div className="App" style={stylecustom}>
+            <ExampleClassState nameprops="Class State" />
+            <ExampleUseState nameprops="Use State" />
+            <UseReducer />
+        </div>
+    );
 };
 
 export default App;
