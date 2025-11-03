@@ -24,14 +24,47 @@ npm install
 npm run dev
 ```
 
+## Project Structure
+
+The project is structured as follows:
+
+*   **`src/components`**: Contains all the reusable React components.
+*   **`src/hook`**: Contains all the custom hooks for managing the application's state.
+*   **`src/context`**: Contains the React context providers.
+*   **`src/App.jsx`**: The main container component that orchestrates the application.
+*   **`src/AppUI.jsx`**: The main presentational component.
+*   **`src/index.js`**: The entry point of the application.
+
 ## Applied Architecture
 
-This project follows the Clean Architecture principles to ensure a separation of concerns and a more maintainable codebase. The main architectural patterns used are:
+This project follows Clean Architecture principles to ensure a separation of concerns, scalability, and maintainability. The main architectural patterns and principles used are:
 
-*   **State Management:** The state of the application is managed using the `useReducer` hook within our custom hook `useTodos`. This helps to centralize the state logic and make it more predictable.
+### SOLID Principles
 
-*   **Custom Hooks:** The business logic is encapsulated in custom hooks like `useTodos` and `useLocalStorage`. `useTodos` is responsible for managing the state of the TODOs, while `useLocalStorage` is responsible for persisting the data in the browser's local storage.
+*   **Single Responsibility Principle (SRP):** Each component and hook has a single, well-defined responsibility.
+    *   **Custom Hooks:** State management is decoupled from the UI through the use of custom hooks (`useTodos`, `useModal`, `useSearch`). Each hook manages a specific piece of the application's state.
+    *   **Components:** Components are responsible only for rendering the UI and delegating user interactions to the appropriate hooks.
 
-*   **Component-Based Architecture:** The UI is built using a component-based architecture. Each component is responsible for a specific part of the UI, making the code more modular and easier to understand.
+*   **Open/Closed Principle (OCP):** The application is open for extension but closed for modification. The use of custom hooks and components allows for adding new features without modifying existing code.
 
-*   **Barrel Exports:** The components are exported from a single `index.js` file in the `components` directory. This simplifies the import statements and makes the code more readable.
+### DRY (Don't Repeat Yourself) Principle
+
+*   **Reusable Components:** The UI is built from small, reusable components (`Button`, `Modal`, `Input`, etc.) that are composed to create more complex UIs.
+*   **Custom Hooks:** By extracting the state logic into custom hooks, we avoid duplicating the same logic in multiple components.
+
+### State Management
+
+*   **`useReducer`:** For complex state logic, we use the `useReducer` hook. This is particularly evident in our custom hooks, where it helps to manage state transitions in a predictable and organized manner.
+*   **Custom Hooks for State:**
+    *   `useTodos`: Manages the state of the TODOs list (loading, error, data).
+    *   `useModal`: Manages the state of the modal (open/closed).
+    *   `useSearch`: Manages the state of the search input.
+    *   `useLocalStorage`: A generic hook to synchronize state with the browser's local storage.
+
+### Component Architecture
+
+*   **Container/Presentational Pattern:**
+    *   `App.jsx` (Container): Acts as a container component that is responsible for fetching data and managing the application's state by orchestrating the different custom hooks.
+    *   `AppUI.jsx` (Presentational): Is a presentational component that is only responsible for rendering the UI. It receives all the necessary data and functions as props from `App.jsx`.
+*   **Component-Based Architecture:** The UI is broken down into a tree of small, independent, and reusable components.
+*   **Barrel Exports:** We use `index.js` files (barrel files) to group and export related components from a single entry point, which simplifies the import statements in other parts of the application.
