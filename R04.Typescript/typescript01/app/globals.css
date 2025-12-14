@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body {
+  background: #101010;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  border: 10px solid red;
+}
+
+button {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
