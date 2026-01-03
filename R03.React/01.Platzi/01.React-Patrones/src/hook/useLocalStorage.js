@@ -1,54 +1,79 @@
+/**
+ * @file This custom hook provides a robust interface for interacting with the browser's `localStorage`.
+ * @description `useLocalStorage` abstracts the logic for persisting and retrieving data from `localStorage`,
+ * making it behave like a React state that is synchronized with browser storage. It handles
+ * initialization, loading and error states, and provides a mechanism for manual re-synchronization.
+ * This hook is a foundational piece of the application's data persistence strategy.
+ * The 1-second delay is simulated to demonstrate how the application behaves in a more realistic,
+ * asynchronous environment where data fetching might take time.
+ */
+
 import React from "react";
 
 /**
- * @file useLocalStorage.js
- * @description Custom hook for managing data in `localStorage`.
- * It handles loading, error, and synchronization states.
- * @param {string} dbName - The name of the key in `localStorage`.
- * @param {*} initialValue - The initial value if no data is found in `localStorage`.
- * @returns {{item: *, saveItem: function, loading: boolean, error: boolean, sincronizeItem: function}} - The state and functions for managing data in `localStorage`.
+ * A custom hook to manage data persistence in `localStorage`.
+ *
+ * @param {string} dbName The key name to use in `localStorage`.
+ * @param {*} initialValue The initial value to use if no data is found for the given `dbName`.
+ * @returns {object} An object containing the persisted state and management functions.
+ * @property {boolean} loading - True while the data is being loaded or re-synced from `localStorage`.
+ * @property {boolean} error - True if an error occurred during the process (e.g., JSON parsing).
+ * @property {*} item - The current value of the data retrieved from `localStorage`.
+ * @property {function} saveItem - A function to update the `item` state and persist it to `localStorage`.
+ * @property {function} sincronizeItem - A function to manually trigger a re-load from `localStorage`.
  */
 function useLocalStorage(dbName, initialValue) {
-    // State to track loading status
+    // State to manage the loading status. True by default to indicate initial load.
     const [loading, setLoading] = React.useState(true);
-    // State to track any errors
+    // State to capture any potential errors during localStorage interaction.
     const [error, setError] = React.useState(false);
-    // State for the stored item
+    // The main state that holds the data. Initialized with the provided `initialValue`.
     const [item, setItem] = React.useState(initialValue);
-    // State to force synchronization
+    // A state that acts as a trigger for re-synchronization.
     const [sincronizedItem, setSincronizedItem] = React.useState(true);
 
+    // This effect runs on mount and whenever `sincronizedItem` changes.
     React.useEffect(() => {
-        // Simulate a delay to show the loading state
+        // A 1-second timeout is used to simulate a slow data fetch,
+        // which helps in visualizing the loading state in the UI.
         setTimeout(() => {
             try {
-                const db_ls = localStorage.getItem(dbName);
-                let parsedList;
-                // If no item exists, create it with the initial value
-                if (!db_ls) {
-                    localStorage.setItem(dbName, JSON.stringify(initialValue));
-                    parsedList = initialValue;
+                const localStorageItem = localStorage.getItem(dbName);
+                let parsedItem;
+
+                // If no item is found in localStorage, initialize it with `initialValue`.
+                if (!localStorageItem) {
+                    localStorage.setItem(
+                        dbName,
+                        JSON.stringify(initialValue)
+                    );
+                    parsedItem = initialValue;
                 } else {
-                    parsedList = JSON.parse(db_ls);
+                    // If an item is found, parse it from its JSON string representation.
+                    parsedItem = JSON.parse(localStorageItem);
                 }
 
-                setItem(parsedList);
-                setLoading(false);
+                setItem(parsedItem);
                 setSincronizedItem(true);
             } catch (error) {
+                // If any error occurs (e.g., parsing invalid JSON), update the error state.
                 setError(error);
+            } finally {
+                // Regardless of the outcome, the loading process is finished.
+                setLoading(false);
             }
-        }, 1000); // 1-second delay
-    }, [dbName, initialValue, sincronizedItem]);
+        }, 1000);
+    }, [sincronizedItem]);
 
     /**
-     * Saves a new item to `localStorage` and updates the state.
-     * @param {*} newItem - The new item to save.
+     * Updates the state and persists the new value to `localStorage`.
+     * @param {*} newItem The new data to be saved.
      */
     const saveItem = (newItem) => {
         try {
-            const stringifiedList = JSON.stringify(newItem);
-            localStorage.setItem(dbName, stringifiedList);
+            const stringifiedItem = JSON.stringify(newItem);
+            localStorage.setItem(dbName, stringifiedItem);
+            // Update the React state to trigger a re-render.
             setItem(newItem);
         } catch (error) {
             setError(error);
@@ -56,13 +81,15 @@ function useLocalStorage(dbName, initialValue) {
     };
 
     /**
-     * Triggers a re-fetch of the data from `localStorage`.
+     * Triggers a manual re-synchronization with `localStorage`.
+     * This is used for cross-tab updates.
      */
     const sincronizeItem = () => {
-        setLoading(true);
-        setSincronizedItem(false);
+        setLoading(true); // Show loading state.
+        setSincronizedItem(false); // Trigger the useEffect hook.
     };
 
+    // Return the state and functions to be consumed by other hooks or components.
     return {
         item,
         saveItem,

@@ -2,13 +2,16 @@ import React from "react";
 import { TodoContext } from "../context/customContext.jsx";
 import "../style/TodoCounter.css";
 
+/**
+ * Component that displays the number of completed and total TODOs.
+ * @returns {JSX.Element} The counter component.
+ */
 function TodoCounter() {
-    const { count_TotalTodos, count_CompletedTodos } =
-        React.useContext(TodoContext);
+    const { totalTodos, completedTodos } = React.useContext(TodoContext);
 
     return (
         <h2 className="TodoCounterh2">
-            Has compleado {count_CompletedTodos} de {count_TotalTodos} TODOs{" "}
+            Has completado {completedTodos} de {totalTodos} TODOs{" "}
         </h2>
     );
 }

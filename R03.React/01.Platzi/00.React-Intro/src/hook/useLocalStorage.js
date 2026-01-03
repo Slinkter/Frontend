@@ -1,5 +1,17 @@
 import React from "react";
 
+/**
+ * Custom hook to manage state in localStorage.
+ * It provides loading and error states, the data itself, and a function to save the data.
+ * @param {string} dbName - The name of the key in localStorage.
+ * @param {any} initialValue - The initial value to use if no data is found in localStorage.
+ * @returns {{
+ *  loading: boolean,
+ *  error: boolean,
+ *  item: any,
+ *  saveItem: (newItem: any) => void
+ * }} An object containing the loading state, error state, the item, and a function to save the item.
+ */
 function useLocalStorage(dbName, initialValue) {
     const [error, setError] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
@@ -28,7 +40,11 @@ function useLocalStorage(dbName, initialValue) {
             setLoading(false);
         }
     };
-    // save in localStorage y items
+
+    /**
+     * Saves an item to localStorage and updates the state.
+     * @param {any} array - The new item to save.
+     */
     const saveItem = (array) => {
         try {
             localStorage.setItem(dbName, JSON.stringify(array));

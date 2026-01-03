@@ -10,7 +10,15 @@ import { TodoForm } from "./components/TodoForm.jsx";
 // Tools
 import { CreateTodoButton } from "./components/CreateTodoButton.jsx";
 import { Modal } from "./components/Modal.jsx";
+import { useContext } from "react";
 
+/**
+ * The main presentational component of the application.
+ * It assembles the entire UI from smaller, specialized components
+ * and gets all its data and logic by consuming the `TodoContext`.
+ * This component is only responsible for rendering the UI.
+ * @returns {JSX.Element} The main application UI.
+ */
 function AppUI() {
     const {
         error,
@@ -20,12 +28,14 @@ function AppUI() {
         onDeleteItem,
         openModel,
         setOpenModal,
-    } = React.useContext(TodoContext);
+    } = useContext(TodoContext);
 
     /* Conditional Rendering */
     const renderError = error && <p> Hubo un error</p>;
     const renderLoading = loading && <p> Estamos cargando</p>;
-    const renderFT = !loading && !listTodos && <p>Crear tu primer TODO</p>;
+    const renderFT = !loading && !listTodos.length && (
+        <p>Crea tu primer TODO</p>
+    );
     const renderList = listTodos.map((item) => (
         <TodoItem
             key={item.text}
