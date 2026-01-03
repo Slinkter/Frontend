@@ -32,25 +32,24 @@ function TodoProvider(props) {
         sincronizeTodos,
     } = useTodos();
 
+    const propsValue = {
+        error,
+        loading,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+        totalTodos,
+        completedTodos,
+        searchValue,
+        setSearchValue,
+        addTodo,
+        sincronizeTodos,
+    };
     // Provide the state and functions to the children components
     return (
-        <TodoContext.Provider
-            value={{
-                error,
-                loading,
-                searchedTodos,
-                completeTodo,
-                deleteTodo,
-                openModal,
-                setOpenModal,
-                totalTodos,
-                completedTodos,
-                searchValue,
-                setSearchValue,
-                addTodo,
-                sincronizeTodos,
-            }}
-        >
+        <TodoContext.Provider value={propsValue}>
             {props.children}
         </TodoContext.Provider>
     );

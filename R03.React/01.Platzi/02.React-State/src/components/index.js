@@ -1,3 +1,9 @@
+/**
+ * This barrel file exports all UI components for easier importing.
+ * This pattern allows for cleaner imports in other parts of the application,
+ * e.g., `import { ComponentName } from './components';` instead of
+ * `import { ComponentName } from './components/ComponentName';`.
+ */
 import { ChangeAlert } from "./ChangeAlert";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { EmptyTodos } from "./EmptyTodos";

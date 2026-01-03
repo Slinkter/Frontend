@@ -4,12 +4,20 @@ import { useModal } from "./hook/useModal.js";
 import { useSearch } from "./hook/useSearch.js";
 import { AppUI } from "./AppUI.jsx";
 
+/**
+ * The main application component.
+ * Acts as a container component that orchestrates the application's state and logic.
+ * It uses custom hooks to manage different parts of the state (todos, modal, search)
+ * and passes them down to the presentation component (`AppUI`).
+ *
+ * @returns {React.ReactElement} The rendered application UI.
+ */
 function App() {
     const { openModal, setOpenModal } = useModal();
     const { searchValue, setSearchValue } = useSearch();
-    const { 
-        state: { loading, error, totalTodos, completedTodos, searchedTodos }, 
-        stateUpdaters: { completeTodo, deleteTodo, addTodo, sincronizeTodos } 
+    const {
+        state: { loading, error, totalTodos, completedTodos, searchedTodos },
+        stateUpdaters: { completeTodo, deleteTodo, addTodo, sincronizeTodos },
     } = useTodos(searchValue);
 
     return (

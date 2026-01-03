@@ -43,10 +43,7 @@ function useLocalStorage(dbName, initialValue) {
 
                 // If no item is found in localStorage, initialize it with `initialValue`.
                 if (!localStorageItem) {
-                    localStorage.setItem(
-                        dbName,
-                        JSON.stringify(initialValue)
-                    );
+                    localStorage.setItem(dbName, JSON.stringify(initialValue));
                     parsedItem = initialValue;
                 } else {
                     // If an item is found, parse it from its JSON string representation.
