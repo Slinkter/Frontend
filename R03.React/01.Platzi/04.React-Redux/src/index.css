@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #8f57fd;
+  --color-brand-dark: #0d0d0d;
+  --font-sans: "Muli", sans-serif;
+}
+
+/* Custom Base Styles */
+body {
+  @apply bg-brand-primary text-white font-sans antialiased overflow-x-hidden;
+  margin: 0;
+}
+
+/* Custom Scrollbar for Carousel */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px; /* Altura para scroll horizontal */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 0 5%; /* Margen lateral para que no toque los bordes */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); /* Sutil */
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Ocultar scrollbar en móviles para experiencia nativa limpia */
+@media (max-width: 768px) {
+    .custom-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .custom-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
