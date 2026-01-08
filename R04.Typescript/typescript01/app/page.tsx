@@ -1,15 +1,21 @@
-import React from "react";
+"use client";
 
-let title = "hello world ";
+import React, { ComponentPropsWithoutRef } from "react";
 
-function Button() {
-  return <button>{title}</button>;
-}
+type Props = ComponentPropsWithoutRef<"button">;
+type ButtonProps = Props & {
+  dark?: boolean;
+  variant?: "primary" | "secondary";
+};
+
+const CustonButton = ({ dark, variant, children }: ButtonProps) => {
+  return <button>Button</button>;
+};
 
 const page = () => {
   return (
     <div>
-      <Button />
+      <CustonButton>click me</CustonButton>
     </div>
   );
 };

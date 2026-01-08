@@ -1,1 +1,3 @@
-function getUser() {}
+function getUser() {
+  return [];
+}
