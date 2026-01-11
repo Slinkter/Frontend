@@ -1,15 +1,23 @@
-function sum(message: string, ...nums: number[]): string {
-  const doubled = nums.map((x) => x * 2);
-  let sumary = doubled.reduce((x, y) => {
-    return x + y;
-  }, 0);
-  let msj = ` ${message}  ${sumary}`;
+type User = { id: number; name: string; isActive: boolean };
 
-  console.log(doubled);
+const john: User = {
+  id: 1,
+  name: "john",
+  isActive: true,
+};
 
-  return msj;
+console.log(john);
+
+function createUser(user: User): User {
+  console.log(`hello there ${user.name.toUpperCase()}`);
+  return user;
 }
 
-let result = sum("total is: ", 1, 2, 3, 4, 5);
+type Both = string | number;
 
-console.log(result);
+let value: Both;
+value = "2";
+value = 2;
+console.log(value);
+
+type Theme = "light" | "dark";

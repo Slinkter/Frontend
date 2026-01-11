@@ -48,3 +48,50 @@ if (isExistName(nametest)) {
   console.log(`${nametest} is not in the lise `);
 }
  */
+
+/* function processdata(
+  input: number | string,
+  config: { reverse: boolean } = { reverse: false }
+) {
+  if (typeof input === "number") {
+    return (input = input ** 2);
+  } else {
+    if (config.reverse === true) {
+      return input.toUpperCase().split("").reverse().join("");
+    } else {
+      return input.toUpperCase();
+    }
+  }
+}
+
+console.log(processdata(2));
+console.log(processdata("hola", { reverse: true }));
+ */
+
+type Employee = {
+  id: number;
+  name: string;
+  department: string;
+};
+
+type Manager = {
+  id: number;
+  name: string;
+  employeers: Employee[];
+};
+
+type Staff = Employee & Manager;
+
+function printStaffDetails(parameter: Staff) {
+  if (parameter.employeers) {
+    console.log(
+      `this a manager ${parameter.name} y cant ${parameter.employeers.length} `
+    );
+  } else {
+    console.log(
+      `this a employer ${parameter.name} y cant ${parameter.department} `
+    );
+  }
+}
+
+let employer1 :Employee = {id:1,name:'luis','Moda'}
