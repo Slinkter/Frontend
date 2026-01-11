@@ -68,7 +68,7 @@ console.log(processdata(2));
 console.log(processdata("hola", { reverse: true }));
  */
 
-type Employee = {
+/* type Employee = {
   id: number;
   name: string;
   department: string;
@@ -80,10 +80,10 @@ type Manager = {
   employeers: Employee[];
 };
 
-type Staff = Employee & Manager;
+type Staff = Employee | Manager;
 
-function printStaffDetails(parameter: Staff) {
-  if (parameter.employeers) {
+function printStaffDetails(parameter: Staff): void {
+  if ("employeers" in parameter) {
     console.log(
       `this a manager ${parameter.name} y cant ${parameter.employeers.length} `
     );
@@ -94,4 +94,67 @@ function printStaffDetails(parameter: Staff) {
   }
 }
 
-let employer1 :Employee = {id:1,name:'luis','Moda'}
+let employer1: Employee = { id: 1, name: "luis", department: "Moda" };
+let employer2: Employee = { id: 2, name: "Mario", department: "Sales" };
+let boss1: Manager = {
+  id: 1,
+  name: "Jose",
+  employeers: [employer1, employer2],
+};
+
+printStaffDetails(employer1); */
+
+/* interface Computer {
+  readonly id: number;
+  brand: string;
+  ram: number;
+  updateRam(increase: number): number;
+  storage?: number;
+}
+
+const laptop01: Computer = {
+  id: 1,
+  brand: "HP",
+  ram: 4,
+  updateRam(amount) {
+    return (this.ram = this.ram + amount);
+  },
+};
+
+console.log(laptop01);
+
+laptop01.updateRam(4);
+console.log(laptop01); */
+
+interface Person {
+  name: string;
+}
+interface DogOwner extends Person {
+  dogName: string;
+}
+interface Manager extends Person {
+  managePeople(): void;
+  delegateTask(): void;
+}
+
+function getEmpleoyee(): Person | DogOwner | Manager {
+  const random = Math.random();
+  if (random < 0.33) {
+    return { name: "john" };
+  } else if (random < 0.66) {
+    return { name: "sara", dogName: "rex" };
+  } else {
+    return {
+      name: "bob",
+      managePeople() {
+        console.log("Manaming people");
+      },
+      delegateTask() {
+        console.log("Deleting tasks...");
+      },
+    };
+  }
+}
+
+const employee: Person | DogOwner | Manager = getEmpleoyee();
+console.log(employee);

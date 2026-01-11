@@ -1,23 +1,53 @@
-type User = { id: number; name: string; isActive: boolean };
-
-const john: User = {
-  id: 1,
-  name: "john",
-  isActive: true,
-};
-
-console.log(john);
-
-function createUser(user: User): User {
-  console.log(`hello there ${user.name.toUpperCase()}`);
-  return user;
+interface Person {
+  name: string;
+  getDetails(): string;
 }
 
-type Both = string | number;
+interface DogOwner {
+  dogName: string;
+  getDogDetails(): string;
+}
 
-let value: Both;
-value = "2";
-value = 2;
-console.log(value);
+interface Person {
+  age: number;
+}
+const usuario123123124: Person = {
+  name: "pepe",
+  age: 30,
+  getDetails() {
+    return `Name :${this.name} ,Age : ${this.age}`;
+  },
+};
 
-type Theme = "light" | "dark";
+console.log(usuario123123124.getDetails());
+
+interface Employee extends Person {
+  employeeId: number;
+}
+
+const empleado355123: Employee = {
+  name: "Jorge",
+  age: 22,
+  employeeId: 22,
+  getDetails() {
+    return ` soy empleado ${this.name}`;
+  },
+};
+
+console.log(empleado355123);
+
+interface Manager extends Person, DogOwner {
+  managePeople(): void;
+}
+
+const manager1: Manager = {
+  name: "bob",
+  age: 35,
+  dogName: "rex",
+  getDetails() {
+    return ``;
+  },
+  getDogDetails() {
+    return ``;
+  },
+};
