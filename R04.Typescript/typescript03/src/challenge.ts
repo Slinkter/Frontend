@@ -69,29 +69,29 @@ console.log(processdata("hola", { reverse: true }));
  */
 
 type Employee = {
-  id: number;
-  name: string;
-  department: string;
+    id: number;
+    name: string;
+    department: string;
 };
 
 type Manager = {
-  id: number;
-  name: string;
-  employeers: Employee[];
+    id: number;
+    name: string;
+    employees: Employee[];
 };
 
-type Staff = Employee & Manager;
+type Staff = Employee | Manager;
 
 function printStaffDetails(parameter: Staff) {
-  if (parameter.employeers) {
-    console.log(
-      `this a manager ${parameter.name} y cant ${parameter.employeers.length} `
-    );
-  } else {
-    console.log(
-      `this a employer ${parameter.name} y cant ${parameter.department} `
-    );
-  }
+    if ("employees" in parameter) {
+        console.log(
+            `this a manager ${parameter.name} y cant ${parameter.employees.length} `
+        );
+    } else {
+        console.log(
+            `this a employer ${parameter.name} y cant ${parameter.department} `
+        );
+    }
 }
 
-let employer1 :Employee = {id:1,name:'luis','Moda'}
+let employer1: Employee = { id: 1, name: "luis", department: "Moda" };

@@ -1,23 +1,26 @@
-type User = { id: number; name: string; isActive: boolean };
+enum ServerResponseStatus {
+    Success,
+    Error,
+}
+console.log(ServerResponseStatus);
 
-const john: User = {
-  id: 1,
-  name: "john",
-  isActive: true,
-};
+const fecha = new Date().toLocaleDateString();
+console.log(fecha);
+console.log(typeof fecha);
 
-console.log(john);
-
-function createUser(user: User): User {
-  console.log(`hello there ${user.name.toUpperCase()}`);
-  return user;
+interface ServerResponse {
+    results: ServerResponseStatus;
+    data: string[];
+    date: string;
 }
 
-type Both = string | number;
+function getServerResponse(): ServerResponse {
+    return {
+        results: 0,
+        data: ["firest item", "second item"],
+        date: fecha,
+    };
+}
 
-let value: Both;
-value = "2";
-value = 2;
-console.log(value);
-
-type Theme = "light" | "dark";
+const response: ServerResponse = getServerResponse();
+console.log(response);
