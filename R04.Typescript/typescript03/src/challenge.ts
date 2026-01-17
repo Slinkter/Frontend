@@ -68,20 +68,28 @@ console.log(processdata(2));
 console.log(processdata("hola", { reverse: true }));
  */
 
+<<<<<<< HEAD
 /* type Employee = {
   id: number;
   name: string;
   department: string;
+=======
+type Employee = {
+    id: number;
+    name: string;
+    department: string;
+>>>>>>> cab4a2a9e63f7ad2324b4ae7c538051edda04b2a
 };
 
 type Manager = {
-  id: number;
-  name: string;
-  employeers: Employee[];
+    id: number;
+    name: string;
+    employees: Employee[];
 };
 
 type Staff = Employee | Manager;
 
+<<<<<<< HEAD
 function printStaffDetails(parameter: Staff): void {
   if ("employeers" in parameter) {
     console.log(
@@ -158,3 +166,18 @@ function getEmpleoyee(): Person | DogOwner | Manager {
 
 const employee: Person | DogOwner | Manager = getEmpleoyee();
 console.log(employee);
+=======
+function printStaffDetails(parameter: Staff) {
+    if ("employees" in parameter) {
+        console.log(
+            `this a manager ${parameter.name} y cant ${parameter.employees.length} `
+        );
+    } else {
+        console.log(
+            `this a employer ${parameter.name} y cant ${parameter.department} `
+        );
+    }
+}
+
+let employer1: Employee = { id: 1, name: "luis", department: "Moda" };
+>>>>>>> cab4a2a9e63f7ad2324b4ae7c538051edda04b2a
