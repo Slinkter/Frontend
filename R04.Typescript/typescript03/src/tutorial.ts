@@ -1,26 +1,34 @@
-enum ServerResponseStatus {
-    Success,
-    Error,
-}
-console.log(ServerResponseStatus);
+let someVaule: never = 0;
 
-const fecha = new Date().toLocaleDateString();
-console.log(fecha);
-console.log(typeof fecha);
+type Theme = "light" | "dark";
+console.log(Theme);
 
-interface ServerResponse {
-    results: ServerResponseStatus;
-    data: string[];
-    date: string;
-}
-
-function getServerResponse(): ServerResponse {
-    return {
-        results: 0,
-        data: ["firest item", "second item"],
-        date: fecha,
-    };
+function checkTheme(tema: Theme): void {
+    if (tema === "light") {
+        console.log("el tema es claro");
+        return;
+    }
+    if (tema === "dark") {
+        console.log("el tema es oscuro");
+        return;
+    }
 }
 
-const response: ServerResponse = getServerResponse();
-console.log(response);
+enum Color {
+    Red,
+    Blue,
+}
+
+function getColorName(x: Color) {
+    switch (x) {
+        case Color.Red:
+            return "red";
+
+        case Color.Blue:
+            return "blue";
+
+        default:
+            let unexpectedColor: never = x;
+            throw new Error("unexpected color value", x);
+    }
+}
