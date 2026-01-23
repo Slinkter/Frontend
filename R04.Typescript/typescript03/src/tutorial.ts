@@ -1,5 +1,7 @@
-import newStuden, { sayHello, person } from "./action";
+let array1: string[] = ["Apple", "Banana", "Mango"];
+let array2: number[] = [1, 2, 3];
+let array3: boolean[] = [true, false, true];
 
-sayHello("Typescript");
-console.log(newStuden);
-console.log(person);
+let array10: Array<string> = ["Apple", "Banana", "Mango"];
+
+console.log(array10);
