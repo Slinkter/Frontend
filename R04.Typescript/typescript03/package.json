@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
     "typescript": "~5.9.3",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "zod": "^4.3.6"
   }
 }
