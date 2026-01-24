@@ -1,1 +1,1 @@
-<https://github.com/john-smilga?page=2&tab=repositories>
+https://github.com/john-smilga/typescript-course
