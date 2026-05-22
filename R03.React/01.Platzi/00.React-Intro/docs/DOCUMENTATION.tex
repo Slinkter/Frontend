@@ -1,0 +1,144 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Paquetes Esenciales ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, trees, positioning}
+
+% --- Configuración de Márgenes ---
+\geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+
+% --- Configuración de Colores y Código ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=JavaScript
+}
+
+% --- Definición de Estilos para TikZ ---
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+% --- Información del Documento ---
+\title{Especificación Técnica de Ingeniería\\ \textbf{React Todo Application}}
+\author{Ingeniería de Software - LJCR}
+\date{15 de abril de 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento detalla la arquitectura, el diseño y la implementación técnica de una aplicación de gestión de tareas (TODO) desarrollada con React 18. Se analiza el uso de patrones de estado global mediante la Context API, la persistencia de datos asíncrona y la modularización de componentes siguiendo los principios de alta cohesión y bajo acoplamiento.
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introducción}
+La aplicación React Todo es un sistema reactivo diseñado para la gestión eficiente de tareas personales. El núcleo de la aplicación se basa en un paradigma funcional, utilizando \textit{Hooks} personalizados para la lógica de negocio y la API de Contexto para la distribución del estado sin incurrir en \textit{Prop Drilling}.
+
+\section{Arquitectura del Sistema}
+La arquitectura se divide en tres capas principales que garantizan la mantenibilidad del código:
+
+\subsection{Capa de Persistencia (Custom Hooks)}
+Se implementa el patrón de adaptador para el almacenamiento local mediante el hook \texttt{useLocalStorage}. Este encapsula la lógica de sincronización con el navegador y maneja estados asíncronos simulados.
+
+\subsection{Capa de Estado Global (Context API)}
+El \texttt{TodoProvider} actúa como el orquestador central. Gestiona el estado de los ítems, la lógica de filtrado y el control de modales, exponiendo una interfaz unificada a los componentes consumidores.
+
+\subsection{Capa de Interfaz (Componentes)}
+Componentes atómicos y funcionales que consumen el contexto. Se aplica la convención de un archivo CSS por componente para evitar colisiones de estilos.
+
+\section{Diagrama de Arquitectura}
+A continuación se presenta la jerarquía de componentes y el flujo del estado global:
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+
+% Nodos
+\node (context) [startstop] {TodoContext / Provider};
+\node (hooks) [process, left=of context] {useLocalStorage};
+\node (app) [process, below=of context] {AppUI};
+\node (list) [process, below=of app] {TodoList};
+\node (search) [process, left=of app] {TodoSearch};
+\node (counter) [process, right=of app] {TodoCounter};
+\node (item) [process, below=of list] {TodoItem};
+
+% Conexiones
+\draw [arrow] (hooks) -- node[anchor=south] {Persistencia} (context);
+\draw [arrow] (context) -- node[anchor=west] {State Injection} (app);
+\draw [arrow] (app) -- (list);
+\draw [arrow] (app) -- (search);
+\draw [arrow] (app) -- (counter);
+\draw [arrow] (list) -- (item);
+
+\end{tikzpicture}
+\end{center}
+
+\section{Detalle Técnico de Implementación}
+
+\subsection{Gestión de Estado Persistente}
+El hook \texttt{useLocalStorage} utiliza \texttt{useEffect} para la inicialización y \texttt{useCallback} para optimizar la función de guardado:
+
+\begin{lstlisting}[caption={Fragmento de useLocalStorage.js}]
+const useLocalStorage = (storageKey, initialData) => {
+    const [storedData, setStoredData] = React.useState(initialData);
+    // ... logica de carga
+    const saveData = React.useCallback((newData) => {
+        localStorage.setItem(storageKey, JSON.stringify(newData));
+        setStoredData(newData);
+    }, [storageKey]);
+    return { storedData, saveData };
+};
+\end{lstlisting}
+
+\subsection{Lógica de Filtrado (Memoización)}
+Para optimizar el rendimiento, se utiliza \texttt{useMemo} para el filtrado de tareas, evitando recálculos innecesarios durante re-renderizados causados por otros estados:
+
+\begin{equation}
+T_{searched} = \{ t \in T_{todos} \mid t.text \text{ contiene } S_{search} \}
+\end{equation}
+
+\section{Principios de Ingeniería Aplicados}
+\begin{itemize}
+    \item \textbf{Single Responsibility Principle (SRP):} Cada componente tiene una única razón para cambiar. Por ejemplo, \texttt{TodoSearch} solo maneja la entrada de usuario.
+    \item \textbf{Separation of Concerns:} La lógica de persistencia está totalmente desacoplada de la interfaz de usuario.
+    \item \textbf{Declarative UI:} La interfaz se describe en función del estado, no de transiciones manuales del DOM.
+\end{itemize}
+
+\section{Conclusión}
+La arquitectura propuesta permite escalar la aplicación de manera sencilla. El uso de LaTeX para esta documentación asegura que las especificaciones técnicas se mantengan con un estándar de calidad profesional, facilitando la transferencia de conocimiento entre ingenieros.
+
+\end{document}

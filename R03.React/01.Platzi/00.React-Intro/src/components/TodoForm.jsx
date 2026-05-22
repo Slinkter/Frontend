@@ -1,56 +1,66 @@
-import React from "react";
+/**
+ * @file TodoForm.jsx
+ * @description Componente de formulario para añadir nuevas tareas a la lista de TODOs.
+ * @module components
+ */
+
+import React, { useState, useContext } from "react";
 import { TodoContext } from "../context/customContext.jsx";
 import "../style/TodoForm.css";
-import { useContext } from "react";
 
 /**
- * Component that renders a form for adding new TODO items.
- * It handles its own state for the new TODO's text and uses the `TodoContext`
- * to add the new TODO and close the modal.
- * @returns {JSX.Element} A form element for creating TODOs.
+ * Componente que proporciona una interfaz para crear nuevos ítems TODO.
+ * @returns {JSX.Element} El formulario de creación de tareas.
+ * @remarks 
+ * - Gestiona el estado local del input para el texto del TODO.
+ * - Dispara acciones del contexto para la persistencia y el cierre del modal.
  */
-function TodoForm() {
-    const [newTodoValue, setNewTodoValue] = React.useState("");
-    const { addTodo, setOpenModal } = useContext(TodoContext);
+const TodoForm = () => {
+    const [newTodoValue, setNewTodoValue] = useState("");
+    const { addTodo, setIsModalOpen } = useContext(TodoContext);
 
     /**
-     * Handles the change event of the textarea to update the new TODO's text.
-     * @param {React.ChangeEvent<HTMLTextAreaElement>} e - The change event object.
+     * Actualiza el estado local en los cambios del input de texto.
+     * @param {React.ChangeEvent<HTMLTextAreaElement>} event - Evento del DOM.
      */
-    const onChange = (e) => {
-        setNewTodoValue(e.target.value);
+    const handleTextChange = (event) => {
+        setNewTodoValue(event.target.value);
     };
 
     /**
-     * Handles the click event on the cancel button, closing the modal.
+     * Cierra el modal sin guardar los cambios.
      */
-    const onCancel = () => {
-        setOpenModal(false);
+    const handleCancel = () => {
+        setIsModalOpen(false);
     };
 
     /**
-     * Handles the form submission, adding the new TODO and closing the modal.
-     * @param {React.FormEvent<HTMLFormElement>} e - The form event object.
+     * Persiste el nuevo TODO y cierra el modal.
+     * @param {React.FormEvent<HTMLFormElement>} event - Evento del DOM.
      */
-    const onSubmit = (e) => {
-        e.preventDefault();
-        addTodo(newTodoValue);
-        setOpenModal(false);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (newTodoValue.trim().length > 0) {
+            addTodo(newTodoValue);
+            setIsModalOpen(false);
+        }
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <label>Escribe tu nuevo Todo</label>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="newTodo">Escribe tu nuevo Todo</label>
             <textarea
+                id="newTodo"
                 value={newTodoValue}
-                onChange={onChange}
-                placeholder="escribe algo"
+                onChange={handleTextChange}
+                placeholder="escribe algo..."
+                autoFocus
             />
 
             <div className="TodoForm-buttonContainer">
                 <button
                     type="button"
-                    onClick={onCancel}
+                    onClick={handleCancel}
                     className="Todo-Form-button TodoForm-button--cancel"
                 >
                     Cancelar
@@ -64,6 +74,6 @@ function TodoForm() {
             </div>
         </form>
     );
-}
+};
 
 export { TodoForm };

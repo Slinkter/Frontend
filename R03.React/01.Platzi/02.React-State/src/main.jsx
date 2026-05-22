@@ -4,9 +4,9 @@ import App from "./App.jsx";
 import "./index.css";
 
 /**
- * Main entry point of the React application.
- * Renders the `App` component into the DOM element with the ID 'root'.
- * Uses `React.StrictMode` for highlighting potential problems in an application.
+ * [Ejecución: 1] Punto de entrada de la aplicación.
+ * El navegador carga este script y React comienza el proceso de renderizado 
+ * en el nodo con ID 'root'.
  */
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>

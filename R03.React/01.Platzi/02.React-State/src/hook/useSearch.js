@@ -1,19 +1,11 @@
 import { useReducer } from "react";
 
-/**
- * The initial state for the search reducer.
- * @type {{searchValue: string}}
- */
+// Estado inicial: Valor de búsqueda vacío por defecto
 const initialState = {
     searchValue: "",
 };
 
-/**
- * Reducer for managing the search state.
- * @param {object} state The current state.
- * @param {{type: string, payload: any}} action The dispatched action.
- * @returns {object} The new state.
- */
+// Reducer: Actualiza el texto de búsqueda en el estado
 const reducer = (state, action) => {
     switch (action.type) {
         case "SET_SEARCH_VALUE":
@@ -28,21 +20,12 @@ const reducer = (state, action) => {
 
 /**
  * Custom hook to manage the search input state.
- *
- * @returns {{
- *  searchValue: string,
- *  setSearchValue: function(string): void
- * }} An object containing the current search value and a function to update it.
  */
 function useSearch() {
     const [state, dispatch] = useReducer(reducer, initialState);
-
     const { searchValue } = state;
 
-    /**
-     * Updates the search value state.
-     * @param {string} value The new search value.
-     */
+    // Dispatcher: Actualiza el valor de búsqueda mediante un payload
     const setSearchValue = (value) => {
         dispatch({ type: "SET_SEARCH_VALUE", payload: value });
     };

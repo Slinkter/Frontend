@@ -15,31 +15,13 @@ import {
 } from "./components";
 
 /**
- * The main user interface presentation component for the TODO application.
- * This component receives all necessary data and state-updating functions as props
- * from the `App` container component and composes the entire UI.
- * It's responsible for rendering the visual structure based on the application state.
- *
- * @param {object} props The component's properties.
- * @param {boolean} props.loading Indicates if the application data is currently loading.
- * @param {boolean} props.error Indicates if an error occurred while fetching data.
- * @param {number} props.totalTodos The total number of TODOs.
- * @param {number} props.completedTodos The number of completed TODOs.
- * @param {string} props.searchValue The current value of the search input.
- * @param {function(string): void} props.setSearchValue A function to update the search value.
- * @param {Array<{text: string, completed: boolean}>} props.searchedTodos A list of TODOs filtered by the search value.
- * @param {function(string): void} props.completeTodo A function to mark a TODO as complete.
- * @param {function(string): void} props.deleteTodo A function to delete a TODO.
- * @param {boolean} props.openModal Indicates if the modal for creating TODOs is open.
- * @param {function(boolean): void} props.setOpenModal A function to control the modal's visibility.
- * @param {function(string): void} props.addTodo A function to add a new TODO.
- * @param {function(): void} props.sincronizeTodos A function to synchronize TODOs across tabs.
- * @returns {React.ReactElement} The rendered application user interface.
+ * [Ejecución: 8] AppUI (Presenter).
+ * Recibe el estado actual y dibuja la interfaz.
  */
 function AppUI(props) {
     const {
-        loading,
-        error,
+        isLoading,
+        hasError,
         totalTodos,
         completedTodos,
         searchValue,
@@ -47,15 +29,22 @@ function AppUI(props) {
         searchedTodos,
         completeTodo,
         deleteTodo,
-        openModal,
-        setOpenModal,
+        isOpenModal,
+        setIsOpenModal,
         addTodo,
-        sincronizeTodos,
+        synchronizeTodos,
     } = props;
+
+    /**
+     * Ciclo de Vida del Renderizado:
+     * 1. Primer render: 'isLoading' es true (desde Ejecución 6.2).
+     * 2. Post-render: Se ejecuta 'useEffect' (Ejecución 7).
+     * 3. Segundo render: 'isLoading' es false y se muestran los 'todos' (desde Actualización de Estado en Ejecución 7).
+     */
 
     return (
         <>
-            <TodoHeader loading={loading}>
+            <TodoHeader isLoading={isLoading}>
                 <TodoCounter
                     totalTodos={totalTodos}
                     completedTodos={completedTodos}
@@ -67,9 +56,10 @@ function AppUI(props) {
             </TodoHeader>
 
             <TodoList>
-                {error && <TodosError />}
-                {loading && <TodosLoading />}
-                {!loading && !searchedTodos.length && <EmptyTodos />}
+                {hasError && <TodosError />}
+                {isLoading && <TodosLoading />}
+                {!isLoading && !searchedTodos.length && <EmptyTodos />}
+                
                 {searchedTodos.map((todo) => (
                     <TodoItem
                         key={todo.text}
@@ -81,14 +71,14 @@ function AppUI(props) {
                 ))}
             </TodoList>
 
-            {!!openModal && (
+            {!!isOpenModal && (
                 <Modal>
-                    <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
+                    <TodoForm addTodo={addTodo} setIsOpenModal={setIsOpenModal} />
                 </Modal>
             )}
 
-            <CreateTodoButton setOpenModal={setOpenModal} />
-            <ChangeAlert sincronize={sincronizeTodos} />
+            <CreateTodoButton setIsOpenModal={setIsOpenModal} />
+            <ChangeAlert synchronize={synchronizeTodos} />
         </>
     );
 }

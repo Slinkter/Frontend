@@ -1,68 +1,68 @@
-# React Todo Application
+# Aplicación de TODOs con React
 
-## Description and Purpose
+## Descripción y Propósito
 
-This project is a simple Todo application built with React, demonstrating fundamental React concepts such as components, props, state management with hooks (`useState`, `useContext`, `useEffect`), and custom hooks (`useLocalStorage`). The application allows users to create, mark as completed, and delete todo items. It also features a search functionality to filter todos and a modal for creating new todos.
+Este proyecto es una aplicación sencilla de tareas (Todo) construida con React, diseñada para demostrar conceptos fundamentales de la biblioteca como componentes, props, manejo de estado con hooks (`useState`, `useContext`, `useEffect`) y hooks personalizados (`useLocalStorage`). La aplicación permite a los usuarios crear, marcar como completadas y eliminar tareas. También cuenta con una funcionalidad de búsqueda para filtrar las tareas y un modal para la creación de nuevos ítems.
 
-## Installation and Setup
+## Instalación y Configuración
 
-To get this project up and running on your local machine, follow these steps:
+Para poner en marcha este proyecto en tu máquina local, sigue estos pasos:
 
-1.  **Clone the repository:**
+1.  **Clonar el repositorio:**
 
     ```bash
-    git clone <repository-url>
+    git clone <url-del-repositorio>
     cd 00.React-Intro
     ```
 
-2.  **Install dependencies:**
-    This project uses `pnpm` as its package manager. If you don't have `pnpm` installed, you can install it globally:
+2.  **Instalar dependencias:**
+    Este proyecto utiliza `pnpm` como gestor de paquetes. Si no tienes `pnpm` instalado, puedes hacerlo de forma global:
 
     ```bash
     npm install -g pnpm
     ```
 
-    Then, install the project dependencies:
+    Luego, instala las dependencias del proyecto:
 
     ```bash
     pnpm install
     ```
 
-3.  **Run the development server:**
+3.  **Ejecutar el servidor de desarrollo:**
 
     ```bash
     pnpm run dev
     ```
 
-    This will start the Vite development server, and you can view the application in your browser, usually at `http://localhost:5173`.
+    Esto iniciará el servidor de desarrollo de Vite. Puedes ver la aplicación en tu navegador, normalmente en `http://localhost:5173`.
 
-4.  **Build for production:**
-    To create a production-ready build of the application:
+4.  **Construir para producción:**
+    Para crear una versión de producción de la aplicación:
     ```bash
     pnpm run build
     ```
-    The build artifacts will be located in the `dist/` directory.
+    Los archivos generados se ubicarán en el directorio `dist/`.
 
-## Applied Architecture
+## Arquitectura Aplicada
 
-This application follows a component-based architecture, typical for React projects, with a focus on separation of concerns and reusability. Key architectural patterns and structures include:
+La aplicación sigue una arquitectura basada en componentes, típica de los proyectos de React, con un enfoque en la separación de responsabilidades y la reutilización. Los patrones y estructuras clave incluyen:
 
-- **Component-Based Structure:** The UI is broken down into small, reusable components (e.g., `TodoItem`, `TodoList`, `TodoSearch`, `TodoForm`).
-- **Context API for State Management:** The `TodoContext` is used to manage the global state of the application (todos, search term, modal visibility). This avoids prop drilling and makes state accessible to all necessary components.
-- **Custom Hooks:** A `useLocalStorage` custom hook is implemented to abstract the logic for interacting with the browser's `localStorage`. This promotes reusability and keeps component logic clean.
-- **Separation of Concerns:** Logic related to data fetching and persistence is encapsulated within the `useLocalStorage` hook, while UI logic resides within components.
-- **CSS Modules/Variables:** Global CSS variables are defined in `index.css` to maintain a consistent design system across the application. Component-specific styles are kept in their respective CSS files.
-- **JSX for UI:** All components that render UI elements use `.jsx` file extensions to explicitly indicate the presence of JSX syntax.
+- **Estructura Basada en Componentes:** La interfaz de usuario se divide en componentes pequeños y reutilizables (ej., `TodoItem`, `TodoList`, `TodoSearch`, `TodoForm`).
+- **Context API para el Manejo de Estado:** Se utiliza `TodoContext` para gestionar el estado global (tareas, término de búsqueda, visibilidad del modal). Esto evita el "prop drilling" y hace que el estado sea accesible para todos los componentes necesarios.
+- **Hooks Personalizados:** Se ha implementado un hook personalizado `useLocalStorage` para abstraer la lógica de interacción con el `localStorage` del navegador. Esto promueve la reutilización y mantiene limpia la lógica de los componentes.
+- **Separación de Responsabilidades:** La lógica relacionada con la persistencia de datos está encapsulada en el hook `useLocalStorage`, mientras que la lógica de la interfaz reside en los componentes.
+- **Variables CSS:** Se definen variables globales en `index.css` para mantener un sistema de diseño consistente. Los estilos específicos de cada componente se encuentran en sus respectivos archivos CSS.
+- **JSX para la UI:** Todos los componentes que renderizan elementos de la interfaz utilizan la extensión `.jsx`.
 
-### Project Structure
+### Estructura del Proyecto
 
 ```
 src/
-├── App.jsx             # Main application component
-├── main.jsx            # Entry point of the React application
-├── index.css           # Global styles and CSS variables
-├── assets/
-├── components/         # Reusable UI components
+├── App.jsx             # Componente principal de la aplicación
+├── main.jsx            # Punto de entrada de React
+├── index.css           # Estilos globales y variables CSS
+├── assets/             # Activos estáticos
+├── components/         # Componentes de UI reutilizables
 │   ├── CreateTodoButton.jsx
 │   ├── Modal.jsx
 │   ├── TodoCounter.jsx
@@ -71,106 +71,86 @@ src/
 │   ├── TodoList.jsx
 │   └── TodoSearch.jsx
 ├── context/
-│   └── customContext.jsx # React Context for global state management
+│   └── customContext.jsx # Contexto de React para estado global
 ├── hook/
-│   └── useLocalStorage.js # Custom hook for localStorage interaction
-└── style/              # Component-specific styles
+│   └── useLocalStorage.js # Hook personalizado para localStorage
+└── style/              # Estilos específicos de componentes
     ├── CreateTodoButton.css
     ├── modal.css
     ├── TodoCounter.css
+    ├── TodoForm.css
     ├── TodoItem.css
     ├── TodoList.css
     └── TodoSearch.css
 ```
 
-# Project Documentation
+# Documentación del Proyecto
 
-This document provides a detailed overview of the React Todo application, including its architecture, components, state management, and scope.
+Este documento proporciona una visión detallada de la arquitectura, los componentes y el manejo de estado.
 
-## 1. Project Overview
+## 1. Descripción General
 
-The React Todo application is a simple yet functional task management tool. It allows users to:
+La aplicación de TODOs es una herramienta funcional para la gestión de tareas que permite:
 
-- **Create new todos:** Add new tasks to their list.
-- **Mark todos as complete:** Toggle the completion status of each todo.
-- **Delete todos:** Remove tasks from their list.
-- **Search for todos:** Filter the list of todos based on a search query.
+- **Crear nuevas tareas:** Añadir ítems a la lista.
+- **Completar tareas:** Cambiar el estado de cada tarea.
+- **Eliminar tareas:** Quitar ítems de la lista.
+- **Buscar tareas:** Filtrar la lista mediante una consulta de búsqueda.
 
-This project serves as a practical example of fundamental React concepts and best practices, including component-based architecture, state management with hooks, and the use of custom hooks for abstracting logic.
+## 2. Conceptos Clave
 
-## 2. Core Concepts
+- **Componentes:** La UI está dividida en piezas independientes y reutilizables.
+- **Props:** Los componentes se comunican pasando datos a través de propiedades.
+- **Estado (State):** Los componentes gestionan sus datos internos. Al cambiar el estado, React re-renderiza el componente.
+- **Hooks:** Funciones que permiten "engancharse" al estado y al ciclo de vida en componentes funcionales (`useState`, `useContext`, `useEffect`).
 
-This project is built upon the following core React concepts:
+## 3. Arquitectura de Componentes
 
-- **Components:** The UI is divided into reusable, self-contained components. Each component is responsible for a specific part of the UI.
-- **Props:** Components communicate with each other by passing data through props (properties).
-- **State:** Components use state to manage their internal data. When the state of a component changes, React re-renders the component.
-- **Hooks:** Hooks are functions that let you "hook into" React state and lifecycle features from function components. This project uses `useState`, `useContext`, and `useEffect` extensively.
+- **`App.jsx`:** Componente raíz que orquesta la aplicación y provee el `TodoProvider`.
+- **`TodoCounter.jsx`:** Muestra el número de tareas completadas y el total.
+- **`TodoSearch.jsx`:** Input controlado para filtrar tareas.
+- **`TodoList.jsx`:** Contenedor que renderiza la lista de tareas.
+- **`TodoItem.jsx`:** Representa una única tarea con acciones para completar o eliminar.
+- **`CreateTodoButton.jsx`:** Botón que abre el modal de creación.
+- **`TodoForm.jsx`:** Formulario para añadir una nueva tarea.
+- **`Modal.jsx`:** Utiliza portales de React para renderizar el formulario en un overlay.
 
-## 3. Component-Based Architecture
+## 4. Gestión de Estado
 
-The application is structured as a tree of components. The main components are:
+Se utiliza una combinación de `useState` y `useContext`.
 
-- **`App.jsx`:** The root component that orchestrates the entire application. It brings together all the other components and provides the `TodoProvider` to its children.
-- **`TodoCounter.jsx`:** A presentational component that displays the number of completed and total todos.
-- **`TodoSearch.jsx`:** A controlled component that allows users to search for todos. It gets the search term and the function to update it from the `TodoContext`.
-- **`TodoList.jsx`:** A container component that renders the list of todos. It receives the list of todos as children.
-- **`TodoItem.jsx`:** A presentational component that displays a single todo item. It receives the todo text, completion status, and functions to update and delete the todo as props.
-- **`CreateTodoButton.jsx`:** A button component that opens the modal for creating a new todo.
-- **`TodoForm.jsx`:** A form component that allows users to create a new todo. It is displayed inside the `Modal`.
-- **`Modal.jsx`:** A portal component that renders its children in a modal overlay.
+- **`TodoContext`** provee los siguientes valores:
+  - `isLoading`: Indica si los datos se están cargando desde `localStorage`.
+  - `hasError`: Indica si hubo un error en la persistencia.
+  - `totalTodos`: Cantidad total de tareas.
+  - `completedTodos`: Cantidad de tareas finalizadas.
+  - `searchValue`: Término de búsqueda actual.
+  - `setSearchValue`: Función para actualizar la búsqueda.
+  - `searchedTodos`: Lista de tareas filtrada.
+  - `addTodo`: Función para añadir tareas.
+  - `completeTodo`: Función para marcar como completada.
+  - `deleteTodo`: Función para borrar una tarea.
+  - `isModalOpen`: Estado de visibilidad del modal.
+  - `setIsModalOpen`: Función para abrir/cerrar el modal.
 
-## 4. State Management
+## 5. Hooks Personalizados
 
-State management is handled using a combination of the `useState` and `useContext` hooks.
+- **`useLocalStorage.js`:** Abstrae la lógica de lectura y escritura en el `localStorage`. Maneja estados de carga y error, y sincroniza los cambios automáticamente.
 
-- **`useState`:** Used for managing local component state, such as the search term in `TodoSearch.jsx` and the new todo value in `TodoForm.jsx`.
-- **`useContext`:** Used for managing global state that needs to be shared across multiple components. The `TodoContext` provides the following values to all components that consume it:
-  - `loading`: A boolean that indicates whether the todos are being loaded from `localStorage`.
-  - `error`: An error object if there was an error loading the todos.
-  - `totalTodos`: The total number of todos.
-  - `completedTodos`: The number of completed todos.
-  - `stateSearch`: The current search term.
-  - `setStateSearch`: A function to update the search term.
-  - `searchedTodos`: The list of todos filtered by the search term.
-  - `addTodo`: A function to add a new todo.
-  - `onUpdateItem`: A function to mark a todo as complete.
-  - `onDeleteItem`: A function to delete a todo.
-  - `openModel`: A boolean that indicates whether the modal is open.
-  - `setOpenModal`: A function to open or close the modal.
+## 6. Estilos
 
-## 5. Custom Hooks
+- **`index.css`:** Define el sistema de diseño mediante variables CSS (colores, espaciado, sombras).
+- **Estilos por componente:** Cada componente tiene su propio archivo CSS, encapsulando su apariencia y evitando conflictos globales.
 
-To promote reusability and separation of concerns, a custom hook `useLocalStorage` is used.
+## 7. Alcance y Limitaciones
 
-- **`useLocalStorage.js`:** This hook is responsible for abstracting the logic of interacting with the browser's `localStorage`. It handles:
-  - **Reading data:** It retrieves the todos from `localStorage` when the application starts.
-  - **Writing data:** It saves the todos to `localStorage` whenever the list of todos changes.
-  - **Managing loading and error states:** It provides `loading` and `error` states to the rest of the application.
+Este proyecto es una demostración técnica y no una aplicación de producción completa.
+- **Solo cliente:** Los datos se guardan localmente en el navegador.
+- **Usuario único:** No hay cuentas ni autenticación.
+- **Sin enrutamiento:** Es una aplicación de una sola página (SPA).
 
-By using this custom hook, the `TodoProvider` component is simplified, as it doesn't need to know the details of how the data is stored and retrieved.
-
-## 6. Styling
-
-The application's styling is managed using a combination of global CSS variables and component-specific CSS files.
-
-- **`index.css`:** This file defines a set of global CSS variables for colors, spacing, and box shadows. This ensures a consistent design system across the entire application and makes it easy to update the theme.
-- **Component-specific CSS:** Each component has its own CSS file (e.g., `TodoItem.css`, `TodoSearch.css`). This encapsulates the styles for each component and prevents style conflicts.
-
-## 7. Project Scope and Limitations
-
-This project is a simple demonstration of React fundamentals and is not intended to be a full-featured production application. Its scope is limited to the following:
-
-- **Client-side only:** The application runs entirely in the browser and does not have a backend server. All data is stored in the browser's `localStorage`.
-- **Single user:** There is no concept of user accounts or authentication. All todos are stored in the same `localStorage` key.
-- **No routing:** The application is a single-page application with no routing.
-- **Basic styling:** The styling is simple and functional, but it is not a comprehensive design system.
-
-### Future Improvements
-
-Possible future improvements for this project include:
-
-- **Adding a backend:** Connect the application to a backend server to store todos in a database.
-- **User authentication:** Implement user accounts and authentication to allow multiple users to have their own todo lists.
-- **Routing:** Add routing to allow for multiple pages (e.g., a separate page for completed todos).
-- **More advanced features:** Add features such as due dates, priorities, and sub-tasks.
+### Futuras Mejoras
+- Integración con un backend (API + Base de datos).
+- Autenticación de usuarios.
+- Implementación de rutas con React Router.
+- Fechas de vencimiento y prioridades para las tareas.

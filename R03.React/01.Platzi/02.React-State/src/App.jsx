@@ -5,25 +5,32 @@ import { useSearch } from "./hook/useSearch.js";
 import { AppUI } from "./AppUI.jsx";
 
 /**
- * The main application component.
- * Acts as a container component that orchestrates the application's state and logic.
- * It uses custom hooks to manage different parts of the state (todos, modal, search)
- * and passes them down to the presentation component (`AppUI`).
- *
- * @returns {React.ReactElement} The rendered application UI.
+ * [Ejecución: 2] Componente App (Container).
+ * Se inicializa y comienza a llamar a sus Custom Hooks para obtener el estado.
  */
 function App() {
-    const { openModal, setOpenModal } = useModal();
+    // [Ejecución: 3] Inicialización de hooks de UI (Modal y Búsqueda)
     const { searchValue, setSearchValue } = useSearch();
+    const { isOpenModal, setIsOpenModal } = useModal();
+
+    // [Ejecución: 4] Inicialización del hook de negocio principal
+    // Pasa 'searchValue' como dependencia para filtrar los TODOs
     const {
-        state: { loading, error, totalTodos, completedTodos, searchedTodos },
-        stateUpdaters: { completeTodo, deleteTodo, addTodo, sincronizeTodos },
+        state: {
+            isLoading,
+            hasError,
+            totalTodos,
+            completedTodos,
+            searchedTodos,
+        },
+        stateUpdaters: { completeTodo, deleteTodo, addTodo, synchronizeTodos },
     } = useTodos(searchValue);
 
+    // [Ejecución: 8] Renderizado de la UI pasando todo el estado obtenido
     return (
         <AppUI
-            loading={loading}
-            error={error}
+            isLoading={isLoading}
+            hasError={hasError}
             totalTodos={totalTodos}
             completedTodos={completedTodos}
             searchValue={searchValue}
@@ -31,10 +38,10 @@ function App() {
             searchedTodos={searchedTodos}
             completeTodo={completeTodo}
             deleteTodo={deleteTodo}
-            openModal={openModal}
-            setOpenModal={setOpenModal}
+            isOpenModal={isOpenModal}
+            setIsOpenModal={setIsOpenModal}
             addTodo={addTodo}
-            sincronizeTodos={sincronizeTodos}
+            synchronizeTodos={synchronizeTodos}
         />
     );
 }

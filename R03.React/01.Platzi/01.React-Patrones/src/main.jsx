@@ -1,22 +1,22 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { TodoProvider } from "./components/TodoContext/index.jsx";
-import App from "./App.jsx";
-import "./index.css";
+import { TodoProvider } from "./entities/todo";
+import App from "./app/App";
+import "./app/index.css";
 
-// Get the root DOM element where the React app will be mounted.
+/**
+ * @file main.jsx
+ * @description Punto de entrada principal de la aplicación.
+ * Renderiza el árbol de componentes dentro del elemento 'root' del DOM.
+ */
+
 const rootElement = document.getElementById("root");
-
-// Create a root for the React application. This is the new API for concurrent mode.
 const root = createRoot(rootElement);
 
-// Render the application into the root.
 root.render(
-    // StrictMode is a development tool that helps identify potential problems in an application.
-
     <StrictMode>
         <TodoProvider>
             <App />
         </TodoProvider>
-    </StrictMode>
+    </StrictMode>,
 );

@@ -1,88 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { useLocalStorage } from "../hook/useLocalStorage";
 
-/**
- * React Context to manage the application's global state.
- * @type {React.Context<any>}
- */
 const TodoContext = React.createContext();
 
-/**
- * Provider component that encapsulates the logic for managing the TODO list state.
- * @param {object} props - The props for the component.
- * @param {React.ReactNode} props.children - The child components that will consume the context.
- * @returns {JSX.Element} The provider component.
- */
-function TodoProvider(props) {
-    const { loading, error, item: data, saveItem } = useLocalStorage("V1", []);
-    const [openModel, setOpenModal] = useState(false);
-    const [stateSearch, setStateSearch] = useState("");
+const TodoProvider = ({ children }) => {
+    //
+    const {
+        isLoading,
+        hasError,
+        storedData: todos,
+        saveData: saveTodos,
+    } = useLocalStorage("V1", []);
 
-    const totalTodos = data.length;
-    const completedTodos = data.filter((item) => item.completed).length;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
 
-    const searchedTodos =
-        stateSearch.length === 0
-            ? data
-            : data.filter((item) =>
-                  item.text.toLowerCase().includes(stateSearch.toLowerCase())
-              );
+    const totalTodos = todos.length;
+    const completedTodos = todos.filter((todo) => todo.completed).length;
 
     /**
-     * Adds a new TODO item to the list.
-     * @param {string} text - The text of the new TODO.
+     * Filtra la lista de TODOs basándose en el valor del input de búsqueda.
      */
-    const addTodo = (text) => {
-        const copyTodos = [...data]; // copy array
-        const newTodo = {
-            text: text,
-            completed: false, // Corrected typo from 'competed'
-        };
-        copyTodos.push(newTodo);
-        saveItem(copyTodos);
-    };
+    const searchedTodos = useMemo(() => {
+        if (searchValue.length === 0) return todos;
+        return todos.filter((todo) =>
+            todo.text.toLowerCase().includes(searchValue.toLowerCase()),
+        );
+    }, [todos, searchValue]);
 
     /**
-     * Marks a TODO item as completed.
-     * @param {string} text - The text of the TODO to update.
+     * Añade un nuevo ítem TODO a la lista.
+     * @param {string} text - La descripción del nuevo TODO.
+     * @remarks Actualiza toda la lista de todos en el estado y en localStorage.
      */
-    const onUpdateItem = (text) => {
-        const copyTodos = [...data]; // copy array
-        const index = data.findIndex((item) => item.text === text); // return number
-        copyTodos[index].completed = true; //cambiar a true
-        saveItem(copyTodos);
-    };
+    const addTodo = useCallback(
+        (text) => {
+            const newTodos = [...todos];
+            newTodos.push({
+                text,
+                completed: false,
+            });
+            saveTodos(newTodos);
+        },
+        [todos, saveTodos],
+    );
 
-    /**
-     * Deletes a TODO item from the list.
-     * @param {string} text - The text of the TODO to delete.
-     */
-    const onDeleteItem = (text) => {
-        const copyTodos = [...data]; // copy array
-        const index = data.findIndex((item) => item.text === text); // return number
-        copyTodos.splice(index, 1); // delete 1 element
-        saveItem(copyTodos);
-    };
+    const completeTodo = useCallback(
+        (text) => {
+            const newTodos = [...todos];
+            const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+            if (todoIndex !== -1) {
+                newTodos[todoIndex].completed = true;
+                saveTodos(newTodos);
+            }
+        },
+        [todos, saveTodos],
+    );
 
-    const values = {
-        loading,
-        error,
+    const deleteTodo = useCallback(
+        (text) => {
+            const newTodos = [...todos];
+            const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+            if (todoIndex !== -1) {
+                newTodos.splice(todoIndex, 1);
+                saveTodos(newTodos);
+            }
+        },
+        [todos, saveTodos],
+    );
+
+    const propsValue = {
+        isLoading,
+        hasError,
         totalTodos,
         completedTodos,
-        stateSearch,
-        setStateSearch,
+        searchValue,
+        setSearchValue,
         searchedTodos,
         addTodo,
-        onUpdateItem,
-        onDeleteItem,
-        openModel,
-        setOpenModal,
+        completeTodo,
+        deleteTodo,
+        isModalOpen,
+        setIsModalOpen,
     };
 
     return (
-        <TodoContext.Provider value={values}>
-            {props.children}
+        <TodoContext.Provider value={propsValue}>
+            {children}
         </TodoContext.Provider>
     );
-}
+};
+
 export { TodoContext, TodoProvider };

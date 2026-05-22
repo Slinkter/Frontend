@@ -1,60 +1,78 @@
 import React from "react";
 
 /**
- * Custom hook to manage state in localStorage.
- * It provides loading and error states, the data itself, and a function to save the data.
- * @param {string} dbName - The name of the key in localStorage.
- * @param {any} initialValue - The initial value to use if no data is found in localStorage.
- * @returns {{
- *  loading: boolean,
- *  error: boolean,
- *  item: any,
- *  saveItem: (newItem: any) => void
- * }} An object containing the loading state, error state, the item, and a function to save the item.
+ * Hook personalizado para gestionar el estado en localStorage con manejo de carga y errores.
+ * @param {string} storageKey - El nombre de la clave en localStorage.
+ * @param {any} initialData - El valor inicial si no existen datos en localStorage.
+ * @returns {object} Un objeto que contiene el estado de carga, el estado de error, los datos almacenados y una función de actualización.
+ * @remarks
+ * - Incluye un retraso simulado de 1s para demostrar los estados de carga.
+ * - Sincroniza el estado con localStorage en cada cambio.
  */
-function useLocalStorage(dbName, initialValue) {
-    const [error, setError] = React.useState(false);
-    const [loading, setLoading] = React.useState(true);
-    const [item, setItem] = React.useState(initialValue);
-
-    React.useEffect(() => {
-        setTimeout(() => {
-            getDataLocalStorage();
-        }, 1000);
-    }, [dbName, initialValue]);
-
-    const getDataLocalStorage = () => {
-        try {
-            setLoading(true);
-            const db_ls = localStorage.getItem(dbName);
-            if (!db_ls) {
-                saveItem(initialValue);
-            } else {
-                setItem(JSON.parse(db_ls));
-            }
-
-            setError(false);
-        } catch (error) {
-            setError(error);
-        } finally {
-            setLoading(false);
-        }
-    };
+const useLocalStorage = (storageKey, initialData = []) => {
+    // Estados para manejar la carga, errores y los datos almacenados
+    const [hasError, setHasError] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(true);
+    const [storedData, setStoredData] = React.useState(initialData);
 
     /**
-     * Saves an item to localStorage and updates the state.
-     * @param {any} array - The new item to save.
+     * Persiste un nuevo valor en localStorage y actualiza el estado del componente.
+     * @param {any} newData - El nuevo valor a almacenar.
+     * @remarks Utiliza useCallback para mantener la identidad referencial entre renderizados.
      */
-    const saveItem = (array) => {
-        try {
-            localStorage.setItem(dbName, JSON.stringify(array));
-            setItem(array);
-        } catch (error) {
-            setError(error);
-        }
-    };
+    const saveData = React.useCallback(
+        (list) => {
+            try {
+                localStorage.setItem(storageKey, JSON.stringify(list));
+                setStoredData(list);
+            } catch (err) {
+                setHasError(true);
+                console.error(`Error al guardar en "${storageKey}":`, err);
+            }
+        },
+        [storageKey],
+    );
 
-    return { loading, error, item, saveItem };
-}
+    React.useEffect(() => {
+        /**
+         * Recupera los datos de localStorage e inicializa si faltan.
+         */
+        const fetchLocalStorageData = () => {
+            try {
+                setIsLoading(true);
+                const localStorageData = localStorage.getItem(storageKey);
+
+                if (!localStorageData) {
+                    saveData(initialData);
+                } else {
+                    setStoredData(JSON.parse(localStorageData));
+                }
+
+                setHasError(false);
+            } catch (err) {
+                setHasError(true);
+                console.error(
+                    `Error al cargar la clave de localStorage "${storageKey}":`,
+                    err,
+                );
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        const timeoutId = setTimeout(() => {
+            fetchLocalStorageData();
+        }, 1000);
+
+        return () => clearTimeout(timeoutId);
+    }, [storageKey, initialData, saveData]);
+
+    return {
+        isLoading,
+        hasError,
+        storedData,
+        saveData,
+    };
+};
 
 export { useLocalStorage };

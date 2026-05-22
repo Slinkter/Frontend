@@ -1,20 +1,26 @@
+/**
+ * @file TodoList.jsx
+ * @description Componente contenedor para la lista de ítems TODO.
+ * @module components
+ */
+
 import React from "react";
 import "../style/TodoList.css";
 
 /**
- * A container component for the list of TODO items.
- * It renders a `<ul>` list with the children passed to it.
- * @param {object} props - The props for the component.
- * @param {React.ReactNode} props.children - The content to be rendered inside the list,
- * typically a list of `TodoItem` components or loading/error messages.
- * @returns {JSX.Element} The list container component.
+ * Componente que envuelve un grupo de ítems TODO en una estructura de lista.
+ * @param {object} props - Propiedades del componente.
+ * @param {React.ReactNode} props.children - Ítems de la lista o mensajes de estado.
+ * @returns {JSX.Element} La lista renderizada.
  */
-function TodoList(props) {
+const TodoList = ({ children }) => {
     return (
-        <section>
-            <ul>{props.children}</ul>
+        <section className="TodoList-container">
+            <ul className="TodoList">
+                {children}
+            </ul>
         </section>
     );
-}
+};
 
 export { TodoList };

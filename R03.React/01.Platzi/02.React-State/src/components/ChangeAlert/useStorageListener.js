@@ -1,52 +1,40 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 /**
  * Custom hook to listen for changes in `localStorage` across different browser tabs or windows.
- * It provides a mechanism to alert the user about external data changes and trigger a synchronization.
- *
- * @param {function(): void} sincronize A callback function to trigger data synchronization when `localStorage` changes.
- * @returns {{
- *  show: boolean,
- *  toggleShow: function(): void
- * }} An object containing a `show` flag (indicating a change) and a `toggleShow` function to handle synchronization.
  */
-function useStorageListener(sincronize) {
-    /**
-     * State to track if there has been a change in localStorage from another tab.
-     * @type {[boolean, function(boolean): void]}
-     */
-    const [storageChange, setStorageChange] = React.useState(false);
+function useStorageListener(synchronize) {
+    // Estado local: Controla la visibilidad de la alerta de cambio
+    const [hasStorageChanges, setHasStorageChanges] = useState(false);
 
-    React.useEffect(() => {
+    // Effect: Suscripción al evento 'storage' global de la ventana
+    useEffect(() => {
         /**
-         * Event listener for the 'storage' event.
-         * Checks if the change is for 'TODOS_V1' and sets `storageChange` to true.
-         * @param {StorageEvent} change The storage event object.
+         * Manejador de evento: Filtra cambios específicos para la llave de TODOs
          */
         const onChange = (change) => {
             if (change.key === "TODOS_V1") {
-                console.log("Hubo cambios en TODOS_V1");
-                setStorageChange(true);
+                setHasStorageChanges(true);
             }
         };
 
         window.addEventListener("storage", onChange);
 
-        // Cleanup function to remove the event listener when the component unmounts
+        // Cleanup: Elimina el event listener al desmontar para evitar fugas de memoria
         return () => window.removeEventListener("storage", onChange);
-    }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount.
+    }, []);
 
     /**
-     * Toggles the visibility of the change alert and triggers data synchronization.
+     * Callback: Ejecuta la sincronización de datos y oculta la alerta
      */
-    const toggleShow = () => {
-        sincronize();
-        setStorageChange(false);
+    const onSync = () => {
+        synchronize();
+        setHasStorageChanges(false);
     };
 
     return {
-        show: storageChange,
-        toggleShow,
+        hasChanges: hasStorageChanges,
+        onSync,
     };
 }
 
