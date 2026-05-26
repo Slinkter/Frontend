@@ -1,23 +1,12 @@
-"use client";
+import React from "react";
+import { GitHubSearchDashboard } from "../features/github-search";
 
-import React, { ComponentPropsWithoutRef } from "react";
-
-type Props = ComponentPropsWithoutRef<"button">;
-type ButtonProps = Props & {
-  dark?: boolean;
-  variant?: "primary" | "secondary";
-};
-
-const CustonButton = ({ dark, variant, children }: ButtonProps) => {
-  return <button>Button</button>;
-};
-
-const page = () => {
+export default function Home() {
   return (
-    <div>
-      <CustonButton>click me</CustonButton>
+    <div className="min-h-screen w-full flex flex-col justify-between">
+      {/* Search feature container dashboard */}
+      <GitHubSearchDashboard />
     </div>
   );
-};
+}
 
-export default page;
