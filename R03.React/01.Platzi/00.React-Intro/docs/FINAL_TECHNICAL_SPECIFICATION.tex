@@ -1,0 +1,154 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Paquetes Esenciales ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, trees, positioning, shadows, calc}
+
+% --- Configuración de Márgenes ---
+\geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+
+% --- Configuración de Colores para Código ---
+\definecolor{vscodeblue}{rgb}{0.0, 0.45, 0.74}
+\definecolor{vscodegreen}{rgb}{0.13, 0.55, 0.13}
+\definecolor{vscodepurple}{rgb}{0.58, 0.0, 0.82}
+\definecolor{backcolour}{rgb}{0.98, 0.98, 0.95}
+
+% --- Configuración de Listings para JavaScript/Bash ---
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with, let, const, async, await, yield, export, import, default, useMemo, useCallback, useEffect, useState, useContext},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{vscodeblue}\bfseries,
+  ndkeywordstyle=\color{vscodepurple}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{vscodegreen}\ttfamily,
+  stringstyle=\color{orange}\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+    language=JavaScript,
+    backgroundcolor=\color{backcolour},   
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,                 
+    captionpos=b,                    
+    numbers=left,                    
+    numbersep=10pt,                  
+    frame=single,
+    rulecolor=\color{gray!30}
+}
+
+% --- Estilos TikZ ---
+\tikzset{
+    block/.style={draw, thick, text centered, minimum width=3.5cm, minimum height=1.2cm, font=\sffamily, rounded corners, drop shadow},
+    provider/.style={block, fill=blue!15},
+    hook/.style={block, fill=orange!15},
+    ui/.style={block, fill=green!15},
+    storage/.style={cylinder, draw, shape border rotate=90, minimum width=2.5cm, minimum height=2cm, fill=gray!15, font=\sffamily},
+    arrow/.style={thick, ->, >=stealth}
+}
+
+\title{Especificación Técnica y Arquitectura de Software\\ \textbf{React Todo Application: Enterprise Edition}}
+\author{Senior Software Architect - LJCR}
+\date{15 de abril de 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento es la especificación técnica definitiva de la aplicación React Todo. Consolida el propósito del producto, la guía de despliegue, la arquitectura de componentes y el análisis de patrones de diseño. Su objetivo es servir como manual de referencia para el desarrollo, auditoría y escalado de la plataforma.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Descripción del Producto y Propósito}
+La aplicación de TODOs es una solución reactiva diseñada para la gestión eficiente de tareas personales. El sistema permite la creación, filtrado, finalización y eliminación de ítems, garantizando la persistencia de datos mediante almacenamiento local asíncrono.
+
+\section{Guía de Despliegue y Operaciones}
+El proyecto utiliza \textbf{pnpm} como gestor de paquetes para optimizar el almacenamiento y la velocidad de instalación.
+
+\begin{lstlisting}[language=bash, caption={Comandos de operación del sistema}]
+# 1. Instalación de dependencias
+pnpm install
+
+# 2. Ejecución en entorno de desarrollo (Vite)
+pnpm run dev
+
+# 3. Compilación para producción
+pnpm run build
+\end{lstlisting}
+
+Los archivos generados por el proceso de \texttt{build} se ubican en el directorio \texttt{dist/}, optimizados para ser servidos de forma estática.
+
+\section{Arquitectura y Mapa del Proyecto}
+La arquitectura sigue un enfoque \textbf{Feature-Based} con una clara separación entre estilos, lógica y componentes.
+
+\subsection{Estructura de Directorios}
+\begin{itemize}
+    \item \texttt{src/components/}: Átomos y moléculas de la interfaz (reutilizables).
+    \item \texttt{src/context/}: Capa de orquestación y estado global (Cerebro).
+    \item \texttt{src/hook/}: Abstracción de lógica de persistencia (Motor).
+    \item \texttt{src/style/}: Encapsulamiento de estilos CSS por componente.
+\end{itemize}
+
+\subsection{Diagrama de Jerarquía y Montado}
+\begin{center}
+\begin{tikzpicture}[node distance=2.2cm]
+    \node (main) [block, fill=red!10] {main.jsx (EntryPoint)};
+    \node (prov) [provider, below=of main] {TodoProvider (Context)};
+    \node (appui) [ui, below=of prov] {AppUI (Orchestrator)};
+    \node (components) [ui, below=of appui] {Componentes UI};
+
+    \draw [arrow] (main) -- node[anchor=west, font=\tiny] {Mounts} (prov);
+    \draw [arrow] (prov) -- node[anchor=west, font=\tiny] {Wraps} (appui);
+    \draw [arrow] (appui) -- node[anchor=west, font=\tiny] {Renders} (components);
+\end{tikzpicture}
+\end{center}
+
+\section{Gestión de Estado y Ciclo de Vida}
+
+\subsection{Context API y Persistencia}
+El uso de \textbf{TodoContext} centraliza la fuente de verdad. La persistencia se delega al hook \texttt{useLocalStorage}, el cual sincroniza el estado reactivo con el disco mediante serialización JSON.
+
+\subsection{Secuencia de Ejecución de Tareas}
+\begin{center}
+\begin{tikzpicture}[node distance=3cm]
+    \node (init) [circle, draw, fill=black, inner sep=2pt] {};
+    \node (pend) [block, fill=yellow!10, right=of init] {Pendiente};
+    \node (comp) [block, fill=blue!10, right=of pend] {Completado};
+    \node (del) [block, fill=red!10, below=of comp] {Eliminado};
+
+    \draw [arrow] (init) -- node[anchor=south, font=\tiny] {addTodo} (pend);
+    \draw [arrow] (pend) -- node[anchor=south, font=\tiny] {completeTodo} (comp);
+    \draw [arrow] (comp) -- node[anchor=west, font=\tiny] {deleteTodo} (del);
+    \draw [arrow] (pend) |- node[anchor=north, near start, font=\tiny] {deleteTodo} (del);
+\end{tikzpicture}
+\end{center}
+
+\section{Alcance y Limitaciones}
+Este sistema es una demostración técnica de alta ingeniería con las siguientes restricciones actuales:
+\begin{itemize}
+    \item \textbf{Persistencia Local:} Datos limitados al navegador del cliente.
+    \item \textbf{Single-Page:} Sin enrutamiento complejo para priorizar la velocidad de carga.
+    \item \textbf{Mejoras Futuras:} Integración con Backend (API REST) y autenticación de usuarios.
+\end{itemize}
+
+\section{Conclusión}
+La arquitectura robusta y el uso de estándares modernos como \textit{Vite}, \textit{Context API} y \textit{Custom Hooks} aseguran que el proyecto sea una base sólida para el escalado a nivel empresarial.
+
+\end{document}

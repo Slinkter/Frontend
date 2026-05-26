@@ -1,20 +1,32 @@
 /**
- * @file This is the main entry point for the React application.
- * It initializes the React root, wraps the main `AppUI` component
- * with the necessary context providers (`TodoProvider`) and development tools (`StrictMode`),
- * and then renders the entire application into the DOM element with the id 'root'.
+ * @file main.jsx
+ * @description Punto de entrada para la aplicación de tareas (TODO) en React.
+ * @module main
  */
 
-import { StrictMode } from "react";
+import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { TodoProvider } from "./context/customContext.jsx";
 import { AppUI } from "./App.jsx";
 import "./index.css";
 
-createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <TodoProvider>
-            <AppUI />
-        </TodoProvider>
-    </StrictMode>
-);
+/**
+ * Inicializa y renderiza la raíz de la aplicación React.
+ * @remarks 
+ * - Envuelve la aplicación en StrictMode para comprobaciones durante el desarrollo.
+ * - Proporciona contexto global a través de TodoProvider.
+ * - Renderiza en el elemento del DOM con id 'root'.
+ */
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+    createRoot(rootElement).render(
+        <StrictMode>
+            <TodoProvider>
+                <AppUI />
+            </TodoProvider>
+        </StrictMode>
+    );
+} else {
+    console.error("Error Crítico: No se encontró el elemento raíz '#root' en el documento.");
+}

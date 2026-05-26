@@ -1,52 +1,71 @@
-import React from "react";
-// useContext
+/**
+ * @file App.jsx
+ * @description Componente de presentación principal que orquesta la estructura de la interfaz.
+ * @module components
+ */
+
+import React, { useContext } from "react";
 import { TodoContext } from "./context/customContext";
-// Components
 import { TodoCounter } from "./components/TodoCounter.jsx";
 import { TodoSearch } from "./components/TodoSearch.jsx";
 import { TodoList } from "./components/TodoList.jsx";
 import { TodoItem } from "./components/TodoItem.jsx";
 import { TodoForm } from "./components/TodoForm.jsx";
-// Tools
 import { CreateTodoButton } from "./components/CreateTodoButton.jsx";
 import { Modal } from "./components/Modal.jsx";
-import { useContext } from "react";
 
 /**
- * The main presentational component of the application.
- * It assembles the entire UI from smaller, specialized components
- * and gets all its data and logic by consuming the `TodoContext`.
- * This component is only responsible for rendering the UI.
- * @returns {JSX.Element} The main application UI.
+ * El componente principal del diseño de la interfaz de usuario.
+ * @returns {JSX.Element} La interfaz de la aplicación ensamblada.
+ * @remarks 
+ * - Consume TodoContext para el estado reactivo de la interfaz.
+ * - Separa la lógica de renderizado en fragmentos reutilizables.
  */
-function AppUI() {
+const AppUI = () => {
     const {
-        error,
-        loading,
-        searchedTodos: listTodos,
-        onUpdateItem,
-        onDeleteItem,
-        openModel,
-        setOpenModal,
+        hasError,
+        isLoading,
+        searchedTodos: filteredTodos,
+        completeTodo,
+        deleteTodo,
+        isModalOpen,
+        setIsModalOpen,
     } = useContext(TodoContext);
 
-    /* Conditional Rendering */
-    const renderError = error && <p> Hubo un error</p>;
-    const renderLoading = loading && <p> Estamos cargando</p>;
-    const renderFT = !loading && !listTodos.length && (
-        <p>Crea tu primer TODO</p>
+    /**
+     * Renderiza un mensaje de error si la capa de persistencia falla.
+     */
+    const renderErrorMessage = hasError && <p>Hubo un error al cargar tus TODOs</p>;
+
+    /**
+     * Renderiza un estado de carga durante la obtención de datos.
+     */
+    const renderLoadingState = isLoading && <p>Cargando tus TODOs...</p>;
+
+    /**
+     * Renderiza un mensaje para usuarios nuevos o resultados de búsqueda vacíos.
+     */
+    const renderEmptyState = !isLoading && filteredTodos.length === 0 && (
+        <p>¡Crea tu primer TODO!</p>
     );
-    const renderList = listTodos.map((item) => (
+
+    /**
+     * Mapea los TODOs filtrados a la lista de componentes TodoItem.
+     */
+    const renderTodoList = filteredTodos.map((todo) => (
         <TodoItem
-            key={item.text}
-            text={item.text}
-            completed={item.completed}
-            onUpdateItem={() => onUpdateItem(item.text)}
-            onDeleteItem={() => onDeleteItem(item.text)}
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
         />
     ));
 
-    const showModal = openModel && (
+    /**
+     * Portal para la superposición del formulario de creación.
+     */
+    const renderModalContent = isModalOpen && (
         <Modal>
             <TodoForm />
         </Modal>
@@ -57,15 +76,15 @@ function AppUI() {
             <TodoCounter />
             <TodoSearch />
             <TodoList>
-                {renderError}
-                {renderLoading}
-                {renderFT}
-                {renderList}
+                {renderErrorMessage}
+                {renderLoadingState}
+                {renderEmptyState}
+                {renderTodoList}
             </TodoList>
-            <CreateTodoButton setOpenModal={setOpenModal} />
-            {showModal}
+            <CreateTodoButton setIsModalOpen={setIsModalOpen} />
+            {renderModalContent}
         </>
     );
-}
+};
 
 export { AppUI };

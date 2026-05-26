@@ -1,149 +1,83 @@
-import React, { useReducer } from "react";
+import { useEffect, useReducer } from "react";
+
+const ActionTypes = {
+    ERROR: "ERROR",
+    SUCCESS: "SUCCESS",
+    SAVE: "SAVE",
+    SYNCHRONIZE: "SYNCHRONIZE",
+};
+
+// [Configuración: 6.1] Estado inicial perezoso
+const initialState = (initialValue) => ({
+    hasError: false,
+    isLoading: true,
+    item: initialValue,
+    isSynchronized: true,
+});
+
+// Reducer: Lógica pura para transformar el estado basado en acciones
+const reducer = (state, action) => {
+    switch (action.type) {
+        case ActionTypes.SUCCESS:
+            return {
+                ...state,
+                hasError: false,
+                isLoading: false,
+                item: action.payload,
+                isSynchronized: true,
+            };
+        case ActionTypes.ERROR:
+            return { ...state, hasError: true };
+        case ActionTypes.SAVE:
+            return { ...state, item: action.payload };
+        case ActionTypes.SYNCHRONIZE:
+            return { ...state, isLoading: true, isSynchronized: false };
+        default:
+            return state;
+    }
+};
 
 /**
- * Custom hook to manage state in localStorage with a reducer pattern.
- * It handles loading and error states, and synchronizes with localStorage.
- *
- * @param {string} itemName The key for the localStorage item.
- * @param {any} initialValue The initial value for the item if it doesn't exist in localStorage.
- * @returns {{
- *   item: any,
- *   saveItem: function(any): void,
- *   loading: boolean,
- *   error: boolean,
- *   sincronizeItem: function(): void
- * }} An object containing the state and functions to interact with it.
+ * [Ejecución: 6] Hook useLocalStorage.
+ * Gestiona la persistencia física de los datos.
  */
 function useLocalStorage(itemName, initialValue) {
-    /**
-     * Action types for the reducer.
-     * @type {{error: string, success: string, save: string, sincronize: string}}
-     */
-    const actionTypes = {
-        error: "ERROR",
-        success: "SUCCESS",
-        save: "SAVE",
-        sincronize: "SINCRONIZE",
-    };
+    // [Ejecución: 6.2] Inicialización del Reducer
+    const [state, dispatch] = useReducer(reducer, initialValue, initialState);
+    const { hasError, isLoading, item } = state;
 
-    /**
-     * Creates the initial state for the reducer.
-     * @param {{initialValue: any}} params
-     * @returns {{error: boolean, loading: boolean, item: any, sincronizedItem: boolean}}
-     */
-    const initialState = ({ initialValue }) => ({
-        error: false,
-        loading: true,
-        item: initialValue,
-        sincronizedItem: true,
-    });
-
-    /**
-     * Reducer object mapping action types to state transformations.
-     * @param {object} state The current state.
-     * @param {any} payload The payload for the action.
-     * @returns {object} The reducer logic object.
-     */
-    const reducerObj = (state, payload) => ({
-        [actionTypes.error]: {
-            ...state,
-            error: true,
-        },
-        [actionTypes.success]: {
-            ...state,
-            error: false,
-            loading: false,
-            item: payload,
-            sincronizedItem: true,
-        },
-        [actionTypes.save]: {
-            ...state,
-            item: payload,
-        },
-        [actionTypes.sincronize]: {
-            ...state,
-            loading: true,
-            sincronizedItem: false,
-        },
-    });
-
-    /**
-     * The main reducer function.
-     * @param {object} state The current state.
-     * @param {{type: string, payload: any}} action The dispatched action.
-     * @returns {object} The new state.
-     */
-    const reducer = (state, action) => {
-        return reducerObj(state, action.payload)[action.type] || state;
-    };
-
-    const [state, dispatch] = useReducer(
-        reducer,
-        initialState({ initialValue })
-    );
-
-    const { error, loading, item } = state;
-
-    // ACTION CREATORS
-    /**
-     * Dispatches an error action.
-     * @param {any} error The error payload.
-     */
+    // Action Creators
     const onError = (error) =>
-        dispatch({
-            type: actionTypes.error,
-            payload: error,
-        });
+        dispatch({ type: ActionTypes.ERROR, payload: error });
+    const onSuccess = (itemValue) =>
+        dispatch({ type: ActionTypes.SUCCESS, payload: itemValue });
+    const onSave = (itemValue) =>
+        dispatch({ type: ActionTypes.SAVE, payload: itemValue });
+    const onSynchronize = () => dispatch({ type: ActionTypes.SYNCHRONIZE });
 
-    /**
-     * Dispatches a success action.
-     * @param {any} item The successfully retrieved item.
-     */
-    const onSuccess = (item) =>
-        dispatch({
-            type: actionTypes.success,
-            payload: item,
-        });
+    // [Ejecución: 7] Efecto de Carga (Post-Render)
+    useEffect(() => {
+        setTimeout(() => {
+            try {
+                const localStorageItem = localStorage.getItem(itemName);
+                let parsedItem;
 
-    /**
-     * Dispatches a save action.
-     * @param {any} item The item to be saved in the state.
-     */
-    const onSave = (item) =>
-        dispatch({
-            type: actionTypes.save,
-            payload: item,
-        });
-
-    /**
-     * Dispatches a sincronize action.
-     */
-    const onSincronize = () =>
-        dispatch({
-            type: actionTypes.sincronize,
-        });
-
-    React.useEffect(() => {
-        try {
-            const localStorageItem = localStorage.getItem(itemName);
-            let parsedItem;
-
-            if (!localStorageItem) {
-                localStorage.setItem(itemName, JSON.stringify(initialValue));
-                parsedItem = initialValue;
-            } else {
-                parsedItem = JSON.parse(localStorageItem);
+                if (!localStorageItem) {
+                    localStorage.setItem(
+                        itemName,
+                        JSON.stringify(initialValue),
+                    );
+                    parsedItem = initialValue;
+                } else {
+                    parsedItem = JSON.parse(localStorageItem);
+                }
+                onSuccess(parsedItem);
+            } catch (error) {
+                onError(error);
             }
-            onSuccess(parsedItem);
-        } catch (error) {
-            onError(error);
-        }
-    }, []);
+        }, 1000);
+    }, [itemName, initialValue]);
 
-    /**
-     * Saves a new item to both localStorage and the state.
-     * @param {any} newItem The new item to save.
-     */
     const saveItem = (newItem) => {
         try {
             const stringifiedItem = JSON.stringify(newItem);
@@ -154,19 +88,16 @@ function useLocalStorage(itemName, initialValue) {
         }
     };
 
-    /**
-     * Triggers the synchronization state to force a data reload.
-     */
-    const sincronizeItem = () => {
-        onSincronize();
+    const synchronizeItem = () => {
+        onSynchronize();
     };
 
     return {
         item,
         saveItem,
-        loading,
-        error,
-        sincronizeItem,
+        isLoading,
+        hasError,
+        synchronizeItem,
     };
 }
 

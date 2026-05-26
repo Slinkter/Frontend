@@ -15,19 +15,18 @@ import "./TodoItem.css";
  * @param {function(): void} props.onDelete A callback function to be called when the TODO is deleted.
  * @returns {React.ReactElement} The rendered TODO item.
  */
-function TodoItem(props) {
+function TodoItem({ text, completed: isCompleted, onComplete, onDelete }) {
     return (
         <li className="TodoItem">
-            <CompleteIcon
-                completed={props.completed}
-                onComplete={props.onComplete}
-            />
+            <CompleteIcon completed={isCompleted} onComplete={onComplete} />
             <p
-                className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}
+                className={`TodoItem-p ${
+                    isCompleted ? "TodoItem-p--complete" : ""
+                }`}
             >
-                {props.text}
+                {text}
             </p>
-            <DeleteIcon onDelete={props.onDelete} />
+            <DeleteIcon onDelete={onDelete} />
         </li>
     );
 }

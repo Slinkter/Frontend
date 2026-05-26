@@ -1,0 +1,152 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes Esenciales ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, shadows, calc}
+
+% --- Configuración de Márgenes ---
+\geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+
+% --- Configuración de Colores para Código ---
+\definecolor{vscodeblue}{rgb}{0.0, 0.45, 0.74}
+\definecolor{vscodegreen}{rgb}{0.13, 0.55, 0.13}
+\definecolor{vscodepurple}{rgb}{0.58, 0.0, 0.82}
+\definecolor{backcolour}{rgb}{0.98, 0.98, 0.95}
+
+% --- Definición de Lenguaje JavaScript para Listings ---
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with, let, const, async, await, yield, export, import, default, useMemo, useCallback, useEffect, useState, useContext},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{vscodeblue}\bfseries,
+  ndkeywordstyle=\color{vscodepurple}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{vscodegreen}\ttfamily,
+  stringstyle=\color{orange}\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+    language=JavaScript,
+    backgroundcolor=\color{backcolour},   
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,                 
+    captionpos=b,                    
+    numbers=left,                    
+    numbersep=10pt,                  
+    frame=single,
+    rulecolor=\color{gray!30}
+}
+
+% --- Estilos TikZ para Diagramas ---
+\tikzset{
+    block/.style={draw, thick, text centered, minimum width=3cm, minimum height=1cm, font=\sffamily, rounded corners, drop shadow},
+    actor/.style={draw, thick, circle, minimum size=1cm, fill=gray!10},
+    arrow/.style={thick, ->, >=stealth}
+}
+
+% --- Información del Documento ---
+\title{\textbf{Reporte de Ingeniería: Arquitectura del Sistema Todo}\\ \Large{Análisis Técnico Exhaustivo y Especificación de Diseño}}
+\author{Senior Software Architect - LJCR}
+\date{15 de abril de 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento constituye el análisis técnico definitivo de la aplicación React Todo. Se detallan los patrones de diseño aplicados, el flujo de datos bidireccional y la estrategia de persistencia atómica. El enfoque se centra en la justificación de decisiones de ingeniería como la composición de componentes y la gestión de estado asíncrono.
+\end{abstract}
+
+\tableofcontents
+
+\chapter{Arquitectura del Sistema (React 18 + Vite)}
+
+El sistema implementa una arquitectura funcional basada en el principio de \textbf{Separation of Concerns}. El punto de montaje orquesta la inyección de dependencias a través de un proveedor de contexto global.
+
+\section{Jerarquía de Componentes}
+La aplicación evita el acoplamiento rígido mediante el uso de \textit{Component Composition}. La estructura se divide en:
+\begin{itemize}
+    \item \textbf{Capa de Orquestación:} \texttt{main.jsx} y \texttt{TodoProvider}.
+    \item \textbf{Capa de Presentación:} \texttt{AppUI} y componentes terminales en \texttt{src/components/}.
+\end{itemize}
+
+\chapter{Gestión de Estado Global (Context API)}
+
+El orquestador central reside en \texttt{customContext.jsx}. Se ha optado por un sistema de estado reactivo que evita la redundancia mediante el uso de \textbf{Estado Derivado}.
+
+\section{Lógica de Búsqueda y Filtrado}
+La eficiencia de la búsqueda se garantiza mediante la normalización de cadenas de texto. El sistema implementa una búsqueda de complejidad $O(n)$ optimizada con \texttt{useMemo}:
+
+\begin{lstlisting}[caption={Algoritmo de filtrado con normalización}]
+const searchedTodos = useMemo(() => {
+    if (searchValue.length === 0) return todos;
+    return todos.filter((todo) =>
+        todo.text.toLowerCase().includes(searchValue.toLowerCase())
+    );
+}, [todos, searchValue]);
+\end{lstlisting}
+
+\chapter{Capa de Persistencia (LocalStorage API)}
+
+La persistencia de datos se abstrae mediante un \textbf{Custom Hook} que actúa como mediador entre el estado de React y la Web Storage API.
+
+\section{Ciclo de Vida del Hook useLocalStorage}
+El hook implementa una lógica de sincronización retardada para mejorar la experiencia de usuario (UX) mediante la simulación de estados de carga:
+\begin{enumerate}
+    \item \textbf{Inicialización:} Lectura del \textit{storage} y manejo de casos de datos nulos.
+    \item \textbf{Sincronización Atómica:} La función \texttt{saveData} utiliza un bloque \textit{try-catch} para garantizar la integridad del estado en caso de fallos del navegador.
+\end{enumerate}
+
+\chapter{Diccionario de Componentes y Funciones}
+
+\section{Componentes UI}
+\begin{itemize}
+    \item \textbf{TodoCounter:} Componente puro que consume el contexto para derivar métricas de finalización.
+    \item \textbf{Modal:} Implementación de \textit{Portals} de React para desacoplar el renderizado del formulario de la jerarquía del DOM principal.
+\end{itemize}
+
+\section{Funciones Dispatcher}
+\begin{description}
+    \item[\texttt{addTodo(text)}] Clona la estructura de datos inmutable y persiste la nueva entrada.
+    \item[\texttt{completeTodo(text)}] Localiza el índice mediante \textit{findIndex} y actualiza la propiedad booleana \textit{completed}.
+\end{description}
+
+\chapter{Guía de Estilo y Convenciones JSDoc}
+
+El proyecto exige el cumplimiento estricto del estándar JSDoc centrado en el \textbf{"Por Qué"}.
+
+\section{Diagrama de Secuencia de Ejecución}
+A continuación se detalla el flujo de una acción de usuario hasta el almacenamiento físico:
+
+\begin{center}
+\begin{tikzpicture}[node distance=3cm]
+    \node (user) [actor] {User};
+    \node (ui) [block, right=of user, fill=green!10] {TodoForm};
+    \node (context) [block, right=of ui, fill=blue!10] {TodoProvider};
+    \node (disk) [block, below=of context, fill=gray!10] {LocalStorage};
+
+    \draw [arrow] (user) -- node[anchor=south, font=\tiny] {Click Add} (ui);
+    \draw [arrow] (ui) -- node[anchor=south, font=\tiny] {addTodo()} (context);
+    \draw [arrow] (context) -- node[anchor=west, font=\tiny] {setItem()} (disk);
+    \draw [arrow, dashed] (context) -- node[anchor=south, font=\tiny] {Re-render} (ui);
+\end{tikzpicture}
+\end{center}
+
+\chapter*{Conclusión}
+La arquitectura propuesta demuestra un uso avanzado de los patrones de React 18, asegurando que el proyecto \texttt{react-intro} cumpla con estándares de calidad industrial.
+
+\end{document}

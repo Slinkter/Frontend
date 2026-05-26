@@ -1,32 +1,37 @@
-import React from "react";
+/**
+ * @file TodoSearch.jsx
+ * @description Input component for filtering tasks by text content.
+ * @module components
+ */
+
+import React, { useContext } from "react";
 import { TodoContext } from "../context/customContext.jsx";
 import "../style/TodoSearch.css";
 
 /**
- * Component that provides an input field for users to filter the TODO list.
- * It consumes the search state from the `TodoContext`.
- * @returns {JSX.Element} The search input component.
+ * Component providing a search interface to filter the task list.
+ * @returns {JSX.Element} The rendered search input.
  */
-function TodoSearch() {
-    const { stateSearch, setStateSearch } = React.useContext(TodoContext);
+const TodoSearch = () => {
+    const { searchValue, setSearchValue } = useContext(TodoContext);
 
     /**
-     * Event handler for the input's onChange event.
-     * Updates the search state in the context.
-     * @param {React.ChangeEvent<HTMLInputElement>} e - The change event object.
+     * Updates the global search state based on user input.
+     * @param {React.ChangeEvent<HTMLInputElement>} event - DOM event.
      */
-    const onSearchValueChange = (e) => {
-        setStateSearch(e.target.value);
+    const handleSearchChange = (event) => {
+        setSearchValue(event.target.value);
     };
 
     return (
         <input
             className="TodoSearch"
-            placeholder="ingresar un valor"
-            value={stateSearch}
-            onChange={onSearchValueChange}
+            placeholder="Buscar un TODO..."
+            value={searchValue}
+            onChange={handleSearchChange}
+            aria-label="Search TODOs"
         />
     );
-}
+};
 
 export { TodoSearch };

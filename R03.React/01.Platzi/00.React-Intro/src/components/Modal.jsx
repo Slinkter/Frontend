@@ -1,20 +1,32 @@
+/**
+ * @file Modal.jsx
+ * @description Contenedor de modal basado en React Portal para superposiciones de la aplicación.
+ * @module components
+ */
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "../style/modal.css";
 
 /**
- * A modal component that renders its children into a different DOM node using a React Portal.
- * This is used to display content on top of the rest of the application.
- *
- * @param {object} props - The props for the component.
- * @param {React.ReactNode} props.children - The content to be displayed inside the modal.
- * @returns {React.ReactPortal} A React Portal that renders the modal.
- * @see The host HTML file (e.g., `index.html`) must contain an element with the id 'modal'.
+ * Un componente de portal de modal para renderizar hijos fuera de la jerarquía principal del DOM.
+ * @param {object} props - Propiedades del componente.
+ * @param {React.ReactNode} props.children - Contenido del modal.
+ * @returns {React.ReactPortal} El contenido del modal renderizado en el portal del DOM.
+ * @remarks 
+ * - Requiere un `<div id="modal"></div>` en index.html.
+ * - Los estilos para la superposición/fondo se gestionan en modal.css.
  */
-function Modal({ children }) {
-    const element = <div className="ModalBackground">{children}</div>;
-    const conexionHtml = document.getElementById("modal");
-    return ReactDOM.createPortal(element, conexionHtml);
-}
+const Modal = ({ children }) => {
+    const modalContent = <div className="ModalBackground">{children}</div>;
+    const modalRoot = document.getElementById("modal");
+
+    if (!modalRoot) {
+        console.warn("No se encontró el elemento raíz del modal con id 'modal' en el DOM.");
+        return null;
+    }
+
+    return ReactDOM.createPortal(modalContent, modalRoot);
+};
 
 export { Modal };

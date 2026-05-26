@@ -1,25 +1,35 @@
+/**
+ * @file CreateTodoButton.jsx
+ * @description Componente de botón para alternar el modal de creación de tareas.
+ * @module components
+ */
+
 import React from "react";
 import "../style/CreateTodoButton.css";
 
 /**
- * A button component to open the modal for creating a new TODO.
- * @param {object} props - The props for the component.
- * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setOpenModal - The state setter function to toggle the modal's visibility.
- * @returns {JSX.Element} The create todo button.
+ * Componente que representa el botón '+' para abrir el modal de creación de TODOs.
+ * @param {object} props - Propiedades del componente.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setIsModalOpen - Actualizador de estado para alternar la visibilidad del modal.
+ * @returns {JSX.Element} El botón renderizado.
  */
-function CreateTodoButton(props) {
+const CreateTodoButton = ({ setIsModalOpen }) => {
     /**
-     * Click event handler that toggles the modal's visibility state.
+     * Manejador de eventos para alternar el estado de visibilidad actual del modal.
      */
-    const onClickButton = () => {
-        props.setOpenModal((prevState) => !prevState);
+    const handleToggleModal = () => {
+        setIsModalOpen((previousState) => !previousState);
     };
 
     return (
-        <button className="CreateTodoButton" onClick={onClickButton}>
+        <button 
+            className="CreateTodoButton" 
+            onClick={handleToggleModal}
+            aria-label="Añadir nuevo TODO"
+        >
             +
         </button>
     );
-}
+};
 
 export { CreateTodoButton };
