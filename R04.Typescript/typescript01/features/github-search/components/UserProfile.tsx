@@ -9,7 +9,7 @@ import {
   FolderGit2
 } from "lucide-react";
 import Image from "next/image";
-import { type GitHubUser } from "../api/githubSchema";
+import { type GitHubUser } from "@/features/github-search/api/githubSchema";
 
 /* =========================================================================================================
    CICLO DE VIDA Y FLUJO DE MONTAJE DE COMPONENTES EN EL DASHBOARD
@@ -113,11 +113,7 @@ function TwitterIcon({ className }: TwitterIconProps): React.ReactElement {
  */
 export function ProfileBanner(): React.ReactElement {
   return (
-    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-violet-600/20 via-indigo-500/10 to-cyan-400/20 dark:from-violet-950/60 dark:via-indigo-950/40 dark:to-cyan-950/60 border-b border-violet-500/10 dark:border-white/10 overflow-hidden select-none pointer-events-none z-0 transition-colors duration-500">
-      {/* Brillos y mallas estéticas */}
-      <div className="absolute -left-16 -top-16 h-36 w-36 rounded-full bg-violet-600/15 blur-3xl" />
-      <div className="absolute -right-16 -bottom-16 h-36 w-36 rounded-full bg-cyan-500/15 blur-3xl" />
-    </div>
+    <div className="absolute top-0 left-0 right-0 h-24 bg-[var(--meta-bg)] border-b border-[var(--meta-border)] overflow-hidden select-none pointer-events-none z-0" />
   );
 }
 
@@ -141,12 +137,9 @@ interface ProfileAvatarProps {
  */
 export function ProfileAvatar({ avatarUrl, name }: ProfileAvatarProps): React.ReactElement {
   return (
-    <div className="relative h-28 w-28 flex-shrink-0 sm:h-32 sm:w-32 group/avatar z-10">
-      {/* Anillo de brillo multicolor interactivo que rota */}
-      <div className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-violet-600 via-fuchsia-500 to-cyan-400 opacity-60 blur-sm group-hover/avatar:opacity-100 group-hover/avatar:rotate-45 transition duration-500" />
-      
-      {/* Imagen circular real del desarrollador */}
-      <div className="relative h-full w-full rounded-full border border-black/30 dark:border-black/50 overflow-hidden bg-neutral-200 dark:bg-neutral-900 shadow-inner">
+    <div className="relative h-28 w-28 flex-shrink-0 sm:h-32 sm:w-32 z-10">
+      {/* Imagen circular real del desarrollador con borde simple */}
+      <div className="relative h-full w-full rounded-full border-4 border-[var(--card-bg)] overflow-hidden bg-[var(--meta-bg)] shadow-sm">
         <Image
           src={avatarUrl}
           alt={name}
@@ -156,8 +149,8 @@ export function ProfileAvatar({ avatarUrl, name }: ProfileAvatarProps): React.Re
         />
       </div>
       
-      {/* Burbuja indicadora estética en verde para simular estado activo */}
-      <span className="absolute bottom-1 right-1 h-4.5 w-4.5 rounded-full border-2 border-slate-50 dark:border-slate-950 bg-emerald-500 shadow-sm shadow-emerald-500/50" />
+      {/* Burbuja indicadora en verde */}
+      <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-[var(--card-bg)] bg-emerald-500" aria-label="Usuario Activo" title="Usuario Activo" />
     </div>
   );
 }
@@ -179,27 +172,25 @@ interface ProfileHeaderProps {
 
 /**
  * @component ProfileHeader
- * @description Renderiza y centra el nombre del desarrollador (utilizando un gradiente de texto degradado y
- * soporte transparente adaptado para modo claro y oscuro), el enlace directo al perfil de GitHub con animación interactiva,
+ * @description Renderiza y centra el nombre del desarrollador, el enlace directo al perfil de GitHub con animación interactiva,
  * el nombre de usuario precedido de un arroba, y la biografía contenida en una "burbuja de cristal" minimalista.
  * @param {ProfileHeaderProps} props Propiedades del encabezado.
  * @returns {React.ReactElement} Secciones de textos principales del perfil.
  */
 export function ProfileHeader({ name, login, htmlUrl, bio }: ProfileHeaderProps): React.ReactElement {
   return (
-    <div className="text-center space-y-3.5 w-full z-10">
+    <div className="text-center space-y-3 w-full z-10">
       <div>
         {/* Nombre y Enlace Externo a GitHub */}
-        <h2 className="text-2xl font-bold tracking-tight flex items-center justify-center gap-2">
-          {/* Se añade text-transparent y gradientes duales inteligentes (oscuros para claro, claros para oscuro) */}
-          <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-white/80 bg-clip-text text-transparent truncate max-w-[200px] sm:max-w-xs transition-colors duration-500">
+        <h2 className="text-2xl font-bold tracking-tight flex items-center justify-center gap-2 text-[var(--text-primary)]">
+          <span className="truncate max-w-[200px] sm:max-w-xs">
             {name || login}
           </span>
           <a
             href={htmlUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-violet-600 dark:text-cyan-400/80 hover:text-violet-500 dark:hover:text-cyan-300 hover:scale-110 transition-all duration-300 p-1 rounded-md hover:bg-black/5 dark:hover:bg-white/5 flex-shrink-0"
+            className="text-[var(--text-muted)] hover:text-[var(--text-accent)] transition-colors p-1 rounded hover:bg-[var(--meta-hover-bg)] flex-shrink-0"
             title="Ver perfil en GitHub"
           >
             <ExternalLink className="h-4 w-4" />
@@ -207,14 +198,14 @@ export function ProfileHeader({ name, login, htmlUrl, bio }: ProfileHeaderProps)
         </h2>
         
         {/* Identificador de Usuario */}
-        <p className="text-sm font-semibold bg-gradient-to-r from-violet-600 to-fuchsia-500 dark:from-violet-400 dark:to-fuchsia-400 bg-clip-text text-transparent truncate transition-all duration-500">
+        <p className="text-sm font-medium text-[var(--text-secondary)]">
           @{login}
         </p>
       </div>
 
-      {/* Burbuja de cristal dedicada para la Biografía adaptable */}
-      <div className="bg-slate-900/[0.02] dark:bg-white/[0.02] border border-slate-950/5 dark:border-white/[0.05] rounded-xl px-4 py-3 max-w-sm mx-auto shadow-inner transition-colors duration-500">
-        <p className="text-sm text-slate-600 dark:text-white/70 leading-relaxed italic transition-colors duration-500">
+      {/* Burbuja dedicada para la Biografía */}
+      <div className="bg-[var(--meta-bg)] border border-[var(--meta-border)] rounded-xl px-4 py-2.5 max-w-sm mx-auto shadow-sm">
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed italic">
           {bio || "Este desarrollador no ha añadido una biografía en su perfil de GitHub."}
         </p>
       </div>
@@ -247,7 +238,7 @@ interface ProfileMetadataItemProps {
  */
 export function ProfileMetadataItem({ icon, text, href, title }: ProfileMetadataItemProps): React.ReactElement {
   return (
-    <div className="flex items-center gap-2.5 bg-[var(--meta-bg)] hover:bg-[var(--meta-hover-bg)] active:scale-[0.99] px-3.5 py-2 rounded-xl border border-[var(--meta-border)] text-[var(--meta-text)] transition-all duration-300 select-none">
+    <div className="flex items-center gap-2.5 bg-[var(--meta-bg)] hover:bg-[var(--meta-hover-bg)] px-3 py-1.5 rounded-xl border border-[var(--meta-border)] text-[var(--meta-text)] transition-colors select-none">
       <div className="flex-shrink-0">
         {icon}
       </div>
@@ -256,14 +247,14 @@ export function ProfileMetadataItem({ icon, text, href, title }: ProfileMetadata
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-violet-600 dark:hover:text-cyan-300 text-slate-600 dark:text-white/60 transition-colors underline decoration-slate-400/20 dark:decoration-white/20 hover:decoration-violet-600/50 dark:hover:decoration-cyan-400/50 truncate w-full text-xs font-medium"
+          className="hover:text-[var(--text-accent)] text-[var(--text-secondary)] transition-colors underline decoration-slate-400/25 hover:decoration-indigo-500/50 truncate w-full text-xs font-medium"
           title={title || text}
         >
           {text}
         </a>
       ) : (
         <span 
-          className="truncate text-slate-600 dark:text-white/60 text-xs font-medium w-full" 
+          className="truncate text-[var(--text-secondary)] text-xs font-medium w-full" 
           title={title || text}
         >
           {text}
@@ -295,38 +286,38 @@ interface ProfileStatsProps {
  */
 export function ProfileStats({ publicRepos, followers, following }: ProfileStatsProps): React.ReactElement {
   return (
-    <div className="relative w-full mt-6 grid grid-cols-3 gap-1.5 rounded-xl border border-[var(--stats-border)] bg-[var(--stats-bg)] p-2 text-center backdrop-blur-md z-10 shadow-lg transition-colors duration-500">
+    <div className="relative w-full mt-6 grid grid-cols-3 gap-1 rounded-xl border border-[var(--stats-border)] bg-[var(--stats-bg)] p-1.5 text-center z-10 shadow-sm">
       
       {/* Repositorios / Proyectos */}
-      <div className="flex flex-col items-center justify-center py-1.5 sm:py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 hover:scale-[1.03] active:scale-95 cursor-pointer group/stat select-none">
-        <div className="flex items-center gap-1 text-[9px] min-[400px]:text-[10px] font-bold text-slate-500 dark:text-white/40 uppercase tracking-wider group-hover/stat:text-slate-700 dark:group-hover/stat:text-white/60 transition-colors">
-          <FolderGit2 className="h-3.5 w-3.5 text-violet-600 dark:text-cyan-400" />
+      <div className="flex flex-col items-center justify-center py-2 rounded-lg hover:bg-[var(--meta-hover-bg)] transition-colors cursor-pointer group/stat select-none">
+        <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider group-hover/stat:text-[var(--text-secondary)] transition-colors">
+          <FolderGit2 className="h-3.5 w-3.5 text-[var(--text-muted)]" />
           <span className="hidden sm:inline">Proyectos</span>
           <span className="sm:hidden">Repos</span>
         </div>
-        <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 transition-colors duration-500">
+        <span className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight mt-0.5">
           {publicRepos}
         </span>
       </div>
       
       {/* Seguidores */}
-      <div className="flex flex-col items-center justify-center py-1.5 sm:py-2 rounded-lg border-x border-slate-200 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 hover:scale-[1.03] active:scale-95 cursor-pointer group/stat select-none">
-        <div className="flex items-center gap-1 text-[9px] min-[400px]:text-[10px] font-bold text-slate-500 dark:text-white/40 uppercase tracking-wider group-hover/stat:text-slate-700 dark:group-hover/stat:text-white/60 transition-colors">
-          <Users className="h-3.5 w-3.5 text-violet-600 dark:text-violet-400" />
+      <div className="flex flex-col items-center justify-center py-2 rounded-lg border-x border-[var(--meta-border)] hover:bg-[var(--meta-hover-bg)] transition-colors cursor-pointer group/stat select-none">
+        <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider group-hover/stat:text-[var(--text-secondary)] transition-colors">
+          <Users className="h-3.5 w-3.5 text-[var(--text-muted)]" />
           <span>Seguidores</span>
         </div>
-        <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 transition-colors duration-500">
+        <span className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight mt-0.5">
           {followers}
         </span>
       </div>
       
       {/* Siguiendo */}
-      <div className="flex flex-col items-center justify-center py-1.5 sm:py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 hover:scale-[1.03] active:scale-95 cursor-pointer group/stat select-none">
-        <div className="flex items-center gap-1 text-[9px] min-[400px]:text-[10px] font-bold text-slate-500 dark:text-white/40 uppercase tracking-wider group-hover/stat:text-slate-700 dark:group-hover/stat:text-white/60 transition-colors">
-          <Users className="h-3.5 w-3.5 text-fuchsia-600 dark:text-fuchsia-400" />
+      <div className="flex flex-col items-center justify-center py-2 rounded-lg hover:bg-[var(--meta-hover-bg)] transition-colors cursor-pointer group/stat select-none">
+        <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider group-hover/stat:text-[var(--text-secondary)] transition-colors">
+          <Users className="h-3.5 w-3.5 text-[var(--text-muted)]" />
           <span>Siguiendo</span>
         </div>
-        <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 transition-colors duration-500">
+        <span className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight mt-0.5">
           {following}
         </span>
       </div>
@@ -379,45 +370,45 @@ export default function UserProfile({ user }: UserProfileProps): React.ReactElem
         />
 
         {/* Fila de metadatos detallados (Modular y Desacoplado) */}
-        <div className="w-full space-y-2 text-xs border-t border-slate-200 dark:border-white/5 pt-5 text-left z-10 transition-colors duration-500">
-          {user.company && (
+        <div className="w-full space-y-2 text-xs border-t border-[var(--meta-border)] pt-5 text-left z-10">
+          {user.company ? (
             <ProfileMetadataItem
-              icon={<Building className="h-4 w-4 text-violet-600 dark:text-violet-400" />}
+              icon={<Building className="h-4 w-4 text-[var(--text-muted)]" />}
               text={user.company}
               title={`Empresa: ${user.company}`}
             />
-          )}
-          {user.location && (
+          ) : null}
+          {user.location ? (
             <ProfileMetadataItem
-              icon={<MapPin className="h-4 w-4 text-rose-600 dark:text-rose-400" />}
+              icon={<MapPin className="h-4 w-4 text-[var(--text-muted)]" />}
               text={user.location}
               title={`Ubicación: ${user.location}`}
             />
-          )}
-          {user.blog && (
+          ) : null}
+          {user.blog ? (
             <ProfileMetadataItem
-              icon={<LinkIcon className="h-4 w-4 text-cyan-600 dark:text-cyan-400" />}
+              icon={<LinkIcon className="h-4 w-4 text-[var(--text-muted)]" />}
               text={user.blog}
               href={user.blog.startsWith("http") ? user.blog : `https://${user.blog}`}
               title={`Sitio web: ${user.blog}`}
             />
-          )}
-          {user.twitter_username && (
+          ) : null}
+          {user.twitter_username ? (
             <ProfileMetadataItem
-              icon={<TwitterIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />}
+              icon={<TwitterIcon className="h-4 w-4 text-[var(--text-muted)]" />}
               text={`@${user.twitter_username}`}
               href={`https://twitter.com/${user.twitter_username}`}
               title={`Twitter: @${user.twitter_username}`}
             />
-          )}
+          ) : null}
           <ProfileMetadataItem
-            icon={<Calendar className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />}
+            icon={<Calendar className="h-4 w-4 text-[var(--text-muted)]" />}
             text={`Miembro desde ${joinedDate}`}
             title={`Fecha de creación: ${joinedDate}`}
           />
         </div>
 
-        {/* Rejilla interactiva de estadísticas de desarrollo (Desacoplado) */}
+        {/* Rejilla de estadísticas (Desacoplado) */}
         <ProfileStats
           publicRepos={user.public_repos}
           followers={user.followers}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { UsernameSearchSchema, type GitHubUser, type GitHubRepo } from "../api/githubSchema";
-import { fetchGitHubUser, fetchGitHubUserRepos } from "../api/githubService";
+import { UsernameSearchSchema, type GitHubUser, type GitHubRepo } from "@/features/github-search/api/githubSchema";
+import { fetchGitHubUser, fetchGitHubUserRepos } from "@/features/github-search/api/githubService";
 
 export function useGitHubSearch(defaultUser = "vercel") {
   const [searchTerm, setSearchTerm] = useState("");

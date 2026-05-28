@@ -1,5 +1,5 @@
 import React from "react";
-import { GitHubSearchDashboard } from "../features/github-search";
+import { GitHubSearchDashboard } from "@/features/github-search";
 
 export default function Home() {
   return (

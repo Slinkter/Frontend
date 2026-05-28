@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { Star, GitFork, Calendar, Search, SlidersHorizontal, ChevronDown } from "lucide-react";
-import { type GitHubRepo } from "../api/githubSchema";
+import { type GitHubRepo } from "@/features/github-search/api/githubSchema";
 
 /**
  * @interface RepoListProps
@@ -16,21 +16,21 @@ interface RepoListProps {
  * Utiliza variables de Tailwind CSS para garantizar contraste visual en temas claro y oscuro.
  */
 const LANGUAGE_COLORS: Record<string, string> = {
-  TypeScript: "bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]",
-  JavaScript: "bg-yellow-400 dark:bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.5)]",
-  HTML: "bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.5)]",
-  CSS: "bg-violet-500 shadow-[0_0_8px_rgba(139,92,246,0.5)]",
-  Python: "bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.5)]",
-  Go: "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.5)]",
-  Rust: "bg-amber-600 shadow-[0_0_8px_rgba(217,119,6,0.5)]",
-  Ruby: "bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]",
-  Java: "bg-amber-700 shadow-[0_0_8px_rgba(180,83,9,0.5)]",
-  "C++": "bg-pink-500 shadow-[0_0_8px_rgba(236,72,153,0.5)]",
-  C: "bg-gray-500 shadow-[0_0_8px_rgba(107,114,128,0.5)]",
-  PHP: "bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.5)]",
-  Swift: "bg-orange-600 shadow-[0_0_8px_rgba(234,88,12,0.5)]",
-  Kotlin: "bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.5)]",
-  Shell: "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]",
+  TypeScript: "bg-blue-500",
+  JavaScript: "bg-yellow-400",
+  HTML: "bg-orange-500",
+  CSS: "bg-violet-500",
+  Python: "bg-sky-400",
+  Go: "bg-cyan-500",
+  Rust: "bg-amber-600",
+  Ruby: "bg-red-500",
+  Java: "bg-amber-700",
+  "C++": "bg-pink-500",
+  C: "bg-gray-500",
+  PHP: "bg-indigo-400",
+  Swift: "bg-orange-600",
+  Kotlin: "bg-purple-500",
+  Shell: "bg-emerald-500",
 };
 
 /**
@@ -39,14 +39,6 @@ const LANGUAGE_COLORS: Record<string, string> = {
  * Proporciona capacidades dinámicas en tiempo real en el lado del cliente:
  * 1. Filtrado de texto reactivo sobre nombres de repositorio y descripciones.
  * 2. Filtrado dinámico por lenguaje de programación detectado de manera exclusiva.
- * 3. Total adaptabilidad a Light Theme y Dark Theme mediante variables CSS y clases `glass-input` y `glass-panel`.
- * 
- * @lifecycle Ciclo de Vida del Componente:
- * - **Montaje (Mounting)**: Recibe el prop `repos`. Genera la lista única de lenguajes disponibles con un `useMemo` inicial.
- * - **Renderizado Reactivo (Re-renders)**: Cada vez que el usuario escribe en el buscador de repositorios o cambia la
- *   selección del lenguaje, los estados locales `filterQuery` y `selectedLanguage` se actualizan.
- * - **Optimización Computacional**: `filteredRepos` recalcula las coincidencias optimizadamente mediante un `useMemo`
- *   para evitar demoras en perfiles con gran cantidad de repositorios.
  * 
  * @param {RepoListProps} props Propiedades del listado de repositorios.
  * @returns {React.ReactElement} Interfaz interactiva de repositorios en cuadrícula responsiva.
@@ -83,11 +75,9 @@ export default function RepoList({ repos }: RepoListProps): React.ReactElement {
     <div className="space-y-6">
       {/* Cabecera del Listado y Elementos de Filtro */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h3 className="text-lg font-bold text-theme-primary tracking-tight flex items-center gap-2">
-          <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-white/75 bg-clip-text text-transparent transition-colors duration-500">
-            Repositorios populares
-          </span>
-          <span className="rounded-full border border-violet-500/10 dark:border-white/10 bg-violet-500/5 dark:bg-white/5 px-2.5 py-0.5 text-xs font-bold text-violet-600 dark:text-cyan-400 shadow-sm transition-colors duration-500">
+        <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
+          <span>Repositorios populares</span>
+          <span className="rounded-full border border-[var(--meta-border)] bg-[var(--meta-bg)] px-2.5 py-0.5 text-xs font-bold text-[var(--text-secondary)] shadow-sm">
             {repos.length}
           </span>
         </h3>
@@ -97,41 +87,45 @@ export default function RepoList({ repos }: RepoListProps): React.ReactElement {
           
           {/* Filtro de texto por nombre y descripción */}
           <div className="relative flex items-center group w-full sm:w-auto">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-theme-muted group-focus-within:text-violet-600 dark:group-focus-within:text-cyan-400 transition-colors duration-300" />
+            <Search aria-hidden="true" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-muted)]" />
+            <label htmlFor="repo-filter-input" className="sr-only">Filtrar repositorios por nombre</label>
             <input
+              id="repo-filter-input"
               type="text"
               placeholder="Filtrar por nombre..."
               value={filterQuery}
               onChange={(e) => setFilterQuery(e.target.value)}
-              className="glass-input w-full rounded-xl py-1.5 pl-9 pr-4 text-xs placeholder-slate-400/50 dark:placeholder-white/20 backdrop-blur-md outline-none transition-all duration-300 sm:w-48"
+              className="glass-input w-full rounded-xl py-2 pl-9 pr-4 text-xs sm:text-sm placeholder-[var(--text-muted)] outline-none sm:w-48 min-h-[40px] sm:min-h-[34px]"
             />
           </div>
 
           {/* Filtro de dropdown para lenguaje (solo si hay más de 2 lenguajes en total) */}
-          {languages.length > 2 && (
+          {languages.length > 2 ? (
             <div className="relative flex items-center group w-full sm:w-auto">
-              <SlidersHorizontal className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-theme-muted pointer-events-none group-focus-within:text-violet-600 dark:group-focus-within:text-cyan-400 transition-colors duration-300" />
+              <SlidersHorizontal aria-hidden="true" className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[var(--text-muted)] pointer-events-none" />
+              <label htmlFor="repo-language-select" className="sr-only">Filtrar por lenguaje de programación</label>
               <select
+                id="repo-language-select"
                 value={selectedLanguage}
                 onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="glass-input w-full appearance-none rounded-xl py-1.5 pl-9 pr-8 text-xs outline-none backdrop-blur-md cursor-pointer transition-all duration-300 sm:w-36"
+                className="glass-input w-full appearance-none rounded-xl py-2 pl-9 pr-8 text-xs sm:text-sm outline-none cursor-pointer sm:w-36 min-h-[40px] sm:min-h-[34px]"
               >
                 {languages.map((lang) => (
-                  <option key={lang} value={lang} className="bg-slate-50 dark:bg-[#0f0e1a] text-slate-900 dark:text-white text-xs">
+                  <option key={lang} value={lang} className="bg-[var(--card-bg)] text-[var(--text-primary)] text-xs">
                     {lang === "All" ? "Cualquier leng." : lang}
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-theme-muted pointer-events-none group-hover:text-violet-600 dark:group-hover:text-cyan-400 transition-colors duration-300" />
+              <ChevronDown aria-hidden="true" className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[var(--text-muted)] pointer-events-none" />
             </div>
-          )}
+          ) : null}
         </div>
       </div>
 
       {/* Listado en Cuadrícula Responsiva */}
       {filteredRepos.length === 0 ? (
-        <div className="rounded-2xl border border-[var(--meta-border)] bg-[var(--meta-bg)] p-12 text-center backdrop-blur-md transition-colors duration-500">
-          <p className="text-sm text-theme-muted font-medium">No se encontraron repositorios que coincidan con la búsqueda.</p>
+        <div className="rounded-2xl border border-[var(--meta-border)] bg-[var(--meta-bg)] p-12 text-center shadow-sm">
+          <p className="text-sm text-[var(--text-muted)] font-medium">No se encontraron repositorios que coincidan con la búsqueda.</p>
         </div>
       ) : (
         <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
@@ -146,57 +140,54 @@ export default function RepoList({ repos }: RepoListProps): React.ReactElement {
             return (
               <div
                 key={repo.id}
-                className="group relative flex flex-col justify-between rounded-xl border border-[var(--meta-border)] bg-[var(--meta-bg)] hover:bg-[var(--meta-hover-bg)] p-3.5 sm:p-4.5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 active:scale-[0.98] shadow-lg hover:shadow-[0_10px_25px_var(--glow-1)] overflow-hidden"
+                className="group relative flex flex-col justify-between rounded-xl border border-[var(--meta-border)] bg-[var(--card-bg)] hover:bg-[var(--meta-hover-bg)] active:scale-[0.99] p-4 transition-all duration-200 shadow-sm"
               >
-                {/* Línea sutil de brillo en la parte superior visible en hover */}
-                <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   {/* Encabezado: Nombre del Repo y Enlace Externo */}
                   <div className="flex items-center justify-between gap-2">
-                    <h4 className="font-bold text-sm text-theme-primary tracking-tight group-hover:text-violet-600 dark:group-hover:text-cyan-300 transition-colors truncate">
+                    <h4 className="font-bold text-sm text-[var(--text-primary)] tracking-tight group-hover:text-[var(--text-accent)] transition-colors truncate">
                       <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                         {repo.name}
                       </a>
                     </h4>
-                    <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-2 py-0.5 text-[9px] font-bold text-violet-600 dark:text-violet-300 uppercase tracking-wide flex-shrink-0">
+                    <span className="rounded-full border border-[var(--meta-border)] bg-[var(--meta-bg)] px-2 py-0.5 text-[9px] font-semibold text-[var(--text-secondary)] uppercase tracking-wide flex-shrink-0">
                       Público
                     </span>
                   </div>
 
                   {/* Descripción corta */}
-                  <p className="text-xs text-theme-secondary line-clamp-2 leading-relaxed min-h-[2rem] transition-colors duration-500">
+                  <p className="text-xs text-[var(--text-secondary)] line-clamp-2 leading-relaxed min-h-[2rem]">
                     {repo.description || "Sin descripción proporcionada."}
                   </p>
                 </div>
 
                 {/* Fila inferior de estadísticas y metadatos */}
-                <div className="mt-3.5 flex flex-wrap items-center justify-between gap-y-2 text-[9px] min-[400px]:text-[10px] font-semibold text-theme-muted border-t border-[var(--meta-border)] pt-2.5 transition-colors duration-500">
+                <div className="mt-3.5 flex flex-wrap items-center justify-between gap-y-2 text-xs font-semibold text-[var(--text-secondary)] border-t border-[var(--meta-border)] pt-2.5">
                   {/* Estadísticas de lenguaje, estrellas y forks */}
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     {repo.language && (
-                      <div className="flex items-center gap-1 bg-slate-900/[0.02] dark:bg-white/2 px-1.5 py-0.5 rounded-full border border-[var(--meta-border)] max-w-[85px] sm:max-w-none transition-colors duration-500">
-                        <span className={`h-2 w-2 rounded-full ${langColorClass} shadow-sm flex-shrink-0`} />
-                        <span className="text-[8.5px] font-bold text-theme-muted truncate">{repo.language}</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`h-2.5 w-2.5 rounded-full ${langColorClass} flex-shrink-0`} />
+                        <span className="text-xs text-[var(--text-secondary)] truncate">{repo.language}</span>
                       </div>
                     )}
 
                     {/* Estrellas */}
-                    <div className="flex items-center gap-1 group/star cursor-pointer hover:text-yellow-500 transition-colors">
-                      <Star className="h-3.5 w-3.5 text-yellow-500/80 group-hover/star:scale-125 transition-transform" />
+                    <div className="flex items-center gap-1 text-[var(--text-secondary)]" aria-label={`${repo.stargazers_count} estrellas`}>
+                      <Star aria-hidden="true" className="h-3.5 w-3.5 text-amber-500 fill-amber-500/10" />
                       <span>{repo.stargazers_count}</span>
                     </div>
 
                     {/* Forks */}
-                    <div className="flex items-center gap-1 group/fork cursor-pointer hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">
-                      <GitFork className="h-3.5 w-3.5 text-violet-500/60 dark:text-cyan-400/80 group-hover/fork:scale-125 transition-transform" />
+                    <div className="flex items-center gap-1 text-[var(--text-secondary)]" aria-label={`${repo.forks_count} bifurcaciones`}>
+                      <GitFork aria-hidden="true" className="h-3.5 w-3.5 text-[var(--text-secondary)]" />
                       <span>{repo.forks_count}</span>
                     </div>
                   </div>
 
                   {/* Fecha de actualización */}
-                  <div className="flex items-center gap-1 text-[8.5px] min-[400px]:text-[9px] font-medium text-theme-muted flex-shrink-0 transition-colors duration-500">
-                    <Calendar className="h-3 w-3" />
+                  <div className="flex items-center gap-1 text-xs font-normal text-[var(--text-muted)] flex-shrink-0">
+                    <Calendar aria-hidden="true" className="h-3.5 w-3.5" />
                     <span>Act. {formattedDate}</span>
                   </div>
                 </div>

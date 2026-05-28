@@ -1,96 +1,85 @@
+/**
+ * @file C:\Users\slinkter\Documents\GitHub\Frontend\R04.Typescript\typescript01\app\globals.css
+ * @description Cohesive, unified theme variables and modern minimal styling.
+ */
+
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  
-  /* =========================================================================================================
-     SISTEMA DE DISEÑO DE TEMAS (DARK THEME - VALORES POR DEFECTO)
-     ========================================================================================================= */
-  --bg-body: #06050b;
-  --bg-grid-color: rgba(255, 255, 255, 0.015);
-  
-  /* Jerarquía tipográfica de colores */
-  --text-primary: #f3f4f6;   /* slate-100 */
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.45);
-  --text-accent: #22d3ee;    /* cyan-400 */
-  
-  /* Tokens de tarjeta (glass-panel) */
-  --card-bg: rgba(13, 11, 23, 0.45);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-hover-border: rgba(139, 92, 246, 0.25);
-  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  
-  /* Tokens de entrada de texto (glass-input) */
-  --input-bg: rgba(255, 255, 255, 0.02);
-  --input-border: rgba(255, 255, 255, 0.08);
-  --input-focus-border: rgba(6, 182, 212, 0.45);
-  --input-focus-shadow: rgba(6, 182, 212, 0.15);
-  
-  /* Filas de metadatos del usuario */
-  --meta-bg: rgba(255, 255, 255, 0.01);
-  --meta-hover-bg: rgba(255, 255, 255, 0.04);
-  --meta-border: rgba(255, 255, 255, 0.05);
-  --meta-text: rgba(255, 255, 255, 0.6);
-  
-  /* Rejilla de estadísticas */
-  --stats-bg: rgba(0, 0, 0, 0.4);
-  --stats-border: rgba(255, 255, 255, 0.1);
-  
-  /* Skeletons de carga */
-  --shimmer-bg: rgba(255, 255, 255, 0.08);
-  
-  /* Mallas de brillo decorativo */
-  --glow-1: rgba(139, 92, 246, 0.12); /* Violeta */
-  --glow-2: rgba(6, 182, 212, 0.12);   /* Cian */
-  --glow-3: rgba(236, 72, 153, 0.06);  /* Rosa */
-}
-
-/* =========================================================================================================
-   SISTEMA DE DISEÑO DE TEMAS (LIGHT THEME OVERRIDES)
-   ========================================================================================================= */
-.light {
   color-scheme: light;
   
-  --bg-body: #faf9fd;
-  --bg-grid-color: rgba(139, 92, 246, 0.04);
+  /* --- PALETTE SYSTEM (Light Gray Minimal) --- */
+  --bg-body: #fafafa; /* Pure soft gray */
+  --text-primary: #111827; /* Gray 900 */
+  --text-secondary: #374151; /* Gray 800 (Increased contrast for WCAG AA) */
+  --text-muted: #6b7280; /* Gray 500 (Increased contrast to 4.51:1) */
+  --text-accent: #4f46e5; /* Indigo 600 */
   
-  /* Jerarquía tipográfica de colores */
-  --text-primary: #0f172a;   /* slate-900 */
-  --text-secondary: #334155; /* slate-700 */
-  --text-muted: #64748b;     /* slate-500 */
-  --text-accent: #6d28d9;    /* violet-700 */
+  /* --- CARDS & INTERFACES --- */
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb; /* Gray 200 (Sharper card definition) */
+  --card-hover-border: #cbd5e1; /* Slate 300 */
+  --card-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   
-  /* Tokens de tarjeta (frosted-glass) */
-  --card-bg: rgba(255, 255, 255, 0.75);
-  --card-border: rgba(139, 92, 246, 0.12);
-  --card-hover-border: rgba(139, 92, 246, 0.25);
-  --card-shadow: 0 10px 30px 0 rgba(139, 92, 246, 0.06);
+  /* --- INPUTS --- */
+  --input-bg: #ffffff;
+  --input-border: #e5e7eb; /* Gray 200 */
+  --input-focus-border: #4f46e5; /* Indigo 600 */
+  --input-focus-shadow: rgba(79, 70, 229, 0.05);
   
-  /* Tokens de entrada de texto */
-  --input-bg: rgba(139, 92, 246, 0.02);
-  --input-border: rgba(139, 92, 246, 0.14);
-  --input-focus-border: rgba(139, 92, 246, 0.45);
-  --input-focus-shadow: rgba(139, 92, 246, 0.08);
+  /* --- METADATA & NEUTRALS --- */
+  --meta-bg: #f9fafb; /* Gray 50 */
+  --meta-hover-bg: #f3f4f6; /* Gray 100 */
+  --meta-border: #e5e7eb; /* Gray 200 */
+  --meta-text: #374151; /* Gray 800 */
   
-  /* Filas de metadatos del usuario */
-  --meta-bg: rgba(139, 92, 246, 0.03);
-  --meta-hover-bg: rgba(139, 92, 246, 0.07);
-  --meta-border: rgba(139, 92, 246, 0.07);
-  --meta-text: #475569;      /* slate-600 */
+  /* --- STATS PANEL --- */
+  --stats-bg: #f9fafb;
+  --stats-border: #e5e7eb;
   
-  /* Rejilla de estadísticas */
-  --stats-bg: rgba(139, 92, 246, 0.04);
-  --stats-border: rgba(139, 92, 246, 0.1);
-  
-  /* Skeletons de carga */
-  --shimmer-bg: rgba(15, 23, 42, 0.08);
-  
-  /* Mallas de brillo decorativo */
-  --glow-1: rgba(139, 92, 246, 0.06); /* Violeta suave */
-  --glow-2: rgba(6, 182, 212, 0.05);   /* Cian suave */
-  --glow-3: rgba(236, 72, 153, 0.03);  /* Rosa suave */
+  /* --- SKELETONS --- */
+  --shimmer-bg: #f3f4f6;
 }
+
+.dark {
+  color-scheme: dark;
+  
+  /* --- PALETTE SYSTEM (Zinc Dark Minimal) --- */
+  --bg-body: #09090b; /* Zinc 950 */
+  --text-primary: #fafafa; /* Zinc 50 */
+  --text-secondary: #d4d4d8; /* Zinc 300 (Increased contrast) */
+  --text-muted: #a1a1aa; /* Zinc 400 (Increased contrast to 4.8:1) */
+  --text-accent: #6366f1; /* Indigo 500 */
+  
+  /* --- CARDS & INTERFACES --- */
+  --card-bg: #18181b; /* Zinc 900 */
+  --card-border: #2e2e33; /* Zinc 800 improved */
+  --card-hover-border: #3f3f46; /* Zinc 700 */
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  
+  /* --- INPUTS --- */
+  --input-bg: #09090b; /* Zinc 950 */
+  --input-border: #27272a; /* Zinc 800 */
+  --input-focus-border: #6366f1; /* Indigo 500 */
+  --input-focus-shadow: rgba(99, 102, 241, 0.15);
+  
+  /* --- METADATA & NEUTRALS --- */
+  --meta-bg: #18181b; /* Zinc 900 */
+  --meta-hover-bg: #27272a; /* Zinc 800 */
+  --meta-border: #27272a; /* Zinc 800 */
+  --meta-text: #d4d4d8; /* Zinc 300 */
+  
+  /* --- STATS PANEL --- */
+  --stats-bg: #09090b;
+  --stats-border: #27272a;
+  
+  /* --- SKELETONS --- */
+  --shimmer-bg: #27272a;
+}
+
+/* ==========================================================================
+   BASE STYLE SETTINGS
+   ========================================================================== */
 
 body {
   background-color: var(--bg-body);
@@ -99,150 +88,52 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   position: relative;
   overflow-x: hidden;
-  
-  /* Suave transición en cambios de tema */
-  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Mallas de brillo de fondo adaptables */
-  background-image: 
-    radial-gradient(at 0% 0%, var(--glow-1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, var(--glow-2) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, var(--glow-3) 0px, transparent 60%);
-  background-attachment: fixed;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Rejilla técnica de fondo adaptable */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: 
-    linear-gradient(var(--bg-grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
-  pointer-events: none;
-  transition: background-image 0.5s ease;
-}
-
-/* Custom premium scrollbars */
+/* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(8, 7, 16, 0.1);
-  backdrop-filter: blur(8px);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
-  border-radius: 9999px;
-  border: 2px solid var(--bg-body);
+  background: var(--card-border);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(139, 92, 246, 0.4), rgba(6, 182, 212, 0.4));
+  background: var(--card-hover-border);
 }
 
-.rotate-135 {
-  transform: rotate(135deg);
-}
-
-/* Keyframe animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 15px var(--glow-1);
-  }
-  50% {
-    box-shadow: 0 0 30px var(--glow-2);
-  }
-}
-
-@keyframes bg-slide {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
-}
-
-.bg-gradient-animate {
-  background-size: 200% 200%;
-  animation: bg-slide 6s ease infinite;
-}
-
-/* =========================================================================================================
-   CLASES REUTILIZABLES ADAPTABLES AL TEMA (GLASSMORPHISM / FROSTED-GLASS)
-   ========================================================================================================= */
+/* ==========================================================================
+   CLEAN LAYOUT COMPONENTS (Strictly mapped to CSS Variables)
+   ========================================================================== */
 
 .glass-panel {
-  background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease, border-color 0.5s ease;
+  transition: all 0.2s ease;
 }
 
 .glass-panel:hover {
   border-color: var(--card-hover-border);
-  box-shadow: 
-    var(--card-shadow),
-    0 0 20px var(--glow-1);
 }
 
 .glass-input {
-  background: var(--input-bg);
+  background-color: var(--input-bg);
   border: 1px solid var(--input-border);
   color: var(--text-primary);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease, border-color 0.5s ease;
+  transition: all 0.2s ease;
 }
 
 .glass-input:focus {
-  background: var(--input-bg);
   border-color: var(--input-focus-border);
-  box-shadow: 0 0 15px var(--input-focus-shadow);
+  box-shadow: 0 0 0 3px var(--input-focus-shadow);
   outline: none;
-}
-
-/* Clases utilitarias de texto adaptables */
-.text-theme-primary {
-  color: var(--text-primary);
-  transition: color 0.3s ease;
-}
-
-.text-theme-secondary {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.text-theme-muted {
-  color: var(--text-muted);
-  transition: color 0.3s ease;
 }
