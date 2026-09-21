@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var objecto = {
+        nombre: "Luis",
+        apellido: "Cueva",
+        pais: "Perú",
+      };
+      console.log("objecto : ", objecto); // es un objeto
+      //
+      var string = JSON.stringify(objecto);
+      console.log("conversion a String", string);
+      //
+      console.log("conversion a JSON", JSON.parse(string));
+      //
+      var lista =
+        "[\n" +
+        [
+          '{"nombre":"Luis" , "apellido":"Cueva"}',
+          '{"nombre":"Alex","apellido":"Cueva"}',
+          '{"nombre":"Carolina","apellido":"Rojas"}',
+          '{"nombre":"pepita","apellido":"Juares"}',
+          '{"nombre":"Alba","apellido":"Fuentes"}',
+          '{"nombre":"Camila","apellido":"Rico"}',
+        ].join(",\n") +
+        "\n]";
+
+      console.log("Lista : \n", lista);
+      var nlista = JSON.parse(lista);
+      console.log("Lista JSON : \n", nlista);
+
+      function filtro(array, prueba) {
+        var encontrado = [];
+        for (var i = 0; i < array.length; i++) {
+          if (prueba(array[i])) encontrado.push(array[i]);
+        }
+        return encontrado;
+      }
+      console.log(
+        filtro(nlista, function (jugador) {
+          return jugador.nombre == "Luis";
+        })
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

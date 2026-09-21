@@ -1,0 +1,19 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    background: #C4EEF2;
+}
+
+.first_name {
+   
+    color: #025159;
+}
+
+.last_name {
+    color: #3F858C;
+}
+
+.email {
+    color: #A67458;
+}
+

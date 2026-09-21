@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var x = "una variable global";
+      function f1(x) {
+        return x;
+      }
+      function f2() {
+        var x = "otra variable local ,solo para f2";
+        return x;
+      }
+      function f3() {
+        x = "varabile ya declarada global,solo para f3";
+        return x;
+      }
+
+      function power(base, exp) {
+        if (exp == undefined) {
+          exp = 2;
+          var resultado = Math.pow(base, exp);
+          return resultado;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      // console.log(f1("variable local , solo para f1"))
+      // console.log(f2())
+      // console.log(f3())
+      console.log(power(4, 4));
+    </script>
+    <div>TODO write content</div>
+  </body>
+</html>
