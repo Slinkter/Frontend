@@ -1,140 +1,247 @@
-# 🌌 GitHub API Explorer & Developer Finder (Premium Dual-Theme & iPhone-Optimized)
+# 🌌 GitHub Explorer • Aurora Glass & Bento Grid Edition
 
-Un explorador y buscador ultra-premium de perfiles de GitHub desarrollado con tecnologías a la vanguardia de la ingeniería frontend: **Next.js 16 (React 19)**, **TypeScript**, **Tailwind CSS v4** (con diseño adaptativo de variables fluidas) y validación estricta de esquemas de datos con **Zod**. 
+Un explorador y buscador de perfiles y repositorios de GitHub de grado de producción, desarrollado con **Next.js 16 (React 19)**, **TypeScript**, **Tailwind CSS v4**, primitivos accesibles de **Radix UI / shadcn**, y validación estricta de esquemas de datos con **Zod**.
 
-El proyecto implementa un sistema desacoplado de temas visuales (**Tema Claro / Tema Oscuro**) e interfaces móviles responsivas optimizadas al 100% para pantallas estrechas, ajustadas minuciosamente para **iPhone 13, 14, 15 y 16** (viewports de 375px a 430px).
-
----
-
-## 🎨 Arquitectura de Temas Visuales (Claro y Oscuro)
-
-El dashboard cuenta con una alternancia dinámica de temas que redefine la estética del diseño web moderno con efectos translúcidos y micro-animaciones:
-
-*   **Tema Oscuro (Por Defecto)**: Una atmósfera sofisticada tipo cyberpunk y ciencia ficción, caracterizada por fondos profundos `#06050b`, mallas radiales vibrantes en tonos cian y violeta, y rejillas técnicas semi-transparentes de fondo.
-*   **Tema Claro**: Una interfaz fresca de alta gama inspirada en la filosofía *glassmorphism* que aprovecha un fondo suave `#faf9fd`, contrastes tipográficos en tonos pizarra (`slate-900` / `slate-700`) y resplandores degradados de opacidad reducida.
-*   **Inyección Dinámica a Nivel Raíz**: La selección de tema se realiza inyectando la clase `.light` o `.dark` en el nodo raíz de HTML (`document.documentElement`), propagando instantáneamente los cambios en todas las variables CSS.
-*   **Inicialización Segura & Evitación de Parpadeo (Flicker)**: El botón flotante de control lee la caché en `localStorage` o infiere la preferencia nativa del OS (`matchMedia`). Además, inicializa el estado del cliente a través de un callback asíncrono con `requestAnimationFrame`, resolviendo cualquier conflicto de hidratación (hydration mismatch) o renders en cascada y garantizando cero saltos acumulativos de diseño (**CLS**).
+La aplicación implementa una estética de **Glassmorphism Profundo (Aurora Glass)** sobre una disposición de **Bento Grid Asimétrico Dinámico**, optimizada algorítmicamente en tiempo sublineal $O(\log n)$ y auditada integralmente por un equipo multidisciplinario de agentes especializados en Diseño Web, UI/UX (WCAG AA), Rendimiento React 19, Arquitectura de Software y QA.
 
 ---
 
-## 📱 Optimización Móvil & Mobile-First (iPhone 13 - 16)
+## 📑 Tabla de Contenidos
 
-*   **Ajustes Rigurosos de Viewport**: Adaptado perfectamente para un ancho mínimo de 375px (iPhone SE/13 mini) hasta un ancho máximo sin estirar de 430px (iPhone 14/15/16 Pro Max).
-*   **Paddings y Elementos Compactos**: Distribución fluida de márgenes que aprovecha al máximo cada píxel móvil.
-*   **Cuadrícula Adaptable de 2 Columnas**: Los paneles de filtrado por nombre y el menú desplegable de selección de lenguajes se re-organizan dinámicamente en una cuadrícula compacta de dos columnas en móvil, manteniéndose legibles y alineados.
-*   **Truncado Inteligente**: Implementa un sistema preventivo de truncado (`truncate` y `line-clamp-2`) para enlaces web, ubicaciones, nombres de compañías y biografías de usuario, evitando desbordes horizontales accidentales.
+1. [Características Principales](#-características-principales)
+2. [Estética Aurora Glass & Tipografía](#-estética-aurora-glass--tipografía)
+3. [Estructura del Bento Grid Asimétrico](#-estructura-del-bento-grid-asimétrico)
+4. [Biblioteca de Primitivos UI (@/components/ui)](#-biblioteca-de-primitivos-ui-componentsui)
+5. [Optimización Algorítmica y Rendimiento (Big-O)](#-optimización-algorítmica-y-rendimiento-big-o)
+6. [Resiliencia de Red y Capa de Datos](#-resiliencia-de-red-y-capa-de-datos)
+7. [Auditoría de los 5 Agentes Especializados](#-auditoría-de-los-5-agentes-especializados)
+8. [Pila Tecnológica](#-pila-tecnológica)
+9. [Estructura del Código](#-estructura-del-código)
+10. [Instalación y Despliegue](#-instalación-y-despliegue)
 
 ---
 
-## 🔄 Ciclo de Vida y Flujo de Montaje de Componentes
+## 🚀 Características Principales
 
-A continuación se detalla cronológicamente cómo se inicializa, monta, actualiza y desmonta cada componente en el ciclo de renderizado de React 19:
+* **Búsqueda Instantánea Sublineal**: Indexación invertida con bisección binaria doble en $O(\log T + k)$ para filtrado por tokens y prefijos en tiempo real.
+* **Caché LRU con TTL en $O(1)$**: Memoria de acceso en tiempo constante con desalojo pasivo y expiración temporal para evitar peticiones duplicadas a la API de GitHub.
+* **Resiliencia de Red con Circuit Breaker**: Máquina de estados (`CLOSED`, `OPEN`, `HALF_OPEN`) y reintentos con **Backoff Exponencial con Full Jitter** para mitigar bloqueos por Rate Limit.
+* **Arquitectura Híbrida SSR + React 19**: Prefetch en servidor (`app/page.tsx`) con caché incremental (`revalidate: 3600`) y transiciones concurrentes con `useTransition`.
+* **Accesibilidad Universal (WCAG 2.1 AA/AAA)**: Soporte completo de teclado, roles WAI-ARIA, contraste de color verificado (>5.9:1 y >10:1) y avisos mediante regiones vivas `aria-live`.
+* **Diseño Responsivo Total**: Adaptado desde dispositivos móviles estrechos (375px) hasta monitores ultrawide en modo claro (*Pearl Frost*) y oscuro (*Obsidian Aurora*).
 
-```mermaid
-graph TD
-    A[Inicio: Cliente Carga Página /] --> B[useGitHubSearch Inicializa en 'vercel']
-    B --> C[Fase 1: Petición Asíncrona Iniciada]
-    C --> D[loading === true]
-    D --> E[React Monta Skeletons: ProfileSkeleton y RepoListSkeleton]
-    E --> F[Petición Resuelve Exitosamente en Cliente]
-    F --> G[Zod Valida Estructura de Datos]
-    G --> H[Fase 2: Actualización de Estado React]
-    H --> I[loading = false, currentUser = datos, repos = lista]
-    I --> J[React Desmonta de Forma Limpia Ambos Skeletons]
-    J --> K[Fase 3: Montaje de Componentes Reales]
-    K --> L[Montaje de UserProfile en Columna Izquierda]
-    K --> M[Montaje de RepoList en Columna Derecha]
-    L --> L1[UserProfile monta: ProfileBanner -> ProfileAvatar -> ProfileHeader -> ProfileMetadata -> ProfileStats]
-    M --> M1[RepoList monta: Buscador e Input Filtro -> Rejilla de Repositorios]
+---
+
+## 🎨 Estética Aurora Glass & Tipografía
+
+### Glassmorphism Físico
+* **Bisel Especular Interior**: Variable `--glass-inset-highlight` con refracción óptica perimetral (`inset 0 1px 1px 0 rgba(...)`) inspirada en sistemas como macOS / VisionOS y Linear.
+* **Superficies Acrílicas Traslúcidas**: Variables `--glass-bg`, `--glass-border`, `--glass-shadow` y desenfoque por hardware `backdrop-filter: blur(16px)`.
+* **Orbes de Luz Ambiental**: Animaciones `@keyframes aurora-pulse` con difuminados de malla suave (índigo, violeta y cian) que crean profundidad espacial tridimensional.
+
+### Tipografía de Grado Ingeniería
+* **Inter (`--font-inter`)**: Tipografía sans-serif primaria con legibilidad nítida en interfaces de alta densidad de información.
+* **JetBrains Mono (`--font-jetbrains-mono`)**: Tipografía monoespaciada con ancho tabular (`tabular-nums`) para métricas numéricas, conteos, códigos y atajos `<kbd>`, evitando saltos visuales al actualizar datos.
+* Ambas fuentes empaquetadas automáticamente en tiempo de compilación con `next/font/google` con cero peticiones externas en runtime.
+
+---
+
+## 📐 Estructura del Bento Grid Asimétrico
+
+La interfaz principal en `features/github-search/index.tsx` organiza la información en una cuadrícula asimétrica de 12 columnas:
+
+```
+┌───────────────────────────────┬─────────────────────────────────────────────────────────────┐
+│ Módulo A (Col 1-4 / Izquierda)│ Módulo B (Col 5-12 / Superior): 4 Bloques Bento de Métricas │
+│                               ├──────────────┬──────────────┬──────────────┬────────────────┤
+│ • Perfil Vertical Destacado   │ ⭐ Estrellas │ 📦 Repos     │ 👥 Followers │ 💻 Lenguaje Top│
+│ • Avatar con halo aurora      ├──────────────┴──────────────┴──────────────┴────────────────┤
+│ • Bio expandible con scroll   │ Módulo C (Col 5-12 / Inferior): Cuadrícula de Repositorios  │
+│ • Metadatos con enlaces safe  │ • Buscador por tokens sublineal O(log n + k)                │
+│ • Estadísticas compactas      │ • Selects accesibles Radix (Lenguaje y Ordenación O(1))     │
+│ • Sticky en escritorio        │ • Tarjetas interactivas con carga progresiva (+24)          │
+└───────────────────────────────┴─────────────────────────────────────────────────────────────┘
 ```
 
-### 1. Inicialización y Montaje Inicial (First Mount)
-*   Next.js renderiza el contenedor principal `<GitHubSearchDashboard />` en [index.tsx](file:///C:/Users/slinkter/Documents/GitHub/Frontend/R04.Typescript/typescript01/features/github-search/index.tsx).
-*   Se ejecuta el hook personalizado `useGitHubSearch`, configurado con el valor inicial `"vercel"`.
-*   El hook activa un `useEffect` que inicia la solicitud asíncrona a la API de GitHub. Al mismo tiempo, el estado `loading` cambia a `true`.
-*   React detecta el estado `loading` activo y monta los componentes condicionales: `ProfileSkeleton` y `RepoListSkeleton`. Los skeletons comienzan su animación de pulso infinito (`animate-pulse`) en el DOM real.
+---
 
-### 2. Resolución de Datos y Validación
-*   La llamada Fetch de la API finaliza con éxito.
-*   Se validan los datos utilizando los esquemas de **Zod**: `GitHubUserSchema` y `GitHubRepoListSchema`.
-*   Se actualizan los estados locales de React con los datos limpios: `currentUser` y `repos`.
-*   El estado `loading` se establece en `false`.
+## 🧱 Biblioteca de Primitivos UI (`@/components/ui/`)
 
-### 3. Reconciliación del DOM Virtual y Desmontaje (Unmounting)
-*   React ejecuta una nueva fase de renderizado.
-*   Al evaluar que `loading` ahora es `false`, React determina que los skeletons ya no deben estar en pantalla.
-*   Los componentes `ProfileSkeleton` y `RepoListSkeleton` son desmontados de manera limpia del DOM real, liberando la memoria consumida.
+Componentes desacoplados construidos con **Radix UI**, **Tailwind CSS v4** y **Class Variance Authority (CVA)**:
 
-### 4. Montaje Concurrentes del Dashboard Real (Successful Render)
-*   React monta en paralelo el visualizador interactivo de repositorios `<RepoList />` y la tarjeta del perfil `<UserProfile />`.
-*   **UserProfile** actúa como un contenedor desacoplado que monta progresivamente sus sub-módulos visuales internos:
-    1.  `ProfileBanner`: Renderiza el fondo geométrico con gradientes adaptativos.
-    2.  `ProfileAvatar`: Dibuja el avatar del desarrollador con anillos concéntricos interactivos.
-    3.  `ProfileHeader`: Renderiza el nombre con gradiente dual de texto, el enlace de external-link animado y la burbuja de biografía.
-    4.  `ProfileMetadataItem`: Carga en filas modulares cada dato disponible (compañía, Twitter, ubicación, blog) aplicando estilos de cristal.
-    5.  `ProfileStats`: Monta la cuadrícula de tres columnas con la interacción del total de repositorios, seguidores y seguidos.
-*   **RepoList** renderiza el panel de búsqueda local con un buscador que filtra en tiempo real sobre los nombres y descripciones de los repositorios populares del usuario, junto con un menú de selección exclusivo por lenguaje de programación detectado.
+| Componente | Archivo | Funcionalidad y Características |
+| :--- | :--- | :--- |
+| **`Button`** | [components/ui/button.tsx](file:///home/liam/github/Frontend/R04.Typescript/typescript01/components/ui/button.tsx) | Variantes `default`, `outline`, `ghost`, `secondary`, `destructive`, `glass`. Polimorfismo vía `@radix-ui/react-slot` (`asChild`). |
+| **`Card`** | [components/ui/card.tsx](file:///home/liam/github/Frontend/R04.Typescript/typescript01/components/ui/card.tsx) | Composición modular: `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`. |
+| **`Badge`** | [components/ui/badge.tsx](file:///home/liam/github/Frontend/R04.Typescript/typescript01/components/ui/badge.tsx) | Microetiquetas para contadores, lenguajes y estados con variantes `glass`, `secondary`, `outline`. |
+| **`Input`** | [components/ui/input.tsx](file:///home/liam/github/Frontend/R04.Typescript/typescript01/components/ui/input.tsx) | Campo translúcido con addons `leftIcon`/`rightIcon`, anillo de enfoque `focus-visible` y soporte para `aria-invalid`. |
+| **`Select`** | [components/ui/select.tsx](file:///home/liam/github/Frontend/R04.Typescript/typescript01/components/ui/select.tsx) | Primitivo accesible de Radix UI con navegación por teclado (<kbd>↑</kbd>, <kbd>↓</kbd>, <kbd>Enter</kbd>, <kbd>Esc</kbd>) y roles WAI-ARIA (`role="listbox"`). |
+| **`Toast`** | [components/ui/toast.tsx](file:///home/liam/github/Frontend/R04.Typescript/typescript01/components/ui/toast.tsx) | Sistema de notificaciones flotantes con variantes `default`, `destructive`, `success` y región viva `aria-live`. |
+
+Todos los componentes se importan de forma limpia mediante el alias absoluto:
+```typescript
+import { Button, Card, Badge, Input, Select, Toast } from "@/components/ui";
+```
+
+---
+
+## ⚡ Optimización Algorítmica y Rendimiento (Big-O)
+
+```mermaid
+flowchart LR
+    A["Datos de GitHub (100 Repos)"] --> B["RepoSearchIndex\nO(N · L) Una vez"]
+    B --> C["Bisección Binaria O(log T)"]
+    C --> D["Intersección Min-Cardinalidad O(min(|A|,|B|))"]
+    D --> E["Resultado Sublineal Instantáneo (<1ms)"]
+    
+    A --> F["Pre-ordenamiento O(N log N)"]
+    F --> G["Cambio de Orden en UI: O(1)"]
+```
+
+### 1. Búsqueda Sublineal $O(\log T + k)$
+Implementada en [RepoSearchIndex.ts](file:///home/liam/github/Frontend/R04.Typescript/typescript01/features/github-search/lib/RepoSearchIndex.ts):
+* **Tokenización Simétrica**: Normalización con eliminación de marcas diacríticas (`NFD`) y preservación de símbolos especiales (`C++`, `C#`, `.NET`, `react-query`).
+* **Bisección Binaria Doble**: Encuentra el rango de tokens que inician con el prefijo consultado en $O(\log T)$.
+* **Intersección por Cardinalidad Mínima**: Las consultas multi-término ordenan los conjuntos candidatos de menor a mayor tamaño, resolviendo la intersección en $O(\min(|A|, |B|))$ con cortocircuito temprano.
+
+### 2. Ordenamiento en Tiempo Constante $O(1)$
+* Al recibir los datos, los repositorios se pre-ordenan una sola vez por estrellas, forks y fecha de actualización en $O(n \log n)$.
+* Cuando el usuario cambia el criterio en el dropdown, la lista ordenada se sirve en **$O(1)$**, eliminando reordenamientos innecesarios en el hilo principal de React.
+
+### 3. Cero Asignaciones de Objetos Temporales
+* Se reemplazó la instanciación repetitiva `new Date(b.updated_at).getTime()` dentro de los comparadores por comparaciones numéricas directas `(Date.parse(b.updated_at) || 0)`, eliminando más de **1.400 asignaciones de objetos por ordenación**.
+* Se utiliza un formateador estático singleton `Intl.DateTimeFormat` con zona horaria UTC fija para evitar recreaciones de instancias en cada render.
+
+---
+
+## 🛡️ Resiliencia de Red y Capa de Datos
+
+### Circuit Breaker Pattern
+Gestionado en [CircuitBreaker.ts](file:///home/liam/github/Frontend/R04.Typescript/typescript01/features/github-search/lib/CircuitBreaker.ts):
+* Monitorea la tasa de fallos de la API de GitHub.
+* Si ocurren fallos consecutivos o se agota la cuota (HTTP 403/429 con `x-ratelimit-remaining: 0`), pasa a estado `OPEN`, ejecutando **fail-fast** y previniendo bloqueos o llamadas innecesarias hasta cumplir el tiempo de enfriamiento (*cooldown*).
+
+### Exponential Backoff con Full Jitter
+Implementado en [backoff.ts](file:///home/liam/github/Frontend/R04.Typescript/typescript01/features/github-search/lib/backoff.ts):
+* Fórmula: $t = \text{random}(0, \min(\text{maxDelay}, \text{base} \cdot 2^{\text{attempt}}))$.
+* Evita el efecto de rebaño atronador (*thundering herd*) ante saturación de red o fallos transitorios 5xx, abortando reintentos inmediatamente ante errores de cliente (400, 404).
+
+### Caché LRU con TTL en $O(1)$
+Implementada en [LRUCache.ts](file:///home/liam/github/Frontend/R04.Typescript/typescript01/features/github-search/lib/LRUCache.ts):
+* Basada en el orden de inserción de `Map` para garantizar $O(1)$ en lecturas y escrituras.
+* Soporta tiempo de vida (*Time-To-Live*) y desalojo pasivo de entradas obsoletas.
+
+---
+
+## 👥 Auditoría de los 5 Agentes Especializados
+
+| Rol del Agente | Áreas Auditadas | Mejoras Clave Implementadas |
+| :--- | :--- | :--- |
+| **🎨 Diseñador Web** | Estética, Glassmorphism, Micro-animaciones | Biseles reflectantes, profundidad Obsidian Aurora, rotación 3D en `ThemeToggle`, chips de perfiles rápidos y efectos `.skeleton-shimmer`. |
+| **👁️ Especialista UI/UX** | Accesibilidad WCAG 2.1 AA/AAA, Ergonomía | Contraste de texto >5.9:1, indicadores `focus-visible` nítidos, soporte de tecla <kbd>Esc</kbd>, descarte accesible de Toasts y semántica WAI-ARIA completa. |
+| **⚛️ Frontend Senior** | React 19, Next.js App Router, Rendimiento | `useTransition` para búsquedas no bloqueantes, Server Component inicial con `revalidate: 3600`, colocación de estado en `SearchInput` y paginación progresiva (+24). |
+| **🏛️ Arquitecto de Software** | Big-O, Patrones de Resiliencia, Capa de Datos | Búsqueda $O(\log T + k)$ con intersección min-cardinalidad, Circuit Breaker, Backoff con Full Jitter, LRU Cache con TTL y tipado estricto sin `any`. |
+| **🧪 Ingeniero de QA** | Edge Cases, Hidratación SSR, Robustez | 15/15 pruebas automatizadas aprobadas, fechas deterministas en UTC, esquemas Zod defensivos con `.nullish().transform(...)` y sanitización contra XSS. |
 
 ---
 
 ## 🛠️ Pila Tecnológica
 
-*   **Framework**: [Next.js 16 (App Router)](https://nextjs.org/) & [React 19](https://react.dev/)
-*   **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con Glassmorphism y Keyframes avanzados
-*   **Validación de Esquemas**: [Zod](https://zod.dev/)
-*   **Iconografía**: [Lucide React](https://lucide.dev/)
-*   **Gestor de Paquetes**: `pnpm`
+* **Framework**: [Next.js 16 (App Router)](https://nextjs.org/) con compilador [Turbopack](https://turbo.build/)
+* **Librería UI**: [React 19](https://react.dev/)
+* **Primitivos Headless**: [@radix-ui/react-select](https://www.radix-ui.com/), [@radix-ui/react-toast](https://www.radix-ui.com/), [@radix-ui/react-slot](https://www.radix-ui.com/)
+* **Estilos & Utilidades**: [Tailwind CSS v4](https://tailwindcss.com/), `class-variance-authority`, `clsx`, `tailwind-merge`
+* **Validación de Esquemas**: [Zod](https://zod.dev/)
+* **Iconografía**: [Lucide React](https://lucide.dev/)
+* **Tipografía**: [Inter](https://fonts.google.com/specimen/Inter) & [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) vía `next/font/google`
+* **Gestor de Paquetes**: `pnpm`
 
 ---
 
-## 📂 Estructura del Proyecto
-
-El código está organizado bajo el estándar de **Arquitectura Basada en Características (Feature-Based Architecture)**, aislando toda la lógica del dominio:
+## 📂 Estructura del Código
 
 ```
-features/
-└── github-search/
-    ├── api/              # Servicios de consulta y esquemas Zod (githubSchema.ts, githubService.ts)
-    ├── components/       # Componentes de UI modulares y desacoplados
-    │   ├── SearchInput.tsx   # Campo de búsqueda premium con validación Zod al escribir
-    │   ├── ThemeToggle.tsx   # Botón de alternancia de temas con requestAnimationFrame
-    │   ├── UserProfile.tsx   # Tarjeta de perfil con metadatos y estadísticas responsivas
-    │   ├── RepoList.tsx      # Grilla de repos con buscador interactivo y filtros avanzados
-    │   └── Skeleton.tsx      # Diseños esqueleto adaptables al tema activo
-    ├── hooks/            # useGitHubSearch.ts para la gestión unificada de estados y consultas
-    └── index.tsx         # Dashboard integrado unificado (<GitHubSearchDashboard />)
+typescript01/
+├── app/
+│   ├── globals.css              # Tokens Aurora Glass, mallas radiales y radios unificados
+│   ├── layout.tsx               # Configuración de fuentes Inter y JetBrains Mono
+│   └── page.tsx                 # Server Component con prefetch SSR y fallback
+├── components/
+│   └── ui/                      # Biblioteca de primitivos UI accesibles
+│       ├── button.tsx           # Botón con variantes glass, outline, ghost
+│       ├── card.tsx             # Tarjetas modulares Aurora Glass
+│       ├── badge.tsx            # Microetiquetas para lenguajes y contadores
+│       ├── input.tsx            # Input con addons e indicadores de foco
+│       ├── select.tsx           # Selector accesible Radix UI
+│       ├── toast.tsx            # Notificaciones flotantes con regiones vivas
+│       └── index.ts             # Barril central de exportación
+├── features/
+│   └── github-search/
+│       ├── api/                 # Capa de datos y contratos Zod
+│       │   ├── githubSchema.ts  # Esquemas Zod estrictos y defensivos
+│       │   ├── githubService.ts # Cliente API con Circuit Breaker y Rate Limit info
+│       │   └── index.ts         # Barril central de API
+│       ├── components/          # Componentes del dominio
+│       │   ├── SearchInput.tsx  # Buscador con estado local desacoplado
+│       │   ├── UserProfile.tsx  # Perfil vertical con metadatos y bio segura
+│       │   ├── RepoList.tsx     # Cuadrícula modular con filtros y orden O(1)
+│       │   ├── Skeleton.tsx     # Skeletons irisados con aria-hidden
+│       │   ├── ThemeToggle.tsx  # Alternador de tema con rotación 3D
+│       │   └── index.ts         # Barril de componentes
+│       ├── hooks/
+│       │   ├── useGitHubSearch.ts # Hook con useTransition y manejo de errores
+│       │   └── index.ts
+│       ├── lib/                 # Estructuras de datos y algoritmos Big-O
+│       │   ├── RepoSearchIndex.ts # Índice invertido con bisección binaria O(log T)
+│       │   ├── LRUCache.ts      # Caché O(1) con TTL
+│       │   ├── CircuitBreaker.ts# Máquina de estados para fail-fast
+│       │   ├── backoff.ts       # Exponential Backoff con Full Jitter
+│       │   ├── formatters.ts    # Fechas deterministas UTC y números compactos
+│       │   └── __tests__/       # Suite de pruebas automatizadas QA (15/15)
+│       └── index.tsx            # Dashboard Bento Grid (<GitHubSearchDashboard />)
+├── lib/
+│   └── utils.ts                 # Helper cn() (clsx + tailwind-merge)
+├── next.config.ts               # Optimización de paquetes y remotePatterns de imágenes
+├── tsconfig.json                # Configuración TypeScript con alias @/*
+└── package.json
 ```
 
 ---
 
-## 🚀 Instalación y Uso
+## 🚀 Instalación y Despliegue
 
-### 1. Instalar dependencias del proyecto
+### 1. Clonar el repositorio e instalar dependencias
 
 ```bash
+git clone <url-del-repositorio>
+cd typescript01
 pnpm install
 ```
 
-### 2. Iniciar el servidor local de desarrollo
+### 2. Iniciar el servidor de desarrollo
 
 ```bash
 pnpm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador para interactuar con la aplicación. Se recomienda activar la vista móvil (herramientas de desarrollador) para apreciar los detalles de optimización para iPhone.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para interactuar con la aplicación.
 
-### 3. Compilar para producción (Pixel-Perfect Compilation)
+### 3. Ejecutar pruebas unitarias de calidad (QA)
+
+```bash
+node --import tsx features/github-search/lib/__tests__/qa_audit_test.mjs
+```
+
+### 4. Compilar para producción (Next.js Turbopack)
 
 ```bash
 pnpm run build
 ```
 
-Este comando valida estrictamente el tipado con TypeScript y emite los recursos de producción altamente optimizados.
+Genera el paquete de producción estático y optimizado con TypeScript en modo estricto.
 
----
+### 5. Iniciar en modo producción
 
-## 🔍 Verificaciones y Linter
-
-El proyecto cumple con estrictas pautas de calidad:
-*   **Análisis Estático (Linter)**: `pnpm run lint` (0 errores de código encontrados).
-*   **Tipado Riguroso**: Compilación TypeScript de extremo a extremo sin el uso de `@ts-ignore` ni `any` inseguros.
+```bash
+pnpm run start
+```

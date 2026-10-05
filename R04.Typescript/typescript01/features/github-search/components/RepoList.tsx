@@ -1,201 +1,409 @@
-import React, { useState, useMemo } from "react";
-import { Star, GitFork, Calendar, Search, SlidersHorizontal, ChevronDown } from "lucide-react";
-import { type GitHubRepo } from "@/features/github-search/api/githubSchema";
+"use client";
 
-/**
- * @interface RepoListProps
- * @description Propiedades para el componente de listado de repositorios.
- */
+import React, { useState, useMemo } from "react";
+import {
+  Star,
+  GitFork,
+  Calendar,
+  Search,
+  ArrowUpDown,
+  ArrowUpRight,
+  Sparkles,
+  X,
+  RotateCcw,
+  BookOpen,
+} from "lucide-react";
+import { type GitHubRepo } from "@/features/github-search/api";
+import { RepoSearchIndex } from "@/features/github-search/lib/RepoSearchIndex";
+import {
+  formatDeterministicDate,
+  formatCompactNumber,
+} from "@/features/github-search/lib/formatters";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+  Badge,
+  Input,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  Button,
+} from "@/components/ui";
+
 interface RepoListProps {
-  /** Colección de repositorios descargados y validados de la API de GitHub */
   repos: GitHubRepo[];
 }
 
-/**
- * @description Mapa estático de colores de lenguajes de programación alineado a la paleta oficial de GitHub.
- * Utiliza variables de Tailwind CSS para garantizar contraste visual en temas claro y oscuro.
- */
-const LANGUAGE_COLORS: Record<string, string> = {
-  TypeScript: "bg-blue-500",
-  JavaScript: "bg-yellow-400",
-  HTML: "bg-orange-500",
-  CSS: "bg-violet-500",
-  Python: "bg-sky-400",
-  Go: "bg-cyan-500",
-  Rust: "bg-amber-600",
-  Ruby: "bg-red-500",
-  Java: "bg-amber-700",
-  "C++": "bg-pink-500",
-  C: "bg-gray-500",
-  PHP: "bg-indigo-400",
-  Swift: "bg-orange-600",
-  Kotlin: "bg-purple-500",
-  Shell: "bg-emerald-500",
+const LANGUAGE_COLORS: Record<string, { bg: string; glow: string }> = {
+  TypeScript: { bg: "bg-blue-500", glow: "shadow-[0_0_8px_rgba(59,130,246,0.6)]" },
+  JavaScript: { bg: "bg-amber-400", glow: "shadow-[0_0_8px_rgba(251,191,36,0.6)]" },
+  HTML: { bg: "bg-orange-500", glow: "shadow-[0_0_8px_rgba(249,115,22,0.6)]" },
+  CSS: { bg: "bg-violet-500", glow: "shadow-[0_0_8px_rgba(139,92,246,0.6)]" },
+  Python: { bg: "bg-sky-400", glow: "shadow-[0_0_8px_rgba(56,189,248,0.6)]" },
+  Go: { bg: "bg-cyan-500", glow: "shadow-[0_0_8px_rgba(6,182,212,0.6)]" },
+  Rust: { bg: "bg-amber-600", glow: "shadow-[0_0_8px_rgba(217,119,6,0.6)]" },
+  Ruby: { bg: "bg-rose-500", glow: "shadow-[0_0_8px_rgba(244,63,94,0.6)]" },
+  Java: { bg: "bg-amber-700", glow: "shadow-[0_0_8px_rgba(180,83,9,0.6)]" },
+  "C++": { bg: "bg-pink-500", glow: "shadow-[0_0_8px_rgba(236,72,153,0.6)]" },
+  C: { bg: "bg-slate-500", glow: "shadow-[0_0_8px_rgba(100,116,139,0.6)]" },
+  PHP: { bg: "bg-indigo-400", glow: "shadow-[0_0_8px_rgba(129,140,248,0.6)]" },
+  Swift: { bg: "bg-orange-600", glow: "shadow-[0_0_8px_rgba(234,88,12,0.6)]" },
+  Kotlin: { bg: "bg-purple-500", glow: "shadow-[0_0_8px_rgba(168,85,247,0.6)]" },
+  Shell: { bg: "bg-emerald-500", glow: "shadow-[0_0_8px_rgba(16,185,129,0.6)]" },
 };
 
-/**
- * @component RepoList
- * @description Componente premium desacoplado que renderiza la lista de repositorios del usuario.
- * Proporciona capacidades dinámicas en tiempo real en el lado del cliente:
- * 1. Filtrado de texto reactivo sobre nombres de repositorio y descripciones.
- * 2. Filtrado dinámico por lenguaje de programación detectado de manera exclusiva.
- * 
- * @param {RepoListProps} props Propiedades del listado de repositorios.
- * @returns {React.ReactElement} Interfaz interactiva de repositorios en cuadrícula responsiva.
- */
-export default function RepoList({ repos }: RepoListProps): React.ReactElement {
+interface RepoCardProps {
+  repo: GitHubRepo;
+}
+
+const RepoCard = React.memo(function RepoCard({ repo }: RepoCardProps) {
+  // Formateo determinista forzando UTC para evitar desajustes de hidratación SSR
+  const formattedDate = formatDeterministicDate(repo.updated_at, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
+  const langConfig = repo.language
+    ? LANGUAGE_COLORS[repo.language] || {
+        bg: "bg-slate-400",
+        glow: "shadow-[0_0_8px_rgba(148,163,184,0.5)]",
+      }
+    : null;
+  const isPopular = repo.stargazers_count >= 50;
+
+  return (
+    <Card className="group relative flex flex-col justify-between overflow-hidden border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] hover:border-indigo-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded-[var(--radius-xl)] min-w-0">
+      {/* Resplandor superior en hover */}
+      <div className="absolute -top-12 -right-12 h-24 w-24 rounded-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+      <CardHeader className="p-4 space-y-2 min-w-0">
+        <div className="flex items-start justify-between gap-2 min-w-0 w-full">
+          <CardTitle className="text-sm font-bold tracking-tight truncate flex-1 min-w-0 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+            <a
+              href={repo.html_url || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={repo.name}
+              className="inline-flex items-center gap-1.5 truncate max-w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 rounded-sm"
+            >
+              <span className="truncate">{repo.name}</span>
+              <ArrowUpRight
+                className="h-3.5 w-3.5 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
+              <span className="sr-only"> (abre en una nueva pestaña)</span>
+            </a>
+          </CardTitle>
+
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            {isPopular && (
+              <Badge
+                variant="aurora"
+                size="sm"
+                className="gap-1 uppercase text-[9px] font-bold text-amber-600 dark:text-amber-400 border-amber-500/30 shrink-0"
+              >
+                <Sparkles className="h-2.5 w-2.5" aria-hidden="true" />
+                <span>Top</span>
+              </Badge>
+            )}
+            <Badge variant="secondary" size="sm" className="uppercase text-[9px] shrink-0">
+              Público
+            </Badge>
+          </div>
+        </div>
+
+        <CardDescription className="line-clamp-2 text-xs min-h-[2rem] leading-relaxed break-words overflow-hidden">
+          {repo.description?.trim() || "Sin descripción proporcionada para este repositorio."}
+        </CardDescription>
+      </CardHeader>
+
+      <CardFooter className="p-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-xs text-[var(--text-secondary)] mt-auto min-w-0 gap-2">
+        <div className="flex items-center gap-2.5 min-w-0 shrink">
+          {langConfig && repo.language && (
+            <div
+              className="flex items-center gap-1.5 max-w-[90px] sm:max-w-[110px] truncate shrink"
+              title={`Lenguaje: ${repo.language}`}
+            >
+              <span
+                className={`h-2 w-2 rounded-full shrink-0 ${langConfig.bg} ${langConfig.glow}`}
+                aria-hidden="true"
+              />
+              <span className="text-[11px] font-medium truncate">{repo.language}</span>
+            </div>
+          )}
+
+          <div
+            className="flex items-center gap-1 text-[11px] font-mono tabular-nums text-[var(--text-secondary)] shrink-0"
+            title={`Estrellas: ${repo.stargazers_count.toLocaleString("es-ES")}`}
+          >
+            <Star className="h-3 w-3 text-amber-500 fill-amber-500/20 shrink-0" aria-hidden="true" />
+            <span>{formatCompactNumber(repo.stargazers_count)}</span>
+          </div>
+
+          <div
+            className="flex items-center gap-1 text-[11px] font-mono tabular-nums text-[var(--text-muted)] shrink-0"
+            title={`Forks: ${repo.forks_count.toLocaleString("es-ES")}`}
+          >
+            <GitFork className="h-3 w-3 shrink-0" aria-hidden="true" />
+            <span>{formatCompactNumber(repo.forks_count)}</span>
+          </div>
+        </div>
+
+        <div
+          className="flex items-center gap-1 text-[10px] text-[var(--text-muted)] shrink-0"
+          title={`Última actualización: ${formattedDate}`}
+        >
+          <Calendar className="h-3 w-3 shrink-0" aria-hidden="true" />
+          <span>{formattedDate}</span>
+        </div>
+      </CardFooter>
+    </Card>
+  );
+});
+
+function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
   const [filterQuery, setFilterQuery] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("All");
+  const [sortBy, setSortBy] = useState<"updated" | "stars" | "forks">("updated");
 
-  // Extrae de forma única todos los lenguajes presentes en el set de repositorios
+  // 1. Construcción del índice de búsqueda sublineal O(log n + k)
+  const searchIndex = useMemo(() => new RepoSearchIndex(repos), [repos]);
+
+  // 2. Extraer lenguajes únicos
   const languages = useMemo(() => {
     const set = new Set<string>();
     repos.forEach((repo) => {
-      if (repo.language) {
-        set.add(repo.language);
-      }
+      if (repo.language) set.add(repo.language);
     });
     return ["All", ...Array.from(set)];
   }, [repos]);
 
-  // Filtra los repositorios basándose en el query de búsqueda de texto y en la opción de lenguaje
+  // 3. Pre-ordenamiento defensivo en O(n log n) con protección contra fechas inválidas
+  const preSorted = useMemo(() => {
+    const safeParseDate = (dateStr: string) => {
+      const parsed = Date.parse(dateStr);
+      return isNaN(parsed) ? 0 : parsed;
+    };
+
+    return {
+      updated: [...repos].sort(
+        (a, b) => safeParseDate(b.updated_at) - safeParseDate(a.updated_at)
+      ),
+      stars: [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count),
+      forks: [...repos].sort((a, b) => b.forks_count - a.forks_count),
+    };
+  }, [repos]);
+
+  // 4. Filtrado optimizado: índice invertido y filtro por lenguaje
   const filteredRepos = useMemo(() => {
-    const query = filterQuery.toLowerCase();
-    
-    return repos.filter((repo) => {
-      const matchesSearch =
-        repo.name.toLowerCase().includes(query) ||
-        (repo.description && repo.description.toLowerCase().includes(query));
-      const matchesLang = selectedLanguage === "All" || repo.language === selectedLanguage;
-      return matchesSearch && matchesLang;
-    });
-  }, [repos, filterQuery, selectedLanguage]);
+    let result: GitHubRepo[];
+
+    if (filterQuery.trim() === "") {
+      result = preSorted[sortBy];
+    } else {
+      const matched = searchIndex.search(filterQuery);
+      const safeParseDate = (dateStr: string) => {
+        const parsed = Date.parse(dateStr);
+        return isNaN(parsed) ? 0 : parsed;
+      };
+
+      result = matched.sort((a, b) => {
+        if (sortBy === "stars") return b.stargazers_count - a.stargazers_count;
+        if (sortBy === "forks") return b.forks_count - a.forks_count;
+        return safeParseDate(b.updated_at) - safeParseDate(a.updated_at);
+      });
+    }
+
+    if (selectedLanguage !== "All") {
+      result = result.filter((r) => r.language === selectedLanguage);
+    }
+
+    return result;
+  }, [searchIndex, filterQuery, selectedLanguage, sortBy, preSorted]);
+
+  // 5. Carga progresiva y paginado para soportar 100+ repositorios de manera óptima
+  const PAGE_SIZE = 24;
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  React.useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [filterQuery, selectedLanguage, sortBy]);
+
+  const displayedRepos = useMemo(() => {
+    return filteredRepos.slice(0, visibleCount);
+  }, [filteredRepos, visibleCount]);
+
+  const resetFilters = () => {
+    setFilterQuery("");
+    setSelectedLanguage("All");
+    setSortBy("updated");
+  };
+
+  // Edge case: Usuario con 0 repositorios públicos en total
+  if (repos.length === 0) {
+    return (
+      <Card className="p-12 text-center flex flex-col items-center justify-center space-y-4">
+        <div className="p-4 rounded-full bg-indigo-500/10 text-indigo-500">
+          <BookOpen className="h-8 w-8" aria-hidden="true" />
+        </div>
+        <div className="space-y-1.5 max-w-sm">
+          <h4 className="text-base font-bold text-[var(--text-primary)]">
+            Sin repositorios públicos
+          </h4>
+          <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+            Este desarrollador no tiene repositorios públicos disponibles en su perfil de GitHub en este momento.
+          </p>
+        </div>
+      </Card>
+    );
+  }
 
   return (
     <div className="space-y-6">
-      {/* Cabecera del Listado y Elementos de Filtro */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
-          <span>Repositorios populares</span>
-          <span className="rounded-full border border-[var(--meta-border)] bg-[var(--meta-bg)] px-2.5 py-0.5 text-xs font-bold text-[var(--text-secondary)] shadow-sm">
-            {repos.length}
-          </span>
-        </h3>
+      {/* Barra de Filtros y Ordenamiento Bento */}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-[var(--glass-border)] pb-4">
+        <div className="flex items-center gap-2.5">
+          <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
+            Repositorios
+          </h3>
+          <Badge variant="aurora" size="default" className="font-mono text-xs">
+            {filteredRepos.length === repos.length
+              ? `${repos.length} total`
+              : `${filteredRepos.length} de ${repos.length}`}
+          </Badge>
+        </div>
 
-        {/* Panel de filtros interactivos en tiempo real */}
-        <div className={`w-full sm:w-auto sm:flex sm:items-center sm:gap-2 ${languages.length > 2 ? 'grid grid-cols-2 gap-2' : 'flex'}`}>
-          
-          {/* Filtro de texto por nombre y descripción */}
-          <div className="relative flex items-center group w-full sm:w-auto">
-            <Search aria-hidden="true" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-muted)]" />
-            <label htmlFor="repo-filter-input" className="sr-only">Filtrar repositorios por nombre</label>
-            <input
-              id="repo-filter-input"
-              type="text"
-              placeholder="Filtrar por nombre..."
+        {/* Controles accesibles: Input + Selects Radix */}
+        <div className="flex flex-wrap items-center gap-2.5">
+          {/* Input de filtro instantáneo con botón de reset */}
+          <div className="relative w-full sm:w-48">
+            <Input
+              placeholder="Filtrar por token..."
               value={filterQuery}
               onChange={(e) => setFilterQuery(e.target.value)}
-              className="glass-input w-full rounded-xl py-2 pl-9 pr-4 text-xs sm:text-sm placeholder-[var(--text-muted)] outline-none sm:w-48 min-h-[40px] sm:min-h-[34px]"
+              leftIcon={<Search className="h-3.5 w-3.5" />}
+              className="h-9 text-xs rounded-[var(--radius-lg)] pr-7"
             />
+            {filterQuery && (
+              <button
+                type="button"
+                onClick={() => setFilterQuery("")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-0.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
+                title="Limpiar filtro"
+                aria-label="Limpiar filtro"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            )}
           </div>
 
-          {/* Filtro de dropdown para lenguaje (solo si hay más de 2 lenguajes en total) */}
-          {languages.length > 2 ? (
-            <div className="relative flex items-center group w-full sm:w-auto">
-              <SlidersHorizontal aria-hidden="true" className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[var(--text-muted)] pointer-events-none" />
-              <label htmlFor="repo-language-select" className="sr-only">Filtrar por lenguaje de programación</label>
-              <select
-                id="repo-language-select"
-                value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="glass-input w-full appearance-none rounded-xl py-2 pl-9 pr-8 text-xs sm:text-sm outline-none cursor-pointer sm:w-36 min-h-[40px] sm:min-h-[34px]"
-              >
-                {languages.map((lang) => (
-                  <option key={lang} value={lang} className="bg-[var(--card-bg)] text-[var(--text-primary)] text-xs">
-                    {lang === "All" ? "Cualquier leng." : lang}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown aria-hidden="true" className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[var(--text-muted)] pointer-events-none" />
+          {/* Selector accesible de lenguaje */}
+          {languages.length > 2 && (
+            <div className="w-32 sm:w-36">
+              <Select value={selectedLanguage} onValueChange={setSelectedLanguage}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Lenguaje" />
+                </SelectTrigger>
+                <SelectContent>
+                  {languages.map((lang) => (
+                    <SelectItem key={lang} value={lang}>
+                      {lang === "All" ? "Todos los leng." : lang}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
-          ) : null}
+          )}
+
+          {/* Selector accesible de ordenación */}
+          <div className="w-32 sm:w-36">
+            <Select
+              value={sortBy}
+              onValueChange={(val) => setSortBy(val as "updated" | "stars" | "forks")}
+            >
+              <SelectTrigger>
+                <div className="flex items-center gap-1.5 truncate">
+                  <ArrowUpDown className="h-3 w-3 text-[var(--text-muted)] shrink-0" />
+                  <SelectValue placeholder="Ordenar" />
+                </div>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="updated">Recientes</SelectItem>
+                <SelectItem value="stars">Más estrellas</SelectItem>
+                <SelectItem value="forks">Más forks</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </div>
 
-      {/* Listado en Cuadrícula Responsiva */}
+      {/* Grid Bento Asimétrico de Tarjetas de Repositorio */}
       {filteredRepos.length === 0 ? (
-        <div className="rounded-2xl border border-[var(--meta-border)] bg-[var(--meta-bg)] p-12 text-center shadow-sm">
-          <p className="text-sm text-[var(--text-muted)] font-medium">No se encontraron repositorios que coincidan con la búsqueda.</p>
-        </div>
+        <Card className="p-12 text-center flex flex-col items-center justify-center space-y-4">
+          <div className="p-3 rounded-full bg-indigo-500/10 text-indigo-500">
+            <Search className="h-6 w-6" aria-hidden="true" />
+          </div>
+          <div className="space-y-1">
+            <p className="text-sm font-semibold text-[var(--text-primary)]">
+              No se encontraron repositorios
+            </p>
+            <p className="text-xs text-[var(--text-muted)] max-w-sm">
+              No hay repositorios que coincidan con el filtro &quot;{filterQuery}&quot; o el lenguaje seleccionado.
+            </p>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={resetFilters}
+            className="gap-1.5 text-xs rounded-[var(--radius-lg)] cursor-pointer"
+          >
+            <RotateCcw className="h-3.5 w-3.5" />
+            <span>Restablecer filtros</span>
+          </Button>
+        </Card>
       ) : (
-        <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
-          {filteredRepos.slice(0, 30).map((repo) => {
-            const formattedDate = new Date(repo.updated_at).toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            });
-            const langColorClass = repo.language ? LANGUAGE_COLORS[repo.language] || "bg-gray-400" : "bg-gray-400";
+        <div className="space-y-6">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2">
+            {displayedRepos.map((repo) => (
+              <RepoCard key={repo.id} repo={repo} />
+            ))}
+          </div>
 
-            return (
-              <div
-                key={repo.id}
-                className="group relative flex flex-col justify-between rounded-xl border border-[var(--meta-border)] bg-[var(--card-bg)] hover:bg-[var(--meta-hover-bg)] active:scale-[0.99] p-4 transition-all duration-200 shadow-sm"
+          {/* Paginación progresiva para 100 repositorios */}
+          {filteredRepos.length > visibleCount && (
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+                className="gap-2 text-xs rounded-[var(--radius-lg)] hover:border-indigo-500/40 cursor-pointer"
               >
-                <div className="space-y-2">
-                  {/* Encabezado: Nombre del Repo y Enlace Externo */}
-                  <div className="flex items-center justify-between gap-2">
-                    <h4 className="font-bold text-sm text-[var(--text-primary)] tracking-tight group-hover:text-[var(--text-accent)] transition-colors truncate">
-                      <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                        {repo.name}
-                      </a>
-                    </h4>
-                    <span className="rounded-full border border-[var(--meta-border)] bg-[var(--meta-bg)] px-2 py-0.5 text-[9px] font-semibold text-[var(--text-secondary)] uppercase tracking-wide flex-shrink-0">
-                      Público
-                    </span>
-                  </div>
-
-                  {/* Descripción corta */}
-                  <p className="text-xs text-[var(--text-secondary)] line-clamp-2 leading-relaxed min-h-[2rem]">
-                    {repo.description || "Sin descripción proporcionada."}
-                  </p>
-                </div>
-
-                {/* Fila inferior de estadísticas y metadatos */}
-                <div className="mt-3.5 flex flex-wrap items-center justify-between gap-y-2 text-xs font-semibold text-[var(--text-secondary)] border-t border-[var(--meta-border)] pt-2.5">
-                  {/* Estadísticas de lenguaje, estrellas y forks */}
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                    {repo.language && (
-                      <div className="flex items-center gap-1.5">
-                        <span className={`h-2.5 w-2.5 rounded-full ${langColorClass} flex-shrink-0`} />
-                        <span className="text-xs text-[var(--text-secondary)] truncate">{repo.language}</span>
-                      </div>
-                    )}
-
-                    {/* Estrellas */}
-                    <div className="flex items-center gap-1 text-[var(--text-secondary)]" aria-label={`${repo.stargazers_count} estrellas`}>
-                      <Star aria-hidden="true" className="h-3.5 w-3.5 text-amber-500 fill-amber-500/10" />
-                      <span>{repo.stargazers_count}</span>
-                    </div>
-
-                    {/* Forks */}
-                    <div className="flex items-center gap-1 text-[var(--text-secondary)]" aria-label={`${repo.forks_count} bifurcaciones`}>
-                      <GitFork aria-hidden="true" className="h-3.5 w-3.5 text-[var(--text-secondary)]" />
-                      <span>{repo.forks_count}</span>
-                    </div>
-                  </div>
-
-                  {/* Fecha de actualización */}
-                  <div className="flex items-center gap-1 text-xs font-normal text-[var(--text-muted)] flex-shrink-0">
-                    <Calendar aria-hidden="true" className="h-3.5 w-3.5" />
-                    <span>Act. {formattedDate}</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                <span>Mostrar más repositorios</span>
+                <span className="text-[10px] text-[var(--text-muted)] font-mono">
+                  (+{Math.min(PAGE_SIZE, filteredRepos.length - visibleCount)} de {filteredRepos.length - visibleCount} restantes)
+                </span>
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setVisibleCount(filteredRepos.length)}
+                className="text-xs rounded-[var(--radius-lg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
+              >
+                <span>Mostrar todos ({filteredRepos.length})</span>
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 }
+
+const RepoList = React.memo(RepoListComponent);
+export default RepoList;
