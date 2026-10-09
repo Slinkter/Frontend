@@ -18,8 +18,7 @@ export default async function Home() {
     initialUser = user;
     initialRepos = repos;
   } catch (err) {
-    // Si la llamada en el servidor falla (ej. rate limit durante build o red offline),
-    // el cliente efectúa el fallback de forma resiliente sin romper el renderizado.
+   
     console.warn("SSR initial fetch skipped or rate-limited, client fallback active:", err);
   }
 

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "html:build": "tsc -p html/tsconfig.json",
+    "html:watch": "tsc -p html/tsconfig.json --watch"
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.3.7",
