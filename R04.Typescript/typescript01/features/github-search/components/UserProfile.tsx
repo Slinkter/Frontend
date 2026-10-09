@@ -198,46 +198,50 @@ export function ProfileStats({
   followers: number;
   following: number;
 }) {
+  const statItems = [
+    {
+      id: "repos",
+      label: "Repos",
+      value: publicRepos,
+      icon: <FolderGit2 className="h-3 w-3 text-indigo-500 shrink-0" />,
+      tooltip: `Repositorios públicos: ${publicRepos.toLocaleString("es-ES")}`,
+      borderClass: "",
+    },
+    {
+      id: "followers",
+      label: "Followers",
+      value: followers,
+      icon: <Users className="h-3 w-3 text-emerald-500 shrink-0" />,
+      tooltip: `Seguidores: ${followers.toLocaleString("es-ES")}`,
+      borderClass: "border-x border-[var(--glass-border)]",
+    },
+    {
+      id: "following",
+      label: "Following",
+      value: following,
+      icon: <Users className="h-3 w-3 text-cyan-500 shrink-0" />,
+      tooltip: `Siguiendo: ${following.toLocaleString("es-ES")}`,
+      borderClass: "",
+    },
+  ];
+
   return (
     <div className="w-full grid grid-cols-3 gap-1.5 rounded-[var(--radius-xl)] border border-[var(--glass-border)] bg-[var(--glass-bg)] p-1.5 backdrop-blur-md text-center shadow-xs">
-      <div
-        className="flex flex-col items-center justify-center py-2.5 px-1 rounded-[var(--radius-lg)] hover:bg-black/5 dark:hover:bg-white/5 transition-colors min-w-0"
-        title={`Repositorios públicos: ${publicRepos.toLocaleString("es-ES")}`}
-      >
-        <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-          <FolderGit2 className="h-3 w-3 text-indigo-500 shrink-0" />
-          <span>Repos</span>
+      {statItems.map((item) => (
+        <div
+          key={item.id}
+          className={`flex flex-col items-center justify-center py-2.5 px-1 rounded-[var(--radius-lg)] ${item.borderClass} hover:bg-black/5 dark:hover:bg-white/5 transition-colors min-w-0`}
+          title={item.tooltip}
+        >
+          <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+            {item.icon}
+            <span>{item.label}</span>
+          </div>
+          <span className="text-base sm:text-lg font-black text-[var(--text-primary)] font-mono tabular-nums mt-0.5 truncate max-w-full">
+            {formatCompactNumber(item.value)}
+          </span>
         </div>
-        <span className="text-base sm:text-lg font-black text-[var(--text-primary)] font-mono tabular-nums mt-0.5 truncate max-w-full">
-          {formatCompactNumber(publicRepos)}
-        </span>
-      </div>
-
-      <div
-        className="flex flex-col items-center justify-center py-2.5 px-1 rounded-[var(--radius-lg)] border-x border-[var(--glass-border)] hover:bg-black/5 dark:hover:bg-white/5 transition-colors min-w-0"
-        title={`Seguidores: ${followers.toLocaleString("es-ES")}`}
-      >
-        <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-          <Users className="h-3 w-3 text-emerald-500 shrink-0" />
-          <span>Followers</span>
-        </div>
-        <span className="text-base sm:text-lg font-black text-[var(--text-primary)] font-mono tabular-nums mt-0.5 truncate max-w-full">
-          {formatCompactNumber(followers)}
-        </span>
-      </div>
-
-      <div
-        className="flex flex-col items-center justify-center py-2.5 px-1 rounded-[var(--radius-lg)] hover:bg-black/5 dark:hover:bg-white/5 transition-colors min-w-0"
-        title={`Siguiendo: ${following.toLocaleString("es-ES")}`}
-      >
-        <div className="flex items-center gap-1 text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-          <Users className="h-3 w-3 text-cyan-500 shrink-0" />
-          <span>Following</span>
-        </div>
-        <span className="text-base sm:text-lg font-black text-[var(--text-primary)] font-mono tabular-nums mt-0.5 truncate max-w-full">
-          {formatCompactNumber(following)}
-        </span>
-      </div>
+      ))}
     </div>
   );
 }
@@ -254,6 +258,50 @@ function UserProfileComponent({ user }: { user: GitHubUser }) {
   const cleanCompany = user.company?.trim();
   const cleanLocation = user.location?.trim();
   const cleanTwitter = user.twitter_username?.replace(/^@+/, "").trim();
+
+  // Lista declarativa de metadatos (DRY y Open/Closed Principle)
+  const metadataItems = [
+    cleanCompany
+      ? {
+          id: "company",
+          icon: <Building className="h-3.5 w-3.5" />,
+          text: cleanCompany,
+          title: `Empresa: ${cleanCompany}`,
+        }
+      : null,
+    cleanLocation
+      ? {
+          id: "location",
+          icon: <MapPin className="h-3.5 w-3.5" />,
+          text: cleanLocation,
+          title: `Ubicación: ${cleanLocation}`,
+        }
+      : null,
+    safeBlogUrl
+      ? {
+          id: "blog",
+          icon: <LinkIcon className="h-3.5 w-3.5" />,
+          text: user.blog?.trim() || safeBlogUrl,
+          href: safeBlogUrl,
+          title: `Sitio web: ${safeBlogUrl}`,
+        }
+      : null,
+    cleanTwitter
+      ? {
+          id: "twitter",
+          icon: <TwitterIcon className="h-3.5 w-3.5" />,
+          text: `@${cleanTwitter}`,
+          href: `https://twitter.com/${cleanTwitter}`,
+          title: `Twitter: @${cleanTwitter}`,
+        }
+      : null,
+    {
+      id: "joined",
+      icon: <Calendar className="h-3.5 w-3.5" />,
+      text: `Miembro desde ${joinedDate}`,
+      title: `Fecha de registro: ${joinedDate}`,
+    },
+  ].filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
     <Card className="relative overflow-hidden p-6 flex flex-col items-center space-y-5 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto">
@@ -273,41 +321,15 @@ function UserProfileComponent({ user }: { user: GitHubUser }) {
       />
 
       <div className="w-full space-y-2 text-xs border-t border-[var(--glass-border)] pt-4 text-left z-10">
-        {cleanCompany && (
+        {metadataItems.map((item) => (
           <ProfileMetadataItem
-            icon={<Building className="h-3.5 w-3.5" />}
-            text={cleanCompany}
-            title={`Empresa: ${cleanCompany}`}
+            key={item.id}
+            icon={item.icon}
+            text={item.text}
+            href={item.href}
+            title={item.title}
           />
-        )}
-        {cleanLocation && (
-          <ProfileMetadataItem
-            icon={<MapPin className="h-3.5 w-3.5" />}
-            text={cleanLocation}
-            title={`Ubicación: ${cleanLocation}`}
-          />
-        )}
-        {safeBlogUrl && (
-          <ProfileMetadataItem
-            icon={<LinkIcon className="h-3.5 w-3.5" />}
-            text={user.blog?.trim() || safeBlogUrl}
-            href={safeBlogUrl}
-            title={`Sitio web: ${safeBlogUrl}`}
-          />
-        )}
-        {cleanTwitter && (
-          <ProfileMetadataItem
-            icon={<TwitterIcon className="h-3.5 w-3.5" />}
-            text={`@${cleanTwitter}`}
-            href={`https://twitter.com/${cleanTwitter}`}
-            title={`Twitter: @${cleanTwitter}`}
-          />
-        )}
-        <ProfileMetadataItem
-          icon={<Calendar className="h-3.5 w-3.5" />}
-          text={`Miembro desde ${joinedDate}`}
-          title={`Fecha de registro: ${joinedDate}`}
-        />
+        ))}
       </div>
 
       <ProfileStats

@@ -17,6 +17,16 @@ import {
 import { LRUCache } from "../lib/LRUCache";
 import { CircuitBreaker, CircuitBreakerOpenError } from "../lib/CircuitBreaker";
 import { fetchWithResilience } from "../lib/backoff";
+import { GITHUB_CONFIG } from "../constants";
+
+// ==========================================
+// INTERFAZ DE SERVICIO (DIP - Dependency Inversion Principle)
+// ==========================================
+
+export interface IGitHubService {
+  getUser(username: string, signal?: AbortSignal): Promise<GitHubUser>;
+  getUserRepos(username: string, signal?: AbortSignal): Promise<GitHubRepo[]>;
+}
 
 // ==========================================
 // JERARQUÍA DE ERRORES TIPADOS (TYPE-SAFE)
@@ -84,7 +94,7 @@ export interface GitHubApiClientOptions {
   timeoutMs?: number;
 }
 
-export class GitHubApiClient {
+export class GitHubApiClient implements IGitHubService {
   private readonly baseUrl: string;
   private readonly userCache: LRUCache<string, GitHubUser>;
   private readonly reposCache: LRUCache<string, GitHubRepo[]>;
@@ -94,9 +104,9 @@ export class GitHubApiClient {
   private readonly timeoutMs: number;
 
   constructor(options: GitHubApiClientOptions = {}) {
-    this.baseUrl = options.baseUrl ?? "https://api.github.com";
-    const cacheCapacity = options.cacheCapacity ?? 30;
-    const cacheTtlMs = options.cacheTtlMs ?? 5 * 60 * 1000; // 5 minutos por defecto
+    this.baseUrl = options.baseUrl ?? GITHUB_CONFIG.API_BASE_URL;
+    const cacheCapacity = options.cacheCapacity ?? GITHUB_CONFIG.CACHE.CAPACITY;
+    const cacheTtlMs = options.cacheTtlMs ?? GITHUB_CONFIG.CACHE.TTL_MS;
 
     this.userCache = new LRUCache<string, GitHubUser>({
       capacity: cacheCapacity,
@@ -109,15 +119,17 @@ export class GitHubApiClient {
     });
 
     this.circuitBreaker = new CircuitBreaker({
-      name: "github-api-circuit",
-      failureThreshold: options.circuitBreakerFailureThreshold ?? 3,
-      resetTimeoutMs: options.circuitBreakerResetTimeoutMs ?? 15000,
-      successThreshold: 2,
+      name: GITHUB_CONFIG.CIRCUIT_BREAKER.NAME,
+      failureThreshold:
+        options.circuitBreakerFailureThreshold ?? GITHUB_CONFIG.CIRCUIT_BREAKER.FAILURE_THRESHOLD,
+      resetTimeoutMs:
+        options.circuitBreakerResetTimeoutMs ?? GITHUB_CONFIG.CIRCUIT_BREAKER.RESET_TIMEOUT_MS,
+      successThreshold: GITHUB_CONFIG.CIRCUIT_BREAKER.SUCCESS_THRESHOLD,
     });
 
-    this.retries = options.retries ?? 2;
-    this.baseDelayMs = options.baseDelayMs ?? 400;
-    this.timeoutMs = options.timeoutMs ?? 8000;
+    this.retries = options.retries ?? GITHUB_CONFIG.NETWORK.RETRIES;
+    this.baseDelayMs = options.baseDelayMs ?? GITHUB_CONFIG.NETWORK.BASE_DELAY_MS;
+    this.timeoutMs = options.timeoutMs ?? GITHUB_CONFIG.NETWORK.TIMEOUT_MS;
   }
 
   /**

@@ -19,6 +19,7 @@ import {
   formatDeterministicDate,
   formatCompactNumber,
 } from "@/features/github-search/lib/formatters";
+import { GITHUB_CONFIG, LANGUAGE_COLOR_MAP } from "@/features/github-search/constants";
 import {
   Card,
   CardHeader,
@@ -39,24 +40,6 @@ interface RepoListProps {
   repos: GitHubRepo[];
 }
 
-const LANGUAGE_COLORS: Record<string, { bg: string; glow: string }> = {
-  TypeScript: { bg: "bg-blue-500", glow: "shadow-[0_0_8px_rgba(59,130,246,0.6)]" },
-  JavaScript: { bg: "bg-amber-400", glow: "shadow-[0_0_8px_rgba(251,191,36,0.6)]" },
-  HTML: { bg: "bg-orange-500", glow: "shadow-[0_0_8px_rgba(249,115,22,0.6)]" },
-  CSS: { bg: "bg-violet-500", glow: "shadow-[0_0_8px_rgba(139,92,246,0.6)]" },
-  Python: { bg: "bg-sky-400", glow: "shadow-[0_0_8px_rgba(56,189,248,0.6)]" },
-  Go: { bg: "bg-cyan-500", glow: "shadow-[0_0_8px_rgba(6,182,212,0.6)]" },
-  Rust: { bg: "bg-amber-600", glow: "shadow-[0_0_8px_rgba(217,119,6,0.6)]" },
-  Ruby: { bg: "bg-rose-500", glow: "shadow-[0_0_8px_rgba(244,63,94,0.6)]" },
-  Java: { bg: "bg-amber-700", glow: "shadow-[0_0_8px_rgba(180,83,9,0.6)]" },
-  "C++": { bg: "bg-pink-500", glow: "shadow-[0_0_8px_rgba(236,72,153,0.6)]" },
-  C: { bg: "bg-slate-500", glow: "shadow-[0_0_8px_rgba(100,116,139,0.6)]" },
-  PHP: { bg: "bg-indigo-400", glow: "shadow-[0_0_8px_rgba(129,140,248,0.6)]" },
-  Swift: { bg: "bg-orange-600", glow: "shadow-[0_0_8px_rgba(234,88,12,0.6)]" },
-  Kotlin: { bg: "bg-purple-500", glow: "shadow-[0_0_8px_rgba(168,85,247,0.6)]" },
-  Shell: { bg: "bg-emerald-500", glow: "shadow-[0_0_8px_rgba(16,185,129,0.6)]" },
-};
-
 interface RepoCardProps {
   repo: GitHubRepo;
 }
@@ -70,7 +53,7 @@ const RepoCard = React.memo(function RepoCard({ repo }: RepoCardProps) {
   });
 
   const langConfig = repo.language
-    ? LANGUAGE_COLORS[repo.language] || {
+    ? LANGUAGE_COLOR_MAP[repo.language] || {
         bg: "bg-slate-400",
         glow: "shadow-[0_0_8px_rgba(148,163,184,0.5)]",
       }
@@ -228,7 +211,7 @@ function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
   }, [searchIndex, filterQuery, selectedLanguage, sortBy, preSorted]);
 
   // 5. Carga progresiva y paginado para soportar 100+ repositorios de manera óptima
-  const PAGE_SIZE = 24;
+  const PAGE_SIZE = GITHUB_CONFIG.PAGINATION.DEFAULT_PAGE_SIZE;
   const [pageMultiplier, setPageMultiplier] = useState(1);
   const [prevFilterKey, setPrevFilterKey] = useState(`${filterQuery}:${selectedLanguage}:${sortBy}`);
 

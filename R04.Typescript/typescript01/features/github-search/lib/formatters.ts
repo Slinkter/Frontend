@@ -119,3 +119,40 @@ export function getSafeExternalUrl(url?: string | null): string | null {
   // Si no tiene esquema, asumir https://
   return `https://${trimmed}`;
 }
+
+export interface RepoStatistics {
+  totalStars: number;
+  topLang: string;
+}
+
+/**
+ * Función pura que calcula métricas agregadas de una lista de repositorios (SRP).
+ */
+export function calculateRepoStatistics(
+  repos: Array<{ stargazers_count: number; language?: string | null }>
+): RepoStatistics {
+  if (!repos || repos.length === 0) {
+    return { totalStars: 0, topLang: "N/A" };
+  }
+
+  let totalStars = 0;
+  const langCounts: Record<string, number> = {};
+
+  for (const repo of repos) {
+    totalStars += repo.stargazers_count ?? 0;
+    if (repo.language) {
+      langCounts[repo.language] = (langCounts[repo.language] || 0) + 1;
+    }
+  }
+
+  let topLang = "N/A";
+  let maxCount = 0;
+  for (const [lang, count] of Object.entries(langCounts)) {
+    if (count > maxCount) {
+      maxCount = count;
+      topLang = lang;
+    }
+  }
+
+  return { totalStars, topLang };
+}

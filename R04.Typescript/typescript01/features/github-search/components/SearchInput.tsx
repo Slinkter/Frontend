@@ -2,6 +2,7 @@ import React, { useState, FormEvent, ChangeEvent } from "react";
 import { Search, Loader2, AlertCircle, X, ArrowRight } from "lucide-react";
 import { UsernameSearchSchema } from "@/features/github-search/api";
 import { sanitizeUsernameInput } from "@/features/github-search/lib/formatters";
+import { GITHUB_CONFIG } from "@/features/github-search/constants";
 import { Button, Input } from "@/components/ui";
 
 export interface SearchInputProps {
@@ -103,7 +104,7 @@ function SearchInputComponent({
               handleClear();
             }
           }}
-          placeholder="Buscar usuario... (ej. vercel, shadcn, torvalds)"
+          placeholder={`Buscar usuario... (ej. ${GITHUB_CONFIG.SUGGESTED_USERS.slice(0, 3).join(", ")})`}
           disabled={loading}
           aria-invalid={Boolean(validationError)}
           aria-describedby={validationError ? "search-error-message" : "search-hint-message"}

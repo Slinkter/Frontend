@@ -1,28 +1,35 @@
 import { useState, useEffect, useCallback, useTransition } from "react";
 import {
   UsernameSearchSchema,
-  fetchGitHubUser,
-  fetchGitHubUserRepos,
+  getGitHubApiClient,
   type GitHubUser,
   type GitHubRepo,
+  type IGitHubService,
 } from "@/features/github-search/api";
 import { sanitizeUsernameInput } from "@/features/github-search/lib/formatters";
+import { GITHUB_CONFIG } from "@/features/github-search/constants";
 
 export interface UseGitHubSearchOptions {
   initialUser?: GitHubUser | null;
   initialRepos?: GitHubRepo[];
   defaultUser?: string;
+  service?: IGitHubService;
 }
 
 export function useGitHubSearch(
-  optionsOrUser: string | UseGitHubSearchOptions = "vercel"
+  optionsOrUser: string | UseGitHubSearchOptions = GITHUB_CONFIG.DEFAULT_USER
 ) {
   const options: UseGitHubSearchOptions =
     typeof optionsOrUser === "string"
       ? { defaultUser: optionsOrUser }
       : optionsOrUser;
 
-  const { initialUser = null, initialRepos = [], defaultUser = "vercel" } = options;
+  const {
+    initialUser = null,
+    initialRepos = [],
+    defaultUser = GITHUB_CONFIG.DEFAULT_USER,
+    service = getGitHubApiClient(),
+  } = options;
 
   const [searchTerm, setSearchTerm] = useState("");
   const [currentUser, setCurrentUser] = useState<GitHubUser | null>(initialUser);
@@ -55,8 +62,8 @@ export function useGitHubSearch(
       setManualLoading(true);
       try {
         const [userSettled, reposSettled] = await Promise.allSettled([
-          fetchGitHubUser(cleanUsername),
-          fetchGitHubUserRepos(cleanUsername),
+          service.getUser(cleanUsername),
+          service.getUserRepos(cleanUsername),
         ]);
 
         if (userSettled.status === "rejected") {
@@ -87,7 +94,7 @@ export function useGitHubSearch(
         setManualLoading(false);
       }
     });
-  }, []);
+  }, [service]);
 
   const clearError = useCallback(() => {
     setError(null);

@@ -9,10 +9,12 @@ import {
   UserProfile,
   RepoList,
   ThemeToggle,
+  BentoStatCard,
   ProfileSkeleton,
   RepoListSkeleton,
 } from "./components";
-import { formatCompactNumber } from "./lib/formatters";
+import { formatCompactNumber, calculateRepoStatistics } from "./lib/formatters";
+import { GITHUB_CONFIG } from "./constants";
 import {
   Card,
   Badge,
@@ -23,8 +25,6 @@ import {
   ToastDescription,
   ToastClose,
 } from "@/components/ui";
-
-const SUGGESTED_USERS = ["vercel", "shadcn", "torvalds", "antfu", "leerob"];
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -62,34 +62,88 @@ export function GitHubSearchDashboard({
   } = useGitHubSearch({
     initialUser,
     initialRepos,
-    defaultUser: "vercel",
+    defaultUser: GITHUB_CONFIG.DEFAULT_USER,
   });
 
-  // Métricas acumuladas para los bloques Bento superiores
-  const stats = useMemo(() => {
-    if (!currentUser || repos.length === 0) {
-      return { totalStars: 0, topLang: "N/A" };
-    }
-    const stars = repos.reduce((acc, r) => acc + r.stargazers_count, 0);
+  // Métricas acumuladas usando la función pura desacoplada (SRP)
+  const stats = useMemo(() => calculateRepoStatistics(repos), [repos]);
 
-    const langCounts: Record<string, number> = {};
-    repos.forEach((r) => {
-      if (r.language) {
-        langCounts[r.language] = (langCounts[r.language] || 0) + 1;
-      }
-    });
+  // Lista declarativa de métricas Bento (DRY y Open/Closed Principle)
+  const bentoMetrics = useMemo(() => {
+    if (!currentUser) return [];
 
-    let topLang = "N/A";
-    let maxCount = 0;
-    for (const [lang, count] of Object.entries(langCounts)) {
-      if (count > maxCount) {
-        maxCount = count;
-        topLang = lang;
-      }
-    }
-
-    return { totalStars: stars, topLang };
-  }, [currentUser, repos]);
+    return [
+      {
+        id: "stars",
+        label: "Estrellas",
+        value:
+          stats.totalStars >= 100000
+            ? formatCompactNumber(stats.totalStars)
+            : stats.totalStars.toLocaleString("es-ES"),
+        subtitle: "Total acumulado",
+        icon: (
+          <Star
+            className="h-3.5 w-3.5 fill-amber-500/30 group-hover:scale-110 transition-transform"
+            aria-hidden="true"
+          />
+        ),
+        iconBgColor: "bg-amber-500/10 text-amber-500",
+        hoverBorderColor: "hover:border-amber-500/40",
+        tooltipTitle: `Total acumulado de estrellas: ${stats.totalStars.toLocaleString("es-ES")}`,
+      },
+      {
+        id: "repos",
+        label: "Repositorios",
+        value:
+          currentUser.public_repos >= 100000
+            ? formatCompactNumber(currentUser.public_repos)
+            : currentUser.public_repos.toLocaleString("es-ES"),
+        subtitle: "Públicos indexados",
+        icon: (
+          <BookOpen
+            className="h-3.5 w-3.5 group-hover:scale-110 transition-transform"
+            aria-hidden="true"
+          />
+        ),
+        iconBgColor: "bg-indigo-500/10 text-indigo-500",
+        hoverBorderColor: "hover:border-indigo-500/40",
+        tooltipTitle: `Repositorios públicos: ${currentUser.public_repos.toLocaleString("es-ES")}`,
+      },
+      {
+        id: "followers",
+        label: "Seguidores",
+        value:
+          currentUser.followers >= 100000
+            ? formatCompactNumber(currentUser.followers)
+            : currentUser.followers.toLocaleString("es-ES"),
+        subtitle: "En comunidad",
+        icon: (
+          <Users
+            className="h-3.5 w-3.5 group-hover:scale-110 transition-transform"
+            aria-hidden="true"
+          />
+        ),
+        iconBgColor: "bg-emerald-500/10 text-emerald-500",
+        hoverBorderColor: "hover:border-emerald-500/40",
+        tooltipTitle: `Seguidores en comunidad: ${currentUser.followers.toLocaleString("es-ES")}`,
+      },
+      {
+        id: "top-lang",
+        label: "Lenguaje Top",
+        value: stats.topLang,
+        subtitle: "Predominante",
+        icon: (
+          <CodeXml
+            className="h-3.5 w-3.5 group-hover:scale-110 transition-transform"
+            aria-hidden="true"
+          />
+        ),
+        iconBgColor: "bg-cyan-500/10 text-cyan-500",
+        hoverBorderColor: "hover:border-cyan-500/40",
+        tooltipTitle: `Lenguaje predominante: ${stats.topLang}`,
+      },
+    ];
+  }, [currentUser, stats]);
 
   const handleQuickSearch = useCallback(
     (user: string) => {
@@ -156,7 +210,7 @@ export function GitHubSearchDashboard({
 
           <div className="w-full max-w-md pt-2 space-y-3">
             <SearchInput
-              defaultValue={currentUser?.login ?? "vercel"}
+              defaultValue={currentUser?.login ?? GITHUB_CONFIG.DEFAULT_USER}
               loading={loading}
               onSearch={searchUser}
             />
@@ -167,7 +221,7 @@ export function GitHubSearchDashboard({
                 <Sparkles className="h-3 w-3 text-indigo-500" />
                 Sugerencias:
               </span>
-              {SUGGESTED_USERS.map((user) => (
+              {GITHUB_CONFIG.SUGGESTED_USERS.map((user) => (
                 <button
                   key={user}
                   type="button"
@@ -222,105 +276,11 @@ export function GitHubSearchDashboard({
               {/* Módulos B y C (Columna Derecha: Bento Stats + Repositorios) */}
               <div className="lg:col-span-8 space-y-6 min-w-0">
                 
-                {/* Módulo B: Bloques Bento de Métricas Superiores */}
+                {/* Módulo B: Bloques Bento de Métricas Superiores (DRY & Open/Closed) */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {/* Estrellas */}
-                  <Card className="p-4 flex flex-col justify-between hover:border-amber-500/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[var(--radius-xl)] group">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-                        Estrellas
-                      </span>
-                      <div className="flex items-center justify-center h-7 w-7 rounded-[var(--radius-lg)] bg-amber-500/10 text-amber-500">
-                        <Star className="h-3.5 w-3.5 fill-amber-500/30 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                      </div>
-                    </div>
-                    <div className="mt-3 min-w-0">
-                      <div
-                        className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-mono tabular-nums truncate"
-                        title={`Total acumulado de estrellas: ${stats.totalStars.toLocaleString("es-ES")}`}
-                      >
-                        {stats.totalStars >= 100000
-                          ? formatCompactNumber(stats.totalStars)
-                          : stats.totalStars.toLocaleString("es-ES")}
-                      </div>
-                      <p className="text-[10px] text-[var(--text-muted)] mt-0.5 truncate">
-                        Total acumulado
-                      </p>
-                    </div>
-                  </Card>
-
-                  {/* Repositorios */}
-                  <Card className="p-4 flex flex-col justify-between hover:border-indigo-500/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[var(--radius-xl)] group min-w-0">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-                        Repositorios
-                      </span>
-                      <div className="flex items-center justify-center h-7 w-7 rounded-[var(--radius-lg)] bg-indigo-500/10 text-indigo-500">
-                        <BookOpen className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                      </div>
-                    </div>
-                    <div className="mt-3 min-w-0">
-                      <div
-                        className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-mono tabular-nums truncate"
-                        title={`Repositorios públicos: ${currentUser.public_repos.toLocaleString("es-ES")}`}
-                      >
-                        {currentUser.public_repos >= 100000
-                          ? formatCompactNumber(currentUser.public_repos)
-                          : currentUser.public_repos.toLocaleString("es-ES")}
-                      </div>
-                      <p className="text-[10px] text-[var(--text-muted)] mt-0.5 truncate">
-                        Públicos indexados
-                      </p>
-                    </div>
-                  </Card>
-
-                  {/* Seguidores */}
-                  <Card className="p-4 flex flex-col justify-between hover:border-emerald-500/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[var(--radius-xl)] group min-w-0">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-                        Seguidores
-                      </span>
-                      <div className="flex items-center justify-center h-7 w-7 rounded-[var(--radius-lg)] bg-emerald-500/10 text-emerald-500">
-                        <Users className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                      </div>
-                    </div>
-                    <div className="mt-3 min-w-0">
-                      <div
-                        className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-mono tabular-nums truncate"
-                        title={`Seguidores en comunidad: ${currentUser.followers.toLocaleString("es-ES")}`}
-                      >
-                        {currentUser.followers >= 100000
-                          ? formatCompactNumber(currentUser.followers)
-                          : currentUser.followers.toLocaleString("es-ES")}
-                      </div>
-                      <p className="text-[10px] text-[var(--text-muted)] mt-0.5 truncate">
-                        En comunidad
-                      </p>
-                    </div>
-                  </Card>
-
-                  {/* Lenguaje Principal */}
-                  <Card className="p-4 flex flex-col justify-between hover:border-cyan-500/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[var(--radius-xl)] group min-w-0">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-                        Lenguaje Top
-                      </span>
-                      <div className="flex items-center justify-center h-7 w-7 rounded-[var(--radius-lg)] bg-cyan-500/10 text-cyan-500">
-                        <CodeXml className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                      </div>
-                    </div>
-                    <div className="mt-3 min-w-0">
-                      <div
-                        className="text-base sm:text-lg font-black text-[var(--text-primary)] truncate"
-                        title={`Lenguaje predominante: ${stats.topLang}`}
-                      >
-                        {stats.topLang}
-                      </div>
-                      <p className="text-[10px] text-[var(--text-muted)] mt-0.5 truncate">
-                        Predominante
-                      </p>
-                    </div>
-                  </Card>
+                  {bentoMetrics.map((metric) => (
+                    <BentoStatCard key={metric.id} {...metric} />
+                  ))}
                 </div>
 
                 {/* Módulo C: Cuadrícula Modular de Repositorios */}
@@ -346,10 +306,10 @@ export function GitHubSearchDashboard({
               <div className="pt-2 flex flex-wrap justify-center gap-2">
                 <button
                   type="button"
-                  onClick={() => handleQuickSearch("vercel")}
+                  onClick={() => handleQuickSearch(GITHUB_CONFIG.DEFAULT_USER)}
                   className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer"
                 >
-                  Probar con @vercel
+                  Probar con @{GITHUB_CONFIG.DEFAULT_USER}
                 </button>
               </div>
             </Card>
