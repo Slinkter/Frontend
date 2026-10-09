@@ -26,6 +26,13 @@ function SearchInputComponent({
   const [internalTerm, setInternalTerm] = useState(defaultValue);
   const [internalError, setInternalError] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    if (defaultValue) {
+      setInternalTerm(defaultValue);
+      setInternalError(null);
+    }
+  }, [defaultValue]);
+
   const isControlled = controlledSetSearchTerm !== undefined;
   const searchTerm = isControlled ? (controlledTerm ?? "") : internalTerm;
   const validationError = isControlled ? (controlledValidationError ?? null) : internalError;

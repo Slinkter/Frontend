@@ -5,7 +5,7 @@
  * y algoritmo de intersección de consultas ponderado por cardinalidad mínima O(min(|A|, |B|)).
  */
 
-import type { GitHubRepo } from "../api/githubSchema.ts";
+import type { GitHubRepo } from "../api/githubSchema";
 
 /**
  * Normaliza y tokeniza cadenas de texto de forma canónica y simétrica.
