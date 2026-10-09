@@ -18,6 +18,7 @@ La aplicación implementa una estética de **Glassmorphism Profundo (Aurora Glas
 8. [Pila Tecnológica](#-pila-tecnológica)
 9. [Estructura del Código](#-estructura-del-código)
 10. [Instalación y Despliegue](#-instalación-y-despliegue)
+11. [🎓 Guía Tutorial de Estudio: De JavaScript + React a TypeScript y Next.js](#-guía-tutorial-de-estudio-de-javascript--react-a-typescript-y-nextjs)
 
 ---
 
@@ -245,3 +246,173 @@ Genera el paquete de producción estático y optimizado con TypeScript en modo e
 ```bash
 pnpm run start
 ```
+
+---
+
+## 🎓 Guía Tutorial de Estudio: De JavaScript + React a TypeScript y Next.js
+
+> **¿Vienes de JavaScript y React tradicional (como los ejercicios de `html/`) y sientes que este proyecto es abrumador?**  
+> ¡No te preocupes! Esta sección está diseñada exactamente para tender un puente entre lo que ya conoces de React y lo que las empresas exigen en pruebas técnicas y entrevistas laborales de **TypeScript** y **Next.js**.
+
+---
+
+### 🗺️ El Mapa Mental: ¿Qué hace cada parte del proyecto?
+
+En una app tradicional de React (hecha con Vite o Create React App):
+1. Tenías un archivo `index.html` con un `<div id="root"></div>`.
+2. Un `index.js` o `main.js` montaba tu `<App />`.
+3. Todos los componentes se ejecutaban **únicamente en el navegador** del cliente.
+
+En este proyecto con **Next.js** y **TypeScript**, el flujo es el siguiente:
+
+```
+[1. Navegador solicita la página "/"]
+          │
+          ▼
+[2. SERVIDOR NODE.JS (app/page.tsx)]
+  • Se ejecuta PRIMERO en el servidor.
+  • Llama a la API de GitHub (fetchGitHubUser, fetchGitHubUserRepos).
+  • Trae los datos de "vercel" antes de que el usuario vea la pantalla.
+  • Renderiza el HTML inicial completo (Server-Side Rendering / SSR).
+          │
+          ▼
+[3. EL NAVEGADOR RECIBE HTML LISTO + JS]
+  • Carga instantáneamente (SEO y velocidad óptimos).
+  • React se "hidrata" (conecta eventos de click, teclado, etc.).
+          │
+          ▼
+[4. CLIENTE INTERACTIVO ("use client" en features/github-search)]
+  • Cuando el usuario escribe un nombre en el buscador (<SearchInput />):
+    - El hook `useGitHubSearch` hace la petición a GitHub desde el navegador.
+    - Zod valida los tipos de datos recibidos.
+    - Si GitHub se cae o da rate-limit, el Circuit Breaker protege la app.
+    - Los repositorios se indexan en memoria en O(log n) para filtrado instantáneo.
+```
+
+---
+
+### 📚 Paso 1: Entendiendo TypeScript si ya sabes JavaScript
+
+En tu carpeta `html/main.ts` viste clases básicas como:
+```typescript
+class CreateRoom {
+  public room: string;
+  private family: string[] = [];
+}
+```
+
+En TypeScript para React, el 90% del tiempo usarás **Tipos (`type`)** e **Interfaces (`interface`)** para definir qué propiedades (`props`) reciben tus componentes y qué forma tienen tus objetos.
+
+#### Comparativa: De JavaScript a TypeScript en Componentes
+
+* **En JavaScript tradicional:**
+```javascript
+// Si alguien pasa user sin name, la app falla en runtime:
+function UserBadge({ user, isActive }) {
+  return <div>{user.name} ({isActive ? "Activo" : "Inactivo"})</div>;
+}
+```
+
+* **En TypeScript (como en este proyecto):**
+```typescript
+// 1. Defines el "contrato" (la forma exacta de los datos)
+interface UserBadgeProps {
+  user: {
+    name: string;
+    avatarUrl?: string; // El "?" significa que es opcional
+  };
+  isActive: boolean;
+}
+
+// 2. Le asignas el tipo a las props de la función
+export function UserBadge({ user, isActive }: UserBadgeProps) {
+  return <div>{user.name} ({isActive ? "Activo" : "Inactivo"})</div>;
+}
+```
+**Ventaja:** Si te equivocas al pasar una prop o escribes mal una propiedad (`user.nmae`), el editor te avisa con una línea roja **antes de guardar**, evitando bugs en producción.
+
+---
+
+### 🌐 Paso 2: Entendiendo Next.js (App Router) si ya sabes React
+
+Next.js 15/16 introduce una diferencia fundamental: **Componentes de Servidor (Server Components)** vs **Componentes de Cliente (Client Components)**.
+
+#### 1. Server Component (`app/page.tsx`)
+* Por defecto, en Next.js **todo archivo es un Server Component** a menos que pongas `"use client"`.
+* Se puede usar `async/await` directamente en el componente:
+```typescript
+// app/page.tsx -> Se ejecuta en el SERVIDOR
+export default async function Home() {
+  // Petición directa a la API antes de mandar HTML al cliente:
+  const user = await fetchGitHubUser("vercel");
+  return <GitHubSearchDashboard initialUser={user} />;
+}
+```
+* **No puedes usar** `useState`, `useEffect` ni `onClick` en un Server Component.
+
+#### 2. Client Component (`features/github-search/index.tsx`)
+* Lleva al inicio la directiva:
+```typescript
+"use client"; // Le dice a Next.js: "este componente tiene estado e interactividad"
+```
+* Aquí sí puedes usar `useState`, `useEffect`, `useMemo`, animaciones y eventos del navegador.
+
+---
+
+### 🏗️ Paso 3: ¿Cómo está estructurado este proyecto? (Arquitectura Profesional)
+
+Para una postulación laboral, las empresas valoran mucho que el código **no esté todo mezclado en una sola carpeta**. Este proyecto usa **Feature-Sliced Design**:
+
+```
+📁 app/
+   └── page.tsx           <-- La puerta de entrada (Ruta principal "/"). Solo llama a la feature.
+📁 components/ui/         <-- Componentes genéricos reutilizables (Botones, Inputs, Cards).
+   ├── button.tsx
+   ├── input.tsx
+   └── card.tsx
+📁 features/github-search/<-- Toda la lógica de negocio de la búsqueda de GitHub:
+   ├── api/               <-- Peticiones fetch y esquemas Zod (githubService.ts, githubSchema.ts)
+   ├── components/        <-- Subcomponentes visuales (UserProfile.tsx, RepoList.tsx, SearchInput.tsx)
+   ├── hooks/             <-- Lógica reactiva (useGitHubSearch.ts)
+   ├── lib/               <-- Algoritmos puros (búsqueda binaria, caché LRU, formateadores)
+   └── index.tsx          <-- Componente principal que une todo (<GitHubSearchDashboard />)
+```
+
+---
+
+### 🔬 Paso 4: Tres conceptos clave de este proyecto que te preguntarán en entrevistas
+
+#### 1. ¿Qué es Zod (`features/github-search/api/githubSchema.ts`)?
+En JavaScript puro confías ciegamente en que la API te devuelve lo que esperas:
+```javascript
+const data = await res.json();
+console.log(data.followers.length); // ¡Si followers es null o undefined, la app crashea!
+```
+Con **Zod**, defines un esquema estricto. Zod valida la respuesta en runtime y si algo viene nulo o con tipo incorrecto, lo transforma defensivamente a un valor seguro:
+```typescript
+export const GitHubUserSchema = z.object({
+  login: z.string(),
+  followers: z.number().nullish().transform((v) => v ?? 0), // Si viene null, lo convierte en 0
+});
+```
+
+#### 2. ¿Qué es un Custom Hook (`features/github-search/hooks/useGitHubSearch.ts`)?
+Es la separación entre **la lógica** y **la interfaz**:
+* En vez de meter 100 líneas de `fetch`, `useState` de carga y `try/catch` dentro del componente visual, creas una función:
+```typescript
+const { currentUser, repos, loading, error, searchUser } = useGitHubSearch();
+```
+* Así el componente visual solo se encarga de renderizar tarjetas y botones limpios.
+
+#### 3. ¿Qué es la Caché LRU y el Circuit Breaker (`features/github-search/lib/`)?
+* **Caché LRU:** Si buscas a "vercel", luego a "shadcn", y luego vuelves a "vercel", no vuelve a gastar la cuota de la API de GitHub; lo saca de la memoria RAM instantáneamente.
+* **Circuit Breaker:** Si GitHub se cae o te bloquea por hacer muchas peticiones seguidas (Rate Limit 403), el sistema "abre el circuito" y no sigue saturando la red con peticiones inútiles, mostrando un aviso amigable al usuario.
+
+---
+
+### 🎯 Ruta de Estudio Recomendada con este Código
+
+1. **Día 1: Tipos básicos:** Abre `components/ui/button.tsx` y mira cómo se define `interface ButtonProps`. Compara cómo crearías ese botón en JS vs en TS.
+2. **Día 2: El flujo de datos:** Abre `app/page.tsx` y sigue el viaje del dato: cómo pasa de `page.tsx` a `GitHubSearchDashboard` y de ahí a `UserProfile`.
+3. **Día 3: El Custom Hook:** Abre `features/github-search/hooks/useGitHubSearch.ts` y comprende cómo maneja los estados `loading`, `currentUser` y `error`.
+4. **Día 4: Componentes de UI:** Abre `features/github-search/components/SearchInput.tsx` y observa cómo maneja el evento `onChange` con tipos tipados (`ChangeEvent<HTMLInputElement>`).
