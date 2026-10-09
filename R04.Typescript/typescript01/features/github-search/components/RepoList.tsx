@@ -229,11 +229,16 @@ function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
 
   // 5. Carga progresiva y paginado para soportar 100+ repositorios de manera óptima
   const PAGE_SIZE = 24;
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [pageMultiplier, setPageMultiplier] = useState(1);
+  const [prevFilterKey, setPrevFilterKey] = useState(`${filterQuery}:${selectedLanguage}:${sortBy}`);
 
-  React.useEffect(() => {
-    setVisibleCount(PAGE_SIZE);
-  }, [filterQuery, selectedLanguage, sortBy]);
+  const currentFilterKey = `${filterQuery}:${selectedLanguage}:${sortBy}`;
+  if (currentFilterKey !== prevFilterKey) {
+    setPrevFilterKey(currentFilterKey);
+    setPageMultiplier(1);
+  }
+
+  const visibleCount = pageMultiplier * PAGE_SIZE;
 
   const displayedRepos = useMemo(() => {
     return filteredRepos.slice(0, visibleCount);
@@ -381,7 +386,7 @@ function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+                onClick={() => setPageMultiplier((prev) => prev + 1)}
                 className="gap-2 text-xs rounded-[var(--radius-lg)] hover:border-indigo-500/40 cursor-pointer"
               >
                 <span>Mostrar más repositorios</span>
@@ -392,7 +397,7 @@ function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setVisibleCount(filteredRepos.length)}
+                onClick={() => setPageMultiplier(Math.ceil(filteredRepos.length / PAGE_SIZE))}
                 className="text-xs rounded-[var(--radius-lg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
               >
                 <span>Mostrar todos ({filteredRepos.length})</span>

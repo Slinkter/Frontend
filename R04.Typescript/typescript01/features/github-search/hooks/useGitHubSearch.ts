@@ -96,6 +96,7 @@ export function useGitHubSearch(
   // Solo buscar al montar si el usuario NO vino ya hidratado desde el servidor (SSR)
   useEffect(() => {
     if (!initialUser && defaultUser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       searchUser(defaultUser);
     }
   }, [initialUser, defaultUser, searchUser]);
