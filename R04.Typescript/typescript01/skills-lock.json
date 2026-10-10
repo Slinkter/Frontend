@@ -13,6 +13,12 @@
       "skillPath": "foundation/jsdoc-typescript-docs/SKILL.md",
       "computedHash": "5b4f9de4974d5200db813921484dd4784c77bea7f3c0c79b31472e9546c374fd"
     },
+    "react-doctor": {
+      "source": "millionco/react-doctor",
+      "sourceType": "github",
+      "skillPath": "skills/react-doctor/SKILL.md",
+      "computedHash": "b3af7dce14fa985c65cbb5affa6a1209d32d6376ec02f1d964188b5aed3e83ff"
+    },
     "ui-ux-pro-max": {
       "source": "nextlevelbuilder/ui-ux-pro-max-skill",
       "sourceType": "github",
