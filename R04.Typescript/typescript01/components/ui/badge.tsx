@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 select-none",
+  "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 select-none",
   {
     variants: {
       variant: {
@@ -35,14 +35,27 @@ const badgeVariants = cva(
   }
 );
 
+/**
+ * Properties for the {@link Badge} component.
+ */
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
+/**
+ * Visual badge/pill component for tags, language indicators, and metadata chips.
+ *
+ * @example
+ * ```tsx
+ * <Badge variant="aurora" size="sm">
+ *   TypeScript
+ * </Badge>
+ * ```
+ */
 function Badge({ className, variant, size, ...props }: BadgeProps) {
   return (
     <div className={cn(badgeVariants({ variant, size }), className)} {...props} />
   );
 }
 
-export { Badge, badgeVariants };
+export { Badge };

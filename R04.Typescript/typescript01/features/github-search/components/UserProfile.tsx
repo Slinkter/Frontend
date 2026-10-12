@@ -20,28 +20,19 @@ import {
   getSafeExternalUrl,
 } from "@/features/github-search/lib/formatters";
 
-function TwitterIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-    </svg>
-  );
-}
+import { TwitterIcon } from "@/components/icons";
 
+
+/**
+ * User avatar image with fallback monogram and active status indicator.
+ */
 export function ProfileAvatar({
   avatarUrl,
   name,
 }: {
+  /** Source URL of user profile image. */
   avatarUrl?: string | null;
+  /** Full name or handle used for alt text and monogram fallback. */
   name: string;
 }) {
   const [imageError, setImageError] = useState(false);
@@ -50,7 +41,7 @@ export function ProfileAvatar({
   return (
     <div className="relative h-28 w-28 sm:h-32 sm:w-32 flex-shrink-0 z-10 group">
       {/* Aro irisado exterior aurora */}
-      <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-indigo-500/40 via-purple-500/30 to-cyan-400/40 blur-xs transition-all duration-500 group-hover:scale-105 group-hover:blur-sm" />
+      <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-indigo-500/40 via-purple-500/30 to-cyan-400/40 blur-xs transition-[transform,filter] duration-500 group-hover:scale-105 group-hover:blur-sm" />
 
       <div className="relative h-full w-full rounded-full border-2 border-[var(--glass-border)] bg-[var(--glass-bg)] overflow-hidden shadow-xl flex items-center justify-center">
         {avatarUrl && !imageError ? (
@@ -87,15 +78,22 @@ export function ProfileAvatar({
   );
 }
 
+/**
+ * Profile header showing display name, GitHub login handle, external profile link, and bio.
+ */
 export function ProfileHeader({
   name,
   login,
   htmlUrl,
   bio,
 }: {
+  /** Full name or null if omitted in profile. */
   name: string | null | undefined;
+  /** GitHub login handle. */
   login: string;
+  /** Direct link to the GitHub profile page. */
   htmlUrl: string;
+  /** Markdown/text bio or null. */
   bio: string | null | undefined;
 }) {
   const displayName = name?.trim() || login;
@@ -148,19 +146,26 @@ export function ProfileHeader({
   );
 }
 
+/**
+ * Metadata list item row rendering an icon, text, and optional outbound link.
+ */
 export function ProfileMetadataItem({
   icon,
   text,
   href,
   title,
 }: {
+  /** Leading icon node. */
   icon: ReactNode;
+  /** Text content displayed in the row. */
   text: string;
+  /** Optional external link URL. */
   href?: string | null;
+  /** Accessible title tooltip. */
   title?: string;
 }) {
   return (
-    <div className="flex items-center gap-2.5 rounded-[var(--radius-lg)] border border-[var(--glass-border-subtle)] bg-[var(--glass-bg)] px-3 py-2 text-[var(--text-secondary)] backdrop-blur-md transition-all duration-200 hover:border-indigo-500/30 hover:bg-[var(--glass-bg-hover)] overflow-hidden">
+    <div className="flex items-center gap-2.5 rounded-[var(--radius-lg)] border border-[var(--glass-border-subtle)] bg-[var(--glass-bg)] px-3 py-2 text-[var(--text-secondary)] backdrop-blur-md transition-colors duration-200 hover:border-indigo-500/30 hover:bg-[var(--glass-bg-hover)] overflow-hidden">
       <div className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-[var(--radius-md)] bg-indigo-500/10 text-indigo-600 dark:text-indigo-400" aria-hidden="true">
         {icon}
       </div>
@@ -189,13 +194,19 @@ export function ProfileMetadataItem({
   );
 }
 
+/**
+ * Compact 3-column statistics grid showing repositories, followers, and following counters.
+ */
 export function ProfileStats({
   publicRepos,
   followers,
   following,
 }: {
+  /** Count of public repositories. */
   publicRepos: number;
+  /** Follower count. */
   followers: number;
+  /** Following count. */
   following: number;
 }) {
   const statItems = [
@@ -246,7 +257,11 @@ export function ProfileStats({
   );
 }
 
-function UserProfileComponent({ user }: { user: GitHubUser }) {
+/**
+ * Comprehensive user profile card featuring avatar, bio, metadata links,
+ * and social stats.
+ */
+function UserProfileComponent({ user }: { /** GitHub user profile entity. */ user: GitHubUser }) {
   // Formateo determinista forzando UTC para evitar desajustes de hidratación SSR
   const joinedDate = formatDeterministicDate(user.created_at, {
     year: "numeric",

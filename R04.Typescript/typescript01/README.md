@@ -183,26 +183,32 @@ El proyecto fue refactorizado y auditado bajo estándares de ingeniería de soft
 
 ---
 
-## 🩺 Diagnóstico y Auditoría React Doctor (Score 100/100)
+## 🩺 Diagnóstico y Auditoría React Doctor & Vercel Best Practices (Score 100/100)
 
-La aplicación fue auditada exhaustivamente con **React Doctor** (Million.co) sobre todo el código fuente:
+La aplicación fue auditada exhaustivamente con **React Doctor** (Million.co) y el catálogo oficial de **Vercel React Best Practices**:
 
 ```bash
-pnpm dlx react-doctor@latest --verbose
+npx react-doctor@latest . --verbose --scope full
 ```
 
-### 🏆 Resultado Oficial:
+### 🏆 Resultado Oficial de Auditoría:
 ```text
 React Doctor — typescript01
 Score: 100 / 100 Great
 
 ✔ No issues found!
-✔ Scanned 41 files in 52.6s
+✔ Scanned 46 files in 61ms
 ```
 
-* **Rendimiento React**: 0 renders en cascada, 0 fugas en dependencias de hooks (`react-hooks/exhaustive-deps` al 100%).
-* **Accesibilidad (a11y)**: Roles ARIA y contrastes conformes a WCAG 2.1 AA.
-* **Arquitectura de Componentes**: Cero anti-patrones en el árbol de componentes.
+### ⚡ Optimizaciones Clave Certificadas:
+* **Elevación de `Intl` (`js-hoist-intl`)**: `Intl.NumberFormat` e `Intl.DateTimeFormat` elevados a nivel de módulo, eliminando reconstrucciones costosas en render.
+* **Transiciones Orientadas a Propiedades (`no-transition-all`)**: Reemplazo de `transition-all` por animaciones acotadas (`transition-colors`, `transition-transform`), erradicando repintados del árbol DOM.
+* **Desduplicación Server-Side (`server-cache-react`)**: `fetchGitHubUser` y `fetchGitHubUserRepos` envueltos en `React.cache()` para memorización limpia durante SSR.
+* **Renderizado Diferido de Listas (`rendering-content-visibility`)**: Tarjetas `RepoCard` con `[content-visibility:auto]` y `[contain-intrinsic-size:auto_160px]`, descargando trabajo del motor de layout del navegador.
+* **Aceleración GPU en Temas**: Eliminación de selectores universales y optimización de gradientes Aurora sin sobrecargar la tarjeta de video.
+* **Modo Oscuro/Claro Instantáneo**: `next-themes` con `useSyncExternalStore` y soporte para la [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API).
+* **Desacoplamiento de Componentes (`no-giant-component`)**: Dashboard descompuesto en subcomponentes declarativos (`DashboardHeader`, `DashboardFooter`, `DashboardStatusViews`).
+* **Fast Refresh Limpio (`only-export-components`)**: Exportaciones de `badge.tsx` y `button.tsx` normalizadas a componentes React puros.
 
 ---
 
@@ -215,9 +221,9 @@ Score: 100 / 100 Great
 * **Primitivos Headless**: [@radix-ui/react-select](https://www.radix-ui.com/), [@radix-ui/react-toast](https://www.radix-ui.com/), [@radix-ui/react-slot](https://www.radix-ui.com/)
 * **Validación de Esquemas**: [Zod 4.6.5](https://zod.dev/)
 * **Iconografía**: [Lucide React 1.53.0](https://lucide.dev/)
-* **Tipografía**: [Inter](https://fonts.google.com/specimen/Inter) & [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) vía `next/font/google`
-* **Auditoría & Calidad**: [React Doctor](https://github.com/millionco/react-doctor) (Score 100/100), ESLint 9 (0 advertencias)
-* **Gestor de Paquetes**: `pnpm`
+* **Gestión de Temas (Dark / Light)**: [next-themes 0.4.6](https://github.com/pacocoursey/next-themes) con aceleración de hardware y soporte para la [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
+* **Auditoría & Calidad**: [React Doctor](https://github.com/millionco/react-doctor) (Score 100/100 Great), [Vercel React Best Practices](https://vercel.com/) (Reglas de rendimiento y bundle), ESLint 9 (0 advertencias)
+* **Gestor de Paquetes**: `pnpm` v12
 
 ---
 
@@ -225,14 +231,18 @@ Score: 100 / 100 Great
 
 ```
 typescript01/
-├── .agents/
-│   └── skills/                  # Skills instalados (react-doctor, jsdoc-typescript-docs)
+├── assets/
+│   └── icons/                   # Assets vectoriales SVG desacoplados (github.svg, twitter.svg)
+├── public/
+│   └── icons/                   # SVGs accesibles estáticamente
 ├── app/
-│   ├── globals.css              # Tokens Aurora Glass, mallas radiales y variables de color
-│   ├── layout.tsx               # Configuración de fuentes Inter y JetBrains Mono
-│   └── page.tsx                 # Server Component con prefetch SSR usando GITHUB_CONFIG
+│   ├── globals.css              # Tokens Aurora Glass, optimizado sin selectores pesados
+│   ├── layout.tsx               # RootLayout con ThemeProvider y fuentes optimizadas
+│   └── page.tsx                 # Server Component con prefetch SSR y Promise.all paralelo
 ├── components/
-│   └── ui/                      # Biblioteca de primitivos UI accesibles
+│   ├── icons/                   # Componentes de iconos tipados (GithubIcon, TwitterIcon)
+│   ├── theme-provider.tsx       # Proveedor de tema Next.js con next-themes
+│   └── ui/                      # Biblioteca de primitivos UI accesibles (Radix UI)
 │       ├── button.tsx           # Botón con variantes glass, outline, ghost
 │       ├── card.tsx             # Tarjetas modulares Aurora Glass
 │       ├── badge.tsx            # Microetiquetas para lenguajes y contadores
@@ -242,33 +252,38 @@ typescript01/
 │       └── index.ts             # Barril central de exportación
 ├── features/
 │   └── github-search/
-│       ├── constants.ts         # Constantes centralizadas (GITHUB_CONFIG, LANGUAGE_COLOR_MAP)
+│       ├── constants.ts         # Constantes centralizadas (GITHUB_CONFIG, UI, Redes)
 │       ├── api/                 # Capa de datos y contratos Zod
 │       │   ├── githubSchema.ts  # Esquemas Zod estrictos y defensivos
-│       │   ├── githubService.ts # Cliente API con IGitHubService (DIP) y Circuit Breaker
+│       │   ├── githubService.ts # Cliente API con React.cache() (RSC deduplication) y Circuit Breaker
 │       │   └── index.ts         # Barril central de API
-│       ├── components/          # Componentes del dominio
-│       │   ├── SearchInput.tsx  # Buscador con sincronización reactiva y placeholder dinámico
-│       │   ├── UserProfile.tsx  # Perfil vertical con metadatos declarativos y bio segura
-│       │   ├── BentoStatCard.tsx# Componente desacoplado Bento para métricas (SRP/DRY)
-│       │   ├── RepoList.tsx     # Cuadrícula modular con filtros, orden O(1) y paginación
-│       │   ├── Skeleton.tsx     # Skeletons irisados con aria-hidden
-│       │   ├── ThemeToggle.tsx  # Alternador de tema con rotación 3D
-│       │   └── index.ts         # Barril de componentes
-│       ├── hooks/
+│       ├── components/          # Componentes modulares del dominio
+│       │   ├── DashboardHeader.tsx       # Cabecera hero y buscador con chips interactivos
+│       │   ├── DashboardFooter.tsx       # Pie de página minimalista
+│       │   ├── DashboardStatusViews.tsx  # Estados desacoplados de error y bienvenida
+│       │   ├── SearchInput.tsx           # Buscador con sanitización y feedback Zod
+│       │   ├── UserProfile.tsx           # Perfil vertical con metadatos declarativos
+│       │   ├── BentoStatCard.tsx         # Componente desacoplado Bento para métricas (SRP)
+│       │   ├── RepoList.tsx              # Lista modular de repos con content-visibility:auto
+│       │   ├── Skeleton.tsx              # Skeletons irisados con aria-hidden
+│       │   ├── ThemeToggle.tsx           # Alternador de tema con micro-animaciones
+│       │   └── index.ts                  # Barril de componentes
+│       ├── hooks/               # Custom Hooks de arquitectura desacoplada
 │       │   ├── useGitHubSearch.ts # Hook con useTransition e inyección IGitHubService (DIP)
+│       │   ├── useRepoFilters.ts  # Hook de filtrado sublineal, ordenación y paginación
+│       │   ├── useTheme.ts        # Hook con sincronización next-themes y View Transitions
 │       │   └── index.ts
 │       ├── lib/                 # Estructuras de datos y algoritmos Big-O
 │       │   ├── RepoSearchIndex.ts # Índice invertido con bisección binaria O(log T)
 │       │   ├── LRUCache.ts      # Caché O(1) con TTL
 │       │   ├── CircuitBreaker.ts# Máquina de estados para fail-fast
 │       │   ├── backoff.ts       # Exponential Backoff con Full Jitter
-│       │   ├── formatters.ts    # Fechas deterministas UTC y cálculo puro calculateRepoStatistics
+│       │   ├── formatters.ts    # Fechas deterministas UTC e Intl formatters elevados (hoisted)
 │       │   └── __tests__/       # Suite de pruebas automatizadas QA (15/15)
-│       └── index.tsx            # Dashboard Bento Grid (<GitHubSearchDashboard />)
+│       └── index.tsx            # Orquestador del Dashboard Bento Grid
 ├── lib/
 │   └── utils.ts                 # Helper cn() (clsx + tailwind-merge)
-├── next.config.ts               # Optimización de paquetes y remotePatterns de imágenes
+├── next.config.ts               # Optimización de paquetes (optimizePackageImports) y remotePatterns
 ├── tsconfig.json                # Configuración TypeScript con alias @/*
 └── package.json
 ```

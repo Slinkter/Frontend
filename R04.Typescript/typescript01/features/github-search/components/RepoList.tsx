@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React from "react";
 import {
   Star,
   GitFork,
@@ -14,7 +14,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { type GitHubRepo } from "@/features/github-search/api";
-import { RepoSearchIndex } from "@/features/github-search/lib/RepoSearchIndex";
+import { useRepoFilters, type SortOption } from "@/features/github-search/hooks";
 import {
   formatDeterministicDate,
   formatCompactNumber,
@@ -36,14 +36,26 @@ import {
   Button,
 } from "@/components/ui";
 
-interface RepoListProps {
+/**
+ * Properties for the {@link RepoList} component.
+ */
+export interface RepoListProps {
+  /** Array of GitHub repositories to filter, sort, and render. */
   repos: GitHubRepo[];
 }
 
+/**
+ * Properties for the internal {@link RepoCard} component.
+ */
 interface RepoCardProps {
+  /** GitHub repository entity. */
   repo: GitHubRepo;
 }
 
+/**
+ * Individual repository card displaying name, stars, forks, language pill,
+ * and deterministic updated timestamp.
+ */
 const RepoCard = React.memo(function RepoCard({ repo }: RepoCardProps) {
   // Formateo determinista forzando UTC para evitar desajustes de hidratación SSR
   const formattedDate = formatDeterministicDate(repo.updated_at, {
@@ -58,10 +70,10 @@ const RepoCard = React.memo(function RepoCard({ repo }: RepoCardProps) {
         glow: "shadow-[0_0_8px_rgba(148,163,184,0.5)]",
       }
     : null;
-  const isPopular = repo.stargazers_count >= 50;
+  const isPopular = repo.stargazers_count >= GITHUB_CONFIG.UI.POPULAR_STAR_THRESHOLD;
 
   return (
-    <Card className="group relative flex flex-col justify-between overflow-hidden border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] hover:border-indigo-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded-[var(--radius-xl)] min-w-0">
+    <Card className="group relative flex flex-col justify-between overflow-hidden border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] hover:border-indigo-500/40 hover:shadow-xl hover:-translate-y-1 transition-[transform,border-color,background-color,box-shadow] duration-300 rounded-[var(--radius-xl)] min-w-0 [content-visibility:auto] [contain-intrinsic-size:auto_160px]">
       {/* Resplandor superior en hover */}
       <div className="absolute -top-12 -right-12 h-24 w-24 rounded-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -77,7 +89,7 @@ const RepoCard = React.memo(function RepoCard({ repo }: RepoCardProps) {
             >
               <span className="truncate">{repo.name}</span>
               <ArrowUpRight
-                className="h-3.5 w-3.5 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="h-3.5 w-3.5 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-[transform,opacity] duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               />
               <span className="sr-only"> (abre en una nueva pestaña)</span>
@@ -150,88 +162,27 @@ const RepoCard = React.memo(function RepoCard({ repo }: RepoCardProps) {
   );
 });
 
+/**
+ * High-performance repository list with inverted-index query filtering,
+ * language segmentation, and progressive disclosure batching.
+ */
 function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
-  const [filterQuery, setFilterQuery] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("All");
-  const [sortBy, setSortBy] = useState<"updated" | "stars" | "forks">("updated");
-
-  // 1. Construcción del índice de búsqueda sublineal O(log n + k)
-  const searchIndex = useMemo(() => new RepoSearchIndex(repos), [repos]);
-
-  // 2. Extraer lenguajes únicos
-  const languages = useMemo(() => {
-    const set = new Set<string>();
-    repos.forEach((repo) => {
-      if (repo.language) set.add(repo.language);
-    });
-    return ["All", ...Array.from(set)];
-  }, [repos]);
-
-  // 3. Pre-ordenamiento defensivo en O(n log n) con protección contra fechas inválidas
-  const preSorted = useMemo(() => {
-    const safeParseDate = (dateStr: string) => {
-      const parsed = Date.parse(dateStr);
-      return isNaN(parsed) ? 0 : parsed;
-    };
-
-    return {
-      updated: [...repos].sort(
-        (a, b) => safeParseDate(b.updated_at) - safeParseDate(a.updated_at)
-      ),
-      stars: [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count),
-      forks: [...repos].sort((a, b) => b.forks_count - a.forks_count),
-    };
-  }, [repos]);
-
-  // 4. Filtrado optimizado: índice invertido y filtro por lenguaje
-  const filteredRepos = useMemo(() => {
-    let result: GitHubRepo[];
-
-    if (filterQuery.trim() === "") {
-      result = preSorted[sortBy];
-    } else {
-      const matched = searchIndex.search(filterQuery);
-      const safeParseDate = (dateStr: string) => {
-        const parsed = Date.parse(dateStr);
-        return isNaN(parsed) ? 0 : parsed;
-      };
-
-      result = matched.sort((a, b) => {
-        if (sortBy === "stars") return b.stargazers_count - a.stargazers_count;
-        if (sortBy === "forks") return b.forks_count - a.forks_count;
-        return safeParseDate(b.updated_at) - safeParseDate(a.updated_at);
-      });
-    }
-
-    if (selectedLanguage !== "All") {
-      result = result.filter((r) => r.language === selectedLanguage);
-    }
-
-    return result;
-  }, [searchIndex, filterQuery, selectedLanguage, sortBy, preSorted]);
-
-  // 5. Carga progresiva y paginado para soportar 100+ repositorios de manera óptima
-  const PAGE_SIZE = GITHUB_CONFIG.PAGINATION.DEFAULT_PAGE_SIZE;
-  const [pageMultiplier, setPageMultiplier] = useState(1);
-  const [prevFilterKey, setPrevFilterKey] = useState(`${filterQuery}:${selectedLanguage}:${sortBy}`);
-
-  const currentFilterKey = `${filterQuery}:${selectedLanguage}:${sortBy}`;
-  if (currentFilterKey !== prevFilterKey) {
-    setPrevFilterKey(currentFilterKey);
-    setPageMultiplier(1);
-  }
-
-  const visibleCount = pageMultiplier * PAGE_SIZE;
-
-  const displayedRepos = useMemo(() => {
-    return filteredRepos.slice(0, visibleCount);
-  }, [filteredRepos, visibleCount]);
-
-  const resetFilters = () => {
-    setFilterQuery("");
-    setSelectedLanguage("All");
-    setSortBy("updated");
-  };
+  const {
+    filterQuery,
+    setFilterQuery,
+    selectedLanguage,
+    setSelectedLanguage,
+    sortBy,
+    setSortBy,
+    languages,
+    filteredRepos,
+    displayedRepos,
+    pageSize,
+    hasMore,
+    loadMore,
+    showAll,
+    resetFilters,
+  } = useRepoFilters(repos);
 
   // Edge case: Usuario con 0 repositorios públicos en total
   if (repos.length === 0) {
@@ -313,7 +264,7 @@ function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
           <div className="w-32 sm:w-36">
             <Select
               value={sortBy}
-              onValueChange={(val) => setSortBy(val as "updated" | "stars" | "forks")}
+              onValueChange={(val) => setSortBy(val as SortOption)}
             >
               <SelectTrigger>
                 <div className="flex items-center gap-1.5 truncate">
@@ -364,23 +315,23 @@ function RepoListComponent({ repos }: RepoListProps): React.ReactElement {
           </div>
 
           {/* Paginación progresiva para 100 repositorios */}
-          {filteredRepos.length > visibleCount && (
+          {hasMore && (
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-2">
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setPageMultiplier((prev) => prev + 1)}
+                onClick={loadMore}
                 className="gap-2 text-xs rounded-[var(--radius-lg)] hover:border-indigo-500/40 cursor-pointer"
               >
                 <span>Mostrar más repositorios</span>
                 <span className="text-[10px] text-[var(--text-muted)] font-mono">
-                  (+{Math.min(PAGE_SIZE, filteredRepos.length - visibleCount)} de {filteredRepos.length - visibleCount} restantes)
+                  (+{Math.min(pageSize, filteredRepos.length - displayedRepos.length)} de {filteredRepos.length - displayedRepos.length} restantes)
                 </span>
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setPageMultiplier(Math.ceil(filteredRepos.length / PAGE_SIZE))}
+                onClick={showAll}
                 className="text-xs rounded-[var(--radius-lg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
               >
                 <span>Mostrar todos ({filteredRepos.length})</span>

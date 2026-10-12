@@ -8,8 +8,16 @@
 import type { GitHubRepo } from "../api/githubSchema";
 
 /**
- * Normaliza y tokeniza cadenas de texto de forma canónica y simétrica.
- * Elimina marcas diacríticas (tildes), pasa a minúsculas y separa por caracteres no alfanuméricos.
+ * Normalizes and tokenizes text canonicalizing accents, punctuation, and sub-tokens.
+ * Retains special programming language symbols (`+`, `#`, `.`) for C++, C#, .NET.
+ *
+ * @param text - Raw source string to break down into search tokens.
+ * @returns Array of unique lowercase normalized tokens.
+ *
+ * @example
+ * ```ts
+ * normalizeAndTokenize("react-dom v18"); // ["react-dom", "react", "dom", "v18"]
+ * ```
  */
 export function normalizeAndTokenize(text: string): string[] {
   if (!text) return [];
@@ -37,6 +45,16 @@ export function normalizeAndTokenize(text: string): string[] {
   return Array.from(result);
 }
 
+/**
+ * Inverted index search engine enabling instantaneous sub-linear lookups in `O(log T + k)`.
+ * Employs binary bisection over lexicographically ordered tokens and cardinality-sorted set intersection.
+ *
+ * @example
+ * ```ts
+ * const index = new RepoSearchIndex(userRepos);
+ * const matches = index.search("react hook");
+ * ```
+ */
 export class RepoSearchIndex {
   // Mapa de término -> Set de IDs de repositorios asociados
   private readonly tokenIndex = new Map<string, Set<number>>();
@@ -45,6 +63,11 @@ export class RepoSearchIndex {
   // Tokens únicos ordenados lexicográficamente para bisección binaria O(log T)
   private sortedTokens: string[] = [];
 
+  /**
+   * Initializes and indexes a collection of GitHub repositories.
+   *
+   * @param repos - Array of GitHub repository objects.
+   */
   constructor(repos: GitHubRepo[]) {
     this.buildIndex(repos);
   }

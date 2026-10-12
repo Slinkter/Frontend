@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,11 +15,19 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+/**
+ * Application metadata configuration for Next.js App Router.
+ */
 export const metadata: Metadata = {
   title: "GitHub Explorer • Aurora Glass",
   description: "Explora perfiles y repositorios de GitHub con diseño Aurora Glass y Bento Grid",
 };
 
+/**
+ * Root layout component injecting Google Fonts, theme providers, and global HTML wrappers.
+ *
+ * @param props - Root layout properties containing children elements.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,7 +38,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

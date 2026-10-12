@@ -98,7 +98,6 @@ body {
   font-family: var(--font-sans);
   position: relative;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -164,10 +163,16 @@ body {
 
 .animate-aurora {
   animation: aurora-pulse 14s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .animate-aurora-slow {
   animation: aurora-pulse-slow 20s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Animación shimmer para estados de carga */

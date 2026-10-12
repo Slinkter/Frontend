@@ -1,6 +1,9 @@
 import React from "react";
 import { Card } from "@/components/ui";
 
+/**
+ * Shimmering skeleton placeholder mimicking the layout of {@link UserProfile}.
+ */
 export function ProfileSkeleton(): React.ReactElement {
   return (
     <Card className="p-6 flex flex-col items-center space-y-5 rounded-[var(--radius-2xl)]" aria-hidden="true">
@@ -39,6 +42,9 @@ export function ProfileSkeleton(): React.ReactElement {
   );
 }
 
+/**
+ * Shimmering skeleton grid mimicking the layout of {@link RepoList}.
+ */
 export function RepoListSkeleton(): React.ReactElement {
   return (
     <div className="space-y-4" aria-hidden="true">

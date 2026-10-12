@@ -9,16 +9,61 @@ import {
 import { sanitizeUsernameInput } from "@/features/github-search/lib/formatters";
 import { GITHUB_CONFIG } from "@/features/github-search/constants";
 
+/**
+ * Initialization options for the {@link useGitHubSearch} hook.
+ */
 export interface UseGitHubSearchOptions {
+  /** Server-side pre-rendered user profile for hydration. */
   initialUser?: GitHubUser | null;
+  /** Server-side pre-rendered repositories for hydration. */
   initialRepos?: GitHubRepo[];
+  /** Default username to query upon first client mount if not hydrated. */
   defaultUser?: string;
+  /** Custom injectable GitHub service instance (useful for testing or mocks). */
   service?: IGitHubService;
 }
 
+/**
+ * Return signature of {@link useGitHubSearch}.
+ */
+export interface UseGitHubSearchResult {
+  /** Current raw search term state. */
+  searchTerm: string;
+  /** Dispatcher for search term. */
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  /** Currently active user profile or null. */
+  currentUser: GitHubUser | null;
+  /** Repositories associated with the active user. */
+  repos: GitHubRepo[];
+  /** Loading indicator active during concurrent transitions or network fetching. */
+  loading: boolean;
+  /** Network or service error message if present. */
+  error: string | null;
+  /** Resets network error state. */
+  clearError: () => void;
+  /** Client-side input validation error message if present. */
+  validationError: string | null;
+  /** Dispatcher for validation error state. */
+  setValidationError: React.Dispatch<React.SetStateAction<string | null>>;
+  /** Triggers an asynchronous search for the specified username. */
+  searchUser: (username: string) => Promise<void>;
+}
+
+/**
+ * Orchestration hook for GitHub user queries, input validation, concurrent transitions,
+ * and error handling.
+ *
+ * @param optionsOrUser - Configuration object or default username string.
+ * @returns State and handlers for managing GitHub search workflows.
+ *
+ * @example
+ * ```tsx
+ * const { currentUser, repos, loading, searchUser } = useGitHubSearch({ defaultUser: "octocat" });
+ * ```
+ */
 export function useGitHubSearch(
   optionsOrUser: string | UseGitHubSearchOptions = GITHUB_CONFIG.DEFAULT_USER
-) {
+): UseGitHubSearchResult {
   const options: UseGitHubSearchOptions =
     typeof optionsOrUser === "string"
       ? { defaultUser: optionsOrUser }

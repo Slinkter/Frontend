@@ -1,24 +1,40 @@
 import { z } from "zod";
 
-// Zod schema for GitHub API Error Response body
+/**
+ * Zod validation schema for GitHub API error payloads.
+ */
 export const GitHubApiErrorResponseSchema = z.object({
     message: z.string(),
     documentation_url: z.string().optional(),
 });
+
+/**
+ * Parsed error response payload from GitHub API.
+ */
 export type GitHubApiErrorResponse = z.infer<
     typeof GitHubApiErrorResponseSchema
 >;
 
-// Rate limit metadata contract
+/**
+ * Rate limit metadata headers returned by the GitHub REST API.
+ */
 export interface GitHubRateLimitInfo {
+    /** Maximum allowed requests within the current hourly window. */
     limit: number;
+    /** Remaining quota in the current window. */
     remaining: number;
+    /** Reset epoch time in seconds (UTC). */
     resetEpochSeconds: number;
+    /** JavaScript Date object representing when the quota resets. */
     resetDate: Date;
+    /** Number of requests consumed so far. */
     used?: number;
 }
 
-// Zod schema for a single GitHub User Profile con transformación defensiva
+/**
+ * Defensive Zod schema and transformer for GitHub User Profiles.
+ * Guarantees resilient default values for nullish API fields.
+ */
 export const GitHubUserSchema = z.object({
     login: z.string(),
     id: z.number(),
@@ -59,7 +75,9 @@ export const GitHubUserSchema = z.object({
         .transform((v) => v || ""),
 });
 
-// Zod schema for a single GitHub Repository con transformación defensiva
+/**
+ * Defensive Zod schema and transformer for GitHub Repositories.
+ */
 export const GitHubRepoSchema = z.object({
     id: z.number(),
     name: z
@@ -91,14 +109,20 @@ export const GitHubRepoSchema = z.object({
     homepage: z.string().nullable().optional(),
 });
 
-// Zod schema for an array of GitHub Repositories
+/**
+ * Zod validation schema for an array of GitHub Repositories.
+ */
 export const GitHubRepoListSchema = z.array(GitHubRepoSchema);
 
-// Infer TypeScript types from Zod schemas
+/** Inferred TypeScript type for a sanitized GitHub User Profile. */
 export type GitHubUser = z.infer<typeof GitHubUserSchema>;
+
+/** Inferred TypeScript type for a sanitized GitHub Repository entity. */
 export type GitHubRepo = z.infer<typeof GitHubRepoSchema>;
 
-// Input validation schema for the search form
+/**
+ * Regex and length validation schema conforming to GitHub username policies.
+ */
 export const UsernameSearchSchema = z
     .string()
     .min(1, "El nombre de usuario no puede estar vacío")

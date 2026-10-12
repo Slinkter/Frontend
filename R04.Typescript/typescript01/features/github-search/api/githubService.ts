@@ -5,6 +5,7 @@
  * con Full Jitter y protección mediante Circuit Breaker contra saturación de cuota y caídas de red.
  */
 
+import { cache } from "react";
 import {
   GitHubUserSchema,
   GitHubRepoSchema,
@@ -23,8 +24,26 @@ import { GITHUB_CONFIG } from "../constants";
 // INTERFAZ DE SERVICIO (DIP - Dependency Inversion Principle)
 // ==========================================
 
+/**
+ * Service contract interface for interacting with GitHub data resources.
+ */
 export interface IGitHubService {
+  /**
+   * Fetches user profile by username handle.
+   *
+   * @param username - GitHub login handle.
+   * @param signal - Optional AbortSignal.
+   * @returns User profile.
+   */
   getUser(username: string, signal?: AbortSignal): Promise<GitHubUser>;
+
+  /**
+   * Fetches list of public repositories for a user.
+   *
+   * @param username - GitHub login handle.
+   * @param signal - Optional AbortSignal.
+   * @returns Array of repository items.
+   */
   getUserRepos(username: string, signal?: AbortSignal): Promise<GitHubRepo[]>;
 }
 
@@ -32,7 +51,11 @@ export interface IGitHubService {
 // JERARQUÍA DE ERRORES TIPADOS (TYPE-SAFE)
 // ==========================================
 
+/**
+ * Base domain error for GitHub API operations.
+ */
 export class GitHubApiError extends Error {
+  /** HTTP status code if originated from an HTTP response. */
   public readonly status?: number;
 
   constructor(message: string, status?: number) {
@@ -42,6 +65,9 @@ export class GitHubApiError extends Error {
   }
 }
 
+/**
+ * Error thrown when a requested GitHub user or repository is not found (404).
+ */
 export class GitHubNotFoundError extends GitHubApiError {
   constructor(resource = "Usuario") {
     super(`${resource} de GitHub no encontrado.`, 404);
@@ -49,7 +75,11 @@ export class GitHubNotFoundError extends GitHubApiError {
   }
 }
 
+/**
+ * Error thrown when GitHub rate limit quota is exceeded (403 / 429).
+ */
 export class GitHubRateLimitError extends GitHubApiError {
+  /** Parsed rate limit headers from the response. */
   public readonly rateLimitInfo?: GitHubRateLimitInfo;
 
   constructor(message: string, status = 403, rateLimitInfo?: GitHubRateLimitInfo) {
@@ -59,7 +89,11 @@ export class GitHubRateLimitError extends GitHubApiError {
   }
 }
 
+/**
+ * Error thrown when the circuit breaker enters the OPEN state.
+ */
 export class GitHubCircuitBreakerError extends GitHubApiError {
+  /** Estimated milliseconds until retry is permitted. */
   public readonly retryAfterMs: number;
 
   constructor(message: string, retryAfterMs: number) {
@@ -69,7 +103,11 @@ export class GitHubCircuitBreakerError extends GitHubApiError {
   }
 }
 
+/**
+ * Error thrown when incoming GitHub API data fails schema validation.
+ */
 export class GitHubValidationError extends GitHubApiError {
+  /** Zod validation issue details. */
   public readonly validationIssues: unknown;
 
   constructor(message: string, validationIssues?: unknown) {
@@ -83,17 +121,40 @@ export class GitHubValidationError extends GitHubApiError {
 // CONFIGURACIÓN Y CLIENTE DE LA API
 // ==========================================
 
+/**
+ * Configuration options for customizing a {@link GitHubApiClient}.
+ */
 export interface GitHubApiClientOptions {
+  /** Override base URL for GitHub API. */
   baseUrl?: string;
+  /** Max cached entries for users and repos. */
   cacheCapacity?: number;
+  /** Cache time-to-live in milliseconds. */
   cacheTtlMs?: number;
+  /** Number of consecutive 5xx errors before tripping circuit breaker. */
   circuitBreakerFailureThreshold?: number;
+  /** Cooldown time in ms before probing circuit recovery. */
   circuitBreakerResetTimeoutMs?: number;
+  /** Maximum retry attempts with backoff. */
   retries?: number;
+  /** Base delay in ms before exponential backoff. */
   baseDelayMs?: number;
+  /** Individual request timeout in ms. */
   timeoutMs?: number;
 }
 
+/**
+ * Resilient API client for GitHub REST endpoints.
+ * Integrates Zod schema validation, LRU caching, exponential backoff with full jitter,
+ * and circuit breaking.
+ *
+ * @example
+ * ```ts
+ * const client = new GitHubApiClient();
+ * const user = await client.getUser("octocat");
+ * const repos = await client.getUserRepos("octocat");
+ * ```
+ */
 export class GitHubApiClient implements IGitHubService {
   private readonly baseUrl: string;
   private readonly userCache: LRUCache<string, GitHubUser>;
@@ -385,27 +446,46 @@ export class GitHubApiClient implements IGitHubService {
 // Instancia singleton por defecto para la aplicación
 const defaultClient = new GitHubApiClient();
 
+/**
+ * Returns the default singleton instance of {@link GitHubApiClient}.
+ */
 export function getGitHubApiClient(): GitHubApiClient {
   return defaultClient;
 }
 
+/**
+ * Evicts all in-memory cached users and repositories in the default client.
+ */
 export function clearGitHubCache(): void {
   defaultClient.clearCache();
 }
 
 /**
- * Funciones de conveniencia compatibles hacia atrás
+ * Request-deduplicated helper fetching a GitHub user profile.
+ * Cached per request in React Server Components via `React.cache`.
+ *
+ * @param username - GitHub login handle.
+ * @param signal - Optional AbortSignal.
+ * @returns Parsed user profile.
  */
-export async function fetchGitHubUser(
+export const fetchGitHubUser = cache(async (
   username: string,
   signal?: AbortSignal
-): Promise<GitHubUser> {
+): Promise<GitHubUser> => {
   return defaultClient.getUser(username, signal);
-}
+});
 
-export async function fetchGitHubUserRepos(
+/**
+ * Request-deduplicated helper fetching GitHub repositories for a user.
+ * Cached per request in React Server Components via `React.cache`.
+ *
+ * @param username - GitHub login handle.
+ * @param signal - Optional AbortSignal.
+ * @returns List of public repositories.
+ */
+export const fetchGitHubUserRepos = cache(async (
   username: string,
   signal?: AbortSignal
-): Promise<GitHubRepo[]> {
+): Promise<GitHubRepo[]> => {
   return defaultClient.getUserRepos(username, signal);
-}
+});

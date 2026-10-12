@@ -7,6 +7,13 @@ import {
 } from "@/features/github-search/api";
 import { GITHUB_CONFIG } from "@/features/github-search/constants";
 
+/**
+ * Server Component entry point for the GitHub Search application.
+ * Pre-fetches the default user profile and repositories server-side
+ * for rapid Time To First Byte (TTFB) and zero hydration layout shifts.
+ *
+ * @returns Server-rendered JSX element.
+ */
 export default async function Home() {
     let initialUser: GitHubUser | null = null;
     let initialRepos: GitHubRepo[] = [];

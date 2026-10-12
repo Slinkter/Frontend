@@ -5,10 +5,24 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Root dropdown select component powered by `@radix-ui/react-select`.
+ */
 const Select = SelectPrimitive.Root;
+
+/**
+ * Grouping element for categorized select items.
+ */
 const SelectGroup = SelectPrimitive.Group;
+
+/**
+ * Renders the currently selected option's label or placeholder.
+ */
 const SelectValue = SelectPrimitive.Value;
 
+/**
+ * Interactive button that triggers the select dropdown menu.
+ */
 const SelectTrigger = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
@@ -29,6 +43,9 @@ const SelectTrigger = React.forwardRef<
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
+/**
+ * Floating container popup rendering the selectable options list.
+ */
 const SelectContent = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
@@ -65,6 +82,9 @@ const SelectContent = React.forwardRef<
 ));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
+/**
+ * Individual selectable option within {@link SelectContent}.
+ */
 const SelectItem = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>

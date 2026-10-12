@@ -5,16 +5,30 @@ import { sanitizeUsernameInput } from "@/features/github-search/lib/formatters";
 import { GITHUB_CONFIG } from "@/features/github-search/constants";
 import { Button, Input } from "@/components/ui";
 
+/**
+ * Properties for the {@link SearchInput} component.
+ */
 export interface SearchInputProps {
+  /** Active query loading state. */
   loading: boolean;
+  /** Submission callback receiving sanitized username. */
   onSearch: (username: string) => void;
+  /** Initial uncontrolled input value. */
   defaultValue?: string;
+  /** Optional controlled search term. */
   searchTerm?: string;
+  /** Setter for controlled search term. */
   setSearchTerm?: (value: string) => void;
+  /** Controlled validation error message. */
   validationError?: string | null;
+  /** Setter for controlled validation error. */
   setValidationError?: (value: string | null) => void;
 }
 
+/**
+ * Accessible search input component supporting real-time Zod validation,
+ * inline clear button, loading spinners, and keyboard shortcuts.
+ */
 function SearchInputComponent({
   defaultValue = "",
   loading,
@@ -115,7 +129,7 @@ function SearchInputComponent({
           leftIcon={
             <Search className="h-4 w-4 text-[var(--text-muted)] transition-colors group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400" aria-hidden="true" />
           }
-          className={`h-12 text-sm pr-28 sm:pr-32 rounded-[var(--radius-2xl)] backdrop-blur-xl transition-all duration-300 ${
+          className={`h-12 text-sm pr-28 sm:pr-32 rounded-[var(--radius-2xl)] backdrop-blur-xl transition-[border-color,box-shadow] duration-300 ${
             validationError
               ? "border-red-500 focus-visible:ring-red-500"
               : "hover:border-indigo-500/30"
@@ -165,7 +179,7 @@ function SearchInputComponent({
             id="search-error-message"
             role="alert"
             aria-live="polite"
-            className="flex items-center gap-1.5 text-xs text-red-600 dark:text-red-400 font-medium transition-all duration-200"
+            className="flex items-center gap-1.5 text-xs text-red-600 dark:text-red-400 font-medium transition-opacity duration-200"
           >
             <AlertCircle aria-hidden="true" className="h-3.5 w-3.5 flex-shrink-0" />
             <span>{validationError}</span>

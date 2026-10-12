@@ -4,18 +4,37 @@
  * Evita el problema del rebaño atronador (thundering herd problem) ante fallos intermitentes de red y servidores 5xx.
  */
 
+/**
+ * Configuration options for resilient HTTP fetching with exponential backoff.
+ */
 export interface BackoffOptions {
+  /** Maximum number of retry attempts. Defaults to 2. */
   retries?: number;
+  /** Base delay in milliseconds before exponential scaling. Defaults to 400. */
   baseDelayMs?: number;
+  /** Maximum delay cap in milliseconds. Defaults to 3000. */
   maxDelayMs?: number;
+  /** Individual request timeout in milliseconds. Defaults to 8000. */
   timeoutMs?: number;
+  /** AbortSignal to cancel in-flight requests and backoff delays. */
   signal?: AbortSignal;
+  /** Custom predicate deciding whether an error or response is retryable. */
   shouldRetry?: (error: unknown, response?: Response) => boolean;
 }
 
 /**
- * Calcula el retardo de retroceso exponencial con Full Jitter según las directrices de arquitectura de alta resiliencia.
- * Formula: sleep = Math.random() * min(maxDelay, baseDelay * 2^attempt)
+ * Calculates exponential backoff delay with Full Jitter.
+ * Formula: `sleep = Math.random() * min(maxDelay, baseDelay * 2^attempt)`.
+ *
+ * @param attempt - Zero-based index of current retry attempt.
+ * @param baseDelayMs - Base delay in milliseconds. Defaults to 400.
+ * @param maxDelayMs - Maximum delay cap in milliseconds. Defaults to 4000.
+ * @returns Jittered sleep delay in milliseconds.
+ *
+ * @example
+ * ```ts
+ * const delayMs = calculateExponentialBackoffJitter(1, 400, 3000);
+ * ```
  */
 export function calculateExponentialBackoffJitter(
   attempt: number,
@@ -28,7 +47,11 @@ export function calculateExponentialBackoffJitter(
 }
 
 /**
- * Espera de forma asíncrona una cantidad de milisegundos respetando la señal de aborto si se provee.
+ * Asynchronously pauses execution for a specified duration respecting an AbortSignal.
+ *
+ * @param ms - Milliseconds to sleep.
+ * @param signal - Optional AbortSignal to cancel sleep early.
+ * @returns Promise that resolves after `ms` or rejects with DOMException AbortError.
  */
 export function delay(ms: number, signal?: AbortSignal): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -48,14 +71,24 @@ export function delay(ms: number, signal?: AbortSignal): Promise<void> {
 }
 
 /**
- * Determina si una respuesta HTTP representa un fallo de servidor transitorio elegible para reintento.
+ * Evaluates whether an HTTP status code indicates a transient server failure suitable for retrying.
+ *
+ * @param status - HTTP response status code (e.g. 500, 502, 503, 504, 408).
+ * @returns True if the status represents a temporary network/server error.
  */
 export function isTransientHttpStatus(status: number): boolean {
   return status === 408 || status === 500 || status === 502 || status === 503 || status === 504;
 }
 
 /**
- * Realiza una petición fetch con retroceso exponencial, jitter, timeout por intento y reintentos selectivos.
+ * Performs a `fetch` request with automatic retries, exponential backoff, full jitter,
+ * and individual attempt timeouts.
+ *
+ * @param url - Resource URL to fetch.
+ * @param init - Standard RequestInit options.
+ * @param options - Resilient backoff options.
+ * @returns Promise resolving to the Fetch Response.
+ * @throws Error or DOMException if retries are exhausted or aborted.
  */
 export async function fetchWithResilience(
   url: string,

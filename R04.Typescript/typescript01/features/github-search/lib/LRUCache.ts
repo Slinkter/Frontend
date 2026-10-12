@@ -4,8 +4,13 @@
  * y soporte opcional de TTL (Time-To-Live).
  */
 
+/**
+ * Configuration options for {@link LRUCache}.
+ */
 export interface LRUCacheOptions {
+  /** Maximum number of elements to retain before evicting. Defaults to 25. */
   capacity?: number;
+  /** Default Time-To-Live in milliseconds for inserted entries. */
   defaultTtlMs?: number;
 }
 
@@ -14,6 +19,20 @@ interface CacheNode<V> {
   expiresAt?: number;
 }
 
+/**
+ * High-performance generic Least Recently Used (LRU) in-memory cache
+ * with O(1) reads, writes, and evictions, backed by a JavaScript `Map`.
+ *
+ * @typeParam K - Type of cache keys.
+ * @typeParam V - Type of stored values.
+ *
+ * @example
+ * ```ts
+ * const cache = new LRUCache<string, GitHubUser>({ capacity: 50, defaultTtlMs: 300_000 });
+ * cache.set("torvalds", user);
+ * const user = cache.get("torvalds");
+ * ```
+ */
 export class LRUCache<K, V> {
   private readonly capacity: number;
   private readonly defaultTtlMs?: number;

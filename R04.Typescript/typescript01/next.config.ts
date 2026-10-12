@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
+/**
+ * Next.js application configuration object.
+ * Configures remote image domains for GitHub user avatars and package import optimizations.
+ */
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -26,7 +30,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: ["lucide-react", "next-themes", "zod", "clsx"],
   },
 };
 

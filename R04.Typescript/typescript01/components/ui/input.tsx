@@ -1,12 +1,34 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Properties for the {@link Input} component.
+ */
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * Optional icon or element anchored to the left of the input field.
+   */
   leftIcon?: React.ReactNode;
+  /**
+   * Optional icon or action element anchored to the right of the input field.
+   */
   rightIcon?: React.ReactNode;
 }
 
+/**
+ * Styled text input supporting leading/trailing adornment icons and glassmorphism.
+ *
+ * @example
+ * ```tsx
+ * <Input
+ *   placeholder="Search..."
+ *   leftIcon={<Search className="w-4 h-4" />}
+ *   value={query}
+ *   onChange={(e) => setQuery(e.target.value)}
+ * />
+ * ```
+ */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, leftIcon, rightIcon, ...props }, ref) => {
     return (

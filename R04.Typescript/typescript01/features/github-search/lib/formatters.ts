@@ -3,18 +3,37 @@
  * @description Utilidades defensivas de formateo, sanitización y prevención de desajustes SSR.
  */
 
+const defaultDateFormatter = new Intl.DateTimeFormat("es-ES", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const compactNumberFormatter = new Intl.NumberFormat("es-ES", {
+  notation: "compact",
+  compactDisplay: "short",
+  maximumFractionDigits: 1,
+});
+
+const standardNumberFormatter = new Intl.NumberFormat("es-ES");
+
 /**
- * Formatea una fecha ISO de manera determinista forzando la zona horaria UTC.
- * Esto erradica por completo los desajustes de hidratación (SSR Hydration Errors)
- * entre el servidor Node.js y el navegador del cliente en cualquier zona horaria del mundo.
+ * Formats an ISO 8601 date string deterministically forcing the UTC timezone.
+ * Eradicates SSR hydration mismatch errors between server and client.
+ *
+ * @param isoDateString - Raw ISO date string (e.g. from GitHub API).
+ * @param options - Optional Intl DateTime format options.
+ * @returns Formatted date string in es-ES locale or "N/A" on invalid date.
+ *
+ * @example
+ * ```ts
+ * formatDeterministicDate("2020-01-15T00:00:00Z"); // "15 ene 2020"
+ * ```
  */
 export function formatDeterministicDate(
   isoDateString?: string | null,
-  options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  }
+  options?: Intl.DateTimeFormatOptions
 ): string {
   if (!isoDateString || typeof isoDateString !== "string") {
     return "N/A";
@@ -26,6 +45,9 @@ export function formatDeterministicDate(
   }
 
   try {
+    if (!options) {
+      return defaultDateFormatter.format(date);
+    }
     return new Intl.DateTimeFormat("es-ES", {
       ...options,
       timeZone: "UTC",
@@ -40,8 +62,16 @@ export function formatDeterministicDate(
 }
 
 /**
- * Formato compacto y seguro para conteos numéricos elevados (ej. 154.2K, 2.5M).
- * Previene el desbordamiento horizontal de texto en tarjetas y Bento blocks.
+ * Compact number formatting for high counts (e.g. 154.2k, 2.5M).
+ * Prevents text overflow in stat badges and Bento cards.
+ *
+ * @param num - Raw integer or float to format.
+ * @returns Compacted string representation or "0".
+ *
+ * @example
+ * ```ts
+ * formatCompactNumber(12500); // "12,5 mil" (or "12.5k")
+ * ```
  */
 export function formatCompactNumber(num?: number | null): string {
   if (num === null || num === undefined || typeof num !== "number" || isNaN(num)) {
@@ -49,15 +79,11 @@ export function formatCompactNumber(num?: number | null): string {
   }
 
   if (num < 10000) {
-    return num.toLocaleString("es-ES");
+    return standardNumberFormatter.format(num);
   }
 
   try {
-    return new Intl.NumberFormat("es-ES", {
-      notation: "compact",
-      compactDisplay: "short",
-      maximumFractionDigits: 1,
-    }).format(num);
+    return compactNumberFormatter.format(num);
   } catch {
     if (num >= 1000000) {
       return `${(num / 1000000).toFixed(1)}M`;
@@ -70,10 +96,19 @@ export function formatCompactNumber(num?: number | null): string {
 }
 
 /**
- * Sanitiza y normaliza la entrada del usuario para búsquedas de GitHub:
- * - Elimina prefijos '@' accidentales (ej. '@vercel' -> 'vercel').
- * - Extrae el handle si el usuario pega una URL de GitHub (ej. 'https://github.com/torvalds' -> 'torvalds').
- * - Recorta espacios en blanco laterales.
+ * Sanitizes and normalizes user input for GitHub searches:
+ * - Strips leading '@' handles (e.g. '@vercel' -> 'vercel').
+ * - Extracts login handle from raw GitHub URLs.
+ * - Trims extraneous whitespace.
+ *
+ * @param input - Raw text typed or pasted by the user.
+ * @returns Cleaned username string.
+ *
+ * @example
+ * ```ts
+ * sanitizeUsernameInput("  @torvalds "); // "torvalds"
+ * sanitizeUsernameInput("https://github.com/facebook"); // "facebook"
+ * ```
  */
 export function sanitizeUsernameInput(input: string): string {
   if (!input) return "";
@@ -93,8 +128,17 @@ export function sanitizeUsernameInput(input: string): string {
 }
 
 /**
- * Valida y formatea URLs externas para perfiles o sitios web.
- * Neutraliza vectores de ataque pseudo-protocolos como 'javascript:' o 'data:'.
+ * Validates and sanitizes external URLs for user profiles and links.
+ * Blocks dangerous schemes such as `javascript:`, `data:`, or `vbscript:`.
+ *
+ * @param url - Candidate external URL.
+ * @returns Safe HTTPS/HTTP URL string or null if unsafe/empty.
+ *
+ * @example
+ * ```ts
+ * getSafeExternalUrl("example.com"); // "https://example.com"
+ * getSafeExternalUrl("javascript:alert(1)"); // null
+ * ```
  */
 export function getSafeExternalUrl(url?: string | null): string | null {
   if (!url || typeof url !== "string") return null;
@@ -120,13 +164,21 @@ export function getSafeExternalUrl(url?: string | null): string | null {
   return `https://${trimmed}`;
 }
 
+/**
+ * Aggregated statistics calculated from a repository collection.
+ */
 export interface RepoStatistics {
+  /** Sum of stargazers across all repositories. */
   totalStars: number;
+  /** Predominant programming language. */
   topLang: string;
 }
 
 /**
- * Función pura que calcula métricas agregadas de una lista de repositorios (SRP).
+ * Pure function computing aggregate metrics from a list of repositories.
+ *
+ * @param repos - Array of repositories with stars count and language.
+ * @returns Total star count and predominant primary language.
  */
 export function calculateRepoStatistics(
   repos: Array<{ stargazers_count: number; language?: string | null }>

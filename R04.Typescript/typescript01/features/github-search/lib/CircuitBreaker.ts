@@ -4,10 +4,21 @@
  * cortes de conectividad y sobrecarga por rate limit de servicios externos.
  */
 
+/**
+ * Lifecycle states of the Circuit Breaker pattern.
+ * - `CLOSED`: Healthy state, requests are allowed through.
+ * - `OPEN`: Failing state, requests fail-fast without hitting external services.
+ * - `HALF_OPEN`: Trial state probing recovery with limited requests.
+ */
 export type CircuitBreakerState = "CLOSED" | "OPEN" | "HALF_OPEN";
 
+/**
+ * Error thrown when an execution attempt occurs while the Circuit Breaker is OPEN.
+ */
 export class CircuitBreakerOpenError extends Error {
+  /** Identifier of the tripped circuit. */
   public readonly circuitName: string;
+  /** Estimated milliseconds until trial recovery (HALF_OPEN) is permitted. */
   public readonly retryAfterMs: number;
 
   constructor(circuitName: string, retryAfterMs: number) {
@@ -21,22 +32,48 @@ export class CircuitBreakerOpenError extends Error {
   }
 }
 
+/**
+ * Configuration options for initializing a {@link CircuitBreaker}.
+ */
 export interface CircuitBreakerOptions {
-  failureThreshold?: number;     // Número de fallos consecutivos para abrir el circuito (default: 3)
-  resetTimeoutMs?: number;       // Tiempo de enfriamiento en ms antes de pasar a HALF_OPEN (default: 20000ms)
-  successThreshold?: number;     // Éxitos consecutivos en HALF_OPEN para cerrar el circuito (default: 2)
+  /** Number of consecutive failures before tripping the circuit OPEN. Defaults to 3. */
+  failureThreshold?: number;
+  /** Cooldown time in milliseconds before transitioning to HALF_OPEN. Defaults to 20000ms. */
+  resetTimeoutMs?: number;
+  /** Number of consecutive successes required in HALF_OPEN to close the circuit. Defaults to 2. */
+  successThreshold?: number;
+  /** Readable identifier name for telemetry and error reporting. */
   name?: string;
+  /** Callback triggered on state transitions. */
   onStateChange?: (from: CircuitBreakerState, to: CircuitBreakerState) => void;
 }
 
+/**
+ * Snapshot of telemetry metrics from a {@link CircuitBreaker}.
+ */
 export interface CircuitBreakerMetrics {
+  /** Current circuit state. */
   state: CircuitBreakerState;
+  /** Current count of recorded consecutive failures. */
   failureCount: number;
+  /** Current count of recorded consecutive successes in trial mode. */
   consecutiveSuccesses: number;
+  /** Unix timestamp in ms of the last failure. */
   lastFailureTime: number | null;
+  /** Unix timestamp in ms when the circuit will attempt HALF_OPEN. */
   nextAttemptTime: number | null;
 }
 
+/**
+ * Resilient Circuit Breaker implementation protecting against cascading network failures
+ * and downstream API rate limits.
+ *
+ * @example
+ * ```ts
+ * const breaker = new CircuitBreaker({ name: "github-api", failureThreshold: 3 });
+ * const data = await breaker.execute(() => fetchUserData(username));
+ * ```
+ */
 export class CircuitBreaker {
   private readonly name: string;
   private readonly failureThreshold: number;
@@ -59,7 +96,12 @@ export class CircuitBreaker {
   }
 
   /**
-   * Ejecuta una acción asíncrona dentro del paraguas de protección del Circuit Breaker.
+   * Executes an asynchronous task protected by the circuit breaker rules.
+   *
+   * @typeParam T - Return type of the protected operation.
+   * @param action - Async function to execute.
+   * @returns Result of the action execution.
+   * @throws {@link CircuitBreakerOpenError} if the circuit is currently OPEN.
    */
   public async execute<T>(action: () => Promise<T>): Promise<T> {
     this.evaluateState();
