@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anatomy Gallery • Arquitectura Isométrica de GitHub Explorer</title>
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card-bg: rgba(18, 20, 29, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+    }
+    .header {
+      max-width: 900px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 36px 0;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+    .figure-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+    .section-meta {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .complexity-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+    }
+    .complexity-1 { color: #34d399; border-color: rgba(52, 211, 153, 0.3); }
+    .complexity-2 { color: #60a5fa; border-color: rgba(96, 165, 250, 0.3); }
+    .complexity-3 { color: #f472b6; border-color: rgba(244, 114, 182, 0.3); }
+    .iframe-wrapper {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      background: #000;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .section-footer {
+      padding: 20px 28px;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .open-link {
+      color: #818cf8;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .open-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="badge">Skill Anatomy • Precision Isometric Rig Collection</div>
+    <h1>Arquitectura del Sistema como Máquinas Físicas</h1>
+    <p class="lead">
+      Bajo el principio <em>"The object is the explanation"</em> de la skill <strong>Anatomy</strong>, los componentes arquitectónicos de este proyecto se han materializado en instrumentos físicos de precisión ordenados de <strong>menor a mayor complejidad</strong>.
+    </p>
+    <div class="nav-tabs">
+      <a href="#fig1" class="tab-btn active">Fig 1: Circuit Breaker</a>
+      <a href="#fig2" class="tab-btn">Fig 2: LRU Cache Tower</a>
+      <a href="#fig3" class="tab-btn">Fig 3: Vernier Bisection Index</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- FIGURA 1 -->
+    <div class="figure-section" id="fig1">
+      <div class="section-meta">
+        <div>
+          <div class="section-title">Fig 1: Circuit Breaker Resiliency Rig</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">features/github-search/lib/CircuitBreaker.ts</div>
+        </div>
+        <span class="complexity-tag complexity-1">Nivel 1 • Menor Complejidad</span>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe src="fig1-circuit-breaker.html" title="Figure 1: Circuit Breaker"></iframe>
+      </div>
+      <div class="section-footer">
+        <div><strong>Mecanismo:</strong> Disyuntor electromecánico con contactor basculante, bobina de disparo de sobrecorriente y aguja indicadora de estados <code>CLOSED</code>, <code>HALF_OPEN</code> y <code>OPEN</code>.</div>
+        <a class="open-link" href="fig1-circuit-breaker.html" target="_blank">Abrir en pantalla completa ↗</a>
+      </div>
+    </div>
+
+    <!-- FIGURA 2 -->
+    <div class="figure-section" id="fig2">
+      <div class="section-meta">
+        <div>
+          <div class="section-title">Fig 2: LRU Cache Memory Tower</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">features/github-search/lib/LRUCache.ts</div>
+        </div>
+        <span class="complexity-tag complexity-2">Nivel 2 • Complejidad Media</span>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe src="fig2-lru-cache.html" title="Figure 2: LRU Cache"></iframe>
+      </div>
+      <div class="section-footer">
+        <div><strong>Mecanismo:</strong> Torre vertical de 4 columnas guía con casetes de memoria apilados. El palpador lee en <code>O(1)</code>, promueve al tope (MRU) y desaloja la entrada inferior mediante trampa de gravedad cuando la capacidad se colma.</div>
+        <a class="open-link" href="fig2-lru-cache.html" target="_blank">Abrir en pantalla completa ↗</a>
+      </div>
+    </div>
+
+    <!-- FIGURA 3 -->
+    <div class="figure-section" id="fig3">
+      <div class="section-meta">
+        <div>
+          <div class="section-title">Fig 3: Binary Bisection & Inverted Index Vernier</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">features/github-search/lib/RepoSearchIndex.ts</div>
+        </div>
+        <span class="complexity-tag complexity-3">Nivel 3 • Mayor Complejidad</span>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe src="fig3-binary-search-index.html" title="Figure 3: Binary Search Index"></iframe>
+      </div>
+      <div class="section-footer">
+        <div><strong>Mecanismo:</strong> Calibre Vernier de doble mordaza micrométrica sobre bancada de tokens lexicográficos. Dos correderas convergen en <code>O(log T + k)</code> para pinzar el prefijo exacto e intersecar los conjuntos de cardinalidad mínima.</div>
+        <a class="open-link" href="fig3-binary-search-index.html" target="_blank">Abrir en pantalla completa ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

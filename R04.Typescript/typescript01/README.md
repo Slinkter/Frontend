@@ -21,6 +21,9 @@ La aplicación implementa una estética de **Glassmorphism Profundo (Aurora Glas
 11. [Estructura del Código](#-estructura-del-código)
 12. [Instalación y Despliegue](#-instalación-y-despliegue)
 13. [🎓 Guía Tutorial de Estudio: De JavaScript + React a TypeScript y Next.js](#-guía-tutorial-de-estudio-de-javascript--react-a-typescript-y-nextjs)
+14. [🏉 Marco de Gestión Ágil & Simulación Scrum (/scrum)](#-marco-de-gestión-ágil--simulación-scrum-scrum)
+15. [🏛️ Centro de Preparación para Diplomados de IA (/diplomados)](#-centro-de-preparación-para-diplomados-de-ia-diplomados)
+16. [📝 Registro de Cambios (CHANGELOG.md)](#-registro-de-cambios-changelogmd)
 
 ---
 
@@ -281,8 +284,23 @@ typescript01/
 │       │   ├── formatters.ts    # Fechas deterministas UTC e Intl formatters elevados (hoisted)
 │       │   └── __tests__/       # Suite de pruebas automatizadas QA (15/15)
 │       └── index.tsx            # Orquestador del Dashboard Bento Grid
+├── scrum/                       # Marco Ágil y Simulación Scrum (Equipo de 15 personas)
+│   ├── README.md                # Visión del producto y resumen ejecutivo
+│   ├── 01_ROLES_Y_EQUIPO.md     # Directorio de los 15 profesionales y Matriz RACI
+│   ├── 02_PLAN_DE_SPRINTS_Y_FASES.md # Plan de 5 Sprints con User Stories en Gherkin
+│   ├── 03_ARTEFACTOS_Y_CEREMONIAS.md # DoR, DoD, transcripción de Daily y Retrospectiva
+│   └── 04_GLOSARIO_SCRUM.md     # Glosario enciclopédico de términos ágiles y AI-First
+├── diplomados/                  # Centro de Preparación para Diplomas con IA (DMC Institute)
+│   ├── README.md                # Índice general y comparativa entre programas
+│   ├── 01_INGENIERIA_DE_SOFTWARE_CON_IA.md  # Manual 88h (AI-Augmented, NL2SQL, Drizzle)
+│   └── 02_AI_FIRST_SOFTWARE_ARCHITECTURE.md # Manual 92h (SDD, BMAD, MCP, Harness, Docker)
+├── html/                        # Sandbox educativo de TypeScript vanilla (compilación vs bundlers)
+│   ├── tsconfig.json            # Configuración independiente con noEmit: false y sourceMap
+│   ├── index.html               # Entorno de pruebas de navegador
+│   └── README.md                # Guía completa sobre el funcionamiento de tsconfig.json
 ├── lib/
 │   └── utils.ts                 # Helper cn() (clsx + tailwind-merge)
+├── CHANGELOG.md                 # Registro histórico de versiones según Keep a Changelog
 ├── next.config.ts               # Optimización de paquetes (optimizePackageImports) y remotePatterns
 ├── tsconfig.json                # Configuración TypeScript con alias @/*
 └── package.json
@@ -509,3 +527,45 @@ const { currentUser, repos, loading, error, searchUser } = useGitHubSearch();
 2. **Día 2: El flujo de datos:** Abre `app/page.tsx` y sigue el viaje del dato: cómo pasa de `page.tsx` a `GitHubSearchDashboard` y de ahí a `UserProfile`.
 3. **Día 3: El Custom Hook:** Abre `features/github-search/hooks/useGitHubSearch.ts` y comprende cómo maneja los estados `loading`, `currentUser` y `error`.
 4. **Día 4: Componentes de UI:** Abre `features/github-search/components/SearchInput.tsx` y observa cómo maneja el evento `onChange` con tipos tipados (`ChangeEvent<HTMLInputElement>`).
+
+---
+
+## 🏉 Marco de Gestión Ágil & Simulación Scrum (`/scrum`)
+
+El proyecto incluye un simulacro completo de ingeniería de software bajo el marco **Scrum Ágil Adaptativo (AI-Augmented Scrum)**, documentado exhaustivamente dentro del directorio [`scrum/`](./scrum):
+
+* **Equipo de 15 Profesionales**: Fichas detalladas con nombres ficticios, responsabilidades, herramientas y Matriz RACI transversal (incluyendo a Ana Suárez como Lead UX, Raúl Corrales como Lead Data Engineer, Samanta Ulluke como Lead Graphic/UI Designer, Diego Arismendi como Senior Frontend, entre otros).
+* **Plan de Sprints (Roadmap de 10 Semanas)**:
+  * **Sprint 0**: Cimientos, arnés de CI/CD, tokens Aurora Glass y PostgreSQL.
+  * **Sprint 1**: Identidad con GitHub OAuth2, colecciones persistentes y Drizzle ORM.
+  * **Sprint 2**: Motor cognitivo `NL2SQLService` con Claude 3.5 Sonnet y `SQLValidator`.
+  * **Sprint 3**: Comparador en tiempo real (*Battle Mode*) y algoritmo de *Health Score*.
+  * **Sprint 4**: Servidor Model Context Protocol (MCP), Docker y métricas con Prometheus.
+* **Artefactos y Ceremonias Reales**: Listas de verificación *Definition of Ready (DoR)* y *Definition of Done (DoD)*, simulación verbatim de una *Daily Standup*, *Planning*, *Review/Demo* y *Retrospectiva Start/Stop/Continue*.
+* **Glosario Enciclopédico**: Diccionario de términos ágiles y conceptos AI-First de la A a la W.
+
+> 📖 **Acceso a la documentación Scrum**:
+> * [scrum/README.md](./scrum/README.md) — Visión del Producto y Marco Metodológico
+> * [scrum/01_ROLES_Y_EQUIPO.md](./scrum/01_ROLES_Y_EQUIPO.md) — Directorio de los 15 Miembros y Matriz RACI
+> * [scrum/02_PLAN_DE_SPRINTS_Y_FASES.md](./scrum/02_PLAN_DE_SPRINTS_Y_FASES.md) — Roadmap de Sprints e Historias Gherkin
+> * [scrum/03_ARTEFACTOS_Y_CEREMONIAS.md](./scrum/03_ARTEFACTOS_Y_CEREMONIAS.md) — Ceremonias Simuladas, DoR, DoD y KPIs
+> * [scrum/04_GLOSARIO_SCRUM.md](./scrum/04_GLOSARIO_SCRUM.md) — Glosario Ágil y AI-First
+
+---
+
+## 🏛️ Centro de Preparación para Diplomados de IA (`/diplomados`)
+
+Para facilitar el estudio y la preparación previa para los programas de especialización de **DMC Institute**, se crearon dos manuales enciclopédicos con bibliografía canónica, arquitectura técnica, laboratorios con código fuente completo y bancos de preguntas:
+
+* **📘 [01_INGENIERIA_DE_SOFTWARE_CON_IA.md](./diplomados/01_INGENIERIA_DE_SOFTWARE_CON_IA.md)**: Manual para el diploma de 88 horas (*AI-Augmented Full-Stack Developer*). Cubre *Clean Architecture*, *Designing Data-Intensive Applications*, el motor NL2SQL con el SDK de Anthropic, `SQLValidator` y orquestación multi-agente en Claude Code.
+* **🏛️ [02_AI_FIRST_SOFTWARE_ARCHITECTURE.md](./diplomados/02_AI_FIRST_SOFTWARE_ARCHITECTURE.md)**: Manual para el diploma de 92 horas (*AI Product Architect*). Cubre *Spec-Driven Development (SDD)*, el framework BMAD, servidores *Model Context Protocol (MCP)* en TypeScript, *Harness Engineering*, contenedores Docker y CI/CD automatizado.
+* **📑 [diplomados/README.md](./diplomados/README.md)**: Cuadro comparativo entre ambos diplomados y guía de evolución de este repositorio como proyecto de portafolio final.
+
+---
+
+## 📝 Registro de Cambios (`CHANGELOG.md`)
+
+El historial detallado de todas las versiones, mejoras, refactorizaciones y adiciones del proyecto se encuentra documentado bajo los estándares de [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [Semantic Versioning](https://semver.org/lang/es/):
+
+👉 **Consultar [CHANGELOG.md](./CHANGELOG.md)**
+
